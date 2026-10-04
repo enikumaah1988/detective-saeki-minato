@@ -88,7 +88,7 @@ npm run preview
 └── vite.config.ts
 ```
 
-シナリオの型は `src/types/scenario.ts`、仮データは `src/data/scenario/demo.ts` にあります。`src/features/story/progression.ts` が進行を判定し、`StoryPlayer.tsx` が React 標準の状態管理と表示を担当します。未使用ディレクトリは `.gitkeep` で保持しています。
+シナリオの型は `src/types/scenario.ts`、仮データは `src/data/scenario/demo.ts` にあります。`src/features/story/progression.ts` が進行を判定し、`state.ts` がゲーム状態の初期化・遷移を担当し、`StoryPlayer.tsx` は React の `useReducer` を通して UI イベントを渡し、現在ノードを表示します。未使用ディレクトリは `.gitkeep` で保持しています。
 
 シナリオは開始ノード ID とノード一覧を持ち、`dialogue`（会話）、`choice`（選択肢）、`end`（終了）を区別します。会話の `next` と選択肢ごとの `next` で遷移先を指定します。表示コンポーネントはシナリオを props で受け取ります。
 
@@ -115,6 +115,24 @@ node --test tests/*.test.mjs
 画像読み込み失敗を目視確認する場合は、ブラウザーの開発者ツールで SVG リクエストをブロックし、キャッシュを無効にして再読み込みしてください。失敗した画像だけが非表示となり、背景の代替色・人物名・表情・会話操作を維持します。確認後はブロックを解除して再読み込みしてください。製品コードには検証専用の切替機能を追加していません。
 
 未登録 ID・未登録表情・画像未設定は `tests/presentation.test.mjs` と `tests/stage.test.mjs` で確認しています。
+
+## ADV の現在状態
+
+`GameState`（`src/types/gameState.ts`）は `scenarioId` と `nodeId` のみを保持します。背景・キャラクター・表情・話者・選択肢・終了状態は現在ノードから導出し、重複して保存しません。
+
+`src/features/story/state.ts` に初期化、現在ノードの導出、`advance`・`choose`・`reset` の状態遷移を集約しています。次ノードの判定自体は既存の `progression.ts` が担当します。シナリオを切り替える際は、その ID を StoryPlayer の `key` に指定して初期化します。
+
+ゲーム状態は `JSON.stringify(gameState)` でシリアライズできます。同じシナリオ定義があれば現在画面を再現できますが、分岐の履歴は保持していません。セーブデータの検証は実装済みで、シナリオ改訂により参照先が削除された場合は復元を拒否します。現時点では永続化・セーブ・ロード・バックログは未実装です。
+
+## セーブデータ形式と検証
+
+`SaveData`（`src/types/saveData.ts`）は `GameState` とは別型で、現在は `{ version: 1, scenarioId, nodeId }` の最小形式です。表示情報や画像、React 固有の値は保存しません。
+
+`src/features/story/saveData.ts` の `createSaveData(state)` が変換を行います。`restoreSaveData(input, scenarios)` は未知データを、形式・対応 version・シナリオ ID・ノード ID の順に検証します。`parseSaveData(json, scenarios)` は JSON の解析失敗も扱います。シナリオ一覧は呼び出し側で渡し、余分な項目は復元状態へ引き継ぎません。
+
+成功は `{ ok: true, state }`、失敗は `{ ok: false, reason }` を返します。理由コードは `invalid-format`・`unsupported-version`・`unknown-scenario`・`unknown-node` です。失敗時の自動移動・リセットは行いません。
+
+現時点では version 1 のみ対応しています。将来のバージョン移行、永続化先、セーブ／ロード UI は未実装です。
 
 ## 今後の検討
 
