@@ -76,3 +76,19 @@ test('別シナリオや存在しない現在ノードを検出する', () => {
   assert.throws(() => selectCurrentNode(scenario, { ...initial(), scenarioId: 'other' }), /ID/)
   assert.throws(() => selectCurrentNode(scenario, { ...initial(), nodeId: 'missing' }), /ノード/)
 })
+
+test('復元 action が会話・選択肢・終了と表情を反映する', () => {
+  for (const nodeId of ['reply', 'decision', 'listen', 'end']) {
+    const saved = { scenarioId: scenario.id, nodeId }
+    const restored = reduceGameState(scenario, initial(), { type: 'restore', state: saved })
+    assert.deepEqual(restored, saved)
+    assert.deepEqual(selectCurrentNode(scenario, restored), scenario.nodes[nodeId])
+  }
+})
+
+test('不正な復元 action は現在状態を維持する', () => {
+  const current = initial()
+  for (const saved of [{ scenarioId: 'unknown', nodeId: 'request' }, { scenarioId: scenario.id, nodeId: 'unknown' }]) {
+    assert.strictEqual(reduceGameState(scenario, current, { type: 'restore', state: saved }), current)
+  }
+})

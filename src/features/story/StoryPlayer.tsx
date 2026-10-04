@@ -6,6 +6,7 @@ import type { GameState } from '../../types/gameState'
 import './story.css'
 import { resolveSpeakerName } from '../../data/presentation'
 import { StageView } from './StageView'
+import { SaveControls } from './SaveControls'
 
 export function StoryPlayer({ scenario }: { scenario: Scenario }) {
   const [gameState, dispatch] = useReducer(
@@ -40,6 +41,7 @@ export function StoryPlayer({ scenario }: { scenario: Scenario }) {
           <button type="button" onClick={() => dispatch({ type: 'reset' })}>最初から</button>
         )}
       </div>
+      <SaveControls state={gameState} scenario={scenario} onRestore={(state) => dispatch({ type: 'restore', state })} />
     </section>
   )
 }

@@ -19,4 +19,7 @@ button:hover { background: #4a6072; }
 button:focus-visible { outline: 3px solid #e4c997; outline-offset: 3px; }
 .next { display: block; margin-left: auto; }
 .choices { display: flex; flex-wrap: wrap; gap: .75rem; }
+.save-controls { margin-top: 1rem; }
+.save-actions { display: flex; flex-wrap: wrap; gap: .5rem; }
+.save-controls p { color: #bfcbd5; line-height: 1.6; }
 @media (max-width: 480px) { .choices { flex-direction: column; } main { width: calc(100% - 1rem); } }
