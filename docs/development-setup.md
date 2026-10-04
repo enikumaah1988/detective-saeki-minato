@@ -567,6 +567,8 @@ Test Framework
 
 これにより、不要なランタイムやバージョン管理ツールが増えることを避ける。
 
+現在のフロントエンドは React + TypeScript + Vite、パッケージマネージャは npm を採用している。Backend と API 通信処理は未実装である。
+
 ---
 
 ## 16. `.gitignore` の作成
@@ -583,7 +585,7 @@ Test Framework
 
 などによって除外対象が異なるため。
 
-必要になった段階で作成する。
+現在は `.gitignore` を作成済みで、`node_modules/`、`dist/`、環境変数ファイル、ログなどを除外している。再現時はリポジトリに含まれる設定を使用する。
 
 ```bash
 touch .gitignore
@@ -654,13 +656,74 @@ GitHub 接続はローカル開発環境構築とは分離して考える。
 - Node.js LTS / npm が利用できる
 - Codex CLI が導入され、初回起動が完了している
 - Codex が対象リポジトリを作業ディレクトリとして認識し、ファイルへアクセスできる
+- 初回コミットが完了している
+- React + TypeScript + Vite の開発基盤と `.gitignore` が用意されている
+- 開発サーバーの起動と本番用ビルドを確認している
 
 ### 今後の作業
 
-プロジェクトの技術スタックは未確定である。実装開始に向けて、以下を進める。
+ゲーム機能の実装に向けて、以下を検討する。
 
-- 技術スタックの決定
-- 実装に必要なランタイムやツールの導入
-- 技術スタックに応じた `.gitignore` の作成
-- 初回コミット
+- ストーリー表示やシナリオデータの仕様
+- 必要になった段階でのルーティングや状態管理
+- Android / iOS 展開方法
+- Backend API の仕様と連携方法
 - 必要に応じた GitHub / クラウド環境との接続
+
+---
+
+## 21. フロントエンド開発環境の再現
+
+React + TypeScript + Vite の構成は Repository 直下に導入済みである。既存の Git Repository と docs を使用し、再現時に `git init` や Vite のテンプレート生成を実行する必要はない。
+
+### 21.1. 作業ディレクトリと前提環境の確認
+
+以下はすべて WSL / Ubuntu のターミナルで実行する。`<repository-name>` は取得済みリポジトリのディレクトリ名に置き換える。
+
+```bash
+cd ~/workspace/<repository-name>
+pwd
+git rev-parse --show-toplevel
+node --version
+npm --version
+```
+
+`pwd` と Git のルートが一致することを確認する。Node.js は LTS を使用し、Vite の要件（Node.js 20.19 以上の 20 系、または 22.12 以上）を満たすことを確認する。
+
+### 21.2. 依存パッケージのインストール
+
+Repository 内の `package-lock.json` に合わせてインストールする。
+
+```bash
+npm ci
+```
+
+依存関係を意図的に変更する場合は `package.json` を更新し、`npm install` でロックファイルも更新する。
+
+### 21.3. 開発サーバーの起動確認
+
+リポジトリのルートから実行する。
+
+```bash
+npm run dev
+```
+
+ターミナルに表示される Local URL を Windows 側のブラウザーで開く。「探偵 佐伯湊」と「Detective Saeki Minato」が表示されることを確認する。終了時はターミナルで `Ctrl+C` を押す。
+
+### 21.4. ビルド確認
+
+同じリポジトリのルートで実行する。
+
+```bash
+npm run build
+```
+
+TypeScript の型チェックと Vite のビルドが成功し、`dist/` が生成されることを確認する。`dist/` と `node_modules/` は Git 管理対象外である。
+
+必要に応じて、ビルド成果物をローカルで確認する。
+
+```bash
+npm run preview
+```
+
+ディレクトリの用途や今後の展開方針は [README](../README.md) を参照する。
