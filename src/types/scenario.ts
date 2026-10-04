@@ -1,12 +1,13 @@
 export type Stage = {
-  background: string
-  character: string
+  backgroundId: string
+  characterId: string
+  expression: string
 }
 
 export type Choice = { id: string; label: string; next: string }
 
 export type ScenarioNode =
-  | { type: 'dialogue'; stage: Stage; speaker: string; text: string; next: string }
+  | { type: 'dialogue'; stage: Stage; speakerId: string; text: string; next: string }
   | { type: 'choice'; stage: Stage; prompt: string; options: Choice[] }
   | { type: 'end'; stage: Stage; text: string }
 

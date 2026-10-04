@@ -8,7 +8,7 @@ const choose = (id, choiceId) => transition(demoScenario, id, { type: 'choose', 
 
 test('開始から会話を進め、両方の分岐を通って終了する', () => {
   const reply = advance(demoScenario.start)
-  assert.equal(getNode(demoScenario, reply).speaker, '相澤澪')
+  assert.equal(getNode(demoScenario, reply).speakerId, 'mio')
   const decision = advance(reply)
   assert.equal(getNode(demoScenario, decision).type, 'choice')
   const listen = choose(decision, 'listen')

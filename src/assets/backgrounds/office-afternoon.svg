@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540">
+<title>検証用・探偵事務所の午後</title>
+<rect width="960" height="540" fill="#c4bda9"/>
+<rect y="360" width="960" height="180" fill="#756450"/>
+<rect x="70" y="55" width="270" height="230" fill="#80b8cc" stroke="#eee6d5" stroke-width="15"/>
+<path d="M205 55v230M70 170h270" stroke="#eee6d5" stroke-width="10"/>
+<rect x="670" y="65" width="200" height="300" fill="#534936"/>
+<path d="M680 160h180M680 260h180" stroke="#9e8a62" stroke-width="10"/>
+<path d="M700 90v55m30-55v55m35-55v55m40-55v55M700 190v55m35-55v55m40-55v55" stroke="#adc0b9" stroke-width="18"/>
+<rect x="220" y="385" width="520" height="45" rx="8" fill="#44382c"/>
+<path d="M255 430v90m450-90v90" stroke="#44382c" stroke-width="20"/>
+<text x="480" y="35" text-anchor="middle" font-family="sans-serif" font-size="22" fill="#26323b">TEST BACKGROUND / OFFICE</text>
+</svg>

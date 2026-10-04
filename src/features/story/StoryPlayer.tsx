@@ -2,6 +2,8 @@ import { useState } from 'react'
 import type { Scenario } from '../../types/scenario'
 import { getNode, transition } from './progression'
 import './story.css'
+import { resolveSpeakerName } from '../../data/presentation'
+import { StageView } from './StageView'
 
 export function StoryPlayer({ scenario }: { scenario: Scenario }) {
   const [nodeId, setNodeId] = useState(scenario.start)
@@ -11,16 +13,10 @@ export function StoryPlayer({ scenario }: { scenario: Scenario }) {
   return (
     <section className="story" aria-label="会話シーン">
       <p className="story-note">{scenario.title}</p>
-      <div className="stage" aria-label="背景領域">
-        <p className="background-label">{node.stage.background}</p>
-        <div className="character" aria-label="キャラクター領域">
-          <span>人物プレースホルダー</span>
-          <strong>{node.stage.character}</strong>
-        </div>
-      </div>
+      <StageView stage={node.stage} />
       <div className="message-window">
         <div aria-live="polite" aria-atomic="true">
-          {node.type === 'dialogue' && <h2 className="speaker">{node.speaker}</h2>}
+          {node.type === 'dialogue' && <h2 className="speaker">{resolveSpeakerName(node.speakerId)}</h2>}
           <p className="dialogue">{node.type === 'choice' ? node.prompt : node.text}</p>
         </div>
         {node.type === 'dialogue' && (
