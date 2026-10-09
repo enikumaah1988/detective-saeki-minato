@@ -17,10 +17,10 @@ Issue #2の受入条件に沿って、指定worktree experiment/exp-001 の状�
 ## 結果
 
 - Issue URL: https://github.com/enikumaah1988/detective-saeki-minato/issues/2
-- PR URL: 作成後に記入
+- PR URL: https://github.com/enikumaah1988/detective-saeki-minato/pull/3
 - 開始・終了: 2026-10-10、開始時刻未計測／完了時刻未計測
 - 人間の追加指示回数: 0
-- 実行許可の追加確認: 4回（指定worktreeへのnpm ci、テスト、build。worktreeが書き込み許可範囲外だったため）
+- 実行許可の追加確認: 7回（指定worktreeへのnpm ci、テスト、build。worktreeが書き込み許可範囲外だったため）
 - Codexが自律完了した工程: Issue・仕様・コード・テスト調査、既存実装の受入条件照合、依存導入、全Nodeテスト、型チェック・build、実験記録更新、PR作成
 - 実装修正: なし。Issueの対象機能と境界テストがすでに受入条件を満たしていたため、重複変更を避けた。
 - Nodeテスト: `node --test --test-isolation=none tests/*.test.mjs` — 76件中69件成功、失敗0件、7件スキップ。Playwright/Chromiumを指定するブラウザーテストが未設定のためスキップ。
