@@ -60,6 +60,29 @@ test('遅延中の条件変更・遷移済みの入力・同じノードへ再�
   assert.strictEqual(reducePlayback(scenario, returned, event), returned)
 })
 
+test('聞く話題の選択演出中に条件を失ったら、結果会話・進捗更新を実行しない', () => {
+  const topicNode = {
+    ...scenario.nodes.topics,
+    options: [{ id: 'delayed-topic', progressId: 'brother', label: '兄について', next: 'brother',
+      condition: { type: 'flag', id: 'topic-ready' },
+      updates: [{ type: 'setFlag', id: 'must-not-run', value: true }, { type: 'addInformation', id: 'must-not-run' }] }],
+  }
+  const fixture = { ...scenario, nodes: { ...scenario.nodes, topics: topicNode } }
+  const shown = at('topics')
+  shown.game.flags['topic-ready'] = true
+  assert.deepEqual(visibleChoices(topicNode, shown.game).map(option => option.id), ['delayed-topic', 'return'])
+  const delayedInput = input(shown, { type: 'choose', choiceId: 'delayed-topic' })
+
+  // 150msの選択演出が終わる前に同じノードの可否条件だけが変化した状態を再現する。
+  const changed = { ...shown, game: { ...shown.game, flags: {} } }
+  const rejected = reducePlayback(fixture, changed, delayedInput)
+  assert.strictEqual(rejected, changed)
+  assert.equal(rejected.game.nodeId, 'topics')
+  assert.deepEqual(rejected.game.flags, {})
+  assert.deepEqual(rejected.game.heardTopics, [])
+  assert.deepEqual(rejected.game.acquiredInformation, [])
+})
+
 test('最終会話の重複入力は1回のみ処理し、MENU中・MENU前の世代も拒否する', () => {
   const current = at('photo'), event = input(current, { type: 'advance' })
   const next = reducePlayback(scenario, current, event)

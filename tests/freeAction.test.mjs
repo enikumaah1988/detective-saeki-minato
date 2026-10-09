@@ -2,7 +2,7 @@ import test, { before } from 'node:test'
 import assert from 'node:assert/strict'
 import { createServer } from 'vite'
 import { freeActionDemo as scenario } from '../src/data/scenario/freeActionDemo.ts'
-import { matchesCondition, visibleChoices, applyUpdates } from '../src/features/story/freeAction.ts'
+import { matchesCondition, visibleChoices, choiceStatus, applyUpdates } from '../src/features/story/freeAction.ts'
 import { createSaveData, restoreSaveData } from '../src/features/story/saveData.ts'
 let createInitialState, reduceGameState, saveGame, loadGame
 before(async () => {
@@ -263,5 +263,42 @@ test('既読話題と調査済み対象は表示を維持し、再選択でも�
     assert.deepEqual(returned.acquiredInformation, state.acquiredInformation)
     assert.deepEqual(returned.heardTopics, state.heardTopics)
     assert.deepEqual(returned.inspectedTargets, state.inspectedTargets)
+  }
+})
+
+test('聞く話題はID・表示名・progressIdを分け、既読でも選択可なら再実行、条件未達や未実装なら拒否する', () => {
+  const initial = menuState()
+  const topicNode = {
+    ...scenario.nodes.topics,
+    options: [
+      { id: 'read-again-id', label: '別の表示名', progressId: 'already-heard', next: 'brother' },
+      { id: 'new-topic-id', label: '条件付きの新しい話題', progressId: 'new-progress', next: 'missing', condition: { type: 'heardTopic', id: 'already-heard' } },
+      { id: 'locked-but-read', label: '既読だが条件未達', progressId: 'locked-progress', next: 'brother', condition: { type: 'flag', id: 'unlock-locked' } },
+      { id: 'unimplemented-but-read', label: '既読だが未実装', progressId: 'unimplemented-progress', next: 'brother', implemented: false },
+    ],
+  }
+  const fixture = { ...scenario, nodes: { ...scenario.nodes, topics: topicNode } }
+  const select = (current, choiceId) => reduceGameState(fixture, current, { type: 'choose', choiceId })
+  const finish = current => reduceGameState(fixture, current, { type: 'advance' })
+  const state = {
+    ...initial,
+    nodeId: 'topics',
+    heardTopics: ['already-heard', 'locked-progress', 'unimplemented-progress'],
+  }
+
+  assert.deepEqual(visibleChoices(topicNode, state).map(option => option.id), ['read-again-id', 'new-topic-id', 'return'])
+  assert.equal(choiceStatus(topicNode, topicNode.options[0], state), '既読')
+  assert.equal(choiceStatus(topicNode, topicNode.options[1], state), 'NEW')
+  assert.equal(choiceStatus(topicNode, topicNode.options[2], state), '既読')
+  assert.equal(choiceStatus(topicNode, topicNode.options[3], state), '既読')
+
+  const selected = select(state, 'read-again-id')
+  assert.equal(selected.nodeId, 'brother')
+  const repeated = finish(selected)
+  assert.deepEqual(repeated.heardTopics, [...state.heardTopics, 'brother'])
+  assert.deepEqual(repeated.acquiredInformation, ['brother_profile'])
+
+  for (const choiceId of ['locked-but-read', 'unimplemented-but-read', 'unknown-topic-id']) {
+    assert.strictEqual(select(state, choiceId), state)
   }
 })
