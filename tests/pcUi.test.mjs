@@ -12,7 +12,7 @@ test('PC会話の文字送り・全文表示・進行・中断とコマンドの
     let advances = 0
     const props = { text: '湊😀', speaker: '佐伯湊', thinking: false, onAdvance: () => advances++ }
     const window = new DialogueWindow(props)
-    window.setState = (update) => { window.state = { ...window.state, ...(typeof update === 'function' ? update(window.state) : update) } }
+    window.setState = (update, callback) => { window.state = { ...window.state, ...(typeof update === 'function' ? update(window.state) : update) }; callback?.() }
     const interval = globalThis.setInterval
     const clear = globalThis.clearInterval
     let tick, cleared = false
@@ -34,7 +34,14 @@ test('PC会話の文字送り・全文表示・進行・中断とコマンドの
       assert.equal(advances, 1)
       window.componentWillUnmount()
       assert.ok(cleared)
-      assert.equal(new DialogueWindow(props).state.visible, 0)
+      const remounted = new DialogueWindow(props)
+      remounted.setState = (update, callback) => { remounted.state = { ...remounted.state, ...(typeof update === 'function' ? update(remounted.state) : update) }; callback?.() }
+      assert.equal(remounted.state.visible, 0)
+      // StrictModeのmount→unmount→mountでも文字送りと入力が停止しない。
+      remounted.componentDidMount(); remounted.componentWillUnmount(); remounted.componentDidMount()
+      tick(); assert.equal(remounted.state.visible, 1)
+      remounted.activate(); assert.equal(remounted.state.visible, 2)
+      remounted.componentWillUnmount()
     } finally { globalThis.setInterval = interval; globalThis.clearInterval = clear }
 
     const timeout = globalThis.setTimeout
@@ -79,7 +86,7 @@ test('上部共通UI・未実装コマンド・シナリオ指定の人物位置
     assert.doesNotMatch(menu, /整理する|移動|未実装/)
     assert.equal((menu.match(/ disabled=""/g) ?? []).length, 0)
     for (const position of ['left', 'center', 'right']) {
-      const html = renderToStaticMarkup(createElement(StageView, { stage: { ...scenario.nodes.menu.stage, characterPosition: position } }))
+      const html = renderToStaticMarkup(createElement(StageView, { stage: { backgroundId: 'office-afternoon', characters: [{ characterId: 'minato', expression: 'normal', position }] } }))
       assert.ok(html.includes(`character--${position}`))
     }
   } finally { await server.close() }

@@ -33,7 +33,7 @@ test('通常会話には話者・本文・次へがあり、自由行動コマ�
   const actions = []
   const element = StoryContent({ node: scenario.nodes['office-daily'], state: createInitialState(scenario), thinking: false, dispatch: (action) => actions.push(action) })
   const dialogue = new element.type(element.props)
-  dialogue.setState = (update) => { dialogue.state = { ...dialogue.state, ...update } }
+  dialogue.setState = (update, callback) => { dialogue.state = { ...dialogue.state, ...update }; callback?.() }
   assert.equal(dialogue.render().type, 'button')
   dialogue.activate()
   assert.deepEqual(actions, [])
@@ -58,7 +58,7 @@ test('自由行動で3コマンドを表示し、一覧の条件付き表示と�
   const target = { ...initial, nodeId: 'targets', inspectedTargets: ['photo'] }
   assert.match(render(target), /兄の写真/)
   assert.match(render(target), /調査済み/)
-  assert.equal(choiceStatus(scenario.nodes.targets, scenario.nodes.targets.options[2], target), undefined)
+  assert.equal(choiceStatus(scenario.nodes.targets, { id: 'return' }, target), undefined)
 })
 
 test('考えるは選択肢ではなく佐伯の内心会話として表示する', () => {

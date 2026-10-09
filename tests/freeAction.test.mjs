@@ -246,7 +246,7 @@ test('通常の分岐はコマンドIDが同じでも自由行動として扱わ
     { id: 'move', label: '移動する分岐', next: 'brother' },
     { id: 'talk', label: '会話を続ける', next: 'brother' },
   ] }
-  const fixture = { ...scenario, nodes: { ...scenario.nodes, menu: node } }
+  const fixture = { ...scenario, nodes: { ...scenario.nodes, menu: node, 'free-menu': scenario.nodes.menu, topics: { ...scenario.nodes.topics, parent: { commandId: 'talk', nodeId: 'free-menu' } }, targets: { ...scenario.nodes.targets, parent: { commandId: 'look', nodeId: 'free-menu' } } } }
   const state = { ...createInitialState(fixture), nodeId: 'menu' }
   assert.deepEqual(visibleChoices(node, state).map(x => [x.id, x.label]), node.options.map(x => [x.id, x.label]))
   assert.equal(reduceGameState(fixture, state, { type: 'choose', choiceId: 'move' }).nodeId, 'brother')

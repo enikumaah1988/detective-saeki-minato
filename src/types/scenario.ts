@@ -1,8 +1,10 @@
 export type Stage = {
   characterPosition?: 'left' | 'center' | 'right'
   backgroundId: string
-  characterId: string
-  expression: string
+  // Legacy single-character stages remain readable; new scenes use characters.
+  characterId?: string
+  expression?: string
+  characters?: { characterId: string; expression: string; position?: 'left' | 'center' | 'right' }[]
 }
 
 export type Condition =
@@ -14,12 +16,12 @@ export type StateUpdate =
   | { type: 'setFlag'; id: string; value: boolean }
   | { type: 'addHeardTopic' | 'addInspectedTarget' | 'addInformation'; id: string }
 
-export type Choice = { id: string; label: string; next: string; implemented?: boolean; condition?: Condition; updates?: StateUpdate[] }
+export type Choice = { id: string; label: string; next: string; implemented?: boolean; progressId?: string; condition?: Condition; updates?: StateUpdate[] }
 
 export type ScenarioNode =
   | { type: 'dialogue'; stage: Stage; speakerId: string; text: string; next: string; updates?: StateUpdate[] }
-  | { type: 'choice'; mode?: 'free-action'; stage: Stage; prompt: string; options: Choice[] }
-  | { type: 'topic' | 'inspect'; stage: Stage; prompt: string; options: Choice[] }
+  | { type: 'choice'; mode?: 'free-action'; empty?: { label: string; next: string }; stage: Stage; prompt: string; options: Choice[] }
+  | { type: 'topic' | 'inspect'; parent: { commandId: 'talk' | 'look'; nodeId: string }; stage: Stage; prompt: string; options: Choice[] }
   | { type: 'end'; stage: Stage; text: string }
   | {
     type: 'think'
@@ -31,9 +33,12 @@ export type ScenarioNode =
     complete: { text: string; next: string }
   }
 
+export type Scene = Stage
+
 export type Scenario = {
   id: string
   title: string
   start: string
-  nodes: Record<string, ScenarioNode>
+  scenes?: Record<string, Scene>
+  nodes: Record<string, ScenarioNode & { sceneId?: string }>
 }

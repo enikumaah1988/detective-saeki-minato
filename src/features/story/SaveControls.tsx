@@ -41,7 +41,7 @@ export function SaveControls({ state, scenario, onRestore, onMenuToggle }: {
 
   return (
     <details className="save-controls" onToggle={(event) => onMenuToggle?.(event.currentTarget.open)}>
-      <summary aria-label="メニュー"><UiIcon name="menu" /><span className="menu-caption">MENU</span></summary>
+      <summary aria-label="メニュー" onClick={(event) => onMenuToggle?.(!(event.currentTarget.parentElement as HTMLDetailsElement).open)}><UiIcon name="menu" /><span className="menu-caption">MENU</span></summary>
       <div className="save-panel">
       <div className="save-actions" aria-label="セーブ操作">
         <button type="button" onClick={save}><UiIcon name="save" /><span>セーブ</span></button>

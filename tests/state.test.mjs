@@ -24,7 +24,7 @@ test('初期状態は空の進捗を持ち、表示情報を現在ノードか�
   const node = selectCurrentNode(scenario, state)
   assert.equal(node.type, 'dialogue')
   assert.equal(node.speakerId, 'minato')
-  assert.deepEqual(node.stage, { backgroundId: 'office-afternoon', characterId: 'minato', expression: 'normal' })
+  assert.deepEqual(node.stage, scenario.scenes.office)
 })
 
 test('次へで正しい会話・選択肢へ進み、元の状態は変更しない', () => {
@@ -41,7 +41,7 @@ test('各選択肢で異なる分岐・表情へ進み、その後終了する',
   for (const id of ['listen', 'coffee']) {
     const branch = choose(state, id)
     assert.equal(branch.nodeId, id)
-    assert.equal(selectCurrentNode(scenario, branch).stage.expression, id === 'listen' ? 'serious' : 'normal')
+    assert.equal(selectCurrentNode(scenario, branch).stage.characters.find(c => c.characterId === 'minato').expression, id === 'listen' ? 'serious' : 'normal')
     const end = advance(advance(branch))
     assert.equal(selectCurrentNode(scenario, end).type, 'end')
     assert.strictEqual(advance(end), end)
@@ -60,7 +60,7 @@ test('会話・選択肢・終了のどこからでも最初から戻れる', ()
   for (const state of [advance(initial()), decision(), advance(advance(choose(decision(), 'listen')))]) {
     const reset = reduceGameState(scenario, state, { type: 'reset' })
     assert.deepEqual(reset, initial())
-    assert.equal(selectCurrentNode(scenario, reset).stage.expression, 'normal')
+    assert.equal(selectCurrentNode(scenario, reset).stage.characters.find(c => c.characterId === 'minato').expression, 'normal')
   }
 })
 

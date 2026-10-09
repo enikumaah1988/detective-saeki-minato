@@ -1,20 +1,15 @@
 import { DialogueWindow } from './DialogueWindow'
+import { SelectionMenu } from './SelectionMenu'
 import { CommandButton } from './CommandButton'
 import type { GameState } from '../../types/gameState'
-import type { Choice, ScenarioNode } from '../../types/scenario'
+import type { ScenarioNode } from '../../types/scenario'
 import type { GameAction } from './state'
-import { isFreeAction, visibleChoices } from './freeAction'
+import { choiceStatus, emptyContinuation, isFreeAction, menuTitle, visibleChoices } from './freeAction'
 import { UiIcon } from './UiIcon'
 import type { IconName } from './UiIcon'
 import { resolveSpeakerName } from '../../data/presentation'
 
-export function choiceStatus(node: ScenarioNode, option: Choice, state: GameState): string | undefined {
-  if (option.id === 'return') return undefined
-  const done = node.type === 'topic' ? state.heardTopics.includes(option.id)
-    : node.type === 'inspect' ? state.inspectedTargets.includes(option.id) : undefined
-  if (done === undefined) return undefined
-  return done ? (node.type === 'topic' ? '既読' : '調査済み') : option.condition ? 'NEW' : '未実行'
-}
+export { choiceStatus } from './freeAction'
 
 export function StoryContent({ node, state, thinking, dispatch, paused }: {
   node: Exclude<ScenarioNode, { type: 'think' }>
@@ -31,12 +26,15 @@ export function StoryContent({ node, state, thinking, dispatch, paused }: {
     const icons: Record<string, IconName> = { talk: 'talk', look: 'look', think: 'think' }
     const freeAction = isFreeAction(node)
     const options = visibleChoices(node, state)
-    if (options.length === 0) return null
+    if (options.length === 0) {
+      const continuation = emptyContinuation(node, state)
+      return continuation ? <nav className="command-panel" aria-label="進行"><SelectionMenu paused={paused}><CommandButton paused={paused} onSelect={() => dispatch({ type: 'continue' })}><span className="command-name">{continuation.label}</span></CommandButton></SelectionMenu></nav> : null
+    }
     return (
       <nav className={`command-panel${freeAction ? ' free-action-panel' : ''}`} aria-label={node.type === 'topic' ? '聞く話題' : node.type === 'inspect' ? '調査対象' : '選択肢'}>
-        {node.type !== 'choice' && <p className="command-heading">{node.type === 'topic' ? '聞く' : '調べる'}</p>}
+        {menuTitle(node) && <p className="command-heading">{menuTitle(node)}</p>}
         <span className="sr-only">{node.prompt}</span>
-        <div className={`choices ${node.type === 'topic' || node.type === 'inspect' ? 'item-list' : 'command-list'}`}>
+        <SelectionMenu paused={paused} className={`choices ${node.type === 'topic' || node.type === 'inspect' ? 'item-list' : 'command-list'}`}>
           {options.map((option) => {
             const status = choiceStatus(node, option, state)
             const icon = freeAction ? icons[option.id] : undefined
@@ -49,7 +47,7 @@ export function StoryContent({ node, state, thinking, dispatch, paused }: {
               </CommandButton>
             )
           })}
-        </div>
+        </SelectionMenu>
       </nav>
     )
   }

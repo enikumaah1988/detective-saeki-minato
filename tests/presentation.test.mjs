@@ -1,3 +1,4 @@
+import { stageCharacters } from '../src/features/story/scene.ts'
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import { resolveBackground, resolveCharacter, resolveExpression, resolveSpeakerName } from '../src/data/presentation.ts'
@@ -31,8 +32,11 @@ test('画像未設定でも有効な表示情報があり、未登録表情は�
 test('仮シナリオの全 ID が登録済みで、シナリオに画像パスは含まれない', () => {
   for (const node of Object.values(demoScenario.nodes)) {
     assert.notEqual(resolveBackground(node.stage.backgroundId).name, '未登録の背景')
-    assert.notEqual(resolveCharacter(node.stage.characterId).name, '未登録の人物')
-    assert.notEqual(resolveExpression(node.stage.characterId, node.stage.expression).name, '未登録の表情')
+    for (const person of stageCharacters(node.stage)) {
+      assert.notEqual(resolveCharacter(person.characterId).name, '未登録の人物')
+      assert.notEqual(resolveExpression(person.characterId, person.expression).name, '未登録の表情')
+    }
+
     if (node.type === 'dialogue') assert.notEqual(resolveSpeakerName(node.speakerId), '未登録の人物')
   }
   assert.doesNotMatch(JSON.stringify(demoScenario), /imageSrc|\.(png|jpg|webp|svg)/)
