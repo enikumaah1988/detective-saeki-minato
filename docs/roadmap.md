@@ -56,18 +56,20 @@
 
 ### 優先1：現在の操作・表示
 
-**完了条件・前提**：第1部を無理なく遊べる。Issue #7・#8はPR #10・#11、追加の操作・表示改善はPR #16・#17でmainへ反映済み。ユーザーのプレイ確認も完了。Issue #14・#15は管理上オープンのため、実装反映とIssueクローズを区別する。
+**完了条件・前提**：第1部を無理なく遊べる。Issue #7・#8はPR #10・#11、追加の操作・表示改善はPR #16・#17でmainへ反映済み。ユーザーのプレイ確認も完了。Issue #14・#15も完了としてクローズ済み。優先1の今回の操作・表示改善は完了。
 
 | Issueへの切り出し候補 | 状態 | 内容 | 着手前に検討すること |
 | --- | --- | --- | --- |
 | 「考える」表示時は他コマンドを非表示 | main反映済み・プレイ確認済み | 必須情報が揃うと「考える」だけを表示し、他のFree Actionコマンドへの直接実行要求も拒否する。 | [Issue #12](https://github.com/enikumaah1988/detective-saeki-minato/issues/12)・[PR #16](https://github.com/enikumaah1988/detective-saeki-minato/pull/16)。通常choice・サブメニュー・保存復元の動作を維持。 |
 | 画面全体・Enterでのメッセージ送り | main反映済み・プレイ確認済み | 会話中はゲーム表示領域の背景・人物・会話枠のクリック／タップと、フォーカスに依存しないEnterで進める。HUD等の操作競合・二重進行を防止する。 | [Issue #13](https://github.com/enikumaah1988/detective-saeki-minato/issues/13)・PR #16。中断・喫煙中の背面進行を防止。 |
-| フォントの変更 | main反映済み・プレイ確認済み | Zen Kaku Gothic Newを採用。WOFF2とライセンスを同梱し、適用範囲・代替フォント・読み込み方法を仕様書へ記録した。 | [Issue #14](https://github.com/enikumaah1988/detective-saeki-minato/issues/14)・PR #16・[PR #17](https://github.com/enikumaah1988/detective-saeki-minato/pull/17)。Issueは完了整理待ち。 |
-| 話者名・下線の視認性改善 | main反映済み・プレイ確認済み | 通常会話は話者表示B（34px・600・#d4b780、下線56×2px）を採用。通常の思考・喫煙メッセージは本文だけを表示する。 | [Issue #15](https://github.com/enikumaah1988/detective-saeki-minato/issues/15)・PR #16・#17。長短話者名の収まりを確認。Issueは完了整理待ち。 |
+| フォントの変更 | main反映済み・プレイ確認済み | Zen Kaku Gothic Newを採用。WOFF2とライセンスを同梱し、適用範囲・代替フォント・読み込み方法を仕様書へ記録した。 | [Issue #14](https://github.com/enikumaah1988/detective-saeki-minato/issues/14)・PR #16・[PR #17](https://github.com/enikumaah1988/detective-saeki-minato/pull/17)。Issueは完了・クローズ済み。 |
+| 話者名・下線の視認性改善 | main反映済み・プレイ確認済み | 通常会話は話者表示B（34px・600・#d4b780、下線56×2px）を採用。通常の思考・喫煙メッセージは本文だけを表示する。 | [Issue #15](https://github.com/enikumaah1988/detective-saeki-minato/issues/15)・PR #16・#17。長短話者名の収まりを確認。Issueは完了・クローズ済み。 |
 
 優先1の追加検証はPR #17で、両PC解像度のフォント読み込み成功／遅延／失敗と長短話者名を確認済み。比較画像の恒久保存は残件。Firefox・Safari・スマホ実機、実際のYu Gothic／Hiraginoによる代替表示、通信環境ごとの初回転送時間は配布前の環境確認として優先7で扱う。
 
 ### 優先2：4部のストーリーとフロー
+
+**次の作業順**：既存のストーリー資料と実装シナリオを照合 → 4部それぞれの目的・開始／終了・登場人物・場所を整理 → 場面ごとの情報取得と推理条件を一覧化 → フロー図を作成 → 矛盾・到達不能・取得不能・進行不能を確認。確定設定と未決事項を分け、資料にない結末や人物設定を独断で確定しない。まず文書としてレビューし、その後に実装Issueへ切り出す。
 
 **完了条件・前提**：開始から結末までの4部のフローと情報取得・推理条件が整合する。優先1と並行して整理できる。
 
