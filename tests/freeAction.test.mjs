@@ -4,13 +4,14 @@ import { createServer } from 'vite'
 import { freeActionDemo as scenario } from '../src/data/scenario/freeActionDemo.ts'
 import { matchesCondition, visibleChoices, choiceStatus, applyUpdates } from '../src/features/story/freeAction.ts'
 import { createSaveData, restoreSaveData } from '../src/features/story/saveData.ts'
-let createInitialState, reduceGameState, saveGame, loadGame
+let createInitialState, reduceGameState, selectCurrentNode, saveGame, loadGame
 before(async () => {
   const server = await createServer({ server: { middlewareMode: true, hmr: false, ws: false }, appType: 'custom' })
   try {
     const state = await server.ssrLoadModule('/src/features/story/state.ts')
     createInitialState = state.createInitialState
     reduceGameState = state.reduceGameState
+    selectCurrentNode = state.selectCurrentNode
     const storage = await server.ssrLoadModule('/src/features/story/storage.ts')
     saveGame = storage.saveGame
     loadGame = storage.loadGame
@@ -99,14 +100,28 @@ test('version 1 を空の追加状態で移行し、不正 version 2 を拒否�
   assert.deepEqual(restoreSaveData(duplicate, [scenario]).state.heardTopics, ['brother'])
 })
 
-test('考えるは情報なしで材料不足を表示し、メニューへ戻る', async () => {
+test('必須情報が揃うまで考えるを表示・実行できず、旧thinkノードの反応は維持する', async () => {
   const { resolveThinking } = await import('../src/features/story/thinking.ts')
-  const state = choose(menuState(), 'think')
-  assert.equal(state.nodeId, 'think')
-  const node = resolveThinking(scenario.nodes.think, state)
+  const initial = menuState()
+  const required = scenario.nodes.think.requiredInformation.map(info => info.id)
+  const thinkOption = scenario.nodes.menu.options.find(option => option.id === 'think')
+  assert.deepEqual(thinkOption.condition, { type: 'hasAllInformation', ids: required })
+
+  for (const ids of [[], required.slice(0, 2), required.slice(0, 3), [...required.slice(0, 3), 'photo_date', 'photo_date']]) {
+    const state = { ...initial, acquiredInformation: ids }
+    assert.equal(visibleChoices(scenario.nodes.menu, state).some(option => option.id === 'think'), false)
+    assert.strictEqual(choose(state, 'think'), state)
+  }
+
+  const legacyState = { ...initial, nodeId: 'think' }
+  const node = resolveThinking(scenario.nodes.think, legacyState)
   assert.equal(node.speakerId, 'minato')
   assert.match(node.text, /まだ材料が足りない/)
-  assert.equal(advance(state).nodeId, 'menu')
+  assert.equal(advance(legacyState).nodeId, 'menu')
+  const oldSave = restoreSaveData(createSaveData(legacyState), [scenario])
+  assert.equal(oldSave.ok, true)
+  assert.equal(oldSave.state.nodeId, 'think')
+  assert.match(selectCurrentNode(scenario, oldSave.state).text, /まだ材料が足りない/)
 })
 
 test('一部取得は確認済みと不足情報を整理し、無関係・重複情報でも受諾へ進まない', async () => {
@@ -146,6 +161,19 @@ test('聞くループで全必須情報を取得し、思考イベントから�
   assert.equal(accepted.flags.request_accepted, true)
 })
 
+test('全必須情報が揃った時だけ考えるが固定順で表示され、SaveData v2復元後も再導出する', () => {
+  const initial = menuState()
+  const required = scenario.nodes.think.requiredInformation.map(info => info.id)
+  const extraAndDuplicate = { ...initial, acquiredInformation: [...required, 'photo_date', 'photo_date'] }
+  assert.deepEqual(visibleChoices(scenario.nodes.menu, extraAndDuplicate).map(option => option.id), ['talk', 'look', 'think'])
+  assert.equal(createSaveData(extraAndDuplicate).version, 2)
+  const restored = restoreSaveData(JSON.parse(JSON.stringify(createSaveData(extraAndDuplicate))), [scenario])
+  assert.equal(restored.ok, true)
+  assert.deepEqual(visibleChoices(scenario.nodes.menu, restored.state).map(option => option.id), ['talk', 'look', 'think'])
+  const missingOne = { ...restored.state, acquiredInformation: required.slice(1) }
+  assert.strictEqual(choose(missingOne, 'think'), missingOne)
+})
+
 test('思考は進捗を変更せず、全情報に余分な情報があっても受諾できる', () => {
   const initial = menuState()
   const state = { ...initial, nodeId: 'think', acquiredInformation: [
@@ -173,18 +201,17 @@ test('新規開始から導入を読み、情報を集めて第1部完了・第2
     state = advance(state)
   }
   assert.equal(state.nodeId, 'menu')
-  state = advance(choose(state, 'think'))
-  assert.equal(state.nodeId, 'menu')
+  assert.equal(visibleChoices(scenario.nodes.menu, state).some(option => option.id === 'think'), false)
+  assert.strictEqual(choose(state, 'think'), state)
   // 任意の調査も混ぜて進行を確認する。
   state = advance(choose(choose(state, 'look'), 'client'))
   state = advance(choose(choose(state, 'look'), 'photo'))
   for (const topic of ['brother', 'missing', 'recent-brother', 'accident']) {
     state = advance(choose(choose(state, 'talk'), topic))
-    const thought = choose(state, 'think')
-    const next = advance(thought)
-    assert.equal(next.nodeId, topic === 'accident' ? 'accept-request' : 'menu')
-    if (topic === 'accident') state = next
   }
+  assert.ok(visibleChoices(scenario.nodes.menu, state).some(option => option.id === 'think'))
+  state = advance(choose(state, 'think'))
+  assert.equal(state.nodeId, 'accept-request')
   state = advance(state)
   assert.equal(state.nodeId, 'accepted')
   assert.equal(state.flags.request_accepted, true)

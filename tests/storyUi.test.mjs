@@ -41,10 +41,13 @@ test('通常会話には話者・本文・次へがあり、自由行動コマ�
   assert.deepEqual(actions, [{ type: 'advance' }])
 })
 
-test('自由行動で3コマンドを表示し、一覧の条件付き表示と再選択を維持する', () => {
+test('自由行動は解放済みコマンドだけ表示し、一覧の条件付き表示と再選択を維持する', () => {
   const initial = createInitialState(scenario)
   const menu = render({ ...initial, nodeId: 'menu' })
-  for (const label of ['聞く', '調べる', '考える']) assert.ok(menu.includes(label))
+  for (const label of ['聞く', '調べる']) assert.ok(menu.includes(label))
+  assert.doesNotMatch(menu, /考える/)
+  const completeMenu = render({ ...initial, nodeId: 'menu', acquiredInformation: scenario.nodes.think.requiredInformation.map(info => info.id) })
+  assert.match(completeMenu, /聞く[\s\S]*調べる[\s\S]*考える/)
   const topics = { ...initial, nodeId: 'topics' }
   assert.doesNotMatch(render(topics), /最近の兄について/)
   assert.match(render(topics), /未実行/)
