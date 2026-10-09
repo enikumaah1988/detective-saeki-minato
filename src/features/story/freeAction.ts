@@ -32,6 +32,10 @@ export function visibleChoices(node: ScenarioNode, state: GameState) {
     return [...selectable.filter(option => option.id !== 'return'), { id: 'return', label: '戻る', next: node.parent.nodeId }]
   }
   if (!isFreeAction(node)) return selectable
+  // 必須情報が揃ったら思考を次フェーズへの単独トリガーにする。
+  if (selectable.some(option => option.id === 'think')) {
+    return selectable.filter(option => option.id === 'think').map(option => ({ ...option, label: '考える' }))
+  }
   return FREE_ACTION_COMMANDS.flatMap((command) => {
     if (!command.implemented) return []
     const option = selectable.find((candidate) => candidate.id === command.id)

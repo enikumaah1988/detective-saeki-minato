@@ -110,8 +110,7 @@ for (const [width, height] of [[1920, 1080], [1366, 768]]) {
       await menu.click(); await page.getByRole('button', { name: 'セーブ', exact: true }).click()
       assert.deepEqual(await page.evaluate(key => JSON.parse(localStorage.getItem(key)), saveKey), saved)
       await menu.click()
-      await page.locator('.free-action-panel').getByRole('button', { name: /聞く/ }).click()
-      await page.getByLabel('聞く話題', { exact: true }).waitFor()
+      assert.deepEqual(await page.locator('.free-action-panel .command-name').allTextContents(), ['考える'])
       // 実際の聞き込み完了から取得した情報が、閲覧記録へ反映される。
       const fresh = { version: 2, scenarioId: 'gray-testimony-part1-demo', nodeId: 'topics', flags: {}, heardTopics: [], inspectedTargets: [], acquiredInformation: [] }
       await page.evaluate(({ key, data }) => localStorage.setItem(key, JSON.stringify(data)), { key: saveKey, data: fresh })

@@ -86,7 +86,8 @@ test('上部共通UI・未実装コマンド・シナリオ指定の人物位置
     assert.doesNotMatch(menu, /考える/)
     const readyState = { ...createInitialState(scenario), acquiredInformation: scenario.nodes.think.requiredInformation.map(info => info.id) }
     const readyMenu = renderToStaticMarkup(createElement(StoryContent, { node: scenario.nodes.menu, state: readyState, thinking: false, dispatch: () => {} }))
-    assert.match(readyMenu, /聞く[\s\S]*調べる[\s\S]*考える/)
+    assert.deepEqual([...readyMenu.matchAll(/class="command-name">([^<]+)/g)].map(match => match[1]), ['考える'])
+    assert.doesNotMatch(readyMenu, /聞く|調べる/)
     assert.doesNotMatch(menu, /整理する|移動|未実装/)
     assert.equal((menu.match(/ disabled=""/g) ?? []).length, 0)
     for (const position of ['left', 'center', 'right']) {

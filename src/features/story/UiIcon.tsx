@@ -1,5 +1,7 @@
-export type IconName = 'menu' | 'save' | 'load' | 'delete' | 'talk' | 'look' | 'think'
+export type IconName = 'menu' | 'save' | 'load' | 'delete' | 'talk' | 'look' | 'think' | 'notebook' | 'smoking'
 const paths: Record<IconName, string> = {
+  notebook: 'M6 3h14v18H6z M9 3v18 M4 7h3 M4 12h3 M4 17h3 M12 8h5 M12 12h5',
+  smoking: 'M3 16h18v4H3z M16 16v4 M19 12c-3-2 2-3 0-5s-1-3 0-4 M14 12c-3-2 2-3 0-5',
   menu: 'M3 7h7l2 3h9v10H3z M3 7V5h7l2 2',
   save: 'M5 3h11l3 3v15H5z M8 3v6h8V3 M8 21v-8h8v8',
   load: 'M3 8h7l2 3h9v10H3z M3 8V5h7l2 3 M12 12v6m-3-3 3 3 3-3',

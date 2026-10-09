@@ -8,18 +8,20 @@ import { choiceStatus, emptyContinuation, isFreeAction, menuTitle, visibleChoice
 import { UiIcon } from './UiIcon'
 import type { IconName } from './UiIcon'
 import { resolveSpeakerName } from '../../data/presentation'
+import type { Ref } from 'react'
 
 export { choiceStatus } from './freeAction'
 
-export function StoryContent({ node, state, thinking, dispatch, paused }: {
+export function StoryContent({ node, state, thinking, dispatch, paused, dialogueRef }: {
   node: Exclude<ScenarioNode, { type: 'think' }>
   state: GameState
   thinking: boolean
   paused?: boolean
   dispatch: (action: GameAction) => void
+  dialogueRef?: Ref<DialogueWindow>
 }) {
   if (node.type === 'dialogue') {
-    return <DialogueWindow speaker={thinking ? '佐伯の思考 ─ 心の声' : resolveSpeakerName(node.speakerId)} text={node.text}
+    return <DialogueWindow ref={dialogueRef} speaker={thinking ? '' : resolveSpeakerName(node.speakerId)} text={node.text}
       thinking={thinking} paused={paused} onAdvance={() => dispatch({ type: 'advance' })} />
   }
   if ('options' in node) {
