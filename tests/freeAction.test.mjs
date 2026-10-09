@@ -215,3 +215,53 @@ test('途中セーブをロードし、取得済み情報を維持して最後�
   assert.equal(state.flags.part1_completed, true)
   assert.equal(createSaveData(state).version, 2)
 })
+
+test('自由行動は固定順で、未実装・未知・条件未達のコマンドを表示と実行の両方で拒否する', () => {
+  const options = [
+    { id: 'move', label: '移動', next: 'brother', implemented: true },
+    { id: 'think', label: '考える', next: 'think' },
+    { id: 'organize', label: '整理する', next: 'brother' },
+    { id: 'look', label: '調べる', next: 'targets', condition: { type: 'flag', id: 'inspect-ready' } },
+    { id: 'talk', label: '聞く', next: 'topics' },
+    { id: 'unknown', label: '不明', next: 'brother' },
+  ]
+  const fixture = { ...scenario, nodes: { ...scenario.nodes, menu: { ...scenario.nodes.menu, options } } }
+  const state = { ...createInitialState(fixture), nodeId: 'menu' }
+  assert.deepEqual(visibleChoices(fixture.nodes.menu, state).map(x => x.id), ['talk', 'think'])
+  for (const id of ['look', 'organize', 'move', 'unknown']) {
+    assert.strictEqual(reduceGameState(fixture, state, { type: 'choose', choiceId: id }), state)
+  }
+  const ready = { ...state, flags: { 'inspect-ready': true } }
+  assert.deepEqual(visibleChoices(fixture.nodes.menu, ready).map(x => x.id), ['talk', 'look', 'think'])
+  // 表示時に選べても、実行時の状態では条件を満たさなければ拒否する。
+  assert.strictEqual(reduceGameState(fixture, state, { type: 'choose', choiceId: 'look' }), state)
+  const unimplemented = { ...fixture, nodes: { ...fixture.nodes, menu: { ...fixture.nodes.menu, options: [{ id: 'talk', label: '聞く', next: 'topics', implemented: false }] } } }
+  assert.deepEqual(visibleChoices(unimplemented.nodes.menu, state), [])
+  assert.strictEqual(reduceGameState(unimplemented, state, { type: 'choose', choiceId: 'talk' }), state)
+})
+
+test('通常の分岐はコマンドIDが同じでも自由行動として扱わず、配列順とラベルを維持する', () => {
+  const node = { type: 'choice', stage: scenario.nodes.menu.stage, prompt: '分岐', options: [
+    { id: 'think', label: '別の選択', next: 'brother' },
+    { id: 'move', label: '移動する分岐', next: 'brother' },
+    { id: 'talk', label: '会話を続ける', next: 'brother' },
+  ] }
+  const fixture = { ...scenario, nodes: { ...scenario.nodes, menu: node } }
+  const state = { ...createInitialState(fixture), nodeId: 'menu' }
+  assert.deepEqual(visibleChoices(node, state).map(x => [x.id, x.label]), node.options.map(x => [x.id, x.label]))
+  assert.equal(reduceGameState(fixture, state, { type: 'choose', choiceId: 'move' }).nodeId, 'brother')
+})
+
+test('既読話題と調査済み対象は表示を維持し、再選択でも情報を重複しない', () => {
+  const state = { ...menuState(), heardTopics: ['brother'], inspectedTargets: ['photo'], acquiredInformation: ['brother_profile', 'photo_date'] }
+  for (const [nodeId, choiceId, resultId] of [['topics', 'brother', 'brother'], ['targets', 'photo', 'photo']]) {
+    const current = { ...state, nodeId }
+    assert.ok(visibleChoices(scenario.nodes[nodeId], current).some(x => x.id === choiceId))
+    const selected = choose(current, choiceId)
+    assert.equal(selected.nodeId, resultId)
+    const returned = advance(selected)
+    assert.deepEqual(returned.acquiredInformation, state.acquiredInformation)
+    assert.deepEqual(returned.heardTopics, state.heardTopics)
+    assert.deepEqual(returned.inspectedTargets, state.inspectedTargets)
+  }
+})

@@ -11,7 +11,7 @@ export const freeActionDemo: Scenario = {
     welcome: { type: 'dialogue', stage: { ...stage, characterId: 'minato' }, speakerId: 'minato', text: '佐伯湊です。どうぞ、お掛けください。', next: 'request-intro' },
     'request-intro': { type: 'dialogue', stage, speakerId: 'mio', text: '兄がいなくなったんです。探していただけませんか。', next: 'begin-inquiry' },
     'begin-inquiry': { type: 'dialogue', stage: { ...stage, characterId: 'minato' }, speakerId: 'minato', text: 'まずは事情を聞かせてください。写真などがあれば、それも見せていただきたい。', next: 'menu' },
-    menu: { type: 'choice', stage, prompt: '何をしますか？', options: [
+    menu: { type: 'choice', mode: 'free-action', stage, prompt: '何をしますか？', options: [
       { id: 'talk', label: '聞く', next: 'topics' },
       { id: 'look', label: '見る／調べる', next: 'targets' },
       { id: 'think', label: '考える', next: 'think' },

@@ -14,11 +14,12 @@ export type StateUpdate =
   | { type: 'setFlag'; id: string; value: boolean }
   | { type: 'addHeardTopic' | 'addInspectedTarget' | 'addInformation'; id: string }
 
-export type Choice = { id: string; label: string; next: string; condition?: Condition; updates?: StateUpdate[] }
+export type Choice = { id: string; label: string; next: string; implemented?: boolean; condition?: Condition; updates?: StateUpdate[] }
 
 export type ScenarioNode =
   | { type: 'dialogue'; stage: Stage; speakerId: string; text: string; next: string; updates?: StateUpdate[] }
-  | { type: 'choice' | 'topic' | 'inspect'; stage: Stage; prompt: string; options: Choice[] }
+  | { type: 'choice'; mode?: 'free-action'; stage: Stage; prompt: string; options: Choice[] }
+  | { type: 'topic' | 'inspect'; stage: Stage; prompt: string; options: Choice[] }
   | { type: 'end'; stage: Stage; text: string }
   | {
     type: 'think'

@@ -75,8 +75,9 @@ test('上部共通UI・未実装コマンド・シナリオ指定の人物位置
     for (const label of ['MENU', '調査記録', 'タバコを吸う', '日時未設定']) assert.ok(player.includes(label))
     const menu = renderToStaticMarkup(createElement(StoryContent, { node: scenario.nodes.menu, state: createInitialState(scenario), thinking: false, dispatch: () => {} }))
     assert.doesNotMatch(menu, /message-window/)
-    for (const label of ['聞く', '調べる', '考える', '整理する', '移動']) assert.ok(menu.includes(label))
-    assert.equal((menu.match(/ disabled=""/g) ?? []).length, 2)
+    for (const label of ['聞く', '調べる', '考える']) assert.ok(menu.includes(label))
+    assert.doesNotMatch(menu, /整理する|移動|未実装/)
+    assert.equal((menu.match(/ disabled=""/g) ?? []).length, 0)
     for (const position of ['left', 'center', 'right']) {
       const html = renderToStaticMarkup(createElement(StageView, { stage: { ...scenario.nodes.menu.stage, characterPosition: position } }))
       assert.ok(html.includes(`character--${position}`))

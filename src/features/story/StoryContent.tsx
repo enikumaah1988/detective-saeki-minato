@@ -3,7 +3,7 @@ import { CommandButton } from './CommandButton'
 import type { GameState } from '../../types/gameState'
 import type { Choice, ScenarioNode } from '../../types/scenario'
 import type { GameAction } from './state'
-import { visibleChoices } from './freeAction'
+import { isFreeAction, visibleChoices } from './freeAction'
 import { UiIcon } from './UiIcon'
 import type { IconName } from './UiIcon'
 import { resolveSpeakerName } from '../../data/presentation'
@@ -29,25 +29,26 @@ export function StoryContent({ node, state, thinking, dispatch, paused }: {
   }
   if ('options' in node) {
     const icons: Record<string, IconName> = { talk: 'talk', look: 'look', think: 'think' }
-    const freeAction = node.type === 'choice' && ['talk', 'look', 'think'].every((id) => node.options.some((option) => option.id === id))
+    const freeAction = isFreeAction(node)
+    const options = visibleChoices(node, state)
+    if (options.length === 0) return null
     return (
-      <nav className="command-panel" aria-label={node.type === 'topic' ? '聞く話題' : node.type === 'inspect' ? '調査対象' : '選択肢'}>
+      <nav className={`command-panel${freeAction ? ' free-action-panel' : ''}`} aria-label={node.type === 'topic' ? '聞く話題' : node.type === 'inspect' ? '調査対象' : '選択肢'}>
         {node.type !== 'choice' && <p className="command-heading">{node.type === 'topic' ? '聞く' : '調べる'}</p>}
         <span className="sr-only">{node.prompt}</span>
         <div className={`choices ${node.type === 'topic' || node.type === 'inspect' ? 'item-list' : 'command-list'}`}>
-          {visibleChoices(node, state).map((option) => {
+          {options.map((option) => {
             const status = choiceStatus(node, option, state)
-            const icon = icons[option.id]
+            const icon = freeAction ? icons[option.id] : undefined
             return (
               <CommandButton key={option.id} paused={paused} onSelect={() => dispatch({ type: 'choose', choiceId: option.id })}>
-                {node.type === 'choice' && icon && <UiIcon name={icon} />}
-                <span className="command-name">{node.type === 'choice' && option.id === 'look' ? '調べる' : option.label}</span>
+                {icon && <UiIcon name={icon} />}
+                <span className="command-name">{option.label}</span>
                 {status && <span className={`item-status${status === 'NEW' ? ' is-new' : ''}`}>{status}</span>}
                 {!status && <span className="command-arrow" aria-hidden="true">›</span>}
               </CommandButton>
             )
           })}
-          {freeAction && ['整理する', '移動'].map((label) => <button key={label} type="button" disabled title="未実装"><span className="command-name">{label}</span><span className="item-status">未実装</span></button>)}
         </div>
       </nav>
     )

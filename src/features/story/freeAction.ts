@@ -12,8 +12,28 @@ export function matchesCondition(state: GameState, condition?: Condition): boole
   }
 }
 
+// 順序と実装有無は進行側で管理し、通常の分岐IDとは区別する。
+export const FREE_ACTION_COMMANDS = [
+  { id: 'talk', label: '聞く', implemented: true },
+  { id: 'look', label: '調べる', implemented: true },
+  { id: 'think', label: '考える', implemented: true },
+  { id: 'organize', label: '整理する', implemented: false },
+  { id: 'move', label: '移動', implemented: false },
+] as const
+
+export function isFreeAction(node: ScenarioNode) {
+  return node.type === 'choice' && node.mode === 'free-action'
+}
+
 export function visibleChoices(node: ScenarioNode, state: GameState) {
-  return 'options' in node ? node.options.filter((option) => matchesCondition(state, option.condition)) : []
+  if (!('options' in node)) return []
+  const selectable = node.options.filter((option) => option.implemented !== false && matchesCondition(state, option.condition))
+  if (!isFreeAction(node)) return selectable
+  return FREE_ACTION_COMMANDS.flatMap((command) => {
+    if (!command.implemented) return []
+    const option = selectable.find((candidate) => candidate.id === command.id)
+    return option ? [{ ...option, label: command.label }] : []
+  })
 }
 
 export function applyUpdates(state: GameState, updates: StateUpdate[]): GameState {
