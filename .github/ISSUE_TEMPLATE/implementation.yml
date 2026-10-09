@@ -1,0 +1,54 @@
+name: ゲーム機能・改善
+description: 仕様と受入条件を明確にしてAIへ実装を委任する
+title: "[実装] "
+labels: []
+body:
+  - type: textarea
+    id: goal
+    attributes:
+      label: 目的・背景
+      description: なぜ必要か。プレイヤー体験や解消したい課題を記載する
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: 対象範囲
+      description: 変更する機能・画面・挙動
+    validations:
+      required: true
+  - type: textarea
+    id: references
+    attributes:
+      label: 参照仕様
+      description: docs/pc-game-ui.md など、正本のファイル・節を指定する
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: 受入条件
+      description: 第三者が確認できる具体的な条件を箇条書きにする
+      placeholder: |
+        - [ ] 条件A
+        - [ ] 条件B
+    validations:
+      required: true
+  - type: textarea
+    id: out_of_scope
+    attributes:
+      label: 対象外・制約
+      description: 変更してはいけないもの、互換性、追加の判断が必要な事項
+  - type: textarea
+    id: validation
+    attributes:
+      label: 検証方法
+      value: |
+        - [ ] node --test --test-isolation=none tests/*.test.mjs
+        - [ ] npm run build
+        - [ ] 関連画面の手動確認（必要な場合）
+  - type: textarea
+    id: learning
+    attributes:
+      label: AI開発実験メモ（任意）
+      description: EXP番号・追加指示回数など。通常Issueでは省略可
