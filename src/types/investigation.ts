@@ -11,10 +11,11 @@ export type InvestigationEntry = {
   title: string
   source: RecordSource
   description: string
+  alternativeSources?: readonly RecordSource[]
   facts?: readonly RecordFact[]
   imageSrc?: string
   imageAlt?: string
   timeLabel?: string
   chronologicalOrder?: number
 }
-export type InvestigationRecord = Omit<InvestigationEntry, 'source' | 'facts'> & { details: string[] }
+export type InvestigationRecord = Omit<InvestigationEntry, 'source' | 'alternativeSources' | 'facts'> & { details: string[] }

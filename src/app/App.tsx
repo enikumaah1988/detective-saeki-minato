@@ -8,10 +8,11 @@ import type { PreviewMode } from '../dev/investigationPreview'
 export default function App() {
   const [scenario, setScenario] = useState(freeActionDemo)
   const [preview, setPreview] = useState<{ records: InvestigationRecord[]; label: string; invoker: HTMLElement }>()
+  const [smokingAllowed, setSmokingAllowed] = useState(true)
   return (
     <>
       <main className="game-shell" aria-label="探偵 佐伯湊 / Detective Saeki Minato">
-        <StoryPlayer key={scenario.id} scenario={scenario} preview={preview} />
+        <StoryPlayer key={scenario.id} scenario={scenario} preview={preview} smokingAllowed={smokingAllowed} />
       </main>
       <details className="scene-selector">
         <summary><span className="dev-label">DEV</span> 仮シナリオの切替</summary>
@@ -30,6 +31,13 @@ export default function App() {
             document.querySelector('.game-shell')?.scrollIntoView({ block: 'start', behavior: 'instant' })
             setPreview({ records: module.createInvestigationPreview(mode), label: module.previewModes.find(item => item.id === mode)!.label, invoker })
           }}>{({ normal: '通常', empty: '一部空', 'all-empty': '全部空', stress: '多数・長文', 'no-images': '画像なし' })[mode]}</button>)}
+        </div>
+      </details>}
+      {import.meta.env.DEV && <details className="scene-selector">
+        <summary><span className="dev-label">DEV</span> 喫煙演出プレビュー</summary>
+        <div className="choices" aria-label="喫煙場所の試作設定">
+          <button type="button" aria-pressed={smokingAllowed} onClick={() => setSmokingAllowed(true)}>吸える場所</button>
+          <button type="button" aria-pressed={!smokingAllowed} onClick={() => setSmokingAllowed(false)}>吸えない場所</button>
         </div>
       </details>}
     </>

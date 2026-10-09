@@ -1,4 +1,5 @@
 import type { InvestigationEntry } from '../types/investigation'
+import { resolveExpression } from './presentation'
 
 // 本編用の事実を補わず、既存の仮シナリオで実際に判明する内容のみ定義する。
 export const part1Records: readonly InvestigationEntry[] = [
@@ -15,7 +16,16 @@ export const part1Records: readonly InvestigationEntry[] = [
   {
     id: 'client-observation', category: 'people', title: '相澤澪',
     source: { type: 'inspection', id: 'client' },
-    description: '依頼人。落ち着いて話しているが、手元には緊張が見える。',
+    alternativeSources: [{ type: 'information', ids: ['brother_profile', 'disappearance_timing', 'missing_date', 'last_known_activity', 'brother_recent', 'past_accident'] }],
+    description: '兄の行方について相談に来た依頼人。',
+    imageSrc: resolveExpression('mio', 'normal').imageSrc,
+    facts: [
+      { source: { type: 'information', ids: ['brother_profile'] }, text: '兄は几帳面で、連絡を絶やしたことがないと話した。' },
+      { source: { type: 'information', ids: ['disappearance_timing', 'missing_date'] }, text: '三日前から兄と連絡が取れないと話した。' },
+      { source: { type: 'information', ids: ['last_known_activity', 'brother_recent'] }, text: '最後の連絡で、兄は昔の事故の記録を調べに行くと言っていたと話した。' },
+      { source: { type: 'information', ids: ['past_accident'] }, text: '兄は以前の事故について、まだ確かめたいことがあると話していた。' },
+      { source: { type: 'inspection', id: 'client' }, text: '落ち着いて話しているが、手元には緊張が見える。' },
+    ],
   },
   {
     id: 'brother-photo', category: 'evidence', title: '兄の写真',

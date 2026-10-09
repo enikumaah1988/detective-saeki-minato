@@ -3,13 +3,18 @@ import assert from 'node:assert/strict'
 import { createElement } from 'react'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { createServer } from 'vite'
-import { part1Records, basicBelongings } from '../src/data/investigation.ts'
 const initial = { scenarioId: 'gray-testimony-part1-demo', nodeId: 'menu', flags: {}, heardTopics: [], inspectedTargets: [], acquiredInformation: [] }
 let selectInvestigationRecords, RECORD_CATEGORIES, InvestigationRecords
+let part1Records, basicBelongings
+let freeActionDemo, createInitialState, reduceGameState, createSaveData, parseSaveData
 const server = await createServer({ server: { middlewareMode: true, hmr: false, ws: false }, appType: 'custom' })
 try {
+  ({ part1Records, basicBelongings } = await server.ssrLoadModule('/src/data/investigation.ts'));
   ({ selectInvestigationRecords, RECORD_CATEGORIES } = await server.ssrLoadModule('/src/features/story/investigation.ts'));
   ({ InvestigationRecords } = await server.ssrLoadModule('/src/features/story/InvestigationRecords.tsx'))
+  ;({ freeActionDemo } = await server.ssrLoadModule('/src/data/scenario/freeActionDemo.ts'))
+  ;({ createInitialState, reduceGameState } = await server.ssrLoadModule('/src/features/story/state.ts'))
+  ;({ createSaveData, parseSaveData } = await server.ssrLoadModule('/src/features/story/saveData.ts'))
 } finally { await server.close() }
 
 test('取得前の人物・証拠・出来事は表示せず、基本の持ち物のみ表示する', () => {
@@ -22,6 +27,41 @@ test('取得前の人物・証拠・出来事は表示せず、基本の持ち�
   assert.equal(html.match(/記録はありません/g).length, 1)
   assert.doesNotMatch(html, /澪の兄|兄の写真|連絡が途絶える/)
   for (const title of ['人物', '証拠', '出来事', '持ち物']) assert.ok(html.includes(title))
+})
+
+test('澪との既存会話の完了で人物・出来事を更新し、再聴取・JSON保存復元でも重複しない', () => {
+  let state = createInitialState(freeActionDemo)
+  const act = action => { state = reduceGameState(freeActionDemo, state, action) }
+  const records = () => selectInvestigationRecords(state)
+  while (state.nodeId !== 'menu') act({ type: 'advance' })
+  assert.ok(!records().some(entry => entry.category === 'people' || entry.category === 'events'))
+  act({ type: 'choose', choiceId: 'talk' }); act({ type: 'choose', choiceId: 'missing' })
+  assert.equal(state.nodeId, 'missing')
+  assert.ok(!records().some(entry => entry.id === 'client-observation' || entry.id === 'disappearance'))
+  act({ type: 'advance' })
+  const mio = records().find(entry => entry.id === 'client-observation')
+  assert.ok(mio.imageSrc)
+  assert.ok(mio.details.some(text => text.includes('三日前')))
+  assert.ok(!mio.details.some(text => /几帳面|事故|緊張/.test(text)))
+  assert.deepEqual(records().filter(entry => entry.category === 'events').map(entry => entry.id), ['disappearance'])
+  const first = JSON.stringify(state)
+  act({ type: 'choose', choiceId: 'talk' }); act({ type: 'choose', choiceId: 'missing' }); act({ type: 'advance' })
+  assert.equal(JSON.stringify(state), first)
+  for (const choiceId of ['brother', 'recent-brother', 'accident']) {
+    act({ type: 'choose', choiceId: 'talk' }); act({ type: 'choose', choiceId }); act({ type: 'advance' })
+  }
+  assert.deepEqual(records().filter(entry => entry.category === 'events').map(entry => entry.id), ['past-accident', 'last-activity', 'disappearance'])
+  assert.equal(records().filter(entry => entry.id === 'client-observation').length, 1)
+  assert.equal(records().find(entry => entry.id === 'client-observation').details.length, 5)
+  act({ type: 'choose', choiceId: 'look' }); act({ type: 'choose', choiceId: 'client' }); act({ type: 'advance' })
+  assert.equal(records().filter(entry => entry.title === '相澤澪').length, 1)
+  assert.ok(records().find(entry => entry.id === 'client-observation').details.some(text => text.includes('緊張')))
+  const saved = JSON.stringify(createSaveData(state))
+  const restored = parseSaveData(saved, [freeActionDemo])
+  assert.equal(restored.ok, true)
+  assert.deepEqual(selectInvestigationRecords(restored.state), records())
+  assert.ok(!saved.includes('dev-'))
+  assert.equal(JSON.parse(saved).version, 2)
 })
 
 test('既存の取得情報・調査結果だけを記録へ反映し、未取得の詳細を漏らさない', () => {

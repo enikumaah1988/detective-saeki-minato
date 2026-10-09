@@ -19,10 +19,11 @@ export function selectInvestigationRecords(state: GameState, definitions: readon
   // 一つの項目IDは一分類のみ。証拠を持ち物へ複製しない。
   const seen = new Set<string>()
   return [...definitions, ...basicBelongings].filter(entry => {
-    if (!hasSource(state, entry.source) || seen.has(entry.id)) return false
+    const acquired = hasSource(state, entry.source) || (entry.alternativeSources ?? []).some(source => hasSource(state, source))
+    if (!acquired || seen.has(entry.id)) return false
     seen.add(entry.id)
     return true
-  }).map(({ source: _source, facts, ...entry }) => ({
+  }).map(({ source: _source, alternativeSources: _alternatives, facts, ...entry }) => ({
     ...entry, details: [entry.description, ...(facts ?? []).filter(fact => hasSource(state, fact.source)).map(fact => fact.text)],
   })).sort((a, b) => {
     const categoryOrder = RECORD_CATEGORIES.findIndex(tab => tab.id === a.category) - RECORD_CATEGORIES.findIndex(tab => tab.id === b.category)
