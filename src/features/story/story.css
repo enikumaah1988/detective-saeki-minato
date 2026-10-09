@@ -8,7 +8,7 @@ button:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); 
 button:disabled { cursor: default; color: var(--muted); }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
 /* 1u = 基準画面1920pxで1px。PC画面を16:9のままブラウザー内へ収める。 */
-.story { --u: .052083333cqw; --edge-x: calc(32 * var(--u)); --edge-y: calc(24 * var(--u)); --dialogue-height: calc(270 * var(--u)); --dialogue-font: calc(30 * var(--u)); --command-width: calc(360 * var(--u)); --command-height: calc(80 * var(--u)); --command-gap: calc(12 * var(--u)); --command-padding: calc(16 * var(--u)); position: relative; isolation: isolate; display: grid; grid-template-areas: 'scene'; width: 100%; height: 56.25cqw; aspect-ratio: 16 / 9; overflow: hidden; font-size: calc(24 * var(--u)); background: #283039; }
+.story { --u: .052083333cqw; --edge-x: calc(32 * var(--u)); --edge-y: calc(24 * var(--u)); --dialogue-height: calc(320 * var(--u)); --dialogue-font: calc(38 * var(--u)); --dialogue-padding-x: calc(48 * var(--u)); --dialogue-padding-y: calc(28 * var(--u)); --speaker-font: calc(32 * var(--u)); --speaker-gap: calc(20 * var(--u)); --hud-font: calc(28 * var(--u)); --hud-icon: calc(44 * var(--u)); --dialogue-background: rgb(16 25 34 / 68%); --command-width: calc(360 * var(--u)); --command-height: calc(80 * var(--u)); --command-gap: calc(12 * var(--u)); --command-padding: calc(16 * var(--u)); position: relative; isolation: isolate; display: grid; grid-template-areas: 'scene'; width: 100%; height: 56.25cqw; aspect-ratio: 16 / 9; overflow: hidden; font-size: calc(24 * var(--u)); background: #283039; }
 .stage-wrapper, .story-toolbar, .message-window, .command-panel { grid-area: scene; min-width: 0; }
 .story-content { display: contents; }
 .stage-wrapper { position: relative; z-index: 0; overflow: hidden; }
@@ -24,14 +24,15 @@ button:disabled { cursor: default; color: var(--muted); }
 .character-placeholder span { font-size: .8em; }
 .is-thinking::after { content: ''; position: absolute; inset: 0; background: #10111640; pointer-events: none; }
 .story-toolbar { z-index: 5; align-self: start; display: flex; justify-content: space-between; align-items: start; padding: var(--edge-y) var(--edge-x); pointer-events: none; }
-.toolbar-actions { display: flex; gap: calc(12 * var(--u)); align-items: start; pointer-events: auto; }
+.toolbar-actions { font-size: var(--hud-font); display: flex; gap: calc(12 * var(--u)); align-items: start; pointer-events: auto; }
 .toolbar-actions > button, .save-controls summary { min-height: calc(52 * var(--u)); padding: calc(12 * var(--u)) calc(20 * var(--u)); background: #101922bf; border: 0; border-radius: calc(4 * var(--u)); }
-.scene-context { display: grid; gap: calc(6 * var(--u)); text-align: right; font-size: calc(22 * var(--u)); text-shadow: 0 1px 3px #000; }
-.scene-context span + span { color: var(--muted); font-size: calc(18 * var(--u)); }
+.scene-context { display: grid; gap: calc(6 * var(--u)); text-align: right; font-size: var(--hud-font); text-shadow: 0 1px 3px #000; }
+.scene-context span + span { color: var(--muted); font-size: var(--hud-font); }
 .save-controls { position: relative; pointer-events: auto; }
 .ui-icon { width: calc(32 * var(--u)); height: calc(32 * var(--u)); flex-shrink: 0; }
 .save-controls summary { display: flex; align-items: center; gap: calc(12 * var(--u)); list-style: none; }
 .save-controls summary::-webkit-details-marker { display: none; }
+.save-controls summary .ui-icon { width: var(--hud-icon); height: var(--hud-icon); }
 .menu-caption { letter-spacing: .08em; }
 .save-controls summary:hover, .save-controls summary:focus-visible, .save-controls[open] summary { color: var(--accent); }
 .save-panel { position: absolute; left: 0; top: 100%; width: calc(320 * var(--u)); max-height: calc(750 * var(--u)); overflow-y: auto; padding: calc(12 * var(--u)); background: var(--panel); border-radius: 0 calc(4 * var(--u)) calc(4 * var(--u)) calc(4 * var(--u)); }
@@ -43,11 +44,16 @@ button:disabled { cursor: default; color: var(--muted); }
 .menu-open .message-window { opacity: .55; pointer-events: none; }
 .menu-open .stage-wrapper::before { content: ''; position: absolute; inset: 0; z-index: 1; background: #10101040; pointer-events: none; }
 .message-window { position: relative; z-index: 2; align-self: end; justify-self: center; width: 90%; height: var(--dialogue-height); margin-bottom: var(--edge-y); padding: calc(24 * var(--u)) calc(40 * var(--u)); overflow-y: auto; scrollbar-width: thin; background: var(--panel); border: 1px solid var(--accent); border-radius: calc(6 * var(--u)); }
-.dialogue-button { display: block; color: var(--ink); }
+/* buttonの標準配置に依存せず、名前・本文を上から積む。 */
+.dialogue-button { display: flex; flex-direction: column; justify-content: flex-start; align-items: stretch; gap: 0; padding: var(--dialogue-padding-y) var(--dialogue-padding-x); text-align: left; color: var(--ink); }
+.dialogue-button:not(.thinking-message) { background: var(--dialogue-background); }
+.dialogue-button .speaker { position: relative; flex: 0 0 auto; margin: 0 0 var(--speaker-gap); font-size: var(--speaker-font); line-height: 1.25; }
+.dialogue-button .speaker::after { position: absolute; left: 0; bottom: calc(-10 * var(--u)); margin: 0; }
+.dialogue-button .dialogue { flex: 0 0 auto; min-height: 4.5em; padding-right: calc(32 * var(--u)); text-shadow: 0 1px 2px #0008; }
 .speaker, .window-label { display: block; margin: 0 0 calc(12 * var(--u)); color: var(--accent); font-size: calc(28 * var(--u)); font-weight: normal; }
 .speaker::after { content: ''; display: block; width: calc(48 * var(--u)); height: 1px; margin-top: calc(8 * var(--u)); background: var(--accent); }
 .dialogue { display: block; margin: 0; font-size: var(--dialogue-font); line-height: 1.5; white-space: pre-wrap; overflow-wrap: anywhere; }
-.next { position: absolute; right: calc(24 * var(--u)); bottom: calc(16 * var(--u)); color: var(--accent); font-size: calc(18 * var(--u)); animation: next-pulse 2s ease-in-out infinite; }
+.next { position: absolute; right: calc(24 * var(--u)); bottom: calc(16 * var(--u)); color: var(--accent); font-size: calc(26 * var(--u)); animation: next-pulse 2s ease-in-out infinite; }
 @keyframes next-pulse { 50% { opacity: .35; } }
 @media (prefers-reduced-motion: reduce) { .next { animation: none; } }
 .command-panel { position: relative; z-index: 3; align-self: center; justify-self: end; width: var(--command-width); max-height: 80%; margin-right: var(--edge-x); padding: 0; background: transparent; border: 0; overflow-y: auto; scrollbar-width: thin; }

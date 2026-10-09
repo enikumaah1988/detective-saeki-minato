@@ -1,15 +1,15 @@
 import type { BackgroundDefinition, CharacterDefinition, ExpressionDefinition } from '../types/presentation'
 
-// 検証用 SVG。本番画像へ差し替える際もシナリオの ID は変更しない。
+// 検証用画像。本番画像へ差し替える際もシナリオの ID は変更しない。
 export const backgrounds: Record<string, BackgroundDefinition> = {
-  'office-afternoon': { id: 'office-afternoon', name: '探偵事務所・午後（仮背景）', imageSrc: new URL('../assets/backgrounds/office-afternoon.svg', import.meta.url).href },
+  'office-afternoon': { id: 'office-afternoon', name: '探偵事務所・午後（仮背景）', imageSrc: new URL('../assets/backgrounds/office-afternoon.png', import.meta.url).href },
 }
 
 export const characters: Record<string, CharacterDefinition> = {
   minato: {
     id: 'minato', name: '佐伯湊',
     expressions: {
-      normal: { id: 'normal', name: '通常', imageSrc: new URL('../assets/characters/minato/normal.svg', import.meta.url).href },
+      normal: { id: 'normal', name: '通常', imageSrc: new URL('../assets/characters/minato/normal.png', import.meta.url).href },
       serious: { id: 'serious', name: '真剣', imageSrc: new URL('../assets/characters/minato/serious.svg', import.meta.url).href },
     },
   },

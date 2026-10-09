@@ -21,7 +21,7 @@ test('画像定義とフォールバックを表示 UI へ反映する', async (
     const serious = render({ backgroundId: 'office-afternoon', characterId: 'minato', expression: 'serious' })
     assert.match(normal, /background-image/)
     assert.match(normal, /character-image/)
-    assert.match(normal, /minato\/normal.svg/)
+    assert.match(normal, /minato\/normal\.png/)
     assert.match(serious, /minato\/serious.svg/)
     const unknown = render({ backgroundId: 'unknown', characterId: 'unknown', expression: 'unknown' })
     assert.match(unknown, /未登録の背景/)
