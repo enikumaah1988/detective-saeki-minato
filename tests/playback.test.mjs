@@ -83,6 +83,19 @@ test('聞く話題の選択演出中に条件を失ったら、結果会話・�
   assert.deepEqual(rejected.game.acquiredInformation, [])
 })
 
+test('考えるの選択演出中に必須情報を失ったら選択を拒否する', () => {
+  const ready = at('menu')
+  ready.game.acquiredInformation = scenario.nodes.think.requiredInformation.map(info => info.id)
+  assert.ok(visibleChoices(scenario.nodes.menu, ready.game).some(option => option.id === 'think'))
+  const delayedInput = input(ready, { type: 'choose', choiceId: 'think' })
+  const changed = { ...ready, game: { ...ready.game, acquiredInformation: ready.game.acquiredInformation.slice(1) } }
+
+  const rejected = reducePlayback(scenario, changed, delayedInput)
+  assert.strictEqual(rejected, changed)
+  assert.equal(rejected.game.nodeId, 'menu')
+  assert.equal(visibleChoices(scenario.nodes.menu, rejected.game).some(option => option.id === 'think'), false)
+})
+
 test('最終会話の重複入力は1回のみ処理し、MENU中・MENU前の世代も拒否する', () => {
   const current = at('photo'), event = input(current, { type: 'advance' })
   const next = reducePlayback(scenario, current, event)

@@ -8,6 +8,42 @@ const longText = '午後の事務所。か\u3099、👨‍👩‍👧‍👦、�
   + '\n明示改行を確認する。\n\n空行の後も全文を読む。\n' + '長い会話は途中で切り捨てない。'.repeat(12)
 
 for (const [width, height] of [[1920, 1080], [1366, 768]]) {
+  test(`PC実画面 ${width}×${height}: 必須情報が揃った時だけ考えるを表示しロード後も再計算`, { skip: !playwrightPath }, async () => {
+    const { chromium } = await import(playwrightPath)
+    const browser = await chromium.launch({ headless: true })
+    const page = await browser.newPage({ viewport: { width, height } })
+    const errors = []
+    page.on('pageerror', error => errors.push(error.message))
+    const required = ['brother_profile', 'disappearance_timing', 'last_known_activity', 'past_accident']
+    const save = acquiredInformation => ({ version: 2, scenarioId: 'gray-testimony-part1-demo', nodeId: 'menu', flags: {}, heardTopics: [], inspectedTargets: [], acquiredInformation })
+    try {
+      await page.addInitScript(() => localStorage.setItem('detective-saeki-minato.save.v1', JSON.stringify({ version: 2, scenarioId: 'gray-testimony-part1-demo', nodeId: 'menu', flags: {}, heardTopics: [], inspectedTargets: [], acquiredInformation: [] })))
+      await page.goto(baseUrl)
+      const menu = page.getByLabel('メニュー', { exact: true })
+      const load = async information => {
+        await page.evaluate(value => localStorage.setItem('detective-saeki-minato.save.v1', JSON.stringify(value)), save(information))
+        await menu.click()
+        await page.getByRole('button', { name: 'ロード', exact: true }).click()
+        await menu.click()
+        await page.locator('.free-action-panel').waitFor()
+      }
+
+      await load(required.slice(0, 3))
+      assert.equal(await page.getByRole('button', { name: '考える', exact: true }).count(), 0)
+      const incompleteSavedState = await page.evaluate(() => JSON.parse(localStorage.getItem('detective-saeki-minato.save.v1')))
+      assert.deepEqual(incompleteSavedState.acquiredInformation, required.slice(0, 3))
+
+      await load([...required, 'photo_date', 'photo_date'])
+      const commandLabels = await page.locator('.free-action-panel .command-name').allTextContents()
+      assert.deepEqual(commandLabels.map(label => label.trim()), ['聞く', '調べる', '考える'])
+      await page.getByRole('button', { name: '考える', exact: true }).click()
+      await page.locator('.dialogue-button').waitFor()
+      assert.match(await page.locator('.dialogue .sr-only').textContent(), /単なる失踪ではない/)
+      assert.deepEqual(errors, [])
+      console.log(JSON.stringify({ viewport: [width, height], thinkHiddenWhenIncomplete: true, visibleWhenComplete: true, loadRecalculation: true }))
+    } finally { await browser.close() }
+  })
+
   test(`PC実画面 ${width}×${height}: ページ送り・MENU・保存復帰・人物・連続入力`, { skip: !playwrightPath }, async () => {
     const { chromium } = await import(playwrightPath)
     const browser = await chromium.launch({ headless: true })

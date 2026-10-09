@@ -2,6 +2,12 @@ import type { Scenario, Stage } from '../../types/scenario'
 
 const solo: Stage = { backgroundId: 'office-afternoon', characters: [{ characterId: 'minato', expression: 'normal' }] }
 const stage: Stage = { backgroundId: 'office-afternoon', characters: [{ characterId: 'minato', expression: 'normal', position: 'left' }, { characterId: 'mio', expression: 'normal', position: 'right' }] }
+const requiredThinkInformation = [
+  { id: 'brother_profile', summary: '兄は連絡を絶やさない几帳面な人だ' },
+  { id: 'disappearance_timing', summary: '連絡が途絶えた時期' },
+  { id: 'last_known_activity', summary: '最後に確認された兄の行動' },
+  { id: 'past_accident', summary: '兄が気にしていた過去の事故' },
+]
 export const freeActionDemo: Scenario = {
   id: 'gray-testimony-part1-demo',
   title: '第1話「灰色の証言」第1部「依頼」の通し仮シナリオ（正式シナリオではありません）',
@@ -16,7 +22,7 @@ export const freeActionDemo: Scenario = {
     menu: { type: 'choice', mode: 'free-action', sceneId: 'request', empty: { label: '会話に戻る', next: 'begin-inquiry' }, stage, prompt: '何をしますか？', options: [
       { id: 'talk', label: '聞く', next: 'topics' },
       { id: 'look', label: '見る／調べる', next: 'targets' },
-      { id: 'think', label: '考える', next: 'think' },
+      { id: 'think', label: '考える', next: 'think', condition: { type: 'hasAllInformation', ids: requiredThinkInformation.map(info => info.id) } },
     ] },
     topics: { type: 'topic', sceneId: 'request', parent: { commandId: 'talk', nodeId: 'menu' }, stage, prompt: '何について聞きますか？', options: [
       { id: 'brother', label: '兄について', next: 'brother' },
@@ -42,12 +48,7 @@ export const freeActionDemo: Scenario = {
     ] },
     think: {
       type: 'think', sceneId: 'request', stage, speakerId: 'minato',
-      requiredInformation: [
-        { id: 'brother_profile', summary: '兄は連絡を絶やさない几帳面な人だ' },
-        { id: 'disappearance_timing', summary: '連絡が途絶えた時期' },
-        { id: 'last_known_activity', summary: '最後に確認された兄の行動' },
-        { id: 'past_accident', summary: '兄が気にしていた過去の事故' },
-      ],
+      requiredInformation: requiredThinkInformation,
       insufficient: { text: 'まだ材料が足りない。まずは話を聞き、周囲を調べよう。', next: 'menu' },
       partial: { text: '手掛かりはある。今の話を整理してみよう。', next: 'menu' },
       complete: { text: '連絡を絶やさない兄が、過去の事故を調べた後に姿を消した。……これは単なる失踪ではない。依頼を受けよう。', next: 'accept-request' },
