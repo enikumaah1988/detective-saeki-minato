@@ -47,13 +47,19 @@ test('澪との既存会話の完了で人物・出来事を更新し、再聴�
   const first = JSON.stringify(state)
   act({ type: 'choose', choiceId: 'talk' }); act({ type: 'choose', choiceId: 'missing' }); act({ type: 'advance' })
   assert.equal(JSON.stringify(state), first)
+  // 必須情報の取得完了で「考える」だけになる前に補助調査を行う。
+  act({ type: 'choose', choiceId: 'look' }); act({ type: 'choose', choiceId: 'client' })
+  assert.equal(state.nodeId, 'client')
+  assert.ok(!records().find(entry => entry.id === 'client-observation').details.some(text => text.includes('緊張')))
+  act({ type: 'advance' })
+  assert.equal(state.nodeId, 'menu')
+  assert.ok(records().find(entry => entry.id === 'client-observation').details.some(text => text.includes('緊張')))
   for (const choiceId of ['brother', 'recent-brother', 'accident']) {
     act({ type: 'choose', choiceId: 'talk' }); act({ type: 'choose', choiceId }); act({ type: 'advance' })
   }
   assert.deepEqual(records().filter(entry => entry.category === 'events').map(entry => entry.id), ['past-accident', 'last-activity', 'disappearance'])
   assert.equal(records().filter(entry => entry.id === 'client-observation').length, 1)
-  assert.equal(records().find(entry => entry.id === 'client-observation').details.length, 5)
-  act({ type: 'choose', choiceId: 'look' }); act({ type: 'choose', choiceId: 'client' }); act({ type: 'advance' })
+  assert.equal(records().find(entry => entry.id === 'client-observation').details.length, 6)
   assert.equal(records().filter(entry => entry.title === '相澤澪').length, 1)
   assert.ok(records().find(entry => entry.id === 'client-observation').details.some(text => text.includes('緊張')))
   const saved = JSON.stringify(createSaveData(state))

@@ -35,10 +35,13 @@ for (const [width, height] of [[1920, 1080], [1366, 768]]) {
 
       await load([...required, 'photo_date', 'photo_date'])
       const commandLabels = await page.locator('.free-action-panel .command-name').allTextContents()
-      assert.deepEqual(commandLabels.map(label => label.trim()), ['聞く', '調べる', '考える'])
+      assert.deepEqual(commandLabels.map(label => label.trim()), ['考える'])
+      assert.equal(await page.getByRole('button', { name: '聞く', exact: true }).count(), 0)
+      assert.equal(await page.getByRole('button', { name: '調べる', exact: true }).count(), 0)
       await page.getByRole('button', { name: '考える', exact: true }).click()
       await page.locator('.dialogue-button').waitFor()
       assert.match(await page.locator('.dialogue .sr-only').textContent(), /単なる失踪ではない/)
+      assert.equal(await page.locator('.dialogue-button .speaker').count(), 0)
       assert.deepEqual(errors, [])
       console.log(JSON.stringify({ viewport: [width, height], thinkHiddenWhenIncomplete: true, visibleWhenComplete: true, loadRecalculation: true }))
     } finally { await browser.close() }
@@ -158,6 +161,45 @@ for (const [width, height] of [[1920, 1080], [1366, 768]]) {
       assert.equal(await page.locator('.free-action-panel').count(), 1)
       assert.deepEqual(errors, [])
       console.log(JSON.stringify({ viewport: [width, height], pages: count, textRoundTrip: true, menuResume: true, submenuLoad: true, charactersStable: true }))
+    } finally { await browser.close() }
+  })
+}
+
+for (const [width, height] of [[1920, 1080], [1366, 768]]) {
+  test(`PC実画面 ${width}×${height}: 背景クリック・Enter入力・長押しの段階制御`, { skip: !playwrightPath }, async () => {
+    const { chromium } = await import(playwrightPath)
+    const browser = await chromium.launch({ headless: true })
+    const page = await browser.newPage({ viewport: { width, height } })
+    const errors = []
+    page.on('pageerror', error => errors.push(error.message))
+    try {
+      await page.goto(baseUrl)
+      await page.evaluate(() => { document.body.tabIndex = -1; document.body.focus() })
+      const dialogue = page.locator('.dialogue-button')
+      await page.waitForFunction(() => (document.querySelector('.dialogue-button .dialogue [aria-hidden]')?.textContent.length ?? 0) > 0)
+      const firstNodeText = await dialogue.locator('.dialogue .sr-only').textContent()
+
+      // 背景クリックは現在文を全文表示する一段階だけ。
+      await page.locator('.stage-input-area').click({ position: { x: Math.round(width * .72), y: Math.round(height * .4) } })
+      await dialogue.locator('.next').waitFor()
+      assert.equal(await dialogue.locator('.dialogue .sr-only').textContent(), firstNodeText)
+
+      // 次の会話へ移り、文字送り中にEnterを長押ししてもノードを飛ばさない。
+      await page.locator('.stage-input-area').click({ position: { x: Math.round(width * .72), y: Math.round(height * .4) } })
+      const secondNodeText = await page.locator('.dialogue-button .dialogue .sr-only').textContent()
+      assert.notEqual(secondNodeText, firstNodeText)
+      await page.evaluate(() => document.body.focus())
+      await page.keyboard.down('Enter')
+      await page.waitForTimeout(600)
+      await page.keyboard.up('Enter')
+      assert.equal(await dialogue.locator('.dialogue .sr-only').textContent(), secondNodeText)
+      assert.equal(await dialogue.getAttribute('data-page'), '1')
+
+      // 別のEnter入力で次ノードへ一度だけ進む。
+      await page.keyboard.press('Enter')
+      await page.waitForFunction(text => document.querySelector('.dialogue-button .dialogue .sr-only')?.textContent !== text, secondNodeText)
+      assert.deepEqual(errors, [])
+      console.log(JSON.stringify({ viewport: [width, height], stageClickReveal: true, enterAdvances: true, heldEnterDoesNotSkip: true }))
     } finally { await browser.close() }
   })
 }

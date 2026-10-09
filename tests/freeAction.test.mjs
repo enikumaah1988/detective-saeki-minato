@@ -165,11 +165,16 @@ test('全必須情報が揃った時だけ考えるが固定順で表示され�
   const initial = menuState()
   const required = scenario.nodes.think.requiredInformation.map(info => info.id)
   const extraAndDuplicate = { ...initial, acquiredInformation: [...required, 'photo_date', 'photo_date'] }
-  assert.deepEqual(visibleChoices(scenario.nodes.menu, extraAndDuplicate).map(option => option.id), ['talk', 'look', 'think'])
+  assert.deepEqual(visibleChoices(scenario.nodes.menu, extraAndDuplicate).map(option => option.id), ['think'])
+  assert.strictEqual(choose(extraAndDuplicate, 'talk'), extraAndDuplicate)
+  assert.strictEqual(choose(extraAndDuplicate, 'look'), extraAndDuplicate)
+  assert.strictEqual(choose(extraAndDuplicate, 'think').nodeId, 'think')
   assert.equal(createSaveData(extraAndDuplicate).version, 2)
   const restored = restoreSaveData(JSON.parse(JSON.stringify(createSaveData(extraAndDuplicate))), [scenario])
   assert.equal(restored.ok, true)
-  assert.deepEqual(visibleChoices(scenario.nodes.menu, restored.state).map(option => option.id), ['talk', 'look', 'think'])
+  assert.deepEqual(visibleChoices(scenario.nodes.menu, restored.state).map(option => option.id), ['think'])
+  assert.strictEqual(choose(restored.state, 'talk'), restored.state)
+  assert.strictEqual(choose(restored.state, 'look'), restored.state)
   const missingOne = { ...restored.state, acquiredInformation: required.slice(1) }
   assert.strictEqual(choose(missingOne, 'think'), missingOne)
 })
@@ -246,7 +251,7 @@ test('途中セーブをロードし、取得済み情報を維持して最後�
 test('自由行動は固定順で、未実装・未知・条件未達のコマンドを表示と実行の両方で拒否する', () => {
   const options = [
     { id: 'move', label: '移動', next: 'brother', implemented: true },
-    { id: 'think', label: '考える', next: 'think' },
+    { id: 'think', label: '考える', next: 'think', condition: { type: 'hasAllInformation', ids: scenario.nodes.think.requiredInformation.map(info => info.id) } },
     { id: 'organize', label: '整理する', next: 'brother' },
     { id: 'look', label: '調べる', next: 'targets', condition: { type: 'flag', id: 'inspect-ready' } },
     { id: 'talk', label: '聞く', next: 'topics' },
@@ -254,12 +259,20 @@ test('自由行動は固定順で、未実装・未知・条件未達のコマ�
   ]
   const fixture = { ...scenario, nodes: { ...scenario.nodes, menu: { ...scenario.nodes.menu, options } } }
   const state = { ...createInitialState(fixture), nodeId: 'menu' }
-  assert.deepEqual(visibleChoices(fixture.nodes.menu, state).map(x => x.id), ['talk', 'think'])
+  assert.deepEqual(visibleChoices(fixture.nodes.menu, state).map(x => x.id), ['talk'])
   for (const id of ['look', 'organize', 'move', 'unknown']) {
     assert.strictEqual(reduceGameState(fixture, state, { type: 'choose', choiceId: id }), state)
   }
   const ready = { ...state, flags: { 'inspect-ready': true } }
-  assert.deepEqual(visibleChoices(fixture.nodes.menu, ready).map(x => x.id), ['talk', 'look', 'think'])
+  assert.deepEqual(visibleChoices(fixture.nodes.menu, ready).map(x => x.id), ['talk', 'look'])
+  assert.equal(reduceGameState(fixture, ready, { type: 'choose', choiceId: 'talk' }).nodeId, 'topics')
+  assert.equal(reduceGameState(fixture, ready, { type: 'choose', choiceId: 'look' }).nodeId, 'targets')
+  const complete = { ...ready, acquiredInformation: scenario.nodes.think.requiredInformation.map(info => info.id) }
+  assert.deepEqual(visibleChoices(fixture.nodes.menu, complete).map(x => x.id), ['think'])
+  for (const id of ['talk', 'look', 'organize', 'move', 'unknown']) {
+    assert.strictEqual(reduceGameState(fixture, complete, { type: 'choose', choiceId: id }), complete)
+  }
+  assert.equal(reduceGameState(fixture, complete, { type: 'choose', choiceId: 'think' }).nodeId, 'think')
   // 表示時に選べても、実行時の状態では条件を満たさなければ拒否する。
   assert.strictEqual(reduceGameState(fixture, state, { type: 'choose', choiceId: 'look' }), state)
   const unimplemented = { ...fixture, nodes: { ...fixture.nodes, menu: { ...fixture.nodes.menu, options: [{ id: 'talk', label: '聞く', next: 'topics', implemented: false }] } } }

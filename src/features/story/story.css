@@ -1,6 +1,8 @@
+@font-face { font-family: 'Zen Kaku Gothic New'; src: url('../../assets/fonts/zen-kaku-gothic-new-japanese-400-normal.woff2') format('woff2'); font-style: normal; font-weight: 400; font-display: swap; }
+@font-face { font-family: 'Zen Kaku Gothic New'; src: url('../../assets/fonts/zen-kaku-gothic-new-japanese-700-normal.woff2') format('woff2'); font-style: normal; font-weight: 700; font-display: swap; }
 :root { color-scheme: dark; --ink: #eadfcf; --muted: #aaa49a; --accent: #b8965a; --panel: #101922e6; }
 * { box-sizing: border-box; }
-body { margin: 0; overflow-x: hidden; background: #080d12; color: var(--ink); font-family: 'Yu Gothic', 'Hiragino Kaku Gothic ProN', sans-serif; }
+body { margin: 0; overflow-x: hidden; background: #080d12; color: var(--ink); font-family: 'Zen Kaku Gothic New', 'Yu Gothic', 'Hiragino Kaku Gothic ProN', sans-serif; }
 .game-shell { width: min(100vw, 177.777778svh); height: 100svh; margin: auto; display: grid; align-items: center; position: relative; container-type: inline-size; }
 button, summary { font: inherit; cursor: pointer; touch-action: manipulation; }
 button { color: inherit; background: transparent; border: 0; text-align: left; }
@@ -8,10 +10,11 @@ button:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); 
 button:disabled { cursor: default; color: var(--muted); }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
 /* 1u = 基準画面1920pxで1px。PC画面を16:9のままブラウザー内へ収める。 */
-.story { --u: .052083333cqw; --edge-x: calc(32 * var(--u)); --edge-y: calc(24 * var(--u)); --dialogue-height: calc(320 * var(--u)); --dialogue-font: calc(38 * var(--u)); --dialogue-padding-x: calc(48 * var(--u)); --dialogue-padding-y: calc(28 * var(--u)); --speaker-font: calc(32 * var(--u)); --speaker-gap: calc(20 * var(--u)); --hud-font: calc(28 * var(--u)); --hud-icon: calc(44 * var(--u)); --dialogue-background: rgb(16 25 34 / 68%); --command-width: calc(420 * var(--u)); --command-height: calc(88 * var(--u)); --command-gap: calc(12 * var(--u)); --command-padding: calc(16 * var(--u)); position: relative; isolation: isolate; display: grid; grid-template-areas: 'scene'; width: 100%; height: 56.25cqw; aspect-ratio: 16 / 9; overflow: hidden; font-size: calc(24 * var(--u)); background: #283039; }
+.story { --u: .052083333cqw; --edge-x: calc(32 * var(--u)); --edge-y: calc(24 * var(--u)); --dialogue-height: calc(320 * var(--u)); --dialogue-font: calc(38 * var(--u)); --dialogue-padding-x: calc(48 * var(--u)); --dialogue-padding-y: calc(28 * var(--u)); --speaker-font: calc(34 * var(--u)); --speaker-gap: calc(12 * var(--u)); --hud-font: calc(28 * var(--u)); --hud-icon: calc(44 * var(--u)); --dialogue-background: rgb(16 25 34 / 68%); --command-width: calc(420 * var(--u)); --command-height: calc(88 * var(--u)); --command-gap: calc(12 * var(--u)); --command-padding: calc(16 * var(--u)); position: relative; isolation: isolate; display: grid; grid-template-areas: 'scene'; width: 100%; height: 56.25cqw; aspect-ratio: 16 / 9; overflow: hidden; font-size: calc(24 * var(--u)); background: #283039; }
 .stage-wrapper, .story-toolbar, .message-window, .command-panel { grid-area: scene; min-width: 0; }
 .story-content { display: contents; }
 .stage-wrapper { position: relative; z-index: 0; overflow: hidden; }
+.stage-input-area { position: absolute; inset: 0; }
 .stage { position: absolute; inset: 0; background: linear-gradient(#676769, #323335); }
 .background-image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .background-label { position: absolute; top: 12%; left: 3%; color: var(--muted); }
@@ -31,9 +34,9 @@ button:disabled { cursor: default; color: var(--muted); }
 .scene-context span + span { color: var(--muted); font-size: var(--hud-font); }
 .save-controls { position: relative; pointer-events: auto; }
 .ui-icon { width: calc(32 * var(--u)); height: calc(32 * var(--u)); flex-shrink: 0; }
-.save-controls summary { display: flex; align-items: center; gap: calc(12 * var(--u)); list-style: none; }
+.toolbar-actions > button, .save-controls summary { display: flex; align-items: center; gap: calc(12 * var(--u)); white-space: nowrap; list-style: none; }
 .save-controls summary::-webkit-details-marker { display: none; }
-.save-controls summary .ui-icon { width: var(--hud-icon); height: var(--hud-icon); }
+.toolbar-actions > button .ui-icon, .save-controls summary .ui-icon { width: var(--hud-icon); height: var(--hud-icon); }
 .menu-caption { letter-spacing: .08em; }
 .save-controls summary:hover, .save-controls summary:focus-visible, .save-controls[open] summary { color: var(--accent); }
 .save-panel { position: absolute; left: 0; top: 100%; width: calc(320 * var(--u)); max-height: calc(750 * var(--u)); overflow-y: auto; padding: calc(12 * var(--u)); background: var(--panel); border-radius: 0 calc(4 * var(--u)) calc(4 * var(--u)) calc(4 * var(--u)); }
@@ -48,11 +51,11 @@ button:disabled { cursor: default; color: var(--muted); }
 /* buttonの標準配置に依存せず、名前・本文を上から積む。 */
 .dialogue-button { display: flex; flex-direction: column; justify-content: flex-start; align-items: stretch; gap: 0; padding: var(--dialogue-padding-y) var(--dialogue-padding-x); text-align: left; color: var(--ink); overflow: visible; }
 .dialogue-button:not(.thinking-message) { background: var(--dialogue-background); }
-.dialogue-button .speaker { position: relative; flex: 0 0 auto; margin: 0 0 var(--speaker-gap); font-size: var(--speaker-font); line-height: 1.25; }
-.dialogue-button .speaker::after { position: absolute; left: 0; bottom: calc(-10 * var(--u)); margin: 0; }
+.dialogue-button .speaker { position: relative; flex: 0 0 auto; margin: 0 0 var(--speaker-gap); color: #d4b780; font-size: var(--speaker-font); font-weight: 600; line-height: 1.25; }
+.dialogue-button .speaker::after { width: calc(56 * var(--u)); height: calc(2 * var(--u)); margin-top: calc(8 * var(--u)); background: #d4b780; }
 .dialogue-button .dialogue { flex: 0 0 auto; min-height: 4.5em; padding-right: calc(32 * var(--u)); text-shadow: 0 1px 2px #0008; }
 .speaker, .window-label { display: block; margin: 0 0 calc(12 * var(--u)); color: var(--accent); font-size: calc(28 * var(--u)); font-weight: normal; }
-.speaker::after { content: ''; display: block; width: calc(48 * var(--u)); height: 1px; margin-top: calc(8 * var(--u)); background: var(--accent); }
+.speaker::after { content: ''; display: block; width: calc(56 * var(--u)); height: calc(2 * var(--u)); margin-top: calc(8 * var(--u)); background: #d4b780; }
 .dialogue { display: block; margin: 0; font-size: var(--dialogue-font); line-height: 1.5; white-space: pre-wrap; overflow-wrap: anywhere; }
 .next { position: absolute; right: calc(24 * var(--u)); bottom: calc(16 * var(--u)); color: var(--accent); font-size: calc(26 * var(--u)); line-height: 1; animation: next-pulse 2s ease-in-out infinite; }
 @keyframes next-pulse { 50% { opacity: .35; } }

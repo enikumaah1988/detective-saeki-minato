@@ -47,7 +47,8 @@ test('自由行動は解放済みコマンドだけ表示し、一覧の条件�
   for (const label of ['聞く', '調べる']) assert.ok(menu.includes(label))
   assert.doesNotMatch(menu, /考える/)
   const completeMenu = render({ ...initial, nodeId: 'menu', acquiredInformation: scenario.nodes.think.requiredInformation.map(info => info.id) })
-  assert.match(completeMenu, /聞く[\s\S]*調べる[\s\S]*考える/)
+  assert.match(completeMenu, /考える/)
+  assert.doesNotMatch(completeMenu, /聞く|調べる/)
   const topics = { ...initial, nodeId: 'topics' }
   assert.doesNotMatch(render(topics), /最近の兄について/)
   assert.match(render(topics), /未実行/)
@@ -64,11 +65,12 @@ test('自由行動は解放済みコマンドだけ表示し、一覧の条件�
   assert.equal(choiceStatus(scenario.nodes.targets, { id: 'return' }, target), undefined)
 })
 
-test('考えるは選択肢ではなく佐伯の内心会話として表示する', () => {
+test('考えるは話者見出し・下線なしの本文だけで表示し、通常会話の話者表示は維持する', () => {
   const html = render({ ...createInitialState(scenario), nodeId: 'think' })
-  assert.match(html, /心の声/)
   assert.match(html, /まだ材料が足りない/)
+  assert.doesNotMatch(html, /class="speaker"|心の声/)
   assert.doesNotMatch(html, /command-list|item-list/)
+  assert.match(render(createInitialState(scenario)), /class="speaker">佐伯湊/)
 })
 
 test('保存操作は閉じたメニュー内にまとまり、画面は上下の構造を持つ', () => {

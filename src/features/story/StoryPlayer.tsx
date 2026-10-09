@@ -11,6 +11,7 @@ import { resolveBackground } from '../../data/presentation'
 import { InvestigationRecords } from './InvestigationRecords'
 import { SaveControls } from './SaveControls'
 import { DialogueWindow } from './DialogueWindow'
+import { UiIcon } from './UiIcon'
 
 const smokingCutIn = new URL('../../assets/cutins/minato-smoking.png', import.meta.url).href
 const nonSmokingCutIn = new URL('../../assets/cutins/minato-non-smoking.png', import.meta.url).href
@@ -34,7 +35,29 @@ export function StoryPlayer({ scenario, preview, smokingAllowed = false }: { sce
   }, [preview])
   const recordsButton = useRef<HTMLButtonElement>(null)
   const smokingButton = useRef<HTMLButtonElement>(null)
+  const dialogueRef = useRef<DialogueWindow>(null)
   const [restoreRevision, setRestoreRevision] = useState(0)
+
+  useEffect(() => {
+    const handleEnter = (event: KeyboardEvent) => {
+      if (event.key !== 'Enter' || event.repeat || event.altKey || event.ctrlKey || event.metaKey
+        || menuOpen || recordsOpen || smoking || node.type !== 'dialogue') return
+      const target = event.target
+      if (target instanceof HTMLElement) {
+        if (target.closest('input, textarea, select, [contenteditable="true"], summary, a, [role="button"], [role="dialog"], button:not(.dialogue-button)')) return
+        // 会話ボタンのEnterも同じactivateへ集約し、ブラウザーの合成clickとの二重入力を防ぐ。
+        if (!target.closest('.dialogue-button') && target.closest('button')) return
+      }
+      event.preventDefault()
+      dialogueRef.current?.activate()
+    }
+    window.addEventListener('keydown', handleEnter)
+    return () => window.removeEventListener('keydown', handleEnter)
+  }, [menuOpen, recordsOpen, smoking, node.type])
+
+  const advanceFromStage = () => {
+    if (!menuOpen && !recordsOpen && !smoking && node.type === 'dialogue') dialogueRef.current?.activate()
+  }
 
   return (
     <section className={`${'options' in node ? 'story has-commands' : 'story'}${menuOpen ? ' menu-open' : ''}${recordsOpen ? ' records-open' : ''}`} aria-label="会話シーン">
@@ -42,16 +65,18 @@ export function StoryPlayer({ scenario, preview, smokingAllowed = false }: { sce
         <span className="sr-only">{scenario.title}</span>
         <div className="toolbar-actions">
         <SaveControls state={gameState} scenario={scenario} onRestore={(state) => { send({ type: 'restore', state }); setRestoreRevision((value) => value + 1) }} onMenuToggle={(open) => send({ type: 'menu', open: open || recordsOpen })} />
-        <button ref={recordsButton} type="button" disabled={menuOpen} onClick={() => { setActivePreview(undefined); setRecordsOpen(true); send({ type: 'menu', open: true }) }}>調査記録</button>
-        <button ref={smokingButton} type="button" disabled={menuOpen || recordsOpen || Boolean(smoking)} onClick={() => { setSmoking({ allowed: smokingAllowed, phase: 'gesture', imageFailed: false }); send({ type: 'menu', open: true }) }}>タバコを吸う</button>
+        <button ref={recordsButton} type="button" disabled={menuOpen} onClick={() => { setActivePreview(undefined); setRecordsOpen(true); send({ type: 'menu', open: true }) }}><UiIcon name="notebook" /><span>調査記録</span></button>
+        <button ref={smokingButton} type="button" disabled={menuOpen || recordsOpen || Boolean(smoking)} onClick={() => { setSmoking({ allowed: smokingAllowed, phase: 'gesture', imageFailed: false }); send({ type: 'menu', open: true }) }}><UiIcon name="smoking" /><span>タバコを吸う</span></button>
         </div>
         <div className="scene-context"><span>{resolveBackground(node.stage.backgroundId).name}</span><span>日時未設定</span></div>
       </header>
       <div className={scenario.nodes[gameState.nodeId].type === 'think' ? 'stage-wrapper is-thinking' : 'stage-wrapper'}>
-        <StageView stage={node.stage} />
+        <div className="stage-input-area" onClick={advanceFromStage}>
+          <StageView stage={node.stage} />
+        </div>
       </div>
       <div className="story-content" inert={menuOpen}>
-      <StoryContent key={`${gameState.nodeId}:${restoreRevision}`} paused={menuOpen} node={node} state={gameState} thinking={scenario.nodes[gameState.nodeId].type === 'think'} dispatch={dispatch} />
+      <StoryContent key={`${gameState.nodeId}:${restoreRevision}`} paused={menuOpen} node={node} state={gameState} thinking={scenario.nodes[gameState.nodeId].type === 'think'} dispatch={dispatch} dialogueRef={dialogueRef} />
       </div>
       {smoking && <div className="smoking-overlay" role="dialog" aria-label="喫煙ヒント" aria-modal="true">
         {smoking.imageFailed
