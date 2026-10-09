@@ -10,12 +10,12 @@ export const characters: Record<string, CharacterDefinition> = {
     id: 'minato', name: '佐伯湊',
     expressions: {
       normal: { id: 'normal', name: '通常', imageSrc: new URL('../assets/characters/minato/normal.png', import.meta.url).href },
-      serious: { id: 'serious', name: '真剣', imageSrc: new URL('../assets/characters/minato/serious.svg', import.meta.url).href },
+      serious: { id: 'serious', name: '真剣', imageSrc: new URL('../assets/characters/minato/serious.png', import.meta.url).href },
     },
   },
   mio: {
     id: 'mio', name: '相澤澪',
-    expressions: { normal: { id: 'normal', name: '通常', imageSrc: new URL('../assets/characters/mio/normal.svg', import.meta.url).href } },
+    expressions: { normal: { id: 'normal', name: '通常', imageSrc: new URL('../assets/characters/mio/normal.png', import.meta.url).href } },
   },
 }
 
