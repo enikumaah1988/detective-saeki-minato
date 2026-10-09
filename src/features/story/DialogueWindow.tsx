@@ -4,7 +4,7 @@ import { graphemes, measureDialoguePages } from './pagination'
 export const CHARACTER_INTERVAL_MS = 35
 
 export class DialogueWindow extends Component<{
-  speaker: string; text: string; thinking: boolean; paused?: boolean; onAdvance: () => void
+  speaker: string; text: string; thinking: boolean; paused?: boolean; autoFocus?: boolean; onAdvance: () => void
 }, { visible: number; pages: string[]; page: number }> {
   state = { visible: 0, pages: [this.props.text], page: 0 }
   private timer?: ReturnType<typeof setInterval>
@@ -67,8 +67,9 @@ export class DialogueWindow extends Component<{
     const complete = this.state.visible >= this.characters.length
     return <button type="button" className={`message-window dialogue-button${this.props.thinking ? ' thinking-message' : ''}`}
       data-page={this.state.page + 1} data-pages={this.state.pages.length}
+      autoFocus={this.props.autoFocus}
       onClick={this.activate} aria-label="会話を次へ進める">
-      <span className="speaker">{this.props.speaker}</span>
+      {this.props.speaker && <span className="speaker">{this.props.speaker}</span>}
       <span className="dialogue" ref={this.body}><span aria-hidden="true">{this.characters.slice(0, this.state.visible).join('')}</span><span className="sr-only">{this.state.pages[this.state.page]}</span></span>
       {complete && <span className="next" aria-label="次へ">▼</span>}
     </button>

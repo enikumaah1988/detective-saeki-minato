@@ -114,7 +114,11 @@ button:disabled { cursor: default; color: var(--muted); }
 .record-portrait { width: calc(320 * var(--u)); max-width: 100%; height: calc(320 * var(--u)); margin-bottom: calc(24 * var(--u)); }
 .record-portrait-crop { position: absolute; top: 0; width: 125%; max-width: none; height: auto; left: -12.5%; }
 .record-portrait-thumb .record-portrait-crop { width: 200%; left: -50%; }
-.smoking-overlay { position: absolute; z-index: 4; inset: 0; display: grid; pointer-events: none; }
-.smoking-overlay .dialogue-button { pointer-events: auto; }
-.story:has(.smoking-overlay) .story-toolbar { pointer-events: none; }
+.smoking-overlay { position: absolute; z-index: 4; inset: 0; display: grid; pointer-events: none; background: #080d12; }
+.smoking-cut-in, .smoking-cut-in-fallback { position: absolute; inset: 0; width: 100%; height: 100%; }
+.smoking-cut-in { object-fit: cover; object-position: center; }
+.smoking-cut-in-fallback { background: radial-gradient(ellipse at 48% 35%, #303740 0, #151d26 54%, #080d12 100%); }
+.smoking-overlay .dialogue-button { position: absolute; left: 5%; bottom: var(--edge-y); z-index: 1; width: 90%; height: var(--dialogue-height); margin: 0; pointer-events: auto; }
+.story:has(.smoking-overlay) .smoking-overlay .dialogue-button { opacity: 1; }
+.story:has(.smoking-overlay) .story-toolbar { visibility: hidden; pointer-events: none; }
 .story:has(.smoking-overlay) > .story-content .message-window { visibility: hidden; }
