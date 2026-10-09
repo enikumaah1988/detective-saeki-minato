@@ -114,3 +114,7 @@ button:disabled { cursor: default; color: var(--muted); }
 .record-portrait { width: calc(320 * var(--u)); max-width: 100%; height: calc(320 * var(--u)); margin-bottom: calc(24 * var(--u)); }
 .record-portrait-crop { position: absolute; top: 0; width: 125%; max-width: none; height: auto; left: -12.5%; }
 .record-portrait-thumb .record-portrait-crop { width: 200%; left: -50%; }
+.smoking-overlay { position: absolute; z-index: 4; inset: 0; display: grid; pointer-events: none; }
+.smoking-overlay .dialogue-button { pointer-events: auto; }
+.story:has(.smoking-overlay) .story-toolbar { pointer-events: none; }
+.story:has(.smoking-overlay) > .story-content .message-window { visibility: hidden; }
