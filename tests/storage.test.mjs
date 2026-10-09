@@ -1,3 +1,4 @@
+const progress = { flags: {}, heardTopics: [], inspectedTargets: [], acquiredInformation: [] }
 import test, { before } from 'node:test'
 import assert from 'node:assert/strict'
 import { createServer } from 'vite'
@@ -19,12 +20,12 @@ function fakeStorage() {
     removeItem: (key) => values.delete(key),
   }
 }
-const state = { scenarioId: scenario.id, nodeId: 'decision' }
+const state = { ...progress, scenarioId: scenario.id, nodeId: 'decision' }
 
 test('最小情報を version 付き JSON として保存・取得・復元する', () => {
   const storage = fakeStorage()
   assert.deepEqual(saveGame(state, storage), { ok: true })
-  assert.deepEqual(JSON.parse(storage.getItem(SAVE_STORAGE_KEY)), { version: 1, ...state })
+  assert.deepEqual(JSON.parse(storage.getItem(SAVE_STORAGE_KEY)), { version: 2, ...state })
   assert.deepEqual(loadGame([scenario], storage), { ok: true, state })
 })
 
@@ -44,9 +45,9 @@ test('不正 JSON・形式・version・未知シナリオ・未知ノードを�
   for (const [json, reason] of [
     ['{broken', 'invalid-format'], ['', 'invalid-format'],
     [JSON.stringify({ version: 1 }), 'invalid-format'],
-    [JSON.stringify({ version: 2, ...state }), 'unsupported-version'],
-    [JSON.stringify({ version: 1, ...state, scenarioId: 'missing' }), 'unknown-scenario'],
-    [JSON.stringify({ version: 1, ...state, nodeId: 'missing' }), 'unknown-node'],
+    [JSON.stringify({ version: 3, ...state }), 'unsupported-version'],
+    [JSON.stringify({ version: 2, ...state, scenarioId: 'missing' }), 'unknown-scenario'],
+    [JSON.stringify({ version: 2, ...state, nodeId: 'missing' }), 'unknown-node'],
   ]) {
     storage.setItem(SAVE_STORAGE_KEY, json)
     assert.deepEqual(loadGame([scenario], storage), { ok: false, reason })
@@ -62,7 +63,7 @@ test('保存・進行・復元・新しいゲーム開始後の再ロードを�
   const result = loadGame([scenario], storage)
   assert.equal(result.ok, true)
   assert.deepEqual(reduceGameState(scenario, advanced, { type: 'restore', state: result.state }), state)
-  const fresh = { scenarioId: scenario.id, nodeId: scenario.start }
+  const fresh = { ...progress, scenarioId: scenario.id, nodeId: scenario.start }
   assert.deepEqual(reduceGameState(scenario, fresh, { type: 'restore', state: loadGame([scenario], storage).state }), state)
 })
 

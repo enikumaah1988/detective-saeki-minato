@@ -2,4 +2,8 @@
 export type GameState = {
   scenarioId: string
   nodeId: string
+  flags: Record<string, boolean>
+  heardTopics: string[]
+  inspectedTargets: string[]
+  acquiredInformation: string[]
 }

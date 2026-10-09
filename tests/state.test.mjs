@@ -1,3 +1,4 @@
+const progress = { flags: {}, heardTopics: [], inspectedTargets: [], acquiredInformation: [] }
 import test, { before } from 'node:test'
 import assert from 'node:assert/strict'
 import { createServer } from 'vite'
@@ -17,9 +18,9 @@ const choose = (state, choiceId) => reduceGameState(scenario, state, { type: 'ch
 const initial = () => createInitialState(scenario)
 const decision = () => advance(advance(initial()))
 
-test('初期状態は ID のみを持ち、表示情報を現在ノードから導出する', () => {
+test('初期状態は空の進捗を持ち、表示情報を現在ノードから導出する', () => {
   const state = initial()
-  assert.deepEqual(state, { scenarioId: 'demo-request', nodeId: 'request' })
+  assert.deepEqual(state, { ...progress, scenarioId: 'demo-request', nodeId: 'request' })
   const node = selectCurrentNode(scenario, state)
   assert.equal(node.type, 'dialogue')
   assert.equal(node.speakerId, 'minato')
@@ -79,7 +80,7 @@ test('別シナリオや存在しない現在ノードを検出する', () => {
 
 test('復元 action が会話・選択肢・終了と表情を反映する', () => {
   for (const nodeId of ['reply', 'decision', 'listen', 'end']) {
-    const saved = { scenarioId: scenario.id, nodeId }
+    const saved = { ...progress, scenarioId: scenario.id, nodeId }
     const restored = reduceGameState(scenario, initial(), { type: 'restore', state: saved })
     assert.deepEqual(restored, saved)
     assert.deepEqual(selectCurrentNode(scenario, restored), scenario.nodes[nodeId])
@@ -88,7 +89,7 @@ test('復元 action が会話・選択肢・終了と表情を反映する', () 
 
 test('不正な復元 action は現在状態を維持する', () => {
   const current = initial()
-  for (const saved of [{ scenarioId: 'unknown', nodeId: 'request' }, { scenarioId: scenario.id, nodeId: 'unknown' }]) {
+  for (const saved of [{ scenarioId: 'unknown', nodeId: 'request' }, { ...progress, scenarioId: scenario.id, nodeId: 'unknown' }]) {
     assert.strictEqual(reduceGameState(scenario, current, { type: 'restore', state: saved }), current)
   }
 })

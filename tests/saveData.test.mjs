@@ -1,3 +1,4 @@
+const progress = { flags: {}, heardTopics: [], inspectedTargets: [], acquiredInformation: [] }
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import { createSaveData, restoreSaveData, parseSaveData } from '../src/features/story/saveData.ts'
@@ -5,11 +6,11 @@ import { demoScenario as scenario } from '../src/data/scenario/demo.ts'
 import { getNode, transition } from '../src/features/story/progression.ts'
 
 const scenarios = [scenario]
-const state = { scenarioId: scenario.id, nodeId: scenario.start }
-const valid = { version: 1, ...state }
+const state = { ...progress, scenarioId: scenario.id, nodeId: scenario.start }
+const valid = { version: 2, ...state }
 const failure = (input, reason) => assert.deepEqual(restoreSaveData(input, scenarios), { ok: false, reason })
 
-test('GameState から独立した version 1 の最小セーブを作り復元する', () => {
+test('GameState から独立した version 2 のセーブを作り復元する', () => {
   const save = createSaveData(state)
   assert.deepEqual(save, valid)
   assert.notStrictEqual(save, state)
@@ -20,7 +21,7 @@ test('GameState から独立した version 1 の最小セーブを作り復元�
 
 test('会話・選択肢・両分岐・終了を JSON 往復して同じ状態と進行を再現する', () => {
   for (const nodeId of Object.keys(scenario.nodes)) {
-    const original = { scenarioId: scenario.id, nodeId }
+    const original = { ...progress, scenarioId: scenario.id, nodeId }
     const json = JSON.stringify(createSaveData(original))
     const parsed = JSON.parse(json)
     const result = restoreSaveData(parsed, scenarios)
@@ -51,7 +52,7 @@ test('不正な型・欠落・空 ID を拒否する', () => {
 })
 
 test('未対応 version は復元せず理由を返す', () => {
-  failure({ ...valid, version: 2 }, 'unsupported-version')
+  failure({ ...valid, version: 3 }, 'unsupported-version')
   failure({ ...valid, version: 999 }, 'unsupported-version')
 })
 

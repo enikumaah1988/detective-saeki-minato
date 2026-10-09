@@ -7,7 +7,8 @@ export type SaveDataV1 = {
 }
 
 // 対応バージョンを増やす際は、ここにバージョン別の型を追加する。
-export type SaveData = SaveDataV1
+export type SaveDataV2 = GameState & { version: 2 }
+export type SaveData = SaveDataV1 | SaveDataV2
 
 export type LoadFailureReason =
   | 'invalid-format'

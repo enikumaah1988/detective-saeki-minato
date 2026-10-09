@@ -1,3 +1,4 @@
+import { UiIcon } from './UiIcon'
 import { useState } from 'react'
 import type { GameState } from '../../types/gameState'
 import type { Scenario } from '../../types/scenario'
@@ -13,10 +14,11 @@ const loadMessages: Record<Extract<StoredLoadResult, { ok: false }>['reason'], s
   'storage-unavailable': 'ブラウザーの保存機能を利用できません。設定をご確認ください。',
 }
 
-export function SaveControls({ state, scenario, onRestore }: {
+export function SaveControls({ state, scenario, onRestore, onMenuToggle }: {
   state: GameState
   scenario: Scenario
   onRestore: (state: GameState) => void
+  onMenuToggle?: (open: boolean) => void
 }) {
   const [message, setMessage] = useState('セーブは1件です。セーブすると上書きされます。')
   const save = () => {
@@ -38,13 +40,16 @@ export function SaveControls({ state, scenario, onRestore }: {
   }
 
   return (
-    <div className="save-controls">
+    <details className="save-controls" onToggle={(event) => onMenuToggle?.(event.currentTarget.open)}>
+      <summary aria-label="メニュー"><UiIcon name="menu" /><span className="menu-caption">MENU</span></summary>
+      <div className="save-panel">
       <div className="save-actions" aria-label="セーブ操作">
-        <button type="button" onClick={save}>セーブ</button>
-        <button type="button" onClick={load}>ロード</button>
-        <button type="button" onClick={remove}>セーブデータ削除</button>
+        <button type="button" onClick={save}><UiIcon name="save" /><span>セーブ</span></button>
+        <button type="button" onClick={load}><UiIcon name="load" /><span>ロード</span></button>
+        <button type="button" onClick={remove}><UiIcon name="delete" /><span>セーブデータ削除</span></button>
       </div>
       <p role="status">{message}</p>
-    </div>
+      </div>
+    </details>
   )
 }

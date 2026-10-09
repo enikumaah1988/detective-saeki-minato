@@ -12,7 +12,7 @@ export function transition(scenario: Scenario, nodeId: string, action: StoryActi
   const node = getNode(scenario, nodeId)
   let next = nodeId
   if (node.type === 'dialogue' && action.type === 'advance') next = node.next
-  if (node.type === 'choice' && action.type === 'choose') {
+  if ((node.type === 'choice' || node.type === 'topic' || node.type === 'inspect') && action.type === 'choose') {
     next = node.options.find((option) => option.id === action.choiceId)?.next ?? nodeId
   }
   getNode(scenario, next)
