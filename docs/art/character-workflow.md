@@ -99,4 +99,8 @@ README.mdの承認済み構成に従う。src/assets/images/配下を用途別�
 
 
 ## 最新の正本と履歴
-人物仕様は src/assets/images/characters/<id>/profile.md。試作は同階層の drafts/。history/ は移行前の記録であり更新しない。過去の配置・採用状況が矛盾する場合は現行プロフィールと制作ガイドを優先する。同一画像の二重コピーを維持しない。
+人物仕様は docs/art/characters/<id>/profile.md。設定資料採用後は同階層の sheet.png、試作は drafts/。history/ は移行前の記録であり更新しない。過去の配置・採用状況が矛盾する場合は現行プロフィールと制作ガイドを優先する。同一画像の二重コピーを維持しない。
+
+
+## 設定資料とゲーム画像
+設定資料は docs/art/characters/<id>/sheet.png。採用未確定なら drafts/ に残す。ゲーム用画像だけ src/assets/images/characters/<id>/ に置く。採用状態を勝手に変更しない。配置の詳細は README.md を優先する。

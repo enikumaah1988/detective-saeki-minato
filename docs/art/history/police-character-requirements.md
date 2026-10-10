@@ -62,16 +62,16 @@
 
 ## 奥村・瀬川：全身試作1の台帳
 - 2026-10-10：ユーザー依頼により両名の全身サンプルを制作。いずれも確認用、採用未確定。正式なゲーム素材ではない。
-- 奥村：../../../src/assets/images/characters/okumura/drafts/prototype-01-full-body.png。送付画像の顔・骨格・年齢感・スーツ姿をベースに、共通作風へ合わせた通常全身像。実年齢は未決。
-- 瀬川：../../../src/assets/images/characters/segawa/drafts/prototype-01-full-body.png。27歳、黒い短髪、ひげ・眼鏡なし、濃紺スーツと無地ネクタイの新規仮案。生成結果の前髪は要件案よりやや長く、整い方はユーザー確認で調整する。
+- 奥村：../characters/okumura/drafts/prototype-01-full-body.png。送付画像の顔・骨格・年齢感・スーツ姿をベースに、共通作風へ合わせた通常全身像。実年齢は未決。
+- 瀬川：../characters/segawa/drafts/prototype-01-full-body.png。27歳、黒い短髪、ひげ・眼鏡なし、濃紺スーツと無地ネクタイの新規仮案。生成結果の前髪は要件案よりやや長く、整い方はユーザー確認で調整する。
 - 各フォルダーのprototype-01-prompt.mdに組み込みimage_genの生成条件を保存。
 - 奥村の生成元：C:/Users/lemon/.codex/generated_images/01a123a2-b46f-77d3-b27e-a7f8a37b3920/exec-bfc6319d-a874-4586-8b16-08a22b74b6b4.png
 - 瀬川の生成元：C:/Users/lemon/.codex/generated_images/01a123a2-b46f-77d3-b27e-a7f8a37b3920/exec-73c413e3-2b31-44e4-bf53-68b5263864be.png
 
 ## 瀬川：色調修正版・試作2
 - 2026-10-10：ユーザー指定でスーツをもう少し明るめの紺、髪をもう少し明るめに変更。髪色は制作上の仮案として自然なダークブラウンで表現。顔・髪型・姿勢・その他の衣装は維持を指示。
-- 試作採用画像：../../../src/assets/images/characters/segawa/drafts/prototype-02-brighter-navy.png。ユーザー承認済み。試作1は色調変更前の旧版として保持。
-- 生成条件：../../../src/assets/images/characters/segawa/drafts/prototype-02-prompt.md。組み込みimage_gen使用。
+- 試作採用画像：../characters/segawa/drafts/prototype-02-brighter-navy.png。ユーザー承認済み。試作1は色調変更前の旧版として保持。
+- 生成条件：../characters/segawa/drafts/prototype-02-prompt.md。組み込みimage_gen使用。
 - 生成元：C:/Users/lemon/.codex/generated_images/01a123a2-b46f-77d3-b27e-a7f8a37b3920/exec-45973e6e-a2fb-4ed1-9984-9afe7b9457ba.png
 
 - 2026-10-10：ユーザーの「いいね」を受け、瀬川の試作2を試作採用。少し明るい紺スーツとダークブラウンの髪を後続画像の参照基準にする。正式ゲーム素材の完成とは扱わない。奥村も全身試作1を試作採用（後続のユーザー承認を反映）。
@@ -83,14 +83,14 @@
 ## 瀬川：表情の強さを更新
 - ユーザー指定：瀬川はもっと露骨に感情が出てよい。従来の控えめな表情方針より、この指示を優先する。
 - 試作修正：疑念は疑う目、苛立ちは強い眉間と締まった口、煙たさは横へ逸らした半眼と不機嫌な口元。真剣・驚き・安堵も通常との差を強める。真面目で有能な人物の核は維持。
-- 最新確認画像：../../../src/assets/images/characters/segawa/drafts/expression-batch02-1920.png。1920×1080px。未採用・確認待ち。
+- 最新確認画像：../characters/segawa/drafts/expression-batch02-1920.png。1920×1080px。未採用・確認待ち。
 - 原本と生成条件は同フォルダーのexpression-batch02-original.png、expression-batch02-prompt.md。旧版は保持。
 - 2026-10-10：表情強調版を制作・保存。個別素材への採用はユーザー確認後。
 
 ## 2026-10-10：奥村・瀬川の手帳を撤回
 - 【ユーザー指定】基本表情確認シートでは奥村・瀬川に手帳を持たせない。過去の手帳付き所作案に優先する。
 - 瀬川のペンも今回の修正で外し、小物なしの手振り・腕組み・思案の所作へ変更（制作上の判断）。
-- 奥村の最新確認画像：../../../src/assets/images/characters/okumura/drafts/expression-batch03-1920.png。
-- 瀬川の最新確認画像：../../../src/assets/images/characters/segawa/drafts/expression-batch04-1920.png。
+- 奥村の最新確認画像：../characters/okumura/drafts/expression-batch03-1920.png。
+- 瀬川の最新確認画像：../characters/segawa/drafts/expression-batch04-1920.png。
 - 両画像1920×1080、試作・採用確認待ち。旧版は履歴として保持。
 - 人物が物語の中で手帳を使うかどうかの設定変更は行わない。

@@ -8,11 +8,11 @@
 
 | 人物 | 表情数 | 確認画像 |
 |---|---|---|
-| 佐伯湊 | 7 | [画像](../../../src/assets/images/characters/minato/drafts/expression-batch02-1920.png) |
-| 相澤澪 | 8 | [画像](../../../src/assets/images/characters/mio/drafts/expression-batch02-1920.png) |
-| 鳴海ユウ | 8 | [画像](../../../src/assets/images/characters/narumi/drafts/expression-batch02-1920.png) |
-| 奥村修一 | 7 | [画像](../../../src/assets/images/characters/okumura/drafts/expression-batch03-1920.png) |
-| 瀬川亮介 | 8 | [画像](../../../src/assets/images/characters/segawa/drafts/expression-batch04-1920.png) |
+| 佐伯湊 | 7 | [画像](../characters/minato/drafts/expression-batch02-1920.png) |
+| 相澤澪 | 8 | [画像](../characters/mio/drafts/expression-batch02-1920.png) |
+| 鳴海ユウ | 8 | [画像](../characters/narumi/drafts/expression-batch02-1920.png) |
+| 奥村修一 | 7 | [画像](../characters/okumura/drafts/expression-batch03-1920.png) |
+| 瀬川亮介 | 8 | [画像](../characters/segawa/drafts/expression-batch04-1920.png) |
 
 ## 確認事項
 - 通常と真剣、微笑みと安堵などの差が小さい場合は、採用時に修正または兼用を決める。
@@ -37,7 +37,7 @@
 ## 2026-10-10：奥村・瀬川の手帳を撤回
 - 【ユーザー指定】基本表情確認シートでは奥村・瀬川に手帳を持たせない。過去の手帳付き所作案に優先する。
 - 瀬川のペンも今回の修正で外し、小物なしの手振り・腕組み・思案の所作へ変更（制作上の判断）。
-- 奥村の最新確認画像：../../../src/assets/images/characters/okumura/drafts/expression-batch03-1920.png。
-- 瀬川の最新確認画像：../../../src/assets/images/characters/segawa/drafts/expression-batch04-1920.png。
+- 奥村の最新確認画像：../characters/okumura/drafts/expression-batch03-1920.png。
+- 瀬川の最新確認画像：../characters/segawa/drafts/expression-batch04-1920.png。
 - 両画像1920×1080、試作・採用確認待ち。旧版は履歴として保持。
 - 人物が物語の中で手帳を使うかどうかの設定変更は行わない。

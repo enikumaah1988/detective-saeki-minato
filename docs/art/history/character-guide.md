@@ -88,8 +88,8 @@ PC内のファイル保存はChatGPTプロジェクトへのアップロード�
 
 
 ## 鳴海ユウ：画像台帳
-- ../../../src/assets/images/characters/narumi/drafts/prototype-01-full-body.png：通常の軽い笑み、浅い斜め向き、全身。確認用、採用未確定。
-- 生成条件：../../../src/assets/images/characters/narumi/drafts/prototype-01-prompt.md。組み込みimage_gen使用。
+- ../characters/narumi/drafts/prototype-01-full-body.png：通常の軽い笑み、浅い斜め向き、全身。確認用、採用未確定。
+- 生成条件：../characters/narumi/drafts/prototype-01-prompt.md。組み込みimage_gen使用。
 - 生成元：C:/Users/lemon/.codex/generated_images/01a123a2-b46f-77d3-b27e-a7f8a37b3920/exec-67c5a8d8-a2e6-4f9d-8d0e-8de0bdd083c2.png
 - 2026-10-10：鳴海ユウの全身試作1を保存。元画像は保持し、採用判断を待つ。
 
@@ -122,16 +122,16 @@ PC内のファイル保存はChatGPTプロジェクトへのアップロード�
 
 ## 奥村・瀬川：全身試作1の台帳
 - 2026-10-10：ユーザー依頼により両名の全身サンプルを制作。いずれも確認用、採用未確定。正式なゲーム素材ではない。
-- 奥村：../../../src/assets/images/characters/okumura/drafts/prototype-01-full-body.png。送付画像の顔・骨格・年齢感・スーツ姿をベースに、共通作風へ合わせた通常全身像。実年齢は未決。
-- 瀬川：../../../src/assets/images/characters/segawa/drafts/prototype-01-full-body.png。27歳、黒い短髪、ひげ・眼鏡なし、濃紺スーツと無地ネクタイの新規仮案。生成結果の前髪は要件案よりやや長く、整い方はユーザー確認で調整する。
+- 奥村：../characters/okumura/drafts/prototype-01-full-body.png。送付画像の顔・骨格・年齢感・スーツ姿をベースに、共通作風へ合わせた通常全身像。実年齢は未決。
+- 瀬川：../characters/segawa/drafts/prototype-01-full-body.png。27歳、黒い短髪、ひげ・眼鏡なし、濃紺スーツと無地ネクタイの新規仮案。生成結果の前髪は要件案よりやや長く、整い方はユーザー確認で調整する。
 - 各フォルダーのprototype-01-prompt.mdに組み込みimage_genの生成条件を保存。
 - 奥村の生成元：C:/Users/lemon/.codex/generated_images/01a123a2-b46f-77d3-b27e-a7f8a37b3920/exec-bfc6319d-a874-4586-8b16-08a22b74b6b4.png
 - 瀬川の生成元：C:/Users/lemon/.codex/generated_images/01a123a2-b46f-77d3-b27e-a7f8a37b3920/exec-73c413e3-2b31-44e4-bf53-68b5263864be.png
 
 ## 瀬川：色調修正版・試作2
 - 2026-10-10：ユーザー指定でスーツをもう少し明るめの紺、髪をもう少し明るめに変更。髪色は制作上の仮案として自然なダークブラウンで表現。顔・髪型・姿勢・その他の衣装は維持を指示。
-- 試作採用画像：../../../src/assets/images/characters/segawa/drafts/prototype-02-brighter-navy.png。ユーザー承認済み。試作1は色調変更前の旧版として保持。
-- 生成条件：../../../src/assets/images/characters/segawa/drafts/prototype-02-prompt.md。組み込みimage_gen使用。
+- 試作採用画像：../characters/segawa/drafts/prototype-02-brighter-navy.png。ユーザー承認済み。試作1は色調変更前の旧版として保持。
+- 生成条件：../characters/segawa/drafts/prototype-02-prompt.md。組み込みimage_gen使用。
 - 生成元：C:/Users/lemon/.codex/generated_images/01a123a2-b46f-77d3-b27e-a7f8a37b3920/exec-45973e6e-a2fb-4ed1-9984-9afe7b9457ba.png
 
 - 2026-10-10：ユーザーの「いいね」を受け、瀬川の試作2を試作採用。少し明るい紺スーツとダークブラウンの髪を後続画像の参照基準にする。正式ゲーム素材の完成とは扱わない。奥村も全身試作1を試作採用（後続のユーザー承認を反映）。
@@ -142,7 +142,7 @@ PC内のファイル保存はChatGPTプロジェクトへのアップロード�
 
 ## 湊：表情確認シートの試作
 - 全身＋顔〜肩の6表情を並べる比較用シート。ゲーム用立ち絵差分とは別用途で、切り抜きを完成素材としない。
-- 最新：../../../src/assets/images/characters/minato/drafts/expression-sheet-02.png。確認待ち。通常、微笑み、真剣、驚き、苛立ち、沈痛の6種類を仮選択。人物別必要性を確定したものではない。
+- 最新：../characters/minato/drafts/expression-sheet-02.png。確認待ち。通常、微笑み、真剣、驚き、苛立ち、沈痛の6種類を仮選択。人物別必要性を確定したものではない。
 - 方式：組み込みimage_gen、透過を指定。生成条件はexpression-sheet-02-prompt.md。
 - 実ファイルサイズ：1536x1024。左上ピクセルのアルファ：0。アルファが存在するが、人物周辺の半透明のにじみ・影を含む可能性があり、完成素材には透過の追加確認が必要。
 - シートの共通サイズは今回の寸法を候補とする。個別立ち絵の1024x1536は未確定の仮案。全員の共通仕様はユーザー確認後に確定する。
@@ -153,9 +153,9 @@ PC内のファイル保存はChatGPTプロジェクトへのアップロード�
 - 【ユーザー承認】一覧シートは透過にせず、人が見やすい設定資料風にする。薄いニュートラルグレーの背景、控えめな枠、人物名、日本語表情名と管理キーを表示。
 - 左に通常の全身像、右に同じ大きさ・角度の顔〜肩の表情を整列。シート自体の共通サイズ・レイアウトは試作確認後に決める。
 - 個別ゲーム素材は透過PNG、全身、用途内で共通サイズ。シートを切り抜いて完成素材にはしない。
-- 湊の最新シート：../../../src/assets/images/characters/minato/drafts/expression-sheet-03-reference.png。通常／微笑み／真剣／驚き／苛立ち／沈痛の6表情。確認用、採用未確定。全必要表情を確定したものではない。
+- 湊の最新シート：../characters/minato/drafts/expression-sheet-03-reference.png。通常／微笑み／真剣／驚き／苛立ち／沈痛の6表情。確認用、採用未確定。全必要表情を確定したものではない。
 - 実サイズ：1536x1024。左上アルファ：255。背景付きの一覧用画像として保存。
-- 生成条件：../../../src/assets/images/characters/minato/drafts/expression-sheet-03-prompt.md。組み込みimage_gen使用。
+- 生成条件：../characters/minato/drafts/expression-sheet-03-prompt.md。組み込みimage_gen使用。
 - 生成元：C:/Users/lemon/.codex/generated_images/01a123a2-b46f-77d3-b27e-a7f8a37b3920/exec-58e26be0-91af-416c-9004-3c455594c866.png
 - expression-sheet-02.pngは透過一覧の旧試作として保持。今後の一覧シートに透過仕様は適用しない。
 
@@ -167,9 +167,9 @@ PC内のファイル保存はChatGPTプロジェクトへのアップロード�
 - 奥村：neutral, smile, serious, surprised, stern, pained, relieved。
 - 瀬川：neutral, smile, serious, surprised, skeptical, irritated, reluctant, relieved。
 - 強い怒り・喜び・笑いは必要場面が決まるまで保留。
-- 湊の最新確認シート：../../../src/assets/images/characters/minato/drafts/expression-sheet-04-seven.png。背景付き、全身＋7表情、右下は追加用空欄。確認待ち、表情画像の採用や個別ゲーム素材の完成は未確定。
+- 湊の最新確認シート：../characters/minato/drafts/expression-sheet-04-seven.png。背景付き、全身＋7表情、右下は追加用空欄。確認待ち、表情画像の採用や個別ゲーム素材の完成は未確定。
 - 実画像サイズ：1774x887。7〜8表情を並べるため4列×2段へ変更した試作。旧6表情版と寸法が異なる場合は、共通シートサイズとして自動確定しない。共通サイズは最終レイアウト確認時に統一する。
-- 生成条件：../../../src/assets/images/characters/minato/drafts/expression-sheet-04-prompt.md。組み込みimage_gen使用。
+- 生成条件：../characters/minato/drafts/expression-sheet-04-prompt.md。組み込みimage_gen使用。
 - 生成元：C:/Users/lemon/.codex/generated_images/01a123a2-b46f-77d3-b27e-a7f8a37b3920/exec-8c43517b-dc95-4620-8a62-0d8016749c6b.png
 
 - 2026-10-10：表情確認シートは1920×1080pxで確定。左に通常全身、右に4列×2段・最大8表情。少なければ空欄、超過は基本優先で掲載省略。背景付き設定資料形式。既存シートのサイズ調整は未実施。
@@ -182,18 +182,18 @@ PC内のファイル保存はChatGPTプロジェクトへのアップロード�
 ## 瀬川：表情の強さを更新
 - ユーザー指定：瀬川はもっと露骨に感情が出てよい。従来の控えめな表情方針より、この指示を優先する。
 - 試作修正：疑念は疑う目、苛立ちは強い眉間と締まった口、煙たさは横へ逸らした半眼と不機嫌な口元。真剣・驚き・安堵も通常との差を強める。真面目で有能な人物の核は維持。
-- 最新確認画像：../../../src/assets/images/characters/segawa/drafts/expression-batch02-1920.png。1920×1080px。未採用・確認待ち。
+- 最新確認画像：../characters/segawa/drafts/expression-batch02-1920.png。1920×1080px。未採用・確認待ち。
 - 原本と生成条件は同フォルダーのexpression-batch02-original.png、expression-batch02-prompt.md。旧版は保持。
 - 2026-10-10：表情強調版を制作・保存。個別素材への採用はユーザー確認後。
 
 ## 澪：手の所作付き表情シート
 - 【ユーザー承認方向】澪は女性らしい柔らかく丁寧な手の動きでも感情を表す。説明や判断にも使える所作にし、甘い仕草に偏らせない。他人物も性格に合う手の動きを必要な差分に加える。
-- 最新確認画像：../../../src/assets/images/characters/mio/drafts/expression-batch02-1920.png。背景付き、1920×1080px、全身＋8表情。確認待ち、採用未確定。旧版は保持。
+- 最新確認画像：../characters/mio/drafts/expression-batch02-1920.png。背景付き、1920×1080px、全身＋8表情。確認待ち、採用未確定。旧版は保持。
 - 所作試作：通常・微笑みは手を前でそろえる／重ねる。楽しげは髪を耳にかける。真剣は片手のひらを開いて説明。驚きは頬の近くへ手を上げる。心配・安堵は胸元へ手を添える。沈痛は手を軽く組む。
 - 表情と所作は別項目のまま組み合わせる。胸に手を添えるなど同じ所作でも、顔や手の力で感情を変える。
 - シートの所作付き枠は顔〜肩限定を解除し、頭から胸〜腰まで見せて手を収める。1920×1080と最大8枠は維持。顔が小さくなるため、必要時は顔の確認画像を別に見る。
 - 個別ゲーム素材は引き続き透過・全身。顔のみ変更する差分と、所作付き差分を区別する。
-- 生成条件：../../../src/assets/images/characters/mio/drafts/expression-batch02-prompt.md。組み込みimage_gen使用。
+- 生成条件：../characters/mio/drafts/expression-batch02-prompt.md。組み込みimage_gen使用。
 - 2026-10-10：澪の所作付きシートを制作。ほかの人物の所作付き修正は未制作。
 
 ## 2026-10-10：手の所作を主要人物へ展開
@@ -209,7 +209,7 @@ PC内のファイル保存はChatGPTプロジェクトへのアップロード�
 ## 2026-10-10：奥村・瀬川の手帳を撤回
 - 【ユーザー指定】基本表情確認シートでは奥村・瀬川に手帳を持たせない。過去の手帳付き所作案に優先する。
 - 瀬川のペンも今回の修正で外し、小物なしの手振り・腕組み・思案の所作へ変更（制作上の判断）。
-- 奥村の最新確認画像：../../../src/assets/images/characters/okumura/drafts/expression-batch03-1920.png。
-- 瀬川の最新確認画像：../../../src/assets/images/characters/segawa/drafts/expression-batch04-1920.png。
+- 奥村の最新確認画像：../characters/okumura/drafts/expression-batch03-1920.png。
+- 瀬川の最新確認画像：../characters/segawa/drafts/expression-batch04-1920.png。
 - 両画像1920×1080、試作・採用確認待ち。旧版は履歴として保持。
 - 人物が物語の中で手帳を使うかどうかの設定変更は行わない。

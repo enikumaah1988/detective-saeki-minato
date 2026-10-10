@@ -28,5 +28,5 @@
 - 最新修正の方向：キャップのつば、おちゃらけの手、冷ややかに手でかわす。ジャケットなし、淡いジーンズの試作2を参照。
 - 表情キー：neutral, amused, playful, smirk, serious, surprised, cool, wary。
 - 個別透過全身素材は未制作。その共通寸法は未確定。
-- 共通ルール：[制作ガイド](../../../../../docs/art/README.md)。
-- 過去の判断：[移行前台帳](../../../../../docs/art/history/character-guide.md)。現在の仕様を優先する。
+- 共通ルール：[制作ガイド](../../README.md)。
+- 過去の判断：[移行前台帳](../../history/character-guide.md)。現在の仕様を優先する。

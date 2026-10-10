@@ -29,5 +29,5 @@
 - 最新修正の方向：柔らかく丁寧な手の動き。説明の開いた手、髪を耳にかける、胸元へ手を添える。将来の湊・澪視点進行は未決。第1話で恋愛関係の変化は扱わない。
 - 表情キー：neutral, smile, amused, serious, surprised, worried, pained, relieved。
 - 個別透過全身素材は未制作。その共通寸法は未確定。
-- 共通ルール：[制作ガイド](../../../../../docs/art/README.md)。
-- 過去の判断：[移行前台帳](../../../../../docs/art/history/character-guide.md)。現在の仕様を優先する。
+- 共通ルール：[制作ガイド](../../README.md)。
+- 過去の判断：[移行前台帳](../../history/character-guide.md)。現在の仕様を優先する。

@@ -22,5 +22,5 @@
 - 最新修正の方向：手帳・ペンなし。感情は露骨に出してよい。問いかけ、苛立ちの手、煙たさの腕組み。湊を煙たがる具体的理由は未決。
 - 表情キー：neutral, smile, serious, surprised, skeptical, irritated, reluctant, relieved。
 - 個別透過全身素材は未制作。その共通寸法は未確定。
-- 共通ルール：[制作ガイド](../../../../../docs/art/README.md)。
-- 過去の判断：[移行前台帳](../../../../../docs/art/history/character-guide.md)。現在の仕様を優先する。
+- 共通ルール：[制作ガイド](../../README.md)。
+- 過去の判断：[移行前台帳](../../history/character-guide.md)。現在の仕様を優先する。
