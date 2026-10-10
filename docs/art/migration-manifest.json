@@ -1,0 +1,234 @@
+[
+  {
+    "path": "src/assets/images/characters/minato/drafts/expression-batch01-1920.png",
+    "sha256": "4D23AD4DE96CA9A9F491C727A4661C6F118233393683B0295E81AC0268AE05C0"
+  },
+  {
+    "path": "src/assets/images/characters/minato/drafts/expression-batch01-original.png",
+    "sha256": "16286A5E0D116FE82F79CAF85FB53F3DF579E99343661FDF5836485CA0357CCA"
+  },
+  {
+    "path": "src/assets/images/characters/minato/drafts/expression-batch01-prompt.md",
+    "sha256": "EE8F6349834C95BCC8147B5260E0C8EF885554F56F2D5BF5041DCFD3C80897FC"
+  },
+  {
+    "path": "src/assets/images/characters/minato/drafts/expression-batch02-1920.png",
+    "sha256": "E9F573184493CEBF7432849DFFE420290C0E4D45CB1F93E40C1EDF5334EB49E3"
+  },
+  {
+    "path": "src/assets/images/characters/minato/drafts/expression-batch02-original.png",
+    "sha256": "DAB643249573EAB4563EEFDB8DBFE1D4F3CFD9F113E1B02F2B2C1296FDD3EDBA"
+  },
+  {
+    "path": "src/assets/images/characters/minato/drafts/expression-batch02-prompt.md",
+    "sha256": "CAB2AE1234E6016460BF82404D3B85B73710A03EA5FAC48156A8D76110BAC13F"
+  },
+  {
+    "path": "src/assets/images/characters/minato/drafts/expression-sheet-02-prompt.md",
+    "sha256": "27610D2EB72872B92BDC815DC447C8F44D0216F8B6FF176BE75EF194FAB4F83B"
+  },
+  {
+    "path": "src/assets/images/characters/minato/drafts/expression-sheet-02.png",
+    "sha256": "4FC1747FBA163B41B0A09B89C756EA1BE7A22617F896086356BFE5CF52BB01BE"
+  },
+  {
+    "path": "src/assets/images/characters/minato/drafts/expression-sheet-03-prompt.md",
+    "sha256": "AD00D22E614E82CBB9550992C55D904450250C14C14F7356F66FD0600606AF5C"
+  },
+  {
+    "path": "src/assets/images/characters/minato/drafts/expression-sheet-03-reference.png",
+    "sha256": "273F1E004EA472DCCE31EA8A86E2374C1591868AEB5A0DB3B84733715FBC4815"
+  },
+  {
+    "path": "src/assets/images/characters/minato/drafts/expression-sheet-04-prompt.md",
+    "sha256": "D0D72E78DC999460F7B91E40F2F31BA6F4E416EBD6989A01286F4BF71493BCF0"
+  },
+  {
+    "path": "src/assets/images/characters/minato/drafts/expression-sheet-04-seven.png",
+    "sha256": "8C3996D1A988CA3BF97A89EFE2043D672315955F63FBD3C65B9AAABA68816606"
+  },
+  {
+    "path": "src/assets/images/characters/minato/drafts/prototype-01-knee-up.png",
+    "sha256": "B2F7076F9FB0CCE6968AF7FC5D37B2F1E97210CC3A988B8DE58281285FBD4151"
+  },
+  {
+    "path": "src/assets/images/characters/minato/drafts/prototype-02-full-body.png",
+    "sha256": "442E220C94C28DE192BD6CAD1BA27B2A66F92943BCC9A87902EEEE68F4CF8B42"
+  },
+  {
+    "path": "src/assets/images/characters/mio/drafts/expression-batch01-1920.png",
+    "sha256": "6D739169A8C10FBD5726FC20EC851203EFE132A973633A8426185743405B21F4"
+  },
+  {
+    "path": "src/assets/images/characters/mio/drafts/expression-batch01-original.png",
+    "sha256": "C435A2AF58C01C2986154C1387145A1935B4305DA5A5D6145FA84865A6EBD146"
+  },
+  {
+    "path": "src/assets/images/characters/mio/drafts/expression-batch01-prompt.md",
+    "sha256": "FA213DC35973960E2CB1280BF97B8683E4609DB2BDC87AF44F2AE7C71638ECA6"
+  },
+  {
+    "path": "src/assets/images/characters/mio/drafts/expression-batch02-1920.png",
+    "sha256": "8BA80DB9A8D8E8080006C5F0B0EA6869D97D6545588D5219F0484D1128ECD773"
+  },
+  {
+    "path": "src/assets/images/characters/mio/drafts/expression-batch02-original.png",
+    "sha256": "7C2956B2CC9728DB7788CE5FEE70BE85186D0DAD6D6CF3AB1911E00C462FDE11"
+  },
+  {
+    "path": "src/assets/images/characters/mio/drafts/expression-batch02-prompt.md",
+    "sha256": "8B89580618774E58419BF1DEF1F2A593E1EA1A4D20F7E6C092D03160FDE02B4E"
+  },
+  {
+    "path": "src/assets/images/characters/mio/drafts/prototype-03-blue-full-body.png",
+    "sha256": "98A15BB86599990F984D2F69D0099F973D027B5BB42ECA0570C5A1290A262D4E"
+  },
+  {
+    "path": "src/assets/images/characters/narumi/drafts/expression-batch01-1920.png",
+    "sha256": "193AA63F7C3C2D612D9F4A4AA0A74F57F909380ABE60C3777FA1A1B168ED745B"
+  },
+  {
+    "path": "src/assets/images/characters/narumi/drafts/expression-batch01-original.png",
+    "sha256": "ADA79CFC31B86AE9A28B2363EB1C903BFF609D0C50A0210BC059E16C1A0FB353"
+  },
+  {
+    "path": "src/assets/images/characters/narumi/drafts/expression-batch01-prompt.md",
+    "sha256": "F03C919CA529FF34440E92F5C139E295F78B57E407CC66D1E2E2CDC837E3AAE9"
+  },
+  {
+    "path": "src/assets/images/characters/narumi/drafts/expression-batch02-1920.png",
+    "sha256": "23793B5A5B3E13C519C5EB7333910124F1DF853B989E6526471336C8AB66EB50"
+  },
+  {
+    "path": "src/assets/images/characters/narumi/drafts/expression-batch02-original.png",
+    "sha256": "B5AB5AA2C5B93092C8DF07886D1BD5605B4DDEE44EAA88ADE671BD7B7A36F9F7"
+  },
+  {
+    "path": "src/assets/images/characters/narumi/drafts/expression-batch02-prompt.md",
+    "sha256": "A2A4B201597FDD736836E8665429B5BCDF03A4BC913E3E0F42F6F54FFE3D5A1A"
+  },
+  {
+    "path": "src/assets/images/characters/narumi/drafts/prototype-01-full-body.png",
+    "sha256": "13367E45CADA11E427E26CB45E2220D1CB15703147AE17DE675DFDE7BCBD7919"
+  },
+  {
+    "path": "src/assets/images/characters/narumi/drafts/prototype-01-prompt.md",
+    "sha256": "31EAE99AA23CC913ADF53C1F6656FAD552E5A911F4CF87E381BCAD92CC528561"
+  },
+  {
+    "path": "src/assets/images/characters/narumi/drafts/prototype-02-hoodie-jeans.png",
+    "sha256": "3926C125476A3A95DD143802D1E0759023DD7866BD0351B534CC65B40AE1E567"
+  },
+  {
+    "path": "src/assets/images/characters/narumi/drafts/prototype-02-prompt.md",
+    "sha256": "B58B79BACCD3BCD6A97478BEB4930D77A5DFB0D29A6151098FC7036318B0791C"
+  },
+  {
+    "path": "src/assets/images/characters/okumura/drafts/expression-batch01-1920.png",
+    "sha256": "22B967A6BFCC9EC18AC22ABB5EE4681B91C625F48381F65A1E7D70EF8E0EA865"
+  },
+  {
+    "path": "src/assets/images/characters/okumura/drafts/expression-batch01-original.png",
+    "sha256": "D596EB90C8FB955A744358CBD64339E37049742022838679892B72B2D7D8DD7D"
+  },
+  {
+    "path": "src/assets/images/characters/okumura/drafts/expression-batch01-prompt.md",
+    "sha256": "106B0EEE5908E1E2A8D374536E11B6718F85CB1137F2088E21DA6B84C091206C"
+  },
+  {
+    "path": "src/assets/images/characters/okumura/drafts/expression-batch02-1920.png",
+    "sha256": "3CB70DDBC3992A25D2C3E3FD842C432AE9E9687EE2B3F9143B174C0CA40F1BFD"
+  },
+  {
+    "path": "src/assets/images/characters/okumura/drafts/expression-batch02-original.png",
+    "sha256": "1A7D82D4856A563550F93FCD6F248A12361F03A578E4009BFBF104485E3D1191"
+  },
+  {
+    "path": "src/assets/images/characters/okumura/drafts/expression-batch02-prompt.md",
+    "sha256": "E3DDC129E6F9C3EA27729182A2322007ECA649261B30A6B80055C1D10890E5EC"
+  },
+  {
+    "path": "src/assets/images/characters/okumura/drafts/expression-batch03-1920.png",
+    "sha256": "0FBB9271E26680C8B3A617A511CCCFF22C1102BC9491BB2A37C293A80A8D6EBE"
+  },
+  {
+    "path": "src/assets/images/characters/okumura/drafts/expression-batch03-original.png",
+    "sha256": "79A7E7D900DA8D42CA30CE53B5C576036552C14620632548BC5674A858E544E3"
+  },
+  {
+    "path": "src/assets/images/characters/okumura/drafts/expression-batch03-prompt.md",
+    "sha256": "620CF2F17F986634867A27D4A549E6ABF18062F711C2EA8D2C1350E34433752F"
+  },
+  {
+    "path": "src/assets/images/characters/okumura/drafts/prototype-01-full-body.png",
+    "sha256": "E6996FC02E1B8EE7EB126FC7F8F04C3EEC1472D92D9AF3EF9B7D27E5620C97D7"
+  },
+  {
+    "path": "src/assets/images/characters/okumura/drafts/prototype-01-prompt.md",
+    "sha256": "CC119B5084B6EAF781CCBC12716B2C4F4AD8FA1502B18E3550BACD9B861154CE"
+  },
+  {
+    "path": "src/assets/images/characters/segawa/drafts/expression-batch01-1920.png",
+    "sha256": "8AA1C6A37D567B949F11EF829C6A6F31815DE45ADA4B46D73107D158D26F6DCE"
+  },
+  {
+    "path": "src/assets/images/characters/segawa/drafts/expression-batch01-original.png",
+    "sha256": "05E1A77E4259E6D5476508DE6D69637051C02E43FE209B84BD9E9C70D010ABBD"
+  },
+  {
+    "path": "src/assets/images/characters/segawa/drafts/expression-batch01-prompt.md",
+    "sha256": "17253A7371DCEBFD88B74764084938E005D35F62E5898DECDA4CC8BF5B574BF7"
+  },
+  {
+    "path": "src/assets/images/characters/segawa/drafts/expression-batch02-1920.png",
+    "sha256": "A7C9B3F48D5D10704D92F1E8F02E6ACD9D9EE77277128D3FF8792D8CF8C08C79"
+  },
+  {
+    "path": "src/assets/images/characters/segawa/drafts/expression-batch02-original.png",
+    "sha256": "818DCA5CFE9CF84DAFF1EFE8CB90B119BD185D034B562A039AAAA74C9F5F7009"
+  },
+  {
+    "path": "src/assets/images/characters/segawa/drafts/expression-batch02-prompt.md",
+    "sha256": "1A37A19B769CA87816BCA810978BFF433FEEB9F13D3A7EF31730C77F8587EC8F"
+  },
+  {
+    "path": "src/assets/images/characters/segawa/drafts/expression-batch03-1920.png",
+    "sha256": "56D39CDAB165214CD7250F11976058FDE59242A7BE3FD910D72F8DBBC3244A57"
+  },
+  {
+    "path": "src/assets/images/characters/segawa/drafts/expression-batch03-original.png",
+    "sha256": "13911B4BC67C73A1C8076C1ADF388F6CC63EBDCC7753DC715194F81269562CE6"
+  },
+  {
+    "path": "src/assets/images/characters/segawa/drafts/expression-batch03-prompt.md",
+    "sha256": "FCE4AF36230975696C28593A792AA4C0C8E7E067CFE052FB89FDC9E7EF5E2959"
+  },
+  {
+    "path": "src/assets/images/characters/segawa/drafts/expression-batch04-1920.png",
+    "sha256": "4FD6C1824A8298017BB9D19D965F6F1BCF80B3AC5AC3A60B2916B160304AB345"
+  },
+  {
+    "path": "src/assets/images/characters/segawa/drafts/expression-batch04-original.png",
+    "sha256": "892486616F5DEDA642CABE7006F14A03B38C6896487CFEDD2CB6444CB804D77C"
+  },
+  {
+    "path": "src/assets/images/characters/segawa/drafts/expression-batch04-prompt.md",
+    "sha256": "27D26681EAE79AB2E6D61E9D5654492B01B213D517C44FCCAA6B7EFF271F3EC7"
+  },
+  {
+    "path": "src/assets/images/characters/segawa/drafts/prototype-01-full-body.png",
+    "sha256": "4CDC9F4D18AEF0A233A93F71821EB291CE313C5D577D37C748D0EDD2820E23B3"
+  },
+  {
+    "path": "src/assets/images/characters/segawa/drafts/prototype-01-prompt.md",
+    "sha256": "CD7942CBD1945C1B895EAFEBA6EBE11D8D17C8A17C559B047B6390EEBD9DFD4B"
+  },
+  {
+    "path": "src/assets/images/characters/segawa/drafts/prototype-02-brighter-navy.png",
+    "sha256": "6D706EDB1711571CF8EFBC66D817E2A9F9C7BF1CBBEB552134410F71D5F44CEE"
+  },
+  {
+    "path": "src/assets/images/characters/segawa/drafts/prototype-02-prompt.md",
+    "sha256": "683A0E9B1A066E12F3EF9AF93168511A49305A3315A95014C6D9C7C42ADFE5E3"
+  }
+]
