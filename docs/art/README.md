@@ -3,7 +3,7 @@
 
 ## 制作資料の正本
 - 人物仕様・採用状況：docs/art/characters/<id>/profile.md。
-- 採用した設定資料：同階層の sheet.png と sheet-prompt.md。採用が確定したら作成する。
+- 採用した設定資料：同階層の sheet.png と sheet-prompt.md。主要5人の設定資料として採用済み。
 - 未採用・比較用の試作と生成条件：同階層の drafts/。
 - [制作手順](character-workflow.md)、[人物テンプレート](character-template.md)、[表情辞書](expression-framework.md)。
 - [最新シート一覧](expression-review.md)。
@@ -19,7 +19,7 @@ characters/<id>/neutral.png、smile.png 等を基本とし、backgrounds、maps�
 3. profile.md に「設定資料として採用」「ゲーム素材は制作中」など用途別の状態を記録する。
 4. ゲーム画像は profile.md と採用シートを参照して新たに制作する。確認シートの切り抜きを完成素材と扱わない。
 5. sheet.png の更新時は旧版をGitの履歴で追う。必要になった場合だけ sheets/ に分ける。
-現行5人の確認シートは採用未確定のため drafts/ に保持。sheet.png が存在すると仮定しない。
+現行5人は2026-10-11に設定資料として採用。sheet.png と sheet-prompt.md へ移動済み。ブラッシュアップは同じファイル名で更新し、Git履歴で追う。
 同一画像を二か所にコピーして維持しない。人物仕様も profile.md を唯一の現行正本にする。
 
 ## 履歴・Git

@@ -12,7 +12,7 @@
     "sha256": "EE8F6349834C95BCC8147B5260E0C8EF885554F56F2D5BF5041DCFD3C80897FC"
   },
   {
-    "path": "docs/art/characters/minato/drafts/expression-batch02-1920.png",
+    "path": "docs/art/characters/minato/sheet.png",
     "sha256": "E9F573184493CEBF7432849DFFE420290C0E4D45CB1F93E40C1EDF5334EB49E3"
   },
   {
@@ -20,7 +20,7 @@
     "sha256": "DAB643249573EAB4563EEFDB8DBFE1D4F3CFD9F113E1B02F2B2C1296FDD3EDBA"
   },
   {
-    "path": "docs/art/characters/minato/drafts/expression-batch02-prompt.md",
+    "path": "docs/art/characters/minato/sheet-prompt.md",
     "sha256": "CAB2AE1234E6016460BF82404D3B85B73710A03EA5FAC48156A8D76110BAC13F"
   },
   {
@@ -68,7 +68,7 @@
     "sha256": "FA213DC35973960E2CB1280BF97B8683E4609DB2BDC87AF44F2AE7C71638ECA6"
   },
   {
-    "path": "docs/art/characters/mio/drafts/expression-batch02-1920.png",
+    "path": "docs/art/characters/mio/sheet.png",
     "sha256": "8BA80DB9A8D8E8080006C5F0B0EA6869D97D6545588D5219F0484D1128ECD773"
   },
   {
@@ -76,7 +76,7 @@
     "sha256": "7C2956B2CC9728DB7788CE5FEE70BE85186D0DAD6D6CF3AB1911E00C462FDE11"
   },
   {
-    "path": "docs/art/characters/mio/drafts/expression-batch02-prompt.md",
+    "path": "docs/art/characters/mio/sheet-prompt.md",
     "sha256": "8B89580618774E58419BF1DEF1F2A593E1EA1A4D20F7E6C092D03160FDE02B4E"
   },
   {
@@ -96,7 +96,7 @@
     "sha256": "F03C919CA529FF34440E92F5C139E295F78B57E407CC66D1E2E2CDC837E3AAE9"
   },
   {
-    "path": "docs/art/characters/narumi/drafts/expression-batch02-1920.png",
+    "path": "docs/art/characters/narumi/sheet.png",
     "sha256": "23793B5A5B3E13C519C5EB7333910124F1DF853B989E6526471336C8AB66EB50"
   },
   {
@@ -104,7 +104,7 @@
     "sha256": "B5AB5AA2C5B93092C8DF07886D1BD5605B4DDEE44EAA88ADE671BD7B7A36F9F7"
   },
   {
-    "path": "docs/art/characters/narumi/drafts/expression-batch02-prompt.md",
+    "path": "docs/art/characters/narumi/sheet-prompt.md",
     "sha256": "A2A4B201597FDD736836E8665429B5BCDF03A4BC913E3E0F42F6F54FFE3D5A1A"
   },
   {
@@ -148,7 +148,7 @@
     "sha256": "E3DDC129E6F9C3EA27729182A2322007ECA649261B30A6B80055C1D10890E5EC"
   },
   {
-    "path": "docs/art/characters/okumura/drafts/expression-batch03-1920.png",
+    "path": "docs/art/characters/okumura/sheet.png",
     "sha256": "0FBB9271E26680C8B3A617A511CCCFF22C1102BC9491BB2A37C293A80A8D6EBE"
   },
   {
@@ -156,7 +156,7 @@
     "sha256": "79A7E7D900DA8D42CA30CE53B5C576036552C14620632548BC5674A858E544E3"
   },
   {
-    "path": "docs/art/characters/okumura/drafts/expression-batch03-prompt.md",
+    "path": "docs/art/characters/okumura/sheet-prompt.md",
     "sha256": "620CF2F17F986634867A27D4A549E6ABF18062F711C2EA8D2C1350E34433752F"
   },
   {
@@ -204,7 +204,7 @@
     "sha256": "FCE4AF36230975696C28593A792AA4C0C8E7E067CFE052FB89FDC9E7EF5E2959"
   },
   {
-    "path": "docs/art/characters/segawa/drafts/expression-batch04-1920.png",
+    "path": "docs/art/characters/segawa/sheet.png",
     "sha256": "4FD6C1824A8298017BB9D19D965F6F1BCF80B3AC5AC3A60B2916B160304AB345"
   },
   {
@@ -212,7 +212,7 @@
     "sha256": "892486616F5DEDA642CABE7006F14A03B38C6896487CFEDD2CB6444CB804D77C"
   },
   {
-    "path": "docs/art/characters/segawa/drafts/expression-batch04-prompt.md",
+    "path": "docs/art/characters/segawa/sheet-prompt.md",
     "sha256": "27D26681EAE79AB2E6D61E9D5654492B01B213D517C44FCCAA6B7EFF271F3EC7"
   },
   {
