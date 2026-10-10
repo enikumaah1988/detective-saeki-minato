@@ -1,0 +1,67 @@
+[
+  {
+    "id": "minato",
+    "width": 1024,
+    "height": 1536,
+    "alphaBounds": [
+      280,
+      81,
+      464,
+      1380
+    ],
+    "sha256": "1F148DA14D9E87ACED40A6485F28D31AECC6F107D69390DC13CEE4A7638C6A2E",
+    "source": "exec-eaf0545f-322c-4948-b737-82161d8f544a.png"
+  },
+  {
+    "id": "mio",
+    "width": 1024,
+    "height": 1536,
+    "alphaBounds": [
+      335,
+      81,
+      354,
+      1380
+    ],
+    "sha256": "5D53D2F9BCBE1E6AE71828179A7E03D52FFAD36047EE9484606A4C4F93970182",
+    "source": "exec-864abcd0-d476-4061-a246-1bbffc8fc924.png"
+  },
+  {
+    "id": "narumi",
+    "width": 1024,
+    "height": 1536,
+    "alphaBounds": [
+      291,
+      81,
+      442,
+      1380
+    ],
+    "sha256": "F8CF50CF068BAEA8FF2950F4725877378D46D73BA04D076A3D7F05C39763B674",
+    "source": "exec-caccb5d3-d326-4f7c-ac8c-ca8ca7175391.png"
+  },
+  {
+    "id": "okumura",
+    "width": 1024,
+    "height": 1536,
+    "alphaBounds": [
+      294,
+      80,
+      436,
+      1381
+    ],
+    "sha256": "4E8AD7A9F446CF5373869FF3206381F929E92B40F5326330B1CBB2217241229E",
+    "source": "exec-6810af00-e76f-45a8-854a-d19ed1061e41.png"
+  },
+  {
+    "id": "segawa",
+    "width": 1024,
+    "height": 1536,
+    "alphaBounds": [
+      298,
+      81,
+      429,
+      1380
+    ],
+    "sha256": "C6A6C78BCDD3A524B4AB81D3CE1FBDE6A4F28EEA59C7A86B4B98CE23C3334DCB",
+    "source": "exec-37db858e-5295-4060-b4c6-0dcaad874d3c.png"
+  }
+]

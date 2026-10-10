@@ -11,7 +11,7 @@
 ## ゲーム素材
 実際にゲームで使う画像のみ src/assets/images/ に配置する。
 characters/<id>/neutral.png、smile.png 等を基本とし、backgrounds、maps、items、cutins、illustrations、ui は必要に応じて追加する。
-現在、制作した個別透過全身素材は未完成。既存デモ素材とその実装上の参照は変更していない。
+主要5人の通常立ち絵候補を制作。[通常立ち絵確認](neutral-review.md)。寸法1024×1536は仮案、正式採用と表情差分は未完了。既存デモ素材と実装上の参照は変更していない。
 
 ## 設定資料シートの運用
 1. 試作中の確認シートは drafts/ に保存する。
