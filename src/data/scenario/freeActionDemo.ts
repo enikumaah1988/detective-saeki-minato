@@ -1,6 +1,6 @@
 import type { Scenario, Stage } from '../../types/scenario'
 
-const solo: Stage = { backgroundId: 'office-afternoon', characters: [{ characterId: 'minato', expression: 'normal' }] }
+const solo: Stage = { backgroundId: 'office-afternoon', characters: [{ characterId: 'minato', expression: 'normal', position: 'left' }] }
 const stage: Stage = { backgroundId: 'office-afternoon', characters: [{ characterId: 'minato', expression: 'normal', position: 'left' }, { characterId: 'mio', expression: 'normal', position: 'right' }] }
 const requiredThinkInformation = [
   { id: 'brother_profile', summary: '兄は連絡を絶やさない几帳面な人だ' },

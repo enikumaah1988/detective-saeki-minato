@@ -17,6 +17,6 @@ export function stageCharacters(stage: Stage) {
     ? [{ characterId: stage.characterId, expression: stage.expression ?? 'normal', position: stage.characterPosition }]
     : [])
   return characters.map(character => ({ ...character,
-    position: character.position ?? (character.characterId === 'minato' ? 'left' : 'right'),
+    position: character.position ?? 'right',
   }))
 }

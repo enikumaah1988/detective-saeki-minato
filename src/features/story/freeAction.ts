@@ -37,7 +37,7 @@ export function visibleChoices(node: ScenarioNode, state: GameState) {
     return selectable.filter(option => option.id === 'think').map(option => ({ ...option, label: '考える' }))
   }
   return FREE_ACTION_COMMANDS.flatMap((command) => {
-    if (!command.implemented) return []
+    if (!(node.type === 'choice' && node.implementedCommands ? node.implementedCommands.includes(command.id) : command.implemented)) return []
     const option = selectable.find((candidate) => candidate.id === command.id)
     return option ? [{ ...option, label: command.label }] : []
   })

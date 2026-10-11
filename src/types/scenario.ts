@@ -1,3 +1,4 @@
+import type { InvestigationEntry } from './investigation'
 export type Stage = {
   characterPosition?: 'left' | 'center' | 'right'
   backgroundId: string
@@ -20,7 +21,7 @@ export type Choice = { id: string; label: string; next: string; implemented?: bo
 
 export type ScenarioNode =
   | { type: 'dialogue'; stage: Stage; speakerId: string; text: string; next: string; updates?: StateUpdate[] }
-  | { type: 'choice'; mode?: 'free-action'; empty?: { label: string; next: string }; stage: Stage; prompt: string; options: Choice[] }
+  | { type: 'choice'; mode?: 'free-action'; implementedCommands?: readonly string[]; empty?: { label: string; next: string }; stage: Stage; prompt: string; options: Choice[] }
   | { type: 'topic' | 'inspect'; parent: { commandId: 'talk' | 'look'; nodeId: string }; stage: Stage; prompt: string; options: Choice[] }
   | { type: 'end'; stage: Stage; text: string }
   | {
@@ -48,6 +49,7 @@ export type Scenario = {
   title: string
   start: string
   scenes?: Record<string, Scene>
+  records?: readonly InvestigationEntry[]
   smokingHints?: { rules: SmokingHint[]; fallback: string }
   nodes: Record<string, ScenarioNode & { sceneId?: string }>
 }

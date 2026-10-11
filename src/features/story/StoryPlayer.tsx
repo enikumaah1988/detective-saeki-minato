@@ -1,3 +1,4 @@
+import { selectInvestigationRecords } from './investigation'
 import { useEffect, useReducer, useRef, useState } from 'react'
 import type { InvestigationRecord } from '../../types/investigation'
 import type { Scenario } from '../../types/scenario'
@@ -99,7 +100,7 @@ export function StoryPlayer({ scenario, preview, smokingAllowed, suspended = fal
             else { setSmoking(undefined); send({ type: 'menu', open: false }); requestAnimationFrame(() => smokingButton.current?.focus()) }
           }} />
       </div>}
-      {recordsOpen && <InvestigationRecords state={gameState} records={activePreview?.records} previewLabel={activePreview?.label} returnFocus={activePreview?.invoker ?? recordsButton.current} onClose={() => { setRecordsOpen(false); send({ type: 'menu', open: false }) }} />}
+      {recordsOpen && <InvestigationRecords state={gameState} records={activePreview?.records ?? selectInvestigationRecords(gameState, scenario.records)} previewLabel={activePreview?.label} returnFocus={activePreview?.invoker ?? recordsButton.current} onClose={() => { setRecordsOpen(false); send({ type: 'menu', open: false }) }} />}
     </section>
   )
 }

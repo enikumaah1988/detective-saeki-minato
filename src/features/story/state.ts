@@ -14,9 +14,7 @@ export function createInitialState(scenario: Scenario): GameState {
   for (const scene of Object.values(scenario.scenes ?? {})) {
     const people = scene.characters ?? []
     if (people.length > 2 || new Set(people.map(person => person.characterId)).size !== people.length) throw new Error('シーンの人物構成が不正です')
-    if (people.length === 2 && (!people.some(person => person.characterId === 'minato')
-      || people.some(person => person.position !== (person.characterId === 'minato' ? 'left' : 'right')))) throw new Error('2人シーンは湊を左、相手を右に指定してください')
-    if (people.length === 1 && (people[0].characterId === 'minato' ? people[0].position === 'center' : !people[0].position || people[0].position === 'left')) throw new Error('人物の配置指定が不正です')
+    if (people.length === 2 && (people.some(person => !person.position || person.position === 'center') || new Set(people.map(person => person.position)).size !== 2)) throw new Error('2人シーンは左右を明示してください')
   }
   for (const node of Object.values(scenario.nodes)) {
     if (node.sceneId && !scenario.scenes?.[node.sceneId]) throw new Error(`シーンが見つかりません: ${node.sceneId}`)
