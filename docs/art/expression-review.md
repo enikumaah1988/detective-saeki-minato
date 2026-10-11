@@ -11,3 +11,9 @@
 | 瀬川 亮介 | [仕様](characters/segawa/profile.md) | [画像](characters/segawa/sheet.png) |
 
 奥村・瀬川は手帳なし。瀬川はペンもなし、感情を露骨に出す。微差を未承認で仕様へ取り込まない。
+
+## 第1話の人物：確認待ち
+
+| 人物 | プロフィール | 確認シート | 状態 |
+|---|---|---|---|
+| 高瀬 あかり | [仕様](characters/akari/profile.md) | [8表情・試作1](characters/akari/drafts/sheet-01.png) | 基本デザインは試作採用。表情の選定・所作・シートは未採用。 |
