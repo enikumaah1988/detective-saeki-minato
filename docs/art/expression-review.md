@@ -14,9 +14,10 @@
 
 ## 第1話の人物：採用設定資料
 
-沙織は基本デザインと8表情の選定を採用。[確認シート1](characters/saori/drafts/sheet-01.png)は画像確認待ち。[人物仕様](characters/saori/profile.md)を参照。採用後にsheet.pngへ移動する。
+沙織も基本デザインと8表情・手の所作のシートを設定資料として採用。
 
 | 人物 | プロフィール | 確認シート | 状態 |
 |---|---|---|---|
 | 高瀬 あかり | [仕様](characters/akari/profile.md) | [8表情](characters/akari/sheet.png) | 2026-10-11、8表情と手の所作を設定資料としてユーザー採用。ゲーム用個別素材は未制作。 |
 | 高瀬 直人 | [仕様](characters/naoto/profile.md) | [8表情](characters/naoto/sheet.png) | 2026-10-11、修正顔・明るめの茶髪・薄い水色のブルゾン・自責を含む8表情と所作を採用。ストーリー設定は同期待ち。 |
+| 三原 沙織 | [仕様](characters/saori/profile.md) | [8表情](characters/saori/sheet.png) | 2026-10-11、修正顔・低い一つ結び・直人と同じ作業ブルゾン・心配と困惑を含む8表情と所作を採用。ゲーム用個別素材は未制作。ストーリー設定は同期待ち。 |
