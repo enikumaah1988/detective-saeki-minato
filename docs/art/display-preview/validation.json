@@ -62,7 +62,7 @@
       }
     },
     {
-      "name": "candidate-neutral",
+      "name": "uniform-neutral",
       "viewport": {
         "width": 1920,
         "height": 1080
@@ -90,6 +90,67 @@
           "x": 902.3984375,
           "y": 129.59375,
           "width": 1036.796875,
+          "height": 1166.390625
+        },
+        "fontLoaded": true,
+        "images": [
+          {
+            "src": "../../../src/assets/backgrounds/office-afternoon.png",
+            "complete": true,
+            "width": 1672
+          },
+          {
+            "src": "../../../src/assets/images/characters/minato/waist/neutral.png",
+            "complete": true,
+            "width": 1024
+          },
+          {
+            "src": "../../../src/assets/images/characters/minato/waist/neutral.png",
+            "complete": true,
+            "width": 1024
+          },
+          {
+            "src": "../../../src/assets/images/characters/mio/waist/neutral.png",
+            "complete": true,
+            "width": 1024
+          },
+          {
+            "src": "../../../src/assets/images/characters/mio/waist/neutral.png",
+            "complete": true,
+            "width": 1024
+          }
+        ]
+      }
+    },
+    {
+      "name": "candidate-neutral",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "layout": {
+        "stage": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 1080
+        },
+        "message": {
+          "x": 96,
+          "y": 736,
+          "width": 1728,
+          "height": 320
+        },
+        "left": {
+          "x": -19.2109375,
+          "y": 129.59375,
+          "width": 1036.796875,
+          "height": 1166.390625
+        },
+        "right": {
+          "x": 954.2421875,
+          "y": 194.390625,
+          "width": 933.109375,
           "height": 1166.390625
         },
         "fontLoaded": true,
@@ -148,9 +209,9 @@
           "height": 1166.390625
         },
         "right": {
-          "x": 902.3984375,
-          "y": 129.59375,
-          "width": 1036.796875,
+          "x": 954.2421875,
+          "y": 194.390625,
+          "width": 933.109375,
           "height": 1166.390625
         },
         "fontLoaded": true,
@@ -209,9 +270,9 @@
           "height": 1166.390625
         },
         "right": {
-          "x": 902.3984375,
-          "y": 129.59375,
-          "width": 1036.796875,
+          "x": 954.2421875,
+          "y": 194.390625,
+          "width": 933.109375,
           "height": 1166.390625
         },
         "fontLoaded": true,
@@ -270,9 +331,9 @@
           "height": 829.84375
         },
         "right": {
-          "x": 642.015625,
-          "y": 92.203125,
-          "width": 737.625,
+          "x": 678.890625,
+          "y": 138.296875,
+          "width": 663.875,
           "height": 829.84375
         },
         "fontLoaded": true,
