@@ -1,0 +1,13 @@
+/* 装飾は素材、文字・寸法・入力は既存HTML/CSSで維持する。 */
+.toolbar-actions > button, .save-controls summary { position: relative; isolation: isolate; background: transparent; }
+.toolbar-actions > button::before, .save-controls summary::before { content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none; border: calc(12 * var(--u)) solid transparent; border-image: url('./assets/command-button-normal.svg') 12 fill / calc(12 * var(--u)) / 0 stretch; }
+.toolbar-actions > button:not(:disabled):hover::before, .toolbar-actions > button:focus-visible::before, .save-controls summary:hover::before, .save-controls summary:focus-visible::before, .save-controls[open] summary::before { border-image-source: url('./assets/command-button-active.svg'); }
+.toolbar-actions > button:not(:disabled):active::before, .save-controls summary:active::before { border-image-source: url('./assets/command-button-pressed.svg'); }
+.toolbar-actions > button:disabled::before { opacity: .5; }
+.message-window { border-color: transparent; }
+.message-window::before { content: ''; position: absolute; inset: -1px; pointer-events: none; border: calc(12 * var(--u)) solid transparent; border-image: url('./assets/dialogue-frame.svg') 12 / calc(12 * var(--u)) / 0 stretch; }
+.dialogue-button { background-image: url('./assets/dialogue-texture.svg'); background-size: calc(48 * var(--u)) calc(48 * var(--u)); }
+.dialogue-button:not(.thinking-message) { background-image: url('./assets/dialogue-texture.svg'); }
+.dialogue-button .speaker { font-size: calc(40 * var(--u)); width: fit-content; min-width: min(calc(160 * var(--u)), 100%); max-width: 100%; }
+.dialogue-button .speaker::after { width: 100%; }
+.dialogue-button .next { display: block; width: calc(28 * var(--u)); height: calc(28 * var(--u)); font-size: 0; background: url('./assets/dialogue-next.svg') center / contain no-repeat; }

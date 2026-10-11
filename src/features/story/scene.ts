@@ -6,7 +6,8 @@ export function selectSceneStage(scenario: Scenario, nodeId: string): Stage {
   if (node.sceneId) {
     const scene = scenario.scenes?.[node.sceneId]
     if (!scene) throw new Error(`シーンが見つかりません: ${node.sceneId}`)
-    return scene
+    const { smokingAllowed: _smokingAllowed, ...stage } = scene
+    return stage
   }
   return node.stage // 旧形式のローカルシナリオも読める。
 }

@@ -33,12 +33,21 @@ export type ScenarioNode =
     complete: { text: string; next: string }
   }
 
-export type Scene = Stage
+export type Scene = Stage & { smokingAllowed?: boolean }
+
+export type SmokingHint = {
+  id: string
+  text: string
+  nodeIds?: string[]
+  condition?: Condition
+  missingInformation?: string[]
+}
 
 export type Scenario = {
   id: string
   title: string
   start: string
   scenes?: Record<string, Scene>
+  smokingHints?: { rules: SmokingHint[]; fallback: string }
   nodes: Record<string, ScenarioNode & { sceneId?: string }>
 }

@@ -52,8 +52,9 @@ for (const viewport of [{ width: 1920, height: 1080 }, { width: 1366, height: 76
      await page.screenshot({ path: `/tmp/saeki-ui-review/preview-mio-${viewport.width}.png` })
      const fits = await modal.locator('.record-detail').evaluate(el => {
       const portrait = el.querySelector('.record-portrait').getBoundingClientRect()
-      const paragraph = el.querySelector('p').getBoundingClientRect()
-      return portrait.bottom <= paragraph.top
+      const paragraph = el.querySelector('p')
+      const range = document.createRange(); range.selectNodeContents(paragraph)
+      return [...range.getClientRects()].every(rect => rect.top >= portrait.bottom || rect.left >= portrait.right)
      })
      assert.equal(fits, true)
     }

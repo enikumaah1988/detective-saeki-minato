@@ -56,7 +56,7 @@ test('PC会話の文字送り・全文表示・進行・中断とコマンドの
       assert.equal(delay, COMMAND_HIGHLIGHT_MS)
       assert.equal(delay, 150)
       assert.equal(selections, 0)
-      assert.equal(button.render().props.className, 'is-selected')
+      assert.match(button.render().props.className, /(?:^|\s)is-selected(?:\s|$)/)
       callback()
       assert.equal(selections, 1)
       button.select()

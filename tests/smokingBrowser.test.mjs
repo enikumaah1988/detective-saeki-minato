@@ -56,8 +56,8 @@ for (const [width, height] of [[1920, 1080], [1366, 768]]) {
           await overlay.click() // 文字送り中は現在の文章を全文表示
           await overlay.locator('.next').waitFor()
         }
-        await overlay.click() // 動作文から固定仮ヒントへ
-        await page.waitForFunction(() => document.querySelector('.smoking-overlay .dialogue .sr-only')?.textContent.includes('澪から話を聞き直し'))
+        await overlay.click() // 動作文から現在の進捗に応じたヒントへ
+        await page.waitForFunction(() => document.querySelector('.smoking-overlay .dialogue .sr-only')?.textContent.includes('今の話を最後まで'))
         const hint = page.locator('.smoking-overlay .dialogue-button')
         await hint.locator('.next').waitFor()
         await hint.click() // ヒントの最終読了で復帰

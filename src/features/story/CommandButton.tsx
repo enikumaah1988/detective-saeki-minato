@@ -1,10 +1,11 @@
 import { Component } from 'react'
+import './commandButton.css'
 import type { ReactNode } from 'react'
 
 export const COMMAND_HIGHLIGHT_MS = 150
 
 export class CommandButton extends Component<{
-  children: ReactNode; onSelect: () => void; paused?: boolean; acquire?: () => boolean; release?: () => void
+  children: ReactNode; onSelect: () => void; paused?: boolean; acquire?: () => boolean; release?: () => void; className?: string
 }, { selected: boolean }> {
   state = { selected: false }
   private timer?: ReturnType<typeof setTimeout>
@@ -44,6 +45,6 @@ export class CommandButton extends Component<{
     }, COMMAND_HIGHLIGHT_MS)
   }
   render() {
-    return <button type="button" className={this.state.selected ? 'is-selected' : undefined} onClick={this.select}>{this.props.children}</button>
+    return <button type="button" className={['command-image', this.props.className, this.state.selected ? 'is-selected' : undefined].filter(Boolean).join(' ') || undefined} onClick={this.select}>{this.props.children}</button>
   }
 }

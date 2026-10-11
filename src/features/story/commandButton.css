@@ -1,0 +1,8 @@
+/* 12pxの9-sliceで角を固定。文字・アイコン・クリック領域の寸法には触れない。 */
+button.command-image { position: relative; isolation: isolate; color: #eadfcf; background: transparent; border-left-color: transparent; }
+.command-image::before { content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: #10192230; border: calc(12 * var(--u)) solid transparent; border-image: url('./assets/command-button-normal.svg') 12 fill / calc(12 * var(--u)) / 0 stretch; }
+button.command-image:hover, button.command-image:focus-visible { color: #d4b780; background: transparent; border-left-color: transparent; }
+.command-image:hover::before, .command-image:focus-visible::before { border-image-source: url('./assets/command-button-active.svg'); }
+button.command-image.is-selected { color: #ead3a5; background: transparent; border-left-color: transparent; }
+.command-image:active::before, .command-image.is-selected::before { border-image-source: url('./assets/command-button-pressed.svg'); }
+.command-image:disabled::before { border-image-source: url('./assets/command-button-normal.svg'); }

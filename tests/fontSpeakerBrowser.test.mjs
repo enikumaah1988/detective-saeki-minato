@@ -77,10 +77,10 @@ for (const [width, height] of [[1920, 1080], [1366, 768]]) {
                   lines: new Set(lines.map(r => Math.round(r.top))).size,
                   overflow: el.scrollHeight > el.clientHeight + 1 }
               })
-              assert.ok(Math.abs(layout.size - 34 * layout.scale) < 1)
+              assert.ok(Math.abs(layout.size - 40 * layout.scale) < 1)
               assert.equal(layout.weight, '600')
               assert.equal(layout.color, 'rgb(212, 183, 128)')
-              assert.ok(Math.abs(layout.lineWidth - 56 * layout.scale) < 1)
+              assert.ok(layout.lineWidth >= 160 * layout.scale - 1 && layout.nameRight <= layout.right + 1)
               assert.ok(Math.abs(layout.lineHeight - 2 * layout.scale) < 1)
               assert.ok(Math.abs(layout.gap - 12 * layout.scale) < 1)
               assert.ok(layout.nameRight <= layout.right && layout.textTop > layout.nameBottom)

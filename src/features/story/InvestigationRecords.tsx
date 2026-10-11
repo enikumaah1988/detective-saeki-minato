@@ -3,6 +3,7 @@ import type { GameState } from '../../types/gameState'
 import type { InvestigationRecord, RecordCategory } from '../../types/investigation'
 import { RECORD_CATEGORIES, selectInvestigationRecords } from './investigation'
 import { AssetImage } from './StageView'
+import './recordsFrames.css'
 
 export function InvestigationRecords({ state, onClose, returnFocus, previewLabel, records = selectInvestigationRecords(state) }: {
   state: GameState
