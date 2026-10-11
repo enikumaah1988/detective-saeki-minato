@@ -4,6 +4,7 @@
 ## 制作資料の正本
 - 人物仕様・採用状況：docs/art/characters/<id>/profile.md。
 - 採用した設定資料：同階層の sheet.png と sheet-prompt.md。主要5人の設定資料として採用済み。
+- 表情確認シートをまだ作っていない人物の採用全身デザイン：同階層の design.png と design-prompt.md。あかりは試作3を基本デザインとして採用。表情シートが採用されたら視覚基準を profile.md で更新する。
 - 未採用・比較用の試作と生成条件：同階層の drafts/。
 - [制作手順](character-workflow.md)、[人物テンプレート](character-template.md)、[表情辞書](expression-framework.md)。
 - [最新シート一覧](expression-review.md)。

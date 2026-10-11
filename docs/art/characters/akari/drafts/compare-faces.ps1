@@ -11,7 +11,7 @@ $akariNoteFont = [System.Drawing.Font]::new('Yu Gothic',17)
 $akariInk = [System.Drawing.SolidBrush]::new([System.Drawing.Color]::FromArgb(35,45,55))
 $akariReviewSources = @(
     @{ Path = 'src/assets/images/characters/mio/waist/neutral.png'; X = 50; Title = '相澤 澪 / 32歳'; Crop = [System.Drawing.RectangleF]::new(330,50,340,340) },
-    @{ Path = 'docs/art/characters/akari/drafts/prototype-03.png'; X = 680; Title = '高瀬 あかり / 21歳・試作3'; Crop = [System.Drawing.RectangleF]::new(360,0,280,280) }
+    @{ Path = 'docs/art/characters/akari/design.png'; X = 680; Title = '高瀬 あかり / 21歳・試作3'; Crop = [System.Drawing.RectangleF]::new(360,0,280,280) }
 )
 foreach ($akariSource in $akariReviewSources) {
     $akariGraphics.DrawString($akariSource.Title,$akariTitleFont,$akariInk,$akariSource.X,35)
