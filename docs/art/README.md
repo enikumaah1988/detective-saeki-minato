@@ -10,7 +10,7 @@
 - 沙織は修正版全身と8表情・手の所作のシートを採用。characters/saori/sheet.pngを現在の視覚基準、design.pngを全身の補助参照とする。ゲーム用個別素材9枚を制作済み、個別画像は確認待ち。人物設定はストーリー同期待ち。
 - [制作手順](character-workflow.md)、[人物テンプレート](character-template.md)、[表情辞書](expression-framework.md)。
 - [最新シート一覧](expression-review.md)。
-- 現行シナリオver0.01の未作画人物：[黒田征司](characters/kuroda/profile.md)、[宮原文雄](characters/miyahara/profile.md)、[三崎健](characters/misaki/profile.md)。2026-10-12に制作対象へ登録。外見は仮案、画像は未制作。三崎は写真・調査記録用肖像のみを検討する。
+- 現行シナリオver0.01の追加人物：[黒田征司](characters/kuroda/profile.md)、[宮原文雄](characters/miyahara/profile.md)、[三崎健](characters/misaki/profile.md)。2026-10-12に基本デザイン試作1を制作。外見は仮案、画像は確認待ち。三崎は写真・調査記録用肖像。[試作一覧と生成記録](episode-design-review.md)。
 
 ## ゲーム素材
 実際にゲームで使う画像のみ src/assets/images/ に配置する。

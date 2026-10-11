@@ -1,0 +1,47 @@
+[
+  {
+    "id": "kuroda",
+    "file": "docs/art/characters/kuroda/drafts/prototype-01.png",
+    "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-6b3aa5d8-4f96-4686-871e-faa1b2d6728b.png",
+    "sourceSize": [
+      1024,
+      1536
+    ],
+    "size": [
+      1024,
+      1536
+    ],
+    "sha256": "fa796fc7f36c062af629a99e835c46511e9eca133b378baf63c28d7fa26f6d5a",
+    "state": "未採用の試作"
+  },
+  {
+    "id": "miyahara",
+    "file": "docs/art/characters/miyahara/drafts/prototype-01.png",
+    "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-2f2efe86-85e9-4374-ac93-7210fa786b40.png",
+    "sourceSize": [
+      1024,
+      1536
+    ],
+    "size": [
+      1024,
+      1536
+    ],
+    "sha256": "047cd221feff59c215149fa1cd9064369ffeb41297160ce280f3df59a9cab0ba",
+    "state": "未採用の試作"
+  },
+  {
+    "id": "misaki",
+    "file": "docs/art/characters/misaki/drafts/prototype-01.png",
+    "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-ccf816ea-ebe5-4359-9b10-7817202fa3cd.png",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "size": [
+      1024,
+      1024
+    ],
+    "sha256": "19f4003017903ae5fff4bd6b000f25441821daa195f2c888a8e433ff5c076077",
+    "state": "未採用の試作"
+  }
+]
