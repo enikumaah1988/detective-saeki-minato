@@ -1,10 +1,10 @@
 # 直人：全身試作1
 
 生成方式：組み込み image_gen。
-状態：デザイン確認用・未採用。人物設定はストーリー同期待ち。
-参照：../../akari/design.png（家族らしさ・作風）、../../segawa/sheet.png（作風のみ）。参照人物の顔を複製しない。
+状態：2026-10-11、基本デザインとしてユーザー試作採用。人物設定はストーリー同期待ち。生成時のプロンプトは以下にそのまま保存。
+参照：../akari/design.png（家族らしさ・作風）、../segawa/sheet.png（作風のみ）。参照人物の顔を複製しない。
 身長、場面別の服装、小物は未決。ゲームへの組み込みはしない。
-生成原本：C:/Users/lemon/.codex/generated_images/01a123a2-b46f-77d3-b27e-a7f8a37b3920/exec-846ca73c-ca35-4f35-b47e-0a088f629282.png。原本を変更せずprototype-01.pngへ保存。
+生成原本：C:/Users/lemon/.codex/generated_images/01a123a2-b46f-77d3-b27e-a7f8a37b3920/exec-846ca73c-ca35-4f35-b47e-0a088f629282.png。原本を変更せず保存し、採用時にdesign.pngへ移動。
 
 ```text
 Use case: stylized-concept.
