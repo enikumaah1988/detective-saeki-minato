@@ -29,3 +29,6 @@ production/ は廃止。sources/ は読取専用。
 制作は art/<内容> の短期ブランチで行い、画像と仕様を同じPRへ出す。mainへ直接コミット・自己マージしない。
 制作資料PNGとゲームPNGはGit LFS管理。取得環境にも git lfs install と git lfs pull が必要。
 非公開設定を公開資料や生成プロンプトへ流用しない。移行時点のGitHubリポジトリはprivate。
+
+## ゲーム画面との比較
+[湊・澪の会話用素材表示見本](display-preview/README.md)。現行枠と腰上配置案、表情切り替えを比較。配置案は未採用。
