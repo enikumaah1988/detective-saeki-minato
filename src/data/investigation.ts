@@ -1,3 +1,4 @@
+import { itemImages } from './itemImages'
 import type { InvestigationEntry } from '../types/investigation'
 import { resolveExpression } from './presentation'
 
@@ -53,9 +54,9 @@ export const part1Records: readonly InvestigationEntry[] = [
 ]
 
 export const basicBelongings: readonly InvestigationEntry[] = [
-  { id: 'smartphone', category: 'belongings', title: 'スマホ', source: { type: 'base' }, description: '佐伯湊のスマートフォン。本体を持ち物として記録する。今回は閲覧のみ。' },
-  { id: 'electronic-cigarette', category: 'belongings', title: '電子タバコ', source: { type: 'base' }, description: '佐伯湊の電子タバコ。今回は使用できない。' },
-  { id: 'business-card', category: 'belongings', title: '名刺', source: { type: 'base' }, description: '佐伯湊の名刺。今回は使用・提示できない。' },
+  { id: 'smartphone', imageSrc: itemImages['smartphone'], category: 'belongings', title: 'スマホ', source: { type: 'base' }, description: '佐伯湊のスマートフォン。本体を持ち物として記録する。今回は閲覧のみ。' },
+  { id: 'electronic-cigarette', imageSrc: itemImages['electronic-cigarette'], category: 'belongings', title: '電子タバコ', source: { type: 'base' }, description: '佐伯湊の電子タバコ。今回は使用できない。' },
+  { id: 'business-card', imageSrc: itemImages['business-card'], category: 'belongings', title: '名刺', source: { type: 'base' }, description: '佐伯湊の名刺。今回は使用・提示できない。' },
 ]
 
 export const recordsByScenario: Readonly<Record<string, readonly InvestigationEntry[]>> = {
