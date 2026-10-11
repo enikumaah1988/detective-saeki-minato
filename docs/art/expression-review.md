@@ -22,4 +22,4 @@
 
 | 人物 | プロフィール | 確認シート | 状態 |
 |---|---|---|---|
-| 高瀬 直人 | [仕様](characters/naoto/profile.md) | [7表情・試作1](characters/naoto/drafts/sheet-01.png) | 基本デザインは試作採用。表情・所作・シートは未採用。ストーリー設定は同期待ち。 |
+| 高瀬 直人 | [仕様](characters/naoto/profile.md) | [7表情・旧顔の試作1](characters/naoto/drafts/sheet-01.png) | 瀬川との顔の識別性を見直し中。修正顔は確認待ち、表情シートへの反映待ち。表情・所作は未採用。ストーリー設定は同期待ち。 |
