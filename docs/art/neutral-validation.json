@@ -63,5 +63,18 @@
     ],
     "sha256": "C6A6C78BCDD3A524B4AB81D3CE1FBDE6A4F28EEA59C7A86B4B98CE23C3334DCB",
     "source": "exec-37db858e-5295-4060-b4c6-0dcaad874d3c.png"
+  },
+  {
+    "id": "naoto",
+    "width": 1024,
+    "height": 1536,
+    "alphaBounds": [
+      286,
+      81,
+      451,
+      1380
+    ],
+    "sha256": "2134896E9D0419BDEF1670A5A25498363DBC986E10C07592C3CF6A616ACBE0FC",
+    "source": "exec-3d1236a4-8484-4030-942e-532943cd1e72.png"
   }
 ]

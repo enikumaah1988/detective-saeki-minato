@@ -13,7 +13,7 @@
 ## ゲーム素材
 実際にゲームで使う画像のみ src/assets/images/ に配置する。
 characters/<id>/full/neutral.png（全身通常）、characters/<id>/waist/neutral.png・smile.png 等（会話用腰上）を基本とし、backgrounds、maps、items、cutins、illustrations、ui は必要に応じて追加する。
-主要5人の全身通常5枚と腰上38枚を制作。[全身通常](neutral-review.md)、[腰上素材一覧](waist-review.md)。寸法は全身1024×1536・腰上1024×1024の制作上の仮案。個別画像の正式採用は未確認。既存デモ素材と実装上の参照は変更していない。
+主要5人と直人の計6人、全身通常6枚と腰上46枚を制作。[全身通常](neutral-review.md)、[腰上素材一覧](waist-review.md)。寸法は全身1024×1536・腰上1024×1024の制作上の仮案。個別画像の正式採用は未確認。既存デモ素材と実装上の参照は変更していない。あかりの個別素材は未制作。
 
 ## 設定資料シートの運用
 1. 試作中の確認シートは drafts/ に保存する。

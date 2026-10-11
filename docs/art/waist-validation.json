@@ -606,5 +606,133 @@
       991
     ],
     "sha256": "f1ba65202636dd27148b608147e4f5c3722ad98d1577c1f0db5ee1b7a3e1295a"
+  },
+  {
+    "id": "naoto",
+    "key": "neutral",
+    "file": "src/assets/images/characters/naoto/waist/neutral.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 686067,
+    "opaquePixels": 858,
+    "boundsAlphaAbove8": [
+      241,
+      70,
+      825,
+      992
+    ],
+    "sha256": "12d8f40e7eb6a3e00ddbda727e763b680715f58d0b96010597baf5d459d46bb2"
+  },
+  {
+    "id": "naoto",
+    "key": "smile",
+    "file": "src/assets/images/characters/naoto/waist/smile.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 684608,
+    "opaquePixels": 977,
+    "boundsAlphaAbove8": [
+      231,
+      70,
+      828,
+      992
+    ],
+    "sha256": "283934dffae201d7d5eb923b11e796794a975a379f422c44455b34441a865c82"
+  },
+  {
+    "id": "naoto",
+    "key": "serious",
+    "file": "src/assets/images/characters/naoto/waist/serious.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 688971,
+    "opaquePixels": 1067,
+    "boundsAlphaAbove8": [
+      231,
+      68,
+      827,
+      992
+    ],
+    "sha256": "ea5aba42d1689da559e21ad67e4b747239b253716f9e198cda9caff6ffbc8d7a"
+  },
+  {
+    "id": "naoto",
+    "key": "surprised",
+    "file": "src/assets/images/characters/naoto/waist/surprised.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 689958,
+    "opaquePixels": 996,
+    "boundsAlphaAbove8": [
+      240,
+      71,
+      828,
+      992
+    ],
+    "sha256": "e47f0daa3d2f1374bd2cac933663c60b40b68bfb9e844ff455ff36085f1fed74"
+  },
+  {
+    "id": "naoto",
+    "key": "worried",
+    "file": "src/assets/images/characters/naoto/waist/worried.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 689547,
+    "opaquePixels": 952,
+    "boundsAlphaAbove8": [
+      237,
+      69,
+      824,
+      992
+    ],
+    "sha256": "c042633808cb1e4cea0fa66d959acc367dd615bfdcb66da10cfbfe514df293e0"
+  },
+  {
+    "id": "naoto",
+    "key": "pained",
+    "file": "src/assets/images/characters/naoto/waist/pained.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 679314,
+    "opaquePixels": 894,
+    "boundsAlphaAbove8": [
+      241,
+      69,
+      836,
+      992
+    ],
+    "sha256": "865928cc7fec979aa26f8451f535beae3ed213d8694f28358eab6d36c4d16dbe"
+  },
+  {
+    "id": "naoto",
+    "key": "relieved",
+    "file": "src/assets/images/characters/naoto/waist/relieved.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 682652,
+    "opaquePixels": 980,
+    "boundsAlphaAbove8": [
+      240,
+      69,
+      826,
+      992
+    ],
+    "sha256": "2184c61703070879261b1064a6c02fe184466d9e9de471496eb19094b3658e1b"
+  },
+  {
+    "id": "naoto",
+    "key": "remorseful",
+    "file": "src/assets/images/characters/naoto/waist/remorseful.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 687136,
+    "opaquePixels": 1009,
+    "boundsAlphaAbove8": [
+      265,
+      72,
+      819,
+      992
+    ],
+    "sha256": "65c3fceb8ae3cbce15b83292f68765983cd26580efc4e172cf8f1752abf1d822"
   }
 ]

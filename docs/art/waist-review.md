@@ -1,7 +1,7 @@
 # 会話用腰上素材：確認用候補
 
-2026-10-11。主要5人、通常を含む38枚。全員透過PNG1024×1024。寸法は制作上の仮案、個別画像は採用待ち。
-採用設定資料と全身通常を参照して腰上通常を描き、人物ごとの腰上通常から各表情を制作。手を含む腰上を会話用にし、全身通常5枚は別用途として残す。
+2026-10-11。主要5人と直人の計6人、通常を含む46枚。全員透過PNG1024×1024。寸法は制作上の仮案、個別画像は採用待ち。
+採用設定資料と全身通常を参照して腰上通常を描き、人物ごとの腰上通常から各表情を制作。手を含む腰上を会話用にし、全身通常6枚は別用途として残す。
 
 | 人物 | 枚数 | 明るい背景 | 暗い背景 | 生成記録 |
 |---|---:|---|---|---|
@@ -10,12 +10,13 @@
 | 鳴海 | 8 | [一覧](characters/narumi/waist-review.png) | [一覧](characters/narumi/waist-review-dark.png) | [条件](characters/narumi/waist-prompts.json) |
 | 奥村 | 7 | [一覧](characters/okumura/waist-review.png) | [一覧](characters/okumura/waist-review-dark.png) | [条件](characters/okumura/waist-prompts.json) |
 | 瀬川 | 8 | [一覧](characters/segawa/waist-review.png) | [一覧](characters/segawa/waist-review-dark.png) | [条件](characters/segawa/waist-prompts.json) |
+| 直人 | 8 | [一覧](characters/naoto/waist-review.png) | [一覧](characters/naoto/waist-review-dark.png) | [条件](characters/naoto/waist-prompts.json) |
 
 ## 保存・検証
 
 - ゲーム候補：src/assets/images/characters/<id>/waist/<key>.png。全身通常：full/neutral.png。画像を制作資料へ二重コピーしない。
 - 各確認一覧は1920×1080、最大8枚、背景付き。既存の採用設定資料sheet.pngとは用途を分ける。
-- 全38枚の寸法、透明・不透明ピクセル、透明な四隅、輪郭範囲、SHA-256を[検証記録](waist-validation.json)へ保存。
+- 全46枚の寸法、透明・不透明ピクセル、透明な四隅、輪郭範囲、SHA-256を[検証記録](waist-validation.json)へ保存。
 - 書き出しは原本キャンバス全体を960px四方に収め、1024px四方の中央へ配置。顔のサイズを変えて手を収める調整はしない。
 - 明暗背景で輪郭と手の収まりを目視確認。表情による顔の位置・衣服のしわには生成上の微差がある。
 - 全身通常の移動前後でSHA-256一致を確認。ゲームコード・ストーリーは変更せず、ゲーム内切り替えとUIの重なりは未検証。
@@ -75,3 +76,14 @@
 - [irritated](../../src/assets/images/characters/segawa/waist/irritated.png)
 - [reluctant](../../src/assets/images/characters/segawa/waist/reluctant.png)
 - [relieved](../../src/assets/images/characters/segawa/waist/relieved.png)
+
+### 直人
+
+- [neutral](../../src/assets/images/characters/naoto/waist/neutral.png)
+- [smile](../../src/assets/images/characters/naoto/waist/smile.png)
+- [serious](../../src/assets/images/characters/naoto/waist/serious.png)
+- [surprised](../../src/assets/images/characters/naoto/waist/surprised.png)
+- [worried](../../src/assets/images/characters/naoto/waist/worried.png)
+- [pained](../../src/assets/images/characters/naoto/waist/pained.png)
+- [relieved](../../src/assets/images/characters/naoto/waist/relieved.png)
+- [remorseful](../../src/assets/images/characters/naoto/waist/remorseful.png)
