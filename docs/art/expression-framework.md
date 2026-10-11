@@ -45,8 +45,8 @@
 
 ## 保存と更新
 人物別の必要性・所作・制作状態は docs/art/characters/<id>/profile.md が正本。
-ゲーム用個別素材は src/assets/images/characters/<id>/neutral.png 等。制作資料の試作は docs/art/characters/<id>/drafts/。採用した設定資料は同じ人物の sheet.png。
+ゲーム用個別素材は src/assets/images/characters/<id>/full/neutral.png と waist/<表情キー>.png。制作資料の試作は docs/art/characters/<id>/drafts/。採用した設定資料は同じ人物の sheet.png。
 確認シートを設定資料として採用したら sheet.png へ移動し、プロフィールの状態を更新する。ゲーム用素材は別用途として制作する。
 確認シートは1920×1080、背景付き、左に全身、右に4×2の最大8枠。頭～胸・腰まで手を収める。
-通常は必須、超過分は基本優先で掲載省略。個別素材は透過・全身、共通寸法は未決。
+通常は必須、超過分は基本優先で掲載省略。個別素材は透過。全身は通常のみ、会話の表情は頭～腰まで。寸法は全身1024×1536・腰上1024×1024の仮案。
 表情と角度・所作は別管理し、全組合せを生成しない。

@@ -6,11 +6,11 @@
 
 | 人物 | ゲーム用画像 | 生成条件 |
 |---|---|---|
-| 湊 | [neutral.png](../../src/assets/images/characters/minato/neutral.png) | [条件](characters/minato/neutral-prompt.md) |
-| 澪 | [neutral.png](../../src/assets/images/characters/mio/neutral.png) | [条件](characters/mio/neutral-prompt.md) |
-| 鳴海 | [neutral.png](../../src/assets/images/characters/narumi/neutral.png) | [条件](characters/narumi/neutral-prompt.md) |
-| 奥村 | [neutral.png](../../src/assets/images/characters/okumura/neutral.png) | [条件](characters/okumura/neutral-prompt.md) |
-| 瀬川 | [neutral.png](../../src/assets/images/characters/segawa/neutral.png) | [条件](characters/segawa/neutral-prompt.md) |
+| 湊 | [neutral.png](../../src/assets/images/characters/minato/full/neutral.png) | [条件](characters/minato/neutral-prompt.md) |
+| 澪 | [neutral.png](../../src/assets/images/characters/mio/full/neutral.png) | [条件](characters/mio/neutral-prompt.md) |
+| 鳴海 | [neutral.png](../../src/assets/images/characters/narumi/full/neutral.png) | [条件](characters/narumi/neutral-prompt.md) |
+| 奥村 | [neutral.png](../../src/assets/images/characters/okumura/full/neutral.png) | [条件](characters/okumura/neutral-prompt.md) |
+| 瀬川 | [neutral.png](../../src/assets/images/characters/segawa/full/neutral.png) | [条件](characters/segawa/neutral-prompt.md) |
 
-表情差分は未制作。5人の通常立ち絵を確認した後に追加する。
+通常を含む腰上38枚を制作済み。[腰上素材一覧](waist-review.md)を参照。個別画像は採用待ち。
 生成原本はgenerated_imagesに保持。ゲーム候補の二重コピーは制作資料へ置かない。

@@ -10,8 +10,8 @@
 
 ## ゲーム素材
 実際にゲームで使う画像のみ src/assets/images/ に配置する。
-characters/<id>/neutral.png、smile.png 等を基本とし、backgrounds、maps、items、cutins、illustrations、ui は必要に応じて追加する。
-主要5人の通常立ち絵候補を制作。[通常立ち絵確認](neutral-review.md)。寸法1024×1536は仮案、正式採用と表情差分は未完了。既存デモ素材と実装上の参照は変更していない。
+characters/<id>/full/neutral.png（全身通常）、characters/<id>/waist/neutral.png・smile.png 等（会話用腰上）を基本とし、backgrounds、maps、items、cutins、illustrations、ui は必要に応じて追加する。
+主要5人の全身通常5枚と腰上38枚を制作。[全身通常](neutral-review.md)、[腰上素材一覧](waist-review.md)。寸法は全身1024×1536・腰上1024×1024の制作上の仮案。個別画像の正式採用は未確認。既存デモ素材と実装上の参照は変更していない。
 
 ## 設定資料シートの運用
 1. 試作中の確認シートは drafts/ に保存する。
