@@ -1,8 +1,27 @@
 {
-  "status": "provisional visual calibration, not body height setting",
+  "status": "user-approved temporary female display scale; positions remain provisional, not body height settings",
   "reference": "waist/neutral.png, 1024x1024",
   "method": "Visual estimate of visible forehead-to-chin span, excluding hair volume. Approximate anchors only, not automated face detection.",
-  "minato": {"foreheadYApprox": 148, "chinYApprox": 311, "visibleFaceHeightApprox": 163, "widthPercent": 54, "topPercent": 12},
-  "mio": {"foreheadYApprox": 151, "chinYApprox": 333, "visibleFaceHeightApprox": 182, "scaleRelativeToPrevious": 0.9, "widthPercent": 48.6, "topPercent": 18},
-  "scope": "Same per-character scale for all expressions; no per-expression automatic resizing. Position is a display proposal to keep image edge outside stage."
+  "minato": {
+    "foreheadYApprox": 148,
+    "chinYApprox": 311,
+    "visibleFaceHeightApprox": 163,
+    "widthPercent": 54,
+    "topPercent": 12
+  },
+  "mio": {
+    "foreheadYApprox": 151,
+    "chinYApprox": 333,
+    "visibleFaceHeightApprox": 182,
+    "scaleRelativeToPrevious": 0.9,
+    "widthPercent": 48.6,
+    "topPercent": 18
+  },
+  "scope": "Same per-character scale for all expressions; no per-expression automatic resizing. Position is a display proposal to keep image edge outside stage.",
+  "temporaryDisplayRule": {
+    "baseline": 1.0,
+    "female": 0.9,
+    "agreedDate": "2026-10-11",
+    "backlog": "../backlog.md"
+  }
 }
