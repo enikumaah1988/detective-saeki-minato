@@ -734,5 +734,133 @@
       992
     ],
     "sha256": "65c3fceb8ae3cbce15b83292f68765983cd26580efc4e172cf8f1752abf1d822"
+  },
+  {
+    "id": "saori",
+    "key": "neutral",
+    "file": "src/assets/images/characters/saori/waist/neutral.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 686719,
+    "opaquePixels": 874,
+    "boundsAlphaAbove8": [
+      236,
+      54,
+      804,
+      992
+    ],
+    "sha256": "4ce35f244bee4b4bfd3e92749075abd3ced091d5e656586fcad331a08e4f4973"
+  },
+  {
+    "id": "saori",
+    "key": "smile",
+    "file": "src/assets/images/characters/saori/waist/smile.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 679748,
+    "opaquePixels": 864,
+    "boundsAlphaAbove8": [
+      220,
+      53,
+      812,
+      992
+    ],
+    "sha256": "1ab22a392283888f6ccd6bb244961add511cd9258202361c8c9bbcf7d4533ae2"
+  },
+  {
+    "id": "saori",
+    "key": "serious",
+    "file": "src/assets/images/characters/saori/waist/serious.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 681073,
+    "opaquePixels": 930,
+    "boundsAlphaAbove8": [
+      222,
+      52,
+      813,
+      992
+    ],
+    "sha256": "70d8a3f3f46c907ce770cba256c3fbb1fbaef7cd3813810bfade79e39cb6b284"
+  },
+  {
+    "id": "saori",
+    "key": "surprised",
+    "file": "src/assets/images/characters/saori/waist/surprised.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 686611,
+    "opaquePixels": 920,
+    "boundsAlphaAbove8": [
+      241,
+      54,
+      806,
+      992
+    ],
+    "sha256": "bb91deb5bbbc9c047bbee4eb6df69146f2186f675b088f6438c53aa1665b807d"
+  },
+  {
+    "id": "saori",
+    "key": "worried",
+    "file": "src/assets/images/characters/saori/waist/worried.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 682934,
+    "opaquePixels": 963,
+    "boundsAlphaAbove8": [
+      240,
+      51,
+      805,
+      992
+    ],
+    "sha256": "36609383c2ee2ae805d49b0a2930b471ab332317728cc8189e4d71c6bfe2b406"
+  },
+  {
+    "id": "saori",
+    "key": "pained",
+    "file": "src/assets/images/characters/saori/waist/pained.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 683411,
+    "opaquePixels": 966,
+    "boundsAlphaAbove8": [
+      244,
+      54,
+      802,
+      992
+    ],
+    "sha256": "23581eac06bca42e05cbea93c800e139d9c2ce81957cfd3d37bd7793f2c81cfd"
+  },
+  {
+    "id": "saori",
+    "key": "relieved",
+    "file": "src/assets/images/characters/saori/waist/relieved.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 682699,
+    "opaquePixels": 981,
+    "boundsAlphaAbove8": [
+      233,
+      54,
+      817,
+      992
+    ],
+    "sha256": "651d9ee0774134df4de67d0eb015ccf962e13bdcd5be82034348eaec43f86614"
+  },
+  {
+    "id": "saori",
+    "key": "confused",
+    "file": "src/assets/images/characters/saori/waist/confused.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 686543,
+    "opaquePixels": 931,
+    "boundsAlphaAbove8": [
+      231,
+      54,
+      807,
+      992
+    ],
+    "sha256": "246544241ad30ccff94e3d9e998c90d192226da5a37b5f537330b58699ee2919"
   }
 ]

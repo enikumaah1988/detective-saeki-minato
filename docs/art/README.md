@@ -7,14 +7,14 @@
 - 採用全身デザイン：同階層の design.png と design-prompt.md。あかりは試作3を基本デザインとして採用。表情・所作の現在の視覚基準は採用 sheet.png、design.png は全身の補助参照。人物別の基準は profile.md で管理する。
 - 直人は修正版全身デザインと、自責を含む8表情・所作のシートを採用。characters/naoto/sheet.png を視覚基準、design.png を全身の補助参照とする。人物設定はストーリー同期待ち。現在の採用・確認状態は profile.md を参照する。
 - 未採用・比較用の試作と生成条件：同階層の drafts/。
-- 沙織は修正版全身と8表情・手の所作のシートを採用。characters/saori/sheet.pngを現在の視覚基準、design.pngを全身の補助参照とする。ゲーム用個別素材は未制作。人物設定はストーリー同期待ち。
+- 沙織は修正版全身と8表情・手の所作のシートを採用。characters/saori/sheet.pngを現在の視覚基準、design.pngを全身の補助参照とする。ゲーム用個別素材9枚を制作済み、個別画像は確認待ち。人物設定はストーリー同期待ち。
 - [制作手順](character-workflow.md)、[人物テンプレート](character-template.md)、[表情辞書](expression-framework.md)。
 - [最新シート一覧](expression-review.md)。
 
 ## ゲーム素材
 実際にゲームで使う画像のみ src/assets/images/ に配置する。
 characters/<id>/full/neutral.png（全身通常）、characters/<id>/waist/neutral.png・smile.png 等（会話用腰上）を基本とし、backgrounds、maps、items、cutins、illustrations、ui は必要に応じて追加する。
-主要5人と直人の計6人、全身通常6枚と腰上46枚を制作。[全身通常](neutral-review.md)、[腰上素材一覧](waist-review.md)。寸法は全身1024×1536・腰上1024×1024の制作上の仮案。個別画像の正式採用は未確認。既存デモ素材と実装上の参照は変更していない。あかりの個別素材は未制作。
+主要5人と直人・沙織の計7人、全身通常7枚と腰上54枚を制作。[全身通常](neutral-review.md)、[腰上素材一覧](waist-review.md)。寸法は全身1024×1536・腰上1024×1024の制作上の仮案。個別画像の正式採用は未確認。既存デモ素材と実装上の参照は変更していない。あかりの個別素材は未制作。
 
 ## 設定資料シートの運用
 1. 試作中の確認シートは drafts/ に保存する。
