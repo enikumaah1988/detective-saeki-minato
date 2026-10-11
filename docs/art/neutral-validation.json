@@ -89,5 +89,18 @@
     ],
     "sha256": "B8499971D4196AC66FF36777F80AAB37F84C7CF55F12B9872DE2D41461B65374",
     "source": "exec-962d491b-a3af-47d8-bec2-4a96d3cbaf22.png"
+  },
+  {
+    "id": "akari",
+    "width": 1024,
+    "height": 1536,
+    "alphaBounds": [
+      284,
+      81,
+      455,
+      1380
+    ],
+    "sha256": "AB98C056972311712998231BDA2C2B6D38B1ACA7F70379932004C57A5DE2916A",
+    "source": "exec-8983c768-1d69-449f-8381-ebf8fbeb87df.png"
   }
 ]

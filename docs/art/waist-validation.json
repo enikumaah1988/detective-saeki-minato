@@ -862,5 +862,133 @@
       992
     ],
     "sha256": "246544241ad30ccff94e3d9e998c90d192226da5a37b5f537330b58699ee2919"
+  },
+  {
+    "id": "akari",
+    "key": "neutral",
+    "file": "src/assets/images/characters/akari/waist/neutral.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 710630,
+    "opaquePixels": 992,
+    "boundsAlphaAbove8": [
+      271,
+      44,
+      759,
+      992
+    ],
+    "sha256": "d3596906dce9154943c1e36ee0137c0c3574a2836ec6a4326442e52954244e32"
+  },
+  {
+    "id": "akari",
+    "key": "smile",
+    "file": "src/assets/images/characters/akari/waist/smile.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 709706,
+    "opaquePixels": 1020,
+    "boundsAlphaAbove8": [
+      271,
+      43,
+      760,
+      992
+    ],
+    "sha256": "c2d27b7d6982fca8e7d6747c05d77f06a9af2e4c748767daef4a582b041e69a8"
+  },
+  {
+    "id": "akari",
+    "key": "serious",
+    "file": "src/assets/images/characters/akari/waist/serious.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 705445,
+    "opaquePixels": 995,
+    "boundsAlphaAbove8": [
+      237,
+      43,
+      760,
+      992
+    ],
+    "sha256": "cbfa9da800361603cfda9024756735233d3349a512f670c66b40ff7ac2d2517f"
+  },
+  {
+    "id": "akari",
+    "key": "surprised",
+    "file": "src/assets/images/characters/akari/waist/surprised.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 711921,
+    "opaquePixels": 972,
+    "boundsAlphaAbove8": [
+      271,
+      44,
+      762,
+      992
+    ],
+    "sha256": "9abdde25ab591087c94249bd0193bfdd92bfc3614f7e44ea6231d15935734b02"
+  },
+  {
+    "id": "akari",
+    "key": "worried",
+    "file": "src/assets/images/characters/akari/waist/worried.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 713007,
+    "opaquePixels": 926,
+    "boundsAlphaAbove8": [
+      272,
+      44,
+      763,
+      992
+    ],
+    "sha256": "e34bc32c45c8115394de94d3d78bf2653423c0eaf39b957d9f17a81ac4f509c4"
+  },
+  {
+    "id": "akari",
+    "key": "sad",
+    "file": "src/assets/images/characters/akari/waist/sad.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 709833,
+    "opaquePixels": 745,
+    "boundsAlphaAbove8": [
+      271,
+      43,
+      761,
+      992
+    ],
+    "sha256": "af11ade1b0a20cd3ebef506ee9501e7da5bcc61e1452ea15c2bc04e6e7874608"
+  },
+  {
+    "id": "akari",
+    "key": "relieved",
+    "file": "src/assets/images/characters/akari/waist/relieved.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 710743,
+    "opaquePixels": 1033,
+    "boundsAlphaAbove8": [
+      272,
+      43,
+      761,
+      992
+    ],
+    "sha256": "bb9561e49360986e9f47f2adb9e222466b7c0b9af11e919200516405f777d841"
+  },
+  {
+    "id": "akari",
+    "key": "determined",
+    "file": "src/assets/images/characters/akari/waist/determined.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 708927,
+    "opaquePixels": 1011,
+    "boundsAlphaAbove8": [
+      271,
+      44,
+      761,
+      992
+    ],
+    "sha256": "96de9ca222ab963f781fa9bf11e544dd7088f7336f0d5afa6405b06ce08b49bf"
   }
 ]
