@@ -3,8 +3,8 @@
 
 ## 制作資料の正本
 - 人物仕様・採用状況：docs/art/characters/<id>/profile.md。
-- 採用した設定資料：同階層の sheet.png と sheet-prompt.md。主要5人の設定資料として採用済み。
-- 表情確認シートをまだ作っていない人物の採用全身デザイン：同階層の design.png と design-prompt.md。あかりは試作3を基本デザインとして採用。表情シートが採用されたら視覚基準を profile.md で更新する。
+- 採用した設定資料：同階層の sheet.png と sheet-prompt.md。主要5人とあかりの設定資料として採用済み。
+- 採用全身デザイン：同階層の design.png と design-prompt.md。あかりは試作3を基本デザインとして採用。表情・所作の現在の視覚基準は採用 sheet.png、design.png は全身の補助参照。人物別の基準は profile.md で管理する。
 - 未採用・比較用の試作と生成条件：同階層の drafts/。
 - [制作手順](character-workflow.md)、[人物テンプレート](character-template.md)、[表情辞書](expression-framework.md)。
 - [最新シート一覧](expression-review.md)。
@@ -21,6 +21,7 @@ characters/<id>/full/neutral.png（全身通常）、characters/<id>/waist/neutr
 4. ゲーム画像は profile.md と採用シートを参照して新たに制作する。確認シートの切り抜きを完成素材と扱わない。
 5. sheet.png の更新時は旧版をGitの履歴で追う。必要になった場合だけ sheets/ に分ける。
 現行5人は2026-10-11に設定資料として採用。sheet.png と sheet-prompt.md へ移動済み。ブラッシュアップは同じファイル名で更新し、Git履歴で追う。
+あかりも2026-10-11に8表情・手の所作のシートを設定資料として採用。ゲーム用個別素材は未制作。
 同一画像を二か所にコピーして維持しない。人物仕様も profile.md を唯一の現行正本にする。
 
 ## 履歴・Git
