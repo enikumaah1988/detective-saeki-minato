@@ -3,9 +3,9 @@
 
 ## 制作資料の正本
 - 人物仕様・採用状況：docs/art/characters/<id>/profile.md。
-- 採用した設定資料：同階層の sheet.png と sheet-prompt.md。主要5人とあかりの設定資料として採用済み。
+- 採用した設定資料：同階層の sheet.png と sheet-prompt.md。主要5人、あかり、直人の設定資料として採用済み。
 - 採用全身デザイン：同階層の design.png と design-prompt.md。あかりは試作3を基本デザインとして採用。表情・所作の現在の視覚基準は採用 sheet.png、design.png は全身の補助参照。人物別の基準は profile.md で管理する。
-- 直人は全身試作1を基本デザインとして採用後、顔・髪色・作業着の色を見直し中。最新候補は characters/naoto/drafts/prototype-03.png と sheet-02.png。8表情に自責を追加、修正版画像は採用待ち。人物設定はストーリー同期待ち。現在の採用・確認状態は profile.md を参照する。
+- 直人は修正版全身デザインと、自責を含む8表情・所作のシートを採用。characters/naoto/sheet.png を視覚基準、design.png を全身の補助参照とする。人物設定はストーリー同期待ち。現在の採用・確認状態は profile.md を参照する。
 - 未採用・比較用の試作と生成条件：同階層の drafts/。
 - [制作手順](character-workflow.md)、[人物テンプレート](character-template.md)、[表情辞書](expression-framework.md)。
 - [最新シート一覧](expression-review.md)。

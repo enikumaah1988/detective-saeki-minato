@@ -1,18 +1,17 @@
-# 直人：全身試作1
+# 直人：全身修正試作3
 
-生成方式：組み込み image_gen。
-状態：2026-10-11、基本デザインとしてユーザー試作採用。人物設定はストーリー同期待ち。生成時のプロンプトは以下にそのまま保存。
-参照：../akari/design.png（家族らしさ・作風）、../segawa/sheet.png（作風のみ）。参照人物の顔を複製しない。
-身長、場面別の服装、小物は未決。ゲームへの組み込みはしない。
-生成原本：C:/Users/lemon/.codex/generated_images/01a123a2-b46f-77d3-b27e-a7f8a37b3920/exec-846ca73c-ca35-4f35-b47e-0a088f629282.png。原本を変更せず保存し、採用時にdesign.pngへ移動。
+生成方式：組み込み image_gen による編集。
+編集対象：drafts/prototype-02.png。
+ユーザー指定：髪を明るめにして真面目さを維持、作業ブルゾンを薄い水色へ変更。
+制作上の色味案：自然な中程度の茶色の髪、淡い水色の作業ブルゾン。
+修正試作2の顔立ち・体格・衣装の形・通常表情を維持。2026-10-11、修正画像をユーザー採用。ストーリー設定は同期待ち。生成時のプロンプトはそのまま保存。
+生成原本：C:/Users/lemon/.codex/generated_images/01a123a2-b46f-77d3-b27e-a7f8a37b3920/exec-7f11d68c-cb89-4be2-b0ac-8f183538c9fa.png。原本を変更せずprototype-03.pngへ保存。透過境界のにじみは完成素材時に別途確認する。
 
 ```text
-Use case: stylized-concept.
-Asset type: first full-body character design prototype for original contemporary Japanese detective ADV Detective Saeki Minato.
-Input roles: image1 Takase Akari is a FAMILY RESEMBLANCE and rendering reference only. Image2 Segawa is a LINEWORK AND SHADING reference only. Create a DISTINCT new male character, NOT Segawa's face and NOT a male copy of Akari. Do not reproduce reference page layout or backgrounds.
-Subject: Takase Naoto, Japanese man age29, ordinary building maintenance and repair field worker. Unpretentious, quietly responsible everyday adult appearance. Short near-black dark-brown hair, practical neatly kept cut with fringe gently swept sideways, not spiky idol hair. Clean-shaven, no glasses. Slightly broad jaw, natural moderately thick eyebrows, softly observant restrained eyes with a subtle family resemblance to Akari's eye shape. Adult proportions, normal face, not overly sculpted handsome model, not villainous or saintly. Neutral composed expression with a little reserve, closed relaxed mouth. Standard build with moderate thickness in shoulders and arms from practical work, not bulky or highly muscular. His exact height remains unspecified.
-Clothing: simple muted dusty BLUE work blouson, plain LIGHT GRAY T-shirt visible beneath the partly open jacket, BEIGE work trousers, dark sturdy practical shoes. Clothes worn-in but clean and maintained. No tie, no suit lapels, no long coat, no hoodie. No company logos, name tags, lettering or brands. No tools or added props.
-Pose/composition: one centered full-body figure, natural shallow three-quarter angle, quietly standing upright, arms relaxed with hands naturally visible near sides, not a heroic pose. Anatomically correct hands. Show entire hair top and both complete shoes with generous margins. Portrait intended1024x1536. Do not crop at knees or ankles.
-Style: match fine mature manga outlines, restrained painterly fabric shading and grounded contemporary ADV character rendering of the references, soft natural skin shading, same overall visual world. No photorealism, watercolor wash, chibi, glamour stylization, overlarge anime eyes or excessive grunge.
-Background: genuine transparent alpha, clear cutout silhouette, NO colored haze, glow, cast shadow, location, text, labels, extra character or sheet panels. Review prototype only, not final game asset. Do not add narrative clues or infer extra personal history.
+Use case: precise-object-edit.
+Edit this Takase Naoto full-body revision2. Preserve EXACT newly redesigned broader ordinary face, rounder nose, modest smaller eyes, fuller natural mouth, age29, serious responsible reserved demeanor. Do not return to sharp handsome Segawa-like face. Preserve body build, pose, hands, all garment shapes and pocket/zipper details, light-gray T-shirt, beige work trousers, dark sturdy shoes, same mature manga/painterly style and framing.
+Change ONLY two color/material appearances:
+1 Hair: natural noticeably LIGHTER MEDIUM BROWN, subtle warm brown, several steps lighter than current near-black; no blond, orange, flashy highlights, shiny salon styling or light streaks. Keep same practical short haircut, side-swept fringe and neat unpretentious grooming. He must still look earnest and serious.
+2 Work blouson: noticeably PALE LIGHT SKY BLUE / powder blue, much lighter than current dark dusty navy blue. Matte everyday cotton workwear with clean worn-in texture. Keep plausible gentle blue-gray shadows while overall jacket reads LIGHT BLUE. Not denim, not suit blazer, not glossy fashion jacket.
+Expression remains quiet neutral, NOT a guilty expression in this base; a separate remorseful variant will be made. One full-body figure with hair top and both shoes entirely visible, portrait intended1024x1536 with margins. True transparent background without halo/haze outside silhouette. No text, props, logos or other characters. Review prototype3, adoption pending.
 ```
