@@ -1,3 +1,5 @@
+import { mkdir } from 'node:fs/promises'
+import { fileURLToPath } from 'node:url'
 import test from 'node:test'
 import assert from 'node:assert/strict'
 const path = process.env.SAEKI_PLAYWRIGHT_PATH
@@ -6,6 +8,8 @@ for (const viewport of [{ width: 1920, height: 1080 }, { width: 1366, height: 76
   const { chromium } = await import(path)
   const browser = await chromium.launch()
   const page = await browser.newPage({ viewport })
+  const screenshots = new URL('../work/records-preview/', import.meta.url)
+  await mkdir(screenshots, { recursive: true })
   try {
    await page.goto(process.env.SAEKI_BASE_URL ?? 'http://127.0.0.1:5176')
    assert.equal(await page.getByRole('dialog').count(), 0)
@@ -47,9 +51,9 @@ for (const viewport of [{ width: 1920, height: 1080 }, { width: 1366, height: 76
     }
     if (mode === '通常') {
      await modal.getByRole('tab', { name: '人物', exact: true }).click()
-     await page.screenshot({ path: `/tmp/saeki-ui-review/preview-${viewport.width}.png` })
+     await page.screenshot({ path: fileURLToPath(new URL(`preview-${viewport.width}.png`, screenshots)) })
      await modal.getByRole('button', { name: '澪', exact: true }).click()
-     await page.screenshot({ path: `/tmp/saeki-ui-review/preview-mio-${viewport.width}.png` })
+     await page.screenshot({ path: fileURLToPath(new URL(`preview-mio-${viewport.width}.png`, screenshots)) })
      const fits = await modal.locator('.record-detail').evaluate(el => {
       const portrait = el.querySelector('.record-portrait').getBoundingClientRect()
       const paragraph = el.querySelector('p')

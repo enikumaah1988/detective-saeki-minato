@@ -1,6 +1,6 @@
 import { lazy, Suspense, useState } from 'react'
-import { freeActionDemo } from '../data/scenario/freeActionDemo'
-import { demoScenario } from '../data/scenario/demo'
+import { scenarioCatalog, defaultScenario } from '../data/scenario/catalog'
+
 import { StoryPlayer } from '../features/story/StoryPlayer'
 import type { InvestigationRecord } from '../types/investigation'
 import type { PreviewMode } from '../dev/investigationPreview'
@@ -11,7 +11,7 @@ const ExplorationMock = import.meta.env.DEV
   : undefined
 
 export default function App() {
-  const [scenario, setScenario] = useState(freeActionDemo)
+  const [scenario, setScenario] = useState(() => scenarioCatalog.find(item => item.id === new URLSearchParams(typeof location === 'undefined' ? '' : location.search).get('scenario')) ?? defaultScenario)
   const [preview, setPreview] = useState<{ records: InvestigationRecord[]; label: string; invoker: HTMLElement }>()
   const [smokingAllowed, setSmokingAllowed] = useState<boolean>()
   const [explorationMock, setExplorationMock] = useState(false)
@@ -27,8 +27,7 @@ export default function App() {
       <details className="scene-selector">
         <summary><span className="dev-label">DEV</span> 仮シナリオの切替</summary>
       <div className="choices" aria-label="検証用シーン選択">
-        <button type="button" onClick={() => { setExplorationMock(false); setPreview(undefined); setScenario(freeActionDemo) }}>第1部「依頼」の仮シナリオ</button>
-        <button type="button" onClick={() => { setExplorationMock(false); setPreview(undefined); setScenario(demoScenario) }}>会話・分岐の仮シーン</button>
+        {scenarioCatalog.map(item => <button key={item.id} type="button" onClick={() => { setExplorationMock(false); setPreview(undefined); setScenario(item) }}>{item.title}</button>)}
       </div>
       <p className="story-note">シーン切替時は初期状態に戻ります。ロードは保存したシーンを選んで実行してください。</p>
       </details>

@@ -2,10 +2,15 @@ import type { BackgroundDefinition, CharacterDefinition, ExpressionDefinition } 
 
 // 検証用画像。本番画像へ差し替える際もシナリオの ID は変更しない。
 export const backgrounds: Record<string, BackgroundDefinition> = {
+  'office-before-noon': { id: 'office-before-noon', name: '佐伯探偵事務所・昼前（既存午後画像の仮使用）', imageSrc: new URL('../assets/backgrounds/office-afternoon.png', import.meta.url).href },
+  'company-reception': { id: 'company-reception', name: '東成ビルサービス・応接スペース（仮背景）' },
   'office-afternoon': { id: 'office-afternoon', name: '探偵事務所・午後（仮背景）', imageSrc: new URL('../assets/backgrounds/office-afternoon.png', import.meta.url).href },
 }
 
 export const characters: Record<string, CharacterDefinition> = {
+  narrator: { id: 'narrator', name: '', expressions: {} },
+  akari: { id: 'akari', name: '高瀬あかり', expressions: { normal: { id: 'normal', name: '通常（仮表示・素材未制作）' } } },
+  'company-staff': { id: 'company-staff', name: '事務担当', expressions: {} },
   minato: {
     id: 'minato', name: '佐伯湊',
     expressions: {

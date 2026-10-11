@@ -2,7 +2,7 @@ import test, { before } from 'node:test'
 import assert from 'node:assert/strict'
 import { createElement } from 'react'
 import { renderToStaticMarkup } from 'react-dom/server'
-import { createServer } from 'vite'
+import { createServer } from './viteServer.mjs'
 import { freeActionDemo as scenario } from '../src/data/scenario/freeActionDemo.ts'
 let App, StoryContent, StoryPlayer, SaveControls, choiceStatus, selectCurrentNode, createInitialState
 before(async () => {

@@ -1,7 +1,7 @@
 const progress = { flags: {}, heardTopics: [], inspectedTargets: [], acquiredInformation: [] }
 import test, { before } from 'node:test'
 import assert from 'node:assert/strict'
-import { createServer } from 'vite'
+import { createServer } from './viteServer.mjs'
 import { demoScenario as scenario } from '../src/data/scenario/demo.ts'
 
 let createInitialState, reduceGameState, selectCurrentNode
