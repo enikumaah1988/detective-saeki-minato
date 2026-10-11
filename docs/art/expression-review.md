@@ -22,4 +22,4 @@
 
 | 人物 | プロフィール | 確認シート | 状態 |
 |---|---|---|---|
-| 高瀬 直人 | [仕様](characters/naoto/profile.md) | [7表情・旧顔の試作1](characters/naoto/drafts/sheet-01.png) | 瀬川との顔の識別性を見直し中。修正顔は確認待ち、表情シートへの反映待ち。表情・所作は未採用。ストーリー設定は同期待ち。 |
+| 高瀬 直人 | [仕様](characters/naoto/profile.md) | [8表情・修正試作2](characters/naoto/drafts/sheet-02.png) | 修正顔・明るめの茶髪・薄い水色のブルゾン・自責を反映。画像・所作は確認待ち、ストーリー設定は同期待ち。 |
