@@ -2,6 +2,8 @@
 
 2026-10-12。制作画像・プロンプト・台帳はdocs/artを正本とし、outputsへPNGや仕様を二重コピーしない。
 
+第1組の素材・表示基準のコミット：8398e0924d88f2e3e0c6407bfb7bc9919dc96a2e（art/main-characters、ローカル）。画像の採用・ゲーム組み込みとは別。素材ID・時間帯・採用状態は下の正本参照。
+
 - [人物表示基準](../../docs/art/character-display-handoff.md)：合意済み暫定倍率と未採用位置案を区別。
 - [制作第1組の引継ぎ](../../docs/art/integration-batch-01.md)：喫煙・非喫煙2点、事務所室内と建物前の基本候補、生成条件、素材ID、時間帯、採用状態、検証と残作業。
 - [喫煙・非喫煙の比較](../../docs/art/cutins/ui-review-01.png)、[背景の静的表示確認](../../docs/art/backgrounds/ui-review-01.png)。実ゲームでの検証ではない。
