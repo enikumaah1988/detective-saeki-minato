@@ -4,5 +4,6 @@ docs/art/neutral-review.png filter=lfs diff=lfs merge=lfs -text
 docs/art/episode-design-*.png filter=lfs diff=lfs merge=lfs -text
 docs/art/cutins/**/*.png filter=lfs diff=lfs merge=lfs -text
 docs/art/backgrounds/**/*.png filter=lfs diff=lfs merge=lfs -text
+docs/art/illustrations/**/*.png filter=lfs diff=lfs merge=lfs -text
 
 docs/art/display-preview/*.png filter=lfs diff=lfs merge=lfs -text

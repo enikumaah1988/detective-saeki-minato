@@ -9,6 +9,8 @@
 - [背景第2組](../../docs/art/backgrounds/batch-02-review.md)：会社の外観・受付・応接、警察署の外観・受付・面会室の昼候補6点。生成条件・ID・時刻・採用状態を記録。全12対象の依頼は継続中。
 - 第2組の素材コミット：d919cda（art/main-characters、ローカル）。
 - [背景第3組](../../docs/art/backgrounds/batch-03-review.md)：旧ビル基本4構図＋夕差分4点。基本12構図・背景16候補がそろったが、採用・階段視点・本編表示は確認待ち。部間7図柄は制作継続。
+- 第3組の素材コミット：1c8485f（art/main-characters、ローカル）。
+- [部間挿絵の逐次納品](../../docs/art/illustrations/README.md)：完成した候補から保存。修正中の紙面・未納画像は完成扱いにしない。接続IDと採用状態は検証JSON参照。
 - [喫煙・非喫煙の比較](../../docs/art/cutins/ui-review-01.png)、[背景の静的表示確認](../../docs/art/backgrounds/ui-review-01.png)。実ゲームでの検証ではない。
 - 部始まり・部末の8接続箇所はver0.03指定表を受領。C1-OUT/C2-IN共用の7図柄を制作する。
 - 黒田・宮原・三崎は基本デザイン採用確認待ちを維持する。
