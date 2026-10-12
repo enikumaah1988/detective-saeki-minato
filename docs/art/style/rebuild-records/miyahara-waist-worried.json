@@ -1,0 +1,44 @@
+{
+  "id": "miyahara",
+  "key": "worried",
+  "kind": "waist",
+  "dest": "src/assets/images/characters/miyahara/waist/worried.png",
+  "width": 1024,
+  "height": 1024,
+  "refs": [
+    "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/src/assets/images/characters/miyahara/waist/neutral.png",
+    "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/src/assets/images/characters/miyahara/full/neutral.png"
+  ],
+  "prompt": "Use case: identity-preserve. ONE standalone waist-up conversation sprite, square1024x1024, complete head through waist/hip, NO legs or shoes. Input1 is exact waist-up neutral EDIT TARGET. Preserve exact face identity, head size, head placement, torso size and anchoring, hairstyle, costume and rough drawing style. Change ONLY expression and necessary arms/hands. Input2 full-body is supporting costume reference. Japanese male64 building caretaker, slim long face slightly hollow cheeks, soft cautious eyes with age wrinkles, short thin grey mixed-white hair, no glasses or beard, slightly lean sturdy working adult not frail or helpless. Muted olive short work jacket, light grey collared shirt, dark beige work trousers and dark practical shoes. No logo or keys. Expression worried: concerned inward-raised brows and anxious eyes, pressed mouth, one hand over chest or supporting the other wrist; worry about somebody. Maintain shallow angle of reference. Top of hair approx y40, face centered x512 around y230, waistline near y900, crop just below hip near y1000. Entire hands/fingers fit inside canvas; natural five fingers, no props. Hand-drawn original artwork evoking late-1990s PS1 Japanese detective ADV gekiga. Same visibly irregular broken ink contours, coarse brush strokes, patchy pigment, bold uneven angular shadow planes and muted slightly faded low-saturation palette as style reference. This is the drawing itself, not a retro filter. Maintain adult anatomical realism with modest eyes, matte rough hair and cloth, avoid idealized handsome anime faces, polished skin, smooth gradients, glossy highlights, vector lines, photo texture, noise overlay or downsampling. Preserve each character's distinguishing palette and age, not all brown or all tired. TRUE transparent outside the figure, absolutely no environment, paper backdrop, glow, haze, cast shadow or text.",
+  "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-74d8987e-9315-4bab-b1fa-b8301016970a.png",
+  "validation": {
+    "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-74d8987e-9315-4bab-b1fa-b8301016970a.png",
+    "destination": "src\\assets\\images\\characters\\miyahara\\waist\\worried.png",
+    "source_size": [
+      1254,
+      1254
+    ],
+    "size": [
+      1024,
+      1024
+    ],
+    "mode": "RGBA",
+    "alpha_range": [
+      0,
+      255
+    ],
+    "corner_alpha": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "sha256": "abca3e30365aa0957a993f4cdf2ada11b0581078ef631026d30063aca2a6e57f"
+  },
+  "status": "generated_review_pending",
+  "refs_current": [
+    "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/src/assets/images/characters/miyahara/waist/neutral.png",
+    "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/src/assets/images/characters/miyahara/full/neutral.png"
+  ],
+  "source_sha256": "d767e3fb9f33cc50895ddb61e6b639d335fca32cbc9012b8eda139e9f58ce5ce"
+}

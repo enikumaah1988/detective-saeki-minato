@@ -1,7 +1,7 @@
 [
   {
     "id": "minato",
-    "path": "docs/art/characters/minato/drafts/gekiga-neutral-01.png",
+    "path": "src/assets/images/characters/minato/full/neutral.png",
     "size": [
       1024,
       1536
@@ -21,7 +21,7 @@
   },
   {
     "id": "mio",
-    "path": "docs/art/characters/mio/drafts/gekiga-neutral-01.png",
+    "path": "src/assets/images/characters/mio/full/neutral.png",
     "size": [
       1024,
       1536
@@ -41,7 +41,7 @@
   },
   {
     "id": "narumi",
-    "path": "docs/art/characters/narumi/drafts/gekiga-neutral-01.png",
+    "path": "src/assets/images/characters/narumi/full/neutral.png",
     "size": [
       1024,
       1536
@@ -61,7 +61,7 @@
   },
   {
     "id": "okumura",
-    "path": "docs/art/characters/okumura/drafts/gekiga-neutral-01.png",
+    "path": "src/assets/images/characters/okumura/full/neutral.png",
     "size": [
       1024,
       1536
@@ -81,7 +81,7 @@
   },
   {
     "id": "segawa",
-    "path": "docs/art/characters/segawa/drafts/gekiga-neutral-01.png",
+    "path": "src/assets/images/characters/segawa/full/neutral.png",
     "size": [
       1024,
       1536

@@ -1,7 +1,14 @@
 # 鳴海 ユウ
 
+## 現行画風・再制作：2026-10-13
+ユーザーが主要5人の新テイストを採用し、全キャラクター・サブキャラと人物別の必要表情の再制作を指示。共通画風は[手描き劇画調](../../style/gekiga-style-revision-proposal.md)。旧画像は人物の識別点を引き継ぐ制作履歴とし、旧塗りを再利用しない。
+[新画風確認シート](drafts/gekiga-sheet-01.png)を制作。全身通常1枚と腰上8表情をsrc/assets/images/characters/narumi/に保存。キー：neutral, amused, playful, smirk, serious, surprised, cool, wary。
+[全員の制作一覧・生成記録](../../style/gekiga-rebuild.md)。画風の採用と、新規個別画像・確認シートの採用確認、ゲーム内表示の確認は別管理。今回の差分は制作済み・確認待ち。年齢・人物設定・未決・非公開情報・ストーリーは変更しない。以下の旧制作記録より本節を優先する。
+
+## 移行前のプロフィール・制作記録
+
 ## 新画風試作：2026-10-13
-湊の新基準に合わせた[全身通常試作01](drafts/gekiga-neutral-01.png)を制作。[生成条件](drafts/gekiga-neutral-01-prompt.md)。本人の採用sheetの顔・髪・衣装を引き継ぎ、線・塗り・陰影を劇画調へ変更。試作採用は確認待ち。既存sheetとゲーム素材は保持し、ストーリー・年齢・衣装設定を変更しない。[新画風の比較一覧](../../style/gekiga-main-trials.md)。
+湊の新基準に合わせた[全身通常試作01](../../../../src/assets/images/characters/narumi/full/neutral.png)を制作。[生成条件](drafts/gekiga-neutral-01-prompt.md)。本人の採用sheetの顔・髪・衣装を引き継ぎ、線・塗り・陰影を劇画調へ変更。試作採用は確認待ち。既存sheetとゲーム素材は保持し、ストーリー・年齢・衣装設定を変更しない。[新画風の比較一覧](../../style/gekiga-main-trials.md)。
 
 更新日：2026-10-11。人物仕様の正本。確定・仮案・未決・非公開を区別する。
 

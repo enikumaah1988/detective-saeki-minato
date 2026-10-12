@@ -1,7 +1,15 @@
 # 佐伯 湊
 
+## 現行画風・再制作：2026-10-13
+ユーザーが主要5人の新テイストを採用し、全キャラクター・サブキャラと人物別の必要表情の再制作を指示。共通画風は[手描き劇画調](../../style/gekiga-style-revision-proposal.md)。旧画像は人物の識別点を引き継ぐ制作履歴とし、旧塗りを再利用しない。
+[新画風確認シート](drafts/gekiga-sheet-01.png)を制作。全身通常1枚と腰上7表情をsrc/assets/images/characters/minato/に保存。キー：neutral, smile, serious, surprised, irritated, pained, relieved。
+[全員の制作一覧・生成記録](../../style/gekiga-rebuild.md)。画風の採用と、新規個別画像・確認シートの採用確認、ゲーム内表示の確認は別管理。今回の差分は制作済み・確認待ち。年齢・人物設定・未決・非公開情報・ストーリーは変更しない。以下の旧制作記録より本節を優先する。
+現行の湊は新基準と採用全身に合わせ、眼鏡なし、白系シャツと緩めた黒ネクタイ、チャコール短丈ジャケット、無精髭。眼鏡あり・ノーネクタイは旧版の記録。喫煙具は電子タバコの設定を維持し、今回の立ち絵では描かない。
+
+## 移行前のプロフィール・制作記録
+
 ## 新基準と画風移行：2026-10-13
-ユーザー指定の[新基準画像](../../style/references/minato-gekiga-reference.jpg)と[共通画風更新案](../../style/gekiga-style-revision-proposal.md)を後続制作で優先する。以下の旧採用仕様・画像は制作履歴として保持。新基準に合わせた眼鏡なし・ネクタイありの[全身通常試作01](drafts/gekiga-neutral-01.png)を制作済み、試作画像自体の採用は確認待ち。[生成条件](drafts/gekiga-neutral-01-prompt.md)。喫煙具の方式・過去・ストーリーは変更しない。
+ユーザー指定の[新基準画像](../../style/references/minato-gekiga-reference.jpg)と[共通画風更新案](../../style/gekiga-style-revision-proposal.md)を後続制作で優先する。以下の旧採用仕様・画像は制作履歴として保持。新基準に合わせた眼鏡なし・ネクタイありの[全身通常試作01](../../../../src/assets/images/characters/minato/full/neutral.png)を制作済み、試作画像自体の採用は確認待ち。[生成条件](drafts/gekiga-neutral-01-prompt.md)。喫煙具の方式・過去・ストーリーは変更しない。
 
 更新日：2026-10-13。人物仕様の正本。確定・仮案・未決・非公開を区別する。
 

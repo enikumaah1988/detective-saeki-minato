@@ -2,7 +2,7 @@
 
 制作日：2026-10-13。組み込みimage_gen使用。試作・採用確認待ち。旧採用sheetとゲームPNGは置換しない。
 
-[試作画像](gekiga-neutral-01.png)。入力1は本人の採用sheet（顔・髪・衣装）、入力2は湊の新画風試作（筆致と陰影のみ）。人物の年齢・衣装・設定を変更しない。原本を無加工で保存。
+[試作画像](../../../../../src/assets/images/characters/narumi/full/neutral.png)。入力1は本人の採用sheet（顔・髪・衣装）、入力2は湊の新画風試作（筆致と陰影のみ）。人物の年齢・衣装・設定を変更しない。原本を無加工で保存。
 
 原本：C:/Users/lemon/.codex/generated_images/01a123a2-b46f-77d3-b27e-a7f8a37b3920/exec-ef186af1-a2c3-424c-ad3a-e9126ba8e52c.png
 

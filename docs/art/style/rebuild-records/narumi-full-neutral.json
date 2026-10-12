@@ -1,0 +1,10 @@
+{
+  "id": "narumi",
+  "key": "neutral",
+  "kind": "full",
+  "dest": "src/assets/images/characters/narumi/full/neutral.png",
+  "source": "C:/Users/lemon/.codex/generated_images/01a123a2-b46f-77d3-b27e-a7f8a37b3920/exec-ef186af1-a2c3-424c-ad3a-e9126ba8e52c.png",
+  "prompt": "Use case: style-transfer. Make ONE newly painted complete full-body neutral standing character sprite for contemporary Japanese detective ADV, portrait ideally 1024x1536, full head and both shoe soles with margins. Input 1 is ONLY this character's identity, hairstyle, costume and neutral pose reference; discard its polished anime rendering and sheet layout. Input 2 is ONLY painting-style reference, never copy that man's face, costume or aging. Late-1990s PS1 detective ADV hand-drawn gekiga original illustration: broken irregular ink contours, coarse brush marks, visibly uneven painted pigment and bold angular shadow planes on skin, hair and cloth; muted low-saturation slightly faded colors. Real adult facial proportions, modest eyes; no idealized beauty or glossy polished anime. No smooth gradients, airbrushed skin, photographic textures, digital noise filters or low-resolution tricks. Preserve character's unique anatomy, distinct palette and age. Bright and dark planes readable, not all brown or black. Truly transparent outside character, including between limbs, no ground shadow, paper texture, haze, setting, text, panels, names or palette. Restrained everyday neutral expression. Matte shoes and hair with minimal highlights.\nSubject: Narumi Yuu, Japanese male late20s, slender youthful adult, distinct slim face with slight guarded casual half-smile. Black plain baseball cap, untidy dark hair, dark charcoal pullover hoodie WITHOUT jacket, pale washed blue jeans, dark sneakers with grey soles, small plain rectangular metal pendant on chain. Casual relaxed stance shallow three-quarter towards screen right, hands in jeans pockets. No beard, no tie, no Minato face or older-man fatigue.\n",
+  "status": "base_design_user_adopted",
+  "source_sha256": "b03f3f83bed48864273038d6d5e7fd5faaed6acf681b6924e7eef7aabfbc02e8"
+}

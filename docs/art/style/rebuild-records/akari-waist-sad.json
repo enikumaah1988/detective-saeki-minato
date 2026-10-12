@@ -1,0 +1,44 @@
+{
+  "id": "akari",
+  "key": "sad",
+  "kind": "waist",
+  "dest": "src/assets/images/characters/akari/waist/sad.png",
+  "width": 1024,
+  "height": 1024,
+  "refs": [
+    "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/src/assets/images/characters/akari/waist/neutral.png",
+    "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/src/assets/images/characters/akari/full/neutral.png"
+  ],
+  "prompt": "Use case: identity-preserve. ONE standalone waist-up conversation sprite, square1024x1024, complete head through waist/hip, NO legs or shoes. Input1 is exact waist-up neutral EDIT TARGET. Preserve exact face identity, head size, head placement, torso size and anchoring, hairstyle, costume and rough drawing style. Change ONLY expression and necessary arms/hands. Input2 full-body is supporting costume reference. Japanese woman21, plain youthful rounded face, modest eyes, short eyelashes, straight dark brown chin-length bob with fringe, modest makeup. Muted RED cardigan over off-white crewneck T, dark NAVY below-knee flared skirt, dark flats, small dark crossbody bag. Strap is anchored at SCREEN RIGHT shoulder across to SCREEN LEFT hip bag, never mirror. Not Mio's glamorous face, no wavy hair. Expression sad: clearly sad eyes lowered and mouth downturned slightly, loosely overlapping hands low, no big crying or tears needed; keep crossbody bag strap from SCREEN RIGHT shoulder to SCREEN LEFT hip. Maintain shallow angle of reference. Top of hair approx y40, face centered x512 around y230, waistline near y900, crop just below hip near y1000. Entire hands/fingers fit inside canvas; natural five fingers, no props. Hand-drawn original artwork evoking late-1990s PS1 Japanese detective ADV gekiga. Same visibly irregular broken ink contours, coarse brush strokes, patchy pigment, bold uneven angular shadow planes and muted slightly faded low-saturation palette as style reference. This is the drawing itself, not a retro filter. Maintain adult anatomical realism with modest eyes, matte rough hair and cloth, avoid idealized handsome anime faces, polished skin, smooth gradients, glossy highlights, vector lines, photo texture, noise overlay or downsampling. Preserve each character's distinguishing palette and age, not all brown or all tired. TRUE transparent outside the figure, absolutely no environment, paper backdrop, glow, haze, cast shadow or text.",
+  "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-c01c1e4a-5006-4015-a024-1577130ab91f.png",
+  "validation": {
+    "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-c01c1e4a-5006-4015-a024-1577130ab91f.png",
+    "destination": "src\\assets\\images\\characters\\akari\\waist\\sad.png",
+    "source_size": [
+      1254,
+      1254
+    ],
+    "size": [
+      1024,
+      1024
+    ],
+    "mode": "RGBA",
+    "alpha_range": [
+      0,
+      255
+    ],
+    "corner_alpha": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "sha256": "55523b4bd8e6be0d02bfce956e8e17735dde6f3e0272a5c7b3c8f04f1de4f596"
+  },
+  "status": "generated_review_pending",
+  "refs_current": [
+    "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/src/assets/images/characters/akari/waist/neutral.png",
+    "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/src/assets/images/characters/akari/full/neutral.png"
+  ],
+  "source_sha256": "8aab9385829f773b9224fbdf2fdf4cea7f592abcf4001488b104a2e9ac754264"
+}

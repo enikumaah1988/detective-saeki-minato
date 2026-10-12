@@ -1,0 +1,44 @@
+{
+  "id": "mio",
+  "key": "amused",
+  "kind": "waist",
+  "dest": "src/assets/images/characters/mio/waist/amused.png",
+  "width": 1024,
+  "height": 1024,
+  "refs": [
+    "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/src/assets/images/characters/mio/waist/neutral.png",
+    "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/src/assets/images/characters/mio/full/neutral.png"
+  ],
+  "prompt": "Use case: identity-preserve. ONE standalone waist-up conversation sprite, square1024x1024, complete head through waist/hip, NO legs or shoes. Input1 is exact waist-up neutral EDIT TARGET. Preserve exact face identity, head size, head placement, torso size and anchoring, hairstyle, costume and rough drawing style. Change ONLY expression and necessary arms/hands. Input2 full-body is supporting costume reference. Japanese woman32, intelligent gentle adult face with modest natural eyes, long loose dark-brown wavy hair NOT tied back, light dusty-blue blazer, off-white modest blouse, pale blue-grey calf-length skirt, grey pumps, delicate pendant and earrings and wristwatch. Maintain brighter palette and adult grace without sexiness. Expression amused: enjoying conversation, eyes gently narrowed with a light open smile, relaxed hand near hair or cap; lightly tuck hair at ear with wristwatch hand. Maintain shallow angle of reference. Top of hair approx y40, face centered x512 around y230, waistline near y900, crop just below hip near y1000. Entire hands/fingers fit inside canvas; natural five fingers, no props. Hand-drawn original artwork evoking late-1990s PS1 Japanese detective ADV gekiga. Same visibly irregular broken ink contours, coarse brush strokes, patchy pigment, bold uneven angular shadow planes and muted slightly faded low-saturation palette as style reference. This is the drawing itself, not a retro filter. Maintain adult anatomical realism with modest eyes, matte rough hair and cloth, avoid idealized handsome anime faces, polished skin, smooth gradients, glossy highlights, vector lines, photo texture, noise overlay or downsampling. Preserve each character's distinguishing palette and age, not all brown or all tired. TRUE transparent outside the figure, absolutely no environment, paper backdrop, glow, haze, cast shadow or text.",
+  "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-a051618a-1bb9-4e5a-a46f-6ffe29953e79.png",
+  "validation": {
+    "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-a051618a-1bb9-4e5a-a46f-6ffe29953e79.png",
+    "destination": "src\\assets\\images\\characters\\mio\\waist\\amused.png",
+    "source_size": [
+      1254,
+      1254
+    ],
+    "size": [
+      1024,
+      1024
+    ],
+    "mode": "RGBA",
+    "alpha_range": [
+      0,
+      255
+    ],
+    "corner_alpha": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "sha256": "56e21eb339cd556faad1fb5d4337e3ac26ff846b541cb34c3721c564ca24af4b"
+  },
+  "status": "generated_review_pending",
+  "refs_current": [
+    "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/src/assets/images/characters/mio/waist/neutral.png",
+    "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/src/assets/images/characters/mio/full/neutral.png"
+  ],
+  "source_sha256": "975161a0f9709f443a2403ed5a303c1fb30c37f4dddea67d8b153104289a600e"
+}

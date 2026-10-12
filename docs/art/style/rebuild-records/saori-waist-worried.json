@@ -1,0 +1,44 @@
+{
+  "id": "saori",
+  "key": "worried",
+  "kind": "waist",
+  "dest": "src/assets/images/characters/saori/waist/worried.png",
+  "width": 1024,
+  "height": 1024,
+  "refs": [
+    "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/src/assets/images/characters/saori/waist/neutral.png",
+    "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/src/assets/images/characters/saori/full/neutral.png"
+  ],
+  "prompt": "Use case: identity-preserve. ONE standalone waist-up conversation sprite, square1024x1024, complete head through waist/hip, NO legs or shoes. Input1 is exact waist-up neutral EDIT TARGET. Preserve exact face identity, head size, head placement, torso size and anchoring, hairstyle, costume and rough drawing style. Change ONLY expression and necessary arms/hands. Input2 full-body is supporting costume reference. Japanese woman28, distinct long narrow plain face with less rounded cheeks, small elongated heavy-lidded eyes and straighter eyebrows, straight dark brown hair tied in LOW ponytail, side part showing forehead. NOT Mio's wavy glamorous face, NOT Akari's bob. PALE LIGHT BLUE zip-front work blouson IDENTICAL to Naoto with ONE flap chest pocket SCREEN RIGHT, muted green knit top, dark grey crease-front trousers, black low heels. No logos/tags/tools. Expression worried: concerned inward-raised brows and anxious eyes, pressed mouth, one hand over chest or supporting the other wrist; worry about somebody. Maintain shallow angle of reference. Top of hair approx y40, face centered x512 around y230, waistline near y900, crop just below hip near y1000. Entire hands/fingers fit inside canvas; natural five fingers, no props. Hand-drawn original artwork evoking late-1990s PS1 Japanese detective ADV gekiga. Same visibly irregular broken ink contours, coarse brush strokes, patchy pigment, bold uneven angular shadow planes and muted slightly faded low-saturation palette as style reference. This is the drawing itself, not a retro filter. Maintain adult anatomical realism with modest eyes, matte rough hair and cloth, avoid idealized handsome anime faces, polished skin, smooth gradients, glossy highlights, vector lines, photo texture, noise overlay or downsampling. Preserve each character's distinguishing palette and age, not all brown or all tired. TRUE transparent outside the figure, absolutely no environment, paper backdrop, glow, haze, cast shadow or text.",
+  "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-555b8ba4-bbdf-45e1-8f48-5017941173c1.png",
+  "validation": {
+    "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-555b8ba4-bbdf-45e1-8f48-5017941173c1.png",
+    "destination": "src\\assets\\images\\characters\\saori\\waist\\worried.png",
+    "source_size": [
+      1254,
+      1254
+    ],
+    "size": [
+      1024,
+      1024
+    ],
+    "mode": "RGBA",
+    "alpha_range": [
+      0,
+      255
+    ],
+    "corner_alpha": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "sha256": "25183ba48e638ade0f6d25797464d787f7a482526cd7c053776c88370f88d7cf"
+  },
+  "status": "generated_review_pending",
+  "refs_current": [
+    "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/src/assets/images/characters/saori/waist/neutral.png",
+    "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/src/assets/images/characters/saori/full/neutral.png"
+  ],
+  "source_sha256": "7e178449574bf5b068e07301d72292a29a3d1603b36193b3cc711928c3bdc5b4"
+}
