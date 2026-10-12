@@ -14,56 +14,65 @@ export async function loadRevision() {
   } finally { await server.close() }
 }
 export function buildPlaythrough(api, requiredOnly = false) {
-  const { scenario, revisionData, createInitialState, reduceGameState, selectCurrentNode, visibleChoices, matchesCondition } = api
-  let state = createInitialState(scenario), count = 0
-  const operations = [], checkpoints = [], boundaries = []
-  const input = action => {
-    const option = action.type === 'choose' ? visibleChoices(scenario.nodes[state.nodeId], state).find(option => option.id === action.choiceId) : undefined
-    const before = state, after = reduceGameState(scenario, state, action)
-    if (after === before) throw new Error(`拒否された操作 ${state.nodeId} ${JSON.stringify(action)}`)
-    operations.push({ before: before.nodeId, after: after.nodeId, action, label: option?.label, map: Boolean(scenario.nodes[before.nodeId].map) })
-    state = after; if (++count > 4000) throw new Error('進行ループ')
+  const { scenario, revisionData, createInitialState, reduceGameState, visibleChoices, matchesCondition, applyUpdates } = api
+  let state=createInitialState(scenario), count=0
+  const operations=[], checkpoints=[], boundaries=[]
+  const phaseFor=node=>[...revisionData.scenes].sort((a,b)=>b.id.length-a.id.length).find(phase=>node.sceneId===phase.id||node.sceneId?.startsWith(phase.id+'-'))
+  const actions=new Map(revisionData.scenes.flatMap(phase=>[...phase.ask,...phase.speak,...phase.inspect,...phase.think,...(phase.organize??[])].map(action=>[action.id,action])))
+  const checkpoint=(phase,value)=>{
+    if(!phase||checkpoints.some(point=>point.phase===phase.id)) return
+    const missing=phase.exit.requires.filter(id=>!value.acquiredInformation.includes(id))
+    if(missing.length) throw new Error('必要情報未取得 '+phase.id+': '+missing.join(','))
+    checkpoints.push({phase:phase.id,state:{...value,nodeId:phase.id+'-menu'},actions:[...value.heardTopics,...value.inspectedTargets].filter(id=>actions.has(id))})
   }
-  const read = () => { while (selectCurrentNode(scenario, state).type === 'dialogue') { if (scenario.nodes[state.nodeId].illustration) boundaries.push(scenario.nodes[state.nodeId].illustration.id); input({ type: 'advance' }) } }
-  const choose = id => input({ type: 'choose', choiceId: id })
-  read()
-  for (const phase of revisionData.scenes) {
-    if (state.nodeId !== `${phase.id}-menu`) throw new Error(`場面開始不一致 ${phase.id}: ${state.nodeId}`)
-    const executed = new Set()
-    for (let round = 0; round < 20; round++) {
-      let count = 0
-      for (const [command, actions] of [['talk', phase.ask], ['speak', phase.speak], ['look', phase.inspect], ['think', phase.think], ['organize', phase.organize ?? []]]) for (const action of actions) {
-        if (action.triggerMode || executed.has(action.id) || requiredOnly && !action.required || !matchesCondition(state, { type: 'hasAllInformation', ids: action.requires })) continue
-        const actualCommand = action.interaction === 'organize' ? 'organize' : ['talk','speak','look'].includes(command) ? api.revisionCommand(({talk:'ask',speak:'speak',look:'inspect'})[command],action.id) : command
-        choose(actualCommand)
-        if (actualCommand === 'talk' || actualCommand === 'speak') {
-          const person = visibleChoices(scenario.nodes[state.nodeId], state).find(option => scenario.nodes[option.next]?.options?.some(option => option.id === action.id))
-          if (!person) throw new Error(`相手未解放 ${action.id}`)
-          choose(person.id)
+  const input=action=>{
+    const node=scenario.nodes[state.nodeId],phase=phaseFor(node)
+    const option=action.type==='choose'?visibleChoices(node,state).find(item=>item.id===action.choiceId):undefined
+    const updated=applyUpdates(state,node.type==='dialogue'?node.updates??[]:[])
+    if(node.type==='dialogue' && node.nextWhen && action.type==='advance' && matchesCondition(updated,node.nextWhen.condition)) checkpoint(phase,updated)
+    if(node.type==='choice'&&node.mode==='free-action'&&action.choiceId==='move')checkpoint(phase,state)
+    const before=state,after=reduceGameState(scenario,state,action)
+    if(after===before)throw new Error('拒否された操作 '+state.nodeId+' '+JSON.stringify(action))
+    operations.push({before:before.nodeId,after:after.nodeId,action,label:option?.label,map:Boolean(node.map)})
+    state=after;if(++count>6000)throw new Error('進行ループ')
+  }
+  const choose=id=>input({type:'choose',choiceId:id})
+  while(state.nodeId!=='episode-complete'){
+    const node=scenario.nodes[state.nodeId]
+    if(node.type==='dialogue'){
+      if(node.illustration)boundaries.push(node.illustration.id)
+      input({type:'advance'});continue
+    }
+    if(node.type==='topic'||node.type==='inspect'){choose('return');continue}
+    if(node.type!=='choice')throw new Error('不明な状態 '+state.nodeId)
+    const options=visibleChoices(node,state)
+    if(node.mode==='free-action'){
+      const candidates=[]
+      for(const command of options){
+        const target=scenario.nodes[command.next]
+        if(target.type==='topic')for(const person of visibleChoices(target,state).filter(item=>item.id!=='return')){
+          const topics=scenario.nodes[person.next]
+          for(const topic of visibleChoices(topics,state).filter(item=>item.id!=='return'))candidates.push({command:command.id,person:person.id,topic,kind:'topic'})
         }
-        if (['talk', 'speak', 'look', 'investigate'].includes(actualCommand)) choose(action.id)
-        read()
-        while (state.nodeId !== `${phase.id}-menu` && selectCurrentNode(scenario, state).type === 'choice') {
-          const correct = scenario.nodes[state.nodeId].options.find(option => option.updates?.some(update => update.type === 'setFlag'))
-          if (!correct) throw new Error(`未知の問 ${state.nodeId}`)
-          choose(correct.id); read()
-        }
-        if (state.nodeId !== `${phase.id}-menu`) throw new Error(`復帰先不一致 ${action.id}`)
-        executed.add(action.id); count++
+        else if(target.type==='inspect')for(const topic of visibleChoices(target,state).filter(item=>item.id!=='return'))candidates.push({command:command.id,topic,kind:'inspect'})
+        else if(['think','organize'].includes(command.id))candidates.push({command:command.id,topic:{id:command.next},kind:'thought'})
       }
-      if (!count) break
+      const available=candidates.filter(item=>{
+        const action=actions.get(item.topic.id)
+        if(requiredOnly&&!(action?.required??item.topic.required))return false
+        return !(item.kind==='inspect'?state.inspectedTargets:state.heardTopics).includes(item.topic.id) && !(item.kind==='thought'&&action?.grants.every(id=>state.acquiredInformation.includes(id)))
+      }).sort((a,b)=>Number(actions.get(a.topic.id)?.required??a.topic.required??false)-Number(actions.get(b.topic.id)?.required??b.topic.required??false))
+      const selected=available[0]
+      if(selected){choose(selected.command);if(selected.person)choose(selected.person);if(selected.kind!=='thought')choose(selected.topic.id);continue}
+      if(options.some(item=>item.id==='move')){choose('move');continue}
+      throw new Error('未解決の進行 '+state.nodeId+' '+JSON.stringify(options.map(item=>item.id)))
     }
-    const missing = phase.exit.requires.filter(id => !state.acquiredInformation.includes(id))
-    if (missing.length) throw new Error(`必要情報未取得 ${phase.id}: ${missing.join(',')}`)
-    checkpoints.push({ phase: phase.id, state, actions: [...executed] })
-    const exit = visibleChoices(scenario.nodes[state.nodeId], state).find(option => ['move', 'proceed'].includes(option.id))
-    if (!exit) throw new Error(`出口なし ${phase.id}`)
-    choose(exit.id); choose('proceed'); read()
-    while (state.nodeId.includes('-outside') || state.nodeId.includes('-map') || state.nodeId.includes('-destination')) {
-      const node = scenario.nodes[state.nodeId]
-      choose(node.map ? node.options.find(option => option.id !== 'return').id : node.options.find(option => option.id === 'map' || option.id === 'enter').id)
-      read()
-    }
+    const correct=options.find(option=>option.updates?.some(update=>update.type==='setFlag'))
+    if(correct){choose(correct.id);continue}
+    if(node.map){choose(options.find(item=>item.id!=='return').id);continue}
+    const move=options.find(item=>['proceed','map','enter'].includes(item.id))
+    if(move){choose(move.id);continue}
+    throw new Error('未知の選択 '+state.nodeId)
   }
-  return { state, operations, checkpoints, boundaries }
+  return {state,operations,checkpoints,boundaries}
 }
