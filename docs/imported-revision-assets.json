@@ -158,7 +158,95 @@
     "C4-IN",
     "C4-OUT"
   ],
-  "illustrationStatus": "作画へ依頼済み・未納の画像は完成扱いにしない",
+  "illustrationStatus": "7/7図柄・8/8接続箇所を候補接続。全箇所接続済み・正式採用は確認待ち。",
   "promptSource": "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/docs/art/",
-  "characterDisplaySource": "outputs/人物表示基準_デザイン側引継ぎ.md"
+  "characterDisplaySource": "outputs/人物表示基準_デザイン側引継ぎ.md",
+  "illustrations": [
+    {
+      "id": "c1-in",
+      "file": "src/assets/illustrations/c1-in.png",
+      "connections": [
+        "C1-IN"
+      ],
+      "source": "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/docs/art/illustrations/drafts/c1-in-01.png",
+      "sha256": "56f6b95fbfd908b84be7c8bc74a88d5db79277f675e2c6d950aa0ff078bbea78",
+      "time": "10/8 10:40 朝",
+      "state": "制作候補・接続済み・正式採用未確認"
+    },
+    {
+      "id": "c1-out",
+      "file": "src/assets/illustrations/c1-out.png",
+      "connections": [
+        "C1-OUT",
+        "C2-IN"
+      ],
+      "source": "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/docs/art/illustrations/drafts/c1-out-01.png",
+      "sha256": "33e42cc17f03b5ac26bd352e4605a98f708dd34bcb4ccfa130316cbc1d32664d",
+      "time": "10/8 11:55 昼前・12:00 昼",
+      "state": "制作候補・接続済み・正式採用未確認"
+    },
+    {
+      "id": "c2-out",
+      "file": "src/assets/illustrations/c2-out.png",
+      "connections": [
+        "C2-OUT"
+      ],
+      "source": "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/docs/art/illustrations/drafts/c2-out-02.png",
+      "sha256": "16fdb247cea4578ed0878541d7cad518f5f16481b58a590d5ec388660057bc99",
+      "time": "10/8 15:35 昼",
+      "state": "制作候補・接続済み・正式採用未確認"
+    },
+    {
+      "id": "c3-in",
+      "file": "src/assets/illustrations/c3-in.png",
+      "connections": [
+        "C3-IN"
+      ],
+      "source": "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/docs/art/illustrations/drafts/c3-in-02.png",
+      "sha256": "a2025f1a0b08e269f3befbacb4f7bcf7a2e6166cfd8d30e02d2a8f458ec4c3fb",
+      "time": "10/8 16:10 夕",
+      "state": "制作候補・接続済み・正式採用未確認"
+    },
+    {
+      "id": "c3-out",
+      "file": "src/assets/illustrations/c3-out.png",
+      "connections": [
+        "C3-OUT"
+      ],
+      "source": "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/docs/art/illustrations/drafts/c3-out-02.png",
+      "sha256": "b93a942aa29345344e0effd473e9080aede7b54db86e20d7f7f3a78e45faba63",
+      "time": "10/8 17:25 夕",
+      "state": "制作候補・接続済み・正式採用未確認"
+    },
+    {
+      "id": "c4-in",
+      "file": "src/assets/illustrations/c4-in.png",
+      "connections": [
+        "C4-IN"
+      ],
+      "source": "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/docs/art/illustrations/drafts/c4-in-02.png",
+      "sha256": "4d966d7461f923bacb6347b4c183e8b2a2693031f10d95f313b817a3940244c2",
+      "time": "10/9 9:30 朝",
+      "state": "制作候補・接続済み・正式採用未確認"
+    },
+    {
+      "id": "c4-out",
+      "file": "src/assets/illustrations/c4-out.png",
+      "connections": [
+        "C4-OUT"
+      ],
+      "source": "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/docs/art/illustrations/drafts/c4-out-01.png",
+      "sha256": "ef45b9a9f0facfa20667c17026689cacc005110d03025b746218725b6d6a9570",
+      "time": "10/12 17:05 夕",
+      "state": "制作候補・接続済み・正式採用未確認"
+    }
+  ],
+  "reportedProductionCommits": {
+    "backgroundBatch1": "8398e09",
+    "finalHandoff": "bca7eef",
+    "verification": "制作担当の最終引継ぎに記載された履歴。組込画像のSHA-256は別途照合済み。",
+    "illustrations": "220bbc32788e2e074da11d5aee9fbd0a3ee8ecf8",
+    "backgroundBatch3": "1c8485f",
+    "backgroundBatch2": "d919cda"
+  }
 }

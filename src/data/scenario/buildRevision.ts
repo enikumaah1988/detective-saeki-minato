@@ -46,19 +46,31 @@ export function buildRevision(base: Scenario, data: RevisionData): Scenario {
   const phaseById = new Map(data.scenes.map(phase => [phase.id, phase]))
   const uses: NonNullable<Scenario['itemUses']> = []
   const add = (id: string, node: Scenario['nodes'][string], time: string) => { nodes[id] = node; times[id] = time }
-  const stageFor = (phase: RevisionScene, person?: string): Scene => {
+  const stageFor = (phase: RevisionScene, person?: string, actionId?: string): Scene => {
     let backgroundId = roomBackgrounds[phase.roomId]
     if (phase.locationId === 'police') backgroundId = phase.roomId.endsWith('exterior') ? 'police-exterior' : /reception|受付/.test(phase.roomId) ? 'police-reception' : 'police-meeting'
     if (!backgroundId) backgroundId = phase.locationId === 'office' ? 'office-before-noon' : phase.locationId === 'company' ? 'company-reception' : 'building-room'
     if (Number(phase.sceneTime.slice(11, 13)) >= 16) backgroundId = ({ 'office-before-noon': 'office-evening', 'building-room': 'building-room-evening', 'building-exterior': 'building-exterior-evening' } as Record<string, string>)[backgroundId] ?? backgroundId
     const other = person ?? (phase.people.includes('naoto') ? 'naoto' : phase.people.includes('akari') ? 'akari' : phase.people.find(id => !['minato', 'company-staff', 'police-staff', 'narrator', 'narumi', 'company-reception', 'police-reception'].includes(id)))
-    const characters: NonNullable<Scene['characters']> = [{ characterId: 'minato', expression: 'normal', position: 'left' }]
-    if (other && !['minato', 'company-reception', 'police-reception', 'narumi'].includes(other) && !(other === 'mio' && phase.locationId !== 'office')) characters.push({ characterId: other, expression: 'normal', position: 'right', condition: ['mio'].includes(other) ? undefined : has([`met-${other}`]) })
+    const expression = (id: string) => {
+      let mood = 'normal'
+      if (id === 'minato' && phase.part >= 3) mood = 'serious'
+      if (id === 'mio') mood = ['P1-01', 'P4-11'].includes(phase.id) ? 'smile' : 'serious'
+      if (id === 'akari') mood = phase.part === 1 ? 'worried' : 'sad'
+      if (id === 'naoto') mood = phase.part === 3 ? 'worried' : 'serious'
+      if (id === 'naoto' && ['p3-silence', 'p3-responsibility', 'p4-siblings-talk'].includes(actionId ?? '')) mood = 'pained'
+      if (id === 'naoto' && ['p3-testify', 'p3-map-naoto', 'p3-handover'].includes(actionId ?? '')) mood = 'serious'
+      return resolveExpression(id, mood).name === '未登録の表情' ? 'normal' : mood
+    }
+    const characters: NonNullable<Scene['characters']> = phase.id === 'P4-10'
+      ? [{ characterId: 'naoto', expression: expression('naoto'), position: 'left' }, { characterId: 'akari', expression: expression('akari'), position: 'right' }]
+      : [{ characterId: 'minato', expression: expression('minato'), position: 'left' }]
+    if (phase.id !== 'P4-10' && other && !['minato', 'company-reception', 'police-reception', 'narumi'].includes(other) && !(other === 'mio' && phase.locationId !== 'office')) characters.push({ characterId: other, expression: expression(other), position: 'right', condition: ['mio'].includes(other) ? undefined : has([`met-${other}`]) })
     return { backgroundId, characters, smokingAllowed: phase.locationId === 'office' }
   }
   const sequence = (id: string, phase: RevisionScene, lines: RevisionLine[], next: string, updates: StateUpdate[] = [], person?: string) => {
-    const sceneId = `${phase.id}${person ? `-${person}` : ''}`
-    scenes[sceneId] = stageFor(phase, person)
+    const sceneId = `${phase.id}-${id}`
+    scenes[sceneId] = stageFor(phase, person, id)
     const content = lines.length ? lines : [{ speakerId: 'narrator', text: '' }]
     let currentTime = phase.sceneTime
     content.forEach((line, index) => {
@@ -239,5 +251,6 @@ export function buildRevision(base: Scenario, data: RevisionData): Scenario {
     'naoto-witness': ['F46', 'W01a'], 'naoto-threat': ['F47', 'F48', 'F49', 'W01b'], W01: ['F50', 'F51', 'F52'], 'witness-position': ['F53', 'F54', 'F55', 'F56', 'F57'],
     E04: ['F58', 'F59', 'F60', 'E04a', 'IT05'], W02: ['F61', 'F62', 'W02a', 'W02b'], I05: ['F63', 'F64', 'F65', 'F66'], W03: ['F67', 'F69', 'F70', 'F71', 'F72', 'F73'],
   }).map(([information, grants]) => ({ information, grants }))
-  return { ...base, start: `${data.scenes[0].id}-start`, scenes, nodes, nodeTimes: times, itemUses: uses, arrivalEvents: [], saveNodeAliases, informationAliases }
+  // 改稿のgrantsを正本とし、旧稿の集約条件で未読の証言・意思を先取りしない。
+  return { ...base, start: `${data.scenes[0].id}-start`, scenes, nodes, nodeTimes: times, milestones: [], itemUses: uses, arrivalEvents: [], saveNodeAliases, informationAliases }
 }

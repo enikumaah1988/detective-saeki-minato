@@ -48,6 +48,16 @@ test('人物記録は話題登場で未知顔、対面で顔、新しい情報�
   assert.ok(final.find(record => record.id === 'naoto').details.some(text => /脅し/.test(text)))
   assert.equal(final.find(record => record.id === 'narumi').imageSrc, undefined)
 })
+test('旧稿の集約条件で、考える前の聞き取りや証言意思の未読情報を先取りしない', () => {
+  const hearing = mandatory.checkpoints.find(point => point.phase === 'P1-03').state
+  assert.equal(hearing.acquiredInformation.includes('I01'),false)
+  const witness = mandatory.checkpoints.find(point => point.phase === 'P3-04').state
+  assert.ok(witness.acquiredInformation.includes('naoto-witness'))
+  assert.ok(witness.acquiredInformation.includes('naoto-threat'))
+  assert.equal(witness.acquiredInformation.includes('W01'),false)
+  assert.equal(api.selectInvestigationRecords(witness,api.scenario.records).some(record=>record.id==='W01'),false)
+  assert.ok(mandatory.checkpoints.find(point=>point.phase==='P3-05').state.acquiredInformation.includes('W01'))
+})
 test('考えると整理するは必要場面だけ、情報不足時には解放しない', () => {
   const initial = { ...api.createInitialState(api.scenario), nodeId: 'P1-03-menu' }
   assert.equal(api.visibleChoices(api.scenario.nodes[initial.nodeId], initial).some(option => ['think', 'organize'].includes(option.id)), false)

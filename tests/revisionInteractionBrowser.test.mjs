@@ -42,5 +42,8 @@ for (const [width, height] of [[1920,1080],[1366,768]]) test(`読了時の記録
     assert.equal(await history.locator('article p').first().textContent(),'履歴0')
     assert.equal(await history.locator('article p').last().textContent(),'履歴999')
     await history.getByRole('button',{name:'閉じる',exact:true}).click()
+    await page.getByRole('button',{name:'調査記録',exact:true}).click();await page.getByRole('tab',{name:'出来事',exact:true}).click()
+    assert.doesNotMatch(await page.locator('.record-body').textContent(),/2026年|2024年/)
+    await page.getByRole('button',{name:'調査記録を閉じる',exact:true}).click()
   } finally { await browser.close() }
 })
