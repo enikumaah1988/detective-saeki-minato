@@ -23,8 +23,9 @@ export function selectInvestigationRecords(state: GameState, definitions: readon
     if (!acquired || seen.has(entry.id)) return false
     seen.add(entry.id)
     return true
-  }).map(({ source: _source, alternativeSources: _alternatives, facts, portraitSource, ...entry }) => ({
-    ...entry, imageSrc: portraitSource && !hasSource(state, portraitSource) ? undefined : entry.imageSrc,
+  }).map(({ source: _source, alternativeSources: _alternatives, facts, portraitSource, titleUpdates, ...entry }) => ({
+    ...entry, title: titleUpdates?.filter(update => hasSource(state, update.source)).at(-1)?.title ?? entry.title,
+    imageSrc: portraitSource && !hasSource(state, portraitSource) ? undefined : entry.imageSrc,
     faceKnown: portraitSource ? hasSource(state, portraitSource) : Boolean(entry.imageSrc),
     details: [entry.description, ...(facts ?? []).filter(fact => hasSource(state, fact.source)).map(fact => fact.text)],
   })).sort((a, b) => {

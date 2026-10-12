@@ -2,6 +2,9 @@ import type { Choice, Scenario, Scene, StateUpdate } from '../../types/scenario'
 import { episode1Part1Legacy } from './episode1Part1Legacy'
 import { episode1Part1Records } from './episode1Part1Records'
 import { resolveExpression } from '../presentation'
+import { buildRevision } from './buildRevision'
+import { revisionData } from './revisionData'
+import { revisionRecords } from './revisionRecords'
 
 // 保存済みノードIDを残し、ver2のデータを同じシナリオとして読み込める。
 const scenes: Record<string, Scene> = {
@@ -301,7 +304,7 @@ for (const id of ['inquiry-1', 'inquiry-3', 'inquiry-5', 'inquiry-11', 'accept-6
   if (node.type === 'dialogue') node.text = node.text.replace(/。$/, '？')
 }
 
-export const episode1Part1: Scenario = {
+export const episode1Part1Previous: Scenario = {
   id: episode1Part1Legacy.id,
   title: '第1話「灰色の証言」', start: 'opening-1', scenes, nodes,
   records: episode1Part1Records, dateLabel: '2026年10月8日（木）午前', nodeTimes: times,
@@ -324,3 +327,4 @@ sequence('card-company', 'company', [['narrator', '佐伯探偵事務所の名�
 sequence('contact-check', 'after', [['narrator', '澪が確認した、あかりの連絡先を開いた。調査の途中でも、兄から連絡があれば知らせてもらえる。今は、会社へ確認に行こう。']], 'departure')
 times['photo-company'] = times['card-company'] = '2026年10月8日（木）12:00'
 times['contact-check'] = '2026年10月8日（木）11:15'
+export const episode1Part1 = buildRevision({ ...episode1Part1Previous, records: revisionRecords }, revisionData)

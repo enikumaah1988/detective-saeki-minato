@@ -15,9 +15,10 @@ export type InvestigationEntry = {
   facts?: readonly RecordFact[]
   imageSrc?: string
   portraitSource?: RecordSource
+  titleUpdates?: readonly { source: RecordSource; title: string }[]
   imageAlt?: string
   mediaKind?: 'photo'
   timeLabel?: string
   chronologicalOrder?: number
 }
-export type InvestigationRecord = Omit<InvestigationEntry, 'source' | 'alternativeSources' | 'facts' | 'portraitSource'> & { details: string[]; faceKnown?: boolean }
+export type InvestigationRecord = Omit<InvestigationEntry, 'source' | 'alternativeSources' | 'facts' | 'portraitSource' | 'titleUpdates'> & { details: string[]; faceKnown?: boolean }

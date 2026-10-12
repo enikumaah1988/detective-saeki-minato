@@ -5,10 +5,11 @@ export type Stage = {
   // Legacy single-character stages remain readable; new scenes use characters.
   characterId?: string
   expression?: string
-  characters?: { characterId: string; expression: string; position?: 'left' | 'center' | 'right' }[]
+  characters?: { characterId: string; expression: string; position?: 'left' | 'center' | 'right'; condition?: Condition }[]
 }
 
 export type Condition =
+  | { type: 'any' | 'all'; conditions: Condition[] }
   | { type: 'flag'; id: string; value?: boolean }
   | { type: 'heardTopic' | 'inspectedTarget' | 'hasInformation'; id: string }
   | { type: 'hasAllInformation'; ids: string[] }
@@ -17,12 +18,12 @@ export type StateUpdate =
   | { type: 'setFlag'; id: string; value: boolean }
   | { type: 'addHeardTopic' | 'addInspectedTarget' | 'addInformation'; id: string }
 
-export type Choice = { id: string; label: string; next: string; repeatNext?: string; implemented?: boolean; progressId?: string; condition?: Condition; updates?: StateUpdate[] }
+export type Choice = { id: string; label: string; labelWhen?: { condition: Condition; label: string }; next: string; repeatNext?: string; implemented?: boolean; progressId?: string; condition?: Condition; updates?: StateUpdate[] }
 
 export type ScenarioNode =
-  | { type: 'dialogue'; stage: Stage; speakerId: string; text: string; next: string; acquisition?: { itemId: string; title: string; imageSrc: string }; updates?: StateUpdate[] }
+  | { type: 'dialogue'; stage: Stage; speakerId: string; speakerName?: string; speakerNameCondition?: Condition; text: string; next: string; acquisition?: { itemId: string; title: string; imageSrc: string }; updates?: StateUpdate[] }
   | { type: 'choice'; mode?: 'free-action'; keepQuestions?: boolean; map?: { current: string; back: string }; implementedCommands?: readonly string[]; empty?: { label: string; next: string }; stage: Stage; prompt: string; options: Choice[] }
-  | { type: 'topic' | 'inspect'; parent: { commandId: 'talk' | 'look'; nodeId: string }; stage: Stage; prompt: string; options: Choice[] }
+  | { type: 'topic' | 'inspect'; selection?: 'person'; heading?: string; headingWhen?: { condition: Condition; heading: string }; parent: { commandId: 'talk' | 'speak' | 'look'; nodeId: string }; stage: Stage; prompt: string; options: Choice[] }
   | { type: 'end'; stage: Stage; text: string }
   | {
     type: 'think'
@@ -50,11 +51,15 @@ export type Scenario = {
   start: string
   dateLabel?: string
   nodeTimes?: Record<string, string>
-  itemUses?: { itemId: string; nodeIds: string[]; next: string; condition?: Condition }[]
+  itemUses?: { itemId: string; label?: string; nodeIds: string[]; next: string; condition?: Condition }[]
   milestones?: { id: string; required: string[] }[]
   saveAliases?: { heardTopic: string; information: string[]; ifInformation?: string }[]
+  saveNodeAliases?: Record<string, string>
+  informationAliases?: { information: string; grants: string[] }[]
+  // 移動完了後に条件を評価する。通常の到着先へはイベントの終了ノードから戻す。
+  arrivalEvents?: { arrivalNodeId: string; eventNodeId: string; condition?: Condition; onceFlag?: string }[]
   scenes?: Record<string, Scene>
   records?: readonly InvestigationEntry[]
   smokingHints?: { rules: SmokingHint[]; fallback: string }
-  nodes: Record<string, ScenarioNode & { sceneId?: string }>
+  nodes: Record<string, ScenarioNode & { sceneId?: string; autoAdvance?: boolean; entryUpdates?: StateUpdate[]; illustration?: { id: string; imageSrc?: string; alt: string; heading: string } }>
 }

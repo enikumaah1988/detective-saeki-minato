@@ -52,10 +52,8 @@ for (const [width, height] of [[1920, 1080], [1366, 768]]) {
         assert.equal(overlayOpacity, '1')
 
         assert.match(await overlay.locator('.dialogue .sr-only').textContent(), new RegExp(gesturePhrase))
-        if (await overlay.locator('.next').count() === 0) {
-          await overlay.click() // 文字送り中は現在の文章を全文表示
-          await overlay.locator('.next').waitFor()
-        }
+        // 表示状態の取得とclickの間に全文表示が完了しても、ヒントを飛ばさない。
+        await overlay.locator('.next').waitFor()
         await overlay.click() // 動作文から現在の進捗に応じたヒントへ
         await page.waitForFunction(() => document.querySelector('.smoking-overlay .dialogue .sr-only')?.textContent.includes('今の話を最後まで'))
         const hint = page.locator('.smoking-overlay .dialogue-button')

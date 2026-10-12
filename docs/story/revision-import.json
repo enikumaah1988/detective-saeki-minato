@@ -1,0 +1,27 @@
+{
+  "version": "0.03",
+  "sources": [
+    {
+      "part": 1,
+      "path": "C:/Users/lemon/Documents/Codex/2026-10-11/saeki-story/outputs/story/第1話_改稿_ver0.03_第1部.json",
+      "sha256": "2cfe5016fdcc55783d1d694f47c72383c907b4ef7050268ebb18d28a98c78912"
+    },
+    {
+      "part": 2,
+      "path": "C:/Users/lemon/Documents/Codex/2026-10-11/saeki-story/outputs/story/第1話_改稿_ver0.03_第2部.json",
+      "sha256": "bcec78971ca714ec2074463a9c39f23b5d4d619a21d0be8b3bf19f6de1d16b85"
+    },
+    {
+      "part": 3,
+      "path": "C:/Users/lemon/Documents/Codex/2026-10-11/saeki-story/outputs/story/第1話_改稿_ver0.03_第3部.json",
+      "sha256": "c809d2ac6fecee91eafb5184188172a30d667f136af51208c45f6cce1591db06"
+    },
+    {
+      "part": 4,
+      "path": "C:/Users/lemon/Documents/Codex/2026-10-11/saeki-story/outputs/story/第1話_改稿_ver0.03_第4部.json",
+      "sha256": "2c0c371561a97958e60fcc5a9092f63d0dd499787a7e70734071b1b41c505def"
+    }
+  ],
+  "sceneCount": 46,
+  "adoption": "制作稿・本編接続候補"
+}

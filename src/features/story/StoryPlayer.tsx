@@ -1,5 +1,5 @@
 import { selectInvestigationRecords } from './investigation'
-import { useEffect, useReducer, useRef, useState } from 'react'
+import { useEffect, useMemo, useReducer, useRef, useState } from 'react'
 import type { InvestigationRecord } from '../../types/investigation'
 import type { Scenario } from '../../types/scenario'
 import { reduceGameState, selectCurrentNode } from './state'
@@ -7,13 +7,15 @@ import type { GameAction } from './state'
 import { createPlayback, reducePlayback } from './playback'
 import './story.css'
 import './presentationFrames.css'
-import { StageView } from './StageView'
+import { StageView, AssetImage } from './StageView'
 import { StoryContent } from './StoryContent'
-import { resolveBackground, resolveSpeakerName } from '../../data/presentation'
+import { resolveBackground } from '../../data/presentation'
+import { dialogueSpeaker } from './speaker'
+import { selectDateLabel } from './dateTime'
 import { SystemDialog } from './SystemDialog'
 import { TravelMap } from './TravelMap'
 import { matchesCondition, visibleChoices } from './freeAction'
-import { loadHistory, saveHistory } from './history'
+import { loadHistory, saveHistory, MAX_HISTORY_ENTRIES } from './history'
 import type { HistoryEntry } from './history'
 import { InvestigationRecords } from './InvestigationRecords'
 import { SaveControls } from './SaveControls'
@@ -31,6 +33,21 @@ export function StoryPlayer({ scenario, preview, smokingAllowed, suspended = fal
   )
   const gameState = playback.game
   const node = selectCurrentNode(scenario, gameState)
+  const records = useMemo(() => selectInvestigationRecords(gameState, scenario.records), [gameState, scenario.records])
+  const previousRecords = useRef(records)
+  const suppressRecordNotice = useRef(false)
+  const [recordNotice, setRecordNotice] = useState('')
+  const recordNoticeTimer = useRef<ReturnType<typeof setTimeout>>(undefined)
+  useEffect(() => () => clearTimeout(recordNoticeTimer.current), [])
+  useEffect(() => {
+    const changed = records.filter(record => record.category === 'people' && JSON.stringify(record) !== JSON.stringify(previousRecords.current.find(previous => previous.id === record.id)))
+    previousRecords.current = records
+    if (suppressRecordNotice.current) { suppressRecordNotice.current = false; setRecordNotice(''); return }
+    if (!changed.length) return
+    setRecordNotice(`人物情報を更新：${changed.map(record => record.title).join('、')}`)
+    clearTimeout(recordNoticeTimer.current)
+    recordNoticeTimer.current = setTimeout(() => setRecordNotice(''), 3000)
+  }, [records])
   const [history, setHistory] = useState<HistoryEntry[]>([])
   const [historyOpen, setHistoryOpen] = useState(false)
   const historyList = useRef<HTMLDivElement>(null)
@@ -40,15 +57,21 @@ export function StoryPlayer({ scenario, preview, smokingAllowed, suspended = fal
   })
   const dispatch = (action: GameAction) => {
     if (!playback.paused && action.type === 'advance' && node.type === 'dialogue') {
-      setHistory(entries => [...entries, { speaker: resolveSpeakerName(node.speakerId), text: node.text, nodeId: gameState.nodeId }].slice(-500))
+      setHistory(entries => [...entries, { speaker: dialogueSpeaker(node, gameState), text: node.text, nodeId: gameState.nodeId }].slice(-MAX_HISTORY_ENTRIES))
     }
-    if (action.type === 'reset') setHistory([])
+    if (action.type === 'reset') { setHistory([]); suppressRecordNotice.current = true }
     send({ type: 'input', origin: { nodeId: gameState.nodeId, generation: playback.generation }, action })
   }
   const menuOpen = playback.paused || suspended
   const [recordsOpen, setRecordsOpen] = useState(false)
   const [activePreview, setActivePreview] = useState<typeof preview>()
   const [smoking, setSmoking] = useState<{ allowed: boolean; hint: string; phase: 'gesture' | 'hint'; imageFailed: boolean }>()
+  const [itemSelection, setItemSelection] = useState<{ itemId: string; uses: NonNullable<Scenario['itemUses']> }>()
+  const useItem = (itemId: string, useId?: string) => {
+    setItemSelection(undefined); setRecordsOpen(false); send({ type: 'menu', open: false })
+    send({ type: 'restore', state: reduceGameState(scenario, gameState, { type: 'use-item', itemId, useId }) })
+    setRestoreRevision(value => value + 1)
+  }
   useEffect(() => {
     if (import.meta.env.DEV && preview) {
       setActivePreview(preview); setRecordsOpen(true); send({ type: 'menu', open: true })
@@ -59,6 +82,7 @@ export function StoryPlayer({ scenario, preview, smokingAllowed, suspended = fal
   const dialogueRef = useRef<DialogueWindow>(null)
   const [restoreRevision, setRestoreRevision] = useState(0)
   const acquisition = node.type === 'dialogue' ? node.acquisition : undefined
+  const illustration = scenario.nodes[gameState.nodeId].illustration
 
   useEffect(() => {
     const handleEnter = (event: KeyboardEvent) => {
@@ -81,18 +105,19 @@ export function StoryPlayer({ scenario, preview, smokingAllowed, suspended = fal
     if (!menuOpen && !recordsOpen && !smoking && !acquisition && node.type === 'dialogue') dialogueRef.current?.activate()
   }
 
-  if (node.type === 'choice' && node.map) return <section className="story" aria-label="会話シーン"><TravelMap
+  if (node.type === 'choice' && node.map) return <section className="story" data-node-id={gameState.nodeId} aria-label="会話シーン"><TravelMap
     key={gameState.nodeId} current={node.map.current} options={visibleChoices(node, gameState)}
     onBack={() => dispatch({ type: 'choose', choiceId: 'return' })} onMove={id => dispatch({ type: 'choose', choiceId: id })} /></section>
 
   return (
-    <section className={`${'options' in node ? 'story has-commands' : 'story'}${menuOpen ? ' menu-open' : ''}${recordsOpen ? ' records-open' : ''}`} aria-label="会話シーン">
+    <section className={`${'options' in node ? 'story has-commands' : 'story'}${menuOpen ? ' menu-open' : ''}${recordsOpen ? ' records-open' : ''}`} data-node-id={gameState.nodeId} aria-label="会話シーン">
       <header className="story-toolbar" inert={recordsOpen || Boolean(smoking) || Boolean(acquisition) || historyOpen}>
         <span className="sr-only">{scenario.title}</span>
         <div className="toolbar-actions">
         <SaveControls state={gameState} scenario={scenario} interval={interval} onIntervalChange={value => {
           setInterval(value); try { localStorage.setItem('detective-saeki-minato.speed', String(value)) } catch { /* 設定はセッション中保持 */ }
         }} onSaved={() => saveHistory(gameState.scenarioId, gameState.nodeId, history)} onRestore={(state) => {
+          suppressRecordNotice.current = true
           send({ type: 'restore', state }); setHistory(loadHistory(state.scenarioId, state.nodeId)); setRestoreRevision((value) => value + 1)
         }} onMenuToggle={(open) => send({ type: 'menu', open: open || recordsOpen || historyOpen })} />
         <button ref={recordsButton} type="button" disabled={menuOpen} onClick={() => { setActivePreview(undefined); setRecordsOpen(true); send({ type: 'menu', open: true }) }}><UiIcon name="notebook" /><span>調査記録</span></button>
@@ -103,11 +128,15 @@ export function StoryPlayer({ scenario, preview, smokingAllowed, suspended = fal
           send({ type: 'menu', open: true })
         }}><UiIcon name="smoking" /><span>タバコを吸う</span></button>
         </div>
-        <div className="scene-context"><span>{resolveBackground(node.stage.backgroundId).name}</span><span>{scenario.nodeTimes?.[gameState.nodeId] ?? scenario.dateLabel ?? '午後'}</span></div>
+        <div className="scene-context"><span>{resolveBackground(node.stage.backgroundId).name}</span><span>{selectDateLabel(scenario, gameState)}</span></div>
       </header>
+      {recordNotice && <div className="record-notice" role="status">{recordNotice}</div>}
       <div className={scenario.nodes[gameState.nodeId].type === 'think' ? 'stage-wrapper is-thinking' : 'stage-wrapper'}>
         <div className="stage-input-area" onClick={advanceFromStage}>
-          <StageView stage={node.stage} />
+          {illustration?.imageSrc
+            ? <AssetImage key={illustration.imageSrc} src={illustration.imageSrc} alt={illustration.alt} className="chapter-illustration" fallback={<StageView stage={{ backgroundId: node.stage.backgroundId, characters: [] }} />} />
+            : <StageView stage={illustration ? { backgroundId: node.stage.backgroundId, characters: [] } : node.stage} />}
+          {illustration && <div className="chapter-heading" data-illustration-id={illustration.id}>{illustration.heading}</div>}
         </div>
       </div>
       <div className="story-content" inert={menuOpen || Boolean(acquisition)}>
@@ -134,9 +163,16 @@ export function StoryPlayer({ scenario, preview, smokingAllowed, suspended = fal
       {historyOpen && <SystemDialog title="会話履歴" label="閉じる" onClose={() => { setHistoryOpen(false); send({ type: 'menu', open: false }) }}>
         <div ref={historyList} className="history-list">{history.length ? history.map((entry, index) => <article key={index}><strong>{entry.speaker || '地の文・心の声'}</strong><p>{entry.text}</p></article>) : <p>会話履歴はまだありません。</p>}</div>
       </SystemDialog>}
-      {recordsOpen && <InvestigationRecords state={gameState} records={activePreview?.records ?? selectInvestigationRecords(gameState, scenario.records)} previewLabel={activePreview?.label} returnFocus={activePreview?.invoker ?? recordsButton.current}
+      {itemSelection && <SystemDialog title="使用する相手・目的" label="戻る" onClose={() => { setItemSelection(undefined); setRecordsOpen(true); send({ type: 'menu', open: true }) }}>
+        <div className="item-use-choices">{itemSelection.uses.map(use => <button key={use.next} type="button" onClick={() => useItem(itemSelection.itemId, use.next)}>{use.label ?? '使用する'}</button>)}</div>
+      </SystemDialog>}
+      {recordsOpen && <InvestigationRecords state={gameState} records={activePreview?.records ?? records} previewLabel={activePreview?.label} returnFocus={activePreview?.invoker ?? recordsButton.current}
         usableItems={activePreview ? [] : (scenario.itemUses ?? []).filter(use => use.nodeIds.includes(gameState.nodeId) && matchesCondition(gameState, use.condition)).map(use => use.itemId)}
-        onUse={itemId => { setRecordsOpen(false); send({ type: 'menu', open: false }); send({ type: 'restore', state: reduceGameState(scenario, gameState, { type: 'use-item', itemId }) }); setRestoreRevision(value => value + 1) }}
+        onUse={itemId => {
+          const uses = [...new Map((scenario.itemUses ?? []).filter(use => use.itemId === itemId && use.nodeIds.includes(gameState.nodeId) && matchesCondition(gameState, use.condition)).map(use => [use.next, use])).values()]
+          if (uses.length > 1) { setRecordsOpen(false); setItemSelection({ itemId, uses }) }
+          else useItem(itemId, uses[0]?.next)
+        }}
         onClose={() => { setRecordsOpen(false); send({ type: 'menu', open: false }) }} />}
     </section>
   )

@@ -2,11 +2,22 @@ import type { BackgroundDefinition, CharacterDefinition, ExpressionDefinition } 
 
 // 検証用画像。本番画像へ差し替える際もシナリオの ID は変更しない。
 export const backgrounds: Record<string, BackgroundDefinition> = {
-  'building-room': { id: 'building-room', name: '成子坂共同ビル・管理人室', imageSrc: new URL('../assets/backgrounds/old-office.png', import.meta.url).href },
+  'building-room': { id: 'building-room', name: '成子坂共同ビル・管理人室', imageSrc: new URL('../assets/backgrounds/building-room.png', import.meta.url).href },
+  'building-room-evening': { id: 'building-room-evening', name: '成子坂共同ビル・管理人室', imageSrc: new URL('../assets/backgrounds/building-room-evening.png', import.meta.url).href },
+  'office-evening': { id: 'office-evening', name: '佐伯探偵事務所', imageSrc: new URL('../assets/backgrounds/office-evening.png', import.meta.url).href },
+  'office-exterior-evening': { id: 'office-exterior-evening', name: '佐伯探偵事務所・建物前', imageSrc: new URL('../assets/backgrounds/office-exterior-evening.png', import.meta.url).href },
+  'building-exterior-evening': { id: 'building-exterior-evening', name: '成子坂共同ビル・建物前', imageSrc: new URL('../assets/backgrounds/building-exterior-evening.png', import.meta.url).href },
   'old-office': { id: 'old-office', name: '成子坂共同ビル・旧事務室', imageSrc: new URL('../assets/backgrounds/old-office.png', import.meta.url).href },
   'building-entrance': { id: 'building-entrance', name: '成子坂共同ビル・入口', imageSrc: new URL('../assets/backgrounds/building-entrance.png', import.meta.url).href },
   'building-stairs': { id: 'building-stairs', name: '成子坂共同ビル・階段', imageSrc: new URL('../assets/backgrounds/building-stairs.png', import.meta.url).href },
-  'office-before-noon': { id: 'office-before-noon', name: '佐伯探偵事務所', imageSrc: new URL('../assets/backgrounds/office-afternoon.png', import.meta.url).href },
+  'office-before-noon': { id: 'office-before-noon', name: '佐伯探偵事務所', imageSrc: new URL('../assets/backgrounds/office-day.png', import.meta.url).href },
+  'office-exterior': { id: 'office-exterior', name: '佐伯探偵事務所・建物前', imageSrc: new URL('../assets/backgrounds/office-exterior.png', import.meta.url).href },
+  'company-exterior': { id: 'company-exterior', name: '東成ビルサービス・建物前', imageSrc: new URL('../assets/backgrounds/company-exterior.png', import.meta.url).href },
+  'company-lounge': { id: 'company-lounge', name: '東成ビルサービス・応接室', imageSrc: new URL('../assets/backgrounds/company-lounge.png', import.meta.url).href },
+  'building-exterior': { id: 'building-exterior', name: '成子坂共同ビル・建物前', imageSrc: new URL('../assets/backgrounds/building-exterior.png', import.meta.url).href },
+  'police-exterior': { id: 'police-exterior', name: '西新宿警察署・建物前', imageSrc: new URL('../assets/backgrounds/police-exterior.png', import.meta.url).href },
+  'police-reception': { id: 'police-reception', name: '西新宿警察署・受付', imageSrc: new URL('../assets/backgrounds/police-reception.png', import.meta.url).href },
+  'police-meeting': { id: 'police-meeting', name: '西新宿警察署・面会室', imageSrc: new URL('../assets/backgrounds/police-meeting.png', import.meta.url).href },
   'company-reception': { id: 'company-reception', name: '東成ビルサービス', imageSrc: new URL('../assets/backgrounds/company-reception.png', import.meta.url).href },
   'office-afternoon': { id: 'office-afternoon', name: '佐伯探偵事務所', imageSrc: new URL('../assets/backgrounds/office-afternoon.png', import.meta.url).href },
 }
@@ -17,6 +28,9 @@ export const characters: Record<string, CharacterDefinition> = {
   miyahara: { id: 'miyahara', name: '宮原文雄', expressions: { normal: { id: 'normal', name: '通常' } } },
   misaki: { id: 'misaki', name: '三崎健', expressions: {} },
   'company-staff': { id: 'company-staff', name: '受付の人', expressions: {} },
+  'company-reception': { id: 'company-reception', name: '受付の人', expressions: {} },
+  'police-reception': { id: 'police-reception', name: '受付の人', expressions: {} },
+  'police-staff': { id: 'police-staff', name: '受付の人', expressions: {} },
   minato: { id: 'minato', name: '佐伯湊', expressions: {
     irritated: { id: 'irritated', name: 'irritated', imageSrc: new URL('../assets/images/characters/minato/waist/irritated.png', import.meta.url).href },
     neutral: { id: 'neutral', name: '通常', imageSrc: new URL('../assets/images/characters/minato/waist/neutral.png', import.meta.url).href },

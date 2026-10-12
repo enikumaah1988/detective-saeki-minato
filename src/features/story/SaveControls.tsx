@@ -5,6 +5,8 @@ import type { GameState } from '../../types/gameState'
 import type { Scenario } from '../../types/scenario'
 import { deleteSave, loadGame, saveGame } from './storage'
 import type { StoredLoadResult } from './storage'
+import { SettingsSlider } from './SettingsSlider'
+import { MESSAGE_SPEEDS, MESSAGE_SPEED_LABELS, loadAudioSettings, saveAudioSettings } from './settings'
 
 const loadMessages: Record<Extract<StoredLoadResult, { ok: false }>['reason'], string> = {
   'no-save': '保存データがありません。',
@@ -26,6 +28,10 @@ export function SaveControls({ state, scenario, onRestore, onMenuToggle, interva
 }) {
   const details = useRef<HTMLDetailsElement>(null)
   const [loaded, setLoaded] = useState(false)
+  const [audio, setAudio] = useState(loadAudioSettings)
+  const changeVolume = (kind: 'bgm' | 'se', point: number) => {
+    const next = { ...audio, [kind]: point * 10 }; setAudio(next); saveAudioSettings(next)
+  }
   const [message, setMessage] = useState('セーブは1件です。セーブすると上書きされます。')
   const save = () => {
     const result = saveGame(state)
@@ -55,11 +61,10 @@ export function SaveControls({ state, scenario, onRestore, onMenuToggle, interva
         <button type="button" onClick={load}><UiIcon name="load" /><span>ロード</span></button>
         <button type="button" onClick={remove}><UiIcon name="delete" /><span>セーブデータ削除</span></button>
       </div>
-      <label className="speed-setting">メッセージスピード
-        <select aria-label="メッセージスピード" value={interval} onChange={event => onIntervalChange?.(Number(event.target.value))}>
-          <option value={70}>ゆっくり</option><option value={35}>標準</option><option value={15}>速い</option><option value={0}>一括表示</option>
-        </select>
-      </label>
+      <SettingsSlider label="メッセージスピード" value={Math.max(0, MESSAGE_SPEEDS.indexOf(interval as typeof MESSAGE_SPEEDS[number]))}
+        maximum={3} labels={MESSAGE_SPEED_LABELS} onChange={point => onIntervalChange?.(MESSAGE_SPEEDS[point])} />
+      <SettingsSlider label="BGM音量" value={audio.bgm / 10} maximum={10} onChange={point => changeVolume('bgm', point)} />
+      <SettingsSlider label="SE音量" value={audio.se / 10} maximum={10} onChange={point => changeVolume('se', point)} />
       <p role="status">{message}</p>
       </div>
       {loaded && <SystemDialog title="ロードしました" dismissible={false} onClose={() => {

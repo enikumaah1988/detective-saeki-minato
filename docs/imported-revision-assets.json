@@ -1,0 +1,164 @@
+{
+  "date": "2026-10-12",
+  "backgroundCount": 16,
+  "smokingCount": 2,
+  "files": [
+    {
+      "id": "office-day",
+      "source": "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/docs/art/backgrounds/drafts/office-interior-day-01.png",
+      "file": "src/assets/backgrounds/office-day.png",
+      "sha256": "b7239d589c843f3b8ccb27d9eedf9799ba906e190eb6a3cf39ebf6237ad7c370",
+      "sourceCommit": null,
+      "status": "制作候補・本編接続済み・正式採用未確認"
+    },
+    {
+      "id": "office-exterior",
+      "source": "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/docs/art/backgrounds/drafts/office-exterior-day-01.png",
+      "file": "src/assets/backgrounds/office-exterior.png",
+      "sha256": "f233800207f88d1710e5ea221d93fdc5eb0b489ede0c394798cc47101e548428",
+      "sourceCommit": null,
+      "status": "制作候補・本編接続済み・正式採用未確認"
+    },
+    {
+      "id": "office-evening",
+      "source": "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/docs/art/backgrounds/drafts/office-interior-evening-01.png",
+      "file": "src/assets/backgrounds/office-evening.png",
+      "sha256": "47bac3da99cadcad08ae7f0ee967a089c6835c877461aa7eab26d4edd5301a8d",
+      "sourceCommit": null,
+      "status": "制作候補・本編接続済み・正式採用未確認"
+    },
+    {
+      "id": "office-exterior-evening",
+      "source": "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/docs/art/backgrounds/drafts/office-exterior-evening-01.png",
+      "file": "src/assets/backgrounds/office-exterior-evening.png",
+      "sha256": "d45086a3de2a0b89dd7c8b92889180bf1ad92f9bad911940249492cec296d867",
+      "sourceCommit": null,
+      "status": "制作候補・本編接続済み・正式採用未確認"
+    },
+    {
+      "id": "company-exterior",
+      "source": "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/docs/art/backgrounds/drafts/company-exterior-day-01.png",
+      "file": "src/assets/backgrounds/company-exterior.png",
+      "sha256": "8a3795534dcb0643f15bf0f0dd023c1ab3e1141b0d56e63c78e5aa8552f94d51",
+      "sourceCommit": null,
+      "status": "制作候補・本編接続済み・正式採用未確認"
+    },
+    {
+      "id": "company-reception",
+      "source": "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/docs/art/backgrounds/drafts/company-reception-day-01.png",
+      "file": "src/assets/backgrounds/company-reception.png",
+      "sha256": "e8ebeaaa807d6ba5aec55a0572bf48bc0060c6ebc3d804ab7a3b405d3cd88d72",
+      "sourceCommit": null,
+      "status": "制作候補・本編接続済み・正式採用未確認"
+    },
+    {
+      "id": "company-lounge",
+      "source": "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/docs/art/backgrounds/drafts/company-meeting-day-01.png",
+      "file": "src/assets/backgrounds/company-lounge.png",
+      "sha256": "e74ad1f6c0d8866f217fa4b2f5ba8697645b3616838cfaf588dc9132c50ab808",
+      "sourceCommit": null,
+      "status": "制作候補・本編接続済み・正式採用未確認"
+    },
+    {
+      "id": "building-exterior",
+      "source": "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/docs/art/backgrounds/drafts/old-building-exterior-day-01.png",
+      "file": "src/assets/backgrounds/building-exterior.png",
+      "sha256": "8e6162b58fe30599e82fa57e2e60a34fcdffbaafe62c3dbbc91c48a6e3ad9b06",
+      "sourceCommit": null,
+      "status": "制作候補・本編接続済み・正式採用未確認"
+    },
+    {
+      "id": "building-exterior-evening",
+      "source": "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/docs/art/backgrounds/drafts/old-building-exterior-evening-01.png",
+      "file": "src/assets/backgrounds/building-exterior-evening.png",
+      "sha256": "f823eb13d6e2e29442f0643357adf4c9de7dc2d34beec0008abfe40bb7f1ee03",
+      "sourceCommit": null,
+      "status": "制作候補・本編接続済み・正式採用未確認"
+    },
+    {
+      "id": "building-room",
+      "source": "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/docs/art/backgrounds/drafts/caretaker-room-day-01.png",
+      "file": "src/assets/backgrounds/building-room.png",
+      "sha256": "b81f52f0be5b011083698307358a9d0fbd44f5c92a63ca9122bc6d02144d8e8d",
+      "sourceCommit": null,
+      "status": "制作候補・本編接続済み・正式採用未確認"
+    },
+    {
+      "id": "building-room-evening",
+      "source": "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/docs/art/backgrounds/drafts/caretaker-room-evening-01.png",
+      "file": "src/assets/backgrounds/building-room-evening.png",
+      "sha256": "75cfac0f4946847cc200fd45e1602880553ac896e50a142fd00a62bc77291307",
+      "sourceCommit": null,
+      "status": "制作候補・本編接続済み・正式採用未確認"
+    },
+    {
+      "id": "building-stairs",
+      "source": "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/docs/art/backgrounds/drafts/building-stairs-day-01.png",
+      "file": "src/assets/backgrounds/building-stairs.png",
+      "sha256": "ba31d56236b9f2ab88c6ce7d953437e4fc3aaeca0eb4d705b727b4a60ee4a8cf",
+      "sourceCommit": null,
+      "status": "制作候補・本編接続済み・正式採用未確認"
+    },
+    {
+      "id": "old-office",
+      "source": "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/docs/art/backgrounds/drafts/old-office-morning-01.png",
+      "file": "src/assets/backgrounds/old-office.png",
+      "sha256": "742e4f491c8cb0d390112898d4ab9788abec2114576c2c23262f34c391de3753",
+      "sourceCommit": null,
+      "status": "制作候補・本編接続済み・正式採用未確認"
+    },
+    {
+      "id": "police-exterior",
+      "source": "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/docs/art/backgrounds/drafts/police-exterior-day-01.png",
+      "file": "src/assets/backgrounds/police-exterior.png",
+      "sha256": "80c3e5dfb6c3fc7a9f3ec72ddc5fde91c73590082561fdb194e2caffc1db4a00",
+      "sourceCommit": null,
+      "status": "制作候補・本編接続済み・正式採用未確認"
+    },
+    {
+      "id": "police-reception",
+      "source": "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/docs/art/backgrounds/drafts/police-reception-day-01.png",
+      "file": "src/assets/backgrounds/police-reception.png",
+      "sha256": "36aacc9d8bd3dbd8d869d3bb28973e57384a71e2617cfe714e3147d1f6516651",
+      "sourceCommit": null,
+      "status": "制作候補・本編接続済み・正式採用未確認"
+    },
+    {
+      "id": "police-meeting",
+      "source": "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/docs/art/backgrounds/drafts/police-meeting-day-01.png",
+      "file": "src/assets/backgrounds/police-meeting.png",
+      "sha256": "73715ddae0b87958d394b140f5ba40595ac57a4c31d3f6dd07fb79c208d76340",
+      "sourceCommit": null,
+      "status": "制作候補・本編接続済み・正式採用未確認"
+    },
+    {
+      "id": "minato-smoking",
+      "source": "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/docs/art/cutins/drafts/minato-smoking-01.png",
+      "file": "src/assets/cutins/minato-smoking.png",
+      "sha256": "6207e94cd06b9d7ca2e5955a8466878ebf147a8b8582284cf134e2b7bb7e4b62",
+      "sourceCommit": null,
+      "status": "制作候補・本編接続済み・正式採用未確認"
+    },
+    {
+      "id": "minato-non-smoking",
+      "source": "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/docs/art/cutins/drafts/minato-non-smoking-01.png",
+      "file": "src/assets/cutins/minato-non-smoking.png",
+      "sha256": "4fcad8f2e22281347bf1b760dccb0c0b96d30d05be4719195ea00b5c62bc7cd7",
+      "sourceCommit": null,
+      "status": "制作候補・本編接続済み・正式採用未確認"
+    }
+  ],
+  "illustrationSlots": [
+    "C1-IN",
+    "C1-OUT",
+    "C2-IN",
+    "C2-OUT",
+    "C3-IN",
+    "C3-OUT",
+    "C4-IN",
+    "C4-OUT"
+  ],
+  "illustrationStatus": "作画へ依頼済み・未納の画像は完成扱いにしない",
+  "promptSource": "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/docs/art/",
+  "characterDisplaySource": "outputs/人物表示基準_デザイン側引継ぎ.md"
+}

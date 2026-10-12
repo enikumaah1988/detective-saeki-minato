@@ -7,7 +7,8 @@ let scenario, legacy, createInitialState, reduceGameState, selectCurrentNode, vi
 before(async () => {
   const server = await createServer({ server: { middlewareMode: true, hmr: false, ws: false }, appType: 'custom' })
   try {
-    ({ episode1Part1: scenario } = await server.ssrLoadModule('/src/data/scenario/episode1Part1.ts'));
+    // 改稿前ノードの互換・回帰。本編ver0.03はrevisionEpisode.test.mjsで検証。
+    ({ episode1Part1Previous: scenario } = await server.ssrLoadModule('/src/data/scenario/episode1Part1.ts'));
     ({ episode1Part1Legacy: legacy } = await server.ssrLoadModule('/src/data/scenario/episode1Part1Legacy.ts'));
     ({ createInitialState, reduceGameState, selectCurrentNode } = await server.ssrLoadModule('/src/features/story/state.ts'));
     ({ visibleChoices } = await server.ssrLoadModule('/src/features/story/freeAction.ts'));
