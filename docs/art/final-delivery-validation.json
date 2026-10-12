@@ -1,0 +1,528 @@
+{
+  "date": "2026-10-12",
+  "status": "PASS: current candidates only; no formal adoption or game test",
+  "counts": {
+    "background": 16,
+    "chapter": 7,
+    "cutin": 2
+  },
+  "chapterConnections": 8,
+  "branch": "art/main-characters",
+  "assets": [
+    {
+      "id": "minato-smoking",
+      "kind": "cutin",
+      "file": "docs/art/cutins/drafts/minato-smoking-01.png",
+      "width": 1920,
+      "height": 1080,
+      "sourceSize": [
+        1672,
+        941
+      ],
+      "time": "場所・時刻非限定",
+      "state": "正式素材候補・採用確認待ち",
+      "sha256": "6207e94cd06b9d7ca2e5955a8466878ebf147a8b8582284cf134e2b7bb7e4b62",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-98ebf380-4f41-4bf5-8154-3a003428d613.png",
+      "sourceSha256": "0462c73359c93fbbdf03a6c901fb3c99bcd6a922c6f2c59d2addbd07667ad278",
+      "productionCommit": "8398e09",
+      "sourceRecord": "docs/art/integration-batch-01-sources.json",
+      "validationRecord": "docs/art/integration-batch-01-validation.json",
+      "adoption": "ユーザー採用確認待ち"
+    },
+    {
+      "id": "minato-non-smoking",
+      "kind": "cutin",
+      "file": "docs/art/cutins/drafts/minato-non-smoking-01.png",
+      "width": 1920,
+      "height": 1080,
+      "sourceSize": [
+        1672,
+        941
+      ],
+      "time": "場所・時刻非限定",
+      "state": "正式素材候補・採用確認待ち",
+      "sha256": "4fcad8f2e22281347bf1b760dccb0c0b96d30d05be4719195ea00b5c62bc7cd7",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-dc1aa766-7716-4c6c-a787-c428cb5738fc.png",
+      "sourceSha256": "f96aab30985f6f752fd406a69a934c474c077f61ff6da7363d31b178e3c32c1d",
+      "productionCommit": "8398e09",
+      "sourceRecord": "docs/art/integration-batch-01-sources.json",
+      "validationRecord": "docs/art/integration-batch-01-validation.json",
+      "adoption": "ユーザー採用確認待ち"
+    },
+    {
+      "id": "office-interior-day",
+      "kind": "background",
+      "file": "docs/art/backgrounds/drafts/office-interior-day-01.png",
+      "width": 1920,
+      "height": 1080,
+      "sourceSize": [
+        1672,
+        941
+      ],
+      "time": "朝・昼共用の候補",
+      "state": "正式素材候補・採用確認待ち",
+      "sha256": "b7239d589c843f3b8ccb27d9eedf9799ba906e190eb6a3cf39ebf6237ad7c370",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-af490e99-9d35-4715-9c5b-1b9b3be9c38b.png",
+      "sourceSha256": "c891d818a7cb709ad6f4e8531157c9ef63367a2c1304562f1bebcf0d0cd65d40",
+      "productionCommit": "8398e09",
+      "sourceRecord": "docs/art/integration-batch-01-sources.json",
+      "validationRecord": "docs/art/integration-batch-01-validation.json",
+      "adoption": "ユーザー採用確認待ち"
+    },
+    {
+      "id": "office-exterior-day",
+      "kind": "background",
+      "file": "docs/art/backgrounds/drafts/office-exterior-day-01.png",
+      "width": 1920,
+      "height": 1080,
+      "sourceSize": [
+        1672,
+        941
+      ],
+      "time": "朝・昼共用の候補",
+      "state": "正式素材候補・採用確認待ち",
+      "sha256": "f233800207f88d1710e5ea221d93fdc5eb0b489ede0c394798cc47101e548428",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-64a492f3-d024-4f75-9257-2d64bbe54514.png",
+      "sourceSha256": "fc47fa49920fbde37670a91f283f7b2703a3f50a7ddc5c6bc8d5283ff6cb35f7",
+      "productionCommit": "8398e09",
+      "sourceRecord": "docs/art/integration-batch-01-sources.json",
+      "validationRecord": "docs/art/integration-batch-01-validation.json",
+      "adoption": "ユーザー採用確認待ち"
+    },
+    {
+      "id": "company-exterior-day",
+      "bgId": "BG-03",
+      "file": "docs/art/backgrounds/drafts/company-exterior-day-01.png",
+      "width": 1920,
+      "height": 1080,
+      "sourceSize": [
+        1672,
+        941
+      ],
+      "time": "昼",
+      "state": "採用確認待ち",
+      "sourceSha256": "26eb0485d52c2b2fd184679bd2e8e4cc82132a9c783500779fbf5fcc7fb87efc",
+      "sha256": "8a3795534dcb0643f15bf0f0dd023c1ab3e1141b0d56e63c78e5aa8552f94d51",
+      "kind": "background",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-a2f7c256-2d8a-42ce-ba89-7bb30b2bd723.png",
+      "productionCommit": "d919cda",
+      "sourceRecord": "docs/art/backgrounds/batch-02-sources.json",
+      "validationRecord": "docs/art/backgrounds/batch-02-validation.json",
+      "adoption": "ユーザー採用確認待ち"
+    },
+    {
+      "id": "company-reception-day",
+      "bgId": "BG-04",
+      "file": "docs/art/backgrounds/drafts/company-reception-day-01.png",
+      "width": 1920,
+      "height": 1080,
+      "sourceSize": [
+        1672,
+        941
+      ],
+      "time": "昼",
+      "state": "採用確認待ち",
+      "sourceSha256": "25712e422fbb64d682765ea6a320ac2e2403897cd23c40a864017c7b52952148",
+      "sha256": "e8ebeaaa807d6ba5aec55a0572bf48bc0060c6ebc3d804ab7a3b405d3cd88d72",
+      "kind": "background",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-b261afae-1c5d-4b4b-b49a-857aabd68469.png",
+      "productionCommit": "d919cda",
+      "sourceRecord": "docs/art/backgrounds/batch-02-sources.json",
+      "validationRecord": "docs/art/backgrounds/batch-02-validation.json",
+      "adoption": "ユーザー採用確認待ち"
+    },
+    {
+      "id": "company-meeting-day",
+      "bgId": "BG-05",
+      "file": "docs/art/backgrounds/drafts/company-meeting-day-01.png",
+      "width": 1920,
+      "height": 1080,
+      "sourceSize": [
+        1672,
+        941
+      ],
+      "time": "昼",
+      "state": "採用確認待ち",
+      "sourceSha256": "20e1a15d4d501ad0b0613edf22a3ebe13071ba936767b5e5e6fd3da166a4e173",
+      "sha256": "e74ad1f6c0d8866f217fa4b2f5ba8697645b3616838cfaf588dc9132c50ab808",
+      "kind": "background",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-942dd4c2-ea8b-42c6-bd05-5ee256ff958c.png",
+      "productionCommit": "d919cda",
+      "sourceRecord": "docs/art/backgrounds/batch-02-sources.json",
+      "validationRecord": "docs/art/backgrounds/batch-02-validation.json",
+      "adoption": "ユーザー採用確認待ち"
+    },
+    {
+      "id": "police-exterior-day",
+      "bgId": "BG-10",
+      "file": "docs/art/backgrounds/drafts/police-exterior-day-01.png",
+      "width": 1920,
+      "height": 1080,
+      "sourceSize": [
+        1672,
+        941
+      ],
+      "time": "昼",
+      "state": "採用確認待ち",
+      "sourceSha256": "f0e0ca5e2f12304a46eda03e9d0f51dde8ab60d4594d643972e6e9cbc63689c1",
+      "sha256": "80c3e5dfb6c3fc7a9f3ec72ddc5fde91c73590082561fdb194e2caffc1db4a00",
+      "kind": "background",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-16539c43-34c6-48a2-a7f3-ecbc451a9a84.png",
+      "productionCommit": "d919cda",
+      "sourceRecord": "docs/art/backgrounds/batch-02-sources.json",
+      "validationRecord": "docs/art/backgrounds/batch-02-validation.json",
+      "adoption": "ユーザー採用確認待ち"
+    },
+    {
+      "id": "police-reception-day",
+      "bgId": "BG-11",
+      "file": "docs/art/backgrounds/drafts/police-reception-day-01.png",
+      "width": 1920,
+      "height": 1080,
+      "sourceSize": [
+        1672,
+        941
+      ],
+      "time": "昼",
+      "state": "採用確認待ち",
+      "sourceSha256": "2e0d34d36887e6d55e521ba2e7568ee27841948e9a9a2eaca32632fc3555ef8e",
+      "sha256": "36aacc9d8bd3dbd8d869d3bb28973e57384a71e2617cfe714e3147d1f6516651",
+      "kind": "background",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-427b3303-42f3-40eb-b955-48f454adf97c.png",
+      "productionCommit": "d919cda",
+      "sourceRecord": "docs/art/backgrounds/batch-02-sources.json",
+      "validationRecord": "docs/art/backgrounds/batch-02-validation.json",
+      "adoption": "ユーザー採用確認待ち"
+    },
+    {
+      "id": "police-meeting-day",
+      "bgId": "BG-12",
+      "file": "docs/art/backgrounds/drafts/police-meeting-day-01.png",
+      "width": 1920,
+      "height": 1080,
+      "sourceSize": [
+        1672,
+        941
+      ],
+      "time": "昼",
+      "state": "採用確認待ち",
+      "sourceSha256": "80771c518f208e32f3aff2c6138eaece1a0822d49f450a78a6ea5f1dc651df33",
+      "sha256": "73715ddae0b87958d394b140f5ba40595ac57a4c31d3f6dd07fb79c208d76340",
+      "kind": "background",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-b4ba3e54-bcb4-4778-8c73-db2b2986a08e.png",
+      "productionCommit": "d919cda",
+      "sourceRecord": "docs/art/backgrounds/batch-02-sources.json",
+      "validationRecord": "docs/art/backgrounds/batch-02-validation.json",
+      "adoption": "ユーザー採用確認待ち"
+    },
+    {
+      "id": "old-building-exterior-day",
+      "bgId": "BG-06",
+      "file": "docs/art/backgrounds/drafts/old-building-exterior-day-01.png",
+      "width": 1920,
+      "height": 1080,
+      "sourceSize": [
+        1672,
+        941
+      ],
+      "time": "朝・昼共用候補",
+      "state": "確認待ち",
+      "sourceSha256": "7b3d7622c87fdac1bf45e73e77a19557729995a0452ace457fe95a13e5d3e775",
+      "sha256": "8e6162b58fe30599e82fa57e2e60a34fcdffbaafe62c3dbbc91c48a6e3ad9b06",
+      "kind": "background",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-f7c3dc18-f746-40cc-a8de-b4568877c912.png",
+      "productionCommit": "1c8485f",
+      "sourceRecord": "docs/art/backgrounds/batch-03-sources.json",
+      "validationRecord": "docs/art/backgrounds/batch-03-validation.json",
+      "adoption": "ユーザー採用確認待ち"
+    },
+    {
+      "id": "caretaker-room-day",
+      "bgId": "BG-07",
+      "file": "docs/art/backgrounds/drafts/caretaker-room-day-01.png",
+      "width": 1920,
+      "height": 1080,
+      "sourceSize": [
+        1672,
+        941
+      ],
+      "time": "朝・昼共用候補",
+      "state": "確認待ち",
+      "sourceSha256": "9803b19eb98be6ca920d626fa02e10a6a08f49fbb72bef6e02a8a0d22ed40b5e",
+      "sha256": "b81f52f0be5b011083698307358a9d0fbd44f5c92a63ca9122bc6d02144d8e8d",
+      "kind": "background",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-528af270-7e70-4119-9632-4fa676577da6.png",
+      "productionCommit": "1c8485f",
+      "sourceRecord": "docs/art/backgrounds/batch-03-sources.json",
+      "validationRecord": "docs/art/backgrounds/batch-03-validation.json",
+      "adoption": "ユーザー採用確認待ち"
+    },
+    {
+      "id": "old-office-morning",
+      "bgId": "BG-09",
+      "file": "docs/art/backgrounds/drafts/old-office-morning-01.png",
+      "width": 1920,
+      "height": 1080,
+      "sourceSize": [
+        1672,
+        941
+      ],
+      "time": "朝",
+      "state": "確認待ち",
+      "sourceSha256": "bd2bad2cc7cc7df817a2ea3e4d5c5804762cbdb8f5cb1f7283d7f350c6ea6fa5",
+      "sha256": "742e4f491c8cb0d390112898d4ab9788abec2114576c2c23262f34c391de3753",
+      "kind": "background",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-37399837-d5e9-47f0-a220-ce880518f532.png",
+      "productionCommit": "1c8485f",
+      "sourceRecord": "docs/art/backgrounds/batch-03-sources.json",
+      "validationRecord": "docs/art/backgrounds/batch-03-validation.json",
+      "adoption": "ユーザー採用確認待ち"
+    },
+    {
+      "id": "building-stairs-day",
+      "bgId": "BG-08",
+      "file": "docs/art/backgrounds/drafts/building-stairs-day-01.png",
+      "width": 1920,
+      "height": 1080,
+      "sourceSize": [
+        1672,
+        941
+      ],
+      "time": "朝・昼共用候補",
+      "state": "視点・遮蔽物の照合を含む確認待ち",
+      "sourceSha256": "10bb7e7044220457de6ac574259c484aaadd1e22548c00e786e77fd66cd5daf5",
+      "sha256": "ba31d56236b9f2ab88c6ce7d953437e4fc3aaeca0eb4d705b727b4a60ee4a8cf",
+      "kind": "background",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-4c6cd00d-f7ce-4418-b64a-a0f57c90b429.png",
+      "productionCommit": "1c8485f",
+      "sourceRecord": "docs/art/backgrounds/batch-03-sources.json",
+      "validationRecord": "docs/art/backgrounds/batch-03-validation.json",
+      "adoption": "ユーザー採用確認待ち"
+    },
+    {
+      "id": "office-interior-evening",
+      "bgId": "BG-01",
+      "file": "docs/art/backgrounds/drafts/office-interior-evening-01.png",
+      "width": 1920,
+      "height": 1080,
+      "sourceSize": [
+        1672,
+        941
+      ],
+      "time": "夕",
+      "state": "確認待ち",
+      "sourceSha256": "230e0d06190d26cac6bd18da67b82e787fc4023a8e0d50301b8fe56e52050ddb",
+      "sha256": "47bac3da99cadcad08ae7f0ee967a089c6835c877461aa7eab26d4edd5301a8d",
+      "kind": "background",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-6f3c3601-391c-46ec-a4d7-6c9ee850e56e.png",
+      "productionCommit": "1c8485f",
+      "sourceRecord": "docs/art/backgrounds/batch-03-sources.json",
+      "validationRecord": "docs/art/backgrounds/batch-03-validation.json",
+      "adoption": "ユーザー採用確認待ち"
+    },
+    {
+      "id": "office-exterior-evening",
+      "bgId": "BG-02",
+      "file": "docs/art/backgrounds/drafts/office-exterior-evening-01.png",
+      "width": 1920,
+      "height": 1080,
+      "sourceSize": [
+        1672,
+        941
+      ],
+      "time": "夕",
+      "state": "確認待ち",
+      "sourceSha256": "9189ec5aac9b627a3798802fbc8338c07c58b7cc6a92c74e826e6b3b85366c48",
+      "sha256": "d45086a3de2a0b89dd7c8b92889180bf1ad92f9bad911940249492cec296d867",
+      "kind": "background",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-06daf8a4-b8b9-423f-af47-a669d6c0c5ea.png",
+      "productionCommit": "1c8485f",
+      "sourceRecord": "docs/art/backgrounds/batch-03-sources.json",
+      "validationRecord": "docs/art/backgrounds/batch-03-validation.json",
+      "adoption": "ユーザー採用確認待ち"
+    },
+    {
+      "id": "old-building-exterior-evening",
+      "bgId": "BG-06",
+      "file": "docs/art/backgrounds/drafts/old-building-exterior-evening-01.png",
+      "width": 1920,
+      "height": 1080,
+      "sourceSize": [
+        1672,
+        941
+      ],
+      "time": "夕",
+      "state": "確認待ち",
+      "sourceSha256": "48ab22bd012bab483d4da7990500eabc880fa309d20a9de50e2c6c1eaa881a8b",
+      "sha256": "f823eb13d6e2e29442f0643357adf4c9de7dc2d34beec0008abfe40bb7f1ee03",
+      "kind": "background",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-de28d749-f09d-4cd7-a8c3-c3ddb093c87b.png",
+      "productionCommit": "1c8485f",
+      "sourceRecord": "docs/art/backgrounds/batch-03-sources.json",
+      "validationRecord": "docs/art/backgrounds/batch-03-validation.json",
+      "adoption": "ユーザー採用確認待ち"
+    },
+    {
+      "id": "caretaker-room-evening",
+      "bgId": "BG-07",
+      "file": "docs/art/backgrounds/drafts/caretaker-room-evening-01.png",
+      "width": 1920,
+      "height": 1080,
+      "sourceSize": [
+        1672,
+        941
+      ],
+      "time": "夕",
+      "state": "確認待ち",
+      "sourceSha256": "8bbf99d26c151a364d872556fa8fc7f1c03734ad03b5ed44b93936011de5af44",
+      "sha256": "75cfac0f4946847cc200fd45e1602880553ac896e50a142fd00a62bc77291307",
+      "kind": "background",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-0a36b87b-f438-4dc0-bb30-46ce63d8f290.png",
+      "productionCommit": "1c8485f",
+      "sourceRecord": "docs/art/backgrounds/batch-03-sources.json",
+      "validationRecord": "docs/art/backgrounds/batch-03-validation.json",
+      "adoption": "ユーザー採用確認待ち"
+    },
+    {
+      "id": "c1-in",
+      "connections": [
+        "C1-IN"
+      ],
+      "file": "docs/art/illustrations/drafts/c1-in-01.png",
+      "width": 1920,
+      "height": 1080,
+      "time": "10/8 10:40 朝",
+      "state": "採用確認待ち",
+      "sourceSha256": "b67a1fec117e9cba4dcc1e899b9ad416c23fbe22a06a6249a3fcb170f8717342",
+      "sha256": "56f6b95fbfd908b84be7c8bc74a88d5db79277f675e2c6d950aa0ff078bbea78",
+      "kind": "chapter",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-414c332c-2d6f-4614-82ab-8bb738f09e41.png",
+      "productionCommit": "220bbc32788e2e074da11d5aee9fbd0a3ee8ecf8",
+      "sourceRecord": "docs/art/illustrations/chapter-sources.json",
+      "validationRecord": "docs/art/illustrations/chapter-validation.json",
+      "adoption": "ユーザー採用確認待ち",
+      "suggestedGameFile": "c1-in.png"
+    },
+    {
+      "id": "c1-out-c2-in",
+      "connections": [
+        "C1-OUT",
+        "C2-IN"
+      ],
+      "file": "docs/art/illustrations/drafts/c1-out-01.png",
+      "width": 1920,
+      "height": 1080,
+      "time": "10/8 11:55 昼前・12:00 昼",
+      "state": "採用確認待ち",
+      "sourceSha256": "3dc583a69b587627dc46d5e66094bd8203312e2ad1e6a6c11580ab52b955c35e",
+      "sha256": "33e42cc17f03b5ac26bd352e4605a98f708dd34bcb4ccfa130316cbc1d32664d",
+      "kind": "chapter",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-904938b8-b74e-4270-8183-52f04316d00f.png",
+      "productionCommit": "220bbc32788e2e074da11d5aee9fbd0a3ee8ecf8",
+      "sourceRecord": "docs/art/illustrations/chapter-sources.json",
+      "validationRecord": "docs/art/illustrations/chapter-validation.json",
+      "adoption": "ユーザー採用確認待ち",
+      "suggestedGameFile": "c1-out.png"
+    },
+    {
+      "id": "c2-out",
+      "connections": [
+        "C2-OUT"
+      ],
+      "file": "docs/art/illustrations/drafts/c2-out-02.png",
+      "width": 1920,
+      "height": 1080,
+      "time": "10/8 15:35 昼",
+      "state": "採用確認待ち",
+      "sourceSha256": "499274a38211b628922c8041612e68eb6040da2ebddf44a355e9b888e5c59da0",
+      "sha256": "16fdb247cea4578ed0878541d7cad518f5f16481b58a590d5ec388660057bc99",
+      "kind": "chapter",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-52477a41-f052-4177-bf80-748aed678b33.png",
+      "productionCommit": "220bbc32788e2e074da11d5aee9fbd0a3ee8ecf8",
+      "sourceRecord": "docs/art/illustrations/chapter-sources.json",
+      "validationRecord": "docs/art/illustrations/chapter-validation.json",
+      "adoption": "ユーザー採用確認待ち",
+      "suggestedGameFile": "c2-out.png"
+    },
+    {
+      "id": "c3-in",
+      "connections": [
+        "C3-IN"
+      ],
+      "file": "docs/art/illustrations/drafts/c3-in-02.png",
+      "width": 1920,
+      "height": 1080,
+      "time": "10/8 16:10 夕",
+      "state": "採用確認待ち",
+      "sourceSha256": "84aa365221ee550e38e45043022f8c46476a2d5d40e67cceefcf6579db4008e3",
+      "sha256": "a2025f1a0b08e269f3befbacb4f7bcf7a2e6166cfd8d30e02d2a8f458ec4c3fb",
+      "kind": "chapter",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-9f2a5d4e-0130-4b06-a143-601d863e03aa.png",
+      "productionCommit": "220bbc32788e2e074da11d5aee9fbd0a3ee8ecf8",
+      "sourceRecord": "docs/art/illustrations/chapter-sources.json",
+      "validationRecord": "docs/art/illustrations/chapter-validation.json",
+      "adoption": "ユーザー採用確認待ち",
+      "suggestedGameFile": "c3-in.png"
+    },
+    {
+      "id": "c3-out",
+      "connections": [
+        "C3-OUT"
+      ],
+      "file": "docs/art/illustrations/drafts/c3-out-02.png",
+      "width": 1920,
+      "height": 1080,
+      "time": "10/8 17:25 夕",
+      "state": "採用確認待ち",
+      "sourceSha256": "8304cb3e5a17ba02ae91f22d6514b64a0b3043002eafb73188a857a97c91d43d",
+      "sha256": "b93a942aa29345344e0effd473e9080aede7b54db86e20d7f7f3a78e45faba63",
+      "kind": "chapter",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-4df3b44b-ae7b-4d4c-a315-9d23be4875a4.png",
+      "productionCommit": "220bbc32788e2e074da11d5aee9fbd0a3ee8ecf8",
+      "sourceRecord": "docs/art/illustrations/chapter-sources.json",
+      "validationRecord": "docs/art/illustrations/chapter-validation.json",
+      "adoption": "ユーザー採用確認待ち",
+      "suggestedGameFile": "c3-out.png"
+    },
+    {
+      "id": "c4-in",
+      "connections": [
+        "C4-IN"
+      ],
+      "file": "docs/art/illustrations/drafts/c4-in-02.png",
+      "width": 1920,
+      "height": 1080,
+      "time": "10/9 9:30 朝",
+      "state": "採用確認待ち",
+      "sourceSha256": "a42e4016d67a56816e76c69d045b755fa9ca3b41c616a1660b90d3ce1ec1a628",
+      "sha256": "4d966d7461f923bacb6347b4c183e8b2a2693031f10d95f313b817a3940244c2",
+      "kind": "chapter",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-15821a77-20f4-4ab4-877d-65646b9e16bb.png",
+      "productionCommit": "220bbc32788e2e074da11d5aee9fbd0a3ee8ecf8",
+      "sourceRecord": "docs/art/illustrations/chapter-sources.json",
+      "validationRecord": "docs/art/illustrations/chapter-validation.json",
+      "adoption": "ユーザー採用確認待ち",
+      "suggestedGameFile": "c4-in.png"
+    },
+    {
+      "id": "c4-out",
+      "connections": [
+        "C4-OUT"
+      ],
+      "file": "docs/art/illustrations/drafts/c4-out-01.png",
+      "width": 1920,
+      "height": 1080,
+      "time": "10/12 17:05 夕",
+      "state": "採用確認待ち",
+      "sourceSha256": "57dbada0b9a5b312ee1933d0c22b826b7c6f651054118f6a60bc6cf9bea65fab",
+      "sha256": "ef45b9a9f0facfa20667c17026689cacc005110d03025b746218725b6d6a9570",
+      "kind": "chapter",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-0463ccb3-9810-4e59-ae83-efdb6aab3997.png",
+      "productionCommit": "220bbc32788e2e074da11d5aee9fbd0a3ee8ecf8",
+      "sourceRecord": "docs/art/illustrations/chapter-sources.json",
+      "validationRecord": "docs/art/illustrations/chapter-validation.json",
+      "adoption": "ユーザー採用確認待ち",
+      "suggestedGameFile": "c4-out.png"
+    }
+  ]
+}
