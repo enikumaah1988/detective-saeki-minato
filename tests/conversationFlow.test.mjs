@@ -22,8 +22,8 @@ test('話すへの統合と電話表示、日常話題の期限、旧聞く保�
 test('必要な質問を終えても一覧に留まり、確認を選んで会話を閉じる',async()=>{
  const api=await loadRevision(),run=buildPlaythrough(api,true)
  const checkpoint=run.checkpoints.find(point=>point.phase==='P1-03').state
- let state={...checkpoint,nodeId:'P1-03-speak-akari',acquiredInformation:checkpoint.acquiredInformation.filter(id=>id!=='P1-03-conversation-closed')}
- state=api.reduceGameState(api.scenario,state,{type:'choose',choiceId:'p1-morning'})
+ let state={...checkpoint,nodeId:'P1-03-speak-akari',acquiredInformation:checkpoint.acquiredInformation.filter(id=>!['P1-03-conversation-closed','F06','police-consulted'].includes(id))}
+ state=api.reduceGameState(api.scenario,state,{type:'choose',choiceId:'p1-police'})
  while(api.scenario.nodes[state.nodeId].type==='dialogue')state=api.reduceGameState(api.scenario,state,{type:'advance'})
  assert.equal(state.nodeId,'P1-03-speak-akari')
  state=api.reduceGameState(api.scenario,state,{type:'choose',choiceId:'P1-03-close-conversation'})

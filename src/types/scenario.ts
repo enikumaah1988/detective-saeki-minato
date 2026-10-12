@@ -9,6 +9,7 @@ export type Stage = {
 }
 
 export type Condition =
+  | { type: 'not'; condition: Condition }
   | { type: 'any' | 'all'; conditions: Condition[] }
   | { type: 'flag'; id: string; value?: boolean }
   | { type: 'heardTopic' | 'inspectedTarget' | 'hasInformation'; id: string }

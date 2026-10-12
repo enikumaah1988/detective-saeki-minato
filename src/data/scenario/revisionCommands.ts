@@ -1,3 +1,4 @@
+import type { Condition } from '../../types/scenario'
 // 原稿のIDと進捗は維持し、画面の分類・話題の有効範囲を管理する。
 const detailedInspections = new Set(['p2-journal', 'p2-envelope', 'p4-shelf'])
 export function revisionCommand(kind: 'ask' | 'speak' | 'inspect', id: string) {
@@ -34,4 +35,17 @@ export const reasoningLabels: Record<string, Record<string, string>> = {
   'Q1-3': { a: '直人は当時から、黒田の説明を否定していた。', c: '直人は事故の記録を確認するためだけに、休暇を取った。' },
   'Q2-1': { a: '鍵の日誌だけで、黒田が転落時までいたと分かる。', c: '宮原が、階段で黒田の顔を見たという証言。' },
   'Q2-3': { a: '宮原が押す動作と黒田の顔を同時に見たこと。' },
+}
+
+const akariBasics = ['F01','F02','F03']
+const akariInvestigation = [...akariBasics,'F04','F05','F06a','F06']
+export function conversationCondition(id: string, requires: string[], phaseId: string): Condition {
+  const has = (ids: string[]): Condition => ({type:'hasAllInformation',ids})
+  const conditions: Condition[] = [has(requires)]
+  if (['p1-age','p1-daily','p1-family','P1-03-close-conversation'].includes(id)) conditions.push(has(akariInvestigation))
+  if (phaseId==='P1-03') {
+    if (['p1-missing','p1-morning','p1-contact'].includes(id)) conditions.push({type:'not',condition:has(akariBasics)})
+    if (['p1-workplace','p1-company-answer','p1-searched','p1-police'].includes(id)) conditions.push(has(akariBasics),{type:'not',condition:has(akariInvestigation)})
+  }
+  return conditions.length===1 ? conditions[0] : {type:'all',conditions}
 }

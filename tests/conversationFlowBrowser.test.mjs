@@ -27,12 +27,17 @@ for(const [width,height]of [[1920,1080],[1366,768]])test(`統合会話の継続�
    }
    assert.equal(await page.locator('.story').getAttribute('data-node-id'),id)
   }
-  const point=run.checkpoints.find(p=>p.phase==='P1-03').state
-  await restore({...point,nodeId:'P1-03-menu',acquiredInformation:point.acquiredInformation.filter(id=>id!=='P1-03-conversation-closed')})
+  const point=run.checkpoints.find(p=>p.phase==='P1-02').state
+  await restore({...point,nodeId:'P1-03-menu'})
   assert.equal(await page.locator('.free-action-panel .command-name').filter({hasText:'聞く'}).count(),0)
-  await choose('話す');await choose('高瀬　あかり');await choose('最後の朝');await readTo('P1-03-speak-akari')
-  assert.equal(await page.locator('.command-name').filter({hasText:'コーヒー'}).count(),0)
-  if(process.env.SAEKI_SCREENSHOT_DIR)await page.screenshot({path:`${process.env.SAEKI_SCREENSHOT_DIR}/conversation-flow-${width}.png`})
+  await choose('話す');await choose('高瀬　あかり')
+  const labels=()=>page.locator('.command-panel .command-name').allTextContents()
+  assert.deepEqual(await labels(),['帰らなくなった日','最後の朝','連絡','戻る'])
+  for(const label of ['最後の朝','連絡','帰らなくなった日']){await choose(label);await readTo('P1-03-speak-akari')}
+  assert.deepEqual(await labels(),['勤務先','ほかに捜したところ','戻る'])
+  for(const label of ['勤務先','会社へ聞いたこと','ほかに捜したところ','警察への相談']){await choose(label);await readTo('P1-03-speak-akari')}
+  assert.deepEqual(await labels(),['兄の年齢','普段の連絡','一緒に暮らす家族','相談内容の確認','戻る'])
+  if(process.env.SAEKI_SCREENSHOT_DIR)await page.screenshot({path:`${process.env.SAEKI_SCREENSHOT_DIR}/akari-staged-topics-${width}.png`})
   await choose('相談内容の確認');await readTo('P1-04-menu')
   await restore({...run.checkpoints.find(p=>p.phase==='P3-03').state,nodeId:'P3-03-speak-people'})
   assert.match(await page.locator('.command-panel').textContent(),/相澤　澪（電話）/)

@@ -19,7 +19,7 @@ for(const [width,height] of [[1920,1080],[1366,768]]) test(`改訂版 旧ビル�
   assert.equal(await page.locator('.save-controls[open]').count(),0)
   await menu.click();await page.getByRole('button',{name:'メッセージスピード：ゆっくり',exact:true}).click();await menu.click()
   await page.reload();await menu.click();assert.equal(await page.getByLabel('メッセージスピード',{exact:true}).inputValue(),'0');await menu.click()
-  for(const [nodeId,label,background] of [['company-menu','東成ビルサービス','company-reception'],['building-arrival','成子坂共同ビル・建物前','building-exterior'],['stairs-inspect','成子坂共同ビル・階段','building-stairs'],['naoto-testimony','成子坂共同ビル・管理人室','building-room-evening'],['part4-start','成子坂共同ビル・旧事務室','old-office']]){
+  for(const [nodeId,label,background] of [['company-menu','東成ビルサービス','company-reception'],['building-arrival','成子坂共同ビル前','building-exterior'],['stairs-inspect','成子坂共同ビル・階段','building-stairs'],['naoto-testimony','成子坂共同ビル・管理人室','building-room-evening'],['part4-start','成子坂共同ビル・旧事務室','old-office']]){
    await load({...old,nodeId})
    assert.equal(await page.locator('.scene-context span').first().textContent(),label)
    assert.equal(await page.locator('.stage').getAttribute('data-background-id'),background)

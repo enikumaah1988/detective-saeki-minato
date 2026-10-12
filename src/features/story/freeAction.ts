@@ -4,6 +4,7 @@ import type { Choice, Condition, ScenarioNode, StateUpdate } from '../../types/s
 export function matchesCondition(state: GameState, condition?: Condition): boolean {
   if (!condition) return true
   switch (condition.type) {
+    case 'not': return !matchesCondition(state, condition.condition)
     case 'any': return condition.conditions.some(item => matchesCondition(state, item))
     case 'all': return condition.conditions.every(item => matchesCondition(state, item))
     case 'flag': return (Object.hasOwn(state.flags, condition.id) ? state.flags[condition.id] : false) === (condition.value ?? true)

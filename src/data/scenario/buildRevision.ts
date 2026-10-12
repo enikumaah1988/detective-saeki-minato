@@ -1,6 +1,6 @@
 import type { Choice, Condition, Scenario, Scene, StateUpdate } from '../../types/scenario'
 import { resolveExpression, resolveSpeakerName } from '../presentation'
-import { revisionCommand, revisionLabels, canCarryTopic, conversationLabel, sceneClosings, reasoningLabels } from './revisionCommands'
+import { revisionCommand, revisionLabels, canCarryTopic, conversationLabel, sceneClosings, reasoningLabels, conversationCondition } from './revisionCommands'
 import { formatNames } from '../displayNames'
 import { personObservation } from './personObservations'
 import { episodePrologue } from './episodePrologue'
@@ -146,20 +146,20 @@ export function buildRevision(base: Scenario, data: RevisionData): Scenario {
           const actionNodeId = carried.some(entry=>entry.action===action) ? `${phase.id}-carry-${action.id}` : action.id
           returnTargets.set(actionNodeId, topicsId)
           return ({ id: action.id, required: action.required, label: conversationLabel(action),
-          next: sequence(actionNodeId, phase, action.lines, topicsId, [{ type: 'addHeardTopic', id: action.id }, ...grants(action.grants)], action.interaction === 'phone' || action.remoteOnly ? undefined : person), condition: has(action.requires) })})
+          next: sequence(actionNodeId, phase, action.lines, topicsId, [{ type: 'addHeardTopic', id: action.id }, ...grants(action.grants)], action.interaction === 'phone' || action.remoteOnly ? undefined : person), condition: conversationCondition(action.id,action.requires,phase.id) })})
         add(topicsId, { type: 'topic', heading: '話す',
           stage: scenes[topicsId], sceneId: topicsId,
           parent: { commandId, nodeId: peopleId }, prompt: '話題を選ぶ', options: choices }, time)
         const remote = relevant.every(action=>action.remoteOnly || action.interaction==='phone')
         const suffix = remote ? '（電話）' : ''
-        peopleChoices.push({ id: person, label: (names[person] ?? resolveSpeakerName(person)) + suffix, labelWhen: names[person] ? { condition: has([`named-${person}`]), label: resolveSpeakerName(person) + suffix } : undefined, next: topicsId, condition: { type: 'any', conditions: relevant.map(action => has(action.requires)) } })
+        peopleChoices.push({ id: person, label: (names[person] ?? resolveSpeakerName(person)) + suffix, labelWhen: names[person] ? { condition: has([`named-${person}`]), label: resolveSpeakerName(person) + suffix } : undefined, next: topicsId, condition: { type: 'any', conditions: relevant.map(action => conversationCondition(action.id,action.requires,phase.id)) } })
       }
       add(peopleId, { type: 'topic', selection: 'person', heading: '話す', stage: phaseStage, sceneId,
         parent: { commandId, nodeId: menuId }, prompt: '相手を選ぶ', options: peopleChoices }, time)
       // 以前の「聞く」の保存位置も、取得済み情報を増やさず統合後の会話に戻す。
       add(`${phase.id}-talk-people`, nodes[peopleId], time)
       for(const person of people) add(`${phase.id}-talk-${person}`, nodes[`${phase.id}-speak-${person}`], time)
-      options.push({ id: commandId, label: '話す', next: peopleId, condition: { type: 'any', conditions: actions.map(action => has(action.requires)) } })
+      options.push({ id: commandId, label: '話す', next: peopleId, condition: { type: 'any', conditions: actions.map(action => conversationCondition(action.id,action.requires,phase.id)) } })
     }
     // 期限を過ぎた日常会話の旧セーブだけは末尾まで読める。新しい一覧には出さない。
     const daily = data.scenes[0].speak.filter(action=>['p1-schedule','p1-coffee'].includes(action.id))
@@ -227,14 +227,14 @@ export function buildRevision(base: Scenario, data: RevisionData): Scenario {
       const exterior = (place: string, stamp: string) => `${place}-exterior${['office', 'building'].includes(place) && Number(stamp.slice(11, 13)) >= 16 ? '-evening' : ''}`
       scenes[exteriorScene] = { backgroundId: exterior(phase.locationId, phase.sceneTime), characters: [{ characterId: 'minato', expression: 'normal', position: 'left' }], smokingAllowed: false }
       scenes[targetExterior] = { ...scenes[exteriorScene], backgroundId: exterior(nextPhase.locationId, nextPhase.sceneTime) }
-      add(outsideId, { type: 'choice', stage: scenes[exteriorScene], sceneId: exteriorScene, prompt: `${placeNames[phase.locationId]}・建物前`, options: [
-        { id: 'map', label: 'マップへ', next: mapId }, { id: 'enter', label: '中に入る', next: menuId },
+      add(outsideId, { type: 'choice', stage: scenes[exteriorScene], sceneId: exteriorScene, prompt: `${placeNames[phase.locationId]}前`, options: [
+        { id: 'map', label: '他に移動する', next: mapId }, { id: 'enter', label: '中に入る', next: menuId },
       ] }, time)
       add(mapId, { type: 'choice', stage: scenes[exteriorScene], sceneId: exteriorScene, prompt: '移動先', map: { current: phase.locationId, back: outsideId }, options: [
         { id: nextPhase.locationId, label: placeNames[nextPhase.locationId], next: nextPhase.roomId.endsWith('exterior') ? `${nextPhase.id}-intro` : destinationId }, { id: 'return', label: '戻る', next: outsideId },
       ] }, time)
-      add(destinationId, { type: 'choice', stage: scenes[targetExterior], sceneId: targetExterior, prompt: `${placeNames[nextPhase.locationId]}・建物前`, options: [
-        { id: 'enter', label: '中に入る', next: arrival(nextPhase) }, { id: 'map', label: 'マップへ', next: destinationMap },
+      add(destinationId, { type: 'choice', stage: scenes[targetExterior], sceneId: targetExterior, prompt: `${placeNames[nextPhase.locationId]}前`, options: [
+        { id: 'enter', label: '中に入る', next: arrival(nextPhase) }, { id: 'map', label: '他に移動する', next: destinationMap },
       ], entryUpdates: [information(`clock:${nextPhase.sceneTime}`)] }, timeLabel(nextPhase.sceneTime))
       add(destinationMap, { type: 'choice', stage: scenes[targetExterior], sceneId: targetExterior, prompt: '移動先', map: { current: nextPhase.locationId, back: destinationId }, options: [
         { id: phase.locationId, label: placeNames[phase.locationId], next: outsideId }, { id: 'return', label: '戻る', next: destinationId },
