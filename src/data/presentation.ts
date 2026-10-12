@@ -25,15 +25,32 @@ export const backgrounds: Record<string, BackgroundDefinition> = {
 
 export const characters: Record<string, CharacterDefinition> = {
   narrator: { id: 'narrator', name: '', expressions: {} },
-  kuroda: { id: 'kuroda', name: '黒田　征司', expressions: { normal: { id: 'normal', name: '通常' } } },
-  miyahara: { id: 'miyahara', name: '宮原　文雄', expressions: { normal: { id: 'normal', name: '通常' } } },
-  misaki: { id: 'misaki', name: '三崎　健', expressions: {} },
+  kuroda: { id: 'kuroda', name: '黒田　征司', expressions: {
+    neutral: { id: 'neutral', name: '通常', imageSrc: new URL('../assets/images/characters/kuroda/waist/neutral.png', import.meta.url).href },
+    smile: { id: 'smile', name: '微笑み', imageSrc: new URL('../assets/images/characters/kuroda/waist/smile.png', import.meta.url).href },
+    serious: { id: 'serious', name: '真剣', imageSrc: new URL('../assets/images/characters/kuroda/waist/serious.png', import.meta.url).href },
+    confused: { id: 'confused', name: '戸惑い', imageSrc: new URL('../assets/images/characters/kuroda/waist/confused.png', import.meta.url).href },
+    worried: { id: 'worried', name: '不安', imageSrc: new URL('../assets/images/characters/kuroda/waist/worried.png', import.meta.url).href },
+    pained: { id: 'pained', name: '沈痛', imageSrc: new URL('../assets/images/characters/kuroda/waist/pained.png', import.meta.url).href },
+    normal: { id: 'normal', name: '通常', imageSrc: new URL('../assets/images/characters/kuroda/waist/neutral.png', import.meta.url).href }
+  } },
+  miyahara: { id: 'miyahara', name: '宮原　文雄', expressions: {
+    neutral: { id: 'neutral', name: '通常', imageSrc: new URL('../assets/images/characters/miyahara/waist/neutral.png', import.meta.url).href },
+    smile: { id: 'smile', name: '微笑み', imageSrc: new URL('../assets/images/characters/miyahara/waist/smile.png', import.meta.url).href },
+    serious: { id: 'serious', name: '真剣', imageSrc: new URL('../assets/images/characters/miyahara/waist/serious.png', import.meta.url).href },
+    worried: { id: 'worried', name: '不安', imageSrc: new URL('../assets/images/characters/miyahara/waist/worried.png', import.meta.url).href },
+    pained: { id: 'pained', name: '沈痛', imageSrc: new URL('../assets/images/characters/miyahara/waist/pained.png', import.meta.url).href },
+    surprised: { id: 'surprised', name: '驚き', imageSrc: new URL('../assets/images/characters/miyahara/waist/surprised.png', import.meta.url).href },
+    relieved: { id: 'relieved', name: '安堵', imageSrc: new URL('../assets/images/characters/miyahara/waist/relieved.png', import.meta.url).href },
+    normal: { id: 'normal', name: '通常', imageSrc: new URL('../assets/images/characters/miyahara/waist/neutral.png', import.meta.url).href }
+  } },
+  misaki: { id: 'misaki', name: '三崎　健', expressions: { normal: { id: 'normal', name: '肖像', imageSrc: new URL('../assets/images/characters/misaki/portrait/neutral.png', import.meta.url).href } } },
   'company-staff': { id: 'company-staff', name: '受付の女性', expressions: {} },
   'company-reception': { id: 'company-reception', name: '受付の女性', expressions: {} },
   'police-reception': { id: 'police-reception', name: '受付の女性', expressions: {} },
   'police-staff': { id: 'police-staff', name: '受付の女性', expressions: {} },
   minato: { id: 'minato', name: '佐伯　湊', expressions: {
-    'front-normal': { id: 'front-normal', name: '通常・正面（制作候補）', imageSrc: new URL('../assets/direction-candidates/minato-front.png', import.meta.url).href },
+    'front-normal': { id: 'front-normal', name: '通常（新画風の正面差分は未制作）', imageSrc: new URL('../assets/images/characters/minato/waist/neutral.png', import.meta.url).href },
     irritated: { id: 'irritated', name: 'irritated', imageSrc: new URL('../assets/images/characters/minato/waist/irritated.png', import.meta.url).href },
     neutral: { id: 'neutral', name: '通常', imageSrc: new URL('../assets/images/characters/minato/waist/neutral.png', import.meta.url).href },
     pained: { id: 'pained', name: '沈痛', imageSrc: new URL('../assets/images/characters/minato/waist/pained.png', import.meta.url).href },
@@ -109,7 +126,7 @@ export const characters: Record<string, CharacterDefinition> = {
     normal: { id: 'normal', name: '通常', imageSrc: new URL('../assets/images/characters/saori/waist/neutral.png', import.meta.url).href }
   } },
   akari: { id: 'akari', name: '高瀬　あかり', expressions: {
-    'right-sad': { id: 'right-sad', name: '悲しみ・右向き', imageSrc: new URL('../assets/direction-candidates/akari-right-sad.png', import.meta.url).href },
+    'right-sad': { id: 'right-sad', name: '悲しみ（新画風の右向き差分は未制作）', imageSrc: new URL('../assets/images/characters/akari/waist/sad.png', import.meta.url).href },
     determined: { id: 'determined', name: '決意', imageSrc: new URL('../assets/images/characters/akari/waist/determined.png', import.meta.url).href },
     neutral: { id: 'neutral', name: '通常', imageSrc: new URL('../assets/images/characters/akari/waist/neutral.png', import.meta.url).href },
     relieved: { id: 'relieved', name: '安堵', imageSrc: new URL('../assets/images/characters/akari/waist/relieved.png', import.meta.url).href },

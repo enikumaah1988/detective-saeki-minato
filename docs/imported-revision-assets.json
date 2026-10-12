@@ -265,7 +265,7 @@
       ],
       "sha256": "a3312c8dae4dd9c200035d607c02292ec49f0aaa6d6bc291ff4197cf6d4148e9",
       "sourceCommit": "db0fcbf（制作担当の引継ぎによる）",
-      "status": "デザイン担当の寸法統一済み候補を本編確認用に接続・正式採用未確認",
+      "status": "旧画風の制作履歴・現行本編では未使用。新画風の追加角度は未制作。",
       "source": "C:\\Users\\lemon\\.codex\\.chatgpt-projects\\g-p-6a244918b2988191ac325bc113799e3e\\saeki-talk-issue5\\docs\\art\\characters\\minato\\drafts\\front-neutral-01.png",
       "file": "src/assets/direction-candidates/minato-front.png",
       "alphaRange": [
@@ -285,7 +285,7 @@
         1254
       ],
       "file": "src/assets/direction-candidates/akari-right-sad.png",
-      "status": "組込担当の内蔵画像生成による候補・本編確認用接続・正式採用未確認",
+      "status": "旧画風の制作履歴・現行本編では未使用。新画風の追加角度は未制作。",
       "sha256": "55d66c8e93dfc2fb75bda8a5469e7ec3b2d5dae054db78c8c86afb7074540e4f",
       "source": "C:/Users/lemon/.codex/generated_images/01a12b79-c2e5-7ba0-80be-fe6944fa8fce/exec-1bb5c6cb-e8ef-4f67-8d9e-9dfb305bdcc8.png",
       "sourceCommit": null

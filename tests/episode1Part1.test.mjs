@@ -172,9 +172,9 @@ test('全遷移先と表示IDが有効。新しい登場人物や証拠を先取
     if (node.type === 'dialogue') assert.match(node.text, /[。？！!?」]$/u)
   }
 })
-test('取り込んだ8人70素材のSHA256が制作元の取り込み記録に一致', async () => {
+test('取り込んだ11人86素材のSHA256が制作元の取り込み記録に一致', async () => {
   const manifest = JSON.parse(await readFile(new URL('../docs/imported-character-assets.json', import.meta.url), 'utf8'))
-  assert.equal(manifest.files.length, 70)
+  assert.equal(manifest.files.length, 86)
   for (const entry of manifest.files) {
     const buffer = await readFile(new URL(`../${entry.file}`, import.meta.url))
     assert.equal(createHash('sha256').update(buffer).digest('hex'), entry.sha256)
