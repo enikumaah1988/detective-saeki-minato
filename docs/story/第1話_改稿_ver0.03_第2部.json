@@ -1,0 +1,2252 @@
+{
+  "schemaVersion": "saeki-story-scenes/0.03",
+  "part": 2,
+  "displayYear": false,
+  "scenes": [
+    {
+      "id": "P2-01",
+      "part": 2,
+      "locationId": "office",
+      "roomId": "office",
+      "sceneTime": "2026-10-08T12:00:00",
+      "intro": [
+        {
+          "speakerId": "mio",
+          "text": "受付へは、お話を通してあります。"
+        },
+        {
+          "speakerId": "minato",
+          "text": "写真も持った。行ってくる。"
+        },
+        {
+          "speakerId": "mio",
+          "text": "いってらっしゃいませ。"
+        }
+      ],
+      "people": [
+        "mio"
+      ],
+      "required": [
+        "p2-depart"
+      ],
+      "ask": [],
+      "speak": [
+        {
+          "id": "p2-depart",
+          "personId": "mio",
+          "label": "会社へ向かう",
+          "lines": [
+            {
+              "speakerId": "minato",
+              "text": "行ってくる。"
+            }
+          ],
+          "requires": [
+            "F12"
+          ],
+          "grants": [
+            "p2-departed"
+          ],
+          "required": true
+        }
+      ],
+      "inspect": [],
+      "think": [],
+      "exit": {
+        "label": "外に出る",
+        "nextSceneId": "P2-02-EXT",
+        "requires": [
+          "p2-departed"
+        ]
+      },
+      "ending": [],
+      "organize": []
+    },
+    {
+      "id": "P2-02-EXT",
+      "part": 2,
+      "locationId": "company",
+      "roomId": "company-exterior",
+      "sceneTime": "2026-10-08T12:20:00",
+      "intro": [],
+      "people": [],
+      "required": [],
+      "ask": [],
+      "speak": [],
+      "inspect": [
+        {
+          "id": "p2-company-sign",
+          "label": "会社の表示",
+          "lines": [
+            {
+              "speakerId": "narrator",
+              "text": "東成ビルサービス。住所は澪が確認したものと一致する。"
+            }
+          ],
+          "requires": [],
+          "grants": [
+            "company-address-confirmed"
+          ],
+          "required": false
+        }
+      ],
+      "think": [],
+      "exit": {
+        "label": "受付",
+        "nextSceneId": "P2-02",
+        "requires": []
+      },
+      "ending": [],
+      "organize": []
+    },
+    {
+      "id": "P2-02",
+      "part": 2,
+      "locationId": "company",
+      "roomId": "company-reception",
+      "sceneTime": "2026-10-08T12:25:00",
+      "intro": [
+        {
+          "speakerId": "narrator",
+          "text": "小さなカウンターの向こうで、電話の受話器が戻された。まだ、こちらへ声はかかっていない。"
+        }
+      ],
+      "people": [
+        "company-reception"
+      ],
+      "required": [
+        "p2-reception-exists",
+        "p2-reception-purpose",
+        "p2-work-record",
+        "p2-appointment",
+        "p2-arrange-kuroda"
+      ],
+      "ask": [
+        {
+          "id": "p2-work-record",
+          "personId": "company-reception",
+          "label": "勤務の記録",
+          "lines": [
+            {
+              "speakerId": "minato",
+              "text": "五日の勤務記録を、確認してもらえるか？"
+            },
+            {
+              "speakerId": "company-reception",
+              "text": "少々お待ちください。"
+            },
+            {
+              "speakerId": "narrator",
+              "text": "端末を確認する間、壁の案内を見る。管理、清掃、修繕。直人の一日は、この中のどこかにあった。"
+            },
+            {
+              "speakerId": "company-reception",
+              "text": "その日は、休暇を取っています。私用、とあります。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "事前に申請したものか？"
+            },
+            {
+              "speakerId": "company-reception",
+              "text": "はい。その後は欠勤が続いていて、会社からも連絡がつきません。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "妹さんへの『来ていない』という回答には、休暇も含まれていたんだな。"
+            },
+            {
+              "speakerId": "company-reception",
+              "text": "はい。あの時、窓口ではそこまで確認できなくて。"
+            }
+          ],
+          "requires": [
+            "F13"
+          ],
+          "grants": [
+            "F14"
+          ],
+          "required": true
+        },
+        {
+          "id": "p2-appointment",
+          "personId": "company-reception",
+          "label": "当日の予定",
+          "lines": [
+            {
+              "speakerId": "minato",
+              "text": "休暇の日に、社内の誰かと会う予定はあったか？"
+            },
+            {
+              "speakerId": "company-reception",
+              "text": "黒田部長へ、面会を頼んでいました。",
+              "grants": [
+                "mentioned-kuroda",
+                "known-kuroda-title"
+              ]
+            },
+            {
+              "speakerId": "minato",
+              "text": "その面会は、どこで行う予定だった。"
+            },
+            {
+              "speakerId": "company-reception",
+              "text": "こちらです。部長の予定にも入っています。"
+            }
+          ],
+          "requires": [
+            "F14"
+          ],
+          "grants": [
+            "F15",
+            "I02",
+            "mentioned-kuroda",
+            "known-kuroda-title"
+          ],
+          "required": true
+        },
+        {
+          "id": "p2-old-office",
+          "personId": "company-reception",
+          "label": "古い事務所",
+          "lines": [
+            {
+              "speakerId": "minato",
+              "text": "高瀬は普段、どんな作業をしていた。"
+            },
+            {
+              "speakerId": "company-reception",
+              "text": "現場に出ています。最近は、古い事務所の片づけも。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "古い事務所は、どこだ？"
+            },
+            {
+              "speakerId": "company-reception",
+              "text": "成子坂共同ビルです。取り壊しが決まったので。"
+            }
+          ],
+          "requires": [
+            "F15"
+          ],
+          "grants": [
+            "optional-old-office"
+          ],
+          "required": false
+        }
+      ],
+      "speak": [
+        {
+          "id": "p2-reception-purpose",
+          "personId": "company-reception",
+          "label": "訪問の用件",
+          "lines": [
+            {
+              "speakerId": "minato",
+              "text": "佐伯だ。先ほど、相澤から電話をした。"
+            },
+            {
+              "speakerId": "company-reception",
+              "text": "高瀬さんの調査の件ですね。こちらでお待ちください。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "妹さんから、捜索の依頼を受けている。"
+            },
+            {
+              "speakerId": "company-reception",
+              "text": "妹さんから昨日もお電話がありました。まだ、連絡がつかないんですね。"
+            }
+          ],
+          "requires": [
+            "recognized-company-reception"
+          ],
+          "grants": [
+            "F13"
+          ],
+          "required": true
+        },
+        {
+          "id": "p2-arrange-kuroda",
+          "personId": "company-reception",
+          "label": "部長への取次ぎ",
+          "lines": [
+            {
+              "speakerId": "minato",
+              "text": "黒田部長に、面会を申し入れたい。"
+            },
+            {
+              "speakerId": "company-reception",
+              "text": "確認します。少し、お時間をいただけますか？"
+            },
+            {
+              "speakerId": "narrator",
+              "text": "内線の声は聞き取れなかった。受話器を置いた担当者が立つ。"
+            },
+            {
+              "speakerId": "company-reception",
+              "text": "お話しできるそうです。応接室へどうぞ。"
+            }
+          ],
+          "requires": [
+            "F15"
+          ],
+          "grants": [
+            "F16"
+          ],
+          "required": true
+        }
+      ],
+      "inspect": [
+        {
+          "id": "p2-reception-exists",
+          "label": "受付カウンター",
+          "lines": [
+            {
+              "speakerId": "narrator",
+              "text": "社員証を下げた人が席にいる。受付担当だ。"
+            }
+          ],
+          "requires": [],
+          "grants": [
+            "recognized-company-reception",
+            "met-company-reception"
+          ],
+          "required": true
+        }
+      ],
+      "think": [],
+      "exit": {
+        "label": "応接室",
+        "nextSceneId": "P2-03",
+        "requires": [
+          "recognized-company-reception",
+          "met-company-reception",
+          "F13",
+          "F14",
+          "F15",
+          "I02",
+          "mentioned-kuroda",
+          "known-kuroda-title",
+          "F16"
+        ]
+      },
+      "ending": [],
+      "organize": []
+    },
+    {
+      "id": "P2-03",
+      "part": 2,
+      "locationId": "company",
+      "roomId": "company-lounge",
+      "sceneTime": "2026-10-08T12:45:00",
+      "intro": [
+        {
+          "speakerId": "narrator",
+          "text": "応接室へ案内された。"
+        },
+        {
+          "speakerId": "narrator",
+          "text": "入室を促されたあと、黒田が席から立った。"
+        },
+        {
+          "speakerId": "kuroda",
+          "text": "業務部長の黒田征司です。",
+          "grants": [
+            "met-kuroda",
+            "named-kuroda"
+          ]
+        },
+        {
+          "speakerId": "minato",
+          "text": "佐伯だ。高瀬さんの妹から依頼を受けている。"
+        },
+        {
+          "speakerId": "narrator",
+          "text": "名刺を渡す。黒田は肩書を確かめ、机の端へ置いた。"
+        }
+      ],
+      "people": [
+        "kuroda"
+      ],
+      "required": [
+        "p2-photo-kuroda",
+        "p2-kuroda-meeting",
+        "p2-naoto-demand",
+        "p2-accident-explanation",
+        "p2-after-meeting",
+        "p2-building-work"
+      ],
+      "ask": [
+        {
+          "id": "p2-kuroda-meeting",
+          "personId": "kuroda",
+          "label": "直人との面会",
+          "lines": [
+            {
+              "speakerId": "minato",
+              "text": "五日に、どんな話をした？"
+            },
+            {
+              "speakerId": "kuroda",
+              "text": "昔の事故です。もう終わったことを、急に持ち出しまして。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "どの事故だ。"
+            },
+            {
+              "speakerId": "kuroda",
+              "text": "成子坂共同ビルで、三崎という社員が亡くなった件です。",
+              "grants": [
+                "mentioned-misaki"
+              ]
+            }
+          ],
+          "requires": [
+            "F17"
+          ],
+          "grants": [
+            "F18",
+            "mentioned-misaki"
+          ],
+          "required": true
+        },
+        {
+          "id": "p2-naoto-demand",
+          "personId": "kuroda",
+          "label": "直人が求めたこと",
+          "lines": [
+            {
+              "speakerId": "minato",
+              "text": "高瀬は、何を求めた？"
+            },
+            {
+              "speakerId": "kuroda",
+              "text": "本当のことを話してほしい、と。意味が分からない。"
+            },
+            {
+              "speakerId": "kuroda",
+              "text": "彼は当時、何も見ていないと答えています。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "その話を、今になって持ち出したのか？"
+            },
+            {
+              "speakerId": "kuroda",
+              "text": "そうです。"
+            }
+          ],
+          "requires": [
+            "F18"
+          ],
+          "grants": [
+            "F19"
+          ],
+          "required": true
+        },
+        {
+          "id": "p2-accident-explanation",
+          "personId": "kuroda",
+          "label": "当時の説明",
+          "lines": [
+            {
+              "speakerId": "minato",
+              "text": "事故は、どう説明されていた。"
+            },
+            {
+              "speakerId": "kuroda",
+              "text": "階段で足を滑らせた事故です。私もその日は現場にいませんでした。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "現場には行っていない、という説明だな。"
+            },
+            {
+              "speakerId": "kuroda",
+              "text": "はい。"
+            }
+          ],
+          "requires": [
+            "F18"
+          ],
+          "grants": [
+            "F20",
+            "I03"
+          ],
+          "required": true
+        },
+        {
+          "id": "p2-after-meeting",
+          "personId": "kuroda",
+          "label": "面会後の行き先",
+          "lines": [
+            {
+              "speakerId": "minato",
+              "text": "面会のあと、高瀬はどこへ向かった。"
+            },
+            {
+              "speakerId": "kuroda",
+              "text": "知りません。こちらが聞きたいくらいです。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "妹が捜している。"
+            },
+            {
+              "speakerId": "kuroda",
+              "text": "帰るように言ってください。仕事を放り出してもらっては困ります。"
+            }
+          ],
+          "requires": [
+            "F19"
+          ],
+          "grants": [
+            "F21"
+          ],
+          "required": true
+        },
+        {
+          "id": "p2-building-work",
+          "personId": "kuroda",
+          "label": "ビルの片づけ",
+          "lines": [
+            {
+              "speakerId": "minato",
+              "text": "高瀬は、旧ビルの片づけをしていたのか？"
+            },
+            {
+              "speakerId": "kuroda",
+              "text": "ええ。取り壊しまでに、残った書類を確認する仕事です。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "今も入れるか？"
+            },
+            {
+              "speakerId": "kuroda",
+              "text": "入口に管理人がいます。そちらで聞いてください。"
+            }
+          ],
+          "requires": [
+            "F18"
+          ],
+          "grants": [
+            "F22",
+            "mentioned-miyahara"
+          ],
+          "required": true
+        },
+        {
+          "id": "p2-misaki-work",
+          "personId": "kuroda",
+          "label": "三崎の仕事",
+          "lines": [
+            {
+              "speakerId": "kuroda",
+              "text": "熱心でした。ただ、何でも抱え込むところがあった。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "高瀬もそうだと？"
+            },
+            {
+              "speakerId": "kuroda",
+              "text": "……似たところはあります。"
+            }
+          ],
+          "requires": [
+            "F18"
+          ],
+          "grants": [
+            "optional-misaki-work"
+          ],
+          "required": false
+        }
+      ],
+      "speak": [
+        {
+          "id": "p2-photo-kuroda",
+          "personId": "kuroda",
+          "label": "直人の写真を見せる",
+          "lines": [
+            {
+              "speakerId": "minato",
+              "text": "捜しているのは、この高瀬直人だ。"
+            },
+            {
+              "speakerId": "kuroda",
+              "text": "ええ。高瀬君です。"
+            }
+          ],
+          "requires": [
+            "IT01",
+            "met-kuroda"
+          ],
+          "grants": [
+            "F17"
+          ],
+          "required": true,
+          "interaction": "item-use",
+          "itemId": "IT01"
+        }
+      ],
+      "inspect": [],
+      "think": [],
+      "exit": {
+        "label": "受付",
+        "nextSceneId": "P2-03-EXIT",
+        "requires": [
+          "met-kuroda",
+          "named-kuroda",
+          "F17",
+          "F18",
+          "mentioned-misaki",
+          "F19",
+          "F20",
+          "I03",
+          "F21",
+          "F22",
+          "mentioned-miyahara"
+        ]
+      },
+      "ending": [],
+      "organize": []
+    },
+    {
+      "id": "P2-03-EXIT",
+      "part": 2,
+      "locationId": "company",
+      "roomId": "company-reception",
+      "sceneTime": "2026-10-08T13:05:00",
+      "intro": [],
+      "people": [
+        "company-reception"
+      ],
+      "required": [],
+      "ask": [],
+      "speak": [],
+      "inspect": [],
+      "think": [],
+      "exit": {
+        "label": "外に出る",
+        "nextSceneId": "P2-04",
+        "requires": []
+      },
+      "ending": [],
+      "organize": []
+    },
+    {
+      "id": "P2-04",
+      "part": 2,
+      "locationId": "building",
+      "roomId": "building-exterior",
+      "sceneTime": "2026-10-08T13:20:00",
+      "intro": [
+        {
+          "speakerId": "narrator",
+          "text": "外された看板の跡だけ、壁の色が薄い。入口に、取り壊しの掲示がある。"
+        }
+      ],
+      "people": [
+        "miyahara"
+      ],
+      "required": [
+        "p2-demolition",
+        "p2-manager-exists",
+        "p2-manager-introduce",
+        "p2-photo-miyahara",
+        "p2-naoto-sighting",
+        "p2-relay-contact"
+      ],
+      "ask": [
+        {
+          "id": "p2-naoto-sighting",
+          "personId": "miyahara",
+          "label": "昨日の様子",
+          "lines": [
+            {
+              "speakerId": "minato",
+              "text": "昨日は、何をしに来た？"
+            },
+            {
+              "speakerId": "miyahara",
+              "text": "昔の書類を確かめたいと。随分、疲れた顔でした。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "怪我は見えたか？"
+            },
+            {
+              "speakerId": "miyahara",
+              "text": "見たところはありません。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "妹が、帰りを待っている。"
+            },
+            {
+              "speakerId": "miyahara",
+              "text": "……そうでしたか？"
+            }
+          ],
+          "requires": [
+            "F25"
+          ],
+          "grants": [
+            "F26"
+          ],
+          "required": true
+        }
+      ],
+      "speak": [
+        {
+          "id": "p2-manager-introduce",
+          "personId": "miyahara",
+          "label": "訪問の用件",
+          "lines": [
+            {
+              "speakerId": "minato",
+              "text": "この建物の管理をされている方か？"
+            },
+            {
+              "speakerId": "miyahara",
+              "text": "はい。会社なら、もう移っていますよ。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "佐伯という探偵だ。高瀬直人の足取りを調べている。"
+            },
+            {
+              "speakerId": "miyahara",
+              "text": "宮原です。ここを管理しています。",
+              "grants": [
+                "met-miyahara",
+                "mentioned-miyahara"
+              ]
+            },
+            {
+              "speakerId": "narrator",
+              "text": "渡された管理連絡票には、宮原文雄とあった。",
+              "grants": [
+                "named-miyahara"
+              ]
+            }
+          ],
+          "requires": [
+            "recognized-miyahara"
+          ],
+          "grants": [
+            "F24",
+            "met-miyahara",
+            "named-miyahara"
+          ],
+          "required": true
+        },
+        {
+          "id": "p2-photo-miyahara",
+          "personId": "miyahara",
+          "label": "直人の写真を見せる",
+          "lines": [
+            {
+              "speakerId": "miyahara",
+              "text": "高瀬君です。昨日、来ましたよ。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "この人で、間違いないか？"
+            },
+            {
+              "speakerId": "miyahara",
+              "text": "ええ。昔から知っています。"
+            }
+          ],
+          "requires": [
+            "IT01",
+            "F24"
+          ],
+          "grants": [
+            "F25",
+            "I04-sighting"
+          ],
+          "required": true,
+          "interaction": "item-use",
+          "itemId": "IT01"
+        },
+        {
+          "id": "p2-relay-contact",
+          "personId": "miyahara",
+          "label": "連絡を届ける",
+          "lines": [
+            {
+              "speakerId": "minato",
+              "text": "本人へ、連絡を届けられるか？"
+            },
+            {
+              "speakerId": "miyahara",
+              "text": "連絡先は預かっています。でも、誰にも教えないでくれと言われて。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "教えなくていい。あかりさんから依頼を受けた佐伯が、会って話したいと伝えてくれ。"
+            },
+            {
+              "speakerId": "narrator",
+              "text": "俺は事務所の番号を書いた名刺を渡す。"
+            },
+            {
+              "speakerId": "miyahara",
+              "text": "本人から、こちらへ連絡してもらいます。"
+            }
+          ],
+          "requires": [
+            "F25"
+          ],
+          "grants": [
+            "F27"
+          ],
+          "required": true
+        }
+      ],
+      "inspect": [
+        {
+          "id": "p2-demolition",
+          "label": "掲示",
+          "lines": [
+            {
+              "speakerId": "narrator",
+              "text": "取り壊しは、10月10日（土）着手予定だ。"
+            }
+          ],
+          "requires": [],
+          "grants": [
+            "F23",
+            "demolition-date"
+          ],
+          "required": true
+        },
+        {
+          "id": "p2-manager-exists",
+          "label": "入口",
+          "lines": [
+            {
+              "speakerId": "narrator",
+              "text": "腕章をつけた人が扉を確認している。管理人らしい。"
+            }
+          ],
+          "requires": [],
+          "grants": [
+            "recognized-miyahara"
+          ],
+          "required": true
+        }
+      ],
+      "think": [],
+      "exit": {
+        "label": "管理人室",
+        "nextSceneId": "P2-05",
+        "requires": [
+          "F23",
+          "demolition-date",
+          "recognized-miyahara",
+          "F24",
+          "met-miyahara",
+          "named-miyahara",
+          "F25",
+          "I04-sighting",
+          "F26",
+          "F27"
+        ]
+      },
+      "ending": [],
+      "organize": []
+    },
+    {
+      "id": "P2-05",
+      "part": 2,
+      "locationId": "building",
+      "roomId": "building-manager-room",
+      "sceneTime": "2026-10-08T13:30:00",
+      "intro": [
+        {
+          "speakerId": "narrator",
+          "text": "机の横には、鍵札が並んでいた。古い日誌の上に、今日の予定表が重なる。"
+        },
+        {
+          "speakerId": "miyahara",
+          "text": "少し待ってください。先に、連絡をしてみます。"
+        },
+        {
+          "speakerId": "narrator",
+          "text": "宮原が直人の預けた番号へ電話する。取り次ぎを頼んだあと、本人からの返事を待つ。"
+        }
+      ],
+      "people": [
+        "miyahara"
+      ],
+      "required": [
+        "p2-past-incident",
+        "p2-journal",
+        "p2-preserve-journal",
+        "p2-document-permission",
+        "p2-envelope"
+      ],
+      "ask": [
+        {
+          "id": "p2-past-incident",
+          "personId": "miyahara",
+          "label": "過去事故",
+          "lines": [
+            {
+              "speakerId": "minato",
+              "text": "三崎さんの事故について、覚えているか？"
+            },
+            {
+              "speakerId": "miyahara",
+              "text": "はい。二年前の十月です。ここの階段で。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "三崎さんの、お名前は？"
+            },
+            {
+              "speakerId": "miyahara",
+              "text": "三崎健です。",
+              "grants": [
+                "named-misaki"
+              ]
+            }
+          ],
+          "requires": [
+            "F18",
+            "F27"
+          ],
+          "grants": [
+            "F28",
+            "named-misaki"
+          ],
+          "required": true
+        },
+        {
+          "id": "p2-building-life",
+          "personId": "miyahara",
+          "label": "建物の日常",
+          "lines": [
+            {
+              "speakerId": "miyahara",
+              "text": "朝は、階段の音で誰が来たか分かるくらいでした。"
+            },
+            {
+              "speakerId": "miyahara",
+              "text": "高瀬君は急いで上がって、三崎さんは必ず挨拶して。私がいない時でも、管理人室へ一言。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "長い付き合いだったんだな。"
+            },
+            {
+              "speakerId": "miyahara",
+              "text": "ええ。いなくなった人のことまで、建物と一緒に片づけていいのか。最近、そればかりで。"
+            }
+          ],
+          "requires": [
+            "F28"
+          ],
+          "grants": [
+            "optional-building-life"
+          ],
+          "required": false
+        }
+      ],
+      "speak": [
+        {
+          "id": "p2-preserve-journal",
+          "personId": "miyahara",
+          "label": "記録の保存",
+          "lines": [
+            {
+              "speakerId": "minato",
+              "text": "日誌は、警察が確認するまで残してもらえるか？"
+            },
+            {
+              "speakerId": "miyahara",
+              "text": "分かりました。これは捨てません。"
+            }
+          ],
+          "requires": [
+            "E01"
+          ],
+          "grants": [
+            "F29"
+          ],
+          "required": true
+        },
+        {
+          "id": "p2-document-permission",
+          "personId": "miyahara",
+          "label": "本人からの返答",
+          "lines": [
+            {
+              "speakerId": "narrator",
+              "text": "電話が鳴る。宮原が直人へ伝言内容を確認。"
+            },
+            {
+              "speakerId": "miyahara",
+              "text": "預かった書類は、見せていいそうです。ご本人から佐伯さんへ電話すると。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "分かった。ここで会っていることも伝えてくれたか？"
+            },
+            {
+              "speakerId": "miyahara",
+              "text": "はい。事務所の番号を渡しました。"
+            }
+          ],
+          "requires": [
+            "F29"
+          ],
+          "grants": [
+            "F30"
+          ],
+          "required": true
+        }
+      ],
+      "inspect": [
+        {
+          "id": "p2-journal",
+          "personId": null,
+          "label": "日誌",
+          "lines": [
+            {
+              "speakerId": "minato",
+              "text": "その日の記録を、見せてもらえるか？"
+            },
+            {
+              "speakerId": "miyahara",
+              "text": "残っています。処分の前でよかった。"
+            },
+            {
+              "speakerId": "narrator",
+              "text": "宮原が開いたページを読む。十月の日付の下に、黒田部長への旧事務室の鍵の貸出。返却欄は空白だった。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "返却がないのは、どういう時だ。"
+            },
+            {
+              "speakerId": "miyahara",
+              "text": "遅くなると、翌朝返すこともありました。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "この日の貸出は、覚えているか？"
+            },
+            {
+              "speakerId": "miyahara",
+              "text": "ええ。あの日のことは、忘れられません。"
+            }
+          ],
+          "requires": [
+            "F28"
+          ],
+          "grants": [
+            "E01",
+            "IT02"
+          ],
+          "required": true
+        },
+        {
+          "id": "p2-envelope",
+          "personId": null,
+          "label": "預かった封筒",
+          "lines": [
+            {
+              "speakerId": "miyahara",
+              "text": "捨てないでほしいと、昨日預かりました。"
+            },
+            {
+              "speakerId": "narrator",
+              "text": "三崎の報告書の控えだった。負傷した社員について、人員不足と作業指示の確認を求めている。書き直した跡が多い。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "会社の説明と、違う原因を確かめようとしたのか？"
+            },
+            {
+              "speakerId": "miyahara",
+              "text": "会社は、本人の不注意だと言っていました。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "三崎さんの時も、同じ説明だった。"
+            },
+            {
+              "speakerId": "miyahara",
+              "text": "ええ。"
+            }
+          ],
+          "requires": [
+            "F30"
+          ],
+          "grants": [
+            "E03",
+            "IT03"
+          ],
+          "required": true
+        }
+      ],
+      "think": [],
+      "exit": {
+        "label": "階段",
+        "nextSceneId": "P2-06",
+        "requires": [
+          "F28",
+          "named-misaki",
+          "E01",
+          "IT02",
+          "F29",
+          "F30",
+          "E03",
+          "IT03"
+        ]
+      },
+      "ending": [],
+      "organize": []
+    },
+    {
+      "id": "P2-06",
+      "part": 2,
+      "locationId": "building",
+      "roomId": "building-stairs",
+      "sceneTime": "2026-10-08T13:50:00",
+      "intro": [
+        {
+          "speakerId": "narrator",
+          "text": "宮原に案内してもらう。下階の戸口から踊り場は見えるが、上の戸口の奥は壁と扉に隠れていた。"
+        }
+      ],
+      "people": [
+        "miyahara"
+      ],
+      "required": [
+        "p2-lower-door",
+        "p2-landing",
+        "p2-upper-door",
+        "p2-manager-position"
+      ],
+      "ask": [
+        {
+          "id": "p2-manager-position",
+          "personId": "miyahara",
+          "label": "当時の立ち位置",
+          "lines": [
+            {
+              "speakerId": "minato",
+              "text": "事故の時、どこにいた？"
+            },
+            {
+              "speakerId": "miyahara",
+              "text": "下の戸口です。物音がして、三崎さんが倒れていました。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "物音の前に、何が見えた？"
+            },
+            {
+              "speakerId": "miyahara",
+              "text": "……顔は見ていません。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "顔、か？"
+            },
+            {
+              "speakerId": "miyahara",
+              "text": "すみません。うまく思い出せなくて。"
+            }
+          ],
+          "requires": [
+            "p2-lower-door-known",
+            "p2-landing-known",
+            "p2-upper-door-known"
+          ],
+          "grants": [
+            "F31",
+            "stair-layout",
+            "F32"
+          ],
+          "required": true
+        }
+      ],
+      "speak": [],
+      "inspect": [
+        {
+          "id": "p2-lower-door",
+          "label": "下階の戸口",
+          "lines": [
+            {
+              "speakerId": "narrator",
+              "text": "下階の戸口に立つと、踊り場が見える。"
+            }
+          ],
+          "requires": [],
+          "grants": [
+            "p2-lower-door-known"
+          ],
+          "required": true
+        },
+        {
+          "id": "p2-landing",
+          "label": "踊り場",
+          "lines": [
+            {
+              "speakerId": "narrator",
+              "text": "階段の途中に踊り場がある。"
+            }
+          ],
+          "requires": [],
+          "grants": [
+            "p2-landing-known"
+          ],
+          "required": true
+        },
+        {
+          "id": "p2-upper-door",
+          "label": "上の戸口",
+          "lines": [
+            {
+              "speakerId": "narrator",
+              "text": "上の戸口の奥は壁と扉の陰になる。"
+            }
+          ],
+          "requires": [],
+          "grants": [
+            "p2-upper-door-known"
+          ],
+          "required": true
+        }
+      ],
+      "think": [],
+      "exit": {
+        "label": "管理人室",
+        "nextSceneId": "P2-07",
+        "requires": [
+          "p2-lower-door-known",
+          "p2-landing-known",
+          "p2-upper-door-known",
+          "F31",
+          "stair-layout",
+          "F32"
+        ]
+      },
+      "ending": [],
+      "organize": []
+    },
+    {
+      "id": "P2-07",
+      "part": 2,
+      "locationId": "building",
+      "roomId": "building-manager-room",
+      "sceneTime": "2026-10-08T14:00:00",
+      "intro": [],
+      "people": [
+        "miyahara"
+      ],
+      "required": [
+        "p2-call-police"
+      ],
+      "ask": [],
+      "speak": [
+        {
+          "id": "p2-call-police",
+          "personId": "okumura",
+          "label": "奥村へ連絡",
+          "lines": [
+            {
+              "speakerId": "minato",
+              "text": "奥村さんへ連絡する。日誌と、過去の説明を確かめたい。"
+            },
+            {
+              "speakerId": "narrator",
+              "text": "電話をかけた。少しして、聞き慣れた低い声が返る。"
+            },
+            {
+              "speakerId": "okumura",
+              "text": "佐伯か？"
+            },
+            {
+              "speakerId": "minato",
+              "text": "妹の依頼で兄を捜している。成子坂共同ビルの事故につながった。"
+            },
+            {
+              "speakerId": "okumura",
+              "text": "何が分かった。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "現場にいなかったと言う男の鍵の記録がある。日誌の写しを見てもらいたい。"
+            },
+            {
+              "speakerId": "okumura",
+              "text": "それだけで事件とは言えん。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "ああ。だから当時、どう確認したのかを聞きたい。"
+            },
+            {
+              "speakerId": "okumura",
+              "text": "今なら署で時間を取れる。西新宿警察署の受付で、俺への用件と言え。"
+            }
+          ],
+          "requires": [
+            "E01",
+            "F32"
+          ],
+          "grants": [
+            "F33",
+            "mentioned-okumura",
+            "named-okumura"
+          ],
+          "required": true,
+          "interaction": "phone",
+          "remoteOnly": true
+        }
+      ],
+      "inspect": [],
+      "think": [],
+      "exit": {
+        "label": "外に出る",
+        "nextSceneId": "P2-08-EXT",
+        "requires": [
+          "F33",
+          "mentioned-okumura",
+          "named-okumura"
+        ]
+      },
+      "ending": [],
+      "organize": []
+    },
+    {
+      "id": "P2-08-EXT",
+      "part": 2,
+      "locationId": "police",
+      "roomId": "police-exterior",
+      "sceneTime": "2026-10-08T14:15:00",
+      "intro": [
+        {
+          "speakerId": "narrator",
+          "text": "昼の通りに、署の標示が見えた。事件を見つけたから来たのではない。事件ではないとされた説明を、確かめに来た。"
+        }
+      ],
+      "people": [],
+      "required": [],
+      "ask": [],
+      "speak": [],
+      "inspect": [],
+      "think": [],
+      "exit": {
+        "label": "受付",
+        "nextSceneId": "P2-08-RECEPTION",
+        "requires": []
+      },
+      "ending": [],
+      "organize": []
+    },
+    {
+      "id": "P2-08-RECEPTION",
+      "part": 2,
+      "locationId": "police",
+      "roomId": "police-reception",
+      "sceneTime": "2026-10-08T14:20:00",
+      "intro": [],
+      "people": [
+        "police-reception"
+      ],
+      "required": [
+        "p2-police-reception-exists",
+        "p2-police-purpose"
+      ],
+      "ask": [],
+      "speak": [
+        {
+          "id": "p2-police-purpose",
+          "personId": "police-reception",
+          "label": "面会の用件",
+          "lines": [
+            {
+              "speakerId": "minato",
+              "text": "佐伯です。奥村さんと、先ほど電話で約束しました。"
+            },
+            {
+              "speakerId": "police-reception",
+              "text": "用件を伺えますか？"
+            },
+            {
+              "speakerId": "minato",
+              "text": "成子坂共同ビルの過去の事故について、記録の確認です。"
+            },
+            {
+              "speakerId": "police-reception",
+              "text": "確認します。こちらでお待ちください。"
+            }
+          ],
+          "requires": [
+            "F33",
+            "recognized-police-reception"
+          ],
+          "grants": [
+            "F34"
+          ],
+          "required": true
+        }
+      ],
+      "inspect": [
+        {
+          "id": "p2-police-reception-exists",
+          "label": "受付カウンター",
+          "lines": [
+            {
+              "speakerId": "narrator",
+              "text": "対応している職員がいる。"
+            }
+          ],
+          "requires": [],
+          "grants": [
+            "recognized-police-reception",
+            "met-police-reception"
+          ],
+          "required": true
+        }
+      ],
+      "think": [],
+      "exit": {
+        "label": "面会室",
+        "nextSceneId": "P2-08",
+        "requires": [
+          "recognized-police-reception",
+          "met-police-reception",
+          "F34"
+        ]
+      },
+      "ending": [],
+      "organize": []
+    },
+    {
+      "id": "P2-08",
+      "part": 2,
+      "locationId": "police",
+      "roomId": "police-meeting-room",
+      "sceneTime": "2026-10-08T14:25:00",
+      "intro": [
+        {
+          "speakerId": "narrator",
+          "text": "扉を開けると、奥村が手帳を閉じた。その横の若い刑事がこちらを見た。"
+        },
+        {
+          "speakerId": "okumura",
+          "text": "佐伯。座れ。",
+          "grants": [
+            "met-okumura"
+          ]
+        },
+        {
+          "speakerId": "minato",
+          "text": "急に悪かった。"
+        },
+        {
+          "speakerId": "okumura",
+          "text": "呼んだのは俺だ。こっちは瀬川。"
+        },
+        {
+          "speakerId": "segawa",
+          "text": "瀬川亮介です。",
+          "grants": [
+            "mentioned-segawa",
+            "met-segawa",
+            "named-segawa"
+          ]
+        },
+        {
+          "speakerId": "minato",
+          "text": "佐伯だ。よろしく。"
+        }
+      ],
+      "people": [
+        "okumura",
+        "segawa"
+      ],
+      "required": [
+        "p2-journal-okumura",
+        "p2-police-incident",
+        "p2-police-naoto-answer",
+        "p2-police-next-contact"
+      ],
+      "ask": [
+        {
+          "id": "p2-police-incident",
+          "personId": "okumura",
+          "label": "当時の事故",
+          "lines": [
+            {
+              "speakerId": "minato",
+              "text": "当時は、どんな説明になった？"
+            },
+            {
+              "speakerId": "okumura",
+              "text": "三崎は階段で転落した。誰かに押されたという証言は得られていなかった。本人の不注意として処理された。"
+            },
+            {
+              "speakerId": "okumura",
+              "text": "記録全部を渡すわけにはいかん。今話した範囲を使え。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "それでいい。"
+            }
+          ],
+          "requires": [
+            "F35"
+          ],
+          "grants": [
+            "E02"
+          ],
+          "required": true
+        },
+        {
+          "id": "p2-police-naoto-answer",
+          "personId": "okumura",
+          "label": "直人の当時の回答",
+          "lines": [
+            {
+              "speakerId": "minato",
+              "text": "高瀬は、何と答えていた。"
+            },
+            {
+              "speakerId": "okumura",
+              "text": "何も見ていない、だ。"
+            },
+            {
+              "speakerId": "segawa",
+              "text": "今、違う話が出るなら、なぜ当時は言わなかったのかも聞きます。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "ああ。本人に会って確かめる。"
+            }
+          ],
+          "requires": [
+            "E02"
+          ],
+          "grants": [
+            "F36"
+          ],
+          "required": true
+        },
+        {
+          "id": "p2-segawa-boundary",
+          "personId": "segawa",
+          "label": "確認の進め方",
+          "lines": [
+            {
+              "speakerId": "segawa",
+              "text": "民間の調査で集めた話を、そのまま事実として使うわけではありません。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "それでいい。見直してもらうために持ってきた。"
+            },
+            {
+              "speakerId": "segawa",
+              "text": "……原本と、本人の説明を確認します。"
+            },
+            {
+              "speakerId": "okumura",
+              "text": "線は引く。使える話まで捨てる必要はない。"
+            }
+          ],
+          "requires": [
+            "met-segawa"
+          ],
+          "grants": [
+            "optional-segawa-boundary"
+          ],
+          "required": false
+        }
+      ],
+      "speak": [
+        {
+          "id": "p2-journal-okumura",
+          "personId": "okumura",
+          "label": "日誌の写しを見せる",
+          "lines": [
+            {
+              "speakerId": "minato",
+              "text": "管理人の了承を得て写した。原本は残してもらっている。"
+            },
+            {
+              "speakerId": "okumura",
+              "text": "貸出はあるな。何時までいたかは、ここからは分からん。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "黒田は、その日は現場にいなかったと言っている。"
+            },
+            {
+              "speakerId": "segawa",
+              "text": "原本と、貸した人の話も確認が必要です。"
+            }
+          ],
+          "requires": [
+            "IT02",
+            "met-okumura"
+          ],
+          "grants": [
+            "F35"
+          ],
+          "required": true,
+          "interaction": "item-use",
+          "itemId": "IT02"
+        },
+        {
+          "id": "p2-police-next-contact",
+          "personId": "okumura",
+          "label": "兄への接触",
+          "lines": [
+            {
+              "speakerId": "minato",
+              "text": "管理人から、本人へ伝言を頼んである。折り返しがあれば会う。"
+            },
+            {
+              "speakerId": "okumura",
+              "text": "事情が聞けたら知らせろ。勝手に危ないところへ連れていくな。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "分かった。"
+            }
+          ],
+          "requires": [
+            "F36"
+          ],
+          "grants": [
+            "F37"
+          ],
+          "required": true
+        }
+      ],
+      "inspect": [],
+      "think": [],
+      "exit": {
+        "label": "受付",
+        "nextSceneId": "P2-08-EXIT",
+        "requires": [
+          "met-okumura",
+          "met-segawa",
+          "mentioned-segawa",
+          "named-segawa",
+          "F35",
+          "E02",
+          "F36",
+          "F37"
+        ]
+      },
+      "ending": [],
+      "organize": []
+    },
+    {
+      "id": "P2-08-EXIT",
+      "part": 2,
+      "locationId": "police",
+      "roomId": "police-reception",
+      "sceneTime": "2026-10-08T14:50:00",
+      "intro": [],
+      "people": [
+        "police-reception"
+      ],
+      "required": [],
+      "ask": [],
+      "speak": [],
+      "inspect": [],
+      "think": [],
+      "exit": {
+        "label": "外に出る",
+        "nextSceneId": "P2-09",
+        "requires": []
+      },
+      "ending": [],
+      "organize": []
+    },
+    {
+      "id": "P2-09",
+      "part": 2,
+      "locationId": "office",
+      "roomId": "office",
+      "sceneTime": "2026-10-08T15:10:00",
+      "intro": [
+        {
+          "speakerId": "mio",
+          "text": "お帰りなさい。あかりさんから、新しい連絡はありません。"
+        },
+        {
+          "speakerId": "minato",
+          "text": "兄を昨日見た人がいた。"
+        },
+        {
+          "speakerId": "mio",
+          "text": "まず、そのことをお知らせしましょう。今の無事まで確認できたわけではない、と添えて。"
+        },
+        {
+          "speakerId": "minato",
+          "text": "頼む。"
+        },
+        {
+          "speakerId": "narrator",
+          "text": "澪があかりへ電話する。昨日の目撃と、本人へ伝言を届けたことを伝える。"
+        },
+        {
+          "speakerId": "mio",
+          "text": "お声の力が、少し戻りました。でも、なぜ連絡をくれないのかと。",
+          "grants": [
+            "F38"
+          ]
+        },
+        {
+          "speakerId": "minato",
+          "text": "それは、本人に聞く。"
+        }
+      ],
+      "people": [
+        "mio"
+      ],
+      "required": [
+        "p2-company-report",
+        "p2-building-report",
+        "p2-police-report"
+      ],
+      "ask": [
+        {
+          "id": "p2-report-reading",
+          "personId": "mio",
+          "label": "報告書の読み方",
+          "lines": [
+            {
+              "speakerId": "mio",
+              "text": "三崎さんは、負傷した方の説明を何度も書き直しています。会社へ何を確かめてほしいか、届くように。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "人を責めるための紙には見えないな。"
+            },
+            {
+              "speakerId": "mio",
+              "text": "はい。確認してほしい、という言葉が残っています。"
+            }
+          ],
+          "requires": [
+            "F40"
+          ],
+          "grants": [
+            "optional-report-reading"
+          ],
+          "required": false
+        }
+      ],
+      "speak": [
+        {
+          "id": "p2-company-report",
+          "personId": "mio",
+          "label": "会社で分かったこと",
+          "lines": [
+            {
+              "speakerId": "narrator",
+              "text": "湊が休暇、面会、黒田の説明を報告する。"
+            },
+            {
+              "speakerId": "mio",
+              "text": "休みを取ったことは、妹さんに言わなかった。でも、黒田さんへは自分から会いたいと。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "本当のことを話してほしい、と。"
+            },
+            {
+              "speakerId": "mio",
+              "text": "その言葉を、帰る前に妹さんにも説明するつもりだったのかもしれませんね。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "まだ分からない。今は、実際に言った相手が分かったところだ。"
+            }
+          ],
+          "requires": [
+            "F38"
+          ],
+          "grants": [
+            "F39"
+          ],
+          "required": true
+        },
+        {
+          "id": "p2-building-report",
+          "personId": "mio",
+          "label": "ビルで見たもの",
+          "lines": [
+            {
+              "speakerId": "narrator",
+              "text": "日誌の写し、控え、湊の手描きの位置メモを机へ置く。"
+            },
+            {
+              "speakerId": "mio",
+              "text": "ここは、佐伯さんが見た位置ですね。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "ああ。管理人は下の戸口にいたと言った。"
+            },
+            {
+              "speakerId": "mio",
+              "text": "この『顔は見ていない』は、答えのままですか？"
+            },
+            {
+              "speakerId": "minato",
+              "text": "そのままだ。"
+            },
+            {
+              "speakerId": "mio",
+              "text": "『何も見ていない』には直さず残しましょう。誰だったかと、何が見えたかは、別の話です。"
+            }
+          ],
+          "requires": [
+            "F38"
+          ],
+          "grants": [
+            "F40",
+            "IT04"
+          ],
+          "required": true
+        },
+        {
+          "id": "p2-police-report",
+          "personId": "mio",
+          "label": "警察での確認",
+          "lines": [
+            {
+              "speakerId": "minato",
+              "text": "当時、押されたという証言は出ていない。高瀬も何も見ていないと答えた。"
+            },
+            {
+              "speakerId": "mio",
+              "text": "今は、その方が真相を求めている。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "日誌の原本は警察に確認してもらう。本人の話も、知らせる約束だ。"
+            },
+            {
+              "speakerId": "mio",
+              "text": "聞いたことと、こちらの見立てを分けてまとめます。"
+            }
+          ],
+          "requires": [
+            "F38"
+          ],
+          "grants": [
+            "F41"
+          ],
+          "required": true
+        }
+      ],
+      "inspect": [],
+      "think": [],
+      "exit": {
+        "label": "次へ",
+        "nextSceneId": "P2-10",
+        "requires": [
+          "F38",
+          "F39",
+          "F40",
+          "IT04",
+          "F41"
+        ]
+      },
+      "ending": [],
+      "organize": []
+    },
+    {
+      "id": "P2-10",
+      "part": 2,
+      "locationId": "office",
+      "roomId": "office",
+      "sceneTime": "2026-10-08T15:35:00",
+      "intro": [],
+      "people": [
+        "mio"
+      ],
+      "required": [
+        "p2-reasoning1"
+      ],
+      "ask": [],
+      "speak": [],
+      "inspect": [],
+      "think": [],
+      "exit": {
+        "label": "次へ",
+        "nextSceneId": "P2-11",
+        "requires": [
+          "reason1-passed"
+        ]
+      },
+      "ending": [],
+      "organize": [
+        {
+          "id": "p2-reasoning1",
+          "lines": [
+            {
+              "speakerId": "narrator",
+              "text": "兄が消えた朝から、黒田に会うまで。確認したことだけをつなぐ。"
+            }
+          ],
+          "requires": [
+            "F14",
+            "F19",
+            "F36",
+            "F39",
+            "F40",
+            "F41"
+          ],
+          "grants": [
+            "reason1-passed"
+          ],
+          "required": true,
+          "questionSetId": "Q1",
+          "questions": [
+            {
+              "id": "Q1-1",
+              "prompt": "兄は出勤したのか？",
+              "choices": [
+                {
+                  "id": "a",
+                  "text": "通常勤務だった。"
+                },
+                {
+                  "id": "b",
+                  "text": "申請した休暇だった。"
+                },
+                {
+                  "id": "c",
+                  "text": "会社へ来たかは、一切分からない。"
+                }
+              ],
+              "answer": "b",
+              "requires": [
+                "F14"
+              ],
+              "hint": "勤務記録の回答を見直そう。",
+              "grants": [
+                "reason1-q1-correct"
+              ]
+            },
+            {
+              "id": "Q1-2",
+              "prompt": "黒田へ何を求めた？",
+              "choices": [
+                {
+                  "id": "a",
+                  "text": "給与の前借り。"
+                },
+                {
+                  "id": "b",
+                  "text": "過去事故の本当の説明。"
+                },
+                {
+                  "id": "c",
+                  "text": "取り壊しの延期。"
+                }
+              ],
+              "answer": "b",
+              "requires": [
+                "F19"
+              ],
+              "hint": "面会で直人が使った言葉を確かめよう。",
+              "grants": [
+                "reason1-q2-correct"
+              ]
+            },
+            {
+              "id": "Q1-3",
+              "prompt": "当時の回答と今の行動で、何が引っかかる？",
+              "choices": [
+                {
+                  "id": "a",
+                  "text": "兄の殺人が確定した。"
+                },
+                {
+                  "id": "b",
+                  "text": "何も見ていないと言った兄が、真相を求めている。"
+                },
+                {
+                  "id": "c",
+                  "text": "黒田の不在が証明済みだ。"
+                }
+              ],
+              "answer": "b",
+              "requires": [
+                "F19",
+                "F36"
+              ],
+              "hint": "当時の回答と、今回の要求を並べよう。",
+              "grants": [
+                "reason1-q3-correct"
+              ]
+            }
+          ],
+          "successLines": [
+            {
+              "speakerId": "narrator",
+              "text": "高瀬は、何も見ていないと答えた。その男が今、本当のことを話してほしいと求めた。"
+            },
+            {
+              "speakerId": "narrator",
+              "text": "自分の回答を終わらせたいのか。相手の説明を変えたいのか。それは、本人に会わなければ分からない。"
+            }
+          ],
+          "retainCorrectAnswers": true
+        }
+      ]
+    },
+    {
+      "id": "P2-11",
+      "part": 2,
+      "locationId": "office",
+      "roomId": "office",
+      "sceneTime": "2026-10-08T15:50:00",
+      "intro": [],
+      "people": [
+        "mio"
+      ],
+      "required": [
+        "p2-naoto-callback"
+      ],
+      "ask": [],
+      "speak": [
+        {
+          "id": "p2-naoto-callback",
+          "personId": "naoto",
+          "label": "折り返しの電話",
+          "lines": [
+            {
+              "speakerId": "narrator",
+              "text": "15:50。電話が鳴った。澪が取る。"
+            },
+            {
+              "speakerId": "mio",
+              "text": "佐伯探偵事務所です。……高瀬直人さんですね。少々お待ちください。"
+            },
+            {
+              "speakerId": "narrator",
+              "text": "受話器がこちらへ向いた。"
+            },
+            {
+              "speakerId": "naoto",
+              "text": "宮原さんから聞きました。あかりは、そちらへ。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "ああ。依頼を受けた。会って話せるか？"
+            },
+            {
+              "speakerId": "naoto",
+              "text": "……あのビルで。宮原さんがいる間なら。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "四時半に行く。それでいいか？"
+            },
+            {
+              "speakerId": "naoto",
+              "text": "はい。入口で待ちます。"
+            }
+          ],
+          "requires": [
+            "reason1-passed"
+          ],
+          "grants": [
+            "F42",
+            "I04",
+            "part2_completed"
+          ],
+          "required": true,
+          "interaction": "phone",
+          "remoteOnly": true,
+          "triggerMode": "automatic-after-entry"
+        }
+      ],
+      "inspect": [],
+      "think": [],
+      "organize": [],
+      "exit": {
+        "label": "次へ",
+        "nextSceneId": "P3-01",
+        "requires": [
+          "F42",
+          "I04",
+          "part2_completed"
+        ]
+      },
+      "ending": [
+        {
+          "speakerId": "minato",
+          "text": "四時半、成子坂共同ビルだ。"
+        },
+        {
+          "speakerId": "mio",
+          "text": "私は、あかりさんのご連絡を受けられるようにしています。お兄さんの声が聞けるなら、その場でつないでください。"
+        },
+        {
+          "speakerId": "minato",
+          "text": "分かった。宮原さんにも予定を伝える。"
+        }
+      ]
+    }
+  ],
+  "questionSets": [
+    {
+      "id": "Q1",
+      "questions": [
+        {
+          "id": "Q1-1",
+          "prompt": "兄は出勤したのか？",
+          "choices": [
+            {
+              "id": "a",
+              "text": "通常勤務だった。"
+            },
+            {
+              "id": "b",
+              "text": "申請した休暇だった。"
+            },
+            {
+              "id": "c",
+              "text": "会社へ来たかは、一切分からない。"
+            }
+          ],
+          "answer": "b",
+          "requires": [
+            "F14"
+          ],
+          "hint": "勤務記録の回答を見直そう。",
+          "grants": [
+            "reason1-q1-correct"
+          ]
+        },
+        {
+          "id": "Q1-2",
+          "prompt": "黒田へ何を求めた？",
+          "choices": [
+            {
+              "id": "a",
+              "text": "給与の前借り。"
+            },
+            {
+              "id": "b",
+              "text": "過去事故の本当の説明。"
+            },
+            {
+              "id": "c",
+              "text": "取り壊しの延期。"
+            }
+          ],
+          "answer": "b",
+          "requires": [
+            "F19"
+          ],
+          "hint": "面会で直人が使った言葉を確かめよう。",
+          "grants": [
+            "reason1-q2-correct"
+          ]
+        },
+        {
+          "id": "Q1-3",
+          "prompt": "当時の回答と今の行動で、何が引っかかる？",
+          "choices": [
+            {
+              "id": "a",
+              "text": "兄の殺人が確定した。"
+            },
+            {
+              "id": "b",
+              "text": "何も見ていないと言った兄が、真相を求めている。"
+            },
+            {
+              "id": "c",
+              "text": "黒田の不在が証明済みだ。"
+            }
+          ],
+          "answer": "b",
+          "requires": [
+            "F19",
+            "F36"
+          ],
+          "hint": "当時の回答と、今回の要求を並べよう。",
+          "grants": [
+            "reason1-q3-correct"
+          ]
+        }
+      ],
+      "successLines": [
+        {
+          "speakerId": "narrator",
+          "text": "高瀬は、何も見ていないと答えた。その男が今、本当のことを話してほしいと求めた。"
+        },
+        {
+          "speakerId": "narrator",
+          "text": "自分の回答を終わらせたいのか。相手の説明を変えたいのか。それは、本人に会わなければ分からない。"
+        }
+      ],
+      "retainCorrectAnswers": true
+    }
+  ],
+  "itemEvents": [
+    {
+      "actionId": "p2-journal",
+      "itemId": "IT02",
+      "displayName": "日誌該当頁の写し"
+    },
+    {
+      "actionId": "p2-envelope",
+      "itemId": "IT03",
+      "displayName": "三崎の報告書の控え"
+    },
+    {
+      "actionId": "p2-building-report",
+      "itemId": "IT04",
+      "displayName": "現場図"
+    }
+  ],
+  "illustrationSlots": [
+    {
+      "slot": "C2-IN",
+      "sceneId": "P2-01",
+      "phase": "before-intro",
+      "assetGroup": "CG02"
+    },
+    {
+      "slot": "C2-OUT",
+      "sceneId": "P2-11",
+      "phase": "after-ending",
+      "assetGroup": "CG03"
+    }
+  ],
+  "notes": [
+    "linesは表示本文だけ。作者指示は進行と組込仕様を参照。",
+    "line.grantsは行の表示後、action.grantsは完了後に付与。",
+    "phone/remoteOnlyは電話相手で現場人物ではない。",
+    "item-useはアイテム使用。通常話すへの重複表示は不要。",
+    "organizeは推理。正答保持、誤答ヒント、successLinesを使用。",
+    "同室は次へ、部屋名、外に出る、外↔マップは組込側が接続。"
+  ]
+}

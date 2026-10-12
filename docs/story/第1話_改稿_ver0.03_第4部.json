@@ -1,0 +1,1774 @@
+{
+  "schemaVersion": "saeki-story-scenes/0.03",
+  "part": 4,
+  "displayYear": false,
+  "scenes": [
+    {
+      "id": "P4-01",
+      "part": 4,
+      "locationId": "office",
+      "roomId": "office",
+      "sceneTime": "2026-10-09T09:30:00",
+      "intro": [
+        {
+          "speakerId": "narrator",
+          "text": "昨夜戻ってから、澪に直人の話を伝えた。机の上では、記録が別々の束になっている。"
+        },
+        {
+          "speakerId": "mio",
+          "text": "こちらが直人さんの説明です。宮原さんの答えとは、分けてあります。"
+        },
+        {
+          "speakerId": "minato",
+          "text": "ありがとう。今日は、原本と見えた動作を確かめる。"
+        },
+        {
+          "speakerId": "mio",
+          "text": "あかりさんは昨夜、お兄さんから電話があったそうです。今日は大学の予定を調整して、連絡を待つと。",
+          "grants": [
+            "F58"
+          ]
+        },
+        {
+          "speakerId": "minato",
+          "text": "二人で話せたか？"
+        },
+        {
+          "speakerId": "mio",
+          "text": "短くですが。詳しい話は、お兄さんの説明が済んでから、と。"
+        }
+      ],
+      "people": [
+        "mio"
+      ],
+      "required": [],
+      "ask": [],
+      "speak": [],
+      "inspect": [],
+      "think": [],
+      "exit": {
+        "label": "外に出る",
+        "nextSceneId": "P4-01-BUILDING",
+        "requires": [
+          "F58"
+        ]
+      },
+      "ending": [],
+      "organize": []
+    },
+    {
+      "id": "P4-01-BUILDING",
+      "part": 4,
+      "locationId": "building",
+      "roomId": "building-exterior",
+      "sceneTime": "2026-10-09T10:00:00",
+      "intro": [
+        {
+          "speakerId": "narrator",
+          "text": "宮原へ到着を告げると、奥村たちが来るまで待ってほしいと応じた。十時、警察の車が停まった。"
+        },
+        {
+          "speakerId": "okumura",
+          "text": "会社への確認は済んだ。管理人の立会いで、保管書類を見る。",
+          "grants": [
+            "F59"
+          ]
+        },
+        {
+          "speakerId": "minato",
+          "text": "原本の場所は、高瀬が説明した棚だ。"
+        },
+        {
+          "speakerId": "segawa",
+          "text": "確認できています。"
+        }
+      ],
+      "people": [
+        "miyahara",
+        "okumura",
+        "segawa",
+        "naoto"
+      ],
+      "required": [],
+      "ask": [],
+      "speak": [],
+      "inspect": [],
+      "think": [],
+      "exit": {
+        "label": "旧事務室",
+        "nextSceneId": "P4-02",
+        "requires": [
+          "F59"
+        ]
+      },
+      "ending": [],
+      "organize": []
+    },
+    {
+      "id": "P4-02",
+      "part": 4,
+      "locationId": "building",
+      "roomId": "building-old-office",
+      "sceneTime": "2026-10-09T10:05:00",
+      "intro": [
+        {
+          "speakerId": "narrator",
+          "text": "宮原が鍵を開けた。"
+        },
+        {
+          "speakerId": "narrator",
+          "text": "机は片づいていたが、鍵のある棚には書類が残っていた。"
+        },
+        {
+          "speakerId": "narrator",
+          "text": "瀬川が確認する間、俺は触れずに待った。直人は棚の場所を示し、それ以上は手を出さなかった。"
+        }
+      ],
+      "people": [
+        "miyahara",
+        "okumura",
+        "segawa",
+        "naoto"
+      ],
+      "required": [
+        "p4-shelf",
+        "p4-receipt",
+        "p4-copy-segawa"
+      ],
+      "ask": [
+        {
+          "id": "p4-receipt",
+          "personId": "segawa",
+          "label": "受領の記録",
+          "lines": [
+            {
+              "speakerId": "segawa",
+              "text": "黒田征司の署名と、事件当日の日付があります。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "その日に三崎と接触した、という記録だな。"
+            },
+            {
+              "speakerId": "segawa",
+              "text": "そうです。ただし、署名だけで転落の行為まで証明はできません。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "ああ。"
+            }
+          ],
+          "requires": [
+            "F60"
+          ],
+          "grants": [
+            "E04a"
+          ],
+          "required": true
+        },
+        {
+          "id": "p4-misaki-memory",
+          "personId": "naoto",
+          "label": "三崎の仕事",
+          "lines": [
+            {
+              "speakerId": "naoto",
+              "text": "三崎さんは、現場で困っている人の話を聞いてくれました。会社へ言うなら、一緒に書こうって。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "報告書も、そうやって書いたのか？"
+            },
+            {
+              "speakerId": "naoto",
+              "text": "はい。怪我をした人の話が、自分の言葉のまま届くように。"
+            }
+          ],
+          "requires": [],
+          "grants": [
+            "optional-misaki-memory"
+          ],
+          "required": false
+        }
+      ],
+      "speak": [
+        {
+          "id": "p4-copy-segawa",
+          "personId": "segawa",
+          "label": "控えを照合する",
+          "lines": [
+            {
+              "speakerId": "minato",
+              "text": "宮原さんから、本人の了承を得て借りた控えだ。"
+            },
+            {
+              "speakerId": "segawa",
+              "text": "本文は一致します。書き直した箇所も。"
+            },
+            {
+              "speakerId": "okumura",
+              "text": "原本はこっちで保管する。内容の確認に使う写しを残せ。"
+            }
+          ],
+          "requires": [
+            "IT03",
+            "E04a"
+          ],
+          "grants": [
+            "E04",
+            "IT05"
+          ],
+          "required": true,
+          "interaction": "item-use",
+          "itemId": "IT03"
+        }
+      ],
+      "inspect": [
+        {
+          "id": "p4-shelf",
+          "personId": null,
+          "label": "保管棚",
+          "lines": [
+            {
+              "speakerId": "segawa",
+              "text": "ありました。三崎さんの報告書です。"
+            },
+            {
+              "speakerId": "okumura",
+              "text": "受領欄を確認しろ。"
+            }
+          ],
+          "requires": [
+            "F59"
+          ],
+          "grants": [
+            "F60"
+          ],
+          "required": true
+        }
+      ],
+      "think": [],
+      "exit": {
+        "label": "管理人室",
+        "nextSceneId": "P4-03",
+        "requires": [
+          "F60",
+          "E04a",
+          "E04",
+          "IT05"
+        ]
+      },
+      "ending": [],
+      "organize": []
+    },
+    {
+      "id": "P4-03",
+      "part": 4,
+      "locationId": "building",
+      "roomId": "building-manager-room",
+      "sceneTime": "2026-10-09T10:25:00",
+      "intro": [
+        {
+          "speakerId": "okumura",
+          "text": "昨日の話を、もう一度聞きたい。分からないところを埋める必要はない。"
+        },
+        {
+          "speakerId": "miyahara",
+          "text": "はい。"
+        }
+      ],
+      "people": [
+        "okumura",
+        "miyahara"
+      ],
+      "required": [
+        "p4-no-face",
+        "p4-push",
+        "p4-exit-route",
+        "p4-manager-silence"
+      ],
+      "ask": [
+        {
+          "id": "p4-no-face",
+          "personId": "miyahara",
+          "label": "顔が見えなかったこと",
+          "lines": [
+            {
+              "speakerId": "minato",
+              "text": "昨日、顔は見ていないと言ったな。"
+            },
+            {
+              "speakerId": "miyahara",
+              "text": "ええ。戸の陰になって。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "誰だったかは、今は聞かない。顔以外に見えたものを話せるか？"
+            },
+            {
+              "speakerId": "miyahara",
+              "text": "……三崎さんの背中に、両手が。肩より下です。"
+            }
+          ],
+          "requires": [
+            "E04"
+          ],
+          "grants": [
+            "F61"
+          ],
+          "required": true
+        },
+        {
+          "id": "p4-push",
+          "personId": "miyahara",
+          "label": "手の動き",
+          "lines": [
+            {
+              "speakerId": "minato",
+              "text": "その手は、どう動いた？"
+            },
+            {
+              "speakerId": "miyahara",
+              "text": "押しました。体が前へ出て、その人は手を離した。三崎さんは階段へ落ちました。"
+            },
+            {
+              "speakerId": "okumura",
+              "text": "支えようとしていた動きではないんだな。"
+            },
+            {
+              "speakerId": "miyahara",
+              "text": "はい。そこは、覚えています。"
+            }
+          ],
+          "requires": [
+            "F61"
+          ],
+          "grants": [
+            "W02a"
+          ],
+          "required": true
+        },
+        {
+          "id": "p4-exit-route",
+          "personId": "miyahara",
+          "label": "転落のあとの動き",
+          "lines": [
+            {
+              "speakerId": "minato",
+              "text": "その人物は、どちらへ動いた？"
+            },
+            {
+              "speakerId": "miyahara",
+              "text": "上の踊り場へ戻りました。灰色の上着が、旧事務室の戸口へ。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "そこで見失ったのか？"
+            },
+            {
+              "speakerId": "miyahara",
+              "text": "ええ。そのすぐあと、高瀬君が廊下の方から来ました。"
+            }
+          ],
+          "requires": [
+            "W02a"
+          ],
+          "grants": [
+            "W02b"
+          ],
+          "required": true
+        },
+        {
+          "id": "p4-manager-silence",
+          "personId": "miyahara",
+          "label": "話さなかった理由",
+          "lines": [
+            {
+              "speakerId": "minato",
+              "text": "当時は、なぜ話せなかった。"
+            },
+            {
+              "speakerId": "miyahara",
+              "text": "顔を見ていない私が、人を殺人犯にしたらと思って。黒田さんにも、事故で騒いだら管理の責任を問われると。"
+            },
+            {
+              "speakerId": "miyahara",
+              "text": "誰かに聞かれるたび、音だけ聞いた、と答えました。最初の答えから、戻れなくなって。"
+            },
+            {
+              "speakerId": "okumura",
+              "text": "今話した動作は、顔を知らなくても説明できる。"
+            },
+            {
+              "speakerId": "miyahara",
+              "text": "……はい。誰かを決めつけることと、見たことを話すのを、一緒にしていました。"
+            }
+          ],
+          "requires": [
+            "W02a"
+          ],
+          "grants": [
+            "W02",
+            "F62"
+          ],
+          "required": true
+        }
+      ],
+      "speak": [],
+      "inspect": [],
+      "think": [],
+      "exit": {
+        "label": "階段",
+        "nextSceneId": "P4-04",
+        "requires": [
+          "F61",
+          "W02a",
+          "W02b",
+          "W02",
+          "F62"
+        ]
+      },
+      "ending": [],
+      "organize": []
+    },
+    {
+      "id": "P4-04",
+      "part": 4,
+      "locationId": "building",
+      "roomId": "building-stairs",
+      "sceneTime": "2026-10-09T10:50:00",
+      "intro": [
+        {
+          "speakerId": "narrator",
+          "text": "奥村が瀬川と直人を呼ぶ。独立して聞いた説明を持って、実際の位置を確かめる。"
+        }
+      ],
+      "people": [
+        "okumura",
+        "segawa",
+        "miyahara",
+        "naoto"
+      ],
+      "required": [
+        "p4-map-miyahara",
+        "p4-map-naoto",
+        "p4-next-check"
+      ],
+      "ask": [],
+      "speak": [
+        {
+          "id": "p4-map-miyahara",
+          "personId": "miyahara",
+          "label": "現場図で位置を確かめる",
+          "lines": [
+            {
+              "speakerId": "minato",
+              "text": "昼に見た位置を描いている。違うところがあれば、そこから直してくれ。"
+            },
+            {
+              "speakerId": "miyahara",
+              "text": "私は下の戸口です。ここから、三崎さんが押されて、相手が上へ戻るのを見ました。"
+            }
+          ],
+          "requires": [
+            "IT04",
+            "W02"
+          ],
+          "grants": [
+            "F63"
+          ],
+          "required": true,
+          "interaction": "item-use",
+          "itemId": "IT04"
+        },
+        {
+          "id": "p4-map-naoto",
+          "personId": "naoto",
+          "label": "現場図で位置を確かめる",
+          "lines": [
+            {
+              "speakerId": "naoto",
+              "text": "俺は廊下から来ました。ここで、戸口へ戻った黒田さんの顔を見ました。"
+            },
+            {
+              "speakerId": "segawa",
+              "text": "間の時間が抜けていないか、確認します。宮原さんは戸口まで人物を追っていたんですね。"
+            },
+            {
+              "speakerId": "miyahara",
+              "text": "はい。そこで見失って、すぐ高瀬君が来ました。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "服の色だけじゃない。移動先と、直後に見た顔。接触を記す原本もある。"
+            }
+          ],
+          "requires": [
+            "IT04",
+            "F63"
+          ],
+          "grants": [
+            "I05",
+            "F64"
+          ],
+          "required": true,
+          "interaction": "item-use",
+          "itemId": "IT04"
+        },
+        {
+          "id": "p4-next-check",
+          "personId": "okumura",
+          "label": "次の確認",
+          "lines": [
+            {
+              "speakerId": "okumura",
+              "text": "黒田にも説明を求める。署で、本人の話を聞く。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "来てもらうのか？"
+            },
+            {
+              "speakerId": "okumura",
+              "text": "こちらから連絡する。お前の見立ても、確認してからだ。"
+            }
+          ],
+          "requires": [
+            "F64"
+          ],
+          "grants": [
+            "F65"
+          ],
+          "required": true
+        }
+      ],
+      "inspect": [],
+      "think": [],
+      "exit": {
+        "label": "管理人室",
+        "nextSceneId": "P4-05",
+        "requires": [
+          "F63",
+          "I05",
+          "F64",
+          "F65"
+        ]
+      },
+      "ending": [],
+      "organize": []
+    },
+    {
+      "id": "P4-05",
+      "part": 4,
+      "locationId": "building",
+      "roomId": "building-manager-room",
+      "sceneTime": "2026-10-09T11:10:00",
+      "intro": [
+        {
+          "speakerId": "narrator",
+          "text": "窓際の机へ、図と写しを広げる。二人の説明は別の紙に残したままにする。"
+        },
+        {
+          "speakerId": "minato",
+          "text": "確認したところまで、つなぐ。"
+        },
+        {
+          "speakerId": "okumura",
+          "text": "推測で足すなよ。"
+        }
+      ],
+      "people": [
+        "okumura",
+        "segawa"
+      ],
+      "required": [
+        "p4-reasoning2",
+        "p4-kuroda-appointment",
+        "p4-mio-progress-call"
+      ],
+      "ask": [],
+      "speak": [
+        {
+          "id": "p4-kuroda-appointment",
+          "personId": "okumura",
+          "label": "黒田への連絡を確認する",
+          "lines": [
+            {
+              "speakerId": "narrator",
+              "text": "奥村が黒田に連絡。事情の説明を求め、来署に応じる返事を得る。"
+            },
+            {
+              "speakerId": "okumura",
+              "text": "午後一時に、署へ来る。面会室で話を聞く。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "俺も説明に立ち会っていいか？"
+            },
+            {
+              "speakerId": "okumura",
+              "text": "まず記録を持ってこい。話せる範囲で同席させる。"
+            }
+          ],
+          "requires": [
+            "F66"
+          ],
+          "grants": [
+            "F67"
+          ],
+          "required": true
+        },
+        {
+          "id": "p4-mio-progress-call",
+          "personId": "mio",
+          "label": "澪へ報告",
+          "lines": [
+            {
+              "speakerId": "minato",
+              "text": "原本と二人の話は確認できた。これから署へ行く。"
+            },
+            {
+              "speakerId": "mio",
+              "text": "こちらの記録も、渡せる形にしてあります。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "今日持っている写しを先に渡す。清書は帰ってから頼む。"
+            },
+            {
+              "speakerId": "mio",
+              "text": "はい。あかりさんへは、確認が進んでいることまでお伝えします。"
+            }
+          ],
+          "requires": [
+            "F67"
+          ],
+          "grants": [
+            "F68"
+          ],
+          "required": true,
+          "interaction": "phone",
+          "remoteOnly": true
+        }
+      ],
+      "inspect": [],
+      "think": [],
+      "exit": {
+        "label": "外に出る",
+        "nextSceneId": "P4-06-EXT",
+        "requires": [
+          "F66",
+          "reason2-passed",
+          "F67",
+          "F68"
+        ]
+      },
+      "ending": [],
+      "organize": [
+        {
+          "id": "p4-reasoning2",
+          "lines": [
+            {
+              "speakerId": "narrator",
+              "text": "確認したところまでをつなぐ。推測で足りない部分を埋めない。"
+            }
+          ],
+          "requires": [
+            "E01",
+            "E02",
+            "E03",
+            "W01",
+            "E04",
+            "W02",
+            "I05",
+            "F65"
+          ],
+          "grants": [
+            "F66",
+            "reason2-passed"
+          ],
+          "required": true,
+          "questionSetId": "Q2",
+          "questions": [
+            {
+              "id": "Q2-1",
+              "prompt": "黒田の不在の説明に反するものは？",
+              "choices": [
+                {
+                  "id": "a",
+                  "text": "鍵の貸出だけで、殺人が確定する。"
+                },
+                {
+                  "id": "b",
+                  "text": "鍵の日誌・受領原本・直人の顔の目撃。"
+                },
+                {
+                  "id": "c",
+                  "text": "人員削減の噂。"
+                }
+              ],
+              "answer": "b",
+              "requires": [
+                "E01",
+                "E04",
+                "W01"
+              ],
+              "hint": "一つの記録ではなく、独立した情報を組み合わせよう。",
+              "grants": [
+                "reason2-q1-correct"
+              ]
+            },
+            {
+              "id": "Q2-2",
+              "prompt": "不注意による転落の説明を崩すものは？",
+              "choices": [
+                {
+                  "id": "a",
+                  "text": "報告書の内容。"
+                },
+                {
+                  "id": "b",
+                  "text": "宮原が見た、背中を押す動作。"
+                },
+                {
+                  "id": "c",
+                  "text": "直人が連絡しなかったこと。"
+                }
+              ],
+              "answer": "b",
+              "requires": [
+                "W02"
+              ],
+              "hint": "動機の話と、実際の動作を分けよう。",
+              "grants": [
+                "reason2-q2-correct"
+              ]
+            },
+            {
+              "id": "Q2-3",
+              "prompt": "押した人物を黒田へ結ぶものは？",
+              "choices": [
+                {
+                  "id": "a",
+                  "text": "上着の色だけ。"
+                },
+                {
+                  "id": "b",
+                  "text": "直人が押すところを見た。"
+                },
+                {
+                  "id": "c",
+                  "text": "退出先と直後の人物目撃、当日の接触の文書。"
+                }
+              ],
+              "answer": "c",
+              "requires": [
+                "I05",
+                "E04",
+                "W01",
+                "W02"
+              ],
+              "hint": "誰が顔を見て、誰が動作を見たか。現場図を確かめよう。",
+              "grants": [
+                "reason2-q3-correct"
+              ]
+            }
+          ],
+          "successLines": [
+            {
+              "speakerId": "narrator",
+              "text": "高瀬は顔を見た。宮原さんは、押す動作を見た。"
+            },
+            {
+              "speakerId": "narrator",
+              "text": "言えなかった理由は違う。その答えが重なって、三崎が一人で落ちたという説明を残してしまった。"
+            },
+            {
+              "speakerId": "narrator",
+              "text": "今は、見たところまでを話した。そこを、記録と場所で確かめた。"
+            }
+          ],
+          "retainCorrectAnswers": true
+        }
+      ]
+    },
+    {
+      "id": "P4-06-EXT",
+      "part": 4,
+      "locationId": "police",
+      "roomId": "police-exterior",
+      "sceneTime": "2026-10-09T12:00:00",
+      "intro": [
+        {
+          "speakerId": "narrator",
+          "text": "署へ戻った。今度は、当時の説明を確かめた記録を持っている。"
+        }
+      ],
+      "people": [],
+      "required": [],
+      "ask": [],
+      "speak": [],
+      "inspect": [],
+      "think": [],
+      "exit": {
+        "label": "受付",
+        "nextSceneId": "P4-06-RECEPTION",
+        "requires": []
+      },
+      "ending": [],
+      "organize": []
+    },
+    {
+      "id": "P4-06-RECEPTION",
+      "part": 4,
+      "locationId": "police",
+      "roomId": "police-reception",
+      "sceneTime": "2026-10-09T12:05:00",
+      "intro": [],
+      "people": [
+        "police-reception"
+      ],
+      "required": [
+        "p4-police-purpose"
+      ],
+      "ask": [],
+      "speak": [
+        {
+          "id": "p4-police-purpose",
+          "personId": "police-reception",
+          "label": "面会の用件",
+          "lines": [
+            {
+              "speakerId": "minato",
+              "text": "佐伯です。奥村さんへ、確認した記録を届けに来ました。"
+            },
+            {
+              "speakerId": "police-reception",
+              "text": "お話は伺っています。面会室へご案内します。"
+            }
+          ],
+          "requires": [
+            "met-police-reception"
+          ],
+          "grants": [
+            "F69"
+          ],
+          "required": true
+        }
+      ],
+      "inspect": [],
+      "think": [],
+      "exit": {
+        "label": "面会室",
+        "nextSceneId": "P4-06",
+        "requires": [
+          "F69"
+        ]
+      },
+      "ending": [],
+      "organize": []
+    },
+    {
+      "id": "P4-06",
+      "part": 4,
+      "locationId": "police",
+      "roomId": "police-meeting-room",
+      "sceneTime": "2026-10-09T12:10:00",
+      "intro": [
+        {
+          "speakerId": "narrator",
+          "text": "面会室へ案内された。奥村と瀬川が書類を置く。"
+        }
+      ],
+      "people": [
+        "okumura",
+        "segawa"
+      ],
+      "required": [
+        "p4-map-submit",
+        "p4-attendance-boundary"
+      ],
+      "ask": [
+        {
+          "id": "p4-attendance-boundary",
+          "personId": "okumura",
+          "label": "同席の範囲",
+          "lines": [
+            {
+              "speakerId": "okumura",
+              "text": "黒田への確認は俺が進める。お前の聞いた話が必要になったら答えろ。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "ああ。"
+            },
+            {
+              "speakerId": "segawa",
+              "text": "直人さんの訂正の話も、こちらで確認しています。"
+            }
+          ],
+          "requires": [
+            "F70"
+          ],
+          "grants": [
+            "F71"
+          ],
+          "required": true
+        }
+      ],
+      "speak": [
+        {
+          "id": "p4-map-submit",
+          "personId": "segawa",
+          "label": "更新した現場図を渡す",
+          "lines": [
+            {
+              "speakerId": "segawa",
+              "text": "二人の説明は別に残してください。この図は、位置を確認する資料として扱います。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "分かっている。元の言葉も、一緒に渡す。"
+            }
+          ],
+          "requires": [
+            "IT04",
+            "F69"
+          ],
+          "grants": [
+            "F70"
+          ],
+          "required": true,
+          "interaction": "item-use",
+          "itemId": "IT04"
+        }
+      ],
+      "inspect": [],
+      "think": [],
+      "exit": {
+        "label": "次へ",
+        "nextSceneId": "P4-07",
+        "requires": [
+          "F70",
+          "F71"
+        ]
+      },
+      "ending": [
+        {
+          "speakerId": "narrator",
+          "text": "書類を確認して待った。午後一時、受付から黒田の到着の連絡が入った。"
+        }
+      ],
+      "organize": []
+    },
+    {
+      "id": "P4-07",
+      "part": 4,
+      "locationId": "police",
+      "roomId": "police-meeting-room",
+      "sceneTime": "2026-10-09T13:00:00",
+      "intro": [
+        {
+          "speakerId": "narrator",
+          "text": "奥村が迎え、黒田を面会室へ案内した。俺は席を立って待つ。"
+        },
+        {
+          "speakerId": "kuroda",
+          "text": "会社の方でも、説明したはずですが。"
+        },
+        {
+          "speakerId": "okumura",
+          "text": "確認したいことが増えた。座ってくれ。"
+        }
+      ],
+      "people": [
+        "okumura",
+        "segawa",
+        "kuroda"
+      ],
+      "required": [
+        "p4-kuroda-contact",
+        "p4-kuroda-absence",
+        "p4-kuroda-act"
+      ],
+      "ask": [
+        {
+          "id": "p4-kuroda-contact",
+          "personId": "kuroda",
+          "label": "当日の接触",
+          "lines": [
+            {
+              "speakerId": "okumura",
+              "text": "三崎と、その日に話したのか？"
+            },
+            {
+              "speakerId": "kuroda",
+              "text": "二年も前のことです。記憶だけでは。"
+            },
+            {
+              "speakerId": "okumura",
+              "text": "日誌と受領原本を確認した。接触の記録がある。"
+            },
+            {
+              "speakerId": "kuroda",
+              "text": "日付など、あとからでも……。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "日誌を書いたのは宮原さんだ。控えを残したのは三崎だ。高瀬の話だけで集まったものじゃない。"
+            },
+            {
+              "speakerId": "kuroda",
+              "text": "高瀬君は、自分も嘘をついたと認めているんでしょう。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "認めている。だから別の記録と証言で確かめた。"
+            },
+            {
+              "speakerId": "okumura",
+              "text": "三崎と話したのか？"
+            },
+            {
+              "speakerId": "kuroda",
+              "text": "……話はしました。"
+            }
+          ],
+          "requires": [
+            "F71"
+          ],
+          "grants": [
+            "F72"
+          ],
+          "required": true
+        },
+        {
+          "id": "p4-kuroda-absence",
+          "personId": "kuroda",
+          "label": "不在の説明",
+          "lines": [
+            {
+              "speakerId": "okumura",
+              "text": "なぜ、現場にはいなかったと言った。"
+            },
+            {
+              "speakerId": "kuroda",
+              "text": "騒ぎを避けたかった。それだけです。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "三崎にも、騒ぐなと言ったのか？"
+            },
+            {
+              "speakerId": "kuroda",
+              "text": "会社が困れば、困るのは社員です。彼には分からなかった。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "負傷した社員は、もう困っていた。"
+            },
+            {
+              "speakerId": "narrator",
+              "text": "黒田は紙の端をそろえる。何も書き足せない指が、同じ場所をなぞった。"
+            }
+          ],
+          "requires": [
+            "F72"
+          ],
+          "grants": [
+            "F73"
+          ],
+          "required": true
+        },
+        {
+          "id": "p4-kuroda-act",
+          "personId": "kuroda",
+          "label": "転落時の行為",
+          "lines": [
+            {
+              "speakerId": "okumura",
+              "text": "宮原さんは背中を両手で押す動作を見ている。その人物が戻った戸口で、高瀬がお前の顔を見た。そこを説明しろ。"
+            },
+            {
+              "speakerId": "kuroda",
+              "text": "帰れと言ったんです。聞かなかった。"
+            },
+            {
+              "speakerId": "kuroda",
+              "text": "戻ってきて、また話そうとして。俺は……。"
+            },
+            {
+              "speakerId": "okumura",
+              "text": "続けろ。"
+            },
+            {
+              "speakerId": "kuroda",
+              "text": "……押しました。"
+            }
+          ],
+          "requires": [
+            "F73"
+          ],
+          "grants": [
+            "W03"
+          ],
+          "required": true
+        }
+      ],
+      "speak": [],
+      "inspect": [],
+      "think": [],
+      "exit": {
+        "label": "次へ",
+        "nextSceneId": "P4-08",
+        "requires": [
+          "F72",
+          "F73",
+          "W03"
+        ]
+      },
+      "ending": [
+        {
+          "speakerId": "okumura",
+          "text": "ここから先は、こちらで確認する。"
+        },
+        {
+          "speakerId": "minato",
+          "text": "ああ。"
+        }
+      ],
+      "organize": []
+    },
+    {
+      "id": "P4-08",
+      "part": 4,
+      "locationId": "police",
+      "roomId": "police-meeting-room",
+      "sceneTime": "2026-10-09T13:35:00",
+      "intro": [],
+      "people": [
+        "okumura",
+        "segawa"
+      ],
+      "required": [
+        "p4-police-handover"
+      ],
+      "ask": [],
+      "speak": [
+        {
+          "id": "p4-police-handover",
+          "personId": "okumura",
+          "label": "記録の引継ぎ",
+          "lines": [
+            {
+              "speakerId": "segawa",
+              "text": "高瀬さんにも、当時の説明を改めて聞きます。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "本人も、そのつもりだ。"
+            },
+            {
+              "speakerId": "okumura",
+              "text": "記録は置いていけ。清書した分があれば、あとで。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "澪がまとめている。帰ってから渡す。"
+            },
+            {
+              "speakerId": "segawa",
+              "text": "確認したことと、聞いた説明は分けてください。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "そこは、澪に任せてある。"
+            }
+          ],
+          "requires": [
+            "W03"
+          ],
+          "grants": [
+            "F74",
+            "investigation_completed"
+          ],
+          "required": true
+        }
+      ],
+      "inspect": [],
+      "think": [],
+      "exit": {
+        "label": "受付",
+        "nextSceneId": "P4-08-EXIT",
+        "requires": [
+          "F74",
+          "investigation_completed"
+        ]
+      },
+      "ending": [],
+      "organize": []
+    },
+    {
+      "id": "P4-08-EXIT",
+      "part": 4,
+      "locationId": "police",
+      "roomId": "police-reception",
+      "sceneTime": "2026-10-09T13:45:00",
+      "intro": [],
+      "people": [
+        "police-reception"
+      ],
+      "required": [],
+      "ask": [],
+      "speak": [],
+      "inspect": [],
+      "think": [],
+      "exit": {
+        "label": "外に出る",
+        "nextSceneId": "P4-08-OFFICE",
+        "requires": []
+      },
+      "ending": [],
+      "organize": []
+    },
+    {
+      "id": "P4-08-OFFICE",
+      "part": 4,
+      "locationId": "office",
+      "roomId": "office",
+      "sceneTime": "2026-10-09T14:10:00",
+      "intro": [],
+      "people": [
+        "mio"
+      ],
+      "required": [
+        "p4-office-handover"
+      ],
+      "ask": [],
+      "speak": [
+        {
+          "id": "p4-office-handover",
+          "personId": "mio",
+          "label": "今日の記録をまとめる",
+          "lines": [
+            {
+              "speakerId": "mio",
+              "text": "お帰りなさい。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "説明は聞けた。残りの確認は奥村さんたちが進める。"
+            },
+            {
+              "speakerId": "mio",
+              "text": "こちらの記録を、持参された分と合わせます。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "頼む。"
+            },
+            {
+              "speakerId": "mio",
+              "text": "コーヒーは、少しあとにしましょうか？"
+            },
+            {
+              "speakerId": "minato",
+              "text": "ああ。今度は、先に片づける。"
+            }
+          ],
+          "requires": [
+            "F74"
+          ],
+          "grants": [
+            "F75"
+          ],
+          "required": true
+        }
+      ],
+      "inspect": [],
+      "think": [],
+      "exit": {
+        "label": "次へ",
+        "nextSceneId": "P4-09",
+        "requires": [
+          "F75"
+        ]
+      },
+      "ending": [
+        {
+          "speakerId": "narrator",
+          "text": "清書した記録の提出方法を奥村へ確認し、渡した。"
+        },
+        {
+          "speakerId": "narrator",
+          "text": "その後の文書・証言・現場の確認と聴取を経て、黒田は逮捕された。三崎が一人で落ちたという説明は、もう続かない。"
+        }
+      ],
+      "organize": []
+    },
+    {
+      "id": "P4-09",
+      "part": 4,
+      "locationId": "office",
+      "roomId": "office",
+      "sceneTime": "2026-10-12T16:30:00",
+      "intro": [],
+      "people": [
+        "mio"
+      ],
+      "required": [
+        "p4-siblings-arrive"
+      ],
+      "ask": [],
+      "speak": [
+        {
+          "id": "p4-siblings-arrive",
+          "personId": "mio",
+          "label": "二人を迎える",
+          "lines": [
+            {
+              "speakerId": "mio",
+              "text": "お二人が、もうすぐいらっしゃいます。昨夜、あかりさんからお電話がありました。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "直人も一緒か？"
+            },
+            {
+              "speakerId": "mio",
+              "text": "はい。兄からも、お礼と、これからのことを話したいと。"
+            },
+            {
+              "speakerId": "narrator",
+              "text": "インターホンが鳴る。澪が扉へ向かい、兄妹を迎える。依頼時と同じ音が、今度は二人分の足音につながった。"
+            }
+          ],
+          "requires": [
+            "F75"
+          ],
+          "grants": [
+            "F76"
+          ],
+          "required": true
+        }
+      ],
+      "inspect": [],
+      "think": [],
+      "exit": {
+        "label": "次へ",
+        "nextSceneId": "P4-10",
+        "requires": [
+          "F76"
+        ]
+      },
+      "ending": [],
+      "organize": []
+    },
+    {
+      "id": "P4-10",
+      "part": 4,
+      "locationId": "office",
+      "roomId": "office",
+      "sceneTime": "2026-10-12T16:40:00",
+      "intro": [],
+      "people": [
+        "mio",
+        "akari",
+        "naoto"
+      ],
+      "required": [
+        "p4-siblings-talk"
+      ],
+      "ask": [],
+      "speak": [
+        {
+          "id": "p4-siblings-talk",
+          "personId": "akari",
+          "label": "二人の話を聞く",
+          "lines": [
+            {
+              "speakerId": "akari",
+              "text": "仕事がなくなるかもしれないって、ずっと思ってたの？"
+            },
+            {
+              "speakerId": "naoto",
+              "text": "ああ。"
+            },
+            {
+              "speakerId": "akari",
+              "text": "私の学校のことも？"
+            },
+            {
+              "speakerId": "naoto",
+              "text": "続けてほしかった。父さんたちも、そう思ってたはずだから。"
+            },
+            {
+              "speakerId": "akari",
+              "text": "私、普通に通ってた。お兄ちゃんがそんなこと考えてるって、知らないで。"
+            },
+            {
+              "speakerId": "narrator",
+              "text": "声が細くなった。直人は、カップの手前を見ていた。"
+            },
+            {
+              "speakerId": "akari",
+              "text": "お金の話をしても、大丈夫って言うから。私、それで。"
+            },
+            {
+              "speakerId": "naoto",
+              "text": "大丈夫って言ったのは俺だ。"
+            },
+            {
+              "speakerId": "naoto",
+              "text": "黙るって決めたのも。あかりが学校へ行ったからじゃない。"
+            },
+            {
+              "speakerId": "akari",
+              "text": "分かってる。でも、話してほしかった。"
+            },
+            {
+              "speakerId": "akari",
+              "text": "私が何を言うか、聞いてほしかった。"
+            },
+            {
+              "speakerId": "naoto",
+              "text": "……ごめん。"
+            },
+            {
+              "speakerId": "akari",
+              "text": "いなくなった時、私、何かしたのかなって。帰りたくなくなったのかなって。"
+            },
+            {
+              "speakerId": "naoto",
+              "text": "違う。そんなことは。"
+            },
+            {
+              "speakerId": "akari",
+              "text": "うん。でも、分からなかった。"
+            },
+            {
+              "speakerId": "narrator",
+              "text": "直人の手が開く。握り込んだ指が、少しずつほどけた。"
+            },
+            {
+              "speakerId": "naoto",
+              "text": "警察で話すことも、仕事のことも、まだある。前と同じには戻れない。"
+            },
+            {
+              "speakerId": "akari",
+              "text": "一緒に考えよう。"
+            },
+            {
+              "speakerId": "naoto",
+              "text": "……ああ。"
+            },
+            {
+              "speakerId": "akari",
+              "text": "今日は、帰ってくる？"
+            },
+            {
+              "speakerId": "naoto",
+              "text": "帰る。"
+            },
+            {
+              "speakerId": "narrator",
+              "text": "あかりは涙を拭き、もう一度うなずいた。"
+            }
+          ],
+          "requires": [
+            "F76"
+          ],
+          "grants": [
+            "F77"
+          ],
+          "required": true
+        },
+        {
+          "id": "p4-return-route",
+          "personId": "akari",
+          "label": "帰り道",
+          "lines": [
+            {
+              "speakerId": "akari",
+              "text": "今日は、一緒に帰ります。途中で買い物も。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "二人で決めたんだな。"
+            },
+            {
+              "speakerId": "akari",
+              "text": "はい。"
+            }
+          ],
+          "requires": [
+            "F77"
+          ],
+          "grants": [
+            "optional-return-route"
+          ],
+          "required": false
+        },
+        {
+          "id": "p4-naoto-future",
+          "personId": "naoto",
+          "label": "これから",
+          "lines": [
+            {
+              "speakerId": "naoto",
+              "text": "当時の答えを訂正したら終わり、とは思っていません。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "話したことを、これからも引き受ける。それでいい。"
+            },
+            {
+              "speakerId": "naoto",
+              "text": "はい。"
+            }
+          ],
+          "requires": [
+            "F77"
+          ],
+          "grants": [
+            "optional-naoto-future"
+          ],
+          "required": false
+        }
+      ],
+      "inspect": [],
+      "think": [],
+      "exit": {
+        "label": "次へ",
+        "nextSceneId": "P4-11",
+        "requires": [
+          "F77"
+        ]
+      },
+      "ending": [],
+      "organize": []
+    },
+    {
+      "id": "P4-11",
+      "part": 4,
+      "locationId": "office",
+      "roomId": "office",
+      "sceneTime": "2026-10-12T17:05:00",
+      "intro": [],
+      "people": [
+        "mio"
+      ],
+      "required": [
+        "p4-epilogue"
+      ],
+      "ask": [],
+      "speak": [
+        {
+          "id": "p4-epilogue",
+          "personId": "mio",
+          "label": "日常へ戻る",
+          "lines": [
+            {
+              "speakerId": "narrator",
+              "text": "兄妹が帰った。澪が残ったカップを集める。"
+            },
+            {
+              "speakerId": "mio",
+              "text": "お茶、ほとんど冷めてしまいました。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "話せたなら、いい。"
+            },
+            {
+              "speakerId": "mio",
+              "text": "はい。"
+            },
+            {
+              "speakerId": "narrator",
+              "text": "今度は俺の前へ、コーヒーが置かれた。"
+            },
+            {
+              "speakerId": "narrator",
+              "text": "黙っていた年月は消えない。三崎が帰ってくるわけでもない。"
+            },
+            {
+              "speakerId": "narrator",
+              "text": "直人は、自分の言葉を訂正した。これから何度も、その日に戻ることになるだろう。"
+            },
+            {
+              "speakerId": "narrator",
+              "text": "今夜は、兄妹が同じ家へ帰る。これからのことを、二人で話せる。"
+            },
+            {
+              "speakerId": "mio",
+              "text": "お疲れさまでした、佐伯さん。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "ああ。澪も。"
+            },
+            {
+              "speakerId": "narrator",
+              "text": "机の端に、閉じた帳簿があった。カップを置いて、俺はそれを開く。"
+            }
+          ],
+          "requires": [
+            "F77"
+          ],
+          "grants": [
+            "F78",
+            "part4_completed"
+          ],
+          "required": true
+        }
+      ],
+      "inspect": [],
+      "think": [],
+      "exit": {
+        "label": "次へ",
+        "nextSceneId": null,
+        "requires": [
+          "F78",
+          "part4_completed"
+        ]
+      },
+      "ending": [],
+      "organize": []
+    }
+  ],
+  "questionSets": [
+    {
+      "id": "Q2",
+      "questions": [
+        {
+          "id": "Q2-1",
+          "prompt": "黒田の不在の説明に反するものは？",
+          "choices": [
+            {
+              "id": "a",
+              "text": "鍵の貸出だけで、殺人が確定する。"
+            },
+            {
+              "id": "b",
+              "text": "鍵の日誌・受領原本・直人の顔の目撃。"
+            },
+            {
+              "id": "c",
+              "text": "人員削減の噂。"
+            }
+          ],
+          "answer": "b",
+          "requires": [
+            "E01",
+            "E04",
+            "W01"
+          ],
+          "hint": "一つの記録ではなく、独立した情報を組み合わせよう。",
+          "grants": [
+            "reason2-q1-correct"
+          ]
+        },
+        {
+          "id": "Q2-2",
+          "prompt": "不注意による転落の説明を崩すものは？",
+          "choices": [
+            {
+              "id": "a",
+              "text": "報告書の内容。"
+            },
+            {
+              "id": "b",
+              "text": "宮原が見た、背中を押す動作。"
+            },
+            {
+              "id": "c",
+              "text": "直人が連絡しなかったこと。"
+            }
+          ],
+          "answer": "b",
+          "requires": [
+            "W02"
+          ],
+          "hint": "動機の話と、実際の動作を分けよう。",
+          "grants": [
+            "reason2-q2-correct"
+          ]
+        },
+        {
+          "id": "Q2-3",
+          "prompt": "押した人物を黒田へ結ぶものは？",
+          "choices": [
+            {
+              "id": "a",
+              "text": "上着の色だけ。"
+            },
+            {
+              "id": "b",
+              "text": "直人が押すところを見た。"
+            },
+            {
+              "id": "c",
+              "text": "退出先と直後の人物目撃、当日の接触の文書。"
+            }
+          ],
+          "answer": "c",
+          "requires": [
+            "I05",
+            "E04",
+            "W01",
+            "W02"
+          ],
+          "hint": "誰が顔を見て、誰が動作を見たか。現場図を確かめよう。",
+          "grants": [
+            "reason2-q3-correct"
+          ]
+        }
+      ],
+      "successLines": [
+        {
+          "speakerId": "narrator",
+          "text": "高瀬は顔を見た。宮原さんは、押す動作を見た。"
+        },
+        {
+          "speakerId": "narrator",
+          "text": "言えなかった理由は違う。その答えが重なって、三崎が一人で落ちたという説明を残してしまった。"
+        },
+        {
+          "speakerId": "narrator",
+          "text": "今は、見たところまでを話した。そこを、記録と場所で確かめた。"
+        }
+      ],
+      "retainCorrectAnswers": true
+    }
+  ],
+  "itemEvents": [
+    {
+      "actionId": "p4-copy-segawa",
+      "itemId": "IT05",
+      "displayName": "受領原本の確認写し"
+    }
+  ],
+  "illustrationSlots": [
+    {
+      "slot": "C4-IN",
+      "sceneId": "P4-01",
+      "phase": "before-intro",
+      "assetGroup": "CG05"
+    },
+    {
+      "slot": "C4-OUT",
+      "sceneId": "P4-11",
+      "phase": "after-ending",
+      "assetGroup": "CG06"
+    }
+  ],
+  "notes": [
+    "linesは表示本文だけ。作者指示は進行と組込仕様を参照。",
+    "line.grantsは行の表示後、action.grantsは完了後に付与。",
+    "phone/remoteOnlyは電話相手で現場人物ではない。",
+    "item-useはアイテム使用。通常話すへの重複表示は不要。",
+    "organizeは推理。正答保持、誤答ヒント、successLinesを使用。",
+    "同室は次へ、部屋名、外に出る、外↔マップは組込側が接続。"
+  ]
+}

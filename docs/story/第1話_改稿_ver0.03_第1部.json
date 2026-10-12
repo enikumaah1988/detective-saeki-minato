@@ -1,0 +1,1121 @@
+{
+  "schemaVersion": "saeki-story-scenes/0.03",
+  "part": 1,
+  "displayYear": false,
+  "scenes": [
+    {
+      "id": "P1-01",
+      "part": 1,
+      "locationId": "office",
+      "roomId": "office",
+      "sceneTime": "2026-10-08T10:40:00",
+      "intro": [
+        {
+          "speakerId": "narrator",
+          "text": "西新宿の朝は、窓を閉めても静かにはならない。配送車のエンジン、階下の店がシャッターを開ける音。どれもこの部屋まで届く頃には、少し遠い。"
+        },
+        {
+          "speakerId": "narrator",
+          "text": "机の上の帳簿は、昨日と同じところにあった。"
+        },
+        {
+          "speakerId": "mio",
+          "text": "佐伯さん。コーヒー、置きますね。"
+        },
+        {
+          "speakerId": "minato",
+          "text": "ありがとう。"
+        },
+        {
+          "speakerId": "mio",
+          "text": "今日は、お昼までお約束はありません。"
+        },
+        {
+          "speakerId": "minato",
+          "text": "そうか？"
+        },
+        {
+          "speakerId": "narrator",
+          "text": "カップへ手を伸ばす。澪の指が、その隣の帳簿に触れた。"
+        },
+        {
+          "speakerId": "mio",
+          "text": "こちらも、今のうちに。"
+        },
+        {
+          "speakerId": "minato",
+          "text": "昨日も聞いた気がする。"
+        },
+        {
+          "speakerId": "mio",
+          "text": "昨日は、お出かけになる前でしたから。"
+        },
+        {
+          "speakerId": "minato",
+          "text": "今日は逃げ道がないな。"
+        },
+        {
+          "speakerId": "mio",
+          "text": "お時間はあります。"
+        },
+        {
+          "speakerId": "narrator",
+          "text": "俺は帳簿を開いた。澪は笑わずに、領収書の束を向けてきた。その方が少し堪える。"
+        }
+      ],
+      "people": [
+        "mio"
+      ],
+      "required": [
+        "p1-ledger"
+      ],
+      "ask": [],
+      "speak": [
+        {
+          "id": "p1-schedule",
+          "personId": "mio",
+          "label": "今日の予定",
+          "lines": [
+            {
+              "speakerId": "minato",
+              "text": "午後は？"
+            },
+            {
+              "speakerId": "mio",
+              "text": "今のところ空いています。前の依頼のご報告は、お送りしました。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "あの店主、納得していたか？"
+            },
+            {
+              "speakerId": "mio",
+              "text": "はい。お礼と、もう少し早く相談すればよかったと。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "話せるようになるまで、時間がかかることもある。"
+            },
+            {
+              "speakerId": "mio",
+              "text": "それなら、来ていただいた時にお話を聞けるよう、空けておきましょう。"
+            }
+          ],
+          "requires": [],
+          "grants": [
+            "optional-schedule"
+          ],
+          "required": false
+        },
+        {
+          "id": "p1-coffee",
+          "personId": "mio",
+          "label": "コーヒー",
+          "lines": [
+            {
+              "speakerId": "minato",
+              "text": "今日のは、少し違うな。"
+            },
+            {
+              "speakerId": "mio",
+              "text": "昨日より軽めです。帳簿を見ながら何杯も飲まれると思って。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "そこまで予定に入っていたか？"
+            },
+            {
+              "speakerId": "mio",
+              "text": "一杯で終われば、何よりです。"
+            }
+          ],
+          "requires": [],
+          "grants": [
+            "optional-coffee"
+          ],
+          "required": false
+        }
+      ],
+      "inspect": [
+        {
+          "id": "p1-ledger",
+          "label": "帳簿を開く",
+          "lines": [
+            {
+              "speakerId": "narrator",
+              "text": "数字を一つ読み違え、澪が指で示した。書き直そうとしたところで、インターホンが鳴った。"
+            },
+            {
+              "speakerId": "mio",
+              "text": "はい。佐伯探偵事務所です。"
+            },
+            {
+              "speakerId": "narrator",
+              "text": "少し間があった。"
+            },
+            {
+              "speakerId": "akari",
+              "text": "予約していないんですけど……相談をしても、いいですか？"
+            },
+            {
+              "speakerId": "mio",
+              "text": "はい。どうぞ、お入りください。"
+            },
+            {
+              "speakerId": "narrator",
+              "text": "俺がペンを置くより先に、澪は入口へ向かった。"
+            }
+          ],
+          "requires": [],
+          "grants": [
+            "F00",
+            "met-mio",
+            "named-mio"
+          ],
+          "required": true
+        }
+      ],
+      "think": [],
+      "exit": {
+        "label": "次へ",
+        "nextSceneId": "P1-02",
+        "requires": [
+          "F00",
+          "met-mio",
+          "named-mio"
+        ]
+      },
+      "ending": [],
+      "organize": []
+    },
+    {
+      "id": "P1-02",
+      "part": 1,
+      "locationId": "office",
+      "roomId": "office",
+      "sceneTime": "2026-10-08T10:55:00",
+      "intro": [
+        {
+          "speakerId": "narrator",
+          "text": "赤いカーディガンの若い女性が立っていた。鞄の肩紐を握ったまま、部屋を見回している。"
+        }
+      ],
+      "people": [
+        "mio",
+        "akari"
+      ],
+      "required": [
+        "p1-visitor"
+      ],
+      "ask": [],
+      "speak": [
+        {
+          "id": "p1-visitor",
+          "personId": "akari",
+          "label": "相談を聞く",
+          "lines": [
+            {
+              "speakerId": "mio",
+              "text": "こちらへどうぞ。今日は、どのようなご相談でしょうか？"
+            },
+            {
+              "speakerId": "akari",
+              "text": "兄が、帰ってこなくて。"
+            },
+            {
+              "speakerId": "mio",
+              "text": "お兄さんのことですね。まずお名前を伺ってもよろしいですか？"
+            },
+            {
+              "speakerId": "akari",
+              "text": "高瀬あかりです。",
+              "grants": [
+                "met-akari",
+                "named-akari"
+              ]
+            },
+            {
+              "speakerId": "mio",
+              "text": "相澤です。こちらが佐伯です。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "佐伯だ。座ってくれ。"
+            },
+            {
+              "speakerId": "narrator",
+              "text": "あかりは椅子を少しだけ引き、浅く腰を下ろした。澪が空いた席へお茶を置く。"
+            },
+            {
+              "speakerId": "mio",
+              "text": "熱いので、ゆっくりどうぞ。"
+            },
+            {
+              "speakerId": "akari",
+              "text": "ありがとうございます。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "兄の名前を聞いてもいいか？"
+            },
+            {
+              "speakerId": "akari",
+              "text": "高瀬直人です。",
+              "grants": [
+                "mentioned-naoto",
+                "named-naoto",
+                "brother-profile"
+              ]
+            },
+            {
+              "speakerId": "narrator",
+              "text": "澪は名前を書いてから、ペンを止めた。続きを待つことも、聞き取りの一部だった。"
+            }
+          ],
+          "requires": [],
+          "grants": [
+            "met-akari",
+            "named-akari",
+            "mentioned-naoto",
+            "named-naoto",
+            "brother-profile"
+          ],
+          "required": true
+        }
+      ],
+      "inspect": [],
+      "think": [],
+      "exit": {
+        "label": "次へ",
+        "nextSceneId": "P1-03",
+        "requires": [
+          "met-akari",
+          "named-akari",
+          "mentioned-naoto",
+          "named-naoto",
+          "brother-profile"
+        ]
+      },
+      "ending": [],
+      "organize": []
+    },
+    {
+      "id": "P1-03",
+      "part": 1,
+      "locationId": "office",
+      "roomId": "office",
+      "sceneTime": "2026-10-08T11:00:00",
+      "intro": [],
+      "people": [
+        "akari",
+        "mio"
+      ],
+      "required": [
+        "p1-missing",
+        "p1-morning",
+        "p1-contact",
+        "p1-workplace",
+        "p1-company-answer",
+        "p1-searched",
+        "p1-police"
+      ],
+      "ask": [
+        {
+          "id": "p1-missing",
+          "personId": "akari",
+          "label": "帰らなくなった日",
+          "lines": [
+            {
+              "speakerId": "minato",
+              "text": "いつから帰っていない？"
+            },
+            {
+              "speakerId": "akari",
+              "text": "月曜日です。五日の朝に出かけて、そのまま。今日で三日になります。"
+            },
+            {
+              "speakerId": "mio",
+              "text": "五日の朝からですね。"
+            },
+            {
+              "speakerId": "akari",
+              "text": "夜には戻ると思っていました。夕飯も残しておいたんです。"
+            }
+          ],
+          "requires": [],
+          "grants": [
+            "F01"
+          ],
+          "required": true
+        },
+        {
+          "id": "p1-morning",
+          "personId": "akari",
+          "label": "最後の朝",
+          "lines": [
+            {
+              "speakerId": "minato",
+              "text": "最後に会った時は、どんな様子だった？"
+            },
+            {
+              "speakerId": "akari",
+              "text": "普通でした。七時半ごろ、いつもの服で。"
+            },
+            {
+              "speakerId": "akari",
+              "text": "私が、帰りに牛乳を買ってくるって言ったら、頼む、って。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "仕事へ行くと、兄が言ったのか？"
+            },
+            {
+              "speakerId": "akari",
+              "text": "……言っていません。いつもの時間だったので、私がそう思いました。"
+            },
+            {
+              "speakerId": "mio",
+              "text": "『いつもの時間に家を出た』と書いておきますね。"
+            },
+            {
+              "speakerId": "akari",
+              "text": "何か変なところがなかったか、何度も考えました。でも、思い出せなくて。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "覚えているところまででいい。"
+            }
+          ],
+          "requires": [],
+          "grants": [
+            "F02",
+            "morning"
+          ],
+          "required": true
+        },
+        {
+          "id": "p1-contact",
+          "personId": "akari",
+          "label": "連絡",
+          "lines": [
+            {
+              "speakerId": "minato",
+              "text": "兄に連絡は取れたか？"
+            },
+            {
+              "speakerId": "akari",
+              "text": "電話もメッセージも、返ってきません。月曜日の夜からです。"
+            },
+            {
+              "speakerId": "akari",
+              "text": "最初は『遅いの？』って。そのあと、『どこにいるの』ばかり送ってしまって。"
+            },
+            {
+              "speakerId": "akari",
+              "text": "最後は、何でもいいから返してって。"
+            },
+            {
+              "speakerId": "narrator",
+              "text": "鞄から出したスマホを、あかりは裏返して膝に置いた。"
+            },
+            {
+              "speakerId": "mio",
+              "text": "連絡を試したことは分かりました。送った言葉を、ここで責めなくて大丈夫ですよ。"
+            }
+          ],
+          "requires": [],
+          "grants": [
+            "F03",
+            "contact"
+          ],
+          "required": true
+        },
+        {
+          "id": "p1-workplace",
+          "personId": "akari",
+          "label": "勤務先",
+          "lines": [
+            {
+              "speakerId": "minato",
+              "text": "勤務先を教えてくれ。"
+            },
+            {
+              "speakerId": "akari",
+              "text": "東成ビルサービスです。ビルの管理や修繕の仕事をしています。"
+            },
+            {
+              "speakerId": "mio",
+              "text": "会社の連絡先は分かりますか？"
+            },
+            {
+              "speakerId": "akari",
+              "text": "はい。火曜日に電話した番号があります。"
+            }
+          ],
+          "requires": [],
+          "grants": [
+            "F04"
+          ],
+          "required": true
+        },
+        {
+          "id": "p1-company-answer",
+          "personId": "akari",
+          "label": "会社へ聞いたこと",
+          "lines": [
+            {
+              "speakerId": "minato",
+              "text": "会社からは、何と言われた？"
+            },
+            {
+              "speakerId": "akari",
+              "text": "その日から来ていないと。月曜日のことです。"
+            },
+            {
+              "speakerId": "akari",
+              "text": "仕事に行ったはずですって言ったんですけど、担当の方がいなくて分からないと。"
+            },
+            {
+              "speakerId": "mio",
+              "text": "そのお電話では、勤務の記録までは確認できなかったんですね。"
+            },
+            {
+              "speakerId": "akari",
+              "text": "はい。私も、何を聞けばいいか分からなくなって。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "会社には、こちらから確かめる。"
+            }
+          ],
+          "requires": [
+            "F04"
+          ],
+          "grants": [
+            "F05",
+            "workplace"
+          ],
+          "required": true
+        },
+        {
+          "id": "p1-searched",
+          "personId": "akari",
+          "label": "ほかに捜したところ",
+          "lines": [
+            {
+              "speakerId": "minato",
+              "text": "ほかに、誰かへ聞いたか？"
+            },
+            {
+              "speakerId": "akari",
+              "text": "思いつく人には。でも、誰も知りませんでした。警察にも相談しました。"
+            }
+          ],
+          "requires": [
+            "F03"
+          ],
+          "grants": [
+            "F06a"
+          ],
+          "required": true
+        },
+        {
+          "id": "p1-police",
+          "personId": "akari",
+          "label": "警察への相談",
+          "lines": [
+            {
+              "speakerId": "minato",
+              "text": "警察へ相談して、その後どうなった？"
+            },
+            {
+              "speakerId": "akari",
+              "text": "事件に巻き込まれたかは分からないと。まだ、兄の居場所は分からなくて。"
+            },
+            {
+              "speakerId": "akari",
+              "text": "私、自分でも何かしないと。待っているだけじゃ……。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "ここへ来たのも、そのためだな。"
+            },
+            {
+              "speakerId": "akari",
+              "text": "はい。"
+            }
+          ],
+          "requires": [
+            "F06a"
+          ],
+          "grants": [
+            "F06",
+            "police-consulted"
+          ],
+          "required": true
+        },
+        {
+          "id": "p1-age",
+          "personId": "akari",
+          "label": "兄の年齢",
+          "lines": [
+            {
+              "speakerId": "minato",
+              "text": "兄は、いくつだ？"
+            },
+            {
+              "speakerId": "akari",
+              "text": "二十九です。私とは八つ違います。"
+            }
+          ],
+          "requires": [],
+          "grants": [
+            "known-naoto-age"
+          ],
+          "required": false
+        },
+        {
+          "id": "p1-daily",
+          "personId": "akari",
+          "label": "普段の連絡",
+          "lines": [
+            {
+              "speakerId": "minato",
+              "text": "普段も、連絡を忘れることはあるか？"
+            },
+            {
+              "speakerId": "akari",
+              "text": "遅くなる時は必ず。短いんですけど、『先に食べて』とか？"
+            },
+            {
+              "speakerId": "akari",
+              "text": "私が返すのを忘れると、朝、何も言わずにスマホを指して。"
+            },
+            {
+              "speakerId": "narrator",
+              "text": "少し笑いかけた顔が、すぐ元へ戻った。"
+            },
+            {
+              "speakerId": "akari",
+              "text": "あの時は、細かいなって思ってました。"
+            }
+          ],
+          "requires": [
+            "F03"
+          ],
+          "grants": [
+            "naoto-daily"
+          ],
+          "required": false
+        },
+        {
+          "id": "p1-family",
+          "personId": "akari",
+          "label": "一緒に暮らす家族",
+          "lines": [
+            {
+              "speakerId": "minato",
+              "text": "家では、兄と二人か？"
+            },
+            {
+              "speakerId": "akari",
+              "text": "はい。両親はもういません。"
+            },
+            {
+              "speakerId": "akari",
+              "text": "兄は、仕事のことを家であまり話さないので。会社での知り合いも、私はほとんど。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "知らないことまで答えなくていい。"
+            }
+          ],
+          "requires": [],
+          "grants": [
+            "akari-family"
+          ],
+          "required": false
+        }
+      ],
+      "speak": [],
+      "inspect": [],
+      "think": [],
+      "exit": {
+        "label": "次へ",
+        "nextSceneId": "P1-04",
+        "requires": [
+          "F01",
+          "F02",
+          "morning",
+          "F03",
+          "contact",
+          "F04",
+          "F05",
+          "workplace",
+          "F06a",
+          "F06",
+          "police-consulted"
+        ]
+      },
+      "ending": [],
+      "organize": []
+    },
+    {
+      "id": "P1-04",
+      "part": 1,
+      "locationId": "office",
+      "roomId": "office",
+      "sceneTime": "2026-10-08T11:30:00",
+      "intro": [],
+      "people": [
+        "mio",
+        "akari"
+      ],
+      "required": [
+        "p1-think"
+      ],
+      "ask": [],
+      "speak": [],
+      "inspect": [],
+      "think": [
+        {
+          "id": "p1-think",
+          "lines": [
+            {
+              "speakerId": "narrator",
+              "text": "五日の朝、家を出た。連絡は途絶えた。会社では出勤を確認できていない。"
+            },
+            {
+              "speakerId": "narrator",
+              "text": "出勤したはずだというのは、妹の認識だ。会社が見ているのは、その日に来たかどうか。"
+            },
+            {
+              "speakerId": "narrator",
+              "text": "間にある本人の予定は、まだ分からない。そこから確かめる。"
+            }
+          ],
+          "requires": [
+            "F01",
+            "F02",
+            "F03",
+            "F04",
+            "F05",
+            "F06"
+          ],
+          "grants": [
+            "F07",
+            "I01"
+          ],
+          "required": true
+        }
+      ],
+      "exit": {
+        "label": "次へ",
+        "nextSceneId": "P1-05",
+        "requires": [
+          "F07",
+          "I01"
+        ]
+      },
+      "ending": [],
+      "organize": []
+    },
+    {
+      "id": "P1-05",
+      "part": 1,
+      "locationId": "office",
+      "roomId": "office",
+      "sceneTime": "2026-10-08T11:35:00",
+      "intro": [],
+      "people": [
+        "akari",
+        "mio"
+      ],
+      "required": [
+        "p1-accept",
+        "p1-photo",
+        "p1-client-contact"
+      ],
+      "ask": [
+        {
+          "id": "p1-photo",
+          "personId": "akari",
+          "label": "兄の写真",
+          "lines": [
+            {
+              "speakerId": "mio",
+              "text": "お兄さんのお写真をお持ちですか？"
+            },
+            {
+              "speakerId": "akari",
+              "text": "はい。最近のものを、持ってきました。"
+            },
+            {
+              "speakerId": "narrator",
+              "text": "透明な袋から、あかりが写真を抜いた。角を曲げないよう、両手で置く。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "今も、この髪型か？"
+            },
+            {
+              "speakerId": "akari",
+              "text": "はい。仕事の帰りは、だいたいこの顔です。少し疲れて見えますけど。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "捜す時に使わせてもらう。大切に預かる。"
+            }
+          ],
+          "requires": [
+            "F08"
+          ],
+          "grants": [
+            "IT01",
+            "search-photo"
+          ],
+          "required": true
+        },
+        {
+          "id": "p1-client-contact",
+          "personId": "akari",
+          "label": "連絡先",
+          "lines": [
+            {
+              "speakerId": "mio",
+              "text": "ご連絡先をお預かりしてもよろしいでしょうか？"
+            },
+            {
+              "speakerId": "akari",
+              "text": "はい。"
+            },
+            {
+              "speakerId": "narrator",
+              "text": "澪は番号を一桁ずつ読み返した。"
+            },
+            {
+              "speakerId": "mio",
+              "text": "分かったことがあれば、こちらからご連絡します。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "兄から連絡があった時も、教えてくれ。"
+            },
+            {
+              "speakerId": "akari",
+              "text": "分かりました。電話、持っておきます。"
+            }
+          ],
+          "requires": [
+            "IT01"
+          ],
+          "grants": [
+            "F09",
+            "akari-contact"
+          ],
+          "required": true
+        }
+      ],
+      "speak": [
+        {
+          "id": "p1-accept",
+          "personId": "akari",
+          "label": "調査の進め方",
+          "lines": [
+            {
+              "speakerId": "minato",
+              "text": "まず会社で、兄の予定を確かめる。行き先が分かれば、そこから足取りを追う。"
+            },
+            {
+              "speakerId": "akari",
+              "text": "お願いします。料金は、どのくらい……。"
+            },
+            {
+              "speakerId": "narrator",
+              "text": "財布を出しかけて、彼女は手を止めた。"
+            },
+            {
+              "speakerId": "akari",
+              "text": "私の貯金で、どこまでお願いできますか？"
+            },
+            {
+              "speakerId": "narrator",
+              "text": "俺は紙に書いて、彼女へ向けた。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "最初の調査なら、これくらいだ。"
+            },
+            {
+              "speakerId": "akari",
+              "text": "……お願いします。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "今、答えを急がなくてもいい。"
+            },
+            {
+              "speakerId": "akari",
+              "text": "兄がどこにいるか、知りたいんです。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "分かった。引き受ける。"
+            }
+          ],
+          "requires": [
+            "F07"
+          ],
+          "grants": [
+            "F08",
+            "request_accepted"
+          ],
+          "required": true
+        },
+        {
+          "id": "p1-return-home",
+          "personId": "akari",
+          "label": "帰ってきたら",
+          "lines": [
+            {
+              "speakerId": "akari",
+              "text": "怒る言葉は、いっぱい考えました。でも、今は……。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "まず、顔を見たいか？"
+            },
+            {
+              "speakerId": "akari",
+              "text": "はい。そうしたら、何を言うか分かる気がします。"
+            },
+            {
+              "speakerId": "mio",
+              "text": "その時のために、まず捜しましょう。"
+            }
+          ],
+          "requires": [
+            "F09"
+          ],
+          "grants": [
+            "optional-return-home"
+          ],
+          "required": false
+        }
+      ],
+      "inspect": [],
+      "think": [],
+      "exit": {
+        "label": "次へ",
+        "nextSceneId": "P1-06",
+        "requires": [
+          "F08",
+          "request_accepted",
+          "IT01",
+          "search-photo",
+          "F09",
+          "akari-contact"
+        ]
+      },
+      "ending": [
+        {
+          "speakerId": "narrator",
+          "text": "澪が扉まで見送った。階段へ消える靴音を、俺は席で聞いていた。"
+        }
+      ],
+      "organize": []
+    },
+    {
+      "id": "P1-06",
+      "part": 1,
+      "locationId": "office",
+      "roomId": "office",
+      "sceneTime": "2026-10-08T11:55:00",
+      "intro": [],
+      "people": [
+        "mio"
+      ],
+      "required": [
+        "p1-inspect-photo",
+        "p1-company-call",
+        "p1-mio-role"
+      ],
+      "ask": [],
+      "speak": [
+        {
+          "id": "p1-company-call",
+          "personId": "mio",
+          "label": "会社への連絡",
+          "lines": [
+            {
+              "speakerId": "minato",
+              "text": "東成ビルサービスへ、先に連絡を頼めるか？"
+            },
+            {
+              "speakerId": "mio",
+              "text": "はい。妹さんから依頼を受けたことと、勤務の確認をお願いしたいと伝えます。"
+            },
+            {
+              "speakerId": "narrator",
+              "text": "澪が電話をかけた。こちらの身分と目的を伝え、相手の返事を待つ。"
+            },
+            {
+              "speakerId": "mio",
+              "text": "受付で、調査の件とおっしゃってください。担当の方へ取り次いでくださるそうです。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "助かる。"
+            }
+          ],
+          "requires": [
+            "F10"
+          ],
+          "grants": [
+            "F11",
+            "mentioned-company-reception"
+          ],
+          "required": true
+        },
+        {
+          "id": "p1-mio-role",
+          "personId": "mio",
+          "label": "留守中の対応",
+          "lines": [
+            {
+              "speakerId": "minato",
+              "text": "俺は会社へ行く。ここは任せる。"
+            },
+            {
+              "speakerId": "mio",
+              "text": "あかりさんからのご連絡をお受けします。佐伯さんも、分かったことを知らせてください。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "ああ。帰ってから、記録をそろえよう。"
+            },
+            {
+              "speakerId": "mio",
+              "text": "古い出来事につながったら、以前の記録も確認しておきます。"
+            }
+          ],
+          "requires": [
+            "F11"
+          ],
+          "grants": [
+            "F12",
+            "part1_completed"
+          ],
+          "required": true
+        },
+        {
+          "id": "p1-client-mood",
+          "personId": "mio",
+          "label": "あかりの様子",
+          "lines": [
+            {
+              "speakerId": "mio",
+              "text": "お茶を持つ手が、最後には少しほどけていました。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "結果は、まだ何も出ていない。"
+            },
+            {
+              "speakerId": "mio",
+              "text": "はい。でも、お一人で全部説明しなくてよくなった。それだけでも、違うと思います。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "その先を、確かめてくる。"
+            }
+          ],
+          "requires": [
+            "F11"
+          ],
+          "grants": [
+            "optional-client-mood"
+          ],
+          "required": false
+        }
+      ],
+      "inspect": [
+        {
+          "id": "p1-inspect-photo",
+          "label": "机の写真",
+          "lines": [
+            {
+              "speakerId": "narrator",
+              "text": "写真の中の直人は、まっすぐこちらを見ている。あかりが知っている、いつもの兄の顔だ。"
+            },
+            {
+              "speakerId": "narrator",
+              "text": "写っていない事情まで、ここから読もうとしてはいけない。"
+            }
+          ],
+          "requires": [
+            "IT01"
+          ],
+          "grants": [
+            "F10"
+          ],
+          "required": true
+        }
+      ],
+      "think": [],
+      "exit": {
+        "label": "次へ",
+        "nextSceneId": "P2-01",
+        "requires": [
+          "F10",
+          "F11",
+          "mentioned-company-reception",
+          "F12",
+          "part1_completed"
+        ]
+      },
+      "ending": [
+        {
+          "speakerId": "narrator",
+          "text": "俺は写真を内ポケットへ入れた。澪は預かった連絡先を、電話の横に置く。"
+        },
+        {
+          "speakerId": "narrator",
+          "text": "会社へ行けば兄が見つかるとは限らない。それでも、最初に確かめる場所は決まった。"
+        }
+      ],
+      "organize": []
+    }
+  ],
+  "questionSets": [],
+  "itemEvents": [
+    {
+      "actionId": "p1-photo",
+      "itemId": "IT01",
+      "displayName": "高瀬直人の写真",
+      "presentation": "center-confirm"
+    }
+  ],
+  "illustrationSlots": [
+    {
+      "slot": "C1-IN",
+      "sceneId": "P1-01",
+      "phase": "before-intro",
+      "assetGroup": "CG01"
+    },
+    {
+      "slot": "C1-OUT",
+      "sceneId": "P1-06",
+      "phase": "after-ending",
+      "assetGroup": "CG02"
+    }
+  ],
+  "notes": [
+    "linesは表示本文だけ。作者指示は進行と組込仕様を参照。",
+    "line.grantsは行の表示後、action.grantsは完了後に付与。",
+    "phone/remoteOnlyは電話相手で現場人物ではない。",
+    "item-useはアイテム使用。通常話すへの重複表示は不要。",
+    "organizeは推理。正答保持、誤答ヒント、successLinesを使用。",
+    "同室は次へ、部屋名、外に出る、外↔マップは組込側が接続。"
+  ]
+}
