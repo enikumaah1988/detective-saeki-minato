@@ -23,7 +23,7 @@ export type Choice = { id: string; label: string; labelWhen?: { condition: Condi
 export type ScenarioNode =
   | { type: 'dialogue'; stage: Stage; speakerId: string; speakerName?: string; speakerNameCondition?: Condition; text: string; next: string; acquisition?: { itemId: string; title: string; imageSrc: string }; updates?: StateUpdate[] }
   | { type: 'choice'; mode?: 'free-action'; keepQuestions?: boolean; map?: { current: string; back: string }; implementedCommands?: readonly string[]; empty?: { label: string; next: string }; stage: Stage; prompt: string; options: Choice[] }
-  | { type: 'topic' | 'inspect'; selection?: 'person'; heading?: string; headingWhen?: { condition: Condition; heading: string }; parent: { commandId: 'talk' | 'speak' | 'look'; nodeId: string }; stage: Stage; prompt: string; options: Choice[] }
+  | { type: 'topic' | 'inspect'; selection?: 'person'; heading?: string; headingWhen?: { condition: Condition; heading: string }; parent: { commandId: 'talk' | 'speak' | 'look' | 'investigate'; nodeId: string }; stage: Stage; prompt: string; options: Choice[] }
   | { type: 'end'; stage: Stage; text: string }
   | {
     type: 'think'
@@ -61,5 +61,5 @@ export type Scenario = {
   scenes?: Record<string, Scene>
   records?: readonly InvestigationEntry[]
   smokingHints?: { rules: SmokingHint[]; fallback: string }
-  nodes: Record<string, ScenarioNode & { sceneId?: string; autoAdvance?: boolean; entryUpdates?: StateUpdate[]; illustration?: { id: string; imageSrc?: string; alt: string; heading: string } }>
+  nodes: Record<string, ScenarioNode & { sceneId?: string; autoAdvance?: boolean; entryUpdates?: StateUpdate[]; illustration?: { id: string; imageSrc?: string; alt: string; heading: string; subtitle?: string; provisional?: boolean } }>
 }

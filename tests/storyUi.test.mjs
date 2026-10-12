@@ -27,7 +27,7 @@ const render = (state) => renderToStaticMarkup(createElement(StoryContent, {
 
 test('通常会話には話者・本文・次へがあり、自由行動コマンドはない', () => {
   const html = render(createInitialState(scenario))
-  assert.match(html, /佐伯湊/)
+  assert.match(html, /佐伯　湊/)
   assert.match(html, /次へ/)
   assert.doesNotMatch(html, /聞く|見る／調べる|考える/)
   const actions = []
@@ -70,7 +70,7 @@ test('考えるは話者見出し・下線なしの本文だけで表示し、�
   assert.match(html, /まだ材料が足りない/)
   assert.doesNotMatch(html, /class="speaker"|心の声/)
   assert.doesNotMatch(html, /command-list|item-list/)
-  assert.match(render(createInitialState(scenario)), /class="speaker">佐伯湊/)
+  assert.match(render(createInitialState(scenario)), /class="speaker">佐伯　湊/)
 })
 
 test('保存操作は閉じたメニュー内にまとまり、画面は上下の構造を持つ', () => {

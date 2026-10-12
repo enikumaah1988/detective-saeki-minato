@@ -1,3 +1,4 @@
+import { formatNames } from '../../data/displayNames'
 import type { GameState } from '../../types/gameState'
 import type { InvestigationEntry, InvestigationRecord, RecordSource } from '../../types/investigation'
 import { basicBelongings, recordsByScenario } from '../../data/investigation'
@@ -24,7 +25,7 @@ export function selectInvestigationRecords(state: GameState, definitions: readon
     seen.add(entry.id)
     return true
   }).map(({ source: _source, alternativeSources: _alternatives, facts, portraitSource, titleUpdates, ...entry }) => ({
-    ...entry, title: titleUpdates?.filter(update => hasSource(state, update.source)).at(-1)?.title ?? entry.title,
+    ...entry, title: formatNames(titleUpdates?.filter(update => hasSource(state, update.source)).at(-1)?.title ?? entry.title),
     imageSrc: portraitSource && !hasSource(state, portraitSource) ? undefined : entry.imageSrc,
     faceKnown: portraitSource ? hasSource(state, portraitSource) : Boolean(entry.imageSrc),
     details: [entry.description, ...(facts ?? []).filter(fact => hasSource(state, fact.source)).map(fact => fact.text)],

@@ -28,7 +28,7 @@ test('画像定義とフォールバックを表示 UI へ反映する', async (
     assert.match(unknown, /未登録の人物/)
     assert.doesNotMatch(unknown, /<img/)
     const unknownExpression = render({ backgroundId: 'office-afternoon', characterId: 'minato', expression: 'unknown' })
-    assert.match(unknownExpression, /佐伯湊/)
+    assert.match(unknownExpression, /佐伯　湊/)
     assert.match(unknownExpression, /character-silhouette/)
     assert.doesNotMatch(unknownExpression, /character-image/)
   } finally {

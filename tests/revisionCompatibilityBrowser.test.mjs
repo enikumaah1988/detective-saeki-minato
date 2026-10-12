@@ -15,7 +15,7 @@ for(const [width,height] of [[1920,1080],[1366,768]]) test(`改訂版 旧ビル�
   const old={version:2,scenarioId:'gray-testimony-ver001-part1',nodeId:'departure',flags:{request_accepted:true},heardTopics:['morning-contact-work'],inspectedTargets:[],acquiredInformation:['I01','search-photo']}
   await load(old)
   assert.equal(await page.locator('.story').getAttribute('data-node-id'),'P1-06-menu')
-  assert.equal(await page.getByRole('button',{name:'調べる',exact:true}).count(),1)
+  assert.equal(await page.getByRole('button',{name:'見る',exact:true}).count(),1)
   assert.equal(await page.locator('.save-controls[open]').count(),0)
   await menu.click();await page.getByRole('button',{name:'メッセージスピード：ゆっくり',exact:true}).click();await menu.click()
   await page.reload();await menu.click();assert.equal(await page.getByLabel('メッセージスピード',{exact:true}).inputValue(),'0');await menu.click()

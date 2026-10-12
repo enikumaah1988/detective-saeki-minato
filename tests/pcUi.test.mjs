@@ -10,7 +10,7 @@ test('PC会話の文字送り・全文表示・進行・中断とコマンドの
     const { DialogueWindow } = await server.ssrLoadModule('/src/features/story/DialogueWindow.tsx')
     const { CommandButton, COMMAND_HIGHLIGHT_MS } = await server.ssrLoadModule('/src/features/story/CommandButton.tsx')
     let advances = 0
-    const props = { text: '湊😀', speaker: '佐伯湊', thinking: false, onAdvance: () => advances++ }
+    const props = { text: '湊😀', speaker: '佐伯　湊', thinking: false, onAdvance: () => advances++ }
     const window = new DialogueWindow(props)
     window.setState = (update, callback) => { window.state = { ...window.state, ...(typeof update === 'function' ? update(window.state) : update) }; callback?.() }
     const interval = globalThis.setInterval

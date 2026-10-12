@@ -41,7 +41,7 @@ test('移動後イベントは到着状態で条件評価し、一度だけ実�
 })
 test('話題登場→対面→名前・新情報の人物記録を、その時点のセーブから復元する', () => {
   const source = (...ids) => ({ type: 'information', ids })
-  const definitions = [{ id: 'person', category: 'people', title: '管理人', source: source('mentioned'), portraitSource: source('met'), imageSrc: 'portrait.png', description: '建物の管理人。', titleUpdates: [{ source: source('named'), title: '宮原文雄' }], facts: [{ source: source('testimony'), text: '動作を見ていた。' }] }]
+  const definitions = [{ id: 'person', category: 'people', title: '管理人', source: source('mentioned'), portraitSource: source('met'), imageSrc: 'portrait.png', description: '建物の管理人。', titleUpdates: [{ source: source('named'), title: '宮原　文雄' }], facts: [{ source: source('testimony'), text: '動作を見ていた。' }] }]
   const base = { scenarioId: 'record-test', nodeId: 'node', flags: {}, heardTopics: [], inspectedTargets: [], acquiredInformation: [] }
   assert.equal(selectInvestigationRecords(base, definitions).some(record => record.id === 'person'), false)
   const mentioned = { ...base, acquiredInformation: ['mentioned'] }

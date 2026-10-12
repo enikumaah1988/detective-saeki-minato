@@ -27,7 +27,7 @@ for (const [width, height] of [[1920, 1080], [1366, 768]]) test(`改稿4部完�
       }
       if (operation.before === 'P1-06-menu' && !shots.has('record')) {
         shots.add('record'); await page.getByRole('button', { name: '調査記録', exact: true }).click()
-        await page.getByRole('button', { name: '高瀬直人', exact: true }).click()
+        await page.getByRole('button', { name: '高瀬　直人', exact: true }).click()
         assert.match(await page.locator('.record-detail').textContent(), /UNKNOWN/)
         await page.getByRole('button', { name: '調査記録を閉じる', exact: true }).click()
       }

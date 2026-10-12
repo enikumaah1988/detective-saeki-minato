@@ -19,6 +19,7 @@ export const FREE_ACTION_COMMANDS = [
   { id: 'talk', label: '聞く', implemented: true },
   { id: 'speak', label: '話す', implemented: true },
   { id: 'look', label: '調べる', implemented: true },
+  { id: 'investigate', label: '調べる', implemented: false },
   { id: 'think', label: '考える', implemented: true },
   { id: 'organize', label: '整理する', implemented: false },
   { id: 'move', label: '移動', implemented: false },
@@ -41,10 +42,13 @@ export function visibleChoices(node: ScenarioNode, state: GameState) {
   if (node.type === 'choice' && !node.keepQuestions && selectable.some(option => option.id === 'think')) {
     return selectable.filter(option => option.id === 'think').map(option => ({ ...option, label: '考える' }))
   }
-  return FREE_ACTION_COMMANDS.flatMap((command) => {
+  const order = ['look', 'speak', 'investigate', 'talk', 'think', 'organize', 'move', 'proceed']
+  const currentRevision = node.type === 'choice' && node.implementedCommands?.includes('investigate')
+  const commands = currentRevision ? [...FREE_ACTION_COMMANDS].sort((a,b) => order.indexOf(a.id)-order.indexOf(b.id)) : FREE_ACTION_COMMANDS
+  return commands.flatMap((command) => {
     if (!(node.type === 'choice' && node.implementedCommands ? node.implementedCommands.includes(command.id) : command.implemented)) return []
     const option = selectable.find((candidate) => candidate.id === command.id)
-    return option ? [{ ...option, label: command.label }] : []
+    return option ? [{ ...option, label: currentRevision ? option.label : command.label }] : []
   })
 }
 

@@ -8,8 +8,9 @@ export async function loadRevision() {
     const free = await server.ssrLoadModule('/src/features/story/freeAction.ts')
     const saves = await server.ssrLoadModule('/src/features/story/saveData.ts')
     const records = await server.ssrLoadModule('/src/features/story/investigation.ts')
+    const commands = await server.ssrLoadModule('/src/data/scenario/revisionCommands.ts')
     const dates = await server.ssrLoadModule('/src/features/story/dateTime.ts')
-    return { scenario, revisionData, ...state, ...free, ...saves, ...records, ...dates }
+    return { scenario, revisionData, ...state, ...free, ...saves, ...records, ...dates, ...commands }
   } finally { await server.close() }
 }
 export function buildPlaythrough(api, requiredOnly = false) {
@@ -33,14 +34,14 @@ export function buildPlaythrough(api, requiredOnly = false) {
       let count = 0
       for (const [command, actions] of [['talk', phase.ask], ['speak', phase.speak], ['look', phase.inspect], ['think', phase.think], ['organize', phase.organize ?? []]]) for (const action of actions) {
         if (action.triggerMode || executed.has(action.id) || requiredOnly && !action.required || !matchesCondition(state, { type: 'hasAllInformation', ids: action.requires })) continue
-        const actualCommand = action.interaction === 'organize' ? 'organize' : command
+        const actualCommand = action.interaction === 'organize' ? 'organize' : ['talk','speak','look'].includes(command) ? api.revisionCommand(({talk:'ask',speak:'speak',look:'inspect'})[command],action.id) : command
         choose(actualCommand)
         if (actualCommand === 'talk' || actualCommand === 'speak') {
           const person = visibleChoices(scenario.nodes[state.nodeId], state).find(option => scenario.nodes[option.next]?.options?.some(option => option.id === action.id))
           if (!person) throw new Error(`相手未解放 ${action.id}`)
           choose(person.id)
         }
-        if (['talk', 'speak', 'look'].includes(actualCommand)) choose(action.id)
+        if (['talk', 'speak', 'look', 'investigate'].includes(actualCommand)) choose(action.id)
         read()
         while (state.nodeId !== `${phase.id}-menu` && selectCurrentNode(scenario, state).type === 'choice') {
           const correct = scenario.nodes[state.nodeId].options.find(option => option.updates?.some(update => update.type === 'setFlag'))

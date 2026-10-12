@@ -27,7 +27,7 @@ export function SaveControls({ state, scenario, onRestore, onMenuToggle, interva
   onSaved?: () => void
 }) {
   const details = useRef<HTMLDetailsElement>(null)
-  const [loaded, setLoaded] = useState(false)
+  const [loaded, setLoaded] = useState<GameState>()
   const [audio, setAudio] = useState(loadAudioSettings)
   const changeVolume = (kind: 'bgm' | 'se', point: number) => {
     const next = { ...audio, [kind]: point * 10 }; setAudio(next); saveAudioSettings(next)
@@ -41,8 +41,7 @@ export function SaveControls({ state, scenario, onRestore, onMenuToggle, interva
   const load = () => {
     const result = loadGame([scenario])
     if (result.ok) {
-      onRestore(result.state)
-      setLoaded(true)
+      setLoaded(result.state)
     } else {
       setMessage(loadMessages[result.reason])
     }
@@ -68,10 +67,12 @@ export function SaveControls({ state, scenario, onRestore, onMenuToggle, interva
       <p role="status">{message}</p>
       </div>
       {loaded && <SystemDialog title="ロードしました" dismissible={false} onClose={() => {
-        setLoaded(false)
+        const restored = loaded
+        setLoaded(undefined)
         details.current!.open = false
         onMenuToggle?.(false)
         setMessage('セーブは1件です。セーブすると上書きされます。')
+        onRestore(restored)
       }} />}
     </details>
   )

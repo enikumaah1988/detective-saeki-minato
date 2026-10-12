@@ -136,7 +136,7 @@ for (const [width, height] of [[1920, 1080], [1366, 768]]) {
       await hearMissing()
       // 会話の途中で開いても、未取得の失踪情報を記録へ先取りしない。
       await open.click(); await modal.waitFor()
-      await modal.getByRole('button', { name: '相澤澪', exact: true }).click()
+      await modal.getByRole('button', { name: '相澤　澪', exact: true }).click()
       assert.match(await modal.locator('.record-detail').textContent(), /几帳面/)
       assert.doesNotMatch(await modal.locator('.record-detail').textContent(), /三日前/)
       assert.equal(await dialogue.isVisible(), false)
@@ -148,8 +148,8 @@ for (const [width, height] of [[1920, 1080], [1366, 768]]) {
       await page.locator('.free-action-panel').waitFor()
       const checkMissingRecord = async () => {
         await open.click(); await modal.waitFor()
-        assert.equal(await modal.getByRole('button', { name: '相澤澪', exact: true }).count(), 1)
-        await modal.getByRole('button', { name: '相澤澪', exact: true }).click()
+        assert.equal(await modal.getByRole('button', { name: '相澤　澪', exact: true }).count(), 1)
+        await modal.getByRole('button', { name: '相澤　澪', exact: true }).click()
         assert.match(await modal.locator('.record-detail').textContent(), /三日前/)
         assert.doesNotMatch(await modal.locator('.record-detail').textContent(), /事故|緊張/)
         await modal.getByRole('tab', { name: '出来事', exact: true }).click()

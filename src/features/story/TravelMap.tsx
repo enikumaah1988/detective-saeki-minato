@@ -34,16 +34,16 @@ export function TravelMap({ options, current, onBack, onMove }: { options: Choic
         </svg>
         {places.filter(place => place.id === current || options.some(option => option.id === place.id)).map(place => <button key={place.id} type="button"
           className={`travel-pin${place.id === current ? ' current' : ''}`} style={{ left: `${place.x}%`, top: `${place.y}%` }}
-          disabled={moving || place.id === current} aria-pressed={selected === place.id} aria-label={`${place.name}${place.id === current ? '（現在地）' : 'を選択'}`}
+          disabled={moving} aria-pressed={selected === place.id} aria-label={`${place.name}${place.id === current ? '（現在地）' : 'を選択'}`}
           onClick={() => setSelected(place.id)}><span aria-hidden="true">●</span>{place.name}{place.id === current && <small>現在地</small>}</button>)}
       </nav>
       <aside aria-label="選択した場所">{place ? <>
         <h2>{place.name}</h2><img src={resolveBackground(place.background).imageSrc} alt={place.name} /><p>{place.description}</p>
-        <button type="button" disabled={moving} onClick={() => {
-          if (moving) return
+        <button type="button" disabled={moving || selected === current} onClick={() => {
+          if (moving || selected === current) return
           setMoving(true)
           timer.current = setTimeout(() => onMove(place.id), 300)
-        }}>ここへ移動 ›</button>
+        }}>{selected === current ? '現在地' : 'ここへ移動 ›'}</button>
       </> : <><h2>行き先を選択</h2><p>地図のピンを選ぶと、場所の情報が表示されます。</p></>}</aside>
     </div>
     <footer>現在地：{places.find(place => place.id === current)?.name}<span>調査エリア案内図</span></footer>

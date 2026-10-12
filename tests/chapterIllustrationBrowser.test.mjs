@@ -9,7 +9,7 @@ for(const [width,height] of [[1920,1080],[1366,768]])test(`部の挿絵・読了
  try{
   await page.addInitScript(()=>localStorage.setItem('detective-saeki-minato.speed','0'))
   await page.goto(baseUrl)
-  const nodes=Object.entries(api.scenario.nodes).filter(([,node])=>node.illustration?.imageSrc)
+  const nodes=Object.entries(api.scenario.nodes).filter(([,node])=>node.illustration)
   assert.equal(nodes.length,8)
   for(const [nodeId,node]of nodes){
    const phaseId=node.sceneId.replace(/-boundary$/,'')
@@ -17,10 +17,12 @@ for(const [width,height] of [[1920,1080],[1366,768]])test(`部の挿絵・読了
    await page.evaluate(value=>localStorage.setItem('detective-saeki-minato.save.v1',JSON.stringify(value)),api.createSaveData(state))
    await page.getByLabel('メニュー',{exact:true}).click();await page.getByRole('button',{name:'ロード',exact:true}).click()
    await page.getByRole('dialog',{name:'ロードしました',exact:true}).getByRole('button',{name:'OK',exact:true}).click()
-   await page.waitForFunction(()=>{const image=document.querySelector('.chapter-illustration');return image?.complete&&image.naturalWidth>0})
+   await page.locator('.chapter-title-card').waitFor()
+   assert.equal(await page.locator('.chapter-illustration').count(),0)
+   assert.match(await page.locator('.chapter-title-card').textContent(),/探偵 佐伯　湊.*灰色の証言/s)
    assert.equal(await page.locator('.character').count(),0)
    assert.equal(await page.locator('[data-illustration-id]').getAttribute('data-illustration-id'),node.illustration.id)
-   const rect=await page.locator('.chapter-illustration').boundingBox();assert.ok(Math.abs(rect.width-width)<1);assert.ok(Math.abs(rect.height-height)<1)
+   const rect=await page.locator('.chapter-title-card').boundingBox();assert.ok(Math.abs(rect.width-width)<1);assert.ok(Math.abs(rect.height-height)<1)
    if(process.env.SAEKI_SCREENSHOT_DIR)await page.screenshot({path:`${process.env.SAEKI_SCREENSHOT_DIR}/chapter-${node.illustration.id}-${width}.png`})
    await page.locator('.dialogue-button').click()
    assert.notEqual(await page.locator('.story').getAttribute('data-node-id'),nodeId)

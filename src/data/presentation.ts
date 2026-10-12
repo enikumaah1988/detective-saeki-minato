@@ -2,6 +2,7 @@ import type { BackgroundDefinition, CharacterDefinition, ExpressionDefinition } 
 
 // 検証用画像。本番画像へ差し替える際もシナリオの ID は変更しない。
 export const backgrounds: Record<string, BackgroundDefinition> = {
+  prologue: { id: 'prologue', name: '西新宿' },
   'building-room': { id: 'building-room', name: '成子坂共同ビル・管理人室', imageSrc: new URL('../assets/backgrounds/building-room.png', import.meta.url).href },
   'building-room-evening': { id: 'building-room-evening', name: '成子坂共同ビル・管理人室', imageSrc: new URL('../assets/backgrounds/building-room-evening.png', import.meta.url).href },
   'office-evening': { id: 'office-evening', name: '佐伯探偵事務所', imageSrc: new URL('../assets/backgrounds/office-evening.png', import.meta.url).href },
@@ -24,14 +25,14 @@ export const backgrounds: Record<string, BackgroundDefinition> = {
 
 export const characters: Record<string, CharacterDefinition> = {
   narrator: { id: 'narrator', name: '', expressions: {} },
-  kuroda: { id: 'kuroda', name: '黒田征司', expressions: { normal: { id: 'normal', name: '通常' } } },
-  miyahara: { id: 'miyahara', name: '宮原文雄', expressions: { normal: { id: 'normal', name: '通常' } } },
-  misaki: { id: 'misaki', name: '三崎健', expressions: {} },
-  'company-staff': { id: 'company-staff', name: '受付の人', expressions: {} },
-  'company-reception': { id: 'company-reception', name: '受付の人', expressions: {} },
-  'police-reception': { id: 'police-reception', name: '受付の人', expressions: {} },
-  'police-staff': { id: 'police-staff', name: '受付の人', expressions: {} },
-  minato: { id: 'minato', name: '佐伯湊', expressions: {
+  kuroda: { id: 'kuroda', name: '黒田　征司', expressions: { normal: { id: 'normal', name: '通常' } } },
+  miyahara: { id: 'miyahara', name: '宮原　文雄', expressions: { normal: { id: 'normal', name: '通常' } } },
+  misaki: { id: 'misaki', name: '三崎　健', expressions: {} },
+  'company-staff': { id: 'company-staff', name: '受付の女性', expressions: {} },
+  'company-reception': { id: 'company-reception', name: '受付の女性', expressions: {} },
+  'police-reception': { id: 'police-reception', name: '受付の女性', expressions: {} },
+  'police-staff': { id: 'police-staff', name: '受付の女性', expressions: {} },
+  minato: { id: 'minato', name: '佐伯　湊', expressions: {
     irritated: { id: 'irritated', name: 'irritated', imageSrc: new URL('../assets/images/characters/minato/waist/irritated.png', import.meta.url).href },
     neutral: { id: 'neutral', name: '通常', imageSrc: new URL('../assets/images/characters/minato/waist/neutral.png', import.meta.url).href },
     pained: { id: 'pained', name: '沈痛', imageSrc: new URL('../assets/images/characters/minato/waist/pained.png', import.meta.url).href },
@@ -41,7 +42,7 @@ export const characters: Record<string, CharacterDefinition> = {
     surprised: { id: 'surprised', name: '驚き', imageSrc: new URL('../assets/images/characters/minato/waist/surprised.png', import.meta.url).href },
     normal: { id: 'normal', name: '通常', imageSrc: new URL('../assets/images/characters/minato/waist/neutral.png', import.meta.url).href }
   } },
-  mio: { id: 'mio', name: '相澤澪', expressions: {
+  mio: { id: 'mio', name: '相澤　澪', expressions: {
     amused: { id: 'amused', name: 'amused', imageSrc: new URL('../assets/images/characters/mio/waist/amused.png', import.meta.url).href },
     neutral: { id: 'neutral', name: '通常', imageSrc: new URL('../assets/images/characters/mio/waist/neutral.png', import.meta.url).href },
     pained: { id: 'pained', name: '沈痛', imageSrc: new URL('../assets/images/characters/mio/waist/pained.png', import.meta.url).href },
@@ -52,7 +53,7 @@ export const characters: Record<string, CharacterDefinition> = {
     worried: { id: 'worried', name: '不安', imageSrc: new URL('../assets/images/characters/mio/waist/worried.png', import.meta.url).href },
     normal: { id: 'normal', name: '通常', imageSrc: new URL('../assets/images/characters/mio/waist/neutral.png', import.meta.url).href }
   } },
-  narumi: { id: 'narumi', name: '鳴海ユウ', expressions: {
+  narumi: { id: 'narumi', name: '鳴海　ユウ', expressions: {
     amused: { id: 'amused', name: 'amused', imageSrc: new URL('../assets/images/characters/narumi/waist/amused.png', import.meta.url).href },
     cool: { id: 'cool', name: 'cool', imageSrc: new URL('../assets/images/characters/narumi/waist/cool.png', import.meta.url).href },
     neutral: { id: 'neutral', name: '通常', imageSrc: new URL('../assets/images/characters/narumi/waist/neutral.png', import.meta.url).href },
@@ -63,7 +64,7 @@ export const characters: Record<string, CharacterDefinition> = {
     wary: { id: 'wary', name: 'wary', imageSrc: new URL('../assets/images/characters/narumi/waist/wary.png', import.meta.url).href },
     normal: { id: 'normal', name: '通常', imageSrc: new URL('../assets/images/characters/narumi/waist/neutral.png', import.meta.url).href }
   } },
-  okumura: { id: 'okumura', name: '奥村修一', expressions: {
+  okumura: { id: 'okumura', name: '奥村　修一', expressions: {
     neutral: { id: 'neutral', name: '通常', imageSrc: new URL('../assets/images/characters/okumura/waist/neutral.png', import.meta.url).href },
     pained: { id: 'pained', name: '沈痛', imageSrc: new URL('../assets/images/characters/okumura/waist/pained.png', import.meta.url).href },
     relieved: { id: 'relieved', name: '安堵', imageSrc: new URL('../assets/images/characters/okumura/waist/relieved.png', import.meta.url).href },
@@ -73,7 +74,7 @@ export const characters: Record<string, CharacterDefinition> = {
     surprised: { id: 'surprised', name: '驚き', imageSrc: new URL('../assets/images/characters/okumura/waist/surprised.png', import.meta.url).href },
     normal: { id: 'normal', name: '通常', imageSrc: new URL('../assets/images/characters/okumura/waist/neutral.png', import.meta.url).href }
   } },
-  segawa: { id: 'segawa', name: '瀬川亮介', expressions: {
+  segawa: { id: 'segawa', name: '瀬川　亮介', expressions: {
     irritated: { id: 'irritated', name: 'irritated', imageSrc: new URL('../assets/images/characters/segawa/waist/irritated.png', import.meta.url).href },
     neutral: { id: 'neutral', name: '通常', imageSrc: new URL('../assets/images/characters/segawa/waist/neutral.png', import.meta.url).href },
     relieved: { id: 'relieved', name: '安堵', imageSrc: new URL('../assets/images/characters/segawa/waist/relieved.png', import.meta.url).href },
@@ -84,7 +85,7 @@ export const characters: Record<string, CharacterDefinition> = {
     surprised: { id: 'surprised', name: '驚き', imageSrc: new URL('../assets/images/characters/segawa/waist/surprised.png', import.meta.url).href },
     normal: { id: 'normal', name: '通常', imageSrc: new URL('../assets/images/characters/segawa/waist/neutral.png', import.meta.url).href }
   } },
-  naoto: { id: 'naoto', name: '高瀬直人', expressions: {
+  naoto: { id: 'naoto', name: '高瀬　直人', expressions: {
     neutral: { id: 'neutral', name: '通常', imageSrc: new URL('../assets/images/characters/naoto/waist/neutral.png', import.meta.url).href },
     pained: { id: 'pained', name: '沈痛', imageSrc: new URL('../assets/images/characters/naoto/waist/pained.png', import.meta.url).href },
     relieved: { id: 'relieved', name: '安堵', imageSrc: new URL('../assets/images/characters/naoto/waist/relieved.png', import.meta.url).href },
@@ -95,7 +96,7 @@ export const characters: Record<string, CharacterDefinition> = {
     worried: { id: 'worried', name: '不安', imageSrc: new URL('../assets/images/characters/naoto/waist/worried.png', import.meta.url).href },
     normal: { id: 'normal', name: '通常', imageSrc: new URL('../assets/images/characters/naoto/waist/neutral.png', import.meta.url).href }
   } },
-  saori: { id: 'saori', name: '三原沙織', expressions: {
+  saori: { id: 'saori', name: '三原　沙織', expressions: {
     confused: { id: 'confused', name: '困惑', imageSrc: new URL('../assets/images/characters/saori/waist/confused.png', import.meta.url).href },
     neutral: { id: 'neutral', name: '通常', imageSrc: new URL('../assets/images/characters/saori/waist/neutral.png', import.meta.url).href },
     pained: { id: 'pained', name: '沈痛', imageSrc: new URL('../assets/images/characters/saori/waist/pained.png', import.meta.url).href },
@@ -106,7 +107,7 @@ export const characters: Record<string, CharacterDefinition> = {
     worried: { id: 'worried', name: '不安', imageSrc: new URL('../assets/images/characters/saori/waist/worried.png', import.meta.url).href },
     normal: { id: 'normal', name: '通常', imageSrc: new URL('../assets/images/characters/saori/waist/neutral.png', import.meta.url).href }
   } },
-  akari: { id: 'akari', name: '高瀬あかり', expressions: {
+  akari: { id: 'akari', name: '高瀬　あかり', expressions: {
     determined: { id: 'determined', name: '決意', imageSrc: new URL('../assets/images/characters/akari/waist/determined.png', import.meta.url).href },
     neutral: { id: 'neutral', name: '通常', imageSrc: new URL('../assets/images/characters/akari/waist/neutral.png', import.meta.url).href },
     relieved: { id: 'relieved', name: '安堵', imageSrc: new URL('../assets/images/characters/akari/waist/relieved.png', import.meta.url).href },

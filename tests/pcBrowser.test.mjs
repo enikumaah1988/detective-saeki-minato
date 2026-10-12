@@ -102,8 +102,9 @@ for (const [width, height] of [[1920, 1080], [1366, 768]]) {
           assert.equal(saved.version, 2); assert.equal(saved.nodeId, 'office-daily'); assert.equal(saved.flags.paged_done, undefined)
           // 同じノードをロードしても先頭ページ・文字送り先頭から再開する。
           await page.getByRole('button', { name: 'ロード', exact: true }).click()
-          assert.equal(await dialogue.getAttribute('data-page'), '1'); assert.equal(await visible(), '')
+          assert.equal(await dialogue.getAttribute('data-page'), currentPage); assert.equal(await visible(), currentText)
           await page.getByRole('dialog', { name: 'ロードしました', exact: true }).getByRole('button', { name: 'OK', exact: true }).click()
+          assert.equal(await dialogue.getAttribute('data-page'), '1'); assert.ok(longText.startsWith(await visible()))
           // テストの読了ループを再開するため、先頭2ページを読み直す。
           for (let p = 0; p <= index; p++) {
             await dialogue.click(); await dialogue.locator('.next').waitFor()

@@ -158,7 +158,7 @@
     "C4-IN",
     "C4-OUT"
   ],
-  "illustrationStatus": "7/7図柄・8/8接続箇所を候補接続。全箇所接続済み・正式採用は確認待ち。",
+  "illustrationStatus": "2026-10-13：旧場面挿絵7候補は保管のみ。現行8箇所は共通仮扉絵へ変更。完成キービジュアルはイメージ整理待ち",
   "promptSource": "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/docs/art/",
   "characterDisplaySource": "outputs/人物表示基準_デザイン側引継ぎ.md",
   "illustrations": [
@@ -248,5 +248,6 @@
     "illustrations": "220bbc32788e2e074da11d5aee9fbd0a3ee8ecf8",
     "backgroundBatch3": "1c8485f",
     "backgroundBatch2": "d919cda"
-  }
+  },
+  "currentChapterPresentation": "作品タイトル・話名・部名の仮扉絵。旧PNGは実行時参照しない"
 }

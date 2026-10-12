@@ -80,6 +80,7 @@ export function StoryPlayer({ scenario, preview, smokingAllowed, suspended = fal
   const recordsButton = useRef<HTMLButtonElement>(null)
   const smokingButton = useRef<HTMLButtonElement>(null)
   const dialogueRef = useRef<DialogueWindow>(null)
+  const smokingDialogueRef = useRef<DialogueWindow>(null)
   const [restoreRevision, setRestoreRevision] = useState(0)
   const acquisition = node.type === 'dialogue' ? node.acquisition : undefined
   const illustration = scenario.nodes[gameState.nodeId].illustration
@@ -87,7 +88,8 @@ export function StoryPlayer({ scenario, preview, smokingAllowed, suspended = fal
   useEffect(() => {
     const handleEnter = (event: KeyboardEvent) => {
       if (event.key !== 'Enter' || event.repeat || event.altKey || event.ctrlKey || event.metaKey
-        || menuOpen || recordsOpen || smoking || acquisition || node.type !== 'dialogue') return
+        || recordsOpen || acquisition || !smoking && (menuOpen || node.type !== 'dialogue')) return
+      if (smoking) { event.preventDefault(); smokingDialogueRef.current?.activate(); return }
       const target = event.target
       if (target instanceof HTMLElement) {
         if (target.closest('input, textarea, select, [contenteditable="true"], summary, a, [role="button"], [role="dialog"], button:not(.dialogue-button)')) return
@@ -136,19 +138,19 @@ export function StoryPlayer({ scenario, preview, smokingAllowed, suspended = fal
           {illustration?.imageSrc
             ? <AssetImage key={illustration.imageSrc} src={illustration.imageSrc} alt={illustration.alt} className="chapter-illustration" fallback={<StageView stage={{ backgroundId: node.stage.backgroundId, characters: [] }} />} />
             : <StageView stage={illustration ? { backgroundId: node.stage.backgroundId, characters: [] } : node.stage} />}
-          {illustration && <div className="chapter-heading" data-illustration-id={illustration.id}>{illustration.heading}</div>}
+          {illustration && <div className={`chapter-heading${illustration.provisional ? ' chapter-title-card' : ''}`} data-illustration-id={illustration.id}><strong>{illustration.heading}</strong>{illustration.subtitle && <p>{illustration.subtitle}</p>}{illustration.provisional && <small>仮の扉絵</small>}</div>}
         </div>
       </div>
       <div className="story-content" inert={menuOpen || Boolean(acquisition)}>
       <StoryContent key={`${gameState.nodeId}:${restoreRevision}`} interval={interval} paused={menuOpen || Boolean(acquisition)} node={node} state={gameState} thinking={scenario.nodes[gameState.nodeId].type === 'think'} dispatch={dispatch} dialogueRef={dialogueRef} />
       </div>
-      {smoking && <div className="smoking-overlay" role="dialog" aria-label="喫煙ヒント" aria-modal="true">
+      {smoking && <div className="smoking-overlay" onClick={event => { if (!(event.target instanceof Element) || !event.target.closest('.dialogue-button')) smokingDialogueRef.current?.activate() }} role="dialog" aria-label="喫煙ヒント" aria-modal="true">
         {smoking.imageFailed
           ? <div className="smoking-cut-in-fallback" aria-hidden="true" />
           : <img className="smoking-cut-in" data-variant={smoking.allowed ? 'smoking' : 'non-smoking'}
               src={smoking.allowed ? smokingCutIn : nonSmokingCutIn} alt=""
               onError={() => setSmoking(current => current ? { ...current, imageFailed: true } : current)} />}
-        <DialogueWindow key={`${smoking.allowed}:${smoking.phase}`} autoFocus thinking={false} interval={interval} speaker=""
+        <DialogueWindow ref={smokingDialogueRef} key={`${smoking.allowed}:${smoking.phase}`} autoFocus thinking={false} interval={interval} speaker=""
           text={smoking.phase === 'gesture'
             ? smoking.allowed ? '佐伯は電子タバコを手に取り、ひと息ついた。' : '佐伯は口元に手をやり、ここでは吸えないと思い直した。'
             : smoking.hint}

@@ -26,7 +26,7 @@ export function StoryContent({ node, state, thinking, dispatch, paused, dialogue
       thinking={thinking} interval={interval} paused={paused} onAdvance={() => dispatch({ type: 'advance' })} />
   }
   if ('options' in node) {
-    const icons: Record<string, IconName> = { talk: 'talk', speak: 'talk', look: 'look', think: 'think' }
+    const icons: Record<string, IconName> = { talk: 'talk', speak: 'talk', look: 'look', investigate: 'look', think: 'think' }
     const freeAction = isFreeAction(node)
     const options = visibleChoices(node, state)
     if (options.length === 0) {

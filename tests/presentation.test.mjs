@@ -5,8 +5,8 @@ import { resolveBackground, resolveCharacter, resolveExpression, resolveSpeakerN
 import { demoScenario } from '../src/data/scenario/demo.ts'
 
 test('登録済み話者・背景・人物・表情を解決する', () => {
-  assert.equal(resolveSpeakerName('minato'), '佐伯湊')
-  assert.equal(resolveSpeakerName('mio'), '相澤澪')
+  assert.equal(resolveSpeakerName('minato'), '佐伯　湊')
+  assert.equal(resolveSpeakerName('mio'), '相澤　澪')
   assert.equal(resolveBackground('office-afternoon').name, '佐伯探偵事務所')
   assert.equal(resolveCharacter('minato').id, 'minato')
   assert.equal(resolveExpression('minato', 'serious').name, '真剣')

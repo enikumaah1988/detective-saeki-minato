@@ -26,7 +26,7 @@ export function OutdoorMapMock({ current, onBack, onMove }: { current: OutdoorPl
       <nav className="map-canvas" aria-label="地図の移動先">
         <AssetImage src={mapImage} alt="" className="map-background" fallback={<div className="map-background map-image-fallback" />} />
         {locations.map(item => <button key={item.id} type="button" className={`map-marker${current === item.id ? ' is-current' : ''}${selected === item.id ? ' is-selected' : ''}`}
-          style={{ left: `${item.x}%`, top: `${item.y}%` }} disabled={current === item.id} aria-pressed={selected === item.id}
+          style={{ left: `${item.x}%`, top: `${item.y}%` }}  aria-pressed={selected === item.id}
           aria-label={`${item.name}${current === item.id ? '（現在地）' : 'を選択'}`} onClick={() => setSelected(item.id)}>
           <svg viewBox="0 0 32 42" aria-hidden="true"><path d="M16 1C7 1 1 7 1 16c0 11 15 25 15 25s15-14 15-25C31 7 25 1 16 1z" fill="currentColor" /><circle cx="16" cy="15" r="6" fill="#101922" /></svg>
           <span className="map-marker-label">{item.name}</span>{current === item.id && <span className="map-current-label">現在地</span>}
@@ -37,7 +37,7 @@ export function OutdoorMapMock({ current, onBack, onMove }: { current: OutdoorPl
           <h2 aria-live="polite">{location.name}</h2>
           <AssetImage key={location.id} src={location.image} alt={`${location.name}の仮イメージ`} className="map-location-photo" fallback={<div className="map-location-photo map-photo-fallback">仮画像</div>} />
           <p>{location.description}</p>
-          <SelectionMenu key={location.id} className="map-confirm"><CommandButton onSelect={() => onMove(location.id)}><span>ここへ移動</span><span aria-hidden="true">›</span></CommandButton></SelectionMenu>
+          <SelectionMenu key={`confirm-${location.id}`} className="map-confirm"><CommandButton paused={current === location.id} onSelect={() => { if (current !== location.id) onMove(location.id) }}><span>{current === location.id ? '現在地' : 'ここへ移動'}</span><span aria-hidden="true">›</span></CommandButton></SelectionMenu>
         </> : <div className="map-selection-guide"><h2>移動先を選択</h2><p>地図のピンを選ぶと、場所の情報が表示されます。</p><p className="map-current-note">現在地：{locations.find(item => item.id === current)?.name}</p></div>}
       </aside>
     </div>

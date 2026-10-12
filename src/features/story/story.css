@@ -130,7 +130,7 @@ button:disabled { cursor: default; color: var(--muted); }
 .record-portrait { width: calc(320 * var(--u)); max-width: 100%; height: calc(320 * var(--u)); margin-bottom: calc(24 * var(--u)); }
 .record-portrait-crop { position: absolute; top: 0; width: 125%; max-width: none; height: auto; left: -12.5%; }
 .record-portrait-thumb .record-portrait-crop { width: 200%; left: -50%; }
-.smoking-overlay { position: absolute; z-index: 4; inset: 0; display: grid; pointer-events: none; background: #080d12; }
+.smoking-overlay { position: absolute; z-index: 4; inset: 0; display: grid; pointer-events: auto; background: #080d12; }
 .smoking-cut-in, .smoking-cut-in-fallback { position: absolute; inset: 0; width: 100%; height: 100%; }
 .smoking-cut-in { object-fit: cover; object-position: center; }
 .smoking-cut-in-fallback { background: radial-gradient(ellipse at 48% 35%, #303740 0, #151d26 54%, #080d12 100%); }
@@ -181,3 +181,9 @@ button:disabled { cursor: default; color: var(--muted); }
 .travel-fade { position: absolute; inset: 0; z-index: 20; display: grid; place-items: center; background: #050a0d; animation: travel-darken .3s ease-in; }
 @keyframes travel-darken { from { opacity: 0; } to { opacity: 1; } }
 .command-heading { height: auto; min-height: calc(64 * var(--u)); padding: calc(12 * var(--u)) var(--command-padding); }
+
+/* 正式キービジュアル制作前の共通扉絵。既存の場面挿絵と区別して管理する。 */
+.chapter-title-card { inset: 0; padding: 0 12%; display: flex; flex-direction: column; justify-content: center; background: linear-gradient(135deg, #0b141f 10%, #283746 55%, #101721); text-align: center; align-items: center; }
+.chapter-title-card strong { font-size: calc(78 * var(--u)); font-weight: 400; border-block: 1px solid #b8965a; padding: .5em .2em; }
+.chapter-title-card p { font-size: calc(36 * var(--u)); }
+.chapter-title-card small { font-size: calc(20 * var(--u)); color: var(--muted); }

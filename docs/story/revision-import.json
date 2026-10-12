@@ -23,5 +23,13 @@
     }
   ],
   "sceneCount": 46,
-  "adoption": "制作稿・本編接続候補"
+  "adoption": "制作稿・本編接続候補",
+  "prologue": {
+    "date": "2026-10-13",
+    "sha256": "c767b980425ccbc9b2e5595099928edf442abac6b77e965d96e58f3cc64d9cd0",
+    "source": "C:\\Users\\lemon\\Documents\\Codex\\2026-10-11\\saeki-story\\outputs\\story\\第1話_開始導入文_ver0.03.md",
+    "status": "導入4段落受領・本編接続",
+    "implementation": "src/data/scenario/episodePrologue.ts",
+    "grants": []
+  }
 }

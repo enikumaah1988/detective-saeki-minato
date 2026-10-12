@@ -19,7 +19,7 @@ export function StageView({ stage }: { stage: Stage }) {
 
   return (
     <div className="stage" aria-label="背景領域" data-background-id={stage.backgroundId}>
-      {background.imageSrc ? <AssetImage key={background.imageSrc} src={background.imageSrc} alt="" className="background-image" fallback={backgroundFallback} /> : backgroundFallback}
+      {background.imageSrc ? <AssetImage key={background.imageSrc} src={background.imageSrc} alt="" className="background-image" fallback={backgroundFallback} /> : stage.backgroundId === 'prologue' ? null : backgroundFallback}
       {stageCharacters(stage).map(person => {
         const character = resolveCharacter(person.characterId)
         const expression = resolveExpression(person.characterId, person.expression)
