@@ -171,7 +171,8 @@
       "source": "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/docs/art/illustrations/drafts/c1-in-01.png",
       "sha256": "56f6b95fbfd908b84be7c8bc74a88d5db79277f675e2c6d950aa0ff078bbea78",
       "time": "10/8 10:40 朝",
-      "state": "制作候補・接続済み・正式採用未確認"
+      "state": "制作候補・接続済み・正式採用未確認",
+      "status": "旧場面絵・保管のみ・現行扉絵では参照しない"
     },
     {
       "id": "c1-out",
@@ -183,7 +184,8 @@
       "source": "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/docs/art/illustrations/drafts/c1-out-01.png",
       "sha256": "33e42cc17f03b5ac26bd352e4605a98f708dd34bcb4ccfa130316cbc1d32664d",
       "time": "10/8 11:55 昼前・12:00 昼",
-      "state": "制作候補・接続済み・正式採用未確認"
+      "state": "制作候補・接続済み・正式採用未確認",
+      "status": "旧場面絵・保管のみ・現行扉絵では参照しない"
     },
     {
       "id": "c2-out",
@@ -194,7 +196,8 @@
       "source": "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/docs/art/illustrations/drafts/c2-out-02.png",
       "sha256": "16fdb247cea4578ed0878541d7cad518f5f16481b58a590d5ec388660057bc99",
       "time": "10/8 15:35 昼",
-      "state": "制作候補・接続済み・正式採用未確認"
+      "state": "制作候補・接続済み・正式採用未確認",
+      "status": "旧場面絵・保管のみ・現行扉絵では参照しない"
     },
     {
       "id": "c3-in",
@@ -205,7 +208,8 @@
       "source": "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/docs/art/illustrations/drafts/c3-in-02.png",
       "sha256": "a2025f1a0b08e269f3befbacb4f7bcf7a2e6166cfd8d30e02d2a8f458ec4c3fb",
       "time": "10/8 16:10 夕",
-      "state": "制作候補・接続済み・正式採用未確認"
+      "state": "制作候補・接続済み・正式採用未確認",
+      "status": "旧場面絵・保管のみ・現行扉絵では参照しない"
     },
     {
       "id": "c3-out",
@@ -216,7 +220,8 @@
       "source": "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/docs/art/illustrations/drafts/c3-out-02.png",
       "sha256": "b93a942aa29345344e0effd473e9080aede7b54db86e20d7f7f3a78e45faba63",
       "time": "10/8 17:25 夕",
-      "state": "制作候補・接続済み・正式採用未確認"
+      "state": "制作候補・接続済み・正式採用未確認",
+      "status": "旧場面絵・保管のみ・現行扉絵では参照しない"
     },
     {
       "id": "c4-in",
@@ -227,7 +232,8 @@
       "source": "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/docs/art/illustrations/drafts/c4-in-02.png",
       "sha256": "4d966d7461f923bacb6347b4c183e8b2a2693031f10d95f313b817a3940244c2",
       "time": "10/9 9:30 朝",
-      "state": "制作候補・接続済み・正式採用未確認"
+      "state": "制作候補・接続済み・正式採用未確認",
+      "status": "旧場面絵・保管のみ・現行扉絵では参照しない"
     },
     {
       "id": "c4-out",
@@ -238,7 +244,8 @@
       "source": "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/docs/art/illustrations/drafts/c4-out-01.png",
       "sha256": "ef45b9a9f0facfa20667c17026689cacc005110d03025b746218725b6d6a9570",
       "time": "10/12 17:05 夕",
-      "state": "制作候補・接続済み・正式採用未確認"
+      "state": "制作候補・接続済み・正式採用未確認",
+      "status": "旧場面絵・保管のみ・現行扉絵では参照しない"
     }
   ],
   "reportedProductionCommits": {
@@ -249,5 +256,39 @@
     "backgroundBatch3": "1c8485f",
     "backgroundBatch2": "d919cda"
   },
-  "currentChapterPresentation": "作品タイトル・話名・部名の仮扉絵。旧PNGは実行時参照しない"
+  "currentChapterPresentation": "作品タイトル・話名・部名の仮扉絵。旧PNGは実行時参照しない",
+  "directionCandidates": [
+    {
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "sha256": "a3312c8dae4dd9c200035d607c02292ec49f0aaa6d6bc291ff4197cf6d4148e9",
+      "sourceCommit": "db0fcbf（制作担当の引継ぎによる）",
+      "status": "デザイン担当の寸法統一済み候補を本編確認用に接続・正式採用未確認",
+      "source": "C:\\Users\\lemon\\.codex\\.chatgpt-projects\\g-p-6a244918b2988191ac325bc113799e3e\\saeki-talk-issue5\\docs\\art\\characters\\minato\\drafts\\front-neutral-01.png",
+      "file": "src/assets/direction-candidates/minato-front.png",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "id": "minato-front-normal"
+    },
+    {
+      "alphaRange": [
+        0,
+        255
+      ],
+      "id": "akari-right-sad",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "file": "src/assets/direction-candidates/akari-right-sad.png",
+      "status": "組込担当の内蔵画像生成による候補・本編確認用接続・正式採用未確認",
+      "sha256": "55d66c8e93dfc2fb75bda8a5469e7ec3b2d5dae054db78c8c86afb7074540e4f",
+      "source": "C:/Users/lemon/.codex/generated_images/01a12b79-c2e5-7ba0-80be-fe6944fa8fce/exec-1bb5c6cb-e8ef-4f67-8d9e-9dfb305bdcc8.png",
+      "sourceCommit": null
+    }
+  ]
 }

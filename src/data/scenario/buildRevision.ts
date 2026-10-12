@@ -64,10 +64,13 @@ export function buildRevision(base: Scenario, data: RevisionData): Scenario {
       if (id === 'naoto' && ['p3-testify', 'p3-map-naoto', 'p3-handover'].includes(actionId ?? '')) mood = 'serious'
       return resolveExpression(id, mood).name === '未登録の表情' ? 'normal' : mood
     }
-    const characters: NonNullable<Scene['characters']> = phase.id === 'P4-10'
-      ? [{ characterId: 'naoto', expression: expression('naoto'), position: 'left' }, { characterId: 'akari', expression: expression('akari'), position: 'right' }]
+    const policeGroup = phase.people.includes('okumura') && phase.people.includes('segawa') && (!other || ['okumura', 'segawa'].includes(other))
+    const characters: NonNullable<Scene['characters']> = policeGroup
+      ? [{ characterId: 'segawa', expression: expression('segawa'), position: 'left', condition: has(['met-segawa']) }, { characterId: 'minato', expression: 'front-normal', position: 'center' }, { characterId: 'okumura', expression: expression('okumura'), position: 'right', condition: has(['met-okumura']) }]
+      : phase.id === 'P4-10'
+      ? [{ characterId: 'akari', expression: 'right-sad', position: 'left', condition: has(['met-akari']) }, { characterId: 'minato', expression: 'front-normal', position: 'center' }, { characterId: 'naoto', expression: expression('naoto'), position: 'right', condition: has(['met-naoto']) }]
       : [{ characterId: 'minato', expression: expression('minato'), position: 'left' }]
-    if (phase.id !== 'P4-10' && other && !['minato', 'company-reception', 'police-reception', 'narumi'].includes(other) && !(other === 'mio' && phase.locationId !== 'office')) characters.push({ characterId: other, expression: expression(other), position: 'right', condition: ['mio'].includes(other) ? undefined : has([`met-${other}`]) })
+    if (!policeGroup && phase.id !== 'P4-10' && other && !['minato', 'company-reception', 'police-reception', 'narumi'].includes(other) && !(other === 'mio' && phase.locationId !== 'office')) characters.push({ characterId: other, expression: expression(other), position: 'right', condition: ['mio'].includes(other) ? undefined : has([`met-${other}`]) })
     return { backgroundId, characters, smokingAllowed: phase.locationId === 'office' }
   }
   const sequence = (id: string, phase: RevisionScene, lines: RevisionLine[], next: string, updates: StateUpdate[] = [], person?: string) => {

@@ -27,13 +27,22 @@ for(const [width,height] of [[1920,1080],[1366,768]])test(`部の挿絵・読了
    await page.locator('.dialogue-button').click()
    assert.notEqual(await page.locator('.story').getAttribute('data-node-id'),nodeId)
   }
-  for(const phaseId of ['P1-03','P3-04','P4-10']){
+  for(const phaseId of ['P1-03','P2-08','P3-04','P4-10']){
    const state=run.checkpoints.find(point=>point.phase===phaseId).state
    await page.evaluate(value=>localStorage.setItem('detective-saeki-minato.save.v1',JSON.stringify(value)),api.createSaveData(state))
    await page.getByLabel('メニュー',{exact:true}).click();await page.getByRole('button',{name:'ロード',exact:true}).click()
    await page.getByRole('dialog',{name:'ロードしました',exact:true}).getByRole('button',{name:'OK',exact:true}).click()
    await page.waitForFunction(()=>Array.from(document.querySelectorAll('.character-image')).every(image=>image.complete&&image.naturalWidth>0))
-   if(phaseId==='P4-10')assert.deepEqual(await page.locator('[data-character-id]').evaluateAll(elements=>elements.map(element=>element.dataset.characterId)),['naoto','akari'])
+   if(phaseId==='P4-10'){
+    assert.deepEqual(await page.locator('[data-character-id]').evaluateAll(elements=>elements.map(element=>element.dataset.characterId)),['akari','minato','naoto'])
+    assert.equal(await page.locator('.character--left[data-character-id="akari"]').getAttribute('data-expression'),'right-sad')
+    assert.equal(await page.locator('.character--center[data-character-id="minato"]').getAttribute('data-expression'),'front-normal')
+   }
+   if(phaseId==='P2-08'){
+    assert.deepEqual(await page.locator('[data-character-id]').evaluateAll(elements=>elements.map(element=>element.dataset.characterId)),['segawa','minato','okumura'])
+    assert.equal(await page.locator('[data-character-id="minato"]').getAttribute('data-expression'),'front-normal')
+    assert.equal(await page.locator('.stage--three .character--center').count(),1)
+   }
    if(phaseId==='P1-03')assert.equal(await page.locator('[data-character-id="akari"]').getAttribute('data-expression'),'worried')
    if(process.env.SAEKI_SCREENSHOT_DIR)await page.screenshot({path:`${process.env.SAEKI_SCREENSHOT_DIR}/characters-${phaseId}-${width}.png`})
   }

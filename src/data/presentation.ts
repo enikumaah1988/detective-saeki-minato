@@ -33,6 +33,7 @@ export const characters: Record<string, CharacterDefinition> = {
   'police-reception': { id: 'police-reception', name: '受付の女性', expressions: {} },
   'police-staff': { id: 'police-staff', name: '受付の女性', expressions: {} },
   minato: { id: 'minato', name: '佐伯　湊', expressions: {
+    'front-normal': { id: 'front-normal', name: '通常・正面（制作候補）', imageSrc: new URL('../assets/direction-candidates/minato-front.png', import.meta.url).href },
     irritated: { id: 'irritated', name: 'irritated', imageSrc: new URL('../assets/images/characters/minato/waist/irritated.png', import.meta.url).href },
     neutral: { id: 'neutral', name: '通常', imageSrc: new URL('../assets/images/characters/minato/waist/neutral.png', import.meta.url).href },
     pained: { id: 'pained', name: '沈痛', imageSrc: new URL('../assets/images/characters/minato/waist/pained.png', import.meta.url).href },
@@ -108,6 +109,7 @@ export const characters: Record<string, CharacterDefinition> = {
     normal: { id: 'normal', name: '通常', imageSrc: new URL('../assets/images/characters/saori/waist/neutral.png', import.meta.url).href }
   } },
   akari: { id: 'akari', name: '高瀬　あかり', expressions: {
+    'right-sad': { id: 'right-sad', name: '悲しみ・右向き', imageSrc: new URL('../assets/direction-candidates/akari-right-sad.png', import.meta.url).href },
     determined: { id: 'determined', name: '決意', imageSrc: new URL('../assets/images/characters/akari/waist/determined.png', import.meta.url).href },
     neutral: { id: 'neutral', name: '通常', imageSrc: new URL('../assets/images/characters/akari/waist/neutral.png', import.meta.url).href },
     relieved: { id: 'relieved', name: '安堵', imageSrc: new URL('../assets/images/characters/akari/waist/relieved.png', import.meta.url).href },

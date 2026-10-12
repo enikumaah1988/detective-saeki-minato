@@ -37,3 +37,11 @@ test('会話と質問・見ると詳細調査の役割、見出し・対象名�
   assert.equal(api.revisionCommand('ask','p1-family'),'speak')
   assert.equal(api.revisionCommand('ask','p1-morning'),'talk')
 })
+test('3人シーンは左・中央・右を明示し、人物と位置の重複を拒否する',async()=>{
+  const api=await loadRevision()
+  const people=[{characterId:'segawa',expression:'normal',position:'left'},{characterId:'minato',expression:'normal',position:'center'},{characterId:'okumura',expression:'normal',position:'right'}]
+  const scenario=characters=>({id:'three-people',start:'a',scenes:{room:{backgroundId:'police-meeting',characters}},nodes:{a:{type:'end',sceneId:'room',stage:{backgroundId:'police-meeting'},text:''}}})
+  assert.equal(api.createInitialState(scenario(people)).nodeId,'a')
+  assert.throws(()=>api.createInitialState(scenario(people.map(person=>({...person,position:'left'})))),/左・中央・右/)
+  assert.throws(()=>api.createInitialState(scenario([...people.slice(0,2),people[0]])),/人物構成/)
+})
