@@ -18,7 +18,7 @@ test('通常会話と人物を見るの後は元の一覧に留まり、戻る�
  const mio=api.scenario.nodes['P1-02-observe-mio']
  assert.ok(mio.stage.characters.some(person=>person.characterId==='mio'))
  assert.equal(mio.stage.backgroundId,api.scenario.nodes['P1-02-menu'].stage.backgroundId)
- assert.ok(api.scenario.nodes['P1-02-speak-mio'].stage.characters.some(person=>person.characterId==='mio'))
+ assert.equal(api.scenario.nodes['P1-02-speak-mio'].options.length,0)
 })
 test('全場面は標準のメインコマンドのみ。話題重複・二重進行を作らず部屋名で到着する',async()=>{
  const api=await loadRevision(),full=buildPlaythrough(api),mandatory=buildPlaythrough(api,true)

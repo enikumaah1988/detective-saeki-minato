@@ -31,7 +31,7 @@ for (const [width, height] of [[1920,1080],[1366,768]]) test(`読了時の記録
     await page.getByRole('button',{name:'現場図',exact:true}).click(); await page.getByRole('button',{name:'使用する',exact:true}).click()
     const selection = page.getByRole('dialog',{name:'使用する相手・目的',exact:true}); await selection.waitFor()
     await selection.getByRole('button',{name:/高瀬\s直人/}).click()
-    assert.equal(await page.locator('.story').getAttribute('data-node-id'),'p4-map-naoto')
+    assert.equal(await page.locator('.story').getAttribute('data-node-id'),'p4-map-naoto-item-from-P4-04-menu')
     assert.equal(await page.locator('.investigation-records').count(),0)
     const entries = Array.from({length:1000},(_,index)=>({speaker:'湊',text:`履歴${index}`,nodeId:`line-${index}`}))
     await page.evaluate(value=>localStorage.setItem('detective-saeki-minato.history.v1',JSON.stringify(value)),{scenarioId:checkpoint.scenarioId,nodeId:checkpoint.nodeId,entries})

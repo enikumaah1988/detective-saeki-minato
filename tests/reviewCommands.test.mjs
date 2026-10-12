@@ -35,7 +35,7 @@ test('会話と質問・見ると詳細調査の役割、見出し・対象名�
   assert.equal(api.revisionCommand('inspect','p1-ledger'),'look')
   assert.equal(api.revisionCommand('inspect','p2-journal'),'investigate')
   assert.equal(api.revisionCommand('ask','p1-family'),'speak')
-  assert.equal(api.revisionCommand('ask','p1-morning'),'talk')
+  assert.equal(api.revisionCommand('ask','p1-morning'),'speak')
 })
 test('3人シーンは左・中央・右を明示し、人物と位置の重複を拒否する',async()=>{
   const api=await loadRevision()

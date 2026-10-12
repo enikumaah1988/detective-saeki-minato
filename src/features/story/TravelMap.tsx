@@ -22,7 +22,7 @@ export function TravelMap({ options, current, onBack, onMove }: { options: Choic
   return <div ref={root} className={`travel-map${moving ? ' is-moving' : ''}`} aria-label="移動マップ" onKeyDown={event => {
     if (event.key === 'Escape' && !moving) { event.preventDefault(); onBack() }
   }}>
-    <header><div><h1>移動先を選ぶ</h1><p>西新宿</p></div><button type="button" disabled={moving} onClick={onBack}>× 戻る</button></header>
+    <header><div><h1>移動先を選ぶ</h1><p>西新宿 · 今回の訪問先</p></div><button type="button" disabled={moving} onClick={onBack}>× 戻る</button></header>
     <div className="travel-body">
       <nav className="travel-canvas" aria-label="地図の移動先">
         <svg viewBox="0 0 900 650" preserveAspectRatio="none" aria-hidden="true">
