@@ -1,0 +1,13 @@
+{
+  "id": "minato",
+  "expression": "neutral",
+  "angle": "front",
+  "date": "2026-10-13",
+  "state": "採用確認待ち",
+  "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-cc64a5c6-0111-4d86-bb3e-a249d585e0a5.png",
+  "referenceImages": [
+    "src/assets/images/characters/minato/waist/neutral.png",
+    "docs/art/characters/minato/sheet.png"
+  ],
+  "prompt": "Edit IMAGE1 Saeki Minato neutral WAIST-UP transparent sprite into ONE TRUE FRONT-FACING neutral candidate for center position in a 3-character dialogue. IMAGE2 adopted sheet is identity/style authority. Preserve exactly same38yo angular slightly worn face, thin rectangular glasses, light stubble, messy wavy BLACK hair, slim shoulders/build, CHARCOAL SHORT jacket, WHITE open collar shirt, dark trousers/belt, same fine mature manga/painterly style. Change CAMERA/HEAD/TORSO orientation only: shoulders and chest straight FRONT, nose centered between eyes, both glasses lenses equally visible, gaze straight forward, calm neutral CLOSED mouth, not smiling. NO three-quarter head turn. Keep same neutral hands: subject's RIGHT hand rests low near belt, subject's LEFT hand in trouser pocket; maintain chest pocket on subject's LEFT (screen right for front view), jacket opening and buttons physically consistent, NOT mirror source. Preserve comparable head SIZE and top position within square canvas: hair top around4%, chin around31%, waist/belt around80%, complete hair and hands. Do not make face or head larger to fill canvas, do not crop hair. Same overall square1024x1024 and generous transparent corners, genuine alpha background, no shadows/glow/environment/text or accessories. Fresh front-angle illustration from same identity, not a stretched/warped source."
+}
