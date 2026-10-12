@@ -23,7 +23,7 @@ export function StageView({ stage }: { stage: Stage }) {
       {stageCharacters(stage).map(person => {
         const character = resolveCharacter(person.characterId)
         const expression = resolveExpression(person.characterId, person.expression)
-        const fallback = <div className="character-placeholder"><strong>{character.name}</strong><span>表情: {expression.name}（{expression.id}）</span></div>
+        const fallback = <div className="character-silhouette" aria-label={character.name}><svg viewBox="0 0 400 650" aria-hidden="true"><ellipse cx="200" cy="120" rx="65" ry="85" /><path d="M105 230Q200 175 295 230L360 640H40Z" /></svg></div>
         return <div key={person.characterId} className={`character character--${person.position}`} aria-label="キャラクター領域" data-character-id={person.characterId} data-expression={person.expression}>
           {expression.imageSrc ? <AssetImage key={expression.imageSrc} src={expression.imageSrc} alt={`${character.name}・${expression.name}`} className="character-image" fallback={fallback} /> : fallback}
         </div>

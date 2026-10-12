@@ -24,7 +24,7 @@ for (const [width, height] of [[1920, 1080], [1366, 768]]) {
         await page.evaluate(value => localStorage.setItem('detective-saeki-minato.save.v1', JSON.stringify(value)), save(information))
         await menu.click()
         await page.getByRole('button', { name: 'ロード', exact: true }).click()
-        await menu.click()
+        await page.getByRole('dialog', { name: 'ロードしました', exact: true }).getByRole('button', { name: 'OK', exact: true }).click()
         await page.locator('.free-action-panel').waitFor()
       }
 
@@ -103,7 +103,7 @@ for (const [width, height] of [[1920, 1080], [1366, 768]]) {
           // 同じノードをロードしても先頭ページ・文字送り先頭から再開する。
           await page.getByRole('button', { name: 'ロード', exact: true }).click()
           assert.equal(await dialogue.getAttribute('data-page'), '1'); assert.equal(await visible(), '')
-          await menu.click()
+          await page.getByRole('dialog', { name: 'ロードしました', exact: true }).getByRole('button', { name: 'OK', exact: true }).click()
           // テストの読了ループを再開するため、先頭2ページを読み直す。
           for (let p = 0; p <= index; p++) {
             await dialogue.click(); await dialogue.locator('.next').waitFor()
@@ -147,7 +147,7 @@ for (const [width, height] of [[1920, 1080], [1366, 768]]) {
       await dialogue.waitFor()
       for (let i = 0; i < 6 && await dialogue.count(); i++) await dialogue.click()
       await page.locator('.free-action-panel').waitFor()
-      await menu.click(); await page.getByRole('button', { name: 'ロード', exact: true }).click(); await menu.click()
+      await menu.click(); await page.getByRole('button', { name: 'ロード', exact: true }).click(); await page.getByRole('dialog', { name: 'ロードしました', exact: true }).getByRole('button', { name: 'OK', exact: true }).click()
       await page.getByLabel('聞く話題', { exact: true }).waitFor()
       assert.deepEqual(await people(), scenePeople)
       await page.getByRole('button', { name: /戻る/ }).click(); await page.locator('.free-action-panel').waitFor()

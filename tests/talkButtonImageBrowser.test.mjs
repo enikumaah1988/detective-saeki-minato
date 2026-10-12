@@ -15,7 +15,7 @@ for (const width of [1920, 1366]) {
       await page.addInitScript(save => localStorage.setItem('detective-saeki-minato.save.v1', JSON.stringify(save)), saved)
       await page.goto(baseUrl)
       const menu = page.getByLabel('メニュー', { exact: true })
-      await menu.click(); await page.getByRole('button', { name: 'ロード', exact: true }).click(); await menu.click()
+      await menu.click(); await page.getByRole('button', { name: 'ロード', exact: true }).click(); await page.getByRole('dialog', { name: 'ロードしました', exact: true }).getByRole('button', { name: 'OK', exact: true }).click()
       const talk = page.locator('.free-action-panel button').first()
       const geometry = async () => talk.evaluate(element => ({ box: element.getBoundingClientRect().toJSON(), font: getComputedStyle(element).fontSize, label: element.querySelector('.command-name').getBoundingClientRect().toJSON() }))
       const original = await geometry()

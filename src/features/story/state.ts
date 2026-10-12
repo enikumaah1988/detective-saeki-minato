@@ -2,12 +2,12 @@ import type { GameState } from '../../types/gameState'
 import type { Scenario } from '../../types/scenario'
 import { getNode, transition } from './progression'
 import type { StoryAction } from './progression'
-import { applyUpdates, emptyContinuation, visibleChoices } from './freeAction'
+import { applyUpdates, emptyContinuation, visibleChoices, matchesCondition } from './freeAction'
 import { SAVE_DATA_VERSION, restoreSaveData } from './saveData'
 import { selectSceneStage } from './scene'
 import { resolveThinking } from './thinking'
 
-export type GameAction = StoryAction | { type: 'continue' } | { type: 'reset' } | { type: 'restore'; state: GameState }
+export type GameAction = StoryAction | { type: 'use-item'; itemId: string } | { type: 'continue' } | { type: 'reset' } | { type: 'restore'; state: GameState }
 
 export function createInitialState(scenario: Scenario): GameState {
   getNode(scenario, scenario.start)
@@ -47,6 +47,10 @@ export function reduceGameState(scenario: Scenario, state: GameState, action: Ga
     const result = restoreSaveData({ ...action.state, version: SAVE_DATA_VERSION }, [scenario])
     return result.ok ? result.state : state
   }
+  if (action.type === 'use-item') {
+    const use = scenario.itemUses?.find(use => use.itemId === action.itemId && use.nodeIds.includes(state.nodeId) && matchesCondition(state, use.condition))
+    return use ? { ...state, nodeId: use.next } : state
+  }
   if (node.type === 'choice' || node.type === 'topic' || node.type === 'inspect') {
     if (action.type === 'continue') {
       const continuation = emptyContinuation(node, state)
@@ -57,14 +61,21 @@ export function reduceGameState(scenario: Scenario, state: GameState, action: Ga
     if (action.type !== 'choose') return state
     const option = visibleChoices(node, state).find((item) => item.id === action.choiceId)
     if (!option) return state
-    getNode(scenario, option.next)
+    const progressId = option.progressId ?? option.id
+    const next = option.repeatNext && (node.type === 'topic' ? state.heardTopics.includes(progressId) : state.inspectedTargets.includes(progressId)) ? option.repeatNext : option.next
+    getNode(scenario, next)
     // 戻るには更新を適用しない。next/updatesを改ざんした項目でも親指定を優先する。
     const returning = (node.type === 'topic' || node.type === 'inspect') && option.id === 'return'
-    return { ...applyUpdates(state, returning ? [] : option.updates ?? []), nodeId: option.next }
+    return { ...applyUpdates(state, returning ? [] : option.updates ?? []), nodeId: next }
   }
   if (action.type === 'continue') return state
   const nodeId = node.type === 'dialogue' && action.type === 'advance'
     ? node.next : transition(scenario, state.nodeId, action)
   getNode(scenario, nodeId)
-  return nodeId === state.nodeId ? state : { ...applyUpdates(state, node.type === 'dialogue' ? node.updates ?? [] : []), nodeId }
+  if (nodeId === state.nodeId) return state
+  let updated = applyUpdates(state, node.type === 'dialogue' ? node.updates ?? [] : [])
+  for (const milestone of scenario.milestones ?? []) {
+    if (milestone.required.every(id => updated.acquiredInformation.includes(id))) updated = applyUpdates(updated, [{ type: 'addInformation', id: milestone.id }])
+  }
+  return { ...updated, nodeId }
 }

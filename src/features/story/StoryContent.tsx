@@ -12,17 +12,18 @@ import type { Ref } from 'react'
 
 export { choiceStatus } from './freeAction'
 
-export function StoryContent({ node, state, thinking, dispatch, paused, dialogueRef }: {
+export function StoryContent({ node, state, thinking, dispatch, paused, dialogueRef, interval }: {
   node: Exclude<ScenarioNode, { type: 'think' }>
   state: GameState
   thinking: boolean
   paused?: boolean
+  interval?: number
   dispatch: (action: GameAction) => void
   dialogueRef?: Ref<DialogueWindow>
 }) {
   if (node.type === 'dialogue') {
     return <DialogueWindow ref={dialogueRef} speaker={thinking ? '' : resolveSpeakerName(node.speakerId)} text={node.text}
-      thinking={thinking} paused={paused} onAdvance={() => dispatch({ type: 'advance' })} />
+      thinking={thinking} interval={interval} paused={paused} onAdvance={() => dispatch({ type: 'advance' })} />
   }
   if ('options' in node) {
     const icons: Record<string, IconName> = { talk: 'talk', look: 'look', think: 'think' }
@@ -34,7 +35,7 @@ export function StoryContent({ node, state, thinking, dispatch, paused, dialogue
     }
     return (
       <nav className={`command-panel${freeAction ? ' free-action-panel' : ''}`} aria-label={node.type === 'topic' ? '聞く話題' : node.type === 'inspect' ? '調査対象' : '選択肢'}>
-        {menuTitle(node) && <p className="command-heading">{menuTitle(node)}</p>}
+        {(menuTitle(node) || !freeAction) && <p className="command-heading">{menuTitle(node) ?? node.prompt}</p>}
         <span className="sr-only">{node.prompt}</span>
         <SelectionMenu paused={paused} className={`choices ${node.type === 'topic' || node.type === 'inspect' ? 'item-list' : 'command-list'}`}>
           {options.map((option) => {

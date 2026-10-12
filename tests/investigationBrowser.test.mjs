@@ -67,7 +67,7 @@ for (const [width, height] of [[1920, 1080], [1366, 768]]) {
       const saved = { version: 2, scenarioId: 'gray-testimony-part1-demo', nodeId: 'menu', flags: { photo_examined: true }, heardTopics: ['brother', 'missing', 'recent-brother', 'accident'], inspectedTargets: ['client', 'photo'], acquiredInformation: ['photo_date', 'disappearance_timing', 'missing_date', 'last_known_activity', 'brother_recent', 'past_accident', 'brother_profile', 'stress-test'] }
       await page.evaluate(({ key, data }) => localStorage.setItem(key, JSON.stringify(data)), { key: saveKey, data: saved })
       const menu = page.getByLabel('メニュー', { exact: true })
-      await menu.click(); await page.getByRole('button', { name: 'ロード', exact: true }).click(); await menu.click()
+      await menu.click(); await page.getByRole('button', { name: 'ロード', exact: true }).click(); await page.getByRole('dialog', { name: 'ロードしました', exact: true }).getByRole('button', { name: 'OK', exact: true }).click()
       await page.locator('.free-action-panel').waitFor()
       // 選択演出中に調査記録を開くと、その選択はキャンセルされる。
       await page.evaluate(() => {
@@ -114,7 +114,7 @@ for (const [width, height] of [[1920, 1080], [1366, 768]]) {
       // 実際の聞き込み完了から取得した情報が、閲覧記録へ反映される。
       const fresh = { version: 2, scenarioId: 'gray-testimony-part1-demo', nodeId: 'topics', flags: {}, heardTopics: [], inspectedTargets: [], acquiredInformation: [] }
       await page.evaluate(({ key, data }) => localStorage.setItem(key, JSON.stringify(data)), { key: saveKey, data: fresh })
-      await menu.click(); await page.getByRole('button', { name: 'ロード', exact: true }).click(); await menu.click()
+      await menu.click(); await page.getByRole('button', { name: 'ロード', exact: true }).click(); await page.getByRole('dialog', { name: 'ロードしました', exact: true }).getByRole('button', { name: 'OK', exact: true }).click()
       await page.getByLabel('聞く話題', { exact: true }).getByRole('button', { name: /兄について/ }).first().click()
       await dialogue.waitFor()
       for (let n = 0; n < 8 && await dialogue.count(); n++) await dialogue.click()
@@ -166,7 +166,7 @@ for (const [width, height] of [[1920, 1080], [1366, 768]]) {
       assert.deepEqual(savedProgress.heardTopics, ['brother', 'missing'])
       assert.deepEqual(savedProgress.acquiredInformation, ['brother_profile', 'missing_date', 'disappearance_timing'])
       await page.reload()
-      await menu.click(); await page.getByRole('button', { name: 'ロード', exact: true }).click(); await menu.click()
+      await menu.click(); await page.getByRole('button', { name: 'ロード', exact: true }).click(); await page.getByRole('dialog', { name: 'ロードしました', exact: true }).getByRole('button', { name: 'OK', exact: true }).click()
       await page.locator('.free-action-panel').waitFor()
       await checkMissingRecord()
       assert.deepEqual(errors, [])

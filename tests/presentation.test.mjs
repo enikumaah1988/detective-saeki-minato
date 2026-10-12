@@ -7,7 +7,7 @@ import { demoScenario } from '../src/data/scenario/demo.ts'
 test('登録済み話者・背景・人物・表情を解決する', () => {
   assert.equal(resolveSpeakerName('minato'), '佐伯湊')
   assert.equal(resolveSpeakerName('mio'), '相澤澪')
-  assert.equal(resolveBackground('office-afternoon').name, '探偵事務所・午後（仮背景）')
+  assert.equal(resolveBackground('office-afternoon').name, '佐伯探偵事務所')
   assert.equal(resolveCharacter('minato').id, 'minato')
   assert.equal(resolveExpression('minato', 'serious').name, '真剣')
   assert.equal(resolveExpression('mio', 'normal').name, '通常')
@@ -52,6 +52,7 @@ test('背景と各表情の画像が存在し、同一人物の表情は別画�
   assert.equal(new Set(images).size, 4)
   for (const image of images) {
     assert.ok(image)
-    assert.match(await readFile(new URL(image), 'utf8'), /<svg/)
+    const bytes = await readFile(new URL(image))
+    assert.equal(bytes.subarray(0, 8).toString('hex'), '89504e470d0a1a0a')
   }
 })

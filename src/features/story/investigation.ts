@@ -23,8 +23,10 @@ export function selectInvestigationRecords(state: GameState, definitions: readon
     if (!acquired || seen.has(entry.id)) return false
     seen.add(entry.id)
     return true
-  }).map(({ source: _source, alternativeSources: _alternatives, facts, ...entry }) => ({
-    ...entry, details: [entry.description, ...(facts ?? []).filter(fact => hasSource(state, fact.source)).map(fact => fact.text)],
+  }).map(({ source: _source, alternativeSources: _alternatives, facts, portraitSource, ...entry }) => ({
+    ...entry, imageSrc: portraitSource && !hasSource(state, portraitSource) ? undefined : entry.imageSrc,
+    faceKnown: portraitSource ? hasSource(state, portraitSource) : Boolean(entry.imageSrc),
+    details: [entry.description, ...(facts ?? []).filter(fact => hasSource(state, fact.source)).map(fact => fact.text)],
   })).sort((a, b) => {
     const categoryOrder = RECORD_CATEGORIES.findIndex(tab => tab.id === a.category) - RECORD_CATEGORIES.findIndex(tab => tab.id === b.category)
     return categoryOrder || (a.category === 'events' ? (a.chronologicalOrder ?? 0) - (b.chronologicalOrder ?? 0) : 0)

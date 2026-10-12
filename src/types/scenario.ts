@@ -17,11 +17,11 @@ export type StateUpdate =
   | { type: 'setFlag'; id: string; value: boolean }
   | { type: 'addHeardTopic' | 'addInspectedTarget' | 'addInformation'; id: string }
 
-export type Choice = { id: string; label: string; next: string; implemented?: boolean; progressId?: string; condition?: Condition; updates?: StateUpdate[] }
+export type Choice = { id: string; label: string; next: string; repeatNext?: string; implemented?: boolean; progressId?: string; condition?: Condition; updates?: StateUpdate[] }
 
 export type ScenarioNode =
-  | { type: 'dialogue'; stage: Stage; speakerId: string; text: string; next: string; updates?: StateUpdate[] }
-  | { type: 'choice'; mode?: 'free-action'; implementedCommands?: readonly string[]; empty?: { label: string; next: string }; stage: Stage; prompt: string; options: Choice[] }
+  | { type: 'dialogue'; stage: Stage; speakerId: string; text: string; next: string; acquisition?: { itemId: string; title: string; imageSrc: string }; updates?: StateUpdate[] }
+  | { type: 'choice'; mode?: 'free-action'; keepQuestions?: boolean; map?: { current: string; back: string }; implementedCommands?: readonly string[]; empty?: { label: string; next: string }; stage: Stage; prompt: string; options: Choice[] }
   | { type: 'topic' | 'inspect'; parent: { commandId: 'talk' | 'look'; nodeId: string }; stage: Stage; prompt: string; options: Choice[] }
   | { type: 'end'; stage: Stage; text: string }
   | {
@@ -48,6 +48,11 @@ export type Scenario = {
   id: string
   title: string
   start: string
+  dateLabel?: string
+  nodeTimes?: Record<string, string>
+  itemUses?: { itemId: string; nodeIds: string[]; next: string; condition?: Condition }[]
+  milestones?: { id: string; required: string[] }[]
+  saveAliases?: { heardTopic: string; information: string[]; ifInformation?: string }[]
   scenes?: Record<string, Scene>
   records?: readonly InvestigationEntry[]
   smokingHints?: { rules: SmokingHint[]; fallback: string }

@@ -46,10 +46,16 @@ export function restoreSaveData(input: unknown, scenarios: readonly Scenario[]):
       || !isIds(heardTopics) || !isIds(inspectedTargets) || !isIds(acquiredInformation)) {
       return { ok: false, reason: 'invalid-format' }
     }
+    const restoredInformation = [...new Set(acquiredInformation)]
+    for (const alias of scenario.saveAliases ?? []) {
+      if (heardTopics.includes(alias.heardTopic) && (!alias.ifInformation || acquiredInformation.includes(alias.ifInformation))) {
+        for (const id of alias.information) if (!restoredInformation.includes(id)) restoredInformation.push(id)
+      }
+    }
     return { ok: true, state: {
       scenarioId, nodeId, flags: Object.fromEntries(Object.entries(flags)),
       heardTopics: [...new Set(heardTopics)], inspectedTargets: [...new Set(inspectedTargets)],
-      acquiredInformation: [...new Set(acquiredInformation)],
+      acquiredInformation: restoredInformation,
     } }
   } catch {
     // Proxy など JSON 以外の未知入力でも、例外を呼び出し側へ漏らさない。

@@ -1,5 +1,6 @@
 import { UiIcon } from './UiIcon'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
+import { SystemDialog } from './SystemDialog'
 import type { GameState } from '../../types/gameState'
 import type { Scenario } from '../../types/scenario'
 import { deleteSave, loadGame, saveGame } from './storage'
@@ -14,22 +15,28 @@ const loadMessages: Record<Extract<StoredLoadResult, { ok: false }>['reason'], s
   'storage-unavailable': 'ブラウザーの保存機能を利用できません。設定をご確認ください。',
 }
 
-export function SaveControls({ state, scenario, onRestore, onMenuToggle }: {
+export function SaveControls({ state, scenario, onRestore, onMenuToggle, interval = 35, onIntervalChange, onSaved }: {
   state: GameState
   scenario: Scenario
   onRestore: (state: GameState) => void
   onMenuToggle?: (open: boolean) => void
+  interval?: number
+  onIntervalChange?: (interval: number) => void
+  onSaved?: () => void
 }) {
+  const details = useRef<HTMLDetailsElement>(null)
+  const [loaded, setLoaded] = useState(false)
   const [message, setMessage] = useState('セーブは1件です。セーブすると上書きされます。')
   const save = () => {
     const result = saveGame(state)
+    if (result.ok) onSaved?.()
     setMessage(result.ok ? 'セーブしました。' : 'セーブできませんでした。ブラウザーの設定や空き容量をご確認ください。')
   }
   const load = () => {
     const result = loadGame([scenario])
     if (result.ok) {
       onRestore(result.state)
-      setMessage('ロードしました。')
+      setLoaded(true)
     } else {
       setMessage(loadMessages[result.reason])
     }
@@ -40,7 +47,7 @@ export function SaveControls({ state, scenario, onRestore, onMenuToggle }: {
   }
 
   return (
-    <details className="save-controls" onToggle={(event) => onMenuToggle?.(event.currentTarget.open)}>
+    <details ref={details} className="save-controls" onToggle={(event) => onMenuToggle?.(event.currentTarget.open)}>
       <summary aria-label="メニュー" onClick={(event) => onMenuToggle?.(!(event.currentTarget.parentElement as HTMLDetailsElement).open)}><UiIcon name="menu" /><span className="menu-caption">MENU</span></summary>
       <div className="save-panel">
       <div className="save-actions" aria-label="セーブ操作">
@@ -48,8 +55,19 @@ export function SaveControls({ state, scenario, onRestore, onMenuToggle }: {
         <button type="button" onClick={load}><UiIcon name="load" /><span>ロード</span></button>
         <button type="button" onClick={remove}><UiIcon name="delete" /><span>セーブデータ削除</span></button>
       </div>
+      <label className="speed-setting">メッセージスピード
+        <select aria-label="メッセージスピード" value={interval} onChange={event => onIntervalChange?.(Number(event.target.value))}>
+          <option value={70}>ゆっくり</option><option value={35}>標準</option><option value={15}>速い</option><option value={0}>一括表示</option>
+        </select>
+      </label>
       <p role="status">{message}</p>
       </div>
+      {loaded && <SystemDialog title="ロードしました" dismissible={false} onClose={() => {
+        setLoaded(false)
+        details.current!.open = false
+        onMenuToggle?.(false)
+        setMessage('セーブは1件です。セーブすると上書きされます。')
+      }} />}
     </details>
   )
 }

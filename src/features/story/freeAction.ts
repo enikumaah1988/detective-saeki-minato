@@ -33,7 +33,7 @@ export function visibleChoices(node: ScenarioNode, state: GameState) {
   }
   if (!isFreeAction(node)) return selectable
   // 必須情報が揃ったら思考を次フェーズへの単独トリガーにする。
-  if (selectable.some(option => option.id === 'think')) {
+  if (node.type === 'choice' && !node.keepQuestions && selectable.some(option => option.id === 'think')) {
     return selectable.filter(option => option.id === 'think').map(option => ({ ...option, label: '考える' }))
   }
   return FREE_ACTION_COMMANDS.flatMap((command) => {

@@ -2,26 +2,107 @@ import type { BackgroundDefinition, CharacterDefinition, ExpressionDefinition } 
 
 // 検証用画像。本番画像へ差し替える際もシナリオの ID は変更しない。
 export const backgrounds: Record<string, BackgroundDefinition> = {
-  'office-before-noon': { id: 'office-before-noon', name: '佐伯探偵事務所・昼前（既存午後画像の仮使用）', imageSrc: new URL('../assets/backgrounds/office-afternoon.png', import.meta.url).href },
-  'company-reception': { id: 'company-reception', name: '東成ビルサービス・応接スペース（仮背景）' },
-  'office-afternoon': { id: 'office-afternoon', name: '探偵事務所・午後（仮背景）', imageSrc: new URL('../assets/backgrounds/office-afternoon.png', import.meta.url).href },
+  'building-room': { id: 'building-room', name: '成子坂共同ビル・管理人室', imageSrc: new URL('../assets/backgrounds/old-office.png', import.meta.url).href },
+  'old-office': { id: 'old-office', name: '成子坂共同ビル・旧事務室', imageSrc: new URL('../assets/backgrounds/old-office.png', import.meta.url).href },
+  'building-entrance': { id: 'building-entrance', name: '成子坂共同ビル・入口', imageSrc: new URL('../assets/backgrounds/building-entrance.png', import.meta.url).href },
+  'building-stairs': { id: 'building-stairs', name: '成子坂共同ビル・階段', imageSrc: new URL('../assets/backgrounds/building-stairs.png', import.meta.url).href },
+  'office-before-noon': { id: 'office-before-noon', name: '佐伯探偵事務所', imageSrc: new URL('../assets/backgrounds/office-afternoon.png', import.meta.url).href },
+  'company-reception': { id: 'company-reception', name: '東成ビルサービス', imageSrc: new URL('../assets/backgrounds/company-reception.png', import.meta.url).href },
+  'office-afternoon': { id: 'office-afternoon', name: '佐伯探偵事務所', imageSrc: new URL('../assets/backgrounds/office-afternoon.png', import.meta.url).href },
 }
 
 export const characters: Record<string, CharacterDefinition> = {
   narrator: { id: 'narrator', name: '', expressions: {} },
-  akari: { id: 'akari', name: '高瀬あかり', expressions: { normal: { id: 'normal', name: '通常（仮表示・素材未制作）' } } },
-  'company-staff': { id: 'company-staff', name: '事務担当', expressions: {} },
-  minato: {
-    id: 'minato', name: '佐伯湊',
-    expressions: {
-      normal: { id: 'normal', name: '通常', imageSrc: new URL('../assets/characters/minato/normal.png', import.meta.url).href },
-      serious: { id: 'serious', name: '真剣', imageSrc: new URL('../assets/characters/minato/serious.png', import.meta.url).href },
-    },
-  },
-  mio: {
-    id: 'mio', name: '相澤澪',
-    expressions: { normal: { id: 'normal', name: '通常', imageSrc: new URL('../assets/characters/mio/normal.png', import.meta.url).href } },
-  },
+  kuroda: { id: 'kuroda', name: '黒田征司', expressions: { normal: { id: 'normal', name: '通常' } } },
+  miyahara: { id: 'miyahara', name: '宮原文雄', expressions: { normal: { id: 'normal', name: '通常' } } },
+  misaki: { id: 'misaki', name: '三崎健', expressions: {} },
+  'company-staff': { id: 'company-staff', name: '受付の人', expressions: {} },
+  minato: { id: 'minato', name: '佐伯湊', expressions: {
+    irritated: { id: 'irritated', name: 'irritated', imageSrc: new URL('../assets/images/characters/minato/waist/irritated.png', import.meta.url).href },
+    neutral: { id: 'neutral', name: '通常', imageSrc: new URL('../assets/images/characters/minato/waist/neutral.png', import.meta.url).href },
+    pained: { id: 'pained', name: '沈痛', imageSrc: new URL('../assets/images/characters/minato/waist/pained.png', import.meta.url).href },
+    relieved: { id: 'relieved', name: '安堵', imageSrc: new URL('../assets/images/characters/minato/waist/relieved.png', import.meta.url).href },
+    serious: { id: 'serious', name: '真剣', imageSrc: new URL('../assets/images/characters/minato/waist/serious.png', import.meta.url).href },
+    smile: { id: 'smile', name: '微笑み', imageSrc: new URL('../assets/images/characters/minato/waist/smile.png', import.meta.url).href },
+    surprised: { id: 'surprised', name: '驚き', imageSrc: new URL('../assets/images/characters/minato/waist/surprised.png', import.meta.url).href },
+    normal: { id: 'normal', name: '通常', imageSrc: new URL('../assets/images/characters/minato/waist/neutral.png', import.meta.url).href }
+  } },
+  mio: { id: 'mio', name: '相澤澪', expressions: {
+    amused: { id: 'amused', name: 'amused', imageSrc: new URL('../assets/images/characters/mio/waist/amused.png', import.meta.url).href },
+    neutral: { id: 'neutral', name: '通常', imageSrc: new URL('../assets/images/characters/mio/waist/neutral.png', import.meta.url).href },
+    pained: { id: 'pained', name: '沈痛', imageSrc: new URL('../assets/images/characters/mio/waist/pained.png', import.meta.url).href },
+    relieved: { id: 'relieved', name: '安堵', imageSrc: new URL('../assets/images/characters/mio/waist/relieved.png', import.meta.url).href },
+    serious: { id: 'serious', name: '真剣', imageSrc: new URL('../assets/images/characters/mio/waist/serious.png', import.meta.url).href },
+    smile: { id: 'smile', name: '微笑み', imageSrc: new URL('../assets/images/characters/mio/waist/smile.png', import.meta.url).href },
+    surprised: { id: 'surprised', name: '驚き', imageSrc: new URL('../assets/images/characters/mio/waist/surprised.png', import.meta.url).href },
+    worried: { id: 'worried', name: '不安', imageSrc: new URL('../assets/images/characters/mio/waist/worried.png', import.meta.url).href },
+    normal: { id: 'normal', name: '通常', imageSrc: new URL('../assets/images/characters/mio/waist/neutral.png', import.meta.url).href }
+  } },
+  narumi: { id: 'narumi', name: '鳴海ユウ', expressions: {
+    amused: { id: 'amused', name: 'amused', imageSrc: new URL('../assets/images/characters/narumi/waist/amused.png', import.meta.url).href },
+    cool: { id: 'cool', name: 'cool', imageSrc: new URL('../assets/images/characters/narumi/waist/cool.png', import.meta.url).href },
+    neutral: { id: 'neutral', name: '通常', imageSrc: new URL('../assets/images/characters/narumi/waist/neutral.png', import.meta.url).href },
+    playful: { id: 'playful', name: 'playful', imageSrc: new URL('../assets/images/characters/narumi/waist/playful.png', import.meta.url).href },
+    serious: { id: 'serious', name: '真剣', imageSrc: new URL('../assets/images/characters/narumi/waist/serious.png', import.meta.url).href },
+    smirk: { id: 'smirk', name: 'smirk', imageSrc: new URL('../assets/images/characters/narumi/waist/smirk.png', import.meta.url).href },
+    surprised: { id: 'surprised', name: '驚き', imageSrc: new URL('../assets/images/characters/narumi/waist/surprised.png', import.meta.url).href },
+    wary: { id: 'wary', name: 'wary', imageSrc: new URL('../assets/images/characters/narumi/waist/wary.png', import.meta.url).href },
+    normal: { id: 'normal', name: '通常', imageSrc: new URL('../assets/images/characters/narumi/waist/neutral.png', import.meta.url).href }
+  } },
+  okumura: { id: 'okumura', name: '奥村修一', expressions: {
+    neutral: { id: 'neutral', name: '通常', imageSrc: new URL('../assets/images/characters/okumura/waist/neutral.png', import.meta.url).href },
+    pained: { id: 'pained', name: '沈痛', imageSrc: new URL('../assets/images/characters/okumura/waist/pained.png', import.meta.url).href },
+    relieved: { id: 'relieved', name: '安堵', imageSrc: new URL('../assets/images/characters/okumura/waist/relieved.png', import.meta.url).href },
+    serious: { id: 'serious', name: '真剣', imageSrc: new URL('../assets/images/characters/okumura/waist/serious.png', import.meta.url).href },
+    smile: { id: 'smile', name: '微笑み', imageSrc: new URL('../assets/images/characters/okumura/waist/smile.png', import.meta.url).href },
+    stern: { id: 'stern', name: 'stern', imageSrc: new URL('../assets/images/characters/okumura/waist/stern.png', import.meta.url).href },
+    surprised: { id: 'surprised', name: '驚き', imageSrc: new URL('../assets/images/characters/okumura/waist/surprised.png', import.meta.url).href },
+    normal: { id: 'normal', name: '通常', imageSrc: new URL('../assets/images/characters/okumura/waist/neutral.png', import.meta.url).href }
+  } },
+  segawa: { id: 'segawa', name: '瀬川亮介', expressions: {
+    irritated: { id: 'irritated', name: 'irritated', imageSrc: new URL('../assets/images/characters/segawa/waist/irritated.png', import.meta.url).href },
+    neutral: { id: 'neutral', name: '通常', imageSrc: new URL('../assets/images/characters/segawa/waist/neutral.png', import.meta.url).href },
+    relieved: { id: 'relieved', name: '安堵', imageSrc: new URL('../assets/images/characters/segawa/waist/relieved.png', import.meta.url).href },
+    reluctant: { id: 'reluctant', name: 'reluctant', imageSrc: new URL('../assets/images/characters/segawa/waist/reluctant.png', import.meta.url).href },
+    serious: { id: 'serious', name: '真剣', imageSrc: new URL('../assets/images/characters/segawa/waist/serious.png', import.meta.url).href },
+    skeptical: { id: 'skeptical', name: 'skeptical', imageSrc: new URL('../assets/images/characters/segawa/waist/skeptical.png', import.meta.url).href },
+    smile: { id: 'smile', name: '微笑み', imageSrc: new URL('../assets/images/characters/segawa/waist/smile.png', import.meta.url).href },
+    surprised: { id: 'surprised', name: '驚き', imageSrc: new URL('../assets/images/characters/segawa/waist/surprised.png', import.meta.url).href },
+    normal: { id: 'normal', name: '通常', imageSrc: new URL('../assets/images/characters/segawa/waist/neutral.png', import.meta.url).href }
+  } },
+  naoto: { id: 'naoto', name: '高瀬直人', expressions: {
+    neutral: { id: 'neutral', name: '通常', imageSrc: new URL('../assets/images/characters/naoto/waist/neutral.png', import.meta.url).href },
+    pained: { id: 'pained', name: '沈痛', imageSrc: new URL('../assets/images/characters/naoto/waist/pained.png', import.meta.url).href },
+    relieved: { id: 'relieved', name: '安堵', imageSrc: new URL('../assets/images/characters/naoto/waist/relieved.png', import.meta.url).href },
+    remorseful: { id: 'remorseful', name: 'remorseful', imageSrc: new URL('../assets/images/characters/naoto/waist/remorseful.png', import.meta.url).href },
+    serious: { id: 'serious', name: '真剣', imageSrc: new URL('../assets/images/characters/naoto/waist/serious.png', import.meta.url).href },
+    smile: { id: 'smile', name: '微笑み', imageSrc: new URL('../assets/images/characters/naoto/waist/smile.png', import.meta.url).href },
+    surprised: { id: 'surprised', name: '驚き', imageSrc: new URL('../assets/images/characters/naoto/waist/surprised.png', import.meta.url).href },
+    worried: { id: 'worried', name: '不安', imageSrc: new URL('../assets/images/characters/naoto/waist/worried.png', import.meta.url).href },
+    normal: { id: 'normal', name: '通常', imageSrc: new URL('../assets/images/characters/naoto/waist/neutral.png', import.meta.url).href }
+  } },
+  saori: { id: 'saori', name: '三原沙織', expressions: {
+    confused: { id: 'confused', name: '困惑', imageSrc: new URL('../assets/images/characters/saori/waist/confused.png', import.meta.url).href },
+    neutral: { id: 'neutral', name: '通常', imageSrc: new URL('../assets/images/characters/saori/waist/neutral.png', import.meta.url).href },
+    pained: { id: 'pained', name: '沈痛', imageSrc: new URL('../assets/images/characters/saori/waist/pained.png', import.meta.url).href },
+    relieved: { id: 'relieved', name: '安堵', imageSrc: new URL('../assets/images/characters/saori/waist/relieved.png', import.meta.url).href },
+    serious: { id: 'serious', name: '真剣', imageSrc: new URL('../assets/images/characters/saori/waist/serious.png', import.meta.url).href },
+    smile: { id: 'smile', name: '微笑み', imageSrc: new URL('../assets/images/characters/saori/waist/smile.png', import.meta.url).href },
+    surprised: { id: 'surprised', name: '驚き', imageSrc: new URL('../assets/images/characters/saori/waist/surprised.png', import.meta.url).href },
+    worried: { id: 'worried', name: '不安', imageSrc: new URL('../assets/images/characters/saori/waist/worried.png', import.meta.url).href },
+    normal: { id: 'normal', name: '通常', imageSrc: new URL('../assets/images/characters/saori/waist/neutral.png', import.meta.url).href }
+  } },
+  akari: { id: 'akari', name: '高瀬あかり', expressions: {
+    determined: { id: 'determined', name: '決意', imageSrc: new URL('../assets/images/characters/akari/waist/determined.png', import.meta.url).href },
+    neutral: { id: 'neutral', name: '通常', imageSrc: new URL('../assets/images/characters/akari/waist/neutral.png', import.meta.url).href },
+    relieved: { id: 'relieved', name: '安堵', imageSrc: new URL('../assets/images/characters/akari/waist/relieved.png', import.meta.url).href },
+    sad: { id: 'sad', name: '悲しみ', imageSrc: new URL('../assets/images/characters/akari/waist/sad.png', import.meta.url).href },
+    serious: { id: 'serious', name: '真剣', imageSrc: new URL('../assets/images/characters/akari/waist/serious.png', import.meta.url).href },
+    smile: { id: 'smile', name: '微笑み', imageSrc: new URL('../assets/images/characters/akari/waist/smile.png', import.meta.url).href },
+    surprised: { id: 'surprised', name: '驚き', imageSrc: new URL('../assets/images/characters/akari/waist/surprised.png', import.meta.url).href },
+    worried: { id: 'worried', name: '不安', imageSrc: new URL('../assets/images/characters/akari/waist/worried.png', import.meta.url).href },
+    normal: { id: 'normal', name: '通常', imageSrc: new URL('../assets/images/characters/akari/waist/neutral.png', import.meta.url).href }
+  } },
 }
 
 export function resolveBackground(id: string): BackgroundDefinition {

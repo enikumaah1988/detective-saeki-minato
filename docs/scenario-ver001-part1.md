@@ -1,5 +1,7 @@
 # ver0.01 第1部の実装対応
 
+本書は旧実装の記録。2026-10-12の改訂版については [scenario-ver002.md](scenario-ver002.md) を優先する。第2〜4部の実装、素材、質問、区切り、日時に関する以下の旧残件は改訂版で更新した。
+
 基点: `3ed0b93bc95bab52a0b9a3476afdede16120df0d`。専用ブランチ `scenario/ver001-part1`。原稿正本は saeki-story/outputs/story の「第1話_シナリオ初稿_ver0.01.md」「ver0.01_事件設定と進行.md」「第1話_現行設定.md」。参照元、sources、他checkoutは編集していない。
 
 ## 原稿・ノード・情報の対応
