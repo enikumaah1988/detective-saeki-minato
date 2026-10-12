@@ -1,5 +1,8 @@
 # 佐伯 湊
 
+## 新基準と画風移行：2026-10-13
+ユーザー指定の[新基準画像](../../style/references/minato-gekiga-reference.jpg)と[共通画風更新案](../../style/gekiga-style-revision-proposal.md)を後続制作で優先する。以下の旧採用仕様・画像は制作履歴として保持。新基準に合わせた眼鏡なし・ネクタイありの[全身通常試作01](drafts/gekiga-neutral-01.png)を制作済み、試作画像自体の採用は確認待ち。[生成条件](drafts/gekiga-neutral-01-prompt.md)。喫煙具の方式・過去・ストーリーは変更しない。
+
 更新日：2026-10-13。人物仕様の正本。確定・仮案・未決・非公開を区別する。
 
 1. 基本情報【確定】：佐伯 湊／さえき みなと／Saeki Minato。38歳。私立探偵、主人公。

@@ -1,0 +1,102 @@
+[
+  {
+    "id": "minato",
+    "path": "docs/art/characters/minato/drafts/gekiga-neutral-01.png",
+    "size": [
+      1024,
+      1536
+    ],
+    "mode": "RGBA",
+    "alpha_range": [
+      0,
+      254
+    ],
+    "corner_alpha": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "sha256": "3173f336a5c1ee9c51f71b7ce50d361f6fadc1dec83d71b088ab74baf7ad345f"
+  },
+  {
+    "id": "mio",
+    "path": "docs/art/characters/mio/drafts/gekiga-neutral-01.png",
+    "size": [
+      1024,
+      1536
+    ],
+    "mode": "RGBA",
+    "alpha_range": [
+      0,
+      254
+    ],
+    "corner_alpha": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "sha256": "906bf50fa7619bf96e0ea04a08966e55d42258544c94dc17693feacafd1d907d"
+  },
+  {
+    "id": "narumi",
+    "path": "docs/art/characters/narumi/drafts/gekiga-neutral-01.png",
+    "size": [
+      1024,
+      1536
+    ],
+    "mode": "RGBA",
+    "alpha_range": [
+      0,
+      254
+    ],
+    "corner_alpha": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "sha256": "b03f3f83bed48864273038d6d5e7fd5faaed6acf681b6924e7eef7aabfbc02e8"
+  },
+  {
+    "id": "okumura",
+    "path": "docs/art/characters/okumura/drafts/gekiga-neutral-01.png",
+    "size": [
+      1024,
+      1536
+    ],
+    "mode": "RGBA",
+    "alpha_range": [
+      0,
+      254
+    ],
+    "corner_alpha": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "sha256": "d2b803b76fd6ed68a1f0cb6987f43ca01ca850cf7bd8d284dfa43d5260014277"
+  },
+  {
+    "id": "segawa",
+    "path": "docs/art/characters/segawa/drafts/gekiga-neutral-01.png",
+    "size": [
+      1024,
+      1536
+    ],
+    "mode": "RGBA",
+    "alpha_range": [
+      0,
+      254
+    ],
+    "corner_alpha": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "sha256": "a7b72629bbdb6541960bea6130640859c06335350728d36c4b246f58fe3bfcae"
+  }
+]
