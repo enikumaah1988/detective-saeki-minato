@@ -38,6 +38,7 @@ production/ は廃止。sources/ は読取専用。
 非公開設定を公開資料や生成プロンプトへ流用しない。移行時点のGitHubリポジトリはprivate。
 
 ## ゲーム画面との比較
+2026-10-12：[人物表示基準の引継ぎ](character-display-handoff.md)、[挿絵・背景の制作第1組](integration-batch-01.md)。候補の採用と組み込みは未実施。
 [湊・澪の会話用素材表示見本](display-preview/README.md)。現行枠と腰上配置案、表情切り替えを比較。配置案は未採用。
 
 ## 人物の表示倍率：暫定ルール
