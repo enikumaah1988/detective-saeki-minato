@@ -22,8 +22,8 @@ test('あかりの質問は基本3件→追加質問→次の話題。順序と�
    if(index<2)assert.deepEqual(topics(),['p1-missing','p1-morning','p1-contact'])
   }
   assert.deepEqual(topics(),['p1-workplace','p1-searched'])
-  read('p1-workplace');assert.deepEqual(topics(),['p1-workplace','p1-company-answer','p1-searched'])
-  read('p1-searched');assert.deepEqual(topics(),['p1-workplace','p1-company-answer','p1-searched','p1-police'])
+  read('p1-workplace');assert.deepEqual(topics(),['p1-workplace','p1-searched','p1-company-answer'])
+  read('p1-searched');assert.deepEqual(topics(),['p1-workplace','p1-searched','p1-company-answer','p1-police'])
   read('p1-company-answer');assert.equal(topics().includes('p1-family'),false)
   read('p1-police')
   assert.deepEqual(topics(),['p1-age','p1-daily','p1-family','P1-03-close-conversation'])

@@ -22,9 +22,9 @@ export type StateUpdate =
 export type Choice = { id: string; label: string; labelWhen?: { condition: Condition; label: string }; next: string; repeatNext?: string; implemented?: boolean; required?: boolean; progressId?: string; condition?: Condition; updates?: StateUpdate[] }
 
 export type ScenarioNode =
-  | { type: 'dialogue'; stage: Stage; speakerId: string; speakerName?: string; speakerNameCondition?: Condition; text: string; next: string; nextWhen?: { condition: Condition; next: string }; acquisition?: { itemId: string; title: string; imageSrc: string }; updates?: StateUpdate[] }
+  | { type: 'dialogue'; stage: Stage; speakerId: string; speakerName?: string; speakerNameCondition?: Condition; text: string; next: string; nextWhen?: { condition: Condition; next: string }; conditionalNext?: { condition: Condition; next: string }[]; acquisition?: { itemId: string; title: string; imageSrc: string }; updates?: StateUpdate[] }
   | { type: 'choice'; mode?: 'free-action'; keepQuestions?: boolean; map?: { current: string; back: string }; implementedCommands?: readonly string[]; empty?: { label: string; next: string }; stage: Stage; prompt: string; options: Choice[] }
-  | { type: 'topic' | 'inspect'; selection?: 'person'; heading?: string; headingWhen?: { condition: Condition; heading: string }; parent: { commandId: 'talk' | 'speak' | 'look' | 'investigate'; nodeId: string }; stage: Stage; prompt: string; options: Choice[] }
+  | { type: 'topic' | 'inspect'; selection?: 'person'; appendUnlockedTopics?: boolean; heading?: string; headingWhen?: { condition: Condition; heading: string }; parent: { commandId: 'talk' | 'speak' | 'look' | 'investigate'; nodeId: string }; stage: Stage; prompt: string; options: Choice[] }
   | { type: 'end'; stage: Stage; text: string }
   | {
     type: 'think'

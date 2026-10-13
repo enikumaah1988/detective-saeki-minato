@@ -6,6 +6,8 @@ export function revisionCommand(kind: 'ask' | 'speak' | 'inspect', id: string) {
 }
 export function canCarryTopic(id: string, phaseId: string) {
   if (['p1-schedule', 'p1-coffee'].includes(id)) return phaseId === 'P1-01'
+  if (id === 'p1-request-scope') return phaseId === 'P1-05'
+  if (['p1-age', 'p1-daily', 'p1-family'].includes(id)) return phaseId === 'P1-03'
   return true
 }
 export const revisionLabels: Record<string, string> = {
@@ -46,6 +48,10 @@ export function conversationCondition(id: string, requires: string[], phaseId: s
   if (phaseId==='P1-03') {
     if (['p1-missing','p1-morning','p1-contact'].includes(id)) conditions.push({type:'not',condition:has(akariBasics)})
     if (['p1-workplace','p1-company-answer','p1-searched','p1-police'].includes(id)) conditions.push(has(akariBasics),{type:'not',condition:has(akariInvestigation)})
+  }
+  if (phaseId==='P1-05') {
+    if (['p1-accept','p1-request-scope'].includes(id)) conditions.push({type:'not',condition:has(['F08'])})
+    if (['p1-photo','p1-client-contact'].includes(id)) conditions.push({type:'not',condition:has(['F09'])})
   }
   return conditions.length===1 ? conditions[0] : {type:'all',conditions}
 }

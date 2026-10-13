@@ -36,7 +36,14 @@ export function visibleChoices(node: ScenarioNode, state: GameState) {
   const selectable = node.options.filter((option) => option.implemented !== false && matchesCondition(state, option.condition))
     .map(option => option.labelWhen && matchesCondition(state, option.labelWhen.condition) ? { ...option, label: option.labelWhen.label } : option)
   if (node.type === 'topic' || node.type === 'inspect') {
-    return [...selectable.filter(option => option.id !== 'return'), { id: 'return', label: '戻る', next: node.parent.nodeId }]
+    const topics = selectable.filter(option => option.id !== 'return')
+    if (node.type === 'topic' && node.appendUnlockedTopics && node.selection !== 'person') {
+      // 取得情報の順序から解放時点を復元する。新しい保存項目や時刻には依存しない。
+      const prefixes = Array.from({ length: state.acquiredInformation.length + 1 }, (_, length) => ({ ...state, acquiredInformation: state.acquiredInformation.slice(0, length) }))
+      const rank = new Map(topics.map(option => [option.id, prefixes.findIndex(prefix => matchesCondition(prefix, option.condition))]))
+      topics.sort((a, b) => (rank.get(a.id) ?? 0) - (rank.get(b.id) ?? 0))
+    }
+    return [...topics, { id: 'return', label: '戻る', next: node.parent.nodeId }]
   }
   if (!isFreeAction(node)) return selectable
   // 必須情報が揃ったら思考を次フェーズへの単独トリガーにする。

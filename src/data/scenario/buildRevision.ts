@@ -10,6 +10,7 @@ export type RevisionAction = { id: string; personId?: string | null; label?: str
   questions?: { id: string; prompt: string; choices: { id: string; text: string }[]; answer: string; requires: string[]; hint: string; grants: string[] }[];
   successLines?: RevisionLine[]; retainCorrectAnswers?: boolean;
   remoteOnly?: boolean;
+  legacyOnly?: boolean;
   triggerMode?: 'automatic-after-entry';
 }
 export type RevisionScene = {
@@ -17,6 +18,7 @@ export type RevisionScene = {
   intro: RevisionLine[]; people: string[]; required: string[];
   ask: RevisionAction[]; speak: RevisionAction[]; inspect: RevisionAction[]; think: RevisionAction[];
   organize?: RevisionAction[];
+  topicTransitions?: { id: string; personId: string; requires: string[]; unless: string[]; lines: RevisionLine[]; grants: string[] }[];
   exit: { label: string; nextSceneId: string | null; requires: string[] }; ending: RevisionLine[];
 }
 export type RevisionData = { scenes: RevisionScene[] }
@@ -98,8 +100,8 @@ export function buildRevision(base: Scenario, data: RevisionData): Scenario {
   const boundary = (id: string, phase: RevisionScene, direction: 'IN' | 'OUT', next: string) => {
     const sceneId = `${phase.id}-boundary`
     scenes[sceneId] = { ...stageFor(phase), characters: [] }
-    add(id, { type: 'dialogue', stage: scenes[sceneId], sceneId, speakerId: 'narrator', text: direction === 'IN' ? `第${phase.part}部　${['', '依頼', '展開', '核心', '解決'][phase.part]}` : `第${phase.part}部　終わり`, next,
-      illustration: { id: `C${phase.part}-${direction}`, imageSrc: undefined, alt: `第${phase.part}部${direction === 'IN' ? '始まり' : '終わり'}の挿絵`, heading: '探偵 佐伯　湊', subtitle: `第1話　灰色の証言 — 第${phase.part}部　${['', '依頼', '展開', '核心', '解決'][phase.part]}${direction === 'OUT' ? '　終' : ''}`, provisional: true },
+    add(id, { type: 'dialogue', stage: scenes[sceneId], sceneId, speakerId: 'narrator', text: direction === 'IN' ? `第${phase.part}部　${['', '依頼と初動', '展開', '核心', '解決'][phase.part]}` : `第${phase.part}部　終わり`, next,
+      illustration: { id: `C${phase.part}-${direction}`, imageSrc: undefined, alt: `第${phase.part}部${direction === 'IN' ? '始まり' : '終わり'}の挿絵`, heading: '探偵 佐伯　湊', subtitle: `第1話　灰色の証言 — 第${phase.part}部　${['', '依頼と初動', '展開', '核心', '解決'][phase.part]}${direction === 'OUT' ? '　終' : ''}`, provisional: true },
     }, timeLabel(phase.sceneTime))
   }
   const arrival = (phase: RevisionScene) => `${phase.id}-arrival`
@@ -131,6 +133,9 @@ export function buildRevision(base: Scenario, data: RevisionData): Scenario {
     if(farewell) conversation.push({kind:'speak',action:{id:farewell,personId:'akari',label:'挨拶',lines:[{speakerId:'minato',text:'気をつけて。'}],requires:phase.exit.requires,grants:[farewell],required:true}})
     const closing = sceneClosings[phase.id]
     if (closing) conversation.push({kind:'speak',action:{id:`${phase.id}-close-conversation`,personId:closing.personId,label:closing.label,lines:[{speakerId:'minato',text:closing.text}],requires:phase.exit.requires,grants:[`${phase.id}-conversation-closed`],required:true}})
+    const conversationGate = (action: RevisionAction): Condition => action.legacyOnly
+      ? {type:'all',conditions:[conversationCondition(action.id,action.requires,phase.id),{type:'not',condition:has(action.grants)}]}
+      : conversationCondition(action.id,action.requires,phase.id)
     const options: Choice[] = []
     for (const [commandId, actions] of [['speak', conversation.filter(({action})=>!action.triggerMode).map(entry=>entry.action)]] as const) {
       if (!actions.length) continue
@@ -146,26 +151,31 @@ export function buildRevision(base: Scenario, data: RevisionData): Scenario {
           const actionNodeId = carried.some(entry=>entry.action===action) ? `${phase.id}-carry-${action.id}` : action.id
           returnTargets.set(actionNodeId, topicsId)
           return ({ id: action.id, required: action.required, label: conversationLabel(action),
-          next: sequence(actionNodeId, phase, action.lines, topicsId, [{ type: 'addHeardTopic', id: action.id }, ...grants(action.grants)], action.interaction === 'phone' || action.remoteOnly ? undefined : person), condition: conversationCondition(action.id,action.requires,phase.id) })})
-        add(topicsId, { type: 'topic', heading: '話す',
+          next: sequence(actionNodeId, phase, action.lines, topicsId, [{ type: 'addHeardTopic', id: action.id }, ...grants(action.grants)], action.interaction === 'phone' || action.remoteOnly ? undefined : person), condition: conversationGate(action) })})
+        add(topicsId, { type: 'topic', heading: '話す', appendUnlockedTopics: phase.part === 1,
           stage: scenes[topicsId], sceneId: topicsId,
           parent: { commandId, nodeId: peopleId }, prompt: '話題を選ぶ', options: choices }, time)
         const remote = relevant.every(action=>action.remoteOnly || action.interaction==='phone')
         const suffix = remote ? '（電話）' : ''
-        peopleChoices.push({ id: person, label: (names[person] ?? resolveSpeakerName(person)) + suffix, labelWhen: names[person] ? { condition: has([`named-${person}`]), label: resolveSpeakerName(person) + suffix } : undefined, next: topicsId, condition: { type: 'any', conditions: relevant.map(action => conversationCondition(action.id,action.requires,phase.id)) } })
+        peopleChoices.push({ id: person, label: (names[person] ?? resolveSpeakerName(person)) + suffix, labelWhen: names[person] ? { condition: has([`named-${person}`]), label: resolveSpeakerName(person) + suffix } : undefined, next: topicsId, condition: { type: 'any', conditions: relevant.map(conversationGate) } })
       }
       add(peopleId, { type: 'topic', selection: 'person', heading: '話す', stage: phaseStage, sceneId,
         parent: { commandId, nodeId: menuId }, prompt: '相手を選ぶ', options: peopleChoices }, time)
       // 以前の「聞く」の保存位置も、取得済み情報を増やさず統合後の会話に戻す。
       add(`${phase.id}-talk-people`, nodes[peopleId], time)
       for(const person of people) add(`${phase.id}-talk-${person}`, nodes[`${phase.id}-speak-${person}`], time)
-      options.push({ id: commandId, label: '話す', next: peopleId, condition: { type: 'any', conditions: actions.map(action => conversationCondition(action.id,action.requires,phase.id)) } })
+      options.push({ id: commandId, label: '話す', next: peopleId, condition: { type: 'any', conditions: actions.map(conversationGate) } })
     }
     // 期限を過ぎた日常会話の旧セーブだけは末尾まで読める。新しい一覧には出さない。
     const daily = data.scenes[0].speak.filter(action=>['p1-schedule','p1-coffee'].includes(action.id))
     if(phase.id!=='P1-01' && phase.locationId==='office' && phase.part===1){
       for(const action of daily) sequence(`${phase.id}-carry-${action.id}`,phase,action.lines,menuId,[{type:'addHeardTopic',id:action.id},...grants(action.grants)],'mio')
       if(!nodes[`${phase.id}-speak-mio`]) add(`${phase.id}-speak-mio`,{type:'topic',heading:'話す',stage:stageFor(phase,'mio'),sceneId,parent:{commandId:'speak',nodeId:nodes[`${phase.id}-speak-people`] ? `${phase.id}-speak-people` : menuId},prompt:'話題を選ぶ',options:[]},time)
+    }
+    if(['P1-04','P1-05','P1-06'].includes(phase.id)) {
+      for(const action of phaseById.get('P1-03')?.ask.filter(action=>action.required===false) ?? []) sequence(`${phase.id}-carry-${action.id}`,phase,action.lines,menuId,[{type:'addHeardTopic',id:action.id},...grants(action.grants)],'akari')
+      if(!nodes[`${phase.id}-speak-akari`]) add(`${phase.id}-speak-akari`,{type:'topic',heading:'話す',stage:phaseStage,sceneId,parent:{commandId:'speak',nodeId:menuId},prompt:'話題を選ぶ',options:[]},time)
+      if(!nodes[`${phase.id}-speak-people`]) add(`${phase.id}-speak-people`,{type:'topic',selection:'person',heading:'話す',stage:phaseStage,sceneId,parent:{commandId:'speak',nodeId:menuId},prompt:'相手を選ぶ',options:[]},time)
     }
     for (const command of ['look', 'investigate'] as const) {
       const detailed = phase.inspect.filter(action=>revisionCommand('inspect',action.id)==='investigate')
@@ -293,12 +303,19 @@ export function buildRevision(base: Scenario, data: RevisionData): Scenario {
       }
       use.nodeIds=[]
     }
+    const topicBranches = (phase.topicTransitions ?? []).map(bridge=>({condition:{type:'all' as const,conditions:[has(bridge.requires),{type:'not' as const,condition:has(bridge.unless)}]},next:sequence(bridge.id,phase,bridge.lines,`${phase.id}-speak-${bridge.personId}`,grants(bridge.grants),bridge.personId)}))
+    if(topicBranches.length) {
+      const targets = new Set([menuId,...Object.keys(nodes).filter(id=>sceneOwners.get(nodes[id].sceneId ?? '')===phase.id && ['topic','inspect'].includes(nodes[id].type))])
+      for(const node of Object.values(nodes)) if(node.type==='dialogue' && sceneOwners.get(node.sceneId ?? '')===phase.id && targets.has(node.next)) node.conditionalNext=topicBranches
+    }
     if(automaticExit){
       const currentTargets = new Set([menuId,...Object.keys(nodes).filter(id=>sceneOwners.get(nodes[id].sceneId ?? '')===phase.id && ['topic','inspect'].includes(nodes[id].type))])
       for(const node of Object.values(nodes)) if(node.type==='dialogue' && sceneOwners.get(node.sceneId ?? '')===phase.id && currentTargets.has(node.next)) node.nextWhen={condition:has([...phase.exit.requires,...(farewell ? [farewell] : []), ...(closing ? [`${phase.id}-conversation-closed`] : [])]),next:endingId}
     }
   }
   const last = data.scenes.at(-1)!
+  // 旧部境界を保存していた場合も、会社へ向かう会話から新しい第1部へ続ける。
+  for(const id of ['P1-06-end','P2-01-start']) if(!nodes[id]) add(id,{type:'dialogue',stage:stageFor(phaseById.get('P2-01')!),sceneId:'P2-01',speakerId:'narrator',text:'写真を持って、会社へ向かう。まずは勤務の記録を確かめる。',next:'P2-01-intro'},timeLabel(phaseById.get('P2-01')!.sceneTime))
   add('episode-complete', { type: 'end', stage: stageFor(last), sceneId: last.id, text: '第1話「灰色の証言」完了。' }, timeLabel(last.sceneTime))
   const saveNodeAliases: Record<string, string> = {}
   for (const id of Object.keys(base.nodes)) {

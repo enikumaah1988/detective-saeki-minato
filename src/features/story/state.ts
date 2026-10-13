@@ -102,6 +102,10 @@ export function reduceGameState(scenario: Scenario, state: GameState, action: Ga
   for (const milestone of scenario.milestones ?? []) {
     if (milestone.required.every(id => updated.acquiredInformation.includes(id))) updated = applyUpdates(updated, [{ type: 'addInformation', id: milestone.id }])
   }
-  if (node.type === 'dialogue' && action.type === 'advance' && node.nextWhen && matchesCondition(updated, node.nextWhen.condition)) return enterNode(scenario, updated, node.nextWhen.next)
+  if (node.type === 'dialogue' && action.type === 'advance') {
+    const branch = node.conditionalNext?.find(branch => matchesCondition(updated, branch.condition))
+    if (branch) return enterNode(scenario, updated, branch.next)
+    if (node.nextWhen && matchesCondition(updated, node.nextWhen.condition)) return enterNode(scenario, updated, node.nextWhen.next)
+  }
   return enterNode(scenario, updated, nodeId)
 }

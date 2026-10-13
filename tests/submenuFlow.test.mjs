@@ -22,7 +22,7 @@ test('通常会話と人物を見るの後は元の一覧に留まり、戻る�
 })
 test('全場面は標準のメインコマンドのみ。話題重複・二重進行を作らず部屋名で到着する',async()=>{
  const api=await loadRevision(),full=buildPlaythrough(api),mandatory=buildPlaythrough(api,true)
- for(const run of [full,mandatory]){assert.equal(run.state.nodeId,'episode-complete');assert.equal(run.checkpoints.length,46);assert.equal(run.boundaries.length,8)}
+ for(const run of [full,mandatory]){assert.equal(run.state.nodeId,'episode-complete');assert.equal(run.checkpoints.length,api.revisionData.scenes.length);assert.equal(run.boundaries.length,8)}
  const standard=new Set(['look','speak','investigate','talk','think','organize','move'])
  for(const phase of api.revisionData.scenes){
   const root=api.scenario.nodes[`${phase.id}-menu`]
@@ -47,7 +47,7 @@ test('後から開いた任意話題を持ち越し、退出前の挨拶まで�
  assert.ok(options.some(option=>option.id==='p1-return-home'))
  assert.ok(options.some(option=>option.id==='P1-05-farewell'))
  const carried=api.scenario.nodes['P1-04-speak-akari'].options
- assert.ok(carried.some(option=>option.id==='p1-family'))
+ assert.equal(carried.some(option=>option.id==='p1-family'),false)
 })
 test('旧「仕事に戻る」の保存位置は会話へ移行し、未読の名乗りを付与しない',async()=>{
  const api=await loadRevision(),run=buildPlaythrough(api,true)

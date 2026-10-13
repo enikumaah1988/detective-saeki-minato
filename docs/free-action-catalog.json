@@ -151,6 +151,7 @@
           ]
         }
       ],
+      "topicTransitions": [],
       "ending": "必要なやり取りの末尾から次の場面へ進む"
     },
     {
@@ -304,6 +305,7 @@
           ]
         }
       ],
+      "topicTransitions": [],
       "ending": "必要なやり取りの末尾から次の場面へ進む"
     },
     {
@@ -1383,6 +1385,74 @@
           ]
         }
       ],
+      "topicTransitions": [
+        {
+          "id": "p1-basics-to-search",
+          "personId": "akari",
+          "requires": [
+            "F01",
+            "F02",
+            "F03"
+          ],
+          "unless": [
+            "p1-basics-to-search-read"
+          ],
+          "lines": [
+            {
+              "speakerId": "minato",
+              "text": "五日の朝に家を出て、夜から連絡が取れていない。そこまでは分かった。"
+            },
+            {
+              "speakerId": "akari",
+              "text": "はい。朝は、いつもと同じに見えました。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "次は、行き先を確かめたい。勤務先と、これまで捜したところを教えてくれ。"
+            }
+          ],
+          "grants": [
+            "p1-basics-to-search-read"
+          ]
+        },
+        {
+          "id": "p1-search-to-background",
+          "personId": "akari",
+          "requires": [
+            "F01",
+            "F02",
+            "F03",
+            "F04",
+            "F05",
+            "F06a",
+            "F06"
+          ],
+          "unless": [
+            "p1-search-to-background-read"
+          ],
+          "lines": [
+            {
+              "speakerId": "mio",
+              "text": "会社へのお電話では、詳しい勤務の記録まで確認できなかったんですね。"
+            },
+            {
+              "speakerId": "akari",
+              "text": "はい。何を聞けばいいのか、分からなくなってしまって。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "そこは、こちらから確かめる。もう少しだけ、普段の兄のことを聞いてもいいか？"
+            },
+            {
+              "speakerId": "akari",
+              "text": "……はい。私に分かることなら。"
+            }
+          ],
+          "grants": [
+            "p1-search-to-background-read"
+          ]
+        }
+      ],
       "ending": "話す→相談内容の確認"
     },
     {
@@ -1455,270 +1525,6 @@
           "questions": []
         },
         {
-          "id": "speak",
-          "label": "話す",
-          "condition": {
-            "type": "any",
-            "conditions": [
-              {
-                "type": "all",
-                "conditions": [
-                  {
-                    "type": "hasAllInformation",
-                    "ids": []
-                  },
-                  {
-                    "type": "hasAllInformation",
-                    "ids": [
-                      "F01",
-                      "F02",
-                      "F03",
-                      "F04",
-                      "F05",
-                      "F06a",
-                      "F06"
-                    ]
-                  }
-                ]
-              },
-              {
-                "type": "all",
-                "conditions": [
-                  {
-                    "type": "hasAllInformation",
-                    "ids": [
-                      "F03"
-                    ]
-                  },
-                  {
-                    "type": "hasAllInformation",
-                    "ids": [
-                      "F01",
-                      "F02",
-                      "F03",
-                      "F04",
-                      "F05",
-                      "F06a",
-                      "F06"
-                    ]
-                  }
-                ]
-              },
-              {
-                "type": "all",
-                "conditions": [
-                  {
-                    "type": "hasAllInformation",
-                    "ids": []
-                  },
-                  {
-                    "type": "hasAllInformation",
-                    "ids": [
-                      "F01",
-                      "F02",
-                      "F03",
-                      "F04",
-                      "F05",
-                      "F06a",
-                      "F06"
-                    ]
-                  }
-                ]
-              }
-            ]
-          },
-          "submenu": {
-            "nodeId": "P1-04-speak-people",
-            "heading": "話す",
-            "type": "topic",
-            "items": [
-              {
-                "id": "akari",
-                "label": "女性",
-                "labelWhen": {
-                  "condition": {
-                    "type": "hasAllInformation",
-                    "ids": [
-                      "named-akari"
-                    ]
-                  },
-                  "label": "高瀬　あかり"
-                },
-                "condition": {
-                  "type": "any",
-                  "conditions": [
-                    {
-                      "type": "all",
-                      "conditions": [
-                        {
-                          "type": "hasAllInformation",
-                          "ids": []
-                        },
-                        {
-                          "type": "hasAllInformation",
-                          "ids": [
-                            "F01",
-                            "F02",
-                            "F03",
-                            "F04",
-                            "F05",
-                            "F06a",
-                            "F06"
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "type": "all",
-                      "conditions": [
-                        {
-                          "type": "hasAllInformation",
-                          "ids": [
-                            "F03"
-                          ]
-                        },
-                        {
-                          "type": "hasAllInformation",
-                          "ids": [
-                            "F01",
-                            "F02",
-                            "F03",
-                            "F04",
-                            "F05",
-                            "F06a",
-                            "F06"
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "type": "all",
-                      "conditions": [
-                        {
-                          "type": "hasAllInformation",
-                          "ids": []
-                        },
-                        {
-                          "type": "hasAllInformation",
-                          "ids": [
-                            "F01",
-                            "F02",
-                            "F03",
-                            "F04",
-                            "F05",
-                            "F06a",
-                            "F06"
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                },
-                "next": "P1-04-speak-akari",
-                "children": {
-                  "nodeId": "P1-04-speak-akari",
-                  "heading": "話す",
-                  "type": "topic",
-                  "items": [
-                    {
-                      "id": "p1-age",
-                      "label": "兄の年齢",
-                      "condition": {
-                        "type": "all",
-                        "conditions": [
-                          {
-                            "type": "hasAllInformation",
-                            "ids": []
-                          },
-                          {
-                            "type": "hasAllInformation",
-                            "ids": [
-                              "F01",
-                              "F02",
-                              "F03",
-                              "F04",
-                              "F05",
-                              "F06a",
-                              "F06"
-                            ]
-                          }
-                        ]
-                      },
-                      "required": false,
-                      "next": "P1-04-carry-p1-age"
-                    },
-                    {
-                      "id": "p1-daily",
-                      "label": "普段の連絡",
-                      "condition": {
-                        "type": "all",
-                        "conditions": [
-                          {
-                            "type": "hasAllInformation",
-                            "ids": [
-                              "F03"
-                            ]
-                          },
-                          {
-                            "type": "hasAllInformation",
-                            "ids": [
-                              "F01",
-                              "F02",
-                              "F03",
-                              "F04",
-                              "F05",
-                              "F06a",
-                              "F06"
-                            ]
-                          }
-                        ]
-                      },
-                      "required": false,
-                      "next": "P1-04-carry-p1-daily"
-                    },
-                    {
-                      "id": "p1-family",
-                      "label": "一緒に暮らす家族",
-                      "condition": {
-                        "type": "all",
-                        "conditions": [
-                          {
-                            "type": "hasAllInformation",
-                            "ids": []
-                          },
-                          {
-                            "type": "hasAllInformation",
-                            "ids": [
-                              "F01",
-                              "F02",
-                              "F03",
-                              "F04",
-                              "F05",
-                              "F06a",
-                              "F06"
-                            ]
-                          }
-                        ]
-                      },
-                      "required": false,
-                      "next": "P1-04-carry-p1-family"
-                    }
-                  ],
-                  "back": {
-                    "label": "戻る",
-                    "next": "P1-04-speak-people"
-                  }
-                }
-              }
-            ],
-            "back": {
-              "label": "戻る",
-              "next": "P1-04-menu"
-            }
-          },
-          "questions": []
-        },
-        {
           "id": "think",
           "label": "考える",
           "condition": {
@@ -1737,19 +1543,10 @@
       ],
       "initialCommands": [
         "見る",
-        "話す",
         "考える"
       ],
-      "initialTopics": [
-        {
-          "person": "高瀬　あかり",
-          "topics": [
-            "兄の年齢",
-            "普段の連絡",
-            "一緒に暮らす家族"
-          ]
-        }
-      ],
+      "initialTopics": [],
+      "topicTransitions": [],
       "ending": "必要なやり取りの末尾から次の場面へ進む"
     },
     {
@@ -1828,21 +1625,63 @@
             "type": "any",
             "conditions": [
               {
-                "type": "hasAllInformation",
-                "ids": [
-                  "F08"
+                "type": "all",
+                "conditions": [
+                  {
+                    "type": "hasAllInformation",
+                    "ids": [
+                      "F08"
+                    ]
+                  },
+                  {
+                    "type": "not",
+                    "condition": {
+                      "type": "hasAllInformation",
+                      "ids": [
+                        "F09"
+                      ]
+                    }
+                  }
                 ]
               },
               {
-                "type": "hasAllInformation",
-                "ids": [
-                  "IT01"
+                "type": "all",
+                "conditions": [
+                  {
+                    "type": "hasAllInformation",
+                    "ids": [
+                      "IT01"
+                    ]
+                  },
+                  {
+                    "type": "not",
+                    "condition": {
+                      "type": "hasAllInformation",
+                      "ids": [
+                        "F09"
+                      ]
+                    }
+                  }
                 ]
               },
               {
-                "type": "hasAllInformation",
-                "ids": [
-                  "F07"
+                "type": "all",
+                "conditions": [
+                  {
+                    "type": "hasAllInformation",
+                    "ids": [
+                      "F07"
+                    ]
+                  },
+                  {
+                    "type": "not",
+                    "condition": {
+                      "type": "hasAllInformation",
+                      "ids": [
+                        "F08"
+                      ]
+                    }
+                  }
                 ]
               },
               {
@@ -1856,63 +1695,18 @@
                 "conditions": [
                   {
                     "type": "hasAllInformation",
-                    "ids": []
-                  },
-                  {
-                    "type": "hasAllInformation",
                     "ids": [
-                      "F01",
-                      "F02",
-                      "F03",
-                      "F04",
-                      "F05",
-                      "F06a",
-                      "F06"
-                    ]
-                  }
-                ]
-              },
-              {
-                "type": "all",
-                "conditions": [
-                  {
-                    "type": "hasAllInformation",
-                    "ids": [
-                      "F03"
+                      "F07"
                     ]
                   },
                   {
-                    "type": "hasAllInformation",
-                    "ids": [
-                      "F01",
-                      "F02",
-                      "F03",
-                      "F04",
-                      "F05",
-                      "F06a",
-                      "F06"
-                    ]
-                  }
-                ]
-              },
-              {
-                "type": "all",
-                "conditions": [
-                  {
-                    "type": "hasAllInformation",
-                    "ids": []
-                  },
-                  {
-                    "type": "hasAllInformation",
-                    "ids": [
-                      "F01",
-                      "F02",
-                      "F03",
-                      "F04",
-                      "F05",
-                      "F06a",
-                      "F06"
-                    ]
+                    "type": "not",
+                    "condition": {
+                      "type": "hasAllInformation",
+                      "ids": [
+                        "F08"
+                      ]
+                    }
                   }
                 ]
               },
@@ -1950,21 +1744,63 @@
                   "type": "any",
                   "conditions": [
                     {
-                      "type": "hasAllInformation",
-                      "ids": [
-                        "F08"
+                      "type": "all",
+                      "conditions": [
+                        {
+                          "type": "hasAllInformation",
+                          "ids": [
+                            "F08"
+                          ]
+                        },
+                        {
+                          "type": "not",
+                          "condition": {
+                            "type": "hasAllInformation",
+                            "ids": [
+                              "F09"
+                            ]
+                          }
+                        }
                       ]
                     },
                     {
-                      "type": "hasAllInformation",
-                      "ids": [
-                        "IT01"
+                      "type": "all",
+                      "conditions": [
+                        {
+                          "type": "hasAllInformation",
+                          "ids": [
+                            "IT01"
+                          ]
+                        },
+                        {
+                          "type": "not",
+                          "condition": {
+                            "type": "hasAllInformation",
+                            "ids": [
+                              "F09"
+                            ]
+                          }
+                        }
                       ]
                     },
                     {
-                      "type": "hasAllInformation",
-                      "ids": [
-                        "F07"
+                      "type": "all",
+                      "conditions": [
+                        {
+                          "type": "hasAllInformation",
+                          "ids": [
+                            "F07"
+                          ]
+                        },
+                        {
+                          "type": "not",
+                          "condition": {
+                            "type": "hasAllInformation",
+                            "ids": [
+                              "F08"
+                            ]
+                          }
+                        }
                       ]
                     },
                     {
@@ -1978,63 +1814,18 @@
                       "conditions": [
                         {
                           "type": "hasAllInformation",
-                          "ids": []
-                        },
-                        {
-                          "type": "hasAllInformation",
                           "ids": [
-                            "F01",
-                            "F02",
-                            "F03",
-                            "F04",
-                            "F05",
-                            "F06a",
-                            "F06"
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "type": "all",
-                      "conditions": [
-                        {
-                          "type": "hasAllInformation",
-                          "ids": [
-                            "F03"
+                            "F07"
                           ]
                         },
                         {
-                          "type": "hasAllInformation",
-                          "ids": [
-                            "F01",
-                            "F02",
-                            "F03",
-                            "F04",
-                            "F05",
-                            "F06a",
-                            "F06"
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "type": "all",
-                      "conditions": [
-                        {
-                          "type": "hasAllInformation",
-                          "ids": []
-                        },
-                        {
-                          "type": "hasAllInformation",
-                          "ids": [
-                            "F01",
-                            "F02",
-                            "F03",
-                            "F04",
-                            "F05",
-                            "F06a",
-                            "F06"
-                          ]
+                          "type": "not",
+                          "condition": {
+                            "type": "hasAllInformation",
+                            "ids": [
+                              "F08"
+                            ]
+                          }
                         }
                       ]
                     },
@@ -2061,9 +1852,23 @@
                       "id": "p1-photo",
                       "label": "兄の写真",
                       "condition": {
-                        "type": "hasAllInformation",
-                        "ids": [
-                          "F08"
+                        "type": "all",
+                        "conditions": [
+                          {
+                            "type": "hasAllInformation",
+                            "ids": [
+                              "F08"
+                            ]
+                          },
+                          {
+                            "type": "not",
+                            "condition": {
+                              "type": "hasAllInformation",
+                              "ids": [
+                                "F09"
+                              ]
+                            }
+                          }
                         ]
                       },
                       "required": true,
@@ -2073,9 +1878,23 @@
                       "id": "p1-client-contact",
                       "label": "連絡先",
                       "condition": {
-                        "type": "hasAllInformation",
-                        "ids": [
-                          "IT01"
+                        "type": "all",
+                        "conditions": [
+                          {
+                            "type": "hasAllInformation",
+                            "ids": [
+                              "IT01"
+                            ]
+                          },
+                          {
+                            "type": "not",
+                            "condition": {
+                              "type": "hasAllInformation",
+                              "ids": [
+                                "F09"
+                              ]
+                            }
+                          }
                         ]
                       },
                       "required": true,
@@ -2085,9 +1904,23 @@
                       "id": "p1-accept",
                       "label": "調査の進め方",
                       "condition": {
-                        "type": "hasAllInformation",
-                        "ids": [
-                          "F07"
+                        "type": "all",
+                        "conditions": [
+                          {
+                            "type": "hasAllInformation",
+                            "ids": [
+                              "F07"
+                            ]
+                          },
+                          {
+                            "type": "not",
+                            "condition": {
+                              "type": "hasAllInformation",
+                              "ids": [
+                                "F08"
+                              ]
+                            }
+                          }
                         ]
                       },
                       "required": true,
@@ -2106,87 +1939,30 @@
                       "next": "p1-return-home"
                     },
                     {
-                      "id": "p1-age",
-                      "label": "兄の年齢",
-                      "condition": {
-                        "type": "all",
-                        "conditions": [
-                          {
-                            "type": "hasAllInformation",
-                            "ids": []
-                          },
-                          {
-                            "type": "hasAllInformation",
-                            "ids": [
-                              "F01",
-                              "F02",
-                              "F03",
-                              "F04",
-                              "F05",
-                              "F06a",
-                              "F06"
-                            ]
-                          }
-                        ]
-                      },
-                      "required": false,
-                      "next": "P1-05-carry-p1-age"
-                    },
-                    {
-                      "id": "p1-daily",
-                      "label": "普段の連絡",
+                      "id": "p1-request-scope",
+                      "label": "調査の範囲",
                       "condition": {
                         "type": "all",
                         "conditions": [
                           {
                             "type": "hasAllInformation",
                             "ids": [
-                              "F03"
+                              "F07"
                             ]
                           },
                           {
-                            "type": "hasAllInformation",
-                            "ids": [
-                              "F01",
-                              "F02",
-                              "F03",
-                              "F04",
-                              "F05",
-                              "F06a",
-                              "F06"
-                            ]
+                            "type": "not",
+                            "condition": {
+                              "type": "hasAllInformation",
+                              "ids": [
+                                "F08"
+                              ]
+                            }
                           }
                         ]
                       },
                       "required": false,
-                      "next": "P1-05-carry-p1-daily"
-                    },
-                    {
-                      "id": "p1-family",
-                      "label": "一緒に暮らす家族",
-                      "condition": {
-                        "type": "all",
-                        "conditions": [
-                          {
-                            "type": "hasAllInformation",
-                            "ids": []
-                          },
-                          {
-                            "type": "hasAllInformation",
-                            "ids": [
-                              "F01",
-                              "F02",
-                              "F03",
-                              "F04",
-                              "F05",
-                              "F06a",
-                              "F06"
-                            ]
-                          }
-                        ]
-                      },
-                      "required": false,
-                      "next": "P1-05-carry-p1-family"
+                      "next": "p1-request-scope"
                     },
                     {
                       "id": "P1-05-farewell",
@@ -2230,9 +2006,68 @@
           "person": "高瀬　あかり",
           "topics": [
             "調査の進め方",
-            "兄の年齢",
-            "普段の連絡",
-            "一緒に暮らす家族"
+            "調査の範囲"
+          ]
+        }
+      ],
+      "topicTransitions": [
+        {
+          "id": "p1-request-to-materials",
+          "personId": "akari",
+          "requires": [
+            "F08"
+          ],
+          "unless": [
+            "p1-request-to-materials-read"
+          ],
+          "lines": [
+            {
+              "speakerId": "minato",
+              "text": "捜す時に使うものを預かりたい。今の兄の顔が分かる写真はあるか？"
+            },
+            {
+              "speakerId": "akari",
+              "text": "はい。持ってきました。"
+            },
+            {
+              "speakerId": "mio",
+              "text": "お写真を預かったあと、ご連絡先も確認させてください。"
+            }
+          ],
+          "grants": [
+            "p1-request-to-materials-read"
+          ]
+        },
+        {
+          "id": "p1-materials-to-farewell",
+          "personId": "akari",
+          "requires": [
+            "F09",
+            "IT01"
+          ],
+          "unless": [
+            "p1-materials-to-farewell-read"
+          ],
+          "lines": [
+            {
+              "speakerId": "mio",
+              "text": "必要なものはお預かりできました。会社への確認は、こちらから進めます。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "兄から連絡があった時は、こっちにも知らせてくれ。"
+            },
+            {
+              "speakerId": "akari",
+              "text": "はい。……お願いします。"
+            },
+            {
+              "speakerId": "narrator",
+              "text": "あかりは写真を入れていた袋をしまった。空いた手を、一度だけ膝の上で握る。"
+            }
+          ],
+          "grants": [
+            "p1-materials-to-farewell-read"
           ]
         }
       ],
@@ -2417,11 +2252,12 @@
         "見る"
       ],
       "initialTopics": [],
+      "topicTransitions": [],
       "ending": "必要なやり取りの末尾から次の場面へ進む"
     },
     {
       "phase": "P2-01",
-      "part": 2,
+      "part": 1,
       "location": "佐伯探偵事務所",
       "room": "事務所",
       "time": "2026-10-08T12:00:00",
@@ -2588,16 +2424,17 @@
         {
           "person": "相澤　澪",
           "topics": [
-            "会社への訪問",
-            "あかりの様子"
+            "あかりの様子",
+            "会社への訪問"
           ]
         }
       ],
+      "topicTransitions": [],
       "ending": "必要なやり取りの後、移動を選ぶ"
     },
     {
       "phase": "P2-02-EXT",
-      "part": 2,
+      "part": 1,
       "location": "東成ビルサービス",
       "room": "東成ビルサービス前",
       "time": "2026-10-08T12:20:00",
@@ -2669,11 +2506,12 @@
         "移動"
       ],
       "initialTopics": [],
+      "topicTransitions": [],
       "ending": "必要なやり取りの後、移動を選ぶ"
     },
     {
       "phase": "P2-02",
-      "part": 2,
+      "part": 1,
       "location": "東成ビルサービス",
       "room": "受付",
       "time": "2026-10-08T12:25:00",
@@ -2766,6 +2604,12 @@
                 "ids": [
                   "F15"
                 ]
+              },
+              {
+                "type": "hasAllInformation",
+                "ids": [
+                  "F13"
+                ]
               }
             ]
           },
@@ -2808,6 +2652,12 @@
                       "type": "hasAllInformation",
                       "ids": [
                         "F15"
+                      ]
+                    },
+                    {
+                      "type": "hasAllInformation",
+                      "ids": [
+                        "F13"
                       ]
                     }
                   ]
@@ -2877,6 +2727,18 @@
                       },
                       "required": true,
                       "next": "p2-arrange-kuroda"
+                    },
+                    {
+                      "id": "p1-reception-process",
+                      "label": "確認の担当",
+                      "condition": {
+                        "type": "hasAllInformation",
+                        "ids": [
+                          "F13"
+                        ]
+                      },
+                      "required": false,
+                      "next": "p1-reception-process"
                     }
                   ],
                   "back": {
@@ -2934,11 +2796,12 @@
         "見る"
       ],
       "initialTopics": [],
+      "topicTransitions": [],
       "ending": "必要なやり取りの後、移動を選ぶ"
     },
     {
       "phase": "P2-03",
-      "part": 2,
+      "part": 1,
       "location": "東成ビルサービス",
       "room": "応接室",
       "time": "2026-10-08T12:45:00",
@@ -3264,11 +3127,12 @@
           ]
         }
       ],
+      "topicTransitions": [],
       "ending": "必要なやり取りの後、移動を選ぶ"
     },
     {
       "phase": "P2-03-EXIT",
-      "part": 2,
+      "part": 1,
       "location": "東成ビルサービス",
       "room": "受付",
       "time": "2026-10-08T13:05:00",
@@ -3344,11 +3208,12 @@
         "移動"
       ],
       "initialTopics": [],
+      "topicTransitions": [],
       "ending": "必要なやり取りの後、移動を選ぶ"
     },
     {
       "phase": "P2-04",
-      "part": 2,
+      "part": 1,
       "location": "成子坂共同ビル",
       "room": "成子坂共同ビル前",
       "time": "2026-10-08T13:20:00",
@@ -3621,11 +3486,12 @@
         "見る"
       ],
       "initialTopics": [],
+      "topicTransitions": [],
       "ending": "必要なやり取りの後、移動を選ぶ"
     },
     {
       "phase": "P2-05",
-      "part": 2,
+      "part": 1,
       "location": "成子坂共同ビル",
       "room": "管理人室",
       "time": "2026-10-08T13:30:00",
@@ -3744,6 +3610,12 @@
                 "ids": [
                   "F29"
                 ]
+              },
+              {
+                "type": "hasAllInformation",
+                "ids": [
+                  "E01"
+                ]
               }
             ]
           },
@@ -3790,6 +3662,12 @@
                       "type": "hasAllInformation",
                       "ids": [
                         "F29"
+                      ]
+                    },
+                    {
+                      "type": "hasAllInformation",
+                      "ids": [
+                        "E01"
                       ]
                     }
                   ]
@@ -3848,6 +3726,18 @@
                       },
                       "required": true,
                       "next": "p2-document-permission"
+                    },
+                    {
+                      "id": "p1-journal-method",
+                      "label": "日誌のつけ方",
+                      "condition": {
+                        "type": "hasAllInformation",
+                        "ids": [
+                          "E01"
+                        ]
+                      },
+                      "required": false,
+                      "next": "p1-journal-method"
                     }
                   ],
                   "back": {
@@ -3973,11 +3863,12 @@
           ]
         }
       ],
+      "topicTransitions": [],
       "ending": "必要なやり取りの後、移動を選ぶ"
     },
     {
       "phase": "P2-06",
-      "part": 2,
+      "part": 1,
       "location": "成子坂共同ビル",
       "room": "階段",
       "time": "2026-10-08T13:50:00",
@@ -4191,11 +4082,12 @@
         "見る"
       ],
       "initialTopics": [],
+      "topicTransitions": [],
       "ending": "必要なやり取りの後、移動を選ぶ"
     },
     {
-      "phase": "P2-07",
-      "part": 2,
+      "phase": "P1-07-RETURN",
+      "part": 1,
       "location": "成子坂共同ビル",
       "room": "管理人室",
       "time": "2026-10-08T14:00:00",
@@ -4215,12 +4107,12 @@
             ]
           },
           "submenu": {
-            "nodeId": "P2-07-targets",
+            "nodeId": "P1-07-RETURN-targets",
             "heading": "見る",
             "type": "inspect",
             "items": [
               {
-                "id": "P2-07-observe-miyahara",
+                "id": "P1-07-RETURN-observe-miyahara",
                 "label": "管理人",
                 "labelWhen": {
                   "condition": {
@@ -4238,7 +4130,299 @@
                   ]
                 },
                 "required": false,
-                "next": "P2-07-observe-miyahara"
+                "next": "P1-07-RETURN-observe-miyahara"
+              }
+            ],
+            "back": {
+              "label": "戻る",
+              "next": "P1-07-RETURN-menu"
+            }
+          },
+          "questions": []
+        },
+        {
+          "id": "move",
+          "label": "移動",
+          "condition": {
+            "type": "hasAllInformation",
+            "ids": [
+              "F32",
+              "E01",
+              "E03"
+            ]
+          },
+          "submenu": {
+            "nodeId": "P1-07-RETURN-exit",
+            "heading": "移動",
+            "type": "choice",
+            "items": [
+              {
+                "id": "proceed",
+                "label": "外に出る",
+                "next": "P1-07-RETURN-ending"
+              },
+              {
+                "id": "return",
+                "label": "戻る",
+                "next": "P1-07-RETURN-menu"
+              }
+            ]
+          },
+          "questions": []
+        }
+      ],
+      "initialCommands": [
+        "見る",
+        "移動"
+      ],
+      "initialTopics": [],
+      "topicTransitions": [],
+      "ending": "必要なやり取りの後、移動を選ぶ"
+    },
+    {
+      "phase": "P1-08-REPORT",
+      "part": 1,
+      "location": "佐伯探偵事務所",
+      "room": "事務所",
+      "time": "2026-10-08T14:20:00",
+      "commands": [
+        {
+          "id": "look",
+          "label": "見る",
+          "condition": {
+            "type": "any",
+            "conditions": [
+              {
+                "type": "hasAllInformation",
+                "ids": []
+              }
+            ]
+          },
+          "submenu": {
+            "nodeId": "P1-08-REPORT-targets",
+            "heading": "見る",
+            "type": "inspect",
+            "items": [
+              {
+                "id": "P1-08-REPORT-observe-mio",
+                "label": "相澤　澪",
+                "condition": {
+                  "type": "hasAllInformation",
+                  "ids": []
+                },
+                "required": false,
+                "next": "P1-08-REPORT-observe-mio"
+              }
+            ],
+            "back": {
+              "label": "戻る",
+              "next": "P1-08-REPORT-menu"
+            }
+          },
+          "questions": []
+        },
+        {
+          "id": "speak",
+          "label": "話す",
+          "condition": {
+            "type": "any",
+            "conditions": [
+              {
+                "type": "hasAllInformation",
+                "ids": [
+                  "F38"
+                ]
+              },
+              {
+                "type": "hasAllInformation",
+                "ids": [
+                  "F38",
+                  "F39"
+                ]
+              },
+              {
+                "type": "hasAllInformation",
+                "ids": [
+                  "F40"
+                ]
+              },
+              {
+                "type": "hasAllInformation",
+                "ids": [
+                  "F39",
+                  "F40",
+                  "IT04",
+                  "F19",
+                  "F32"
+                ]
+              }
+            ]
+          },
+          "submenu": {
+            "nodeId": "P1-08-REPORT-speak-people",
+            "heading": "話す",
+            "type": "topic",
+            "items": [
+              {
+                "id": "mio",
+                "label": "相澤　澪",
+                "condition": {
+                  "type": "any",
+                  "conditions": [
+                    {
+                      "type": "hasAllInformation",
+                      "ids": [
+                        "F38"
+                      ]
+                    },
+                    {
+                      "type": "hasAllInformation",
+                      "ids": [
+                        "F38",
+                        "F39"
+                      ]
+                    },
+                    {
+                      "type": "hasAllInformation",
+                      "ids": [
+                        "F40"
+                      ]
+                    },
+                    {
+                      "type": "hasAllInformation",
+                      "ids": [
+                        "F39",
+                        "F40",
+                        "IT04",
+                        "F19",
+                        "F32"
+                      ]
+                    }
+                  ]
+                },
+                "next": "P1-08-REPORT-speak-mio",
+                "children": {
+                  "nodeId": "P1-08-REPORT-speak-mio",
+                  "heading": "話す",
+                  "type": "topic",
+                  "items": [
+                    {
+                      "id": "p1-initial-company-report",
+                      "label": "会社で分かったこと",
+                      "condition": {
+                        "type": "hasAllInformation",
+                        "ids": [
+                          "F38"
+                        ]
+                      },
+                      "required": true,
+                      "next": "p1-initial-company-report"
+                    },
+                    {
+                      "id": "p1-initial-building-report",
+                      "label": "ビルで見たもの",
+                      "condition": {
+                        "type": "hasAllInformation",
+                        "ids": [
+                          "F38",
+                          "F39"
+                        ]
+                      },
+                      "required": true,
+                      "next": "p1-initial-building-report"
+                    },
+                    {
+                      "id": "p1-client-first-report",
+                      "label": "あかりへの伝え方",
+                      "condition": {
+                        "type": "hasAllInformation",
+                        "ids": [
+                          "F40"
+                        ]
+                      },
+                      "required": false,
+                      "next": "p1-client-first-report"
+                    },
+                    {
+                      "id": "p1-initial-next",
+                      "label": "次に確かめること",
+                      "condition": {
+                        "type": "hasAllInformation",
+                        "ids": [
+                          "F39",
+                          "F40",
+                          "IT04",
+                          "F19",
+                          "F32"
+                        ]
+                      },
+                      "required": true,
+                      "next": "p1-initial-next"
+                    }
+                  ],
+                  "back": {
+                    "label": "戻る",
+                    "next": "P1-08-REPORT-speak-people"
+                  }
+                }
+              }
+            ],
+            "back": {
+              "label": "戻る",
+              "next": "P1-08-REPORT-menu"
+            }
+          },
+          "questions": []
+        }
+      ],
+      "initialCommands": [
+        "見る",
+        "話す"
+      ],
+      "initialTopics": [
+        {
+          "person": "相澤　澪",
+          "topics": [
+            "会社で分かったこと"
+          ]
+        }
+      ],
+      "topicTransitions": [],
+      "ending": "必要なやり取りの末尾から次の場面へ進む"
+    },
+    {
+      "phase": "P2-07",
+      "part": 2,
+      "location": "佐伯探偵事務所",
+      "room": "事務所",
+      "time": "2026-10-08T14:30:00",
+      "commands": [
+        {
+          "id": "look",
+          "label": "見る",
+          "condition": {
+            "type": "any",
+            "conditions": [
+              {
+                "type": "hasAllInformation",
+                "ids": []
+              }
+            ]
+          },
+          "submenu": {
+            "nodeId": "P2-07-targets",
+            "heading": "見る",
+            "type": "inspect",
+            "items": [
+              {
+                "id": "P2-07-observe-mio",
+                "label": "相澤　澪",
+                "condition": {
+                  "type": "hasAllInformation",
+                  "ids": []
+                },
+                "required": false,
+                "next": "P2-07-observe-mio"
               }
             ],
             "back": {
@@ -4259,6 +4443,12 @@
                 "ids": [
                   "E01",
                   "F32"
+                ]
+              },
+              {
+                "type": "hasAllInformation",
+                "ids": [
+                  "F40"
                 ]
               }
             ]
@@ -4317,6 +4507,45 @@
                     "next": "P2-07-speak-people"
                   }
                 }
+              },
+              {
+                "id": "mio",
+                "label": "相澤　澪",
+                "condition": {
+                  "type": "any",
+                  "conditions": [
+                    {
+                      "type": "hasAllInformation",
+                      "ids": [
+                        "F40"
+                      ]
+                    }
+                  ]
+                },
+                "next": "P2-07-speak-mio",
+                "children": {
+                  "nodeId": "P2-07-speak-mio",
+                  "heading": "話す",
+                  "type": "topic",
+                  "items": [
+                    {
+                      "id": "p1-client-first-report",
+                      "label": "あかりへの伝え方",
+                      "condition": {
+                        "type": "hasAllInformation",
+                        "ids": [
+                          "F40"
+                        ]
+                      },
+                      "required": false,
+                      "next": "P2-07-carry-p1-client-first-report"
+                    }
+                  ],
+                  "back": {
+                    "label": "戻る",
+                    "next": "P2-07-speak-people"
+                  }
+                }
               }
             ],
             "back": {
@@ -4367,8 +4596,15 @@
           "topics": [
             "奥村へ連絡"
           ]
+        },
+        {
+          "person": "相澤　澪",
+          "topics": [
+            "あかりへの伝え方"
+          ]
         }
       ],
+      "topicTransitions": [],
       "ending": "必要なやり取りの後、移動を選ぶ"
     },
     {
@@ -4376,7 +4612,7 @@
       "part": 2,
       "location": "西新宿警察署",
       "room": "西新宿警察署前",
-      "time": "2026-10-08T14:15:00",
+      "time": "2026-10-08T14:45:00",
       "commands": [
         {
           "id": "move",
@@ -4409,6 +4645,7 @@
         "移動"
       ],
       "initialTopics": [],
+      "topicTransitions": [],
       "ending": "必要なやり取りの後、移動を選ぶ"
     },
     {
@@ -4416,7 +4653,7 @@
       "part": 2,
       "location": "西新宿警察署",
       "room": "受付",
-      "time": "2026-10-08T14:20:00",
+      "time": "2026-10-08T14:50:00",
       "commands": [
         {
           "id": "look",
@@ -4575,6 +4812,7 @@
         "見る"
       ],
       "initialTopics": [],
+      "topicTransitions": [],
       "ending": "必要なやり取りの後、移動を選ぶ"
     },
     {
@@ -4582,7 +4820,7 @@
       "part": 2,
       "location": "西新宿警察署",
       "room": "面会室",
-      "time": "2026-10-08T14:25:00",
+      "time": "2026-10-08T14:55:00",
       "commands": [
         {
           "id": "look",
@@ -4917,6 +5155,7 @@
           ]
         }
       ],
+      "topicTransitions": [],
       "ending": "必要なやり取りの後、移動を選ぶ"
     },
     {
@@ -4924,7 +5163,7 @@
       "part": 2,
       "location": "西新宿警察署",
       "room": "受付",
-      "time": "2026-10-08T14:50:00",
+      "time": "2026-10-08T15:15:00",
       "commands": [
         {
           "id": "look",
@@ -4997,6 +5236,7 @@
         "移動"
       ],
       "initialTopics": [],
+      "topicTransitions": [],
       "ending": "必要なやり取りの後、移動を選ぶ"
     },
     {
@@ -5004,7 +5244,7 @@
       "part": 2,
       "location": "佐伯探偵事務所",
       "room": "事務所",
-      "time": "2026-10-08T15:10:00",
+      "time": "2026-10-08T15:35:00",
       "commands": [
         {
           "id": "look",
@@ -5054,21 +5294,53 @@
                 ]
               },
               {
-                "type": "hasAllInformation",
-                "ids": [
-                  "F38"
+                "type": "all",
+                "conditions": [
+                  {
+                    "type": "hasAllInformation",
+                    "ids": [
+                      "F38"
+                    ]
+                  },
+                  {
+                    "type": "not",
+                    "condition": {
+                      "type": "hasAllInformation",
+                      "ids": [
+                        "F39"
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "all",
+                "conditions": [
+                  {
+                    "type": "hasAllInformation",
+                    "ids": [
+                      "F38"
+                    ]
+                  },
+                  {
+                    "type": "not",
+                    "condition": {
+                      "type": "hasAllInformation",
+                      "ids": [
+                        "F40",
+                        "IT04"
+                      ]
+                    }
+                  }
                 ]
               },
               {
                 "type": "hasAllInformation",
                 "ids": [
-                  "F38"
-                ]
-              },
-              {
-                "type": "hasAllInformation",
-                "ids": [
-                  "F38"
+                  "F38",
+                  "E02",
+                  "F36",
+                  "F37"
                 ]
               }
             ]
@@ -5091,21 +5363,53 @@
                       ]
                     },
                     {
-                      "type": "hasAllInformation",
-                      "ids": [
-                        "F38"
+                      "type": "all",
+                      "conditions": [
+                        {
+                          "type": "hasAllInformation",
+                          "ids": [
+                            "F38"
+                          ]
+                        },
+                        {
+                          "type": "not",
+                          "condition": {
+                            "type": "hasAllInformation",
+                            "ids": [
+                              "F39"
+                            ]
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "type": "all",
+                      "conditions": [
+                        {
+                          "type": "hasAllInformation",
+                          "ids": [
+                            "F38"
+                          ]
+                        },
+                        {
+                          "type": "not",
+                          "condition": {
+                            "type": "hasAllInformation",
+                            "ids": [
+                              "F40",
+                              "IT04"
+                            ]
+                          }
+                        }
                       ]
                     },
                     {
                       "type": "hasAllInformation",
                       "ids": [
-                        "F38"
-                      ]
-                    },
-                    {
-                      "type": "hasAllInformation",
-                      "ids": [
-                        "F38"
+                        "F38",
+                        "E02",
+                        "F36",
+                        "F37"
                       ]
                     }
                   ]
@@ -5132,9 +5436,23 @@
                       "id": "p2-company-report",
                       "label": "会社で分かったこと",
                       "condition": {
-                        "type": "hasAllInformation",
-                        "ids": [
-                          "F38"
+                        "type": "all",
+                        "conditions": [
+                          {
+                            "type": "hasAllInformation",
+                            "ids": [
+                              "F38"
+                            ]
+                          },
+                          {
+                            "type": "not",
+                            "condition": {
+                              "type": "hasAllInformation",
+                              "ids": [
+                                "F39"
+                              ]
+                            }
+                          }
                         ]
                       },
                       "required": true,
@@ -5144,9 +5462,24 @@
                       "id": "p2-building-report",
                       "label": "ビルで見たもの",
                       "condition": {
-                        "type": "hasAllInformation",
-                        "ids": [
-                          "F38"
+                        "type": "all",
+                        "conditions": [
+                          {
+                            "type": "hasAllInformation",
+                            "ids": [
+                              "F38"
+                            ]
+                          },
+                          {
+                            "type": "not",
+                            "condition": {
+                              "type": "hasAllInformation",
+                              "ids": [
+                                "F40",
+                                "IT04"
+                              ]
+                            }
+                          }
                         ]
                       },
                       "required": true,
@@ -5158,7 +5491,10 @@
                       "condition": {
                         "type": "hasAllInformation",
                         "ids": [
-                          "F38"
+                          "F38",
+                          "E02",
+                          "F36",
+                          "F37"
                         ]
                       },
                       "required": true,
@@ -5188,12 +5524,12 @@
         {
           "person": "相澤　澪",
           "topics": [
-            "会社で分かったこと",
-            "ビルで見たもの",
+            "報告書の読み方",
             "警察での確認"
           ]
         }
       ],
+      "topicTransitions": [],
       "ending": "必要なやり取りの末尾から次の場面へ進む"
     },
     {
@@ -5201,7 +5537,7 @@
       "part": 2,
       "location": "佐伯探偵事務所",
       "room": "事務所",
-      "time": "2026-10-08T15:35:00",
+      "time": "2026-10-08T15:40:00",
       "commands": [
         {
           "id": "look",
@@ -5362,6 +5698,7 @@
           ]
         }
       ],
+      "topicTransitions": [],
       "ending": "必要なやり取りの末尾から次の場面へ進む"
     },
     {
@@ -5475,6 +5812,7 @@
       ],
       "initialCommands": [],
       "initialTopics": [],
+      "topicTransitions": [],
       "ending": "必要なやり取りの末尾から次の場面へ進む"
     },
     {
@@ -5734,6 +6072,7 @@
           ]
         }
       ],
+      "topicTransitions": [],
       "ending": "必要なやり取りの後、移動を選ぶ"
     },
     {
@@ -5937,6 +6276,7 @@
           ]
         }
       ],
+      "topicTransitions": [],
       "ending": "必要なやり取りの後、移動を選ぶ"
     },
     {
@@ -6073,6 +6413,7 @@
           ]
         }
       ],
+      "topicTransitions": [],
       "ending": "必要なやり取りの末尾から次の場面へ進む"
     },
     {
@@ -6431,6 +6772,7 @@
           ]
         }
       ],
+      "topicTransitions": [],
       "ending": "話す→証言の確認"
     },
     {
@@ -6731,6 +7073,7 @@
           ]
         }
       ],
+      "topicTransitions": [],
       "ending": "必要なやり取りの末尾から次の場面へ進む"
     },
     {
@@ -7007,6 +7350,7 @@
           ]
         }
       ],
+      "topicTransitions": [],
       "ending": "話す→書類についての確認"
     },
     {
@@ -7246,6 +7590,7 @@
           ]
         }
       ],
+      "topicTransitions": [],
       "ending": "必要なやり取りの末尾から次の場面へ進む"
     },
     {
@@ -7499,6 +7844,7 @@
           ]
         }
       ],
+      "topicTransitions": [],
       "ending": "必要なやり取りの後、移動を選ぶ"
     },
     {
@@ -7577,6 +7923,7 @@
         "移動"
       ],
       "initialTopics": [],
+      "topicTransitions": [],
       "ending": "必要なやり取りの後、移動を選ぶ"
     },
     {
@@ -7749,6 +8096,7 @@
         "移動"
       ],
       "initialTopics": [],
+      "topicTransitions": [],
       "ending": "必要なやり取りの後、移動を選ぶ"
     },
     {
@@ -8140,6 +8488,7 @@
           ]
         }
       ],
+      "topicTransitions": [],
       "ending": "必要なやり取りの後、移動を選ぶ"
     },
     {
@@ -8416,6 +8765,7 @@
           ]
         }
       ],
+      "topicTransitions": [],
       "ending": "必要なやり取りの後、移動を選ぶ"
     },
     {
@@ -8787,6 +9137,7 @@
           ]
         }
       ],
+      "topicTransitions": [],
       "ending": "必要なやり取りの後、移動を選ぶ"
     },
     {
@@ -9074,6 +9425,7 @@
         "整理する"
       ],
       "initialTopics": [],
+      "topicTransitions": [],
       "ending": "必要なやり取りの後、移動を選ぶ"
     },
     {
@@ -9114,6 +9466,7 @@
         "移動"
       ],
       "initialTopics": [],
+      "topicTransitions": [],
       "ending": "必要なやり取りの後、移動を選ぶ"
     },
     {
@@ -9269,6 +9622,7 @@
           ]
         }
       ],
+      "topicTransitions": [],
       "ending": "必要なやり取りの後、移動を選ぶ"
     },
     {
@@ -9498,6 +9852,7 @@
           ]
         }
       ],
+      "topicTransitions": [],
       "ending": "必要なやり取りの末尾から次の場面へ進む"
     },
     {
@@ -9775,6 +10130,7 @@
           ]
         }
       ],
+      "topicTransitions": [],
       "ending": "話す→説明の確認"
     },
     {
@@ -9976,6 +10332,7 @@
           ]
         }
       ],
+      "topicTransitions": [],
       "ending": "必要なやり取りの後、移動を選ぶ"
     },
     {
@@ -10056,6 +10413,7 @@
         "移動"
       ],
       "initialTopics": [],
+      "topicTransitions": [],
       "ending": "必要なやり取りの後、移動を選ぶ"
     },
     {
@@ -10179,6 +10537,7 @@
           ]
         }
       ],
+      "topicTransitions": [],
       "ending": "必要なやり取りの末尾から次の場面へ進む"
     },
     {
@@ -10302,6 +10661,7 @@
           ]
         }
       ],
+      "topicTransitions": [],
       "ending": "必要なやり取りの末尾から次の場面へ進む"
     },
     {
@@ -10590,6 +10950,7 @@
           ]
         }
       ],
+      "topicTransitions": [],
       "ending": "話す→あかり→お見送り"
     },
     {
@@ -10713,6 +11074,7 @@
           ]
         }
       ],
+      "topicTransitions": [],
       "ending": "必要なやり取りの末尾から次の場面へ進む"
     }
   ],
@@ -10854,8 +11216,76 @@
       ]
     },
     {
-      "nodeId": "P2-07-outside",
+      "nodeId": "P1-07-RETURN-outside",
       "heading": "成子坂共同ビル前",
+      "options": [
+        {
+          "label": "他に移動する",
+          "next": "P1-07-RETURN-map"
+        },
+        {
+          "label": "中に入る",
+          "next": "P1-07-RETURN-menu"
+        }
+      ]
+    },
+    {
+      "nodeId": "P1-07-RETURN-map",
+      "heading": "移動先",
+      "current": "building",
+      "options": [
+        {
+          "label": "佐伯探偵事務所",
+          "next": "P1-07-RETURN-destination"
+        },
+        {
+          "label": "戻る",
+          "next": "P1-07-RETURN-outside"
+        }
+      ],
+      "buttons": [
+        "ここへ移動",
+        "現在地（確定不可）",
+        "戻る"
+      ]
+    },
+    {
+      "nodeId": "P1-07-RETURN-destination",
+      "heading": "佐伯探偵事務所前",
+      "options": [
+        {
+          "label": "中に入る",
+          "next": "P1-08-REPORT-arrival"
+        },
+        {
+          "label": "他に移動する",
+          "next": "P1-07-RETURN-destination-map"
+        }
+      ]
+    },
+    {
+      "nodeId": "P1-07-RETURN-destination-map",
+      "heading": "移動先",
+      "current": "office",
+      "options": [
+        {
+          "label": "成子坂共同ビル",
+          "next": "P1-07-RETURN-outside"
+        },
+        {
+          "label": "戻る",
+          "next": "P1-07-RETURN-destination"
+        }
+      ],
+      "buttons": [
+        "ここへ移動",
+        "現在地（確定不可）",
+        "戻る"
+      ]
+    },
+    {
+      "nodeId": "P2-07-outside",
+      "heading": "佐伯探偵事務所前",
       "options": [
         {
           "label": "他に移動する",
@@ -10870,7 +11300,7 @@
     {
       "nodeId": "P2-07-map",
       "heading": "移動先",
-      "current": "building",
+      "current": "office",
       "options": [
         {
           "label": "西新宿警察署",
@@ -10907,7 +11337,7 @@
       "current": "police",
       "options": [
         {
-          "label": "成子坂共同ビル",
+          "label": "佐伯探偵事務所",
           "next": "P2-07-outside"
         },
         {
@@ -12212,9 +12642,9 @@
     }
   ],
   "counts": {
-    "phases": 46,
-    "commandCount": 114,
-    "itemCount": 277,
-    "outsideMenus": 32
+    "phases": 48,
+    "commandCount": 117,
+    "itemCount": 283,
+    "outsideMenus": 36
   }
 }

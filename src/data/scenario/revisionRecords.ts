@@ -29,6 +29,7 @@ const people: InvestigationEntry[] = [
   { id: 'police-reception', category: 'people', title: '警察署の受付の女性', source: information('recognized-police-reception'), description: '西新宿警察署の窓口。', facts: [fact('F34', '奥村との面会を取り次いだ。')] },
 ]
 export const revisionRecords: readonly InvestigationEntry[] = [
+  { id: 'initial-inquiry', category: 'events', title: '初動調査の帰所報告', source: information('initial-inquiry-reviewed'), timeLabel: '10月8日（木）14:30', chronologicalOrder: 18, description: '会社と旧ビルで得た情報を澪と確認した。兄が過去事故の説明を求めていた理由はまだ分からず、警察の当時の記録を確かめることになった。' },
   ...people, ...episode1Part1Records.filter(entry => entry.category !== 'people').map(entry => {
     if (entry.id === 'E02') return { ...entry, description: '奥村が説明できる範囲で、不注意による転落として扱われていたことを確認した。', facts: [fact('F36', '直人は当時、何も見ていないと答えていた。')] }
     if (entry.id === 'demolition') return { ...entry, description: '10月10日から取り壊しに着手する予定と掲示されている。', facts: [fact('F29', '管理日誌を処分せず保管してもらうよう依頼した。')] }

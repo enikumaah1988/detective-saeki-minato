@@ -1,4 +1,4 @@
-// 物語担当のver0.03から同期。原稿の正本は物語担当が管理。
+// ver0.03を基準に組込側で第1部を共同改稿。原稿正本への反映は物語担当と連携。
 import type { RevisionData } from './buildRevision'
 export const revisionData = {
   "scenes": [
@@ -657,7 +657,75 @@ export const revisionData = {
         ]
       },
       "ending": [],
-      "organize": []
+      "organize": [],
+      "topicTransitions": [
+        {
+          "id": "p1-basics-to-search",
+          "personId": "akari",
+          "requires": [
+            "F01",
+            "F02",
+            "F03"
+          ],
+          "unless": [
+            "p1-basics-to-search-read"
+          ],
+          "lines": [
+            {
+              "speakerId": "minato",
+              "text": "五日の朝に家を出て、夜から連絡が取れていない。そこまでは分かった。"
+            },
+            {
+              "speakerId": "akari",
+              "text": "はい。朝は、いつもと同じに見えました。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "次は、行き先を確かめたい。勤務先と、これまで捜したところを教えてくれ。"
+            }
+          ],
+          "grants": [
+            "p1-basics-to-search-read"
+          ]
+        },
+        {
+          "id": "p1-search-to-background",
+          "personId": "akari",
+          "requires": [
+            "F01",
+            "F02",
+            "F03",
+            "F04",
+            "F05",
+            "F06a",
+            "F06"
+          ],
+          "unless": [
+            "p1-search-to-background-read"
+          ],
+          "lines": [
+            {
+              "speakerId": "mio",
+              "text": "会社へのお電話では、詳しい勤務の記録まで確認できなかったんですね。"
+            },
+            {
+              "speakerId": "akari",
+              "text": "はい。何を聞けばいいのか、分からなくなってしまって。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "そこは、こちらから確かめる。もう少しだけ、普段の兄のことを聞いてもいいか？"
+            },
+            {
+              "speakerId": "akari",
+              "text": "……はい。私に分かることなら。"
+            }
+          ],
+          "grants": [
+            "p1-search-to-background-read"
+          ]
+        }
+      ]
     },
     {
       "id": "P1-04",
@@ -665,7 +733,20 @@ export const revisionData = {
       "locationId": "office",
       "roomId": "office",
       "sceneTime": "2026-10-08T11:30:00",
-      "intro": [],
+      "intro": [
+        {
+          "speakerId": "narrator",
+          "text": "澪がメモをこちらへ向けた。日付、最後に会った時の様子、返事のない電話。書かれた事実と、まだ空いているところがある。"
+        },
+        {
+          "speakerId": "minato",
+          "text": "少し、確かめたことを整理させてくれ。"
+        },
+        {
+          "speakerId": "akari",
+          "text": "はい。"
+        }
+      ],
       "people": [
         "mio",
         "akari"
@@ -725,7 +806,24 @@ export const revisionData = {
       "locationId": "office",
       "roomId": "office",
       "sceneTime": "2026-10-08T11:35:00",
-      "intro": [],
+      "intro": [
+        {
+          "speakerId": "minato",
+          "text": "まず、会社で兄の予定を確かめたい。そのあとで、足取りを追う。"
+        },
+        {
+          "speakerId": "akari",
+          "text": "会社に行けば、何か分かるでしょうか？"
+        },
+        {
+          "speakerId": "minato",
+          "text": "まだ言い切れない。だが、確かめていないところはある。調査の進め方を、先に説明する。"
+        },
+        {
+          "speakerId": "mio",
+          "text": "気になることがあれば、おっしゃってください。"
+        }
+      ],
       "people": [
         "akari",
         "mio"
@@ -743,7 +841,7 @@ export const revisionData = {
           "lines": [
             {
               "speakerId": "mio",
-              "text": "お兄さんのお写真をお持ちですか？"
+              "text": "こちらのお写真を、お預かりしてもよろしいでしょうか？"
             },
             {
               "speakerId": "akari",
@@ -900,6 +998,40 @@ export const revisionData = {
             "optional-return-home"
           ],
           "required": false
+        },
+        {
+          "id": "p1-request-scope",
+          "personId": "akari",
+          "label": "調査の範囲",
+          "lines": [
+            {
+              "speakerId": "akari",
+              "text": "もし、会社で分からなかったら……。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "そこで終わりとは決めない。次に確かめる相手や場所を探す。"
+            },
+            {
+              "speakerId": "mio",
+              "text": "調査を広げる必要が出た時には、ご連絡してご相談します。"
+            },
+            {
+              "speakerId": "akari",
+              "text": "知らないうちに、話が大きくなるのが怖くて。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "分かった。何を調べているかも、伝える。"
+            }
+          ],
+          "requires": [
+            "F07"
+          ],
+          "grants": [
+            "optional-request-scope"
+          ],
+          "required": false
         }
       ],
       "inspect": [],
@@ -922,7 +1054,68 @@ export const revisionData = {
           "text": "澪が扉まで見送った。階段へ消える靴音を、俺は席で聞いていた。"
         }
       ],
-      "organize": []
+      "organize": [],
+      "topicTransitions": [
+        {
+          "id": "p1-request-to-materials",
+          "personId": "akari",
+          "requires": [
+            "F08"
+          ],
+          "unless": [
+            "p1-request-to-materials-read"
+          ],
+          "lines": [
+            {
+              "speakerId": "minato",
+              "text": "捜す時に使うものを預かりたい。今の兄の顔が分かる写真はあるか？"
+            },
+            {
+              "speakerId": "akari",
+              "text": "はい。持ってきました。"
+            },
+            {
+              "speakerId": "mio",
+              "text": "お写真を預かったあと、ご連絡先も確認させてください。"
+            }
+          ],
+          "grants": [
+            "p1-request-to-materials-read"
+          ]
+        },
+        {
+          "id": "p1-materials-to-farewell",
+          "personId": "akari",
+          "requires": [
+            "F09",
+            "IT01"
+          ],
+          "unless": [
+            "p1-materials-to-farewell-read"
+          ],
+          "lines": [
+            {
+              "speakerId": "mio",
+              "text": "必要なものはお預かりできました。会社への確認は、こちらから進めます。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "兄から連絡があった時は、こっちにも知らせてくれ。"
+            },
+            {
+              "speakerId": "akari",
+              "text": "はい。……お願いします。"
+            },
+            {
+              "speakerId": "narrator",
+              "text": "あかりは写真を入れていた袋をしまった。空いた手を、一度だけ膝の上で握る。"
+            }
+          ],
+          "grants": [
+            "p1-materials-to-farewell-read"
+          ]
+        }
+      ]
     },
     {
       "id": "P1-06",
@@ -930,7 +1123,20 @@ export const revisionData = {
       "locationId": "office",
       "roomId": "office",
       "sceneTime": "2026-10-08T11:55:00",
-      "intro": [],
+      "intro": [
+        {
+          "speakerId": "narrator",
+          "text": "澪が戻り、あかりのカップを下げた。俺は、預かった写真を机の上へ置く。"
+        },
+        {
+          "speakerId": "mio",
+          "text": "会社へ伺う前に、受付へ連絡しておきましょうか？"
+        },
+        {
+          "speakerId": "minato",
+          "text": "頼む。写真も、もう一度確かめてから持っていく。"
+        }
+      ],
       "people": [
         "mio"
       ],
@@ -1002,8 +1208,7 @@ export const revisionData = {
             "F11"
           ],
           "grants": [
-            "F12",
-            "part1_completed"
+            "F12"
           ],
           "required": true
         },
@@ -1069,8 +1274,7 @@ export const revisionData = {
           "F10",
           "F11",
           "mentioned-company-reception",
-          "F12",
-          "part1_completed"
+          "F12"
         ]
       },
       "ending": [
@@ -1087,7 +1291,7 @@ export const revisionData = {
     },
     {
       "id": "P2-01",
-      "part": 2,
+      "part": 1,
       "locationId": "office",
       "roomId": "office",
       "sceneTime": "2026-10-08T12:00:00",
@@ -1146,11 +1350,20 @@ export const revisionData = {
     },
     {
       "id": "P2-02-EXT",
-      "part": 2,
+      "part": 1,
       "locationId": "company",
       "roomId": "company-exterior",
       "sceneTime": "2026-10-08T12:20:00",
-      "intro": [],
+      "intro": [
+        {
+          "speakerId": "narrator",
+          "text": "通り沿いの表示を、澪のメモと見比べた。東成ビルサービス。直人がいつものように出勤したと、あかりが思っていた会社だ。"
+        },
+        {
+          "speakerId": "minato",
+          "text": "思っていたことと、会社の記録。その間を、まず確かめる。"
+        }
+      ],
       "people": [],
       "required": [],
       "ask": [],
@@ -1183,7 +1396,7 @@ export const revisionData = {
     },
     {
       "id": "P2-02",
-      "part": 2,
+      "part": 1,
       "locationId": "company",
       "roomId": "company-reception",
       "sceneTime": "2026-10-08T12:25:00",
@@ -1378,6 +1591,32 @@ export const revisionData = {
             "F16"
           ],
           "required": true
+        },
+        {
+          "id": "p1-reception-process",
+          "personId": "company-reception",
+          "label": "確認の担当",
+          "lines": [
+            {
+              "speakerId": "minato",
+              "text": "勤務の記録は、こちらで確かめられるか？"
+            },
+            {
+              "speakerId": "company-reception",
+              "text": "担当に確認します。私の記憶だけでは、お答えできませんので。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "それでいい。分かる範囲で頼む。"
+            }
+          ],
+          "requires": [
+            "F13"
+          ],
+          "grants": [
+            "optional-reception-process"
+          ],
+          "required": false
         }
       ],
       "inspect": [
@@ -1419,7 +1658,7 @@ export const revisionData = {
     },
     {
       "id": "P2-03",
-      "part": 2,
+      "part": 1,
       "locationId": "company",
       "roomId": "company-lounge",
       "sceneTime": "2026-10-08T12:45:00",
@@ -1447,6 +1686,10 @@ export const revisionData = {
         {
           "speakerId": "narrator",
           "text": "名刺を渡す。黒田は肩書を確かめ、机の端へ置いた。"
+        },
+        {
+          "speakerId": "narrator",
+          "text": "黒田は名刺の端をそろえ、こちらへ顔を上げた。相談に来た妹のことより、先に用件を確かめる目だった。"
         }
       ],
       "people": [
@@ -1509,16 +1752,24 @@ export const revisionData = {
               "text": "本当のことを話してほしい、と。意味が分からない。"
             },
             {
-              "speakerId": "kuroda",
-              "text": "彼は当時、何も見ていないと答えています。"
+              "speakerId": "narrator",
+              "text": "黒田はそこで口を閉じた。終わった話だと告げるには、少し長い間だった。"
             },
             {
               "speakerId": "minato",
-              "text": "その話を、今になって持ち出したのか？"
+              "text": "その言葉を、本人が使ったのか？"
             },
             {
               "speakerId": "kuroda",
-              "text": "そうです。"
+              "text": "ええ。彼は当時、何も見ていないと答えています。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "それでも今、説明を求めてきた。"
+            },
+            {
+              "speakerId": "kuroda",
+              "text": "そうです。こちらも戸惑っています。"
             }
           ],
           "requires": [
@@ -1576,6 +1827,10 @@ export const revisionData = {
             {
               "speakerId": "minato",
               "text": "妹が捜している。"
+            },
+            {
+              "speakerId": "narrator",
+              "text": "黒田の視線が、預かった写真へ下がった。すぐに机の外へ戻る。"
             },
             {
               "speakerId": "kuroda",
@@ -1699,7 +1954,7 @@ export const revisionData = {
     },
     {
       "id": "P2-03-EXIT",
-      "part": 2,
+      "part": 1,
       "locationId": "company",
       "roomId": "company-reception",
       "sceneTime": "2026-10-08T13:05:00",
@@ -1722,7 +1977,7 @@ export const revisionData = {
     },
     {
       "id": "P2-04",
-      "part": 2,
+      "part": 1,
       "locationId": "building",
       "roomId": "building-exterior",
       "sceneTime": "2026-10-08T13:20:00",
@@ -1730,6 +1985,10 @@ export const revisionData = {
         {
           "speakerId": "narrator",
           "text": "外された看板の跡だけ、壁の色が薄い。入口に、取り壊しの掲示がある。"
+        },
+        {
+          "speakerId": "narrator",
+          "text": "入口の奥から、鍵を確かめる音がした。すぐに踏み込まず、ここを管理している相手を探す。"
         }
       ],
       "people": [
@@ -1947,7 +2206,7 @@ export const revisionData = {
     },
     {
       "id": "P2-05",
-      "part": 2,
+      "part": 1,
       "locationId": "building",
       "roomId": "building-manager-room",
       "sceneTime": "2026-10-08T13:30:00",
@@ -2094,6 +2353,40 @@ export const revisionData = {
             "F30"
           ],
           "required": true
+        },
+        {
+          "id": "p1-journal-method",
+          "personId": "miyahara",
+          "label": "日誌のつけ方",
+          "lines": [
+            {
+              "speakerId": "minato",
+              "text": "こうした貸出は、その都度書いていたのか？"
+            },
+            {
+              "speakerId": "miyahara",
+              "text": "はい。鍵を渡した時に。戻った時には、返却の欄へ。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "空白の欄からは、戻った時刻までは分からないな。"
+            },
+            {
+              "speakerId": "miyahara",
+              "text": "ええ。書き忘れたことも、翌朝に戻ったこともあります。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "記録にあることと、今覚えていることを分けて聞かせてもらう。"
+            }
+          ],
+          "requires": [
+            "E01"
+          ],
+          "grants": [
+            "optional-journal-method"
+          ],
+          "required": false
         }
       ],
       "inspect": [
@@ -2200,7 +2493,7 @@ export const revisionData = {
     },
     {
       "id": "P2-06",
-      "part": 2,
+      "part": 1,
       "locationId": "building",
       "roomId": "building-stairs",
       "sceneTime": "2026-10-08T13:50:00",
@@ -2208,6 +2501,10 @@ export const revisionData = {
         {
           "speakerId": "narrator",
           "text": "宮原に案内してもらう。下階の戸口から踊り場は見えるが、上の戸口の奥は壁と扉に隠れていた。"
+        },
+        {
+          "speakerId": "minato",
+          "text": "まず、どこから何が見えるか確かめたい。順に見せてもらえるか？"
         }
       ],
       "people": [
@@ -2272,6 +2569,10 @@ export const revisionData = {
             {
               "speakerId": "narrator",
               "text": "下階の戸口に立つと、踊り場が見える。"
+            },
+            {
+              "speakerId": "narrator",
+              "text": "戸口の内側へ半歩戻ると、見える範囲が変わる。ここにいた、という言葉だけでは、まだ位置は一つに決まらない。"
             }
           ],
           "requires": [],
@@ -2287,6 +2588,10 @@ export const revisionData = {
             {
               "speakerId": "narrator",
               "text": "階段の途中に踊り場がある。"
+            },
+            {
+              "speakerId": "narrator",
+              "text": "手すり越しに上と下を見比べる。図に残すのは、今ここで見える階段のつながりだ。事故の時に誰がいたかではない。"
             }
           ],
           "requires": [],
@@ -2302,6 +2607,10 @@ export const revisionData = {
             {
               "speakerId": "narrator",
               "text": "上の戸口の奥は壁と扉の陰になる。"
+            },
+            {
+              "speakerId": "narrator",
+              "text": "奥へ目を向けても、戸の陰までは見通せない。宮原の立っていた下階の戸口と、別の場所として線を引く。"
             }
           ],
           "requires": [],
@@ -2314,7 +2623,7 @@ export const revisionData = {
       "think": [],
       "exit": {
         "label": "管理人室",
-        "nextSceneId": "P2-07",
+        "nextSceneId": "P1-07-RETURN",
         "requires": [
           "p2-lower-door-known",
           "p2-landing-known",
@@ -2328,14 +2637,333 @@ export const revisionData = {
       "organize": []
     },
     {
-      "id": "P2-07",
-      "part": 2,
+      "id": "P1-07-RETURN",
+      "part": 1,
       "locationId": "building",
       "roomId": "building-manager-room",
       "sceneTime": "2026-10-08T14:00:00",
-      "intro": [],
       "people": [
         "miyahara"
+      ],
+      "intro": [
+        {
+          "speakerId": "narrator",
+          "text": "管理人室へ戻り、預かった書類を鞄へ収めた。宮原が階段の方へ目を向け、鍵を机に置く。"
+        },
+        {
+          "speakerId": "minato",
+          "text": "今日は、ありがとう。書類は預かる。本人から連絡があれば、事務所へ頼む。"
+        },
+        {
+          "speakerId": "miyahara",
+          "text": "分かりました。日誌も、そのまま残しておきます。"
+        },
+        {
+          "speakerId": "minato",
+          "text": "また、確かめさせてもらうことがあるかもしれない。"
+        },
+        {
+          "speakerId": "miyahara",
+          "text": "……はい。ここにいます。"
+        }
+      ],
+      "required": [],
+      "ask": [],
+      "speak": [],
+      "inspect": [],
+      "think": [],
+      "organize": [],
+      "ending": [],
+      "exit": {
+        "label": "外に出る",
+        "nextSceneId": "P1-08-REPORT",
+        "requires": [
+          "F32",
+          "E01",
+          "E03"
+        ]
+      }
+    },
+    {
+      "id": "P1-08-REPORT",
+      "part": 1,
+      "locationId": "office",
+      "roomId": "office",
+      "sceneTime": "2026-10-08T14:20:00",
+      "people": [
+        "mio"
+      ],
+      "intro": [
+        {
+          "speakerId": "narrator",
+          "text": "事務所へ戻った。朝と同じ机に、今度は会社の名前と古い日誌の写しが並ぶ。"
+        },
+        {
+          "speakerId": "mio",
+          "text": "お帰りなさい。あかりさんから、新しい連絡はありません。"
+        },
+        {
+          "speakerId": "minato",
+          "text": "兄を昨日見た人がいた。"
+        },
+        {
+          "speakerId": "mio",
+          "text": "まず、そのことをお知らせしましょう。今の無事まで確認できたわけではない、と添えて。"
+        },
+        {
+          "speakerId": "minato",
+          "text": "頼む。"
+        },
+        {
+          "speakerId": "narrator",
+          "text": "澪があかりへ電話する。昨日の目撃と、本人へ伝言を届けたことを伝える。"
+        },
+        {
+          "speakerId": "mio",
+          "text": "お声の力が、少し戻りました。でも、なぜ連絡をくれないのかと。",
+          "grants": [
+            "F38"
+          ]
+        },
+        {
+          "speakerId": "minato",
+          "text": "それは、本人に聞く。"
+        }
+      ],
+      "required": [
+        "p1-initial-company-report",
+        "p1-initial-building-report",
+        "p1-initial-next"
+      ],
+      "ask": [],
+      "speak": [
+        {
+          "id": "p1-initial-company-report",
+          "personId": "mio",
+          "label": "会社で分かったこと",
+          "lines": [
+            {
+              "speakerId": "minato",
+              "text": "会社は、直人が休暇を取っていたと言った。"
+            },
+            {
+              "speakerId": "mio",
+              "text": "出勤したはず、というあかりさんのお話とは違いますね。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "会社に来ていないわけでもなかった。黒田に会う約束があった。"
+            },
+            {
+              "speakerId": "mio",
+              "text": "お仕事の用件ですか？"
+            },
+            {
+              "speakerId": "minato",
+              "text": "二年前の事故だ。本当のことを話してほしいと言ったらしい。"
+            },
+            {
+              "speakerId": "mio",
+              "text": "「らしい」というのは、黒田さんから？"
+            },
+            {
+              "speakerId": "minato",
+              "text": "ああ。直人の言葉として、黒田がそう説明した。まだ本人には聞けていない。"
+            },
+            {
+              "speakerId": "mio",
+              "text": "分けて残します。休暇の記録と、黒田さんから聞いた面会のお話ですね。"
+            }
+          ],
+          "requires": [
+            "F38"
+          ],
+          "grants": [
+            "F39"
+          ],
+          "required": true
+        },
+        {
+          "id": "p1-initial-building-report",
+          "personId": "mio",
+          "label": "ビルで見たもの",
+          "lines": [
+            {
+              "speakerId": "minato",
+              "text": "宮原さんは、昨日直人を見ている。昔の書類を確かめに来たそうだ。"
+            },
+            {
+              "speakerId": "mio",
+              "text": "姿を見た人がいたんですね。そこから先は？"
+            },
+            {
+              "speakerId": "minato",
+              "text": "連絡を預かってもらった。俺に電話するとは言ったらしい。会う話までは決まっていない。"
+            },
+            {
+              "speakerId": "mio",
+              "text": "はい。ここでお待ちします。"
+            },
+            {
+              "speakerId": "narrator",
+              "text": "日誌の写しと控えを机へ並べ、階段の位置を描いたメモを、その隣へ置いた。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "黒田は、当日は現場にいなかったと言った。その名前で、鍵の貸出が記録されている。"
+            },
+            {
+              "speakerId": "mio",
+              "text": "同じ日ですね。でも、この空欄から返却時刻までは分からない。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "ああ。まだ、記録を並べただけだ。"
+            },
+            {
+              "speakerId": "mio",
+              "text": "この「顔は見ていない」は、答えのままですか？"
+            },
+            {
+              "speakerId": "minato",
+              "text": "そのままだ。"
+            },
+            {
+              "speakerId": "mio",
+              "text": "「何も見ていない」には直さず残しましょう。誰だったかと、何が見えたかは、別の話です。"
+            }
+          ],
+          "requires": [
+            "F38",
+            "F39"
+          ],
+          "grants": [
+            "F40",
+            "IT04"
+          ],
+          "required": true
+        },
+        {
+          "id": "p1-client-first-report",
+          "personId": "mio",
+          "label": "あかりへの伝え方",
+          "lines": [
+            {
+              "speakerId": "mio",
+              "text": "昨日の目撃は、お伝えできました。でも、今どこにいるかはまだ分かりません。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "会えていない以上、そこは言い切れない。"
+            },
+            {
+              "speakerId": "mio",
+              "text": "はい。分かったことを伝えて、分からないところも残します。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "本人の声を聞けたら、まず知らせよう。"
+            }
+          ],
+          "requires": [
+            "F40"
+          ],
+          "grants": [
+            "optional-client-first-report"
+          ],
+          "required": false
+        },
+        {
+          "id": "p1-initial-next",
+          "personId": "mio",
+          "label": "次に確かめること",
+          "lines": [
+            {
+              "speakerId": "narrator",
+              "text": "14:30。澪が書類をそろえ、こちらを見た。"
+            },
+            {
+              "speakerId": "mio",
+              "text": "直人さんが、過去の事故を気にして動いていた。そこまでは分かりました。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "なぜ今なのかは、まだ分からない。会社の説明だけで終わらせたくない理由がある。"
+            },
+            {
+              "speakerId": "mio",
+              "text": "会社の説明と、当時の記録を比べるんですね。"
+            },
+            {
+              "speakerId": "minato",
+              "text": "ああ。どう確かめて事故とされたのか。そこを聞く。"
+            },
+            {
+              "speakerId": "mio",
+              "text": "ご本人から連絡があれば、すぐにつなぎます。"
+            }
+          ],
+          "requires": [
+            "F39",
+            "F40",
+            "IT04",
+            "F19",
+            "F32"
+          ],
+          "grants": [
+            "initial-inquiry-reviewed",
+            "part1_completed"
+          ],
+          "required": true
+        }
+      ],
+      "inspect": [],
+      "think": [],
+      "organize": [],
+      "exit": {
+        "label": "初動の確認を終える",
+        "nextSceneId": "P2-07",
+        "requires": [
+          "F39",
+          "F40",
+          "IT04",
+          "initial-inquiry-reviewed",
+          "part1_completed"
+        ]
+      },
+      "ending": [
+        {
+          "speakerId": "narrator",
+          "text": "澪が、三崎の名の横に小さく印を付けた。"
+        },
+        {
+          "speakerId": "narrator",
+          "text": "兄は、過去の事故の本当の説明を求めて動いていた。なぜ、この事故にこだわったのか。"
+        },
+        {
+          "speakerId": "minato",
+          "text": "もう少し前のことを、確かめてくる。"
+        }
+      ]
+    },
+    {
+      "id": "P2-07",
+      "part": 2,
+      "locationId": "office",
+      "roomId": "office",
+      "sceneTime": "2026-10-08T14:30:00",
+      "intro": [
+        {
+          "speakerId": "mio",
+          "text": "当時の記録は、会社の説明とは別に確かめる必要がありますね。"
+        },
+        {
+          "speakerId": "minato",
+          "text": "奥村さんへ連絡する。日誌を見てもらい、当時の確認について聞く。"
+        }
+      ],
+      "people": [
+        "mio"
       ],
       "required": [
         "p2-call-police"
@@ -2417,7 +3045,7 @@ export const revisionData = {
       "part": 2,
       "locationId": "police",
       "roomId": "police-exterior",
-      "sceneTime": "2026-10-08T14:15:00",
+      "sceneTime": "2026-10-08T14:45:00",
       "intro": [
         {
           "speakerId": "narrator",
@@ -2443,7 +3071,7 @@ export const revisionData = {
       "part": 2,
       "locationId": "police",
       "roomId": "police-reception",
-      "sceneTime": "2026-10-08T14:20:00",
+      "sceneTime": "2026-10-08T14:50:00",
       "intro": [],
       "people": [
         "police-reception"
@@ -2522,7 +3150,7 @@ export const revisionData = {
       "part": 2,
       "locationId": "police",
       "roomId": "police-meeting-room",
-      "sceneTime": "2026-10-08T14:25:00",
+      "sceneTime": "2026-10-08T14:55:00",
       "intro": [
         {
           "speakerId": "narrator",
@@ -2744,7 +3372,7 @@ export const revisionData = {
       "part": 2,
       "locationId": "police",
       "roomId": "police-reception",
-      "sceneTime": "2026-10-08T14:50:00",
+      "sceneTime": "2026-10-08T15:15:00",
       "intro": [],
       "people": [
         "police-reception"
@@ -2767,46 +3395,24 @@ export const revisionData = {
       "part": 2,
       "locationId": "office",
       "roomId": "office",
-      "sceneTime": "2026-10-08T15:10:00",
+      "sceneTime": "2026-10-08T15:35:00",
       "intro": [
         {
-          "speakerId": "mio",
-          "text": "お帰りなさい。あかりさんから、新しい連絡はありません。"
-        },
-        {
-          "speakerId": "minato",
-          "text": "兄を昨日見た人がいた。"
-        },
-        {
-          "speakerId": "mio",
-          "text": "まず、そのことをお知らせしましょう。今の無事まで確認できたわけではない、と添えて。"
-        },
-        {
-          "speakerId": "minato",
-          "text": "頼む。"
-        },
-        {
           "speakerId": "narrator",
-          "text": "澪があかりへ電話する。昨日の目撃と、本人へ伝言を届けたことを伝える。"
+          "text": "警察署から戻り、澪の向かいへ座った。午前からの記録に、当時の事故を確認した話を加える。"
         },
         {
           "speakerId": "mio",
-          "text": "お声の力が、少し戻りました。でも、なぜ連絡をくれないのかと。",
+          "text": "直人さんからのお電話は、まだありません。警察では、どこまで確かめられましたか？",
           "grants": [
             "F38"
           ]
-        },
-        {
-          "speakerId": "minato",
-          "text": "それは、本人に聞く。"
         }
       ],
       "people": [
         "mio"
       ],
       "required": [
-        "p2-company-report",
-        "p2-building-report",
         "p2-police-report"
       ],
       "ask": [
@@ -2870,7 +3476,8 @@ export const revisionData = {
           "grants": [
             "F39"
           ],
-          "required": true
+          "required": true,
+          "legacyOnly": true
         },
         {
           "id": "p2-building-report",
@@ -2909,7 +3516,8 @@ export const revisionData = {
             "F40",
             "IT04"
           ],
-          "required": true
+          "required": true,
+          "legacyOnly": true
         },
         {
           "id": "p2-police-report",
@@ -2934,7 +3542,10 @@ export const revisionData = {
             }
           ],
           "requires": [
-            "F38"
+            "F38",
+            "E02",
+            "F36",
+            "F37"
           ],
           "grants": [
             "F41"
@@ -2963,7 +3574,7 @@ export const revisionData = {
       "part": 2,
       "locationId": "office",
       "roomId": "office",
-      "sceneTime": "2026-10-08T15:35:00",
+      "sceneTime": "2026-10-08T15:40:00",
       "intro": [],
       "people": [
         "mio"

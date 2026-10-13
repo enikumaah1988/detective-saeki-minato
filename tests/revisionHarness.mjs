@@ -29,7 +29,7 @@ export function buildPlaythrough(api, requiredOnly = false) {
     const node=scenario.nodes[state.nodeId],phase=phaseFor(node)
     const option=action.type==='choose'?visibleChoices(node,state).find(item=>item.id===action.choiceId):undefined
     const updated=applyUpdates(state,node.type==='dialogue'?node.updates??[]:[])
-    if(node.type==='dialogue' && node.nextWhen && action.type==='advance' && matchesCondition(updated,node.nextWhen.condition)) checkpoint(phase,updated)
+    if(node.type==='dialogue' && node.nextWhen && action.type==='advance' && !node.conditionalNext?.some(branch=>matchesCondition(updated,branch.condition)) && matchesCondition(updated,node.nextWhen.condition)) checkpoint(phase,updated)
     if(node.type==='choice'&&node.mode==='free-action'&&action.choiceId==='move')checkpoint(phase,state)
     const before=state,after=reduceGameState(scenario,state,action)
     if(after===before)throw new Error('拒否された操作 '+state.nodeId+' '+JSON.stringify(action))
