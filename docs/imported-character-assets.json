@@ -15,7 +15,7 @@
   "files": [
     {
       "file": "src/assets/images/characters/minato/full/neutral.png",
-      "sha256": "3173f336a5c1ee9c51f71b7ce50d361f6fadc1dec83d71b088ab74baf7ad345f",
+      "sha256": "0f416536c7b31cb69a6d006b48a505ddac729d889a62ef847d238e2c42d58bec",
       "characterId": "minato",
       "kind": "full",
       "expression": "neutral",
@@ -24,11 +24,12 @@
         1536
       ],
       "source": "C:\\Users\\lemon\\.codex\\.chatgpt-projects\\g-p-6a244918b2988191ac325bc113799e3e\\saeki-talk-issue5\\src\\assets\\images\\characters\\minato\\full\\neutral.png",
-      "status": "最新画風・本編用素材として取り込み済み。個別の最終採用はデザイン台帳参照"
+      "status": "再制作02の最新素材を組込。個別表情の最終確認待ち。",
+      "sourceCommit": "4fad086"
     },
     {
       "file": "src/assets/images/characters/minato/waist/neutral.png",
-      "sha256": "53d4c3b57b30634ab48bbab46ae9a1c9c18527d51fd26fb84c24fe74cecd0d86",
+      "sha256": "5db08fb88ff82b5eb5e616428c6989f672d73f9948eea4dd4397459aeb0ba22c",
       "characterId": "minato",
       "kind": "waist",
       "expression": "neutral",
@@ -37,11 +38,12 @@
         1024
       ],
       "source": "C:\\Users\\lemon\\.codex\\.chatgpt-projects\\g-p-6a244918b2988191ac325bc113799e3e\\saeki-talk-issue5\\src\\assets\\images\\characters\\minato\\waist\\neutral.png",
-      "status": "最新画風・本編用素材として取り込み済み。個別の最終採用はデザイン台帳参照"
+      "status": "再制作02の最新素材を組込。個別表情の最終確認待ち。",
+      "sourceCommit": "4fad086"
     },
     {
       "file": "src/assets/images/characters/minato/waist/smile.png",
-      "sha256": "fb7d2c9cc533783638d349b62350075ec22111cd75205e36b68126e980045180",
+      "sha256": "b6b7291113e1512a73c0d38103960e64d402994df6f8b68a7fe906dc8c6175d6",
       "characterId": "minato",
       "kind": "waist",
       "expression": "smile",
@@ -50,11 +52,12 @@
         1024
       ],
       "source": "C:\\Users\\lemon\\.codex\\.chatgpt-projects\\g-p-6a244918b2988191ac325bc113799e3e\\saeki-talk-issue5\\src\\assets\\images\\characters\\minato\\waist\\smile.png",
-      "status": "最新画風・本編用素材として取り込み済み。個別の最終採用はデザイン台帳参照"
+      "status": "再制作02の最新素材を組込。個別表情の最終確認待ち。",
+      "sourceCommit": "4fad086"
     },
     {
       "file": "src/assets/images/characters/minato/waist/serious.png",
-      "sha256": "1f2bf73325bb0f73f9053b99480ff1ae3fd41a3a785f0f4ee82616cd01aa1ec1",
+      "sha256": "be915e93455be9a9ad452112a05e037df71d122f26dcebc76e70fb7814d66431",
       "characterId": "minato",
       "kind": "waist",
       "expression": "serious",
@@ -63,11 +66,12 @@
         1024
       ],
       "source": "C:\\Users\\lemon\\.codex\\.chatgpt-projects\\g-p-6a244918b2988191ac325bc113799e3e\\saeki-talk-issue5\\src\\assets\\images\\characters\\minato\\waist\\serious.png",
-      "status": "最新画風・本編用素材として取り込み済み。個別の最終採用はデザイン台帳参照"
+      "status": "再制作02の最新素材を組込。個別表情の最終確認待ち。",
+      "sourceCommit": "4fad086"
     },
     {
       "file": "src/assets/images/characters/minato/waist/surprised.png",
-      "sha256": "b2c7c9e1aa5654599611aa5b0617b7bd5faac9b40ee4c44fe86b66802c20d212",
+      "sha256": "90ae7c43d961e76b795c02f1d3559fcbe06f50264b20f4fc0c6ae103967d2afd",
       "characterId": "minato",
       "kind": "waist",
       "expression": "surprised",
@@ -76,11 +80,12 @@
         1024
       ],
       "source": "C:\\Users\\lemon\\.codex\\.chatgpt-projects\\g-p-6a244918b2988191ac325bc113799e3e\\saeki-talk-issue5\\src\\assets\\images\\characters\\minato\\waist\\surprised.png",
-      "status": "最新画風・本編用素材として取り込み済み。個別の最終採用はデザイン台帳参照"
+      "status": "再制作02の最新素材を組込。個別表情の最終確認待ち。",
+      "sourceCommit": "4fad086"
     },
     {
       "file": "src/assets/images/characters/minato/waist/irritated.png",
-      "sha256": "33e8b5b95f854dce075282f2dec66a82b072e849314a247f0d1860adf08ccc21",
+      "sha256": "de4ce98e1467b689d17e18ecada63ebd4d7c1961f91c66dc0a2909e4f8366589",
       "characterId": "minato",
       "kind": "waist",
       "expression": "irritated",
@@ -89,11 +94,12 @@
         1024
       ],
       "source": "C:\\Users\\lemon\\.codex\\.chatgpt-projects\\g-p-6a244918b2988191ac325bc113799e3e\\saeki-talk-issue5\\src\\assets\\images\\characters\\minato\\waist\\irritated.png",
-      "status": "最新画風・本編用素材として取り込み済み。個別の最終採用はデザイン台帳参照"
+      "status": "再制作02の最新素材を組込。個別表情の最終確認待ち。",
+      "sourceCommit": "4fad086"
     },
     {
       "file": "src/assets/images/characters/minato/waist/pained.png",
-      "sha256": "2502717b3f4430412b420a718f47d38a64ca742951dbd47a3b1f8ff715aca948",
+      "sha256": "3e9663ab82c6497c94bd4bdf8f21290544b154f53819d284448b9506f7721891",
       "characterId": "minato",
       "kind": "waist",
       "expression": "pained",
@@ -102,11 +108,12 @@
         1024
       ],
       "source": "C:\\Users\\lemon\\.codex\\.chatgpt-projects\\g-p-6a244918b2988191ac325bc113799e3e\\saeki-talk-issue5\\src\\assets\\images\\characters\\minato\\waist\\pained.png",
-      "status": "最新画風・本編用素材として取り込み済み。個別の最終採用はデザイン台帳参照"
+      "status": "再制作02の最新素材を組込。個別表情の最終確認待ち。",
+      "sourceCommit": "4fad086"
     },
     {
       "file": "src/assets/images/characters/minato/waist/relieved.png",
-      "sha256": "212c0896e8ec9d8f23b13521afd1a769fedf87878323f02e268f9a865c64efc6",
+      "sha256": "c87e14839d3625a52022bc191d66f41b681a2372aa89185ab5b91b25844e0f52",
       "characterId": "minato",
       "kind": "waist",
       "expression": "relieved",
@@ -115,11 +122,12 @@
         1024
       ],
       "source": "C:\\Users\\lemon\\.codex\\.chatgpt-projects\\g-p-6a244918b2988191ac325bc113799e3e\\saeki-talk-issue5\\src\\assets\\images\\characters\\minato\\waist\\relieved.png",
-      "status": "最新画風・本編用素材として取り込み済み。個別の最終採用はデザイン台帳参照"
+      "status": "再制作02の最新素材を組込。個別表情の最終確認待ち。",
+      "sourceCommit": "4fad086"
     },
     {
       "file": "src/assets/images/characters/mio/full/neutral.png",
-      "sha256": "906bf50fa7619bf96e0ea04a08966e55d42258544c94dc17693feacafd1d907d",
+      "sha256": "b1c70f5e5e636388d595495cf69df85929e5f0930fabf132a00fb316063eb9ea",
       "characterId": "mio",
       "kind": "full",
       "expression": "neutral",
@@ -128,11 +136,12 @@
         1536
       ],
       "source": "C:\\Users\\lemon\\.codex\\.chatgpt-projects\\g-p-6a244918b2988191ac325bc113799e3e\\saeki-talk-issue5\\src\\assets\\images\\characters\\mio\\full\\neutral.png",
-      "status": "最新画風・本編用素材として取り込み済み。個別の最終採用はデザイン台帳参照"
+      "status": "再制作02の最新素材を組込。個別表情の最終確認待ち。",
+      "sourceCommit": "4fad086"
     },
     {
       "file": "src/assets/images/characters/mio/waist/neutral.png",
-      "sha256": "ebb6f60b945559a300d35d3a65ceb0b511c21a6c8b95d6ff2b02229f317c33ac",
+      "sha256": "b99ab2e9f0275d9c70d63351361ab13c40ed39192bc44eb2a3251c8845d45c9d",
       "characterId": "mio",
       "kind": "waist",
       "expression": "neutral",
@@ -141,11 +150,12 @@
         1024
       ],
       "source": "C:\\Users\\lemon\\.codex\\.chatgpt-projects\\g-p-6a244918b2988191ac325bc113799e3e\\saeki-talk-issue5\\src\\assets\\images\\characters\\mio\\waist\\neutral.png",
-      "status": "最新画風・本編用素材として取り込み済み。個別の最終採用はデザイン台帳参照"
+      "status": "再制作02の最新素材を組込。個別表情の最終確認待ち。",
+      "sourceCommit": "4fad086"
     },
     {
       "file": "src/assets/images/characters/mio/waist/smile.png",
-      "sha256": "9f166ca5b7bcf9504aa9b7b7f242ccb7a54000e4635552cea753afa1171921eb",
+      "sha256": "c44f541b00c8b3a40653fd4397e0e4e60f29e83fba50458f30162bea7dbcb6ae",
       "characterId": "mio",
       "kind": "waist",
       "expression": "smile",
@@ -154,11 +164,12 @@
         1024
       ],
       "source": "C:\\Users\\lemon\\.codex\\.chatgpt-projects\\g-p-6a244918b2988191ac325bc113799e3e\\saeki-talk-issue5\\src\\assets\\images\\characters\\mio\\waist\\smile.png",
-      "status": "最新画風・本編用素材として取り込み済み。個別の最終採用はデザイン台帳参照"
+      "status": "再制作02の最新素材を組込。個別表情の最終確認待ち。",
+      "sourceCommit": "4fad086"
     },
     {
       "file": "src/assets/images/characters/mio/waist/amused.png",
-      "sha256": "56e21eb339cd556faad1fb5d4337e3ac26ff846b541cb34c3721c564ca24af4b",
+      "sha256": "5e3c237de7bf2d93e53e98ad6d41d1913df46c65990279c1bb983abe41d1f8d0",
       "characterId": "mio",
       "kind": "waist",
       "expression": "amused",
@@ -167,11 +178,12 @@
         1024
       ],
       "source": "C:\\Users\\lemon\\.codex\\.chatgpt-projects\\g-p-6a244918b2988191ac325bc113799e3e\\saeki-talk-issue5\\src\\assets\\images\\characters\\mio\\waist\\amused.png",
-      "status": "最新画風・本編用素材として取り込み済み。個別の最終採用はデザイン台帳参照"
+      "status": "再制作02の最新素材を組込。個別表情の最終確認待ち。",
+      "sourceCommit": "4fad086"
     },
     {
       "file": "src/assets/images/characters/mio/waist/serious.png",
-      "sha256": "17092ef585f3f8d429331c4bed337445eae44d722e77243be847b79551ccaa32",
+      "sha256": "21e7eef025cd31261d9a1cb8ff9fda2dcf9f357f1b4bf86e6c79092eb184b1af",
       "characterId": "mio",
       "kind": "waist",
       "expression": "serious",
@@ -180,11 +192,12 @@
         1024
       ],
       "source": "C:\\Users\\lemon\\.codex\\.chatgpt-projects\\g-p-6a244918b2988191ac325bc113799e3e\\saeki-talk-issue5\\src\\assets\\images\\characters\\mio\\waist\\serious.png",
-      "status": "最新画風・本編用素材として取り込み済み。個別の最終採用はデザイン台帳参照"
+      "status": "再制作02の最新素材を組込。個別表情の最終確認待ち。",
+      "sourceCommit": "4fad086"
     },
     {
       "file": "src/assets/images/characters/mio/waist/surprised.png",
-      "sha256": "d46796d362afd13510ac23269e1aab9b199ac07418ebd507a457c30e75a77cb9",
+      "sha256": "d1328b4807e172b391dcdca67907a6785d9eff408675f8ef5edf044f5fcd5184",
       "characterId": "mio",
       "kind": "waist",
       "expression": "surprised",
@@ -193,11 +206,12 @@
         1024
       ],
       "source": "C:\\Users\\lemon\\.codex\\.chatgpt-projects\\g-p-6a244918b2988191ac325bc113799e3e\\saeki-talk-issue5\\src\\assets\\images\\characters\\mio\\waist\\surprised.png",
-      "status": "最新画風・本編用素材として取り込み済み。個別の最終採用はデザイン台帳参照"
+      "status": "再制作02の最新素材を組込。個別表情の最終確認待ち。",
+      "sourceCommit": "4fad086"
     },
     {
       "file": "src/assets/images/characters/mio/waist/worried.png",
-      "sha256": "8e4b6ee25ea0321f3f83ccd5c236e73f8a8e102afbe792de5e9ec80432e91b4e",
+      "sha256": "d611f8eb2f57b79314a2014efb4be19f2c335a729a09c5f1d278c9ed9db6cf57",
       "characterId": "mio",
       "kind": "waist",
       "expression": "worried",
@@ -206,11 +220,12 @@
         1024
       ],
       "source": "C:\\Users\\lemon\\.codex\\.chatgpt-projects\\g-p-6a244918b2988191ac325bc113799e3e\\saeki-talk-issue5\\src\\assets\\images\\characters\\mio\\waist\\worried.png",
-      "status": "最新画風・本編用素材として取り込み済み。個別の最終採用はデザイン台帳参照"
+      "status": "再制作02の最新素材を組込。個別表情の最終確認待ち。",
+      "sourceCommit": "4fad086"
     },
     {
       "file": "src/assets/images/characters/mio/waist/pained.png",
-      "sha256": "cc1606ba30830ed51cd051df300b4f46055636a61ac115b171345bc4bc0f20c3",
+      "sha256": "540358e118a7ba694bdbae3d615643bf1b905c35d5ccf4314b3c9e4b44a52c43",
       "characterId": "mio",
       "kind": "waist",
       "expression": "pained",
@@ -219,11 +234,12 @@
         1024
       ],
       "source": "C:\\Users\\lemon\\.codex\\.chatgpt-projects\\g-p-6a244918b2988191ac325bc113799e3e\\saeki-talk-issue5\\src\\assets\\images\\characters\\mio\\waist\\pained.png",
-      "status": "最新画風・本編用素材として取り込み済み。個別の最終採用はデザイン台帳参照"
+      "status": "再制作02の最新素材を組込。個別表情の最終確認待ち。",
+      "sourceCommit": "4fad086"
     },
     {
       "file": "src/assets/images/characters/mio/waist/relieved.png",
-      "sha256": "7decf42dd9b462ff78a1b7746e3bdf79b3c158bb4ac2c78285b37463620b2adf",
+      "sha256": "52c3348a50b3dd1877580cbf503a1ff6943b268bdcc8834fc52ddc3b76095a4c",
       "characterId": "mio",
       "kind": "waist",
       "expression": "relieved",
@@ -232,7 +248,8 @@
         1024
       ],
       "source": "C:\\Users\\lemon\\.codex\\.chatgpt-projects\\g-p-6a244918b2988191ac325bc113799e3e\\saeki-talk-issue5\\src\\assets\\images\\characters\\mio\\waist\\relieved.png",
-      "status": "最新画風・本編用素材として取り込み済み。個別の最終採用はデザイン台帳参照"
+      "status": "再制作02の最新素材を組込。個別表情の最終確認待ち。",
+      "sourceCommit": "4fad086"
     },
     {
       "file": "src/assets/images/characters/narumi/full/neutral.png",
@@ -574,7 +591,7 @@
     },
     {
       "file": "src/assets/images/characters/akari/full/neutral.png",
-      "sha256": "3ccc90e38ace68ac4f9d032d4e237ad9881084825ce4f647eded244fb699a5d2",
+      "sha256": "cb298b832e6e0ac429f5d44b573fe6aa3b92b1cb6d3c8f8362519faf1c7b6cef",
       "characterId": "akari",
       "kind": "full",
       "expression": "neutral",
@@ -583,11 +600,12 @@
         1536
       ],
       "source": "C:\\Users\\lemon\\.codex\\.chatgpt-projects\\g-p-6a244918b2988191ac325bc113799e3e\\saeki-talk-issue5\\src\\assets\\images\\characters\\akari\\full\\neutral.png",
-      "status": "最新画風・本編用素材として取り込み済み。個別の最終採用はデザイン台帳参照"
+      "status": "再制作02の最新素材を組込。個別表情の最終確認待ち。",
+      "sourceCommit": "4fad086"
     },
     {
       "file": "src/assets/images/characters/akari/waist/neutral.png",
-      "sha256": "9b0727f04f33a99d2ecb1da357c1538c86766dd3f1733778d294a3c31e7008a0",
+      "sha256": "b41f50ac0155456985f115fa8311cde71d806335063183c8d60c61127734522b",
       "characterId": "akari",
       "kind": "waist",
       "expression": "neutral",
@@ -596,11 +614,12 @@
         1024
       ],
       "source": "C:\\Users\\lemon\\.codex\\.chatgpt-projects\\g-p-6a244918b2988191ac325bc113799e3e\\saeki-talk-issue5\\src\\assets\\images\\characters\\akari\\waist\\neutral.png",
-      "status": "最新画風・本編用素材として取り込み済み。個別の最終採用はデザイン台帳参照"
+      "status": "再制作02の最新素材を組込。個別表情の最終確認待ち。",
+      "sourceCommit": "4fad086"
     },
     {
       "file": "src/assets/images/characters/akari/waist/smile.png",
-      "sha256": "7e615cd8156fd762026e30584d0cb50990d09e5fc3cc8e44638a9ada26acdce5",
+      "sha256": "5e506668061d536b18fe0a3398244b5183f24426b3dde5610db5517a5e978354",
       "characterId": "akari",
       "kind": "waist",
       "expression": "smile",
@@ -609,11 +628,12 @@
         1024
       ],
       "source": "C:\\Users\\lemon\\.codex\\.chatgpt-projects\\g-p-6a244918b2988191ac325bc113799e3e\\saeki-talk-issue5\\src\\assets\\images\\characters\\akari\\waist\\smile.png",
-      "status": "最新画風・本編用素材として取り込み済み。個別の最終採用はデザイン台帳参照"
+      "status": "再制作02の最新素材を組込。個別表情の最終確認待ち。",
+      "sourceCommit": "4fad086"
     },
     {
       "file": "src/assets/images/characters/akari/waist/serious.png",
-      "sha256": "b0dfd24fb1f82108a028ab6664250b00a901783620cde4bd2cb8c68db61998e8",
+      "sha256": "850ffa32453d66312c1447e7802cba9477a212f1798e88cf67f095f85d2743be",
       "characterId": "akari",
       "kind": "waist",
       "expression": "serious",
@@ -622,11 +642,12 @@
         1024
       ],
       "source": "C:\\Users\\lemon\\.codex\\.chatgpt-projects\\g-p-6a244918b2988191ac325bc113799e3e\\saeki-talk-issue5\\src\\assets\\images\\characters\\akari\\waist\\serious.png",
-      "status": "最新画風・本編用素材として取り込み済み。個別の最終採用はデザイン台帳参照"
+      "status": "再制作02の最新素材を組込。個別表情の最終確認待ち。",
+      "sourceCommit": "4fad086"
     },
     {
       "file": "src/assets/images/characters/akari/waist/surprised.png",
-      "sha256": "e08657e11a7d0a3316cfdf4a750eaf0cc76191de76cd61156ce48213ad0a89fd",
+      "sha256": "7cde560871b0c139693716e5c3f37e017287f0030eb0d9e5580ac1c7060af8d8",
       "characterId": "akari",
       "kind": "waist",
       "expression": "surprised",
@@ -635,11 +656,12 @@
         1024
       ],
       "source": "C:\\Users\\lemon\\.codex\\.chatgpt-projects\\g-p-6a244918b2988191ac325bc113799e3e\\saeki-talk-issue5\\src\\assets\\images\\characters\\akari\\waist\\surprised.png",
-      "status": "最新画風・本編用素材として取り込み済み。個別の最終採用はデザイン台帳参照"
+      "status": "再制作02の最新素材を組込。個別表情の最終確認待ち。",
+      "sourceCommit": "4fad086"
     },
     {
       "file": "src/assets/images/characters/akari/waist/worried.png",
-      "sha256": "976bbadd3acf5c380367955848296300672e2744366d8ae7a5e16583425d8b5d",
+      "sha256": "fca843b85c65c2c1c27f0885cefd1aae6a6bebedbd335db3a343e95d2baf83d3",
       "characterId": "akari",
       "kind": "waist",
       "expression": "worried",
@@ -648,11 +670,12 @@
         1024
       ],
       "source": "C:\\Users\\lemon\\.codex\\.chatgpt-projects\\g-p-6a244918b2988191ac325bc113799e3e\\saeki-talk-issue5\\src\\assets\\images\\characters\\akari\\waist\\worried.png",
-      "status": "最新画風・本編用素材として取り込み済み。個別の最終採用はデザイン台帳参照"
+      "status": "再制作02の最新素材を組込。個別表情の最終確認待ち。",
+      "sourceCommit": "4fad086"
     },
     {
       "file": "src/assets/images/characters/akari/waist/sad.png",
-      "sha256": "55523b4bd8e6be0d02bfce956e8e17735dde6f3e0272a5c7b3c8f04f1de4f596",
+      "sha256": "1cbe93d2d796f58717f0090854daf8ff2505fbbe664083d222dbc26e8e1360ba",
       "characterId": "akari",
       "kind": "waist",
       "expression": "sad",
@@ -661,11 +684,12 @@
         1024
       ],
       "source": "C:\\Users\\lemon\\.codex\\.chatgpt-projects\\g-p-6a244918b2988191ac325bc113799e3e\\saeki-talk-issue5\\src\\assets\\images\\characters\\akari\\waist\\sad.png",
-      "status": "最新画風・本編用素材として取り込み済み。個別の最終採用はデザイン台帳参照"
+      "status": "再制作02の最新素材を組込。個別表情の最終確認待ち。",
+      "sourceCommit": "4fad086"
     },
     {
       "file": "src/assets/images/characters/akari/waist/relieved.png",
-      "sha256": "f2cbee15d834d88700e8f85e7fe78808573421a9c592ba5df5bfc06cd3731b5f",
+      "sha256": "a882f8273dd04348828bbc12ef9b7f4a7a5405ff954ce605fab6bb73b41412bd",
       "characterId": "akari",
       "kind": "waist",
       "expression": "relieved",
@@ -674,11 +698,12 @@
         1024
       ],
       "source": "C:\\Users\\lemon\\.codex\\.chatgpt-projects\\g-p-6a244918b2988191ac325bc113799e3e\\saeki-talk-issue5\\src\\assets\\images\\characters\\akari\\waist\\relieved.png",
-      "status": "最新画風・本編用素材として取り込み済み。個別の最終採用はデザイン台帳参照"
+      "status": "再制作02の最新素材を組込。個別表情の最終確認待ち。",
+      "sourceCommit": "4fad086"
     },
     {
       "file": "src/assets/images/characters/akari/waist/determined.png",
-      "sha256": "5b2f4302277e0386eeeef341c7d4addcfcc511333c16eb8d602ef4137a084bca",
+      "sha256": "7a1cd13069c3d714bf1e194a6b30851f76efb1bc4bc0032e4721fa3c20962842",
       "characterId": "akari",
       "kind": "waist",
       "expression": "determined",
@@ -687,7 +712,8 @@
         1024
       ],
       "source": "C:\\Users\\lemon\\.codex\\.chatgpt-projects\\g-p-6a244918b2988191ac325bc113799e3e\\saeki-talk-issue5\\src\\assets\\images\\characters\\akari\\waist\\determined.png",
-      "status": "最新画風・本編用素材として取り込み済み。個別の最終採用はデザイン台帳参照"
+      "status": "再制作02の最新素材を組込。個別表情の最終確認待ち。",
+      "sourceCommit": "4fad086"
     },
     {
       "file": "src/assets/images/characters/naoto/full/neutral.png",
@@ -1131,5 +1157,16 @@
       "source": "C:\\Users\\lemon\\.codex\\.chatgpt-projects\\g-p-6a244918b2988191ac325bc113799e3e\\saeki-talk-issue5\\src\\assets\\images\\characters\\misaki\\portrait\\neutral.png",
       "status": "最新画風・本編用素材として取り込み済み。個別の最終採用はデザイン台帳参照"
     }
-  ]
+  ],
+  "latestPartialRefresh": {
+    "sourceCommit": "4fad086",
+    "characters": [
+      "minato",
+      "mio",
+      "akari"
+    ],
+    "assets": 26,
+    "sourceValidation": "character-refresh-source-three-character-02.json",
+    "cutins": "候補2枚は確認待ちのため未置換"
+  }
 }
