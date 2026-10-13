@@ -35,8 +35,8 @@ button:disabled { cursor: default; color: var(--muted); }
 .story-toolbar { z-index: 5; align-self: start; display: flex; justify-content: space-between; align-items: start; padding: var(--edge-y) var(--edge-x); pointer-events: none; }
 .toolbar-actions { font-size: var(--hud-font); display: flex; gap: calc(12 * var(--u)); align-items: start; pointer-events: auto; }
 .toolbar-actions > button, .save-controls summary { min-height: calc(52 * var(--u)); padding: calc(12 * var(--u)) calc(20 * var(--u)); background: #101922bf; border: 0; border-radius: calc(4 * var(--u)); }
-.scene-context { display: grid; gap: calc(6 * var(--u)); text-align: right; font-size: var(--hud-font); text-shadow: 0 1px 3px #000; }
-.scene-context span + span { color: var(--muted); font-size: var(--hud-font); }
+.scene-context { display: grid; gap: calc(6 * var(--u)); text-align: right; font-size: calc(36 * var(--u)); font-weight: 600; color: #f4ecdf; background: #101922e6; padding: calc(8 * var(--u)) calc(16 * var(--u)); border-radius: calc(4 * var(--u)); text-shadow: 0 1px 3px #000; }
+.scene-context span + span { color: #f4ecdf; font-size: inherit; }
 .record-notice { position: absolute; z-index: 4; top: 12%; left: var(--edge-x); max-width: 70%; padding: calc(12 * var(--u)) calc(20 * var(--u)); background: #101922df; border-left: calc(3 * var(--u)) solid var(--accent); pointer-events: none; font-size: calc(22 * var(--u)); }
 .save-controls { position: relative; pointer-events: auto; }
 .ui-icon { width: calc(32 * var(--u)); height: calc(32 * var(--u)); flex-shrink: 0; }
@@ -80,12 +80,12 @@ button:disabled { cursor: default; color: var(--muted); }
 .choices { display: flex; flex-wrap: wrap; gap: .5em; }
 .command-list, .item-list { display: flex; flex-direction: column; gap: var(--command-gap); }
 .command-list button, .item-list button { display: flex; align-items: center; gap: calc(16 * var(--u)); width: 100%; min-height: var(--command-height); padding: var(--command-padding); border: 0; border-left: calc(3 * var(--u)) solid transparent; border-radius: calc(4 * var(--u)); background: #101922cc; }
-.command-list button { min-height: var(--command-height); font-size: calc(30 * var(--u)); line-height: 1.35; }
+.command-list button { min-height: var(--command-height); font-size: calc(36 * var(--u)); line-height: 1.35; }
 .free-action-panel .command-list button { font-size: calc(36 * var(--u)); }
 .free-action-panel .command-list .ui-icon { width: calc(44 * var(--u)); height: calc(44 * var(--u)); }
 .command-list .ui-icon { width: calc(36 * var(--u)); height: calc(36 * var(--u)); color: var(--muted); }
 .command-name { flex: 1; min-width: 0; overflow-wrap: anywhere; }
-.item-list button { display: grid; grid-template-columns: minmax(0, 1fr) auto; font-size: calc(36 * var(--u)); line-height: 1.35; }
+.item-list button { display: flex; font-size: calc(36 * var(--u)); line-height: 1.35; }
 .command-arrow { color: var(--muted); font-size: calc(24 * var(--u)); }
 .command-list button:not(:disabled):hover, .item-list button:hover, .command-list button:focus-visible, .item-list button:focus-visible, .command-list button.is-selected, .item-list button.is-selected { background: #263039e6; border-left-color: var(--accent); color: var(--accent); }
 .command-list button.is-selected, .item-list button.is-selected { background: #b8965a33; }
@@ -189,3 +189,9 @@ button:disabled { cursor: default; color: var(--muted); }
 .chapter-title-card strong { font-size: calc(78 * var(--u)); font-weight: 400; border-block: 1px solid #b8965a; padding: .5em .2em; }
 .chapter-title-card p { font-size: calc(36 * var(--u)); }
 .chapter-title-card small { font-size: calc(20 * var(--u)); color: var(--muted); }
+.history-entry { position: absolute; z-index: 4; right: calc(5% + 32 * var(--u)); bottom: calc(var(--dialogue-height) + var(--edge-y) - 80 * var(--u)); width: calc(112 * var(--u)); height: calc(56 * var(--u)); background: #101922e6; color: #eadfcf; font-size: calc(28 * var(--u)); text-align: center; border-radius: calc(4 * var(--u)); }
+.story:has(.history-entry) .dialogue-button .speaker { max-width: calc(100% - 128 * var(--u)); }
+.record-list button, .record-tabs button { font-size: calc(36 * var(--u)); font-weight: 400; }
+.save-slot-list { display: grid; gap: calc(12 * var(--u)); }
+.save-slot-list button { display: flex; gap: calc(24 * var(--u)); align-items: center; min-height: calc(72 * var(--u)); padding: calc(16 * var(--u)); background: #263039; font-size: calc(28 * var(--u)); }
+.save-slot-list button:disabled { opacity: .6; }

@@ -3,77 +3,52 @@ import { useRef, useState } from 'react'
 import { SystemDialog } from './SystemDialog'
 import type { GameState } from '../../types/gameState'
 import type { Scenario } from '../../types/scenario'
-import { deleteSave, loadGame, saveGame } from './storage'
-import type { StoredLoadResult } from './storage'
+import type { HistoryEntry } from './history'
+import { readSlots, writeSlot, loadSlot } from './saveSlots'
+import type { SaveSlot, SlotId } from './saveSlots'
 import { SettingsSlider } from './SettingsSlider'
 import { MESSAGE_SPEEDS, MESSAGE_SPEED_LABELS, loadAudioSettings, saveAudioSettings } from './settings'
+import { displayText } from './displayText'
+import { selectDateLabel } from './dateTime'
 
-const loadMessages: Record<Extract<StoredLoadResult, { ok: false }>['reason'], string> = {
-  'no-save': '保存データがありません。',
-  'invalid-format': '保存データが壊れているため、読み込めません。',
-  'unsupported-version': 'この保存データは現在のゲームでは読み込めません。',
-  'unknown-scenario': '保存したシナリオが見つかりません。',
-  'unknown-node': '保存した会話の位置が見つかりません。',
-  'storage-unavailable': 'ブラウザーの保存機能を利用できません。設定をご確認ください。',
-}
-
-export function SaveControls({ state, scenario, onRestore, onMenuToggle, interval = 35, onIntervalChange, onSaved }: {
-  state: GameState
-  scenario: Scenario
-  onRestore: (state: GameState) => void
-  onMenuToggle?: (open: boolean) => void
-  interval?: number
-  onIntervalChange?: (interval: number) => void
-  onSaved?: () => void
+export function SaveControls({ state, scenario, history = [], onRestore, onMenuToggle, interval = 35, onIntervalChange }: {
+  state: GameState; scenario: Scenario; history?: HistoryEntry[];
+  onRestore: (state: GameState, history: HistoryEntry[]) => void;
+  onMenuToggle?: (open: boolean) => void; interval?: number; onIntervalChange?: (interval: number) => void
 }) {
-  const details = useRef<HTMLDetailsElement>(null)
-  const [loaded, setLoaded] = useState<GameState>()
-  const [audio, setAudio] = useState(loadAudioSettings)
-  const changeVolume = (kind: 'bgm' | 'se', point: number) => {
-    const next = { ...audio, [kind]: point * 10 }; setAudio(next); saveAudioSettings(next)
+  const details=useRef<HTMLDetailsElement>(null)
+  const [audio,setAudio]=useState(loadAudioSettings)
+  const [saved,setSaved]=useState(false)
+  const [message,setMessage]=useState('')
+  const [slots,setSlots]=useState<{auto:SaveSlot|null;manual:SaveSlot[]}>()
+  const [loaded,setLoaded]=useState<{state:GameState;history:HistoryEntry[]}>()
+  const closeMenu=()=>{details.current!.open=false;onMenuToggle?.(false)}
+  const save=()=>{
+    const result=writeSlot(state,'manual',selectDateLabel(scenario,state),history)
+    setMessage(result.ok?'':'保存できませんでした。ブラウザーの設定や空き容量をご確認ください。')
+    if(result.ok)setSaved(true)
   }
-  const [message, setMessage] = useState('セーブは１件です。セーブすると上書きされます。')
-  const save = () => {
-    const result = saveGame(state)
-    if (result.ok) onSaved?.()
-    setMessage(result.ok ? 'セーブしました。' : 'セーブできませんでした。ブラウザーの設定や空き容量をご確認ください。')
+  const openLoad=()=>{try{setSlots(readSlots());setMessage('')}catch{setMessage('保存データを確認できません。既存のデータは変更していません。')}}
+  const load=(id:SlotId)=>{
+    const result=loadSlot(id,[scenario])
+    if(result.ok){setSlots(undefined);setLoaded(result)}
+    else setMessage(result.reason==='no-save'?'この枠は空です。':'この保存データを読み込めません。')
   }
-  const load = () => {
-    const result = loadGame([scenario])
-    if (result.ok) {
-      setLoaded(result.state)
-    } else {
-      setMessage(loadMessages[result.reason])
-    }
-  }
-  const remove = () => {
-    const result = deleteSave()
-    setMessage(result.ok ? '削除しました。保存データはありません。' : '保存データを削除できませんでした。ブラウザーの設定をご確認ください。')
-  }
-
-  return (
-    <details ref={details} className="save-controls" onToggle={(event) => onMenuToggle?.(event.currentTarget.open)}>
-      <summary aria-label="メニュー" onClick={(event) => onMenuToggle?.(!(event.currentTarget.parentElement as HTMLDetailsElement).open)}><UiIcon name="menu" /><span className="menu-caption">MENU</span></summary>
-      <div className="save-panel">
-      <div className="save-actions" aria-label="セーブ操作">
-        <button type="button" onClick={save}><UiIcon name="save" /><span>セーブ</span></button>
-        <button type="button" onClick={load}><UiIcon name="load" /><span>ロード</span></button>
-        <button type="button" onClick={remove}><UiIcon name="delete" /><span>セーブデータ削除</span></button>
-      </div>
-      <SettingsSlider label="メッセージスピード" value={Math.max(0, MESSAGE_SPEEDS.indexOf(interval as typeof MESSAGE_SPEEDS[number]))}
-        maximum={3} labels={MESSAGE_SPEED_LABELS} onChange={point => onIntervalChange?.(MESSAGE_SPEEDS[point])} />
-      <SettingsSlider label="BGM音量" value={audio.bgm / 10} maximum={10} onChange={point => changeVolume('bgm', point)} />
-      <SettingsSlider label="SE音量" value={audio.se / 10} maximum={10} onChange={point => changeVolume('se', point)} />
-      <p role="status">{message}</p>
-      </div>
-      {loaded && <SystemDialog title="ロードしました" dismissible={false} onClose={() => {
-        const restored = loaded
-        setLoaded(undefined)
-        details.current!.open = false
-        onMenuToggle?.(false)
-        setMessage('セーブは１件です。セーブすると上書きされます。')
-        onRestore(restored)
-      }} />}
-    </details>
-  )
+  return <details ref={details} className="save-controls" onToggle={event=>onMenuToggle?.(event.currentTarget.open)}>
+    <summary aria-label="メニュー" onClick={event=>onMenuToggle?.(!(event.currentTarget.parentElement as HTMLDetailsElement).open)}><UiIcon name="menu"/><span className="menu-caption">MENU</span></summary>
+    <div className="save-panel">
+      <div className="save-actions" aria-label="保存操作"><button type="button" onClick={save}><UiIcon name="save"/>SAVE</button><button type="button" onClick={openLoad}><UiIcon name="load"/>LOAD</button></div>
+      <SettingsSlider label="メッセージスピード" value={Math.max(0,MESSAGE_SPEEDS.indexOf(interval as typeof MESSAGE_SPEEDS[number]))} maximum={3} labels={MESSAGE_SPEED_LABELS} onChange={point=>onIntervalChange?.(MESSAGE_SPEEDS[point])}/>
+      {(['bgm','se'] as const).map(kind=><SettingsSlider key={kind} label={kind==='bgm'?'BGM音量':'SE音量'} value={audio[kind]} maximum={100} onChange={value=>{const next={...audio,[kind]:value};setAudio(next);saveAudioSettings(next)}}/>)}
+      {message&&<p role="status">{message}</p>}
+    </div>
+    {saved&&<SystemDialog title="セーブしました" dismissible={false} onClose={()=>{setSaved(false);setMessage('');closeMenu()}}/>}
+    {slots&&<SystemDialog title="LOAD" label="戻る" onClose={()=>{setSlots(undefined);setMessage('')}}>
+      <div className="save-slot-list">{(['auto',0,1,2] as const).map(id=>{
+        const slot=id==='auto'?slots.auto:slots.manual[id],name=id==='auto'?'AUTO':`SAVE ${id+1}`
+        return <button type="button" key={id} disabled={!slot} aria-label={displayText(name)} onClick={()=>load(id)}><strong>{displayText(name)}</strong><span>{slot?displayText(slot.label):'空き枠'}</span></button>
+      })}</div>{message&&<p role="status">{message}</p>}
+    </SystemDialog>}
+    {loaded&&<SystemDialog title="ロードしました" dismissible={false} onClose={()=>{const restored=loaded;setLoaded(undefined);closeMenu();onRestore(restored.state,restored.history)}}/>}
+  </details>
 }

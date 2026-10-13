@@ -11,7 +11,7 @@ for (const [width, height] of [[1920, 1080], [1366, 768]]) {
     const browser = await chromium.launch()
     const page = await browser.newPage({ viewport: { width, height } })
     try {
-      await page.goto(baseUrl)
+      await page.goto(baseUrl+(baseUrl.includes('?')?'&':'?')+'dev=1')
       const dialogue = page.locator('.story-content .dialogue-button')
       await page.waitForFunction(() => (document.querySelector('.story-content .dialogue-button .dialogue [aria-hidden]')?.textContent.length ?? 0) > 0)
       const initialPage = await dialogue.getAttribute('data-page')
@@ -121,7 +121,7 @@ test('喫煙挿絵の読み込み失敗時も仮ヒントを読んで復帰で�
   const page = await browser.newPage({ viewport: { width: 1920, height: 1080 } })
   try {
     await page.route(/minato-smoking\.png/, route => route.abort())
-    await page.goto(baseUrl)
+    await page.goto(baseUrl+(baseUrl.includes('?')?'&':'?')+'dev=1')
     await page.locator('.toolbar-actions').getByRole('button', { name: 'タバコを吸う' }).click()
     await page.locator('.smoking-cut-in-fallback').waitFor()
     const overlay = page.locator('.smoking-overlay .dialogue-button')

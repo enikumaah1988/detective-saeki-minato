@@ -1,3 +1,4 @@
+import {loadForTest,saveForTest} from './saveUiHelpers.mjs'
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import { loadRevision, buildPlaythrough } from './revisionHarness.mjs'
@@ -17,9 +18,9 @@ for (const [width, height] of [[1920,1080], [1366,768]]) test(`全角数字の�
     })
     await page.goto(url)
     const restore = async state => {
-      await page.evaluate(value => localStorage.setItem('detective-saeki-minato.save.v1',JSON.stringify(value)),api.createSaveData(state))
+      await page.evaluate(value => localStorage.removeItem('detective-saeki-minato.slots.v1') || localStorage.setItem('detective-saeki-minato.save.v1',JSON.stringify(value)),api.createSaveData(state))
       await page.getByLabel('メニュー',{exact:true}).click()
-      await page.getByRole('button',{name:'ロード',exact:true}).click()
+      await loadForTest(page)
       await page.getByRole('dialog',{name:'ロードしました',exact:true}).getByRole('button',{name:'OK',exact:true}).click()
     }
     await restore({...api.createInitialState(api.scenario),nodeId:'P1-01-intro'})
@@ -43,17 +44,17 @@ for (const [width, height] of [[1920,1080], [1366,768]]) test(`全角数字の�
     }
     assert.equal(joined,displayText(text))
     assert.match(await page.locator('.scene-context').textContent(),/１０月８日/)
-    await page.getByRole('button',{name:'会話履歴',exact:true}).click()
+    await page.getByRole('button', { name: '会話履歴を開く',exact:true}).click()
     assert.equal(await page.locator('.history-list p').last().textContent(),displayText(text))
     await page.getByRole('dialog',{name:'会話履歴',exact:true}).getByRole('button',{name:'閉じる',exact:true}).click()
     // メニューを保存・再ロードしても保存値と内部IDは半角のまま。
     await restore({...api.createInitialState(api.scenario),nodeId:'P1-01-menu'})
     assert.ok((await page.locator('.command-name').allTextContents()).includes('話す１'))
     await page.getByLabel('メニュー',{exact:true}).click()
-    await page.getByRole('button',{name:'BGM音量：４０%',exact:true}).click()
+    await page.getByLabel('BGM音量',{exact:true}).fill('40')
     assert.ok((await page.locator('.save-panel output').allTextContents()).includes('４０%'))
-    assert.match(await page.locator('.save-panel [role=status]').textContent(),/１件/)
-    assert.equal(await page.getByLabel('BGM音量',{exact:true}).inputValue(),'4')
+    assert.equal(await page.locator('.save-panel [role=status]').count(),0)
+    assert.equal(await page.getByLabel('BGM音量',{exact:true}).inputValue(),'40')
     await page.getByLabel('メニュー',{exact:true}).click()
     const run = buildPlaythrough(api,true), point = run.checkpoints.find(p=>p.phase==='P2-06').state
     await restore(point)
@@ -66,8 +67,8 @@ for (const [width, height] of [[1920,1080], [1366,768]]) test(`全角数字の�
     assert.match(await page.locator('.record-detail').textContent(),/１０月５日/)
     await page.getByLabel('調査記録を閉じる',{exact:true}).click()
     await page.getByLabel('メニュー',{exact:true}).click()
-    await page.getByRole('button',{name:'セーブ',exact:true}).click()
-    const saved = await page.evaluate(()=>JSON.parse(localStorage.getItem('detective-saeki-minato.save.v1')))
+    await saveForTest(page)
+    const saved = await page.evaluate(()=>JSON.parse(localStorage.getItem('detective-saeki-minato.slots.v1')).manual[0].data)
     assert.equal(saved.version,2); assert.equal(saved.nodeId,'P2-06-menu')
     assert.ok(saved.acquiredInformation.includes('F01'))
     assert.deepEqual(errors,[])

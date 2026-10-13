@@ -1,3 +1,4 @@
+import {loadForTest,saveForTest} from './saveUiHelpers.mjs'
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import {loadRevision} from './revisionHarness.mjs'
@@ -9,15 +10,15 @@ for(const [width,height]of [[1920,1080],[1366,768]])test(`サブメニュー保�
   await page.addInitScript(()=>localStorage.setItem('detective-saeki-minato.speed','0'))
   await page.goto(url)
   const state={...api.createInitialState(api.scenario),nodeId:'P1-01-menu'}
-  await page.evaluate(value=>localStorage.setItem('detective-saeki-minato.save.v1',JSON.stringify(value)),api.createSaveData(state))
+  await page.evaluate(value=>localStorage.removeItem('detective-saeki-minato.slots.v1') || localStorage.setItem('detective-saeki-minato.save.v1',JSON.stringify(value)),api.createSaveData(state))
   const menu=page.getByLabel('メニュー',{exact:true})
-  await menu.click();await page.getByRole('button',{name:'ロード',exact:true}).click();await page.getByRole('dialog',{name:'ロードしました',exact:true}).getByRole('button',{name:'OK',exact:true}).click()
+  await menu.click();await loadForTest(page);await page.getByRole('dialog',{name:'ロードしました',exact:true}).getByRole('button',{name:'OK',exact:true}).click()
   const choose=async label=>{const before=await page.locator('.story').getAttribute('data-node-id');await page.locator('.command-panel button').filter({has:page.locator('.command-name',{hasText:new RegExp('^'+label+'$')})}).click();await page.waitForFunction(id=>document.querySelector('.story')?.getAttribute('data-node-id')!==id,before)}
   const read=async()=>{while(await page.locator('.dialogue-button').count()){await page.locator('.dialogue-button .next').waitFor();await page.locator('.dialogue-button').click()}}
   assert.deepEqual(await page.locator('.free-action-panel .command-name').allTextContents(),['見る','話す'])
   await choose('話す');await choose('相澤　澪');await choose('今日の予定');await read()
   assert.equal(await page.locator('.story').getAttribute('data-node-id'),'P1-01-speak-mio')
-  await menu.click();await page.getByRole('button',{name:'セーブ',exact:true}).click();await page.getByRole('button',{name:'ロード',exact:true}).click();await page.getByRole('dialog',{name:'ロードしました',exact:true}).getByRole('button',{name:'OK',exact:true}).click()
+  await menu.click();await saveForTest(page);await loadForTest(page);await page.getByRole('dialog',{name:'ロードしました',exact:true}).getByRole('button',{name:'OK',exact:true}).click()
   assert.equal(await page.locator('.story').getAttribute('data-node-id'),'P1-01-speak-mio')
   await choose('コーヒー');await read();assert.equal(await page.locator('.story').getAttribute('data-node-id'),'P1-01-speak-mio')
   await choose('戻る');await choose('戻る');await choose('見る');await choose('相澤　澪');await read()

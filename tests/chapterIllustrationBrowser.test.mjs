@@ -1,3 +1,4 @@
+import {loadForTest,saveForTest} from './saveUiHelpers.mjs'
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import { loadRevision, buildPlaythrough } from './revisionHarness.mjs'
@@ -14,8 +15,8 @@ for(const [width,height] of [[1920,1080],[1366,768]])test(`部の挿絵・読了
   for(const [nodeId,node]of nodes){
    const phaseId=node.sceneId.replace(/-boundary$/,'')
    const state={...run.checkpoints.find(point=>point.phase===phaseId).state,nodeId}
-   await page.evaluate(value=>localStorage.setItem('detective-saeki-minato.save.v1',JSON.stringify(value)),api.createSaveData(state))
-   await page.getByLabel('メニュー',{exact:true}).click();await page.getByRole('button',{name:'ロード',exact:true}).click()
+   await page.evaluate(value=>localStorage.removeItem('detective-saeki-minato.slots.v1') || localStorage.setItem('detective-saeki-minato.save.v1',JSON.stringify(value)),api.createSaveData(state))
+   await page.getByLabel('メニュー',{exact:true}).click();await loadForTest(page)
    await page.getByRole('dialog',{name:'ロードしました',exact:true}).getByRole('button',{name:'OK',exact:true}).click()
    await page.locator('.chapter-title-card').waitFor()
    assert.equal(await page.locator('.chapter-illustration').count(),0)
@@ -29,8 +30,8 @@ for(const [width,height] of [[1920,1080],[1366,768]])test(`部の挿絵・読了
   }
   for(const phaseId of ['P1-03','P2-08','P3-04','P4-10']){
    const state=run.checkpoints.find(point=>point.phase===phaseId).state
-   await page.evaluate(value=>localStorage.setItem('detective-saeki-minato.save.v1',JSON.stringify(value)),api.createSaveData(state))
-   await page.getByLabel('メニュー',{exact:true}).click();await page.getByRole('button',{name:'ロード',exact:true}).click()
+   await page.evaluate(value=>localStorage.removeItem('detective-saeki-minato.slots.v1') || localStorage.setItem('detective-saeki-minato.save.v1',JSON.stringify(value)),api.createSaveData(state))
+   await page.getByLabel('メニュー',{exact:true}).click();await loadForTest(page)
    await page.getByRole('dialog',{name:'ロードしました',exact:true}).getByRole('button',{name:'OK',exact:true}).click()
    await page.waitForFunction(()=>Array.from(document.querySelectorAll('.character-image')).every(image=>image.complete&&image.naturalWidth>0))
    if(phaseId==='P4-10'){

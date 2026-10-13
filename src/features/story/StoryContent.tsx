@@ -27,7 +27,7 @@ export function StoryContent({ node, state, thinking, dispatch, paused, dialogue
       thinking={thinking} interval={interval} paused={paused} onAdvance={() => dispatch({ type: 'advance' })} />
   }
   if ('options' in node) {
-    const icons: Record<string, IconName> = { talk: 'talk', speak: 'talk', look: 'look', investigate: 'look', think: 'think' }
+    const icons: Record<string, IconName> = { talk: 'talk', speak: 'talk', look: 'look', investigate: 'look', think: 'think', organize:'notebook', move:'move', map:'move', enter:'move', proceed:'move', return:'return' }
     const freeAction = isFreeAction(node)
     const options = visibleChoices(node, state)
     if (options.length === 0) {
@@ -41,7 +41,7 @@ export function StoryContent({ node, state, thinking, dispatch, paused, dialogue
         <SelectionMenu paused={paused} className={`choices ${node.type === 'topic' || node.type === 'inspect' ? 'item-list' : 'command-list'}`}>
           {options.map((option) => {
             const status = choiceStatus(node, option, state)
-            const icon = freeAction ? icons[option.id] : undefined
+            const icon = freeAction || node.type==='choice' || option.id==='return' ? icons[option.id] : undefined
             return (
               <CommandButton key={option.id} paused={paused} onSelect={() => dispatch({ type: 'choose', choiceId: option.id })}>
                 {icon && <UiIcon name={icon} />}

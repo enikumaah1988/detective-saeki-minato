@@ -62,5 +62,5 @@ export type Scenario = {
   scenes?: Record<string, Scene>
   records?: readonly InvestigationEntry[]
   smokingHints?: { rules: SmokingHint[]; fallback: string }
-  nodes: Record<string, ScenarioNode & { sceneId?: string; autoAdvance?: boolean; automaticNext?: { condition: Condition; next: string }[]; entryUpdates?: StateUpdate[]; illustration?: { id: string; imageSrc?: string; alt: string; heading: string; subtitle?: string; provisional?: boolean } }>
+  nodes: Record<string, ScenarioNode & { savePhaseId?: string; savePhaseMarkers?: string[]; sceneId?: string; autoAdvance?: boolean; automaticNext?: { condition: Condition; next: string }[]; entryUpdates?: StateUpdate[]; illustration?: { id: string; imageSrc?: string; alt: string; heading: string; subtitle?: string; provisional?: boolean } }>
 }
