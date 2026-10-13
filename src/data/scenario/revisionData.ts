@@ -1149,6 +1149,7 @@ export const revisionData = {
       "speak": [
         {
           "id": "p1-company-call",
+          "triggerMode": "automatic-after-information",
           "personId": "mio",
           "label": "会社への連絡",
           "lines": [
@@ -1184,6 +1185,7 @@ export const revisionData = {
         },
         {
           "id": "p1-mio-role",
+          "triggerMode": "automatic-after-information",
           "personId": "mio",
           "label": "留守中の対応",
           "lines": [
@@ -1319,6 +1321,7 @@ export const revisionData = {
       "speak": [
         {
           "id": "p2-depart",
+          "triggerMode": "automatic-after-information",
           "personId": "mio",
           "label": "会社へ向かう",
           "lines": [

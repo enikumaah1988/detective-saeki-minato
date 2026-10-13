@@ -32,7 +32,7 @@ export function SaveControls({ state, scenario, onRestore, onMenuToggle, interva
   const changeVolume = (kind: 'bgm' | 'se', point: number) => {
     const next = { ...audio, [kind]: point * 10 }; setAudio(next); saveAudioSettings(next)
   }
-  const [message, setMessage] = useState('セーブは1件です。セーブすると上書きされます。')
+  const [message, setMessage] = useState('セーブは１件です。セーブすると上書きされます。')
   const save = () => {
     const result = saveGame(state)
     if (result.ok) onSaved?.()
@@ -71,7 +71,7 @@ export function SaveControls({ state, scenario, onRestore, onMenuToggle, interva
         setLoaded(undefined)
         details.current!.open = false
         onMenuToggle?.(false)
-        setMessage('セーブは1件です。セーブすると上書きされます。')
+        setMessage('セーブは１件です。セーブすると上書きされます。')
         onRestore(restored)
       }} />}
     </details>

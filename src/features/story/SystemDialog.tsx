@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import type { ReactNode } from 'react'
+import { displayText } from './displayText'
 
 export function SystemDialog({ title, children, onClose, label = 'OK', dismissible = true }: { title: string; children?: ReactNode; onClose: () => void; label?: string; dismissible?: boolean }) {
   const dialog = useRef<HTMLDialogElement>(null)
@@ -9,7 +10,7 @@ export function SystemDialog({ title, children, onClose, label = 'OK', dismissib
     element.showModal()
     return () => { element.close(); if (invoker?.isConnected) invoker.focus() }
   }, [])
-  return <dialog ref={dialog} className="system-dialog" aria-label={title} onCancel={event => { event.preventDefault(); if (dismissible) onClose() }}>
-    <h2>{title}</h2>{children}<button autoFocus type="button" onClick={onClose}>{label}</button>
+  return <dialog ref={dialog} className="system-dialog" aria-label={displayText(title)} onCancel={event => { event.preventDefault(); if (dismissible) onClose() }}>
+    <h2>{displayText(title)}</h2>{children}<button autoFocus type="button" onClick={onClose}>{displayText(label)}</button>
   </dialog>
 }

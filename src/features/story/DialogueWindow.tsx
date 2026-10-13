@@ -1,12 +1,13 @@
 import { Component, createRef } from 'react'
 import { graphemes, measureDialoguePages } from './pagination'
+import { displayText } from './displayText'
 
 export const CHARACTER_INTERVAL_MS = 35
 
 export class DialogueWindow extends Component<{
   speaker: string; text: string; thinking: boolean; interval?: number; paused?: boolean; autoFocus?: boolean; onAdvance: () => void
 }, { visible: number; pages: string[]; page: number }> {
-  state = { visible: 0, pages: [this.props.text], page: 0 }
+  state = { visible: 0, pages: [displayText(this.props.text)], page: 0 }
   private timer?: ReturnType<typeof setInterval>
   private observer?: ResizeObserver
   private body = createRef<HTMLSpanElement>()
@@ -44,7 +45,7 @@ export class DialogueWindow extends Component<{
 
   repaginate = () => {
     if (!this.body.current) return
-    const pages = measureDialoguePages(this.props.text, this.body.current)
+    const pages = measureDialoguePages(displayText(this.props.text), this.body.current)
     if (JSON.stringify(pages) === JSON.stringify(this.state.pages)) return
     // リサイズ時は既に読んだ文字位置を保ち、未読の文章を飛ばさない。
     const read = this.state.pages.slice(0, this.state.page).reduce((sum, page) => sum + graphemes(page).length, 0) + this.state.visible
@@ -79,7 +80,7 @@ export class DialogueWindow extends Component<{
       data-page={this.state.page + 1} data-pages={this.state.pages.length}
       autoFocus={this.props.autoFocus}
       onClick={this.activate} aria-label="会話を次へ進める">
-      {this.props.speaker ? <span className="speaker">{this.props.speaker}</span> : <span className="speaker-space" aria-hidden="true" />}
+      {this.props.speaker ? <span className="speaker">{displayText(this.props.speaker)}</span> : <span className="speaker-space" aria-hidden="true" />}
       <span className="dialogue" ref={this.body}><span aria-hidden="true">{this.characters.slice(0, this.state.visible).join('')}</span><span className="sr-only">{this.state.pages[this.state.page]}</span></span>
       {complete && <span className="next" aria-label="次へ">▼</span>}
     </button>

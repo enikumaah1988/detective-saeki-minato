@@ -35,6 +35,12 @@ export function createInitialState(scenario: Scenario): GameState {
 function enterNode(scenario: Scenario, state: GameState, nodeId: string): GameState {
   getNode(scenario, nodeId)
   let updated = applyUpdates(state, scenario.nodes[nodeId].entryUpdates ?? [])
+  const automatic = scenario.nodes[nodeId].automaticNext?.find(branch => matchesCondition(updated, branch.condition))
+  if (automatic) {
+    getNode(scenario, automatic.next)
+    nodeId = automatic.next
+    updated = applyUpdates(updated, scenario.nodes[nodeId].entryUpdates ?? [])
+  }
   const visited = new Set<string>()
   while (scenario.nodes[nodeId].autoAdvance && scenario.nodes[nodeId].type === 'dialogue') {
     if (visited.has(nodeId)) throw new Error('自動進行が循環しています')
@@ -70,7 +76,9 @@ export function reduceGameState(scenario: Scenario, state: GameState, action: Ga
   if (action.type === 'reset') return createInitialState(scenario)
   if (action.type === 'restore') {
     const result = restoreSaveData({ ...action.state, version: SAVE_DATA_VERSION }, [scenario])
-    return result.ok ? result.state : state
+    if (!result.ok) return state
+    return scenario.nodes[result.state.nodeId].automaticNext?.some(branch => matchesCondition(result.state, branch.condition))
+      ? enterNode(scenario, result.state, result.state.nodeId) : result.state
   }
   if (action.type === 'use-item') {
     const use = scenario.itemUses?.find(use => use.itemId === action.itemId && (!action.useId || use.next === action.useId) && use.nodeIds.includes(state.nodeId) && matchesCondition(state, use.condition))
