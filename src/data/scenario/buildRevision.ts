@@ -11,7 +11,7 @@ export type RevisionAction = { id: string; personId?: string | null; label?: str
   successLines?: RevisionLine[]; retainCorrectAnswers?: boolean;
   remoteOnly?: boolean;
   legacyOnly?: boolean;
-  triggerMode?: 'automatic-after-entry';
+  triggerMode?: 'automatic-after-entry' | 'automatic-after-information';
 }
 export type RevisionScene = {
   id: string; part: number; locationId: string; roomId: string; sceneTime: string;
@@ -113,6 +113,11 @@ export function buildRevision(base: Scenario, data: RevisionData): Scenario {
     const first = !previous || previous.part !== phase.part
     const automatic = [...phase.ask, ...phase.speak].find(action => action.triggerMode === 'automatic-after-entry')
     if (automatic) sequence(automatic.id, phase, automatic.lines, menuId, [{ type: 'addHeardTopic', id: automatic.id }, ...grants(automatic.grants)])
+    const automaticSteps = [...phase.ask, ...phase.speak].filter(action => action.triggerMode === 'automatic-after-information')
+    const automaticBranches = automaticSteps.map(action => ({
+      condition: { type: 'all' as const, conditions: [has(action.requires), { type: 'not' as const, condition: has(action.grants) }] },
+      next: sequence(action.id, phase, action.lines, menuId, [{ type: 'addHeardTopic', id: action.id }, ...grants(action.grants)], personFor(action)),
+    }))
     const intro = sequence(`${phase.id}-intro`, phase, phase.intro, automatic?.id ?? menuId)
     nodes[intro].entryUpdates = [...(nodes[intro].entryUpdates ?? []), ...phase.people.filter(person => !['minato', 'mio', 'company-reception', 'police-reception', 'narumi'].includes(person)).map(person => information(`met-${person}`))]
     if (first) boundary(`${phase.id}-start`, phase, 'IN', intro)
@@ -312,6 +317,14 @@ export function buildRevision(base: Scenario, data: RevisionData): Scenario {
     if(automaticExit){
       const currentTargets = new Set([menuId,...Object.keys(nodes).filter(id=>sceneOwners.get(nodes[id].sceneId ?? '')===phase.id && ['topic','inspect'].includes(nodes[id].type))])
       for(const node of Object.values(nodes)) if(node.type==='dialogue' && sceneOwners.get(node.sceneId ?? '')===phase.id && currentTargets.has(node.next)) node.nextWhen={condition:has([...phase.exit.requires,...(farewell ? [farewell] : []), ...(closing ? [`${phase.id}-conversation-closed`] : [])]),next:endingId}
+    }
+    if (automaticBranches.length) {
+      const targets = new Set([menuId, ...Object.keys(nodes).filter(id => sceneOwners.get(nodes[id].sceneId ?? '') === phase.id && ['topic', 'inspect'].includes(nodes[id].type))])
+      for (const [id, node] of Object.entries(nodes)) {
+        if (node.type === 'dialogue' && sceneOwners.get(node.sceneId ?? '') === phase.id && targets.has(node.next)) node.conditionalNext = [...(node.conditionalNext ?? []), ...automaticBranches]
+        // 旧保存の一覧も、前提が揃った未読の段取りから再開する。
+        if (targets.has(id)) node.automaticNext = automaticBranches
+      }
     }
   }
   const last = data.scenes.at(-1)!
