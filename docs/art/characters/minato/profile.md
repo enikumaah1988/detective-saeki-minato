@@ -1,5 +1,9 @@
 # 佐伯 湊
 
+## 最新補足：前髪の長さ
+ユーザーが求める長さは前髪。眉・眼鏡の上縁へ落ちる束を増やした[試作4](drafts/gekiga-neutral-04-longer-bangs.png)を最新候補とする。[生成条件](drafts/gekiga-neutral-04-longer-bangs.md)。作風はユーザー了承、具体的な髪型と画像は確認待ち。試作3の耳・襟足の延長だけでは指示を満たさない。
+
+
 ## 髪の長さの追加調整：2026-10-13
 ユーザー指定で髪を少し長くし、耳まわりと襟足を伸ばした[試作3](drafts/gekiga-neutral-03-longer-hair.png)を制作。[生成記録](drafts/gekiga-neutral-03-longer-hair.md)。眼鏡ありを維持。具体的な長さと画像は確認待ちで、ゲーム素材は未置換。
 
