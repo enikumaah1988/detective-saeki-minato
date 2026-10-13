@@ -1,0 +1,68 @@
+[
+  {
+    "id": "old-building-exterior-day",
+    "bgId": "BG-06",
+    "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-f7c3dc18-f746-40cc-a8de-b4568877c912.png",
+    "prompt": "Contemporary Japanese sober detective ADV EMPTY BACKGROUND, landscape16:9 1920x1080. Match attached Saeki office reference's detailed restrained painterly architectural illustration, mature neutral colors and warm natural materials, NOT photographic, no people or baked characters. Midday NEUTRAL soft daylight, no sunset or night. Functional fictional space in Nishi Shinjuku, no real buildings or brand logos. Eye-level perspective, legible entry/door and investigate points. Reserve lower35% for dialogue with quiet floor/pavement, quiet top edge for HUD, right commands overlay. No gameplay UI, no arbitrary date or calendar. All architecture details are provisional candidate. Edit attached TEST old-building entrance into morning/day shared neutral daylight candidate, preserve same worn small beige tile facade, recessed metal/glass main entrance, modest canopy, stairs, side utility pipes and maintained aged urban surroundings. Building is fictional Narukozaka Kyodo Building awaiting demolition; no ruins or destruction. Keep paper notice near entry, UNREADABLE blank blocks with no date/text, demolition details displayed separately by game. Remove golden sunset-like cast and intense autumn orange lighting, neutral autumn DAYLIGHT usable morning and midday. No people. Preserve door/window geometry and entry clear as investigate point, no new other entrance. Original existing test is NOT adopted.",
+    "time": "朝・昼共用候補",
+    "state": "確認待ち"
+  },
+  {
+    "id": "caretaker-room-day",
+    "bgId": "BG-07",
+    "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-528af270-7e70-4119-9632-4fa676577da6.png",
+    "prompt": "Contemporary Japanese sober detective ADV EMPTY BACKGROUND, landscape16:9 1920x1080. Match attached Saeki office reference's detailed restrained painterly architectural illustration, mature neutral colors and warm natural materials, NOT photographic, no people or baked characters. Midday NEUTRAL soft daylight, no sunset or night. Functional fictional space in Nishi Shinjuku, no real buildings or brand logos. Eye-level perspective, legible entry/door and investigate points. Reserve lower35% for dialogue with quiet floor/pavement, quiet top edge for HUD, right commands overlay. No gameplay UI, no arbitrary date or calendar. All architecture details are provisional candidate. IMAGE1 old building entrance materials, IMAGE2 old office test architectural reference only. Create a DISTINCT small caretaker/rest room inside SAME aging building, not old closed company office. Modest cared-for cream-grey worn plaster, muted grey-green lower wall, dark brown wooden door with narrow frosted panel on rear-right, older metal rectangular window and simple blinds on left, practical linoleum floor. Small plain square wood table and three mismatched practical chairs at middle-left, an ordinary landline phone, closed logbook, neutral envelope on shelf/table, low cabinet and thermos/mugs near rear wall, no evidence text. Daylight neutral soft, morning/day shared base. Space used for living caretaker work, NOT large company filing archive, no grand desk, no piles of moving boxes. Table surface around y45-55% above dialogue, neutral clear foreground. No people, no keys or name labels. Proposed layout not story canon.",
+    "time": "朝・昼共用候補",
+    "state": "確認待ち"
+  },
+  {
+    "id": "old-office-morning",
+    "bgId": "BG-09",
+    "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-37399837-d5e9-47f0-a220-ce880518f532.png",
+    "prompt": "Contemporary Japanese sober detective ADV EMPTY BACKGROUND, landscape16:9 1920x1080. Match attached Saeki office reference's detailed restrained painterly architectural illustration, mature neutral colors and warm natural materials, NOT photographic, no people or baked characters. Midday NEUTRAL soft daylight, no sunset or night. Functional fictional space in Nishi Shinjuku, no real buildings or brand logos. Eye-level perspective, legible entry/door and investigate points. Reserve lower35% for dialogue with quiet floor/pavement, quiet top edge for HUD, right commands overlay. No gameplay UI, no arbitrary date or calendar. All architecture details are provisional candidate. Edit attached OLD OFFICE TEST into formal MORNING candidate of same room. Preserve coherent same aging building architecture: aged cream-grey walls, old dark brown wood door with frosted inset on left rear, muted metal window with blinds rear, simple desk left and old filing cupboards right. Building caretaker room is a separate room, this is closed former COMPANY office being sorted before demolition. Keep a few organized moving boxes at rear, blue report folder on desk and document storage cabinet identifiable for investigate; no readable words or dates, not clues beyond scenario. Change strong golden afternoon-like beams to soft cool MORNING daylight, readable room with subtle dust/patina, no ruin/horror/blood. No people. Matching neutral grey linoleum or existing tiled floor materials remain coherent, exact floor plan candidate.",
+    "time": "朝",
+    "state": "確認待ち"
+  },
+  {
+    "id": "building-stairs-day",
+    "bgId": "BG-08",
+    "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-4c6cd00d-f7ce-4418-b64a-a0f57c90b429.png",
+    "prompt": "Edit this empty stairwell background ONLY at the upper left office doorway. Keep camera, all stairs and landing, railing, lower doorway, windows, all materials/light unchanged. The upper old-office door is currently TOO OPEN and exposes office desk and room interior. Swing that SAME brown wooden door toward closed so its solid leaf blocks almost the entire visible office interior. Leave only a NARROW vertical gap, about10cm, at right edge of leaf by jamb. No office desk or room contents should be visible through gap. Door leaf occupies visible opening, its frosted rectangular panel still present. Stair landing and walking path stay completely clear; do not place barrier on landing or stairs. This creates a laterally screened doorway for sightline review, no people or text. Preserve16:9 canvas and exact geometry elsewhere.",
+    "time": "朝・昼共用候補",
+    "state": "視点・遮蔽物の照合を含む確認待ち",
+    "firstAttemptSource": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-fbf99884-f3bc-4929-b5ae-edfbf5ff6ff2.png",
+    "firstAttemptPrompt": "Contemporary Japanese sober detective ADV EMPTY BACKGROUND, landscape16:9 1920x1080. Match attached Saeki office reference's detailed restrained painterly architectural illustration, mature neutral colors and warm natural materials, NOT photographic, no people or baked characters. Midday NEUTRAL soft daylight, no sunset or night. Functional fictional space in Nishi Shinjuku, no real buildings or brand logos. Eye-level perspective, legible entry/door and investigate points. Reserve lower35% for dialogue with quiet floor/pavement, quiet top edge for HUD, right commands overlay. No gameplay UI, no arbitrary date or calendar. All architecture details are provisional candidate. Edit attached TEST stair scene for SAME aged building and preserve core stairs geometry, concrete single ascending flight from lower doorway foreground-left to upper landing, right guardrail and small frosted high windows. This is a NEUTRAL DAYLIGHT base for morning and midday. Evidence sightline constraint: from LOWER-FLOOR DOORWAY looking diagonally UP stairs, upper landing is visible and pushing motion can be seen, but aggressor's face cannot be identified. Keep upper old-office-side doorway set BACK and LATERALLY BEHIND tall door leaf/jamb and short wall return on upper LEFT, so room interior and face at doorway are screened from lower camera. Landing edge unobstructed; don't block whole landing or stair walking path. Actor would have back toward lower viewpoint during pushing, then turn away into screened doorway. No actors drawn, no blood, no arrows or diagram text. Dark brown old wood door with frosted inset matching old office. Remove readable notices, replace generic paper blocks. Correct continuous walkable stair risers and plausible guardrail, no impossible second staircase. Proposed sightline scene requiring geometric review, not proof of crime."
+  },
+  {
+    "id": "office-interior-evening",
+    "bgId": "BG-01",
+    "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-6f3c3601-391c-46ec-a4d7-6c9ee850e56e.png",
+    "prompt": "Edit attached background ONLY for its EVENING/LATE AFTERNOON lighting variant in contemporary Tokyo detective ADV. Preserve EXACT camera and architecture, every door/window/furniture location, materials, object scale and all existing signage. Do not add people, props, clocks or text. Reduce strong neutral daylight to softer subdued late-afternoon light with restrained warm highlights and gently cool ambient shadows; sky visible through windows/outside stays muted pale grey-blue with subtle warm horizon, not deep night. No bright saturated orange sunset, no darkness or rain. Retain readable investigate points and safe empty foreground for dialogue. This is proposed evening light covering scenario afternoon-to-evening moments, not exact solar simulation. Same16:9 1920x1080 composition and painterly style. Interior: existing desk/ceiling lights softly on for papers, external daylight muted, no new lamps or rearrangement.",
+    "time": "夕",
+    "state": "確認待ち"
+  },
+  {
+    "id": "office-exterior-evening",
+    "bgId": "BG-02",
+    "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-06daf8a4-b8b9-423f-af47-a669d6c0c5ea.png",
+    "prompt": "Edit attached background ONLY for its EVENING/LATE AFTERNOON lighting variant in contemporary Tokyo detective ADV. Preserve EXACT camera and architecture, every door/window/furniture location, materials, object scale and all existing signage. Do not add people, props, clocks or text. Reduce strong neutral daylight to softer subdued late-afternoon light with restrained warm highlights and gently cool ambient shadows; sky visible through windows/outside stays muted pale grey-blue with subtle warm horizon, not deep night. No bright saturated orange sunset, no darkness or rain. Retain readable investigate points and safe empty foreground for dialogue. This is proposed evening light covering scenario afternoon-to-evening moments, not exact solar simulation. Same16:9 1920x1080 composition and painterly style. Exterior: entry canopy light softly on, preserve EXACT sign text 佐伯探偵事務所 and placement, no extra wording. Daylight still present.",
+    "time": "夕",
+    "state": "確認待ち"
+  },
+  {
+    "id": "old-building-exterior-evening",
+    "bgId": "BG-06",
+    "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-de28d749-f09d-4cd7-a8c3-c3ddb093c87b.png",
+    "prompt": "Edit attached background ONLY for its EVENING/LATE AFTERNOON lighting variant in contemporary Tokyo detective ADV. Preserve EXACT camera and architecture, every door/window/furniture location, materials, object scale and all existing signage. Do not add people, props, clocks or text. Reduce strong neutral daylight to softer subdued late-afternoon light with restrained warm highlights and gently cool ambient shadows; sky visible through windows/outside stays muted pale grey-blue with subtle warm horizon, not deep night. No bright saturated orange sunset, no darkness or rain. Retain readable investigate points and safe empty foreground for dialogue. This is proposed evening light covering scenario afternoon-to-evening moments, not exact solar simulation. Same16:9 1920x1080 composition and painterly style. Exterior: old building entrance at scenario16:30, canopy light softly on, keep demolition notice as unreadable blank blocks without date, no new signs.",
+    "time": "夕",
+    "state": "確認待ち"
+  },
+  {
+    "id": "caretaker-room-evening",
+    "bgId": "BG-07",
+    "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-0a36b87b-f438-4dc0-bb30-46ce63d8f290.png",
+    "prompt": "Edit attached background ONLY for its EVENING/LATE AFTERNOON lighting variant in contemporary Tokyo detective ADV. Preserve EXACT camera and architecture, every door/window/furniture location, materials, object scale and all existing signage. Do not add people, props, clocks or text. Reduce strong neutral daylight to softer subdued late-afternoon light with restrained warm highlights and gently cool ambient shadows; sky visible through windows/outside stays muted pale grey-blue with subtle warm horizon, not deep night. No bright saturated orange sunset, no darkness or rain. Retain readable investigate points and safe empty foreground for dialogue. This is proposed evening light covering scenario afternoon-to-evening moments, not exact solar simulation. Same16:9 1920x1080 composition and painterly style. Interior: caretaker room at16:35-17:25, existing ceiling light softly on, muted warmer side daylight fades but room/table clearly readable. Keep same table, chairs, logbook, envelope and door. No phone added or props changed.",
+    "time": "夕",
+    "state": "確認待ち"
+  }
+]

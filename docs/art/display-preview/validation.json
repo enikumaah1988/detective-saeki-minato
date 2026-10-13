@@ -1,0 +1,372 @@
+{
+  "records": [
+    {
+      "name": "current-neutral",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "layout": {
+        "stage": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 1080
+        },
+        "message": {
+          "x": 96,
+          "y": 736,
+          "width": 1728,
+          "height": 320
+        },
+        "left": {
+          "x": 153.59375,
+          "y": 183.59375,
+          "width": 691.1875,
+          "height": 928.796875
+        },
+        "right": {
+          "x": 1075.203125,
+          "y": 183.59375,
+          "width": 691.1875,
+          "height": 928.796875
+        },
+        "fontLoaded": true,
+        "images": [
+          {
+            "src": "../../../src/assets/backgrounds/office-afternoon.png",
+            "complete": true,
+            "width": 1672
+          },
+          {
+            "src": "../../../src/assets/images/characters/minato/waist/neutral.png",
+            "complete": true,
+            "width": 1024
+          },
+          {
+            "src": "../../../src/assets/images/characters/minato/waist/neutral.png",
+            "complete": true,
+            "width": 1024
+          },
+          {
+            "src": "../../../src/assets/images/characters/mio/waist/neutral.png",
+            "complete": true,
+            "width": 1024
+          },
+          {
+            "src": "../../../src/assets/images/characters/mio/waist/neutral.png",
+            "complete": true,
+            "width": 1024
+          }
+        ]
+      }
+    },
+    {
+      "name": "uniform-neutral",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "layout": {
+        "stage": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 1080
+        },
+        "message": {
+          "x": 96,
+          "y": 736,
+          "width": 1728,
+          "height": 320
+        },
+        "left": {
+          "x": -19.2109375,
+          "y": 129.59375,
+          "width": 1036.796875,
+          "height": 1166.390625
+        },
+        "right": {
+          "x": 902.3984375,
+          "y": 129.59375,
+          "width": 1036.796875,
+          "height": 1166.390625
+        },
+        "fontLoaded": true,
+        "images": [
+          {
+            "src": "../../../src/assets/backgrounds/office-afternoon.png",
+            "complete": true,
+            "width": 1672
+          },
+          {
+            "src": "../../../src/assets/images/characters/minato/waist/neutral.png",
+            "complete": true,
+            "width": 1024
+          },
+          {
+            "src": "../../../src/assets/images/characters/minato/waist/neutral.png",
+            "complete": true,
+            "width": 1024
+          },
+          {
+            "src": "../../../src/assets/images/characters/mio/waist/neutral.png",
+            "complete": true,
+            "width": 1024
+          },
+          {
+            "src": "../../../src/assets/images/characters/mio/waist/neutral.png",
+            "complete": true,
+            "width": 1024
+          }
+        ]
+      }
+    },
+    {
+      "name": "candidate-neutral",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "layout": {
+        "stage": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 1080
+        },
+        "message": {
+          "x": 96,
+          "y": 736,
+          "width": 1728,
+          "height": 320
+        },
+        "left": {
+          "x": -19.2109375,
+          "y": 129.59375,
+          "width": 1036.796875,
+          "height": 1166.390625
+        },
+        "right": {
+          "x": 954.2421875,
+          "y": 194.390625,
+          "width": 933.109375,
+          "height": 1166.390625
+        },
+        "fontLoaded": true,
+        "images": [
+          {
+            "src": "../../../src/assets/backgrounds/office-afternoon.png",
+            "complete": true,
+            "width": 1672
+          },
+          {
+            "src": "../../../src/assets/images/characters/minato/waist/neutral.png",
+            "complete": true,
+            "width": 1024
+          },
+          {
+            "src": "../../../src/assets/images/characters/minato/waist/neutral.png",
+            "complete": true,
+            "width": 1024
+          },
+          {
+            "src": "../../../src/assets/images/characters/mio/waist/neutral.png",
+            "complete": true,
+            "width": 1024
+          },
+          {
+            "src": "../../../src/assets/images/characters/mio/waist/neutral.png",
+            "complete": true,
+            "width": 1024
+          }
+        ]
+      }
+    },
+    {
+      "name": "candidate-gestures",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "layout": {
+        "stage": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 1080
+        },
+        "message": {
+          "x": 96,
+          "y": 736,
+          "width": 1728,
+          "height": 320
+        },
+        "left": {
+          "x": -19.2109375,
+          "y": 129.59375,
+          "width": 1036.796875,
+          "height": 1166.390625
+        },
+        "right": {
+          "x": 954.2421875,
+          "y": 194.390625,
+          "width": 933.109375,
+          "height": 1166.390625
+        },
+        "fontLoaded": true,
+        "images": [
+          {
+            "src": "../../../src/assets/backgrounds/office-afternoon.png",
+            "complete": true,
+            "width": 1672
+          },
+          {
+            "src": "../../../src/assets/images/characters/minato/waist/pained.png",
+            "complete": true,
+            "width": 1024
+          },
+          {
+            "src": "../../../src/assets/images/characters/minato/waist/neutral.png",
+            "complete": true,
+            "width": 1024
+          },
+          {
+            "src": "../../../src/assets/images/characters/mio/waist/surprised.png",
+            "complete": true,
+            "width": 1024
+          },
+          {
+            "src": "../../../src/assets/images/characters/mio/waist/neutral.png",
+            "complete": true,
+            "width": 1024
+          }
+        ]
+      }
+    },
+    {
+      "name": "candidate-no-dialogue",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "layout": {
+        "stage": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 1080
+        },
+        "message": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "left": {
+          "x": -19.2109375,
+          "y": 129.59375,
+          "width": 1036.796875,
+          "height": 1166.390625
+        },
+        "right": {
+          "x": 954.2421875,
+          "y": 194.390625,
+          "width": 933.109375,
+          "height": 1166.390625
+        },
+        "fontLoaded": true,
+        "images": [
+          {
+            "src": "../../../src/assets/backgrounds/office-afternoon.png",
+            "complete": true,
+            "width": 1672
+          },
+          {
+            "src": "../../../src/assets/images/characters/minato/waist/relieved.png",
+            "complete": true,
+            "width": 1024
+          },
+          {
+            "src": "../../../src/assets/images/characters/minato/waist/neutral.png",
+            "complete": true,
+            "width": 1024
+          },
+          {
+            "src": "../../../src/assets/images/characters/mio/waist/amused.png",
+            "complete": true,
+            "width": 1024
+          },
+          {
+            "src": "../../../src/assets/images/characters/mio/waist/neutral.png",
+            "complete": true,
+            "width": 1024
+          }
+        ]
+      }
+    },
+    {
+      "name": "candidate-1366",
+      "viewport": {
+        "width": 1366,
+        "height": 768
+      },
+      "layout": {
+        "stage": {
+          "x": 0,
+          "y": 0,
+          "width": 1366,
+          "height": 768.375
+        },
+        "message": {
+          "x": 68.296875,
+          "y": 523.65625,
+          "width": 1229.390625,
+          "height": 227.65625
+        },
+        "left": {
+          "x": -13.65625,
+          "y": 92.203125,
+          "width": 737.625,
+          "height": 829.84375
+        },
+        "right": {
+          "x": 678.890625,
+          "y": 138.296875,
+          "width": 663.875,
+          "height": 829.84375
+        },
+        "fontLoaded": true,
+        "images": [
+          {
+            "src": "../../../src/assets/backgrounds/office-afternoon.png",
+            "complete": true,
+            "width": 1672
+          },
+          {
+            "src": "../../../src/assets/images/characters/minato/waist/serious.png",
+            "complete": true,
+            "width": 1024
+          },
+          {
+            "src": "../../../src/assets/images/characters/minato/waist/neutral.png",
+            "complete": true,
+            "width": 1024
+          },
+          {
+            "src": "../../../src/assets/images/characters/mio/waist/worried.png",
+            "complete": true,
+            "width": 1024
+          },
+          {
+            "src": "../../../src/assets/images/characters/mio/waist/neutral.png",
+            "complete": true,
+            "width": 1024
+          }
+        ]
+      }
+    }
+  ],
+  "controls": "expression, layout, panel, ghost, cycling passed",
+  "errors": []
+}

@@ -1,0 +1,180 @@
+{
+  "date": "2026-10-13",
+  "status": "generation_and_file_validation_complete",
+  "style": "ユーザー採用：劇画調",
+  "scope": "ユーザー回答：人物別に必要な表情を全て（既存の選定＋不足分）。共通辞書全種類を全員に生成しない。故人三崎は肖像のみ。",
+  "characters": [
+    {
+      "id": "minato",
+      "name": "佐伯 湊",
+      "side": "right",
+      "keys": [
+        "neutral",
+        "smile",
+        "serious",
+        "surprised",
+        "irritated",
+        "pained",
+        "relieved"
+      ],
+      "desc": "Japanese male38 detective, lean tall, tousled black hair, angular weary adult face with light uneven stubble, NO glasses, short charcoal suit jacket, rumpled off-white open collar shirt and loose black necktie, dark trousers, matte black shoes."
+    },
+    {
+      "id": "mio",
+      "name": "相澤 澪",
+      "side": "left",
+      "keys": [
+        "neutral",
+        "smile",
+        "amused",
+        "serious",
+        "surprised",
+        "worried",
+        "pained",
+        "relieved"
+      ],
+      "desc": "Japanese woman32, intelligent gentle adult face with modest natural eyes, long loose dark-brown wavy hair NOT tied back, light dusty-blue blazer, off-white modest blouse, pale blue-grey calf-length skirt, grey pumps, delicate pendant and earrings and wristwatch. Maintain brighter palette and adult grace without sexiness."
+    },
+    {
+      "id": "narumi",
+      "name": "鳴海 ユウ",
+      "side": "right",
+      "keys": [
+        "neutral",
+        "amused",
+        "playful",
+        "smirk",
+        "serious",
+        "surprised",
+        "cool",
+        "wary"
+      ],
+      "desc": "Japanese male late20s, lean youthful ADULT with narrow face, black plain baseball cap, untidy dark hair, charcoal pullover hoodie with NO jacket, light washed blue jeans, dark sneakers and plain rectangular pendant necklace. No beard. Casual guarded confidence."
+    },
+    {
+      "id": "okumura",
+      "name": "奥村 修一",
+      "side": "left",
+      "keys": [
+        "neutral",
+        "smile",
+        "serious",
+        "surprised",
+        "stern",
+        "pained",
+        "relieved"
+      ],
+      "desc": "Mature Japanese male detective, actual age unspecified, swept-back short black-and-grey hair, thick eyebrows, long strong face with forehead/eye age lines, subtle stubble, thick shoulders and torso. Dark grey charcoal suit, off-white shirt, quiet diagonal-striped dark tie, matte black shoes. Composed quiet authority, not aggressive."
+    },
+    {
+      "id": "segawa",
+      "name": "瀬川 亮介",
+      "side": "right",
+      "keys": [
+        "neutral",
+        "smile",
+        "serious",
+        "surprised",
+        "skeptical",
+        "irritated",
+        "reluctant",
+        "relieved"
+      ],
+      "desc": "Japanese male27, earnest young ADULT, short brighter natural brown hair, clean shaven, modest direct eyes, lean/standard build with upright tense posture, brighter muted navy blue suit distinct from charcoal, off-white shirt, plain muted blue tie, matte black leather shoes."
+    },
+    {
+      "id": "akari",
+      "name": "高瀬 あかり",
+      "side": "left",
+      "keys": [
+        "neutral",
+        "smile",
+        "serious",
+        "surprised",
+        "worried",
+        "sad",
+        "relieved",
+        "determined"
+      ],
+      "desc": "Japanese woman21, plain youthful rounded face, modest eyes, short eyelashes, straight dark brown chin-length bob with fringe, modest makeup. Muted RED cardigan over off-white crewneck T, dark NAVY below-knee flared skirt, dark flats, small dark crossbody bag. Strap is anchored at SCREEN RIGHT shoulder across to SCREEN LEFT hip bag, never mirror. Not Mio's glamorous face, no wavy hair."
+    },
+    {
+      "id": "naoto",
+      "name": "高瀬 直人",
+      "side": "left",
+      "keys": [
+        "neutral",
+        "smile",
+        "serious",
+        "surprised",
+        "worried",
+        "pained",
+        "relieved",
+        "remorseful"
+      ],
+      "desc": "Japanese male29, plain sincere working adult with broader rounded cheeks and jaw, small restrained eyes, broad rounded short nose, natural brows and wider mouth, light natural brown short hair swept slightly aside, NO beard or glasses, reasonably sturdy shoulders. PALE LIGHT BLUE zip-front work blouson with ONE flap chest pocket at SCREEN RIGHT, light grey plain T, beige work trousers and durable dark shoes. Distinct from Segawa's refined slim face. No logos/name tags/tools."
+    },
+    {
+      "id": "saori",
+      "name": "三原 沙織",
+      "side": "left",
+      "keys": [
+        "neutral",
+        "smile",
+        "serious",
+        "surprised",
+        "worried",
+        "pained",
+        "relieved",
+        "confused"
+      ],
+      "desc": "Japanese woman28, distinct long narrow plain face with less rounded cheeks, small elongated heavy-lidded eyes and straighter eyebrows, straight dark brown hair tied in LOW ponytail, side part showing forehead. NOT Mio's wavy glamorous face, NOT Akari's bob. PALE LIGHT BLUE zip-front work blouson IDENTICAL to Naoto with ONE flap chest pocket SCREEN RIGHT, muted green knit top, dark grey crease-front trousers, black low heels. No logos/tags/tools."
+    },
+    {
+      "id": "kuroda",
+      "name": "黒田 征司",
+      "side": "left",
+      "keys": [
+        "neutral",
+        "smile",
+        "serious",
+        "confused",
+        "worried",
+        "pained"
+      ],
+      "desc": "Japanese male48 business manager, broad rounded face with quiet narrow eyes and thinner eyebrows, short black side-part hair with slight temple grey, clean shaven, somewhat thick standard torso. Mid-grey short suit jacket/trousers, off-white shirt, muted teal necktie, matte black shoes. Ordinary calm polite man: no sinister grin, scars or villain styling. Distinct rounded face from Okumura."
+    },
+    {
+      "id": "miyahara",
+      "name": "宮原 文雄",
+      "side": "left",
+      "keys": [
+        "neutral",
+        "smile",
+        "serious",
+        "worried",
+        "pained",
+        "surprised",
+        "relieved"
+      ],
+      "desc": "Japanese male64 building caretaker, slim long face slightly hollow cheeks, soft cautious eyes with age wrinkles, short thin grey mixed-white hair, no glasses or beard, slightly lean sturdy working adult not frail or helpless. Muted olive short work jacket, light grey collared shirt, dark beige work trousers and dark practical shoes. No logo or keys."
+    },
+    {
+      "id": "misaki",
+      "name": "三崎 健",
+      "side": "front",
+      "keys": [],
+      "desc": "Japanese male35 worker in an ordinary archival portrait, distinct angular broad face, wider nose, short straight eyebrows, short BLACK hair brushed forward, no glasses or beard. PALE LIGHT BLUE work blouson with two chest pockets as the reference, dark grey plain inner T. Neutral natural closed mouth, no saintly or tragic expression. NOT living standing sprite, portrait only."
+    }
+  ],
+  "entries": [],
+  "adoptedFullTrials": [
+    "minato",
+    "mio",
+    "narumi",
+    "okumura",
+    "segawa"
+  ],
+  "records": "rebuild-records/",
+  "validation": "gekiga-rebuild-validation.json"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "kuroda",
+  "key": "neutral",
+  "kind": "full",
+  "dest": "src/assets/images/characters/kuroda/full/neutral.png",
+  "width": 1024,
+  "height": 1536,
+  "refs": [
+    "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/docs/art/characters/kuroda/drafts/prototype-01.png",
+    "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/docs/art/characters/minato/drafts/gekiga-neutral-01.png"
+  ],
+  "prompt": "Use case: style-transfer. Create ONE newly drawn complete full-body neutral standing character, portrait1024x1536. Input1 is identity, hair, costume and proportions ONLY; input2 is painting style ONLY, never copy man's anatomy or outfit. Japanese male48 business manager, broad rounded face with quiet narrow eyes and thinner eyebrows, short black side-part hair with slight temple grey, clean shaven, somewhat thick standard torso. Mid-grey short suit jacket/trousers, off-white shirt, muted teal necktie, matte black shoes. Ordinary calm polite man: no sinister grin, scars or villain styling. Distinct rounded face from Okumura. Shallow three-quarter towards screen left, natural closed mouth. Hands naturally relaxed low in front or at sides, entire head and BOTH shoes with clear margins. Hand-drawn original artwork evoking late-1990s PS1 Japanese detective ADV gekiga. Same visibly irregular broken ink contours, coarse brush strokes, patchy pigment, bold uneven angular shadow planes and muted slightly faded low-saturation palette as style reference. This is the drawing itself, not a retro filter. Maintain adult anatomical realism with modest eyes, matte rough hair and cloth, avoid idealized handsome anime faces, polished skin, smooth gradients, glossy highlights, vector lines, photo texture, noise overlay or downsampling. Preserve each character's distinguishing palette and age, not all brown or all tired. TRUE transparent outside the figure, absolutely no environment, paper backdrop, glow, haze, cast shadow or text.",
+  "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-3402abd9-021f-4b38-be14-258c64bf6982.png",
+  "validation": {
+    "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-3402abd9-021f-4b38-be14-258c64bf6982.png",
+    "destination": "src\\assets\\images\\characters\\kuroda\\full\\neutral.png",
+    "source_size": [
+      1024,
+      1536
+    ],
+    "size": [
+      1024,
+      1536
+    ],
+    "mode": "RGBA",
+    "alpha_range": [
+      0,
+      254
+    ],
+    "corner_alpha": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "sha256": "ea1af38b4da600fd0906b66d6aec01fd1eb9487d393d7c9e9478e385f65b7840"
+  },
+  "status": "generated_review_pending",
+  "refs_current": [
+    "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/docs/art/characters/kuroda/drafts/prototype-01.png",
+    "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/src/assets/images/characters/minato/full/neutral.png"
+  ],
+  "source_sha256": "ea1af38b4da600fd0906b66d6aec01fd1eb9487d393d7c9e9478e385f65b7840"
+}
