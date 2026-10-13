@@ -21,11 +21,14 @@ test('あかりの質問は基本3件→追加質問→次の話題。順序と�
    const restored=api.restoreSaveData(api.createSaveData(state),[api.scenario]);assert.deepEqual(restored.state,state);state=restored.state
    if(index<2)assert.deepEqual(topics(),['p1-missing','p1-morning','p1-contact'])
   }
+  const reopen=()=>{assert.equal(state.nodeId,'P1-03-menu');state=api.reduceGameState(api.scenario,state,{type:'choose',choiceId:'speak'});state=api.reduceGameState(api.scenario,state,{type:'choose',choiceId:'akari'})}
+  reopen()
   assert.deepEqual(topics(),['p1-workplace','p1-searched'])
   read('p1-workplace');assert.deepEqual(topics(),['p1-workplace','p1-searched','p1-company-answer'])
   read('p1-searched');assert.deepEqual(topics(),['p1-workplace','p1-searched','p1-company-answer','p1-police'])
   read('p1-company-answer');assert.equal(topics().includes('p1-family'),false)
   read('p1-police')
+  reopen()
   assert.deepEqual(topics(),['p1-age','p1-daily','p1-family','P1-03-close-conversation'])
   const retired=api.reduceGameState(api.scenario,state,{type:'choose',choiceId:'p1-morning'});assert.strictEqual(retired,state)
   read('P1-03-close-conversation');assert.equal(state.nodeId,'P1-04-menu')

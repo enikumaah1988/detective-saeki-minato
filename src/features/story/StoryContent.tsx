@@ -9,6 +9,7 @@ import { UiIcon } from './UiIcon'
 import type { IconName } from './UiIcon'
 import { dialogueSpeaker } from './speaker'
 import type { Ref } from 'react'
+import { displayText } from './displayText'
 
 export { choiceStatus } from './freeAction'
 
@@ -31,12 +32,12 @@ export function StoryContent({ node, state, thinking, dispatch, paused, dialogue
     const options = visibleChoices(node, state)
     if (options.length === 0) {
       const continuation = emptyContinuation(node, state)
-      return continuation ? <nav className="command-panel" aria-label="進行"><SelectionMenu paused={paused}><CommandButton paused={paused} onSelect={() => dispatch({ type: 'continue' })}><span className="command-name">{continuation.label}</span></CommandButton></SelectionMenu></nav> : null
+      return continuation ? <nav className="command-panel" aria-label="進行"><SelectionMenu paused={paused}><CommandButton paused={paused} onSelect={() => dispatch({ type: 'continue' })}><span className="command-name">{displayText(continuation.label)}</span></CommandButton></SelectionMenu></nav> : null
     }
     return (
       <nav className={`command-panel${freeAction ? ' free-action-panel' : ''}`} aria-label={node.type === 'topic' ? node.selection === 'person' ? '相手を選ぶ' : node.parent.commandId === 'speak' ? '話す話題' : '聞く話題' : node.type === 'inspect' ? '調査対象' : '選択肢'}>
-        {(menuTitle(node, state) || !freeAction) && <p className="command-heading">{menuTitle(node, state) ?? node.prompt}</p>}
-        <span className="sr-only">{node.prompt}</span>
+        {(menuTitle(node, state) || !freeAction) && <p className="command-heading">{displayText(menuTitle(node, state) ?? node.prompt)}</p>}
+        <span className="sr-only">{displayText(node.prompt)}</span>
         <SelectionMenu paused={paused} className={`choices ${node.type === 'topic' || node.type === 'inspect' ? 'item-list' : 'command-list'}`}>
           {options.map((option) => {
             const status = choiceStatus(node, option, state)
@@ -44,7 +45,7 @@ export function StoryContent({ node, state, thinking, dispatch, paused, dialogue
             return (
               <CommandButton key={option.id} paused={paused} onSelect={() => dispatch({ type: 'choose', choiceId: option.id })}>
                 {icon && <UiIcon name={icon} />}
-                <span className="command-name">{option.label}</span>
+                <span className="command-name">{displayText(option.label)}</span>
                 {status && <span className={`item-status${status === 'NEW' ? ' is-new' : ''}`}>{status}</span>}
                 {!status && <span className="command-arrow" aria-hidden="true">›</span>}
               </CommandButton>
@@ -57,7 +58,7 @@ export function StoryContent({ node, state, thinking, dispatch, paused, dialogue
   return (
     <div className="message-window end-window">
       <p className="window-label">シーン終了</p>
-      <p className="dialogue" aria-live="polite">{node.text}</p>
+      <p className="dialogue" aria-live="polite">{displayText(node.text)}</p>
       <button type="button" onClick={() => dispatch({ type: 'reset' })}>最初から</button>
     </div>
   )

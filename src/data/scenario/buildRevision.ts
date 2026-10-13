@@ -303,7 +303,8 @@ export function buildRevision(base: Scenario, data: RevisionData): Scenario {
       }
       use.nodeIds=[]
     }
-    const topicBranches = (phase.topicTransitions ?? []).map(bridge=>({condition:{type:'all' as const,conditions:[has(bridge.requires),{type:'not' as const,condition:has(bridge.unless)}]},next:sequence(bridge.id,phase,bridge.lines,`${phase.id}-speak-${bridge.personId}`,grants(bridge.grants),bridge.personId)}))
+    // 話題を一括で切り替えるつなぎの後は、次の行動をメイン一覧から選ぶ。
+    const topicBranches = (phase.topicTransitions ?? []).map(bridge=>({condition:{type:'all' as const,conditions:[has(bridge.requires),{type:'not' as const,condition:has(bridge.unless)}]},next:sequence(bridge.id,phase,bridge.lines,menuId,grants(bridge.grants),bridge.personId)}))
     if(topicBranches.length) {
       const targets = new Set([menuId,...Object.keys(nodes).filter(id=>sceneOwners.get(nodes[id].sceneId ?? '')===phase.id && ['topic','inspect'].includes(nodes[id].type))])
       for(const node of Object.values(nodes)) if(node.type==='dialogue' && sceneOwners.get(node.sceneId ?? '')===phase.id && targets.has(node.next)) node.conditionalNext=topicBranches

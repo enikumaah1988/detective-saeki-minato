@@ -80,9 +80,13 @@ test('あかりの後半は受諾→写真と連絡先→見送り。任意の�
  }
  assert.deepEqual(topics(),['p1-accept','p1-request-scope'])
  assert.ok(read('p1-accept').includes('p1-request-to-materials'))
+ assert.equal(state.nodeId,'P1-05-menu')
+ const reopen=()=>{state=api.reduceGameState(api.scenario,state,{type:'choose',choiceId:'speak'});state=api.reduceGameState(api.scenario,state,{type:'choose',choiceId:'akari'})}
+ reopen()
  assert.deepEqual(topics(),['p1-photo'])
  read('p1-photo');assert.deepEqual(topics(),['p1-photo','p1-client-contact'])
  assert.ok(read('p1-client-contact').includes('p1-materials-to-farewell'))
+ assert.equal(state.nodeId,'P1-05-menu');reopen()
  assert.deepEqual(topics(),['p1-return-home','P1-05-farewell'])
  const restored=api.restoreSaveData(api.createSaveData(state),[api.scenario]);assert.deepEqual(restored.state,state)
  for(const id of ['P1-06-end','P2-01-start','p2-company-report','p2-building-report']){

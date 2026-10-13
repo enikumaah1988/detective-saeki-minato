@@ -33,9 +33,11 @@ for(const [width,height]of [[1920,1080],[1366,768]])test(`統合会話の継続�
   await choose('話す');await choose('高瀬　あかり')
   const labels=()=>page.locator('.command-panel .command-name').allTextContents()
   assert.deepEqual(await labels(),['帰らなくなった日','最後の朝','連絡','戻る'])
-  for(const label of ['最後の朝','連絡','帰らなくなった日']){await choose(label);await readTo('P1-03-speak-akari')}
+  for(const label of ['最後の朝','連絡','帰らなくなった日']){await choose(label);await readTo(label==='帰らなくなった日'?'P1-03-menu':'P1-03-speak-akari')}
+  assert.ok(await page.locator('.free-action-panel').count());await choose('話す');await choose('高瀬　あかり')
   assert.deepEqual(await labels(),['勤務先','ほかに捜したところ','戻る'])
-  for(const label of ['勤務先','会社へ聞いたこと','ほかに捜したところ','警察への相談']){await choose(label);await readTo('P1-03-speak-akari')}
+  for(const label of ['勤務先','会社へ聞いたこと','ほかに捜したところ','警察への相談']){await choose(label);await readTo(label==='警察への相談'?'P1-03-menu':'P1-03-speak-akari')}
+  assert.ok(await page.locator('.free-action-panel').count());await choose('話す');await choose('高瀬　あかり')
   assert.deepEqual(await labels(),['兄の年齢','普段の連絡','一緒に暮らす家族','相談内容の確認','戻る'])
   if(process.env.SAEKI_SCREENSHOT_DIR)await page.screenshot({path:`${process.env.SAEKI_SCREENSHOT_DIR}/akari-staged-topics-${width}.png`})
   await choose('相談内容の確認');await readTo('P1-04-menu')

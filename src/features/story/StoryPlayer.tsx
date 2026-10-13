@@ -1,3 +1,4 @@
+import { displayText } from './displayText'
 import { selectInvestigationRecords } from './investigation'
 import { useEffect, useMemo, useReducer, useRef, useState } from 'react'
 import type { InvestigationRecord } from '../../types/investigation'
@@ -114,7 +115,7 @@ export function StoryPlayer({ scenario, preview, smokingAllowed, suspended = fal
   return (
     <section className={`${'options' in node ? 'story has-commands' : 'story'}${menuOpen ? ' menu-open' : ''}${recordsOpen ? ' records-open' : ''}`} data-node-id={gameState.nodeId} aria-label="会話シーン">
       <header className="story-toolbar" inert={recordsOpen || Boolean(smoking) || Boolean(acquisition) || historyOpen}>
-        <span className="sr-only">{scenario.title}</span>
+        <span className="sr-only">{displayText(scenario.title)}</span>
         <div className="toolbar-actions">
         <SaveControls state={gameState} scenario={scenario} interval={interval} onIntervalChange={value => {
           setInterval(value); try { localStorage.setItem('detective-saeki-minato.speed', String(value)) } catch { /* 設定はセッション中保持 */ }
@@ -130,15 +131,15 @@ export function StoryPlayer({ scenario, preview, smokingAllowed, suspended = fal
           send({ type: 'menu', open: true })
         }}><UiIcon name="smoking" /><span>タバコを吸う</span></button>
         </div>
-        <div className="scene-context"><span>{resolveBackground(node.stage.backgroundId).name}</span><span>{selectDateLabel(scenario, gameState)}</span></div>
+        <div className="scene-context"><span>{displayText(resolveBackground(node.stage.backgroundId).name)}</span><span>{displayText(selectDateLabel(scenario, gameState))}</span></div>
       </header>
-      {recordNotice && <div className="record-notice" role="status">{recordNotice}</div>}
+      {recordNotice && <div className="record-notice" role="status">{displayText(recordNotice)}</div>}
       <div className={scenario.nodes[gameState.nodeId].type === 'think' ? 'stage-wrapper is-thinking' : 'stage-wrapper'}>
         <div className="stage-input-area" onClick={advanceFromStage}>
           {illustration?.imageSrc
-            ? <AssetImage key={illustration.imageSrc} src={illustration.imageSrc} alt={illustration.alt} className="chapter-illustration" fallback={<StageView stage={{ backgroundId: node.stage.backgroundId, characters: [] }} />} />
+            ? <AssetImage key={illustration.imageSrc} src={illustration.imageSrc} alt={displayText(illustration.alt)} className="chapter-illustration" fallback={<StageView stage={{ backgroundId: node.stage.backgroundId, characters: [] }} />} />
             : <StageView stage={illustration ? { backgroundId: node.stage.backgroundId, characters: [] } : node.stage} />}
-          {illustration && <div className={`chapter-heading${illustration.provisional ? ' chapter-title-card' : ''}`} data-illustration-id={illustration.id}><strong>{illustration.heading}</strong>{illustration.subtitle && <p>{illustration.subtitle}</p>}{illustration.provisional && <small>仮の扉絵</small>}</div>}
+          {illustration && <div className={`chapter-heading${illustration.provisional ? ' chapter-title-card' : ''}`} data-illustration-id={illustration.id}><strong>{displayText(illustration.heading)}</strong>{illustration.subtitle && <p>{displayText(illustration.subtitle)}</p>}{illustration.provisional && <small>仮の扉絵</small>}</div>}
         </div>
       </div>
       <div className="story-content" inert={menuOpen || Boolean(acquisition)}>
@@ -160,13 +161,13 @@ export function StoryPlayer({ scenario, preview, smokingAllowed, suspended = fal
           }} />
       </div>}
       {acquisition && !menuOpen && <SystemDialog key={`${gameState.nodeId}:${restoreRevision}`} title={`${acquisition.title}を受け取った`} onClose={() => dispatch({ type: 'advance' })}>
-        <div className="acquisition-photo"><img src={acquisition.imageSrc} alt={acquisition.title} /></div><p>持ち物に加えます。</p>
+        <div className="acquisition-photo"><img src={acquisition.imageSrc} alt={displayText(acquisition.title)} /></div><p>持ち物に加えます。</p>
       </SystemDialog>}
       {historyOpen && <SystemDialog title="会話履歴" label="閉じる" onClose={() => { setHistoryOpen(false); send({ type: 'menu', open: false }) }}>
-        <div ref={historyList} className="history-list">{history.length ? history.map((entry, index) => <article key={index}><strong>{entry.speaker || '地の文・心の声'}</strong><p>{entry.text}</p></article>) : <p>会話履歴はまだありません。</p>}</div>
+        <div ref={historyList} className="history-list">{history.length ? history.map((entry, index) => <article key={index}><strong>{displayText(entry.speaker || '地の文・心の声')}</strong><p>{displayText(entry.text)}</p></article>) : <p>会話履歴はまだありません。</p>}</div>
       </SystemDialog>}
       {itemSelection && <SystemDialog title="使用する相手・目的" label="戻る" onClose={() => { setItemSelection(undefined); setRecordsOpen(true); send({ type: 'menu', open: true }) }}>
-        <div className="item-use-choices">{itemSelection.uses.map(use => <button key={use.next} type="button" onClick={() => useItem(itemSelection.itemId, use.next)}>{use.label ?? '使用する'}</button>)}</div>
+        <div className="item-use-choices">{itemSelection.uses.map(use => <button key={use.next} type="button" onClick={() => useItem(itemSelection.itemId, use.next)}>{displayText(use.label ?? '使用する')}</button>)}</div>
       </SystemDialog>}
       {recordsOpen && <InvestigationRecords state={gameState} records={activePreview?.records ?? records} previewLabel={activePreview?.label} returnFocus={activePreview?.invoker ?? recordsButton.current}
         usableItems={activePreview ? [] : (scenario.itemUses ?? []).filter(use => use.nodeIds.includes(gameState.nodeId) && matchesCondition(gameState, use.condition)).map(use => use.itemId)}
