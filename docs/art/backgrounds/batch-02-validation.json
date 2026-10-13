@@ -1,0 +1,92 @@
+[
+  {
+    "id": "company-exterior-day",
+    "bgId": "BG-03",
+    "file": "docs/art/backgrounds/drafts/company-exterior-day-01.png",
+    "width": 1920,
+    "height": 1080,
+    "sourceSize": [
+      1672,
+      941
+    ],
+    "time": "昼",
+    "state": "採用確認待ち",
+    "sourceSha256": "26eb0485d52c2b2fd184679bd2e8e4cc82132a9c783500779fbf5fcc7fb87efc",
+    "sha256": "8a3795534dcb0643f15bf0f0dd023c1ab3e1141b0d56e63c78e5aa8552f94d51"
+  },
+  {
+    "id": "company-reception-day",
+    "bgId": "BG-04",
+    "file": "docs/art/backgrounds/drafts/company-reception-day-01.png",
+    "width": 1920,
+    "height": 1080,
+    "sourceSize": [
+      1672,
+      941
+    ],
+    "time": "昼",
+    "state": "採用確認待ち",
+    "sourceSha256": "25712e422fbb64d682765ea6a320ac2e2403897cd23c40a864017c7b52952148",
+    "sha256": "e8ebeaaa807d6ba5aec55a0572bf48bc0060c6ebc3d804ab7a3b405d3cd88d72"
+  },
+  {
+    "id": "company-meeting-day",
+    "bgId": "BG-05",
+    "file": "docs/art/backgrounds/drafts/company-meeting-day-01.png",
+    "width": 1920,
+    "height": 1080,
+    "sourceSize": [
+      1672,
+      941
+    ],
+    "time": "昼",
+    "state": "採用確認待ち",
+    "sourceSha256": "20e1a15d4d501ad0b0613edf22a3ebe13071ba936767b5e5e6fd3da166a4e173",
+    "sha256": "e74ad1f6c0d8866f217fa4b2f5ba8697645b3616838cfaf588dc9132c50ab808"
+  },
+  {
+    "id": "police-exterior-day",
+    "bgId": "BG-10",
+    "file": "docs/art/backgrounds/drafts/police-exterior-day-01.png",
+    "width": 1920,
+    "height": 1080,
+    "sourceSize": [
+      1672,
+      941
+    ],
+    "time": "昼",
+    "state": "採用確認待ち",
+    "sourceSha256": "f0e0ca5e2f12304a46eda03e9d0f51dde8ab60d4594d643972e6e9cbc63689c1",
+    "sha256": "80c3e5dfb6c3fc7a9f3ec72ddc5fde91c73590082561fdb194e2caffc1db4a00"
+  },
+  {
+    "id": "police-reception-day",
+    "bgId": "BG-11",
+    "file": "docs/art/backgrounds/drafts/police-reception-day-01.png",
+    "width": 1920,
+    "height": 1080,
+    "sourceSize": [
+      1672,
+      941
+    ],
+    "time": "昼",
+    "state": "採用確認待ち",
+    "sourceSha256": "2e0d34d36887e6d55e521ba2e7568ee27841948e9a9a2eaca32632fc3555ef8e",
+    "sha256": "36aacc9d8bd3dbd8d869d3bb28973e57384a71e2617cfe714e3147d1f6516651"
+  },
+  {
+    "id": "police-meeting-day",
+    "bgId": "BG-12",
+    "file": "docs/art/backgrounds/drafts/police-meeting-day-01.png",
+    "width": 1920,
+    "height": 1080,
+    "sourceSize": [
+      1672,
+      941
+    ],
+    "time": "昼",
+    "state": "採用確認待ち",
+    "sourceSha256": "80771c518f208e32f3aff2c6138eaece1a0822d49f450a78a6ea5f1dc651df33",
+    "sha256": "73715ddae0b87958d394b140f5ba40595ac57a4c31d3f6dd07fb79c208d76340"
+  }
+]

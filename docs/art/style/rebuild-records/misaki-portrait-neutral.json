@@ -1,0 +1,44 @@
+{
+  "id": "misaki",
+  "key": "neutral",
+  "kind": "portrait",
+  "dest": "src/assets/images/characters/misaki/portrait/neutral.png",
+  "width": 1024,
+  "height": 1024,
+  "refs": [
+    "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/docs/art/characters/misaki/drafts/prototype-01.png",
+    "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/docs/art/characters/minato/drafts/gekiga-neutral-01.png"
+  ],
+  "prompt": "Use case: style-transfer. Create ONE newly drawn head-and-chest archival portrait, square1024x1024. Input1 is identity, hair, costume and proportions ONLY; input2 is painting style ONLY, never copy man's anatomy or outfit. Japanese male35 worker in an ordinary archival portrait, distinct angular broad face, wider nose, short straight eyebrows, short BLACK hair brushed forward, no glasses or beard. PALE LIGHT BLUE work blouson with two chest pockets as the reference, dark grey plain inner T. Neutral natural closed mouth, no saintly or tragic expression. NOT living standing sprite, portrait only. Shallow three-quarter towards screen front, natural closed mouth. No hands, frame or photograph border. Hand-drawn original artwork evoking late-1990s PS1 Japanese detective ADV gekiga. Same visibly irregular broken ink contours, coarse brush strokes, patchy pigment, bold uneven angular shadow planes and muted slightly faded low-saturation palette as style reference. This is the drawing itself, not a retro filter. Maintain adult anatomical realism with modest eyes, matte rough hair and cloth, avoid idealized handsome anime faces, polished skin, smooth gradients, glossy highlights, vector lines, photo texture, noise overlay or downsampling. Preserve each character's distinguishing palette and age, not all brown or all tired. TRUE transparent outside the figure, absolutely no environment, paper backdrop, glow, haze, cast shadow or text.",
+  "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-d2dfed5b-359b-4d57-8e3e-988f93bb7c3f.png",
+  "validation": {
+    "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-d2dfed5b-359b-4d57-8e3e-988f93bb7c3f.png",
+    "destination": "src\\assets\\images\\characters\\misaki\\portrait\\neutral.png",
+    "source_size": [
+      1254,
+      1254
+    ],
+    "size": [
+      1024,
+      1024
+    ],
+    "mode": "RGBA",
+    "alpha_range": [
+      0,
+      255
+    ],
+    "corner_alpha": [
+      0,
+      0,
+      245,
+      250
+    ],
+    "sha256": "59424eaf7137ce4994fcb6479b9743250fb791ccd08b902cb5207fa714fe1845"
+  },
+  "status": "generated_review_pending",
+  "refs_current": [
+    "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/docs/art/characters/misaki/drafts/prototype-01.png",
+    "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/src/assets/images/characters/minato/full/neutral.png"
+  ],
+  "source_sha256": "f3aa52ff550bbc83dcfa7d7aea3110d32eccdc7892fc0ecf1ce779e871b10015"
+}

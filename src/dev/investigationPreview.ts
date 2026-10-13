@@ -1,3 +1,4 @@
+import { itemImages } from '../data/itemImages'
 import type { InvestigationRecord } from '../types/investigation'
 import { resolveExpression } from '../data/presentation'
 
@@ -18,7 +19,7 @@ export function createInvestigationPreview(mode: PreviewMode): InvestigationReco
     ...[ ['09:00', '現場で物音', '14:30'], ['09:20', '通行人が目撃', '13:00'], ['10:00', '周辺の確認', '12:00'] ].map(([time, title, acquired], i) =>
       record(`dev-event-${i}`, 'events', title, ['架空のUI確認用の出来事です。', `情報取得日時：仮日 15日 ${acquired}（事件の発生順とは別）`], { timeLabel: `発生日時：仮日 14日 ${time}`, chronologicalOrder: i })),
     ...[ ['smartphone', 'スマホ'], ['electronic-cigarette', '電子タバコ'], ['business-card', '名刺'] ].map(([id, title]) =>
-      record(`dev-${id}`, 'belongings', title, ['持ち物のUI確認用サンプルです。使用・提示はできません。'], { imageSrc: asset(id) })),
+      record(`dev-${id}`, 'belongings', title, ['持ち物のUI確認用サンプルです。使用・提示はできません。'], { imageSrc: itemImages[id] })),
   ]
   if (mode === 'all-empty') return []
   if (mode === 'empty') return records.filter(entry => entry.category === 'people' || entry.category === 'belongings')

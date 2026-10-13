@@ -7,7 +7,7 @@ export const demoScenario: Scenario = {
   id: 'demo-request',
   title: '動作確認用の仮シーン（本編「灰色の証言」とは異なります）',
   start: 'request',
-  scenes: { office, serious },
+  scenes: { office: { ...office, smokingAllowed: true }, serious: { ...serious, smokingAllowed: true } },
   nodes: {
     request: {
       type: 'dialogue', sceneId: 'office', stage: office,

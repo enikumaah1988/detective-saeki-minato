@@ -1,0 +1,106 @@
+[
+  {
+    "id": "minato",
+    "width": 1024,
+    "height": 1536,
+    "alphaBounds": [
+      280,
+      81,
+      464,
+      1380
+    ],
+    "sha256": "1F148DA14D9E87ACED40A6485F28D31AECC6F107D69390DC13CEE4A7638C6A2E",
+    "source": "exec-eaf0545f-322c-4948-b737-82161d8f544a.png"
+  },
+  {
+    "id": "mio",
+    "width": 1024,
+    "height": 1536,
+    "alphaBounds": [
+      335,
+      81,
+      354,
+      1380
+    ],
+    "sha256": "5D53D2F9BCBE1E6AE71828179A7E03D52FFAD36047EE9484606A4C4F93970182",
+    "source": "exec-864abcd0-d476-4061-a246-1bbffc8fc924.png"
+  },
+  {
+    "id": "narumi",
+    "width": 1024,
+    "height": 1536,
+    "alphaBounds": [
+      291,
+      81,
+      442,
+      1380
+    ],
+    "sha256": "F8CF50CF068BAEA8FF2950F4725877378D46D73BA04D076A3D7F05C39763B674",
+    "source": "exec-caccb5d3-d326-4f7c-ac8c-ca8ca7175391.png"
+  },
+  {
+    "id": "okumura",
+    "width": 1024,
+    "height": 1536,
+    "alphaBounds": [
+      294,
+      80,
+      436,
+      1381
+    ],
+    "sha256": "4E8AD7A9F446CF5373869FF3206381F929E92B40F5326330B1CBB2217241229E",
+    "source": "exec-6810af00-e76f-45a8-854a-d19ed1061e41.png"
+  },
+  {
+    "id": "segawa",
+    "width": 1024,
+    "height": 1536,
+    "alphaBounds": [
+      298,
+      81,
+      429,
+      1380
+    ],
+    "sha256": "C6A6C78BCDD3A524B4AB81D3CE1FBDE6A4F28EEA59C7A86B4B98CE23C3334DCB",
+    "source": "exec-37db858e-5295-4060-b4c6-0dcaad874d3c.png"
+  },
+  {
+    "id": "naoto",
+    "width": 1024,
+    "height": 1536,
+    "alphaBounds": [
+      286,
+      81,
+      451,
+      1380
+    ],
+    "sha256": "2134896E9D0419BDEF1670A5A25498363DBC986E10C07592C3CF6A616ACBE0FC",
+    "source": "exec-3d1236a4-8484-4030-942e-532943cd1e72.png"
+  },
+  {
+    "id": "saori",
+    "width": 1024,
+    "height": 1536,
+    "alphaBounds": [
+      323,
+      81,
+      378,
+      1380
+    ],
+    "sha256": "B8499971D4196AC66FF36777F80AAB37F84C7CF55F12B9872DE2D41461B65374",
+    "source": "exec-962d491b-a3af-47d8-bec2-4a96d3cbaf22.png"
+  },
+  {
+    "id": "akari",
+    "width": 1024,
+    "height": 1536,
+    "alphaBounds": [
+      284,
+      81,
+      455,
+      1380
+    ],
+    "sha256": "AB98C056972311712998231BDA2C2B6D38B1ACA7F70379932004C57A5DE2916A",
+    "source": "exec-8983c768-1d69-449f-8381-ebf8fbeb87df.png"
+  }
+]

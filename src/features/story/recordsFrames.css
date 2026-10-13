@@ -1,0 +1,13 @@
+.investigation-records { background-color: #101922f5; background-image: url('./assets/dialogue-texture.svg'); border-color: transparent; }
+.investigation-records::before { content: ''; position: absolute; inset: 0; pointer-events: none; border: calc(12 * var(--u)) solid transparent; border-image: url('./assets/dialogue-frame.svg') 12 / calc(12 * var(--u)) / 0 stretch; }
+.record-header h2 { font-size: calc(48 * var(--u)); }
+.record-tabs { gap: calc(12 * var(--u)); }
+.record-tabs button { flex: 1; text-align: center; position: relative; isolation: isolate; }
+.record-tabs button::before, .record-header button::before, .record-list button::before { content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none; border: calc(12 * var(--u)) solid transparent; border-image: url('./assets/command-button-normal.svg') 12 fill / calc(12 * var(--u)) / 0 stretch; }
+.record-header button, .record-list button { position: relative; isolation: isolate; }
+.record-tabs button[aria-selected='true']::before, .record-tabs button:hover::before, .record-tabs button:focus-visible::before, .record-header button:hover::before, .record-header button:focus-visible::before, .record-list button[aria-pressed='true']::before, .record-list button:hover::before, .record-list button:focus-visible::before { border-image-source: url('./assets/command-button-active.svg'); }
+.record-header button:active::before, .record-tabs button:active::before, .record-list button:active::before { border-image-source: url('./assets/command-button-pressed.svg'); }
+.record-list button { min-height: calc(112 * var(--u)); }
+.record-detail h3 { position: sticky; top: 0; z-index: 1; padding-bottom: calc(16 * var(--u)); border-bottom: 1px solid #b8965a80; background: #101922; font-size: calc(40 * var(--u)); }
+.record-detail .record-portrait { float: left; width: calc(300 * var(--u)); height: calc(300 * var(--u)); margin-right: calc(28 * var(--u)); border: 1px solid #b8965a80; }
+.record-list, .record-detail { scrollbar-color: #8d784f #101922; }

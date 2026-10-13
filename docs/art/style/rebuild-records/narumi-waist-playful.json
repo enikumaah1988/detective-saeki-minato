@@ -1,0 +1,44 @@
+{
+  "id": "narumi",
+  "key": "playful",
+  "kind": "waist",
+  "dest": "src/assets/images/characters/narumi/waist/playful.png",
+  "width": 1024,
+  "height": 1024,
+  "refs": [
+    "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/src/assets/images/characters/narumi/waist/neutral.png",
+    "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/src/assets/images/characters/narumi/full/neutral.png"
+  ],
+  "prompt": "Use case: identity-preserve. ONE standalone waist-up conversation sprite, square1024x1024, complete head through waist/hip, NO legs or shoes. Input1 is exact waist-up neutral EDIT TARGET. Preserve exact face identity, head size, head placement, torso size and anchoring, hairstyle, costume and rough drawing style. Change ONLY expression and necessary arms/hands. Input2 full-body is supporting costume reference. Japanese male late20s, lean youthful ADULT with narrow face, black plain baseball cap, untidy dark hair, charcoal pullover hoodie with NO jacket, light washed blue jeans, dark sneakers and plain rectangular pendant necklace. No beard. Casual guarded confidence. Expression playful: overtly joking to evade a question: light open grin with one loose open palm as if shrugging it off; no clown or wink requirement. Maintain shallow angle of reference. Top of hair approx y40, face centered x512 around y230, waistline near y900, crop just below hip near y1000. Entire hands/fingers fit inside canvas; natural five fingers, no props. Hand-drawn original artwork evoking late-1990s PS1 Japanese detective ADV gekiga. Same visibly irregular broken ink contours, coarse brush strokes, patchy pigment, bold uneven angular shadow planes and muted slightly faded low-saturation palette as style reference. This is the drawing itself, not a retro filter. Maintain adult anatomical realism with modest eyes, matte rough hair and cloth, avoid idealized handsome anime faces, polished skin, smooth gradients, glossy highlights, vector lines, photo texture, noise overlay or downsampling. Preserve each character's distinguishing palette and age, not all brown or all tired. TRUE transparent outside the figure, absolutely no environment, paper backdrop, glow, haze, cast shadow or text.",
+  "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-e0c8610f-0f41-4def-ad11-779e9f189e12.png",
+  "validation": {
+    "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-e0c8610f-0f41-4def-ad11-779e9f189e12.png",
+    "destination": "src\\assets\\images\\characters\\narumi\\waist\\playful.png",
+    "source_size": [
+      1254,
+      1254
+    ],
+    "size": [
+      1024,
+      1024
+    ],
+    "mode": "RGBA",
+    "alpha_range": [
+      0,
+      255
+    ],
+    "corner_alpha": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "sha256": "b079f4b705026e80876a604d9b5220a3318d67e4ab53a60004c162e54c3300aa"
+  },
+  "status": "generated_review_pending",
+  "refs_current": [
+    "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/src/assets/images/characters/narumi/waist/neutral.png",
+    "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/src/assets/images/characters/narumi/full/neutral.png"
+  ],
+  "source_sha256": "351eec443c06e1d513a7cd32abb1ba4e8edbcdcb26fe5dc3ef8235ffba749520"
+}

@@ -1,0 +1,138 @@
+[
+  {
+    "id": "c1-in",
+    "connections": [
+      "C1-IN"
+    ],
+    "time": "10/8 10:40 朝",
+    "action": "IMAGE1 Minato identity, IMAGE2 Mio identity, IMAGE3 office room reference. Morning calm office BEFORE any client arrives. Minato sits at his wooden desk left/center holding or reaching for coffee cup, a CLOSED plain dark accounting ledger clearly on desk beside coffee. Mio on right is checking schedule on a small notebook (no readable writing), attentive slight everyday warmth. No client, no photo, no map. Soft neutral morning window light. Compose desk surface and both faces around upper/middle of frame, essential book/cup/hands above y64%, quiet lower edge. Natural work partners not romantic scene.",
+    "bg": "office-interior-day",
+    "third": "office",
+    "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-414c332c-2d6f-4614-82ab-8bb738f09e41.png",
+    "prompt": "Edit this scene ONLY for composition visibility under bottom dialogue overlay. Preserve exact Minato/Mio identities, face/hair/glasses/stubble/clothes and the morning office room. Reframe slightly wider/higher camera so main DESK TABLETOP and CLOSED black accounting ledger are located ABOVE y64% (the bottom36% will be covered by dialogue). Ledger center MUST be approximately x35% y58%, fully visible above that line. Both Minato coffee hand and other hand visible above y64%. Raise visual desk surface/action plane to mid-frame, not only move ledger to lap. Minato seated, Mio checking open schedule notebook unchanged. Background window/bookcase/door consistent. Wider framing with complete head margin. No writing, no other characters or new objects. Important action stays entirely in upper two-thirds, bottom third quiet desk apron/floor. Same landscape16:9.",
+    "firstAttemptSource": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-07c84130-5a22-499d-b5a2-522ed4b4109e.png",
+    "firstAttemptPrompt": "Create ONE landscape16:9 1920x1080 SCENE ILLUSTRATION for sober contemporary Japanese detective ADV, mature fine manga character contours with restrained painterly shading, detailed painterly environment consistent with reference. Preserve referenced Minato EXACT face thin rectangular GLASSES black wavy messy hair light STUBBLE age38 slim body charcoal SHORT jacket WHITE open collar shirt no tie no coat. Referenced Mio age32 adult graceful knowledgeable assistant, long dark brown wavy hair, dusty BLUE blazer WHITE modest blouse bluegrey midi skirt, exact face/style; no romance or sexual posing. Other reference images explicitly identify setting or character as below. Faces and all essential hands/photos/map must be ABOVE y66% so lower320px dialogue overlay won't hide action. Natural seated/standing adult proportions, no extreme big anime eyes. Camera medium-wide eye-level appropriate story action, not character lineup. NO chapter title, text, speech bubbles, UI, dates, readable paper text, brands, smoking or electronic cigarette. Do not imply new evidence or plot. All paper map lines generic topology, not invented street names. Candidate illustration not adopted. IMAGE1 Minato identity, IMAGE2 Mio identity, IMAGE3 office room reference. Morning calm office BEFORE any client arrives. Minato sits at his wooden desk left/center holding or reaching for coffee cup, a CLOSED plain dark accounting ledger clearly on desk beside coffee. Mio on right is checking schedule on a small notebook (no readable writing), attentive slight everyday warmth. No client, no photo, no map. Soft neutral morning window light. Compose desk surface and both faces around upper/middle of frame, essential book/cup/hands above y64%, quiet lower edge. Natural work partners not romantic scene.",
+    "fileKey": "c1-in",
+    "version": 1,
+    "state": "採用確認待ち"
+  },
+  {
+    "id": "c1-out-c2-in",
+    "connections": [
+      "C1-OUT",
+      "C2-IN"
+    ],
+    "time": "10/8 11:55 昼前・12:00 昼",
+    "action": "IMAGE1 Minato identity, IMAGE2 Mio identity, IMAGE3 same office geometry. Both remain INSIDE office before departure. Minato at left desk quietly slides a small photographic print into simple dark folder; photographic subject need not be legible, paper BACK/edge visible so no invented portrait. Mio at right sets a small contact note on desk, no readable contact info. Work division completed and sober readiness, no client present, no one walking outside. Late-morning/day neutral light. Photo, folder, contact-note and hands placed on raised tabletop around y52-60%, both faces above y45%. Not a coffee gesture or phone scene.",
+    "bg": "office-interior-day",
+    "third": "office",
+    "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-904938b8-b74e-4270-8183-52f04316d00f.png",
+    "prompt": "Create ONE landscape16:9 1920x1080 SCENE ILLUSTRATION for sober contemporary Japanese detective ADV, mature fine manga character contours with restrained painterly shading, detailed painterly environment consistent with reference. Preserve referenced Minato EXACT face thin rectangular GLASSES black wavy messy hair light STUBBLE age38 slim body charcoal SHORT jacket WHITE open collar shirt no tie no coat. Referenced Mio age32 adult graceful knowledgeable assistant, long dark brown wavy hair, dusty BLUE blazer WHITE modest blouse bluegrey midi skirt, exact face/style; no romance or sexual posing. Other reference images explicitly identify setting or character as below. Faces and all essential hands/photos/map must be ABOVE y66% so lower320px dialogue overlay won't hide action. Natural seated/standing adult proportions, no extreme big anime eyes. Camera medium-wide eye-level appropriate story action, not character lineup. NO chapter title, text, speech bubbles, UI, dates, readable paper text, brands, smoking or electronic cigarette. Do not imply new evidence or plot. All paper map lines generic topology, not invented street names. Candidate illustration not adopted.  CRITICAL TABLE COMPOSITION: tabletop action plane at y45-55%, important paper/object entirety above y64%; lower36% contains ONLY desk apron/foreground/floor, not critical items. Slightly elevated medium-wide camera where useful. IMAGE1 Minato identity, IMAGE2 Mio identity, IMAGE3 same office geometry. Both remain INSIDE office before departure. Minato at left desk quietly slides a small photographic print into simple dark folder; photographic subject need not be legible, paper BACK/edge visible so no invented portrait. Mio at right sets a small contact note on desk, no readable contact info. Work division completed and sober readiness, no client present, no one walking outside. Late-morning/day neutral light. Photo, folder, contact-note and hands placed on raised tabletop around y52-60%, both faces above y45%. Not a coffee gesture or phone scene. Use IMAGE3's raised tabletop framing, change actions only; no coffee cup in Minato's hand.",
+    "fileKey": "c1-out",
+    "version": 1,
+    "state": "採用確認待ち"
+  },
+  {
+    "id": "c2-out",
+    "connections": [
+      "C2-OUT"
+    ],
+    "time": "10/8 15:35 昼",
+    "action": "IMAGE1 Minato identity, IMAGE2 Mio identity, IMAGE3 same office geometry. After return phone call: Minato at left desk is placing BLACK LANDLINE handset onto matching desk cradle. Mio on right is aligning a GENERIC unlabelled scene diagram and notes on desk, quiet focused faces. No mobile phone at ear, no absent caller visible, no client, no smoking. Phone and hands and papers are fully visible around y45-60%, not below dialogue zone. Neutral daytime light, no orange dusk. Diagram uses only generic faint geometry, no street names/no new evidence.",
+    "bg": "office-interior-day",
+    "third": "office",
+    "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-52477a41-f052-4177-bf80-748aed678b33.png",
+    "prompt": "Edit ONLY the paper/map contents on the desk in this exact illustration. Keep both characters, faces/clothes, phone handset gesture, hands, room, lighting and tabletop position unchanged. Replace the large city STREET MAP with a SIMPLE unlabelled BUILDING INTERIOR SITE PLAN: faint rectangular rooms, short stair symbol, doorway openings, one corridor, broad EMPTY margins. No street grid, no water/river or roads, no named streets or readable words/numbers, no arrows identifying criminal. Remove unrelated city photographs on other papers; use neutral diary/report print blocks without readable text. This is an illustrative placeholder diagram, not definitive evidence geometry. Same16:9 frame, all paper and hand gesture above dialogue zone, no new props.",
+    "fileKey": "c2-out",
+    "version": 2,
+    "state": "採用確認待ち",
+    "revisions": [
+      {
+        "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-7eb0d6f5-2669-4a58-99f2-dcbcdad27b14.png",
+        "prompt": "Create ONE landscape16:9 1920x1080 SCENE ILLUSTRATION for sober contemporary Japanese detective ADV, mature fine manga character contours with restrained painterly shading, detailed painterly environment consistent with reference. Preserve referenced Minato EXACT face thin rectangular GLASSES black wavy messy hair light STUBBLE age38 slim body charcoal SHORT jacket WHITE open collar shirt no tie no coat. Referenced Mio age32 adult graceful knowledgeable assistant, long dark brown wavy hair, dusty BLUE blazer WHITE modest blouse bluegrey midi skirt, exact face/style; no romance or sexual posing. Other reference images explicitly identify setting or character as below. Faces and all essential hands/photos/map must be ABOVE y66% so lower320px dialogue overlay won't hide action. Natural seated/standing adult proportions, no extreme big anime eyes. Camera medium-wide eye-level appropriate story action, not character lineup. NO chapter title, text, speech bubbles, UI, dates, readable paper text, brands, smoking or electronic cigarette. Do not imply new evidence or plot. All paper map lines generic topology, not invented street names. Candidate illustration not adopted.  CRITICAL TABLE COMPOSITION: tabletop action plane at y45-55%, important paper/object entirety above y64%; lower36% contains ONLY desk apron/foreground/floor, not critical items. Slightly elevated medium-wide camera where useful. IMAGE1 Minato identity, IMAGE2 Mio identity, IMAGE3 same office geometry. After return phone call: Minato at left desk is placing BLACK LANDLINE handset onto matching desk cradle. Mio on right is aligning a GENERIC unlabelled scene diagram and notes on desk, quiet focused faces. No mobile phone at ear, no absent caller visible, no client, no smoking. Phone and hands and papers are fully visible around y45-60%, not below dialogue zone. Neutral daytime light, no orange dusk. Diagram uses only generic faint geometry, no street names/no new evidence. Keep IMAGE3's desk raised composition, landline and paper action must fit above y64%.",
+        "state": "旧版：街の地図になっているため不採用"
+      }
+    ]
+  },
+  {
+    "id": "c3-in",
+    "connections": [
+      "C3-IN"
+    ],
+    "time": "10/8 16:10 夕",
+    "action": "IMAGE1 Minato identity, IMAGE2 Mio identity, IMAGE3 same office evening reference. Minato near desk at left puts a small photo print and folded GENERIC site diagram into an open plain dark work bag on desk. Papers/hands/bag opening above y60%. Mio stays in office on right near BLACK LANDLINE phone and notes, looking attentively toward preparations, she is NOT putting on coat or following outside. Reserved late-afternoon window light and existing desk lamp. No client, no flirting. Clear preparation-to-meet brother, not triumphant action pose.",
+    "bg": "office-interior-evening",
+    "third": "office",
+    "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-9f2a5d4e-0130-4b06-a143-601d863e03aa.png",
+    "prompt": "Edit IMAGE1 ONLY the PHOTO PRINT and PAPER PLAN being packed in bag. Preserve Minato/Mio exact faces, hands and fingers, clothes, bag, desk, evening office light/camera. Replace street photograph in Minato's left hand with a small portrait photograph of Naoto using IMAGE2 for Naoto's exact identity: short light brown hair, plain young adult face29, pale BLUE work jacket GREY tee. Printed photograph is tiny natural photo card, not an additional full-sized character. Replace street-map paper in other hand with generic unlabelled BUILDING INTERIOR SITE PLAN, faint rectangles for rooms, corridor and stair symbol, NO roads/city grid/river, no readable words or arrows solving mystery. Do not change item placement or move hands. No other characters, Mio stays by phone inside office, no smoking. Same landscape16:9. Photo and paper remain visible above y64%, preserve all other objects.",
+    "fileKey": "c3-in",
+    "version": 2,
+    "state": "採用確認待ち",
+    "revisions": [
+      {
+        "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-f31ceb07-dd6f-4bff-bb2a-9fdee2dc1449.png",
+        "prompt": "Create ONE landscape16:9 1920x1080 SCENE ILLUSTRATION for sober contemporary Japanese detective ADV, mature fine manga character contours with restrained painterly shading, detailed painterly environment consistent with reference. Preserve referenced Minato EXACT face thin rectangular GLASSES black wavy messy hair light STUBBLE age38 slim body charcoal SHORT jacket WHITE open collar shirt no tie no coat. Referenced Mio age32 adult graceful knowledgeable assistant, long dark brown wavy hair, dusty BLUE blazer WHITE modest blouse bluegrey midi skirt, exact face/style; no romance or sexual posing. Other reference images explicitly identify setting or character as below. Faces and all essential hands/photos/map must be ABOVE y66% so lower320px dialogue overlay won't hide action. Natural seated/standing adult proportions, no extreme big anime eyes. Camera medium-wide eye-level appropriate story action, not character lineup. NO chapter title, text, speech bubbles, UI, dates, readable paper text, brands, smoking or electronic cigarette. Do not imply new evidence or plot. All paper map lines generic topology, not invented street names. Candidate illustration not adopted.  CRITICAL TABLE COMPOSITION: tabletop action plane at y45-55%, important paper/object entirety above y64%; lower36% contains ONLY desk apron/foreground/floor, not critical items. Slightly elevated medium-wide camera where useful. IMAGE1 Minato identity, IMAGE2 Mio identity, IMAGE3 same office evening reference. Minato near desk at left puts a small photo print and folded GENERIC site diagram into an open plain dark work bag on desk. Papers/hands/bag opening above y60%. Mio stays in office on right near BLACK LANDLINE phone and notes, looking attentively toward preparations, she is NOT putting on coat or following outside. Reserved late-afternoon window light and existing desk lamp. No client, no flirting. Clear preparation-to-meet brother, not triumphant action pose.",
+        "state": "旧版：写真と図が街の画像のため不採用"
+      }
+    ]
+  },
+  {
+    "id": "c3-out",
+    "connections": [
+      "C3-OUT"
+    ],
+    "time": "10/8 17:25 夕",
+    "action": "IMAGE1 is Minato identity. IMAGE2 is Naoto identity: Japanese man29, lighter brown short practical hair, plain distinct broader face, LIGHT PALE BLUE work blouson GREY tee BEIGE trousers. IMAGE3 caretaker room evening exact environment. ONLY these two men. Naoto sits near-left with his hand resting on generic paper scene diagram on small wood table; Minato sits opposite right listening calm respectful, with glasses/stubble exact. Important hand and paper map visible upper/middle around y50-62%, both faces clear. Naoto carries restrained regret and relief of having spoken, not crying. Quiet pause promising next morning verification, no text. Evening interior light, no Mio or other people. No violence or crime reconstruction.",
+    "bg": "caretaker-room-evening",
+    "third": "caretaker",
+    "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-4df3b44b-ae7b-4d4c-a315-9d23be4875a4.png",
+    "prompt": "Edit ONLY composition framing of this scene so Naoto's hand and WHOLE paper interior site plan are safely ABOVE y64%. Preserve EXACT Minato and Naoto faces/hair/clothes, ONLY two men, same caretaker room evening light, gestures calm. Use slightly higher and wider camera and shift table action plane UP: paper center approximately x48% y54%, paper bottom no lower than y62%. Naoto's fingertips touching map around y52-57%. Minato opposite listening with hand near chin unchanged. Faces entirely in upper half, preserve room door/window/furniture continuity. Lower36% becomes simple table apron/legs/floor only. Don't change map into street map or add labels. Entire paper and essential hand must fit above future dialogue boundary, not merely through transparent box.16:9.",
+    "fileKey": "c3-out",
+    "version": 2,
+    "state": "採用確認待ち",
+    "revisions": [
+      {
+        "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-9b3c782c-992b-47f6-96e1-31056a351986.png",
+        "prompt": "Create ONE landscape16:9 1920x1080 SCENE ILLUSTRATION for sober contemporary Japanese detective ADV, mature fine manga character contours with restrained painterly shading, detailed painterly environment consistent with reference. Preserve referenced Minato EXACT face thin rectangular GLASSES black wavy messy hair light STUBBLE age38 slim body charcoal SHORT jacket WHITE open collar shirt no tie no coat. Referenced Mio age32 adult graceful knowledgeable assistant, long dark brown wavy hair, dusty BLUE blazer WHITE modest blouse bluegrey midi skirt, exact face/style; no romance or sexual posing. Other reference images explicitly identify setting or character as below. Faces and all essential hands/photos/map must be ABOVE y66% so lower320px dialogue overlay won't hide action. Natural seated/standing adult proportions, no extreme big anime eyes. Camera medium-wide eye-level appropriate story action, not character lineup. NO chapter title, text, speech bubbles, UI, dates, readable paper text, brands, smoking or electronic cigarette. Do not imply new evidence or plot. All paper map lines generic topology, not invented street names. Candidate illustration not adopted.  CRITICAL TABLE COMPOSITION: tabletop action plane at y45-55%, important paper/object entirety above y64%; lower36% contains ONLY desk apron/foreground/floor, not critical items. Slightly elevated medium-wide camera where useful. IMAGE1 is Minato identity. IMAGE2 is Naoto identity: Japanese man29, lighter brown short practical hair, plain distinct broader face, LIGHT PALE BLUE work blouson GREY tee BEIGE trousers. IMAGE3 caretaker room evening exact environment. ONLY these two men. Naoto sits near-left with his hand resting on generic paper scene diagram on small wood table; Minato sits opposite right listening calm respectful, with glasses/stubble exact. Important hand and paper map visible upper/middle around y50-62%, both faces clear. Naoto carries restrained regret and relief of having spoken, not crying. Quiet pause promising next morning verification, no text. Evening interior light, no Mio or other people. No violence or crime reconstruction. Essential generic PLAN is simple interior rooms/corridor/stair symbol, NOT city street map. Keep Naoto hand above y64%, no readable labels.",
+        "state": "旧構図：図下側が会話欄に掛かる"
+      }
+    ]
+  },
+  {
+    "id": "c4-in",
+    "connections": [
+      "C4-IN"
+    ],
+    "time": "10/9 9:30 朝",
+    "action": "IMAGE1 Minato identity, IMAGE2 Mio identity, IMAGE3 office geometry. NEXT MORNING after overnight. Minato and Mio sit/stand around desk looking at three DIFFERENT generic paper groups: photocopy of management diary (grid layout no readable words), copy of report (paragraph blocks), scene map with EMPTY margins. Their hands align the independent records, focused restrained teamwork. No coffee focus, no packing bag, no phone call, no client. Cool clear morning window light. Papers and hands at y45-60%, faces above y45%, no invented clue text or diagrams that solve geometry. This is careful preparation not victory.",
+    "bg": "office-interior-day",
+    "third": "office",
+    "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-15821a77-20f4-4ab4-877d-65646b9e16bb.png",
+    "prompt": "Edit this illustration ONLY desk paper placement/scale for dialogue clearance. Preserve Minato/Mio identities, poses/fingers, room, morning light and framing. The large floor plan at lower-right desk is too close to front edge. Make that sheet about70% of existing size and slide it BACK toward Mio, so the ENTIRE interior diagram including stair symbol is ABOVE y64% and paper bottom at y63% or higher. Her pointing fingertip still touches same plan, near front-left portion around y58-60%. Shorten broad empty paper foreground margin, do not change diagram into city map, no readable labels. The diary and report stacks retain their separate forms, trim only blank front margins if needed. No new objects or people, no change to hands or arm anatomy. Bottom36% contains desk apron and quiet foreground, no essential diagram.16:9.",
+    "fileKey": "c4-in",
+    "version": 2,
+    "state": "採用確認待ち",
+    "revisions": [
+      {
+        "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-29fdc446-2d7a-4638-b340-4f78aa09b57f.png",
+        "prompt": "Create ONE landscape16:9 1920x1080 SCENE ILLUSTRATION for sober contemporary Japanese detective ADV, mature fine manga character contours with restrained painterly shading, detailed painterly environment consistent with reference. Preserve referenced Minato EXACT face thin rectangular GLASSES black wavy messy hair light STUBBLE age38 slim body charcoal SHORT jacket WHITE open collar shirt no tie no coat. Referenced Mio age32 adult graceful knowledgeable assistant, long dark brown wavy hair, dusty BLUE blazer WHITE modest blouse bluegrey midi skirt, exact face/style; no romance or sexual posing. Other reference images explicitly identify setting or character as below. Faces and all essential hands/photos/map must be ABOVE y66% so lower320px dialogue overlay won't hide action. Natural seated/standing adult proportions, no extreme big anime eyes. Camera medium-wide eye-level appropriate story action, not character lineup. NO chapter title, text, speech bubbles, UI, dates, readable paper text, brands, smoking or electronic cigarette. Do not imply new evidence or plot. All paper map lines generic topology, not invented street names. Candidate illustration not adopted.  CRITICAL TABLE COMPOSITION: tabletop action plane at y45-55%, important paper/object entirety above y64%; lower36% contains ONLY desk apron/foreground/floor, not critical items. Slightly elevated medium-wide camera where useful. IMAGE1 Minato identity, IMAGE2 Mio identity, IMAGE3 office geometry. NEXT MORNING after overnight. Minato and Mio sit/stand around desk looking at three DIFFERENT generic paper groups: photocopy of management diary (grid layout no readable words), copy of report (paragraph blocks), scene map with EMPTY margins. Their hands align the independent records, focused restrained teamwork. No coffee focus, no packing bag, no phone call, no client. Cool clear morning window light. Papers and hands at y45-60%, faces above y45%, no invented clue text or diagrams that solve geometry. This is careful preparation not victory. Site diagram MUST be a generic INTERIOR FLOOR PLAN with rooms/corridor/stair symbol, NOT city street map. Keep three paper groups ABOVE y64%. No ledger or coffee in hands.",
+        "state": "旧構図：階段の図示が会話欄に掛かる"
+      }
+    ]
+  },
+  {
+    "id": "c4-out",
+    "connections": [
+      "C4-OUT"
+    ],
+    "time": "10/12 17:05 夕",
+    "action": "IMAGE1 Minato identity, IMAGE2 Mio identity, IMAGE3 same office EVENING geometry. After the brother/sister have LEFT. ONLY Minato and Mio, calm subdued everyday return. Minato left at desk OPENING the same plain dark ACCOUNTING LEDGER, looking down at pages (no legible text), not solving evidence. Mio right quietly gathering used cups onto small tray. Coffee cups and open ledger and hands at y48-62%, faces upper half. Gentle evening light and lamp. No smiling celebration, no champagne, no romance, no clients, no smiling deceased portrait. Thoughtful quiet closure with responsibilities continuing.",
+    "bg": "office-interior-evening",
+    "third": "office",
+    "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-0463ccb3-9810-4e59-ae83-efdb6aab3997.png",
+    "prompt": "Create ONE landscape16:9 1920x1080 SCENE ILLUSTRATION for sober contemporary Japanese detective ADV, mature fine manga character contours with restrained painterly shading, detailed painterly environment consistent with reference. Preserve referenced Minato EXACT face thin rectangular GLASSES black wavy messy hair light STUBBLE age38 slim body charcoal SHORT jacket WHITE open collar shirt no tie no coat. Referenced Mio age32 adult graceful knowledgeable assistant, long dark brown wavy hair, dusty BLUE blazer WHITE modest blouse bluegrey midi skirt, exact face/style; no romance or sexual posing. Other reference images explicitly identify setting or character as below. Faces and all essential hands/photos/map must be ABOVE y66% so lower320px dialogue overlay won't hide action. Natural seated/standing adult proportions, no extreme big anime eyes. Camera medium-wide eye-level appropriate story action, not character lineup. NO chapter title, text, speech bubbles, UI, dates, readable paper text, brands, smoking or electronic cigarette. Do not imply new evidence or plot. All paper map lines generic topology, not invented street names. Candidate illustration not adopted.  CRITICAL TABLE COMPOSITION: tabletop action plane at y45-55%, important paper/object entirety above y64%; lower36% contains ONLY desk apron/foreground/floor, not critical items. Slightly elevated medium-wide camera where useful. IMAGE1 Minato identity, IMAGE2 Mio identity, IMAGE3 same office EVENING geometry. After the brother/sister have LEFT. ONLY Minato and Mio, calm subdued everyday return. Minato left at desk OPENING the same plain dark ACCOUNTING LEDGER, looking down at pages (no legible text), not solving evidence. Mio right quietly gathering used cups onto small tray. Coffee cups and open ledger and hands at y48-62%, faces upper half. Gentle evening light and lamp. No smiling celebration, no champagne, no romance, no clients, no smiling deceased portrait. Thoughtful quiet closure with responsibilities continuing. VERY IMPORTANT: OPEN ledger is gently TILTED UPRIGHT in Minato's hands at chest/table level centered y52%, complete pages above y64%, not flat at foreground desk edge. Mio holds tray/cups near her WAIST/CHEST y50-58%, all cups/fingers above y64%. Both calmly attending ordinary work, no big smiles. IMAGE3 is evening setting, IMAGE4 is prior office composition.",
+    "fileKey": "c4-out",
+    "version": 1,
+    "state": "採用確認待ち"
+  }
+]

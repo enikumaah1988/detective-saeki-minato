@@ -1,0 +1,17 @@
+{
+  "date": "2026-10-12",
+  "revision": "0.03",
+  "sceneCount": 46,
+  "actionCount": 118,
+  "requiredPathReachable": true,
+  "errors": [],
+  "legacyMilestonesPresent": true,
+  "sceneTimesMonotonic": true,
+  "endingReached": true,
+  "illustrationSlotCount": 8,
+  "scriptureNotes": [
+    "JSONの必須actionだけを順に取得し、全出口の前提と問題の根拠を検証。",
+    "sceneTimeの単調増加、重複ID、次場面接続、句読点、制作指示混入、事務所以外の澪の対面を検証。",
+    "ゲーム実行・コンパイラでの実表示・推理難易度・プレイ時間は未検証。"
+  ]
+}

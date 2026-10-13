@@ -7,25 +7,26 @@ import type { GameAction } from './state'
 import { choiceStatus, emptyContinuation, isFreeAction, menuTitle, visibleChoices } from './freeAction'
 import { UiIcon } from './UiIcon'
 import type { IconName } from './UiIcon'
-import { resolveSpeakerName } from '../../data/presentation'
+import { dialogueSpeaker } from './speaker'
 import type { Ref } from 'react'
 
 export { choiceStatus } from './freeAction'
 
-export function StoryContent({ node, state, thinking, dispatch, paused, dialogueRef }: {
+export function StoryContent({ node, state, thinking, dispatch, paused, dialogueRef, interval }: {
   node: Exclude<ScenarioNode, { type: 'think' }>
   state: GameState
   thinking: boolean
   paused?: boolean
+  interval?: number
   dispatch: (action: GameAction) => void
   dialogueRef?: Ref<DialogueWindow>
 }) {
   if (node.type === 'dialogue') {
-    return <DialogueWindow ref={dialogueRef} speaker={thinking ? '' : resolveSpeakerName(node.speakerId)} text={node.text}
-      thinking={thinking} paused={paused} onAdvance={() => dispatch({ type: 'advance' })} />
+    return <DialogueWindow ref={dialogueRef} speaker={thinking ? '' : dialogueSpeaker(node, state)} text={node.text}
+      thinking={thinking} interval={interval} paused={paused} onAdvance={() => dispatch({ type: 'advance' })} />
   }
   if ('options' in node) {
-    const icons: Record<string, IconName> = { talk: 'talk', look: 'look', think: 'think' }
+    const icons: Record<string, IconName> = { talk: 'talk', speak: 'talk', look: 'look', investigate: 'look', think: 'think' }
     const freeAction = isFreeAction(node)
     const options = visibleChoices(node, state)
     if (options.length === 0) {
@@ -33,8 +34,8 @@ export function StoryContent({ node, state, thinking, dispatch, paused, dialogue
       return continuation ? <nav className="command-panel" aria-label="進行"><SelectionMenu paused={paused}><CommandButton paused={paused} onSelect={() => dispatch({ type: 'continue' })}><span className="command-name">{continuation.label}</span></CommandButton></SelectionMenu></nav> : null
     }
     return (
-      <nav className={`command-panel${freeAction ? ' free-action-panel' : ''}`} aria-label={node.type === 'topic' ? '聞く話題' : node.type === 'inspect' ? '調査対象' : '選択肢'}>
-        {menuTitle(node) && <p className="command-heading">{menuTitle(node)}</p>}
+      <nav className={`command-panel${freeAction ? ' free-action-panel' : ''}`} aria-label={node.type === 'topic' ? node.selection === 'person' ? '相手を選ぶ' : node.parent.commandId === 'speak' ? '話す話題' : '聞く話題' : node.type === 'inspect' ? '調査対象' : '選択肢'}>
+        {(menuTitle(node, state) || !freeAction) && <p className="command-heading">{menuTitle(node, state) ?? node.prompt}</p>}
         <span className="sr-only">{node.prompt}</span>
         <SelectionMenu paused={paused} className={`choices ${node.type === 'topic' || node.type === 'inspect' ? 'item-list' : 'command-list'}`}>
           {options.map((option) => {

@@ -1,0 +1,168 @@
+{
+  "date": "2026-10-13",
+  "tool": "built-in image_gen",
+  "status": "prototype_review_pending",
+  "user_directives": [
+    "湊は眼鏡あり",
+    "他人物のタッチを湊へ近づける",
+    "まず澪とあかりで試作"
+  ],
+  "style_face_reference": {
+    "path": "docs/art/style/references/minato-face-touch-02.png",
+    "source": "docs/art/characters/minato/drafts/gekiga-neutral-02-glasses.png",
+    "crop": [
+      395,
+      58,
+      628,
+      290
+    ],
+    "operation": "未加工の顔部分を機械切り出し。フィルターや描画変更なし。画風のみの参照。"
+  },
+  "records": [
+    {
+      "id": "minato",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-ce005211-60b3-41ab-a383-37029954e9bc.png",
+      "destination": "docs/art/characters/minato/drafts/gekiga-neutral-02-glasses.png",
+      "prompt": "Use case: precise-object-edit. Input image is the EDIT TARGET, a full-body sprite of Saeki Minato, Japanese private detective age38. Add thin dark charcoal rectangular eyeglasses fitted naturally to his nose bridge and ears, with modest adult-sized clear lenses. Eyes and existing intense weary gaze must remain clearly visible: no glare, tinted lenses or lens shine. Draw the frame in the same rough hand-painted ink treatment as his face.\nChange ONLY adding eyeglasses. Preserve this exact face, stubble, black hair, shadow planes, uneven pigment and coarse original strokes, entire body proportions, pose, hand positions, charcoal short suit jacket, off-white open collar shirt, loose black necktie, trousers, shoes, palette, lighting, existing transparent alpha and full-body framing. Do not redraw as a polished anime man. One complete standing man, full head through both soles, portrait1024x1536. No text, sheet panels, props, smoke or additional people. Transparent background.",
+      "references": [
+        "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/src/assets/images/characters/minato/full/neutral.png"
+      ],
+      "validation": {
+        "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-ce005211-60b3-41ab-a383-37029954e9bc.png",
+        "destination": "docs\\art\\characters\\minato\\drafts\\gekiga-neutral-02-glasses.png",
+        "source_size": [
+          1024,
+          1536
+        ],
+        "size": [
+          1024,
+          1536
+        ],
+        "mode": "RGBA",
+        "alpha_range": [
+          0,
+          254
+        ],
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "sha256": "6403c1805ae38b76efc2cbfb04e557616217a86aac2aa774932c3fb3b62fc543"
+      },
+      "status": "眼鏡ありの指示は確定、画像は試作・確認待ち",
+      "version": 2
+    },
+    {
+      "id": "mio",
+      "version": 2,
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-0fa35a0c-ae56-48d7-b54c-95fbcc012a55.png",
+      "destination": "docs/art/characters/mio/drafts/gekiga-neutral-02-minato-match.png",
+      "prompt": "Use case: style-transfer. Create ONE full-body standing illustration of Aizawa Mio, Japanese woman32, normal expression. Input1 (Minato with glasses) is the PRIMARY DRAWING STYLE reference. Input2 (Mio's previous sprite) is ONLY her identity, hairstyle, outfit and pose guide. The old woman's clean anime facial rendering is precisely the problem to fix.\nRedraw her from the original strokes with the SAME weight and broken irregularity of contours, opaque coarse brushwork, uneven pigment coverage and strong hard-edged asymmetric shadow masses seen on Minato's face and jacket. Put real deep grey-ochre shadow planes across one side of her cheek, eye socket, under hair and neck. Use sparse broad patches, lost edges, dry-brush marks, not an even geometric mosaic texture. No airbrush, delicate fashion illustration, glossy skin, shiny lips, immaculate big-eyed modern anime beauty, watercolor wash, uniform grain overlay, sepia filter or merely lowering brightness of Input2. Her face must have the SAME ink-and-paint vocabulary as Minato while preserving her own feminine bone structure, gentle intelligent eyes and 32-year-old adulthood. Avoid transferring his masculine jaw, stubble, extreme fatigue, glasses or suit. Eyes modest natural size; warm quiet closed-mouth normal expression, not glamor posing.\nMaintain loose long DARK BROWN WAVY hair, light dusty BLUE blazer, off-white modest blouse, pale blue-grey CALF-LENGTH SKIRT, grey pumps, delicate small earrings/pendant/watch. No ponytail or trousers. Keep recognizably her face; retain graceful everyday intelligence and slightly lighter clothing palette than Minato, but paint her skin and cloth roughly and with equally decisive dark shadows. Clothes are matte, worn naturally without dirt or damage.\nMatch Input2's shallow three-quarter standing direction towards screen LEFT, hands loosely overlapped low in front, normal neutral stance. Complete head through BOTH shoe soles, single centered figure with clear margin on portrait1024x1536, identical format to Minato. Truly transparent outside the figure, no paper backdrop, haze, bloom, shadows on ground, environment, text, sheet panels or extra people. This is a prototype for matching original drawing touch, not a finished expression sheet.",
+      "references": [
+        "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/docs/art/characters/minato/drafts/gekiga-neutral-02-glasses.png",
+        "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/src/assets/images/characters/mio/full/neutral.png"
+      ],
+      "validation": {
+        "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-0fa35a0c-ae56-48d7-b54c-95fbcc012a55.png",
+        "destination": "docs\\art\\characters\\mio\\drafts\\gekiga-neutral-02-minato-match.png",
+        "source_size": [
+          1024,
+          1536
+        ],
+        "size": [
+          1024,
+          1536
+        ],
+        "mode": "RGBA",
+        "alpha_range": [
+          0,
+          254
+        ],
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "sha256": "a8444d965cc9e015d71862b9741fdca79968a3499fadd1780d15e3c4721e0ea7"
+      },
+      "status": "初回の試作。衣服は粗くなったが顔の明るく綺麗な塗りが残るため追加修正"
+    },
+    {
+      "id": "akari",
+      "version": 2,
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-18ed7c91-dfff-4623-b100-1e030560a4a1.png",
+      "destination": "docs/art/characters/akari/drafts/gekiga-neutral-02-minato-match.png",
+      "prompt": "Use case: style-transfer. ONE full-body normal standing Takase Akari, Japanese university woman21. The first image is a CLOSE-UP STYLE SAMPLE from Minato, NOT a face to copy. Match this exact pigment density, ink roughness and contrast on the female face: broad ochre-grey planes with an unmistakable deep hard shadow across the far temple, cheek and neck; broken uneven contour strokes and unpolished edges. Use the same fairly hard one-sided noir lighting on her as Minato. Female skin must NOT receive soft beauty fill lighting. Do not simply add evenly spread polygon texture, multiply a filter, or darken the entire image. REPAINT the face and neck as visible blunt brush strokes and big imperfect shadow shapes, not delicate linework over smooth pale skin. Preserve the woman's own recognizable facial bone structure and appropriate age: no male jaw, beard, glasses, wrinkles copied from Minato. Eyes should be modest realistic adult size without anime sparkling highlights, lips matte, cheek planes structural not makeup. Original late1990s Japanese detective ADV gekiga ink-and-opaque-paint drawing with muted faded pigment. The second input is the full-body style and pose-format reference. The third input is the female identity/costume reference; replace its clean anime shading, do not preserve its old light complexion rendering. True transparent background, no scene, ground shadow, paper background, halo or glow. No text, grid or other figures. Full head to BOTH complete soles, centered portrait1024x1536. Identity: distinctive plain rounded face, modest natural eyes and short eyelashes, straight DARK BROWN CHIN-LENGTH BOB with fringe; no long hair, no resemblance to Mio's glamorous narrow face. Young adult with little age wear, not a teenager or a worn-out 38yearold. Quiet slightly anxious closed-mouth everyday expression. Muted brick RED cardigan, off-white crewneck T shirt, dark NAVY BELOW-KNEE flared skirt, DARK FLAT shoes, small dark crossbody bag. Strap from SCREEN RIGHT shoulder to SCREEN LEFT hip bag, exactly preserve handedness, do not mirror. Shallow three-quarter towards screen LEFT, hands gently overlapped low in front. Maintain previous body proportions and modest costume. Retain red and navy as distinct muted colors, not all brown. Apply the same tough shadow and rough paint language to her cardigan, skin, hands and hair, while letting her 21yearold face remain youthful.",
+      "references": [
+        "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/docs/art/style/references/minato-face-touch-02.png",
+        "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/docs/art/characters/minato/drafts/gekiga-neutral-02-glasses.png",
+        "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/src/assets/images/characters/akari/full/neutral.png"
+      ],
+      "validation": {
+        "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-18ed7c91-dfff-4623-b100-1e030560a4a1.png",
+        "destination": "docs\\art\\characters\\akari\\drafts\\gekiga-neutral-02-minato-match.png",
+        "source_size": [
+          1024,
+          1536
+        ],
+        "size": [
+          1024,
+          1536
+        ],
+        "mode": "RGBA",
+        "alpha_range": [
+          0,
+          254
+        ],
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "sha256": "cb298b832e6e0ac429f5d44b573fe6aa3b92b1cb6d3c8f8362519faf1c7b6cef"
+      },
+      "status": "湊の顔アップを画風参照にした試作。確認待ち"
+    },
+    {
+      "id": "mio",
+      "version": 3,
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-6604a21a-20f9-4377-9120-92769cf8da01.png",
+      "destination": "docs/art/characters/mio/drafts/gekiga-neutral-03-minato-match.png",
+      "prompt": "Use case: style-transfer. ONE full-body normal standing Aizawa Mio, Japanese woman32, poised intelligent gentle adult. The first image is a CLOSE-UP STYLE SAMPLE from Minato, NOT a face to copy. Match this exact pigment density, ink roughness and contrast on the female face: broad ochre-grey planes with an unmistakable deep hard shadow across the far temple, cheek and neck; broken uneven contour strokes and unpolished edges. Use the same fairly hard one-sided noir lighting on her as Minato. Female skin must NOT receive soft beauty fill lighting. Do not simply add evenly spread polygon texture, multiply a filter, or darken the entire image. REPAINT the face and neck as visible blunt brush strokes and big imperfect shadow shapes, not delicate linework over smooth pale skin. Preserve the woman's own recognizable facial bone structure and appropriate age: no male jaw, beard, glasses, wrinkles copied from Minato. Eyes should be modest realistic adult size without anime sparkling highlights, lips matte, cheek planes structural not makeup. Original late1990s Japanese detective ADV gekiga ink-and-opaque-paint drawing with muted faded pigment. The second input is the full-body style and pose-format reference. The third input is the female identity/costume reference; replace its clean anime shading, do not preserve its old light complexion rendering. True transparent background, no scene, ground shadow, paper background, halo or glow. No text, grid or other figures. Full head to BOTH complete soles, centered portrait1024x1536. Identity: recognizable slender feminine adult face, gently tapering chin unlike Minato's masculine jaw, natural modest eyes, long loose dark brown WAVY hair; do NOT tie back or cut hair. Alert quiet neutral closed-mouth expression. No glamor posing, no shiny full lips, no tiny doll nose, no beauty fill light. Give her mature face the SAME bold imperfect ochre-grey shadow planes and rough strokes as the first Minato face sample; visible deep shadow beneath far cheekbone, temple under the hair and neck, readable attentive eyes. Keep her 32yearold warmth and grace, not aged weathered male features. Light dusty BLUE blazer, off-white modest blouse, pale BLUE-GREY CALF-LENGTH SKIRT, grey pumps, tiny earrings and pendant, wristwatch; NO trousers. Blue remains light enough to distinguish her from Minato, while shadows are darker and harder. Hands loosely overlapped low in front, shallow three-quarter stance towards screen LEFT, exact costume and overall body silhouette from third input. Repaint skin, hair and clothes with opaque patchy pigment and decisive dark planes. Do not retain the third image's polished facial shading, even if identity is preserved.",
+      "references": [
+        "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/docs/art/style/references/minato-face-touch-02.png",
+        "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/docs/art/characters/minato/drafts/gekiga-neutral-02-glasses.png",
+        "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/src/assets/images/characters/mio/full/neutral.png"
+      ],
+      "validation": {
+        "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-6604a21a-20f9-4377-9120-92769cf8da01.png",
+        "destination": "docs\\art\\characters\\mio\\drafts\\gekiga-neutral-03-minato-match.png",
+        "source_size": [
+          1024,
+          1536
+        ],
+        "size": [
+          1024,
+          1536
+        ],
+        "mode": "RGBA",
+        "alpha_range": [
+          0,
+          254
+        ],
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "sha256": "b1c70f5e5e636388d595495cf69df85929e5f0930fabf132a00fb316063eb9ea"
+      },
+      "status": "顔アップ参照を加えた再試作。今回の最新候補・確認待ち"
+    }
+  ]
+}

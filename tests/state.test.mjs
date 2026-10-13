@@ -1,7 +1,7 @@
 const progress = { flags: {}, heardTopics: [], inspectedTargets: [], acquiredInformation: [] }
 import test, { before } from 'node:test'
 import assert from 'node:assert/strict'
-import { createServer } from 'vite'
+import { createServer } from './viteServer.mjs'
 import { demoScenario as scenario } from '../src/data/scenario/demo.ts'
 
 let createInitialState, reduceGameState, selectCurrentNode
@@ -24,7 +24,10 @@ test('初期状態は空の進捗を持ち、表示情報を現在ノードか�
   const node = selectCurrentNode(scenario, state)
   assert.equal(node.type, 'dialogue')
   assert.equal(node.speakerId, 'minato')
-  assert.deepEqual(node.stage, scenario.scenes.office)
+  const { smokingAllowed, ...officeStage } = scenario.scenes.office
+  assert.equal(smokingAllowed, true)
+  assert.deepEqual(node.stage, officeStage)
+  assert.equal('smokingAllowed' in node.stage, false)
 })
 
 test('次へで正しい会話・選択肢へ進み、元の状態は変更しない', () => {

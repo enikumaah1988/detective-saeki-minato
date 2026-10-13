@@ -2,7 +2,7 @@ import test from 'node:test'
 import assert from 'node:assert/strict'
 import { createElement } from 'react'
 import { renderToStaticMarkup } from 'react-dom/server'
-import { createServer } from 'vite'
+import { createServer } from './viteServer.mjs'
 const initial = { scenarioId: 'gray-testimony-part1-demo', nodeId: 'menu', flags: {}, heardTopics: [], inspectedTargets: [], acquiredInformation: [] }
 let selectInvestigationRecords, RECORD_CATEGORIES, InvestigationRecords
 let part1Records, basicBelongings
@@ -60,7 +60,7 @@ test('澪との既存会話の完了で人物・出来事を更新し、再聴�
   assert.deepEqual(records().filter(entry => entry.category === 'events').map(entry => entry.id), ['past-accident', 'last-activity', 'disappearance'])
   assert.equal(records().filter(entry => entry.id === 'client-observation').length, 1)
   assert.equal(records().find(entry => entry.id === 'client-observation').details.length, 6)
-  assert.equal(records().filter(entry => entry.title === '相澤澪').length, 1)
+  assert.equal(records().filter(entry => entry.title === '相澤　澪').length, 1)
   assert.ok(records().find(entry => entry.id === 'client-observation').details.some(text => text.includes('緊張')))
   const saved = JSON.stringify(createSaveData(state))
   const restored = parseSaveData(saved, [freeActionDemo])

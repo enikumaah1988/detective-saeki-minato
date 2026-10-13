@@ -1,0 +1,20 @@
+const path=require('node:path'); const {pathToFileURL}=require('node:url');
+const {chromium}=require('C:/Users/lemon/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
+const fs=require('fs');
+(async()=>{
+ const browser=await chromium.launch({headless:true}); const page=await browser.newPage({viewport:{width:1366,height:900}}); const errors=[];page.on('pageerror',e=>errors.push(e.message));
+ await page.goto(pathToFileURL(path.join(__dirname,'index.html')).href);await page.waitForFunction(()=>window.studyState().state==='ready');
+ const checks=[]; const check=(name,ok)=>{checks.push({name,ok});if(!ok)throw Error(name)};
+ check('assets loaded',await page.locator('img').evaluateAll(a=>a.every(i=>i.naturalWidth>0)));
+ await page.getByRole('button',{name:'再生',exact:true}).click();await page.waitForTimeout(5400);
+ check('character appears before title',await page.evaluate(()=>Number(getComputedStyle(document.querySelector('.figure')).opacity)===1 && Number(getComputedStyle(document.querySelector('.title')).opacity)===0));
+ await page.waitForTimeout(3800);await page.screenshot({path:path.join(__dirname,'preview.png')});
+ check('title appears',await page.locator('.title').evaluate(e=>Number(getComputedStyle(e).opacity)===1));
+ await page.waitForFunction(()=>window.studyState().state==='ended');check('natural 12 second completion',await page.evaluate(()=>window.studyState().elapsed===12000));
+ await page.getByRole('button',{name:'再再生',exact:true}).click();await page.waitForTimeout(300);check('replay resets title',await page.locator('.title').evaluate(e=>Number(getComputedStyle(e).opacity)===0));
+ await page.getByRole('button',{name:'スキップ',exact:true}).click();check('skip final frame',await page.evaluate(()=>window.studyState().state==='skipped' && Number(getComputedStyle(document.querySelector('.title')).opacity)===1));
+ await page.waitForTimeout(700);check('skip stays stopped',await page.evaluate(()=>window.studyState().state==='skipped'));
+ await page.getByRole('button',{name:'再再生',exact:true}).click();await page.keyboard.press('Escape');check('escape skip',await page.evaluate(()=>window.studyState().state==='skipped'));
+ await page.setViewportSize({width:390,height:844});check('mobile no horizontal overflow',await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));check('no script errors',errors.length===0);
+ fs.writeFileSync(path.join(__dirname,'validation.json'),JSON.stringify({environment:'Windows / bundled Chromium / file://',checks,errors},null,2));await browser.close();console.log(JSON.stringify(checks));
+})().catch(e=>{console.error(e);process.exit(1)});

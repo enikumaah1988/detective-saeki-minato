@@ -1,0 +1,68 @@
+[
+  {
+    "key": "smartphone",
+    "file": "src/assets/images/items/smartphone.png",
+    "size": [
+      1024,
+      1024
+    ],
+    "mode": "RGBA",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "boundsAlphaAbove8": [
+      294,
+      92,
+      729,
+      932
+    ],
+    "transparentPixels": 722786,
+    "opaquePixels": 1226,
+    "sha256": "6c46955b33fd8c5995c7333f22f6cbc778b45ffd3db605ab28542f66f113c49c"
+  },
+  {
+    "key": "electronic-cigarette",
+    "file": "src/assets/images/items/electronic-cigarette.png",
+    "size": [
+      1024,
+      1024
+    ],
+    "mode": "RGBA",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "boundsAlphaAbove8": [
+      397,
+      92,
+      626,
+      932
+    ],
+    "transparentPixels": 917207,
+    "opaquePixels": 1128,
+    "sha256": "1bc2582e04fdf4d18f1fd0ba87e82f3a90629b43da854e5dd12e39f757db9474"
+  },
+  {
+    "key": "business-card",
+    "file": "src/assets/images/items/business-card.png",
+    "size": [
+      1024,
+      1024
+    ],
+    "mode": "RGBA",
+    "sourceSize": [
+      1614,
+      975
+    ],
+    "boundsAlphaAbove8": [
+      92,
+      271,
+      932,
+      753
+    ],
+    "transparentPixels": 674130,
+    "opaquePixels": 1357,
+    "sha256": "cb0b852c1da1ee9e333f798e62f65ef4a8dd4f2c45d303f63afa425394dcf10e"
+  }
+]

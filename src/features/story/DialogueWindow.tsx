@@ -4,7 +4,7 @@ import { graphemes, measureDialoguePages } from './pagination'
 export const CHARACTER_INTERVAL_MS = 35
 
 export class DialogueWindow extends Component<{
-  speaker: string; text: string; thinking: boolean; paused?: boolean; autoFocus?: boolean; onAdvance: () => void
+  speaker: string; text: string; thinking: boolean; interval?: number; paused?: boolean; autoFocus?: boolean; onAdvance: () => void
 }, { visible: number; pages: string[]; page: number }> {
   state = { visible: 0, pages: [this.props.text], page: 0 }
   private timer?: ReturnType<typeof setInterval>
@@ -25,11 +25,21 @@ export class DialogueWindow extends Component<{
       this.observer.observe(this.body.current)
       void document.fonts.ready.then(() => { if (this.mounted) this.repaginate() })
     }
+    this.startTimer()
+  }
+
+  componentDidUpdate(previous: Readonly<DialogueWindow['props']>) {
+    if (previous.interval !== this.props.interval) this.startTimer()
+  }
+
+  private startTimer() {
+    clearInterval(this.timer)
+    const interval = this.props.interval ?? CHARACTER_INTERVAL_MS
     this.timer = setInterval(() => {
       if (!this.props.paused && !this.advanced && this.state.visible < this.characters.length) {
-        this.setState(({ visible }) => ({ visible: visible + 1 }))
+        this.setState(({ visible }) => ({ visible: interval === 0 ? this.characters.length : visible + 1 }))
       }
-    }, CHARACTER_INTERVAL_MS)
+    }, interval || 16)
   }
 
   repaginate = () => {
@@ -69,7 +79,7 @@ export class DialogueWindow extends Component<{
       data-page={this.state.page + 1} data-pages={this.state.pages.length}
       autoFocus={this.props.autoFocus}
       onClick={this.activate} aria-label="会話を次へ進める">
-      {this.props.speaker && <span className="speaker">{this.props.speaker}</span>}
+      {this.props.speaker ? <span className="speaker">{this.props.speaker}</span> : <span className="speaker-space" aria-hidden="true" />}
       <span className="dialogue" ref={this.body}><span aria-hidden="true">{this.characters.slice(0, this.state.visible).join('')}</span><span className="sr-only">{this.state.pages[this.state.page]}</span></span>
       {complete && <span className="next" aria-label="次へ">▼</span>}
     </button>

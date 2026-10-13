@@ -32,8 +32,9 @@ export function restoreSaveData(input: unknown, scenarios: readonly Scenario[]):
     if (!scenario) return { ok: false, reason: 'unknown-scenario' }
     if (!Object.hasOwn(scenario.nodes, nodeId)) return { ok: false, reason: 'unknown-node' }
 
+    const restoredNodeId = scenario.saveNodeAliases?.[nodeId] ?? nodeId
     if (version === 1) {
-      return { ok: true, state: { scenarioId, nodeId, flags: {}, heardTopics: [], inspectedTargets: [], acquiredInformation: [] } }
+      return { ok: true, state: { scenarioId, nodeId: scenario.saveNodeAliases ? scenario.start : restoredNodeId, flags: {}, heardTopics: [], inspectedTargets: [], acquiredInformation: [] } }
     }
     const flags = field('flags')
     const heardTopics = field('heardTopics')
@@ -46,10 +47,19 @@ export function restoreSaveData(input: unknown, scenarios: readonly Scenario[]):
       || !isIds(heardTopics) || !isIds(inspectedTargets) || !isIds(acquiredInformation)) {
       return { ok: false, reason: 'invalid-format' }
     }
+    const restoredInformation = [...new Set(acquiredInformation)]
+    for (const alias of scenario.saveAliases ?? []) {
+      if (heardTopics.includes(alias.heardTopic) && (!alias.ifInformation || acquiredInformation.includes(alias.ifInformation))) {
+        for (const id of alias.information) if (!restoredInformation.includes(id)) restoredInformation.push(id)
+      }
+    }
+    for (const alias of scenario.saveNodeAliases?.[nodeId] ? scenario.informationAliases ?? [] : []) if (restoredInformation.includes(alias.information)) {
+      for (const id of alias.grants) if (!restoredInformation.includes(id)) restoredInformation.push(id)
+    }
     return { ok: true, state: {
-      scenarioId, nodeId, flags: Object.fromEntries(Object.entries(flags)),
+      scenarioId, nodeId: restoredNodeId, flags: Object.fromEntries(Object.entries(flags)),
       heardTopics: [...new Set(heardTopics)], inspectedTargets: [...new Set(inspectedTargets)],
-      acquiredInformation: [...new Set(acquiredInformation)],
+      acquiredInformation: restoredInformation,
     } }
   } catch {
     // Proxy など JSON 以外の未知入力でも、例外を呼び出し側へ漏らさない。

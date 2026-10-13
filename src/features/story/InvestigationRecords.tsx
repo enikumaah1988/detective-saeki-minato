@@ -3,13 +3,16 @@ import type { GameState } from '../../types/gameState'
 import type { InvestigationRecord, RecordCategory } from '../../types/investigation'
 import { RECORD_CATEGORIES, selectInvestigationRecords } from './investigation'
 import { AssetImage } from './StageView'
+import './recordsFrames.css'
 
-export function InvestigationRecords({ state, onClose, returnFocus, previewLabel, records = selectInvestigationRecords(state) }: {
+export function InvestigationRecords({ state, onClose, returnFocus, previewLabel, records = selectInvestigationRecords(state), usableItems = [], onUse }: {
   state: GameState
   onClose: () => void
   returnFocus?: HTMLElement | null
   previewLabel?: string
   records?: readonly InvestigationRecord[]
+  usableItems?: string[]
+  onUse?: (itemId: string) => void
 }) {
   const dialog = useRef<HTMLDialogElement>(null)
   const tabs = useRef<(HTMLButtonElement | null)[]>([])
@@ -71,18 +74,21 @@ export function InvestigationRecords({ state, onClose, returnFocus, previewLabel
     <div id="record-panel" className="record-body" role="tabpanel" aria-labelledby={`record-tab-${category}`}>
       <section className="record-list" aria-label={`${RECORD_CATEGORIES.find(tab => tab.id === category)!.label}の一覧`} tabIndex={0}>
         {entries.length ? <ul>{entries.map(entry => <li key={entry.id}><button type="button" aria-pressed={selected?.id === entry.id} onClick={() => setSelectedId(entry.id)}>
-          {entry.category === 'people' && entry.imageSrc && <span className="record-portrait-thumb"><AssetImage className="record-portrait-crop" src={entry.imageSrc} alt="" /></span>}
-          {entry.timeLabel && <span className="record-time">{entry.timeLabel}</span>}<span>{entry.title}</span>
+          {entry.category === 'people' && <span className="record-portrait-thumb" aria-hidden="true">{entry.imageSrc ? <AssetImage className="record-portrait-crop" src={entry.imageSrc} alt="" /> : <span className="portrait-unknown">?</span>}</span>}
+          {entry.timeLabel && <span className="record-time">{entry.timeLabel.replace(/^\d{4}年/, '')}</span>}<span>{entry.title}</span>
         </button></li>)}</ul> : <p className="record-empty">記録はありません</p>}
       </section>
       <section className="record-detail" aria-label="選択した記録の詳細" tabIndex={0}>
         {selected ? <>
           <h3>{selected.title}</h3>
-          {selected.timeLabel && <p className="record-time">{selected.timeLabel}</p>}
+          {selected.timeLabel && <p className="record-time">{selected.timeLabel.replace(/^\d{4}年/, '')}</p>}
           {selected.imageSrc && (selected.category === 'people'
             ? <div className="record-portrait"><AssetImage key={selected.imageSrc} className="record-portrait-crop" src={selected.imageSrc} alt={selected.imageAlt ?? selected.title} /></div>
+            : selected.mediaKind === 'photo' ? <div className="record-item-photo"><AssetImage key={selected.imageSrc} className="photo-image" src={selected.imageSrc} alt={selected.imageAlt ?? selected.title} /></div>
             : <AssetImage key={selected.imageSrc} className="record-image" src={selected.imageSrc} alt={selected.imageAlt ?? selected.title} />)}
+          {selected.category === 'people' && !selected.imageSrc && <div className="record-portrait portrait-unknown" aria-label={selected.faceKnown ? selected.title : '顔は未確認'}>{selected.faceKnown ? '◉' : 'UNKNOWN'}</div>}
           {selected.details.map((text, index) => <p key={index}>{text}</p>)}
+          {selected.category === 'belongings' && usableItems.includes(selected.id) && <button className="use-item" type="button" onClick={() => onUse?.(selected.id)}>使用する</button>}
         </> : null}
       </section>
     </div>

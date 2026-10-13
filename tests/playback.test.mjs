@@ -1,5 +1,5 @@
 import test, { before } from 'node:test'
-import { createServer } from 'vite'
+import { createServer } from './viteServer.mjs'
 import assert from 'node:assert/strict'
 import { freeActionDemo as scenario } from '../src/data/scenario/freeActionDemo.ts'
 let createPlayback, reducePlayback, createInitialState, reduceGameState

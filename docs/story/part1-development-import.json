@@ -1,0 +1,21 @@
+{
+  "version": "0.04-local",
+  "baseVersion": "0.03",
+  "baseSha256": "f6402fbe9719a659f0cbbf43f95d04ac7cfdcdfadd672d6313287d0dcddde7ea",
+  "scope": "第1部の範囲・本文・帰所報告と第2部接続/日時。第3〜4部は本文・日時を維持。",
+  "sceneCount": 48,
+  "partCounts": {
+    "1": 16,
+    "2": 8,
+    "3": 8,
+    "4": 16
+  },
+  "status": "組込側共同改稿・本編接続と検証完了。物語担当の正本反映は別管理。",
+  "verification": {
+    "fullTests": 174,
+    "additionalBrowserTests": 2,
+    "failed": 0,
+    "skipped": 0,
+    "maximumVisiblePartOneTopics": 7
+  }
+}

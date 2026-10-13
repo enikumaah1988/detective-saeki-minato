@@ -1,6 +1,6 @@
 import test, { before } from 'node:test'
 import assert from 'node:assert/strict'
-import { createServer } from 'vite'
+import { createServer } from './viteServer.mjs'
 import { graphemes, paginateText } from '../src/features/story/pagination.ts'
 import { freeActionDemo as scenario } from '../src/data/scenario/freeActionDemo.ts'
 let SelectionGate, createPlayback, reducePlayback

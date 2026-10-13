@@ -2,7 +2,7 @@ import test from 'node:test'
 import assert from 'node:assert/strict'
 import { createElement } from 'react'
 import { renderToStaticMarkup } from 'react-dom/server'
-import { createServer } from 'vite'
+import { createServer } from './viteServer.mjs'
 
 test('画像定義とフォールバックを表示 UI へ反映する', async () => {
   const server = await createServer({ server: { middlewareMode: true, hmr: false, ws: false }, appType: 'custom' })
@@ -21,15 +21,15 @@ test('画像定義とフォールバックを表示 UI へ反映する', async (
     const serious = render({ backgroundId: 'office-afternoon', characterId: 'minato', expression: 'serious' })
     assert.match(normal, /background-image/)
     assert.match(normal, /character-image/)
-    assert.match(normal, /minato\/normal\.png/)
-    assert.match(serious, /minato\/serious\.png/)
+    assert.match(normal, /minato\/waist\/neutral\.png/)
+    assert.match(serious, /minato\/waist\/serious\.png/)
     const unknown = render({ backgroundId: 'unknown', characterId: 'unknown', expression: 'unknown' })
     assert.match(unknown, /未登録の背景/)
     assert.match(unknown, /未登録の人物/)
     assert.doesNotMatch(unknown, /<img/)
     const unknownExpression = render({ backgroundId: 'office-afternoon', characterId: 'minato', expression: 'unknown' })
-    assert.match(unknownExpression, /佐伯湊/)
-    assert.match(unknownExpression, /未登録の表情/)
+    assert.match(unknownExpression, /佐伯　湊/)
+    assert.match(unknownExpression, /character-silhouette/)
     assert.doesNotMatch(unknownExpression, /character-image/)
   } finally {
     await server.close()

@@ -33,3 +33,6 @@
 
 ## 学習記録
 AI開発方式・委任範囲・役割分担・検証方法を変更した場合、docs/ai-development/evolution.md の更新を提案する。新しい自律化の実験では docs/ai-development/experiments/ に仮説・方法・結果・学びを残す。通常の小規模なゲーム修正ごとに学習記録を増やす必要はない。
+
+## 素材制作の正本
+画像制作は docs/art/README.md と対象人物の docs/art/characters/<id>/profile.md を読む。history は更新しない履歴。制作資料の試作は docs/art/characters/<id>/drafts、採用した設定資料は sheet.png。ゲーム用画像だけ src/assets/images/characters/<id>/ に置き、二重コピーを維持しない。素材制作だけでストーリー・実装・採用状態を変更しない。

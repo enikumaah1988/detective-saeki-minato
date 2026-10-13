@@ -6,7 +6,8 @@ export function selectSceneStage(scenario: Scenario, nodeId: string): Stage {
   if (node.sceneId) {
     const scene = scenario.scenes?.[node.sceneId]
     if (!scene) throw new Error(`シーンが見つかりません: ${node.sceneId}`)
-    return scene
+    const { smokingAllowed: _smokingAllowed, ...stage } = scene
+    return stage
   }
   return node.stage // 旧形式のローカルシナリオも読める。
 }
@@ -16,6 +17,6 @@ export function stageCharacters(stage: Stage) {
     ? [{ characterId: stage.characterId, expression: stage.expression ?? 'normal', position: stage.characterPosition }]
     : [])
   return characters.map(character => ({ ...character,
-    position: character.position ?? (character.characterId === 'minato' ? 'left' : 'right'),
+    position: character.position ?? 'right',
   }))
 }

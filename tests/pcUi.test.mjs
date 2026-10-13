@@ -2,7 +2,7 @@ import test from 'node:test'
 import assert from 'node:assert/strict'
 import { createElement } from 'react'
 import { renderToStaticMarkup } from 'react-dom/server'
-import { createServer } from 'vite'
+import { createServer } from './viteServer.mjs'
 
 test('PC会話の文字送り・全文表示・進行・中断とコマンドの選択遅延', async () => {
   const server = await createServer({ server: { middlewareMode: true, hmr: false, ws: false }, appType: 'custom' })
@@ -10,7 +10,7 @@ test('PC会話の文字送り・全文表示・進行・中断とコマンドの
     const { DialogueWindow } = await server.ssrLoadModule('/src/features/story/DialogueWindow.tsx')
     const { CommandButton, COMMAND_HIGHLIGHT_MS } = await server.ssrLoadModule('/src/features/story/CommandButton.tsx')
     let advances = 0
-    const props = { text: '湊😀', speaker: '佐伯湊', thinking: false, onAdvance: () => advances++ }
+    const props = { text: '湊😀', speaker: '佐伯　湊', thinking: false, onAdvance: () => advances++ }
     const window = new DialogueWindow(props)
     window.setState = (update, callback) => { window.state = { ...window.state, ...(typeof update === 'function' ? update(window.state) : update) }; callback?.() }
     const interval = globalThis.setInterval
@@ -56,7 +56,7 @@ test('PC会話の文字送り・全文表示・進行・中断とコマンドの
       assert.equal(delay, COMMAND_HIGHLIGHT_MS)
       assert.equal(delay, 150)
       assert.equal(selections, 0)
-      assert.equal(button.render().props.className, 'is-selected')
+      assert.match(button.render().props.className, /(?:^|\s)is-selected(?:\s|$)/)
       callback()
       assert.equal(selections, 1)
       button.select()
@@ -79,7 +79,8 @@ test('上部共通UI・未実装コマンド・シナリオ指定の人物位置
     const { freeActionDemo: scenario } = await server.ssrLoadModule('/src/data/scenario/freeActionDemo.ts')
     const { createInitialState } = await server.ssrLoadModule('/src/features/story/state.ts')
     const player = renderToStaticMarkup(createElement(StoryPlayer, { scenario }))
-    for (const label of ['MENU', '調査記録', 'タバコを吸う', '日時未設定']) assert.ok(player.includes(label))
+    for (const label of ['MENU', '調査記録', 'タバコを吸う', '会話履歴']) assert.ok(player.includes(label))
+    assert.doesNotMatch(player, /日時未設定/)
     const menu = renderToStaticMarkup(createElement(StoryContent, { node: scenario.nodes.menu, state: createInitialState(scenario), thinking: false, dispatch: () => {} }))
     assert.doesNotMatch(menu, /message-window/)
     for (const label of ['聞く', '調べる']) assert.ok(menu.includes(label))

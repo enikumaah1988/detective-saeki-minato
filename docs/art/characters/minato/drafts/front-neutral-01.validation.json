@@ -1,0 +1,21 @@
+{
+  "file": "docs/art/characters/minato/drafts/front-neutral-01.png",
+  "width": 1024,
+  "height": 1024,
+  "mode": "RGBA",
+  "alphaBoundsAbove8": [
+    167,
+    24,
+    866,
+    1011
+  ],
+  "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-cc64a5c6-0111-4d86-bb3e-a249d585e0a5.png",
+  "sourceSize": [
+    1254,
+    1254
+  ],
+  "sourceSha256": "669ae694da4c6419fb3ed0db2ab99cb6628fb88c319312242fac536f2ad08f3a",
+  "sha256": "a3312c8dae4dd9c200035d607c02292ec49f0aaa6d6bc291ff4197cf6d4148e9",
+  "state": "採用確認待ち",
+  "operation": "whole source canvas resized without bounding-box fit or horizontal flip"
+}

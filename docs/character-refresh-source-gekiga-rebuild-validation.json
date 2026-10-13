@@ -1,0 +1,2172 @@
+{
+  "date": "2026-10-13",
+  "status": "generation_and_file_validation_complete",
+  "scope": "ユーザー回答：人物別に必要な表情を全て（既存の選定＋不足分）。共通辞書全種類を全員に生成しない。故人三崎は肖像のみ。",
+  "counts": {
+    "characters": 11,
+    "full": 10,
+    "waist": 75,
+    "portrait": 1,
+    "assets": 86,
+    "review_sheets": 10
+  },
+  "assets": [
+    {
+      "id": "minato",
+      "kind": "full",
+      "key": "neutral",
+      "path": "src/assets/images/characters/minato/full/neutral.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        254
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "3173f336a5c1ee9c51f71b7ce50d361f6fadc1dec83d71b088ab74baf7ad345f",
+      "source": "C:/Users/lemon/.codex/generated_images/01a123a2-b46f-77d3-b27e-a7f8a37b3920/exec-a926faf6-cd7d-44d9-a7a5-e1a68aa7b8c2.png",
+      "record": "rebuild-records/minato-full-neutral.json"
+    },
+    {
+      "id": "minato",
+      "kind": "waist",
+      "key": "neutral",
+      "path": "src/assets/images/characters/minato/waist/neutral.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "53d4c3b57b30634ab48bbab46ae9a1c9c18527d51fd26fb84c24fe74cecd0d86",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-fe2962a0-f9e5-45d6-a388-dd62bb203b05.png",
+      "record": "rebuild-records/minato-waist-neutral.json"
+    },
+    {
+      "id": "minato",
+      "kind": "waist",
+      "key": "smile",
+      "path": "src/assets/images/characters/minato/waist/smile.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "fb7d2c9cc533783638d349b62350075ec22111cd75205e36b68126e980045180",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-f04aea55-74e6-499f-85f7-9ddfc9cf626e.png",
+      "record": "rebuild-records/minato-waist-smile.json"
+    },
+    {
+      "id": "minato",
+      "kind": "waist",
+      "key": "serious",
+      "path": "src/assets/images/characters/minato/waist/serious.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "1f2bf73325bb0f73f9053b99480ff1ae3fd41a3a785f0f4ee82616cd01aa1ec1",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-cf53e599-34f6-45ef-a86d-c214642aa905.png",
+      "record": "rebuild-records/minato-waist-serious.json"
+    },
+    {
+      "id": "minato",
+      "kind": "waist",
+      "key": "surprised",
+      "path": "src/assets/images/characters/minato/waist/surprised.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "b2c7c9e1aa5654599611aa5b0617b7bd5faac9b40ee4c44fe86b66802c20d212",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-2d662243-2d8b-4cbe-8d44-96476877da0d.png",
+      "record": "rebuild-records/minato-waist-surprised.json"
+    },
+    {
+      "id": "minato",
+      "kind": "waist",
+      "key": "irritated",
+      "path": "src/assets/images/characters/minato/waist/irritated.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "33e8b5b95f854dce075282f2dec66a82b072e849314a247f0d1860adf08ccc21",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-147bd2dd-23a8-407d-9418-e020e4ea27d0.png",
+      "record": "rebuild-records/minato-waist-irritated.json"
+    },
+    {
+      "id": "minato",
+      "kind": "waist",
+      "key": "pained",
+      "path": "src/assets/images/characters/minato/waist/pained.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "2502717b3f4430412b420a718f47d38a64ca742951dbd47a3b1f8ff715aca948",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-a2b3eb83-71fe-464a-9767-2ee200ad57ba.png",
+      "record": "rebuild-records/minato-waist-pained.json"
+    },
+    {
+      "id": "minato",
+      "kind": "waist",
+      "key": "relieved",
+      "path": "src/assets/images/characters/minato/waist/relieved.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "212c0896e8ec9d8f23b13521afd1a769fedf87878323f02e268f9a865c64efc6",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-ce5b2f34-cf21-493c-9790-2ff73e87a537.png",
+      "record": "rebuild-records/minato-waist-relieved.json"
+    },
+    {
+      "id": "mio",
+      "kind": "full",
+      "key": "neutral",
+      "path": "src/assets/images/characters/mio/full/neutral.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        254
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "906bf50fa7619bf96e0ea04a08966e55d42258544c94dc17693feacafd1d907d",
+      "source": "C:/Users/lemon/.codex/generated_images/01a123a2-b46f-77d3-b27e-a7f8a37b3920/exec-d037533c-dc82-4c44-ab5a-63b43d7dcae1.png",
+      "record": "rebuild-records/mio-full-neutral.json"
+    },
+    {
+      "id": "mio",
+      "kind": "waist",
+      "key": "neutral",
+      "path": "src/assets/images/characters/mio/waist/neutral.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "ebb6f60b945559a300d35d3a65ceb0b511c21a6c8b95d6ff2b02229f317c33ac",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-c2211acb-d991-4de1-abb5-101cfc32babe.png",
+      "record": "rebuild-records/mio-waist-neutral.json"
+    },
+    {
+      "id": "mio",
+      "kind": "waist",
+      "key": "smile",
+      "path": "src/assets/images/characters/mio/waist/smile.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "9f166ca5b7bcf9504aa9b7b7f242ccb7a54000e4635552cea753afa1171921eb",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-9ee216e7-d20c-4d19-8e20-1d189dbfbb81.png",
+      "record": "rebuild-records/mio-waist-smile.json"
+    },
+    {
+      "id": "mio",
+      "kind": "waist",
+      "key": "amused",
+      "path": "src/assets/images/characters/mio/waist/amused.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "56e21eb339cd556faad1fb5d4337e3ac26ff846b541cb34c3721c564ca24af4b",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-a051618a-1bb9-4e5a-a46f-6ffe29953e79.png",
+      "record": "rebuild-records/mio-waist-amused.json"
+    },
+    {
+      "id": "mio",
+      "kind": "waist",
+      "key": "serious",
+      "path": "src/assets/images/characters/mio/waist/serious.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "17092ef585f3f8d429331c4bed337445eae44d722e77243be847b79551ccaa32",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-77d97c29-7cac-4848-abd8-d7d186146698.png",
+      "record": "rebuild-records/mio-waist-serious.json"
+    },
+    {
+      "id": "mio",
+      "kind": "waist",
+      "key": "surprised",
+      "path": "src/assets/images/characters/mio/waist/surprised.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "d46796d362afd13510ac23269e1aab9b199ac07418ebd507a457c30e75a77cb9",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-4f56fe68-163b-4619-9ea3-1c784f7ca35b.png",
+      "record": "rebuild-records/mio-waist-surprised.json"
+    },
+    {
+      "id": "mio",
+      "kind": "waist",
+      "key": "worried",
+      "path": "src/assets/images/characters/mio/waist/worried.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "8e4b6ee25ea0321f3f83ccd5c236e73f8a8e102afbe792de5e9ec80432e91b4e",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-59b3ba22-fcf4-43ef-aa88-00a2cf97223f.png",
+      "record": "rebuild-records/mio-waist-worried.json"
+    },
+    {
+      "id": "mio",
+      "kind": "waist",
+      "key": "pained",
+      "path": "src/assets/images/characters/mio/waist/pained.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "cc1606ba30830ed51cd051df300b4f46055636a61ac115b171345bc4bc0f20c3",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-3b6ccff5-1b7a-4a03-8ae8-8eee53f9478f.png",
+      "record": "rebuild-records/mio-waist-pained.json"
+    },
+    {
+      "id": "mio",
+      "kind": "waist",
+      "key": "relieved",
+      "path": "src/assets/images/characters/mio/waist/relieved.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "7decf42dd9b462ff78a1b7746e3bdf79b3c158bb4ac2c78285b37463620b2adf",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-60ec8d83-031e-4108-ba40-bc3a8234ab86.png",
+      "record": "rebuild-records/mio-waist-relieved.json"
+    },
+    {
+      "id": "narumi",
+      "kind": "full",
+      "key": "neutral",
+      "path": "src/assets/images/characters/narumi/full/neutral.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        254
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "b03f3f83bed48864273038d6d5e7fd5faaed6acf681b6924e7eef7aabfbc02e8",
+      "source": "C:/Users/lemon/.codex/generated_images/01a123a2-b46f-77d3-b27e-a7f8a37b3920/exec-ef186af1-a2c3-424c-ad3a-e9126ba8e52c.png",
+      "record": "rebuild-records/narumi-full-neutral.json"
+    },
+    {
+      "id": "narumi",
+      "kind": "waist",
+      "key": "neutral",
+      "path": "src/assets/images/characters/narumi/waist/neutral.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "035d9a511a0906724856b546be8952eea48d25cb26145d05a7bdacb86eaaa256",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-6e338788-7b34-4972-8dd9-d4f9810bae09.png",
+      "record": "rebuild-records/narumi-waist-neutral.json"
+    },
+    {
+      "id": "narumi",
+      "kind": "waist",
+      "key": "amused",
+      "path": "src/assets/images/characters/narumi/waist/amused.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "322a54ca75d21a0871c28c8c03234c41b23c10360c00bb3b7a9f53194aa3e900",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-31e6bbe0-966b-40c6-ac3f-fcc15b752e84.png",
+      "record": "rebuild-records/narumi-waist-amused.json"
+    },
+    {
+      "id": "narumi",
+      "kind": "waist",
+      "key": "playful",
+      "path": "src/assets/images/characters/narumi/waist/playful.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "b079f4b705026e80876a604d9b5220a3318d67e4ab53a60004c162e54c3300aa",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-e0c8610f-0f41-4def-ad11-779e9f189e12.png",
+      "record": "rebuild-records/narumi-waist-playful.json"
+    },
+    {
+      "id": "narumi",
+      "kind": "waist",
+      "key": "smirk",
+      "path": "src/assets/images/characters/narumi/waist/smirk.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "c25e7708e979b6bf1dbc565fcad8fb47c17d0ca9d9f44f4e808e458275cdf377",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-620ed3b0-66da-438d-942f-8f194539715b.png",
+      "record": "rebuild-records/narumi-waist-smirk.json"
+    },
+    {
+      "id": "narumi",
+      "kind": "waist",
+      "key": "serious",
+      "path": "src/assets/images/characters/narumi/waist/serious.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "674ec0f91b6672a0d3a8c0110289200bdc363bd6e11f735c16b803394acd46c9",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-8093c902-ab2a-4b64-b321-efae13ea1953.png",
+      "record": "rebuild-records/narumi-waist-serious.json"
+    },
+    {
+      "id": "narumi",
+      "kind": "waist",
+      "key": "surprised",
+      "path": "src/assets/images/characters/narumi/waist/surprised.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "70018ab8e450763e49891bb27cbcee6db87ec2515da42b66010765f2b41610bd",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-ec820628-4687-4015-bf1c-0da36862c991.png",
+      "record": "rebuild-records/narumi-waist-surprised.json"
+    },
+    {
+      "id": "narumi",
+      "kind": "waist",
+      "key": "cool",
+      "path": "src/assets/images/characters/narumi/waist/cool.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "a3138e4c38c1463838bda5432a3e4b442c98e4f54c5a38d5ee18179a1c78bb11",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-9283c25a-4f03-4e19-a6bb-03086e8bdb50.png",
+      "record": "rebuild-records/narumi-waist-cool.json"
+    },
+    {
+      "id": "narumi",
+      "kind": "waist",
+      "key": "wary",
+      "path": "src/assets/images/characters/narumi/waist/wary.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "f0b529e205824e567e2072e5fb2fbdbaa5d83226fb65ae686194afab35695370",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-eb970c78-09b5-49c6-8e9e-6dc71f730ad2.png",
+      "record": "rebuild-records/narumi-waist-wary.json"
+    },
+    {
+      "id": "okumura",
+      "kind": "full",
+      "key": "neutral",
+      "path": "src/assets/images/characters/okumura/full/neutral.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        254
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "d2b803b76fd6ed68a1f0cb6987f43ca01ca850cf7bd8d284dfa43d5260014277",
+      "source": "C:/Users/lemon/.codex/generated_images/01a123a2-b46f-77d3-b27e-a7f8a37b3920/exec-d85fd5e0-dffe-4c83-af93-875f8b7dd9cd.png",
+      "record": "rebuild-records/okumura-full-neutral.json"
+    },
+    {
+      "id": "okumura",
+      "kind": "waist",
+      "key": "neutral",
+      "path": "src/assets/images/characters/okumura/waist/neutral.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "50c6ca362cb412a32ba097430954029ddf2bc66093400dc64b784914bf9647ce",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-dc10bad1-72d1-423e-be08-d75cfdd965ae.png",
+      "record": "rebuild-records/okumura-waist-neutral.json"
+    },
+    {
+      "id": "okumura",
+      "kind": "waist",
+      "key": "smile",
+      "path": "src/assets/images/characters/okumura/waist/smile.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "9c909ff213de4b3bcad1e7cbb4f3edf7f0b4f18926d2922fd69aaeedc44d9727",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-64944c37-163f-4f21-99a6-ffd68562368a.png",
+      "record": "rebuild-records/okumura-waist-smile.json"
+    },
+    {
+      "id": "okumura",
+      "kind": "waist",
+      "key": "serious",
+      "path": "src/assets/images/characters/okumura/waist/serious.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "7f2eaa341f13b35ac8290f2edd0f970357f3b4d68062936a4ede025bc7191262",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-fe0fde86-a877-4a69-b889-91ebcdad26b6.png",
+      "record": "rebuild-records/okumura-waist-serious.json"
+    },
+    {
+      "id": "okumura",
+      "kind": "waist",
+      "key": "surprised",
+      "path": "src/assets/images/characters/okumura/waist/surprised.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "f06ee1f7fc77b04ce7b3bd615c6986a0da499ed3972235eaae34259340260feb",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-1b9c04e1-fca2-42c4-8635-7c9c0736f89d.png",
+      "record": "rebuild-records/okumura-waist-surprised.json"
+    },
+    {
+      "id": "okumura",
+      "kind": "waist",
+      "key": "stern",
+      "path": "src/assets/images/characters/okumura/waist/stern.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "04d668f18690196b1dfa1af3b10a52765b7615d575417c7ef6def63ed3f7b1e3",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-a1b2aef5-fcda-4ecb-b18b-859f0d1276d3.png",
+      "record": "rebuild-records/okumura-waist-stern.json"
+    },
+    {
+      "id": "okumura",
+      "kind": "waist",
+      "key": "pained",
+      "path": "src/assets/images/characters/okumura/waist/pained.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "ea54cee5793f5e8a4d148e16b8a937c9ca7916aec36760c1ad2b5b07bdf38cb6",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-842856d8-31a0-451b-b64b-e7d9a0899f90.png",
+      "record": "rebuild-records/okumura-waist-pained.json"
+    },
+    {
+      "id": "okumura",
+      "kind": "waist",
+      "key": "relieved",
+      "path": "src/assets/images/characters/okumura/waist/relieved.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "129e5468d9624378c2062b5fcf18dc5984d6321b83b65d804ed12185b779a781",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-74400f15-e245-4380-8a5b-55ac2c52750b.png",
+      "record": "rebuild-records/okumura-waist-relieved.json"
+    },
+    {
+      "id": "segawa",
+      "kind": "full",
+      "key": "neutral",
+      "path": "src/assets/images/characters/segawa/full/neutral.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        254
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "a7b72629bbdb6541960bea6130640859c06335350728d36c4b246f58fe3bfcae",
+      "source": "C:/Users/lemon/.codex/generated_images/01a123a2-b46f-77d3-b27e-a7f8a37b3920/exec-a355c787-6b29-4f25-a771-4c91f1f55634.png",
+      "record": "rebuild-records/segawa-full-neutral.json"
+    },
+    {
+      "id": "segawa",
+      "kind": "waist",
+      "key": "neutral",
+      "path": "src/assets/images/characters/segawa/waist/neutral.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "94611ff1c0f056e88d88cdacc7666d43c478b9f2eb6fd9ee12bba23d9b93347c",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-c8d35767-6981-4c07-b5fb-9f45ffdc5f92.png",
+      "record": "rebuild-records/segawa-waist-neutral.json"
+    },
+    {
+      "id": "segawa",
+      "kind": "waist",
+      "key": "smile",
+      "path": "src/assets/images/characters/segawa/waist/smile.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "e4511d64b769f56ff2e8b17c05de7a5417ca7387a5064f2bcc69b3878464a018",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-6e1c1d3a-3c1e-4a60-bf1c-faa51967cc35.png",
+      "record": "rebuild-records/segawa-waist-smile.json"
+    },
+    {
+      "id": "segawa",
+      "kind": "waist",
+      "key": "serious",
+      "path": "src/assets/images/characters/segawa/waist/serious.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "f03235b315bdf414049f2a9c4ae2a1cb4b41eaf9b60411df27fc667bbfa614e1",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-87197841-b87a-42a4-b037-2d01abcb0f68.png",
+      "record": "rebuild-records/segawa-waist-serious.json"
+    },
+    {
+      "id": "segawa",
+      "kind": "waist",
+      "key": "surprised",
+      "path": "src/assets/images/characters/segawa/waist/surprised.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "51d08c3db3cf6d90e5c87bc160011425801b48208ed775f69e03638ea8723e28",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-5477ec02-8ecc-4b64-b9c3-dd02a3036a00.png",
+      "record": "rebuild-records/segawa-waist-surprised.json"
+    },
+    {
+      "id": "segawa",
+      "kind": "waist",
+      "key": "skeptical",
+      "path": "src/assets/images/characters/segawa/waist/skeptical.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "7e6b0a1ceba193a6258a0d4f9bffdfc06ac099edbe0d54cf0429ef023f2a2fd2",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-44eb4ed6-d9c2-445c-a05c-df0a848a67ef.png",
+      "record": "rebuild-records/segawa-waist-skeptical.json"
+    },
+    {
+      "id": "segawa",
+      "kind": "waist",
+      "key": "irritated",
+      "path": "src/assets/images/characters/segawa/waist/irritated.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "a44b58a682faf28cb29ab26d0411d10eb9406a7af1617e06ea94d7c027baad0b",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-26b8e9f5-924d-417b-90a0-3661d210c6bd.png",
+      "record": "rebuild-records/segawa-waist-irritated.json"
+    },
+    {
+      "id": "segawa",
+      "kind": "waist",
+      "key": "reluctant",
+      "path": "src/assets/images/characters/segawa/waist/reluctant.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "19f8f950946992e4cf18405352369821fe998892fd24080e971e80df8158e32c",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-c51bed7b-9306-47a5-ac13-c1f76a18497e.png",
+      "record": "rebuild-records/segawa-waist-reluctant.json"
+    },
+    {
+      "id": "segawa",
+      "kind": "waist",
+      "key": "relieved",
+      "path": "src/assets/images/characters/segawa/waist/relieved.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "8325ea3574d8a89f10ad2f45d52e555c3d66e2a3e03a8e8a3a1e691a84a067d5",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-844dc367-7a72-4f93-aada-c08f7e33bd86.png",
+      "record": "rebuild-records/segawa-waist-relieved.json"
+    },
+    {
+      "id": "akari",
+      "kind": "full",
+      "key": "neutral",
+      "path": "src/assets/images/characters/akari/full/neutral.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        254
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "3ccc90e38ace68ac4f9d032d4e237ad9881084825ce4f647eded244fb699a5d2",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-a15d325e-6fd7-4377-8763-519648999f66.png",
+      "record": "rebuild-records/akari-full-neutral.json"
+    },
+    {
+      "id": "akari",
+      "kind": "waist",
+      "key": "neutral",
+      "path": "src/assets/images/characters/akari/waist/neutral.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "9b0727f04f33a99d2ecb1da357c1538c86766dd3f1733778d294a3c31e7008a0",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-ce56da38-ee2c-48b5-b2d0-6dc4c59c3ffe.png",
+      "record": "rebuild-records/akari-waist-neutral.json"
+    },
+    {
+      "id": "akari",
+      "kind": "waist",
+      "key": "smile",
+      "path": "src/assets/images/characters/akari/waist/smile.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "7e615cd8156fd762026e30584d0cb50990d09e5fc3cc8e44638a9ada26acdce5",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-25b2833d-7758-4b9d-9708-f06e862171df.png",
+      "record": "rebuild-records/akari-waist-smile.json"
+    },
+    {
+      "id": "akari",
+      "kind": "waist",
+      "key": "serious",
+      "path": "src/assets/images/characters/akari/waist/serious.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "b0dfd24fb1f82108a028ab6664250b00a901783620cde4bd2cb8c68db61998e8",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-33b12d0c-8ee5-450d-8e69-ef0bc8d1689c.png",
+      "record": "rebuild-records/akari-waist-serious.json"
+    },
+    {
+      "id": "akari",
+      "kind": "waist",
+      "key": "surprised",
+      "path": "src/assets/images/characters/akari/waist/surprised.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "e08657e11a7d0a3316cfdf4a750eaf0cc76191de76cd61156ce48213ad0a89fd",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-9e9548d7-5896-4f52-b5af-474f07372298.png",
+      "record": "rebuild-records/akari-waist-surprised.json"
+    },
+    {
+      "id": "akari",
+      "kind": "waist",
+      "key": "worried",
+      "path": "src/assets/images/characters/akari/waist/worried.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "976bbadd3acf5c380367955848296300672e2744366d8ae7a5e16583425d8b5d",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-f3197968-933e-4bd5-bdf9-5e80f204865a.png",
+      "record": "rebuild-records/akari-waist-worried.json"
+    },
+    {
+      "id": "akari",
+      "kind": "waist",
+      "key": "sad",
+      "path": "src/assets/images/characters/akari/waist/sad.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "55523b4bd8e6be0d02bfce956e8e17735dde6f3e0272a5c7b3c8f04f1de4f596",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-c01c1e4a-5006-4015-a024-1577130ab91f.png",
+      "record": "rebuild-records/akari-waist-sad.json"
+    },
+    {
+      "id": "akari",
+      "kind": "waist",
+      "key": "relieved",
+      "path": "src/assets/images/characters/akari/waist/relieved.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "f2cbee15d834d88700e8f85e7fe78808573421a9c592ba5df5bfc06cd3731b5f",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-6fbfd94f-49ea-4c3b-b675-20e2622439f6.png",
+      "record": "rebuild-records/akari-waist-relieved.json"
+    },
+    {
+      "id": "akari",
+      "kind": "waist",
+      "key": "determined",
+      "path": "src/assets/images/characters/akari/waist/determined.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "5b2f4302277e0386eeeef341c7d4addcfcc511333c16eb8d602ef4137a084bca",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-a7cd3b4c-7430-49ca-abb4-451e88587678.png",
+      "record": "rebuild-records/akari-waist-determined.json"
+    },
+    {
+      "id": "naoto",
+      "kind": "full",
+      "key": "neutral",
+      "path": "src/assets/images/characters/naoto/full/neutral.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        254
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "951bdaebd53fb81ddebe0f6a41e38991c2731e23c6ead7b0659b1ec32e583e23",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-53e3edab-cf7a-4856-ae39-3b5338e98299.png",
+      "record": "rebuild-records/naoto-full-neutral.json"
+    },
+    {
+      "id": "naoto",
+      "kind": "waist",
+      "key": "neutral",
+      "path": "src/assets/images/characters/naoto/waist/neutral.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "a1b57d973ed8d8af5a8814ca9472c1f1193f76270cf55670c7a7eb34f5573f3a",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-40ae8167-db27-4dc2-be65-0ea7a0d83403.png",
+      "record": "rebuild-records/naoto-waist-neutral.json"
+    },
+    {
+      "id": "naoto",
+      "kind": "waist",
+      "key": "smile",
+      "path": "src/assets/images/characters/naoto/waist/smile.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "74a42184caab12ec031c68d09e6e14ddea0b9bf1c0ffb3393ae7b0dec1a9f1d6",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-0edc2156-e95e-42eb-8d80-edf6f76a4113.png",
+      "record": "rebuild-records/naoto-waist-smile.json"
+    },
+    {
+      "id": "naoto",
+      "kind": "waist",
+      "key": "serious",
+      "path": "src/assets/images/characters/naoto/waist/serious.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "c1ede8e7192995d0ddc57679fdaa33e49be910e987f61561d2acc099cbcad88a",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-204c815a-b932-4c89-83fd-b3bb69db7f17.png",
+      "record": "rebuild-records/naoto-waist-serious.json"
+    },
+    {
+      "id": "naoto",
+      "kind": "waist",
+      "key": "surprised",
+      "path": "src/assets/images/characters/naoto/waist/surprised.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "e1185da8905a4ff567fea6991783f4beba0a9ed9eb32bee36196e40f75e1d263",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-71cd6bc3-e8fb-4c35-a3af-c92814b8e106.png",
+      "record": "rebuild-records/naoto-waist-surprised.json"
+    },
+    {
+      "id": "naoto",
+      "kind": "waist",
+      "key": "worried",
+      "path": "src/assets/images/characters/naoto/waist/worried.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "e69ccecd7e4c7c9ee05a02c7e31b09eedd93c50840ad5ca8622118ed7d38e9f1",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-44dc13f8-4dd4-4f91-8006-8adf4424f0e8.png",
+      "record": "rebuild-records/naoto-waist-worried.json"
+    },
+    {
+      "id": "naoto",
+      "kind": "waist",
+      "key": "pained",
+      "path": "src/assets/images/characters/naoto/waist/pained.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "52fa4d8d0b2820ac6e1c4b791b9beb9361d7362851d48d32665c16a8bcc7c488",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-d84c43e7-6bee-459d-9245-43e7ad7f0df8.png",
+      "record": "rebuild-records/naoto-waist-pained.json"
+    },
+    {
+      "id": "naoto",
+      "kind": "waist",
+      "key": "relieved",
+      "path": "src/assets/images/characters/naoto/waist/relieved.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "49e386bbfb6184ee9658a39fe4516e1b82c0eebb07adc012fd6da3a12be776d6",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-c654756d-eba2-46f8-a187-4aaaf095a8f1.png",
+      "record": "rebuild-records/naoto-waist-relieved.json"
+    },
+    {
+      "id": "naoto",
+      "kind": "waist",
+      "key": "remorseful",
+      "path": "src/assets/images/characters/naoto/waist/remorseful.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "6cd90a8850489766de36721c8134d6e4db411815b279ebdf80da056e93f26135",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-7f6ac775-914f-4ada-aaf7-95e3ddcce38a.png",
+      "record": "rebuild-records/naoto-waist-remorseful.json"
+    },
+    {
+      "id": "saori",
+      "kind": "full",
+      "key": "neutral",
+      "path": "src/assets/images/characters/saori/full/neutral.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        254
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "a4f630c02bbdbdef3e46df770165e59fd8ef6ad5dfa7256c2aa4fb079a588652",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-6d6964c0-a6d9-4116-826d-21294cde4b57.png",
+      "record": "rebuild-records/saori-full-neutral.json"
+    },
+    {
+      "id": "saori",
+      "kind": "waist",
+      "key": "neutral",
+      "path": "src/assets/images/characters/saori/waist/neutral.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "032737ec54ae86388fdec83dd6a4ad0496e9448f7c15ae39b2d2dff7b53d96a3",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-dc596e45-2c04-43d8-8f63-4bdeb6a9ed15.png",
+      "record": "rebuild-records/saori-waist-neutral.json"
+    },
+    {
+      "id": "saori",
+      "kind": "waist",
+      "key": "smile",
+      "path": "src/assets/images/characters/saori/waist/smile.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "c0bef9e1b2503838e46a8b3eab340057aa280f9a51c34a14b81c3f960c98f2b9",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-36a4f515-02fd-4b7d-a0c3-299c1b611440.png",
+      "record": "rebuild-records/saori-waist-smile.json"
+    },
+    {
+      "id": "saori",
+      "kind": "waist",
+      "key": "serious",
+      "path": "src/assets/images/characters/saori/waist/serious.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "1e2c9131951be188506b83a2e61cdfab0a815a5e03a830480b873ebe49eb87f5",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-cf034b0b-a83e-4199-bc45-153ea351501c.png",
+      "record": "rebuild-records/saori-waist-serious.json"
+    },
+    {
+      "id": "saori",
+      "kind": "waist",
+      "key": "surprised",
+      "path": "src/assets/images/characters/saori/waist/surprised.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "f8fdf3af7911d7f6614bc64b4c2c3f6603c7235845fd55c9fbe7401e0ae1bf78",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-dde1f2b4-e817-46d8-99cf-ee8680097626.png",
+      "record": "rebuild-records/saori-waist-surprised.json"
+    },
+    {
+      "id": "saori",
+      "kind": "waist",
+      "key": "worried",
+      "path": "src/assets/images/characters/saori/waist/worried.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "25183ba48e638ade0f6d25797464d787f7a482526cd7c053776c88370f88d7cf",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-555b8ba4-bbdf-45e1-8f48-5017941173c1.png",
+      "record": "rebuild-records/saori-waist-worried.json"
+    },
+    {
+      "id": "saori",
+      "kind": "waist",
+      "key": "pained",
+      "path": "src/assets/images/characters/saori/waist/pained.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "13e795f2072c8a9df8b16807b26e57d91db073916c4b17d7a39ff32c37886a7f",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-0309192f-2b88-4ec5-871c-a8b544d34d0d.png",
+      "record": "rebuild-records/saori-waist-pained.json"
+    },
+    {
+      "id": "saori",
+      "kind": "waist",
+      "key": "relieved",
+      "path": "src/assets/images/characters/saori/waist/relieved.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "60759f7d89661ffe25a80affae9bb84187b00ece44764c87c37bcf5e886d78ee",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-8e86df74-f1ab-4549-927e-256d67d50ace.png",
+      "record": "rebuild-records/saori-waist-relieved.json"
+    },
+    {
+      "id": "saori",
+      "kind": "waist",
+      "key": "confused",
+      "path": "src/assets/images/characters/saori/waist/confused.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "3268f92b5a0bcf768596c83f34b642e0510024b470f9669ce24a48e25806b1aa",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-a1891753-28f7-427d-932c-7cb6dbb43d22.png",
+      "record": "rebuild-records/saori-waist-confused.json"
+    },
+    {
+      "id": "kuroda",
+      "kind": "full",
+      "key": "neutral",
+      "path": "src/assets/images/characters/kuroda/full/neutral.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        254
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "ea1af38b4da600fd0906b66d6aec01fd1eb9487d393d7c9e9478e385f65b7840",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-3402abd9-021f-4b38-be14-258c64bf6982.png",
+      "record": "rebuild-records/kuroda-full-neutral.json"
+    },
+    {
+      "id": "kuroda",
+      "kind": "waist",
+      "key": "neutral",
+      "path": "src/assets/images/characters/kuroda/waist/neutral.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "5a2f5cf72a96e6fc75cee1e1a6fea40cd6ae57d0e5db7d62f1ab3bd2eafb8dfd",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-e74df1af-0471-4a28-b909-0138ade2be30.png",
+      "record": "rebuild-records/kuroda-waist-neutral.json"
+    },
+    {
+      "id": "kuroda",
+      "kind": "waist",
+      "key": "smile",
+      "path": "src/assets/images/characters/kuroda/waist/smile.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "8d0669fc5f03468df1846466ab62ab3a629207de698b44cab0325c9086023211",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-9b1c0a0e-513d-48bc-93d0-1ac25ce66e2d.png",
+      "record": "rebuild-records/kuroda-waist-smile.json"
+    },
+    {
+      "id": "kuroda",
+      "kind": "waist",
+      "key": "serious",
+      "path": "src/assets/images/characters/kuroda/waist/serious.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "1a43259f677b5c1a728bb8aa0cf8101400f7118677c1e57db3c74fa7681b0fa2",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-888bdeb6-67bb-46d2-afb0-3e0fdfbbd6e2.png",
+      "record": "rebuild-records/kuroda-waist-serious.json"
+    },
+    {
+      "id": "kuroda",
+      "kind": "waist",
+      "key": "confused",
+      "path": "src/assets/images/characters/kuroda/waist/confused.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "2d3caff402f002ddca2744c05cf04894af1c6def025198ded57734e60db768e2",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-6565ef2e-4be7-445a-af3c-40647e07c482.png",
+      "record": "rebuild-records/kuroda-waist-confused.json"
+    },
+    {
+      "id": "kuroda",
+      "kind": "waist",
+      "key": "worried",
+      "path": "src/assets/images/characters/kuroda/waist/worried.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "afcc53dc78ba8f7e302f8fadf2ef7041ef1b11de9945a5b8c33c1724b4b354f9",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-cf2aeaad-288d-46b1-8a07-882cb031460f.png",
+      "record": "rebuild-records/kuroda-waist-worried.json"
+    },
+    {
+      "id": "kuroda",
+      "kind": "waist",
+      "key": "pained",
+      "path": "src/assets/images/characters/kuroda/waist/pained.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "dd54f5d5b8652c448f3ecabc819df4f1b4e854fa5c484f2dfe143a0ac107658b",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-412d482e-35b3-4e42-a803-29444fe72b7a.png",
+      "record": "rebuild-records/kuroda-waist-pained.json"
+    },
+    {
+      "id": "miyahara",
+      "kind": "full",
+      "key": "neutral",
+      "path": "src/assets/images/characters/miyahara/full/neutral.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        254
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "c043f888d908b23106dcc12673c5ef5d9133ecc047d0e52b1e46e3351cd807b7",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-1eb8f879-2070-4228-90b5-6293552b68c2.png",
+      "record": "rebuild-records/miyahara-full-neutral.json"
+    },
+    {
+      "id": "miyahara",
+      "kind": "waist",
+      "key": "neutral",
+      "path": "src/assets/images/characters/miyahara/waist/neutral.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "f01e0174006ac3428c44a15d6d3f903f8999c75dd3afb82117beac3c1a4b8b6a",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-1ad99c09-59f4-4d6b-b3b7-f118e782da35.png",
+      "record": "rebuild-records/miyahara-waist-neutral.json"
+    },
+    {
+      "id": "miyahara",
+      "kind": "waist",
+      "key": "smile",
+      "path": "src/assets/images/characters/miyahara/waist/smile.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "1311b88b6a54fa11c0a00f731b8aa130943d1a8babbdfb421da004c529bf3837",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-499aa753-fcbd-4470-b514-4c40f8704326.png",
+      "record": "rebuild-records/miyahara-waist-smile.json"
+    },
+    {
+      "id": "miyahara",
+      "kind": "waist",
+      "key": "serious",
+      "path": "src/assets/images/characters/miyahara/waist/serious.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "c508adb9ba4cfc0da5ed08a149483f261560fe4708a36c7bf573c07a2e4dc7e9",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-6c12d29a-c5bf-4966-8f17-3a0cd480b2e8.png",
+      "record": "rebuild-records/miyahara-waist-serious.json"
+    },
+    {
+      "id": "miyahara",
+      "kind": "waist",
+      "key": "worried",
+      "path": "src/assets/images/characters/miyahara/waist/worried.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "abca3e30365aa0957a993f4cdf2ada11b0581078ef631026d30063aca2a6e57f",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-74d8987e-9315-4bab-b1fa-b8301016970a.png",
+      "record": "rebuild-records/miyahara-waist-worried.json"
+    },
+    {
+      "id": "miyahara",
+      "kind": "waist",
+      "key": "pained",
+      "path": "src/assets/images/characters/miyahara/waist/pained.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "78dfb0a95463c913756d2b06fc56a09e0cf7f03f9ee2b80bc48929e76a1267e5",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-fd9a7e89-2e27-4149-96d6-459e2b66d344.png",
+      "record": "rebuild-records/miyahara-waist-pained.json"
+    },
+    {
+      "id": "miyahara",
+      "kind": "waist",
+      "key": "surprised",
+      "path": "src/assets/images/characters/miyahara/waist/surprised.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "21b96679a2b33925fb4c0c434f570256cbd7bdc1ae85161249776691c736e689",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-09b5554d-2dc4-4852-975c-8a52ab821f18.png",
+      "record": "rebuild-records/miyahara-waist-surprised.json"
+    },
+    {
+      "id": "miyahara",
+      "kind": "waist",
+      "key": "relieved",
+      "path": "src/assets/images/characters/miyahara/waist/relieved.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "dd97c2b4d2ccebd6e1a634bd62c5835f5bb4654ed1ae62bc1ccd14dd2d8ae035",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-fa68f7ff-3468-4578-a220-18a0a8eb33e7.png",
+      "record": "rebuild-records/miyahara-waist-relieved.json"
+    },
+    {
+      "id": "misaki",
+      "kind": "portrait",
+      "key": "neutral",
+      "path": "src/assets/images/characters/misaki/portrait/neutral.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        245,
+        250
+      ],
+      "sha256": "59424eaf7137ce4994fcb6479b9743250fb791ccd08b902cb5207fa714fe1845",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-d2dfed5b-359b-4d57-8e3e-988f93bb7c3f.png",
+      "record": "rebuild-records/misaki-portrait-neutral.json"
+    }
+  ],
+  "sheets": [
+    {
+      "id": "minato",
+      "path": "docs/art/characters/minato/drafts/gekiga-sheet-01.png",
+      "size": [
+        1920,
+        1080
+      ],
+      "sha256": "87381837f0c53eec1a08ed5a09486855660f4440bf52c04659866cdf76a08e22"
+    },
+    {
+      "id": "mio",
+      "path": "docs/art/characters/mio/drafts/gekiga-sheet-01.png",
+      "size": [
+        1920,
+        1080
+      ],
+      "sha256": "6301f2a753fd9215ca6fe774236f70d0385f348df96eff9ae2d022595d7fe3a5"
+    },
+    {
+      "id": "narumi",
+      "path": "docs/art/characters/narumi/drafts/gekiga-sheet-01.png",
+      "size": [
+        1920,
+        1080
+      ],
+      "sha256": "6812a32fc4646dbb7aad6e8f059dc002e5e5811b996a2c2a6188c0bb7de4bfb3"
+    },
+    {
+      "id": "okumura",
+      "path": "docs/art/characters/okumura/drafts/gekiga-sheet-01.png",
+      "size": [
+        1920,
+        1080
+      ],
+      "sha256": "85b75ff2b2b239719fd6d489cc3076856c43352966aefb16b936687108a45d31"
+    },
+    {
+      "id": "segawa",
+      "path": "docs/art/characters/segawa/drafts/gekiga-sheet-01.png",
+      "size": [
+        1920,
+        1080
+      ],
+      "sha256": "71fbfa55ea580467bd6350c1540a6be9cb8e98d95eedf06062e29f7662a2d8b0"
+    },
+    {
+      "id": "akari",
+      "path": "docs/art/characters/akari/drafts/gekiga-sheet-01.png",
+      "size": [
+        1920,
+        1080
+      ],
+      "sha256": "27991435b3e1c29ec662360a9119a721e7575d92fbd40564167cb1c870816093"
+    },
+    {
+      "id": "naoto",
+      "path": "docs/art/characters/naoto/drafts/gekiga-sheet-01.png",
+      "size": [
+        1920,
+        1080
+      ],
+      "sha256": "315dfb17eb11869a346909918507a84c4557b0f7bacb647ed6f0bf9d8bd94292"
+    },
+    {
+      "id": "saori",
+      "path": "docs/art/characters/saori/drafts/gekiga-sheet-01.png",
+      "size": [
+        1920,
+        1080
+      ],
+      "sha256": "948cf44cbe9e4d6da7397a2d25e5b8950aefe0ac6a9011dfaada34bdba773ff7"
+    },
+    {
+      "id": "kuroda",
+      "path": "docs/art/characters/kuroda/drafts/gekiga-sheet-01.png",
+      "size": [
+        1920,
+        1080
+      ],
+      "sha256": "fa4ba59e72fee98306b240cbc96eaae39ede1465fd0f118a2d7faf2039620779"
+    },
+    {
+      "id": "miyahara",
+      "path": "docs/art/characters/miyahara/drafts/gekiga-sheet-01.png",
+      "size": [
+        1920,
+        1080
+      ],
+      "sha256": "dacb7840a4bcb9c43dc9fab4f043bda4bd82628b331c6a2b250be4b306e37419"
+    }
+  ],
+  "verification": "All expected keys, sizes, RGBA, transparent four corners for standing/waist sprites and top corners for the chest portrait; hashes and unique files. Visual checks at generation; game UI and final individual adoption pending."
+}

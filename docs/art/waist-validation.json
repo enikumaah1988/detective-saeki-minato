@@ -1,0 +1,994 @@
+[
+  {
+    "id": "minato",
+    "key": "neutral",
+    "file": "src/assets/images/characters/minato/waist/neutral.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 640085,
+    "opaquePixels": 1962,
+    "boundsAlphaAbove8": [
+      190,
+      42,
+      858,
+      978
+    ],
+    "sha256": "a24ffc08c2b044713314ddf9cb2848be551989ef8c655a8f403a2f8ad9dea35d"
+  },
+  {
+    "id": "minato",
+    "key": "smile",
+    "file": "src/assets/images/characters/minato/waist/smile.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 634620,
+    "opaquePixels": 1694,
+    "boundsAlphaAbove8": [
+      190,
+      41,
+      862,
+      982
+    ],
+    "sha256": "ea00381a7cb8aea3a57b0e16ab5ce600dfddca2418c585cb1b286079969f97fc"
+  },
+  {
+    "id": "minato",
+    "key": "serious",
+    "file": "src/assets/images/characters/minato/waist/serious.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 659268,
+    "opaquePixels": 1297,
+    "boundsAlphaAbove8": [
+      240,
+      45,
+      816,
+      984
+    ],
+    "sha256": "c96c19fa21ad802a641dcab0a38a3bc178ce039f12465c2f3ad2a1e76d16ae62"
+  },
+  {
+    "id": "minato",
+    "key": "surprised",
+    "file": "src/assets/images/characters/minato/waist/surprised.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 641847,
+    "opaquePixels": 1877,
+    "boundsAlphaAbove8": [
+      189,
+      42,
+      869,
+      980
+    ],
+    "sha256": "2138616248ec38cbc61137a52809211e8d109e8de2d8caee1e2e48ee84d57351"
+  },
+  {
+    "id": "minato",
+    "key": "irritated",
+    "file": "src/assets/images/characters/minato/waist/irritated.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 636451,
+    "opaquePixels": 1899,
+    "boundsAlphaAbove8": [
+      189,
+      41,
+      860,
+      980
+    ],
+    "sha256": "20dde38a4cc6f0e6cc0f640d1d121c2ffd090f4b401edccf8977ae95f3059f64"
+  },
+  {
+    "id": "minato",
+    "key": "pained",
+    "file": "src/assets/images/characters/minato/waist/pained.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 653306,
+    "opaquePixels": 1331,
+    "boundsAlphaAbove8": [
+      235,
+      42,
+      817,
+      988
+    ],
+    "sha256": "96b53879dcf76587053842f637b4a0377233d0dbc6425144b7a980453de26a2d"
+  },
+  {
+    "id": "minato",
+    "key": "relieved",
+    "file": "src/assets/images/characters/minato/waist/relieved.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 638365,
+    "opaquePixels": 1898,
+    "boundsAlphaAbove8": [
+      167,
+      42,
+      866,
+      978
+    ],
+    "sha256": "456971d73737c2e97a440672dfe58fa212a83cf196a62750952cd06e812a4233"
+  },
+  {
+    "id": "mio",
+    "key": "neutral",
+    "file": "src/assets/images/characters/mio/waist/neutral.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 659933,
+    "opaquePixels": 1454,
+    "boundsAlphaAbove8": [
+      244,
+      54,
+      801,
+      991
+    ],
+    "sha256": "de23a97e11a337e3f0dfc3c73d9f0f045a0bb1a02045b41627ec339e5e8d78e5"
+  },
+  {
+    "id": "mio",
+    "key": "smile",
+    "file": "src/assets/images/characters/mio/waist/smile.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 656193,
+    "opaquePixels": 1420,
+    "boundsAlphaAbove8": [
+      243,
+      53,
+      806,
+      991
+    ],
+    "sha256": "2836a6c43cce45dc43e86c58046cb26e67d1cdc0e1101f40a0b2c5f9a7198a7f"
+  },
+  {
+    "id": "mio",
+    "key": "amused",
+    "file": "src/assets/images/characters/mio/waist/amused.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 660256,
+    "opaquePixels": 1070,
+    "boundsAlphaAbove8": [
+      229,
+      53,
+      803,
+      983
+    ],
+    "sha256": "43d7e19b9989b95c29ff9035681c0fb9280c4f47caba1991057a105c35c349dc"
+  },
+  {
+    "id": "mio",
+    "key": "serious",
+    "file": "src/assets/images/characters/mio/waist/serious.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 642714,
+    "opaquePixels": 1861,
+    "boundsAlphaAbove8": [
+      202,
+      53,
+      813,
+      991
+    ],
+    "sha256": "399c40bad3c7915eefdf442b9df8e00748386f7e8fdbc479103d6ef6f0c1f13d"
+  },
+  {
+    "id": "mio",
+    "key": "surprised",
+    "file": "src/assets/images/characters/mio/waist/surprised.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 650030,
+    "opaquePixels": 1573,
+    "boundsAlphaAbove8": [
+      233,
+      54,
+      822,
+      991
+    ],
+    "sha256": "034c5544f938d71c4d3a0c9ab8b83e993832193ef6eb47193ccab94a281afced"
+  },
+  {
+    "id": "mio",
+    "key": "worried",
+    "file": "src/assets/images/characters/mio/waist/worried.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 658380,
+    "opaquePixels": 1476,
+    "boundsAlphaAbove8": [
+      244,
+      53,
+      810,
+      991
+    ],
+    "sha256": "776cf9f1c3d3bc7399b4cd7da3c487f95cd29dc3024a9584bfdab003ebac4df5"
+  },
+  {
+    "id": "mio",
+    "key": "pained",
+    "file": "src/assets/images/characters/mio/waist/pained.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 642189,
+    "opaquePixels": 1625,
+    "boundsAlphaAbove8": [
+      234,
+      53,
+      819,
+      991
+    ],
+    "sha256": "0e05af734def55eeaa04a3616a523666348b31d0c1297bdab34a51b307e8fed4"
+  },
+  {
+    "id": "mio",
+    "key": "relieved",
+    "file": "src/assets/images/characters/mio/waist/relieved.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 654735,
+    "opaquePixels": 1514,
+    "boundsAlphaAbove8": [
+      236,
+      53,
+      806,
+      991
+    ],
+    "sha256": "743422ea1f6821a74e9f43c72a4b40f8b5199d8aa77a4814ddbca2b0fa97c52c"
+  },
+  {
+    "id": "narumi",
+    "key": "neutral",
+    "file": "src/assets/images/characters/narumi/waist/neutral.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 652728,
+    "opaquePixels": 1848,
+    "boundsAlphaAbove8": [
+      205,
+      70,
+      829,
+      991
+    ],
+    "sha256": "482dea7ecc5021d9b4aec7472b7303f84f17046a2729d851c5d37f5fc8a72dd8"
+  },
+  {
+    "id": "narumi",
+    "key": "amused",
+    "file": "src/assets/images/characters/narumi/waist/amused.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 654660,
+    "opaquePixels": 1915,
+    "boundsAlphaAbove8": [
+      137,
+      70,
+      832,
+      991
+    ],
+    "sha256": "3afc27c68f2d13f53b31c355530d9fc1f1c6a96a54d7ece6eb04f5a4358c92b8"
+  },
+  {
+    "id": "narumi",
+    "key": "playful",
+    "file": "src/assets/images/characters/narumi/waist/playful.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 645902,
+    "opaquePixels": 2252,
+    "boundsAlphaAbove8": [
+      116,
+      70,
+      966,
+      991
+    ],
+    "sha256": "89c3f0abe23f9af50fada7e6a0383a9bedc471d63adc8dc0a33babc1ce9f09a5"
+  },
+  {
+    "id": "narumi",
+    "key": "smirk",
+    "file": "src/assets/images/characters/narumi/waist/smirk.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 668828,
+    "opaquePixels": 1853,
+    "boundsAlphaAbove8": [
+      204,
+      70,
+      817,
+      991
+    ],
+    "sha256": "f0b155bb1415074f63ce5d4dd9dd881ae0d656d788b334b357d92d50667e4bd5"
+  },
+  {
+    "id": "narumi",
+    "key": "serious",
+    "file": "src/assets/images/characters/narumi/waist/serious.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 662420,
+    "opaquePixels": 1915,
+    "boundsAlphaAbove8": [
+      199,
+      70,
+      835,
+      991
+    ],
+    "sha256": "60696f30013a76d5e58b254b67dc57b25182685eb83819ae3754256e44899b55"
+  },
+  {
+    "id": "narumi",
+    "key": "surprised",
+    "file": "src/assets/images/characters/narumi/waist/surprised.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 655336,
+    "opaquePixels": 1954,
+    "boundsAlphaAbove8": [
+      165,
+      68,
+      837,
+      991
+    ],
+    "sha256": "d6953e73a67c2f93f813a7dcb615ba27ca075d88d7763094cdbdf808ce812ae8"
+  },
+  {
+    "id": "narumi",
+    "key": "cool",
+    "file": "src/assets/images/characters/narumi/waist/cool.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 682294,
+    "opaquePixels": 1630,
+    "boundsAlphaAbove8": [
+      196,
+      71,
+      814,
+      991
+    ],
+    "sha256": "61302ec63220e89f9a82761f38d20983b80ca0fa684487646b048903fccbe912"
+  },
+  {
+    "id": "narumi",
+    "key": "wary",
+    "file": "src/assets/images/characters/narumi/waist/wary.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 626633,
+    "opaquePixels": 2195,
+    "boundsAlphaAbove8": [
+      188,
+      64,
+      940,
+      991
+    ],
+    "sha256": "60b9d4ec544d7e7e0bf892ee796ab726ac114b76aec93b85dc5419fcfd6ff1a0"
+  },
+  {
+    "id": "okumura",
+    "key": "neutral",
+    "file": "src/assets/images/characters/okumura/waist/neutral.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 655001,
+    "opaquePixels": 1981,
+    "boundsAlphaAbove8": [
+      225,
+      48,
+      851,
+      991
+    ],
+    "sha256": "5525ae9fa6233bef0cd60e0c3eeee233449a42f1b0cd3e760941d69a8a19a15d"
+  },
+  {
+    "id": "okumura",
+    "key": "smile",
+    "file": "src/assets/images/characters/okumura/waist/smile.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 652558,
+    "opaquePixels": 2159,
+    "boundsAlphaAbove8": [
+      195,
+      47,
+      858,
+      991
+    ],
+    "sha256": "615f99a97faa2f98af951050dfe46a9c6c8c8dceb75ff160a73590a5d7f54c5e"
+  },
+  {
+    "id": "okumura",
+    "key": "serious",
+    "file": "src/assets/images/characters/okumura/waist/serious.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 665587,
+    "opaquePixels": 1685,
+    "boundsAlphaAbove8": [
+      215,
+      49,
+      820,
+      987
+    ],
+    "sha256": "dc0d5e1788dec0f4514459e446a8d71dd094183c34a2c3fc7def30bebafb1948"
+  },
+  {
+    "id": "okumura",
+    "key": "surprised",
+    "file": "src/assets/images/characters/okumura/waist/surprised.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 635610,
+    "opaquePixels": 2161,
+    "boundsAlphaAbove8": [
+      163,
+      47,
+      886,
+      991
+    ],
+    "sha256": "51b32444536ed8909029b6a36b8f6d8e9c0f1510a8f7f0c02d4a78c086f13049"
+  },
+  {
+    "id": "okumura",
+    "key": "stern",
+    "file": "src/assets/images/characters/okumura/waist/stern.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 677596,
+    "opaquePixels": 1789,
+    "boundsAlphaAbove8": [
+      226,
+      52,
+      808,
+      991
+    ],
+    "sha256": "c6236e6adb98936a3630626d5d69c6268e5dd1957a9d75b321465944f7b7f616"
+  },
+  {
+    "id": "okumura",
+    "key": "pained",
+    "file": "src/assets/images/characters/okumura/waist/pained.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 648335,
+    "opaquePixels": 1970,
+    "boundsAlphaAbove8": [
+      228,
+      52,
+      833,
+      991
+    ],
+    "sha256": "f2e47ec53eeb3ce60138556b3dc47ae0cfd893700f5bfcd932a891fd00795f7b"
+  },
+  {
+    "id": "okumura",
+    "key": "relieved",
+    "file": "src/assets/images/characters/okumura/waist/relieved.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 653454,
+    "opaquePixels": 1613,
+    "boundsAlphaAbove8": [
+      223,
+      49,
+      852,
+      990
+    ],
+    "sha256": "e6440727493ca4a7a9299372b766a7fcdc5e65ddffaa977bafef6a7016a757cc"
+  },
+  {
+    "id": "segawa",
+    "key": "neutral",
+    "file": "src/assets/images/characters/segawa/waist/neutral.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 660510,
+    "opaquePixels": 1931,
+    "boundsAlphaAbove8": [
+      196,
+      48,
+      827,
+      991
+    ],
+    "sha256": "ab2872872dd32fad0dafc636197511199fda363c89f66d0ad98d7a6aad94f119"
+  },
+  {
+    "id": "segawa",
+    "key": "smile",
+    "file": "src/assets/images/characters/segawa/waist/smile.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 654967,
+    "opaquePixels": 1782,
+    "boundsAlphaAbove8": [
+      195,
+      47,
+      843,
+      991
+    ],
+    "sha256": "86ac653c9147d134b96b7fcaac54e599421c259135bd82059e2c99d3c064e9dc"
+  },
+  {
+    "id": "segawa",
+    "key": "serious",
+    "file": "src/assets/images/characters/segawa/waist/serious.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 677682,
+    "opaquePixels": 1759,
+    "boundsAlphaAbove8": [
+      228,
+      49,
+      791,
+      991
+    ],
+    "sha256": "3fd8184608860de96dca7228ba8853f59376dc96d3483e2cfd2fb61cdc277bcb"
+  },
+  {
+    "id": "segawa",
+    "key": "surprised",
+    "file": "src/assets/images/characters/segawa/waist/surprised.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 644786,
+    "opaquePixels": 2042,
+    "boundsAlphaAbove8": [
+      156,
+      48,
+      873,
+      991
+    ],
+    "sha256": "1777b4feb4ff55e6be8b2131f34d9f75142bbd54344c6888900833b6fdef9753"
+  },
+  {
+    "id": "segawa",
+    "key": "skeptical",
+    "file": "src/assets/images/characters/segawa/waist/skeptical.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 652467,
+    "opaquePixels": 1920,
+    "boundsAlphaAbove8": [
+      192,
+      48,
+      848,
+      991
+    ],
+    "sha256": "f56ee60add1a01472af92cd6134f1bd985be61f5be3fdf8b5eabe1d854e1674a"
+  },
+  {
+    "id": "segawa",
+    "key": "irritated",
+    "file": "src/assets/images/characters/segawa/waist/irritated.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 659278,
+    "opaquePixels": 1665,
+    "boundsAlphaAbove8": [
+      189,
+      48,
+      851,
+      991
+    ],
+    "sha256": "234948b8f4660ef04e8821cf85e5691908d25e037bfdf0f1d35d23682fa68b5f"
+  },
+  {
+    "id": "segawa",
+    "key": "reluctant",
+    "file": "src/assets/images/characters/segawa/waist/reluctant.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 695233,
+    "opaquePixels": 1729,
+    "boundsAlphaAbove8": [
+      244,
+      49,
+      773,
+      991
+    ],
+    "sha256": "8de1c9bc5b410085f384fe917dd9889cb36ebaddc106ec5d439087c2d9a972dd"
+  },
+  {
+    "id": "segawa",
+    "key": "relieved",
+    "file": "src/assets/images/characters/segawa/waist/relieved.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 657797,
+    "opaquePixels": 2025,
+    "boundsAlphaAbove8": [
+      194,
+      48,
+      831,
+      991
+    ],
+    "sha256": "f1ba65202636dd27148b608147e4f5c3722ad98d1577c1f0db5ee1b7a3e1295a"
+  },
+  {
+    "id": "naoto",
+    "key": "neutral",
+    "file": "src/assets/images/characters/naoto/waist/neutral.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 686067,
+    "opaquePixels": 858,
+    "boundsAlphaAbove8": [
+      241,
+      70,
+      825,
+      992
+    ],
+    "sha256": "12d8f40e7eb6a3e00ddbda727e763b680715f58d0b96010597baf5d459d46bb2"
+  },
+  {
+    "id": "naoto",
+    "key": "smile",
+    "file": "src/assets/images/characters/naoto/waist/smile.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 684608,
+    "opaquePixels": 977,
+    "boundsAlphaAbove8": [
+      231,
+      70,
+      828,
+      992
+    ],
+    "sha256": "283934dffae201d7d5eb923b11e796794a975a379f422c44455b34441a865c82"
+  },
+  {
+    "id": "naoto",
+    "key": "serious",
+    "file": "src/assets/images/characters/naoto/waist/serious.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 688971,
+    "opaquePixels": 1067,
+    "boundsAlphaAbove8": [
+      231,
+      68,
+      827,
+      992
+    ],
+    "sha256": "ea5aba42d1689da559e21ad67e4b747239b253716f9e198cda9caff6ffbc8d7a"
+  },
+  {
+    "id": "naoto",
+    "key": "surprised",
+    "file": "src/assets/images/characters/naoto/waist/surprised.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 689958,
+    "opaquePixels": 996,
+    "boundsAlphaAbove8": [
+      240,
+      71,
+      828,
+      992
+    ],
+    "sha256": "e47f0daa3d2f1374bd2cac933663c60b40b68bfb9e844ff455ff36085f1fed74"
+  },
+  {
+    "id": "naoto",
+    "key": "worried",
+    "file": "src/assets/images/characters/naoto/waist/worried.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 689547,
+    "opaquePixels": 952,
+    "boundsAlphaAbove8": [
+      237,
+      69,
+      824,
+      992
+    ],
+    "sha256": "c042633808cb1e4cea0fa66d959acc367dd615bfdcb66da10cfbfe514df293e0"
+  },
+  {
+    "id": "naoto",
+    "key": "pained",
+    "file": "src/assets/images/characters/naoto/waist/pained.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 679314,
+    "opaquePixels": 894,
+    "boundsAlphaAbove8": [
+      241,
+      69,
+      836,
+      992
+    ],
+    "sha256": "865928cc7fec979aa26f8451f535beae3ed213d8694f28358eab6d36c4d16dbe"
+  },
+  {
+    "id": "naoto",
+    "key": "relieved",
+    "file": "src/assets/images/characters/naoto/waist/relieved.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 682652,
+    "opaquePixels": 980,
+    "boundsAlphaAbove8": [
+      240,
+      69,
+      826,
+      992
+    ],
+    "sha256": "2184c61703070879261b1064a6c02fe184466d9e9de471496eb19094b3658e1b"
+  },
+  {
+    "id": "naoto",
+    "key": "remorseful",
+    "file": "src/assets/images/characters/naoto/waist/remorseful.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 687136,
+    "opaquePixels": 1009,
+    "boundsAlphaAbove8": [
+      265,
+      72,
+      819,
+      992
+    ],
+    "sha256": "65c3fceb8ae3cbce15b83292f68765983cd26580efc4e172cf8f1752abf1d822"
+  },
+  {
+    "id": "saori",
+    "key": "neutral",
+    "file": "src/assets/images/characters/saori/waist/neutral.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 686719,
+    "opaquePixels": 874,
+    "boundsAlphaAbove8": [
+      236,
+      54,
+      804,
+      992
+    ],
+    "sha256": "4ce35f244bee4b4bfd3e92749075abd3ced091d5e656586fcad331a08e4f4973"
+  },
+  {
+    "id": "saori",
+    "key": "smile",
+    "file": "src/assets/images/characters/saori/waist/smile.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 679748,
+    "opaquePixels": 864,
+    "boundsAlphaAbove8": [
+      220,
+      53,
+      812,
+      992
+    ],
+    "sha256": "1ab22a392283888f6ccd6bb244961add511cd9258202361c8c9bbcf7d4533ae2"
+  },
+  {
+    "id": "saori",
+    "key": "serious",
+    "file": "src/assets/images/characters/saori/waist/serious.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 681073,
+    "opaquePixels": 930,
+    "boundsAlphaAbove8": [
+      222,
+      52,
+      813,
+      992
+    ],
+    "sha256": "70d8a3f3f46c907ce770cba256c3fbb1fbaef7cd3813810bfade79e39cb6b284"
+  },
+  {
+    "id": "saori",
+    "key": "surprised",
+    "file": "src/assets/images/characters/saori/waist/surprised.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 686611,
+    "opaquePixels": 920,
+    "boundsAlphaAbove8": [
+      241,
+      54,
+      806,
+      992
+    ],
+    "sha256": "bb91deb5bbbc9c047bbee4eb6df69146f2186f675b088f6438c53aa1665b807d"
+  },
+  {
+    "id": "saori",
+    "key": "worried",
+    "file": "src/assets/images/characters/saori/waist/worried.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 682934,
+    "opaquePixels": 963,
+    "boundsAlphaAbove8": [
+      240,
+      51,
+      805,
+      992
+    ],
+    "sha256": "36609383c2ee2ae805d49b0a2930b471ab332317728cc8189e4d71c6bfe2b406"
+  },
+  {
+    "id": "saori",
+    "key": "pained",
+    "file": "src/assets/images/characters/saori/waist/pained.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 683411,
+    "opaquePixels": 966,
+    "boundsAlphaAbove8": [
+      244,
+      54,
+      802,
+      992
+    ],
+    "sha256": "23581eac06bca42e05cbea93c800e139d9c2ce81957cfd3d37bd7793f2c81cfd"
+  },
+  {
+    "id": "saori",
+    "key": "relieved",
+    "file": "src/assets/images/characters/saori/waist/relieved.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 682699,
+    "opaquePixels": 981,
+    "boundsAlphaAbove8": [
+      233,
+      54,
+      817,
+      992
+    ],
+    "sha256": "651d9ee0774134df4de67d0eb015ccf962e13bdcd5be82034348eaec43f86614"
+  },
+  {
+    "id": "saori",
+    "key": "confused",
+    "file": "src/assets/images/characters/saori/waist/confused.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 686543,
+    "opaquePixels": 931,
+    "boundsAlphaAbove8": [
+      231,
+      54,
+      807,
+      992
+    ],
+    "sha256": "246544241ad30ccff94e3d9e998c90d192226da5a37b5f537330b58699ee2919"
+  },
+  {
+    "id": "akari",
+    "key": "neutral",
+    "file": "src/assets/images/characters/akari/waist/neutral.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 710630,
+    "opaquePixels": 992,
+    "boundsAlphaAbove8": [
+      271,
+      44,
+      759,
+      992
+    ],
+    "sha256": "d3596906dce9154943c1e36ee0137c0c3574a2836ec6a4326442e52954244e32"
+  },
+  {
+    "id": "akari",
+    "key": "smile",
+    "file": "src/assets/images/characters/akari/waist/smile.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 709706,
+    "opaquePixels": 1020,
+    "boundsAlphaAbove8": [
+      271,
+      43,
+      760,
+      992
+    ],
+    "sha256": "c2d27b7d6982fca8e7d6747c05d77f06a9af2e4c748767daef4a582b041e69a8"
+  },
+  {
+    "id": "akari",
+    "key": "serious",
+    "file": "src/assets/images/characters/akari/waist/serious.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 705445,
+    "opaquePixels": 995,
+    "boundsAlphaAbove8": [
+      237,
+      43,
+      760,
+      992
+    ],
+    "sha256": "cbfa9da800361603cfda9024756735233d3349a512f670c66b40ff7ac2d2517f"
+  },
+  {
+    "id": "akari",
+    "key": "surprised",
+    "file": "src/assets/images/characters/akari/waist/surprised.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 711921,
+    "opaquePixels": 972,
+    "boundsAlphaAbove8": [
+      271,
+      44,
+      762,
+      992
+    ],
+    "sha256": "9abdde25ab591087c94249bd0193bfdd92bfc3614f7e44ea6231d15935734b02"
+  },
+  {
+    "id": "akari",
+    "key": "worried",
+    "file": "src/assets/images/characters/akari/waist/worried.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 713007,
+    "opaquePixels": 926,
+    "boundsAlphaAbove8": [
+      272,
+      44,
+      763,
+      992
+    ],
+    "sha256": "e34bc32c45c8115394de94d3d78bf2653423c0eaf39b957d9f17a81ac4f509c4"
+  },
+  {
+    "id": "akari",
+    "key": "sad",
+    "file": "src/assets/images/characters/akari/waist/sad.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 709833,
+    "opaquePixels": 745,
+    "boundsAlphaAbove8": [
+      271,
+      43,
+      761,
+      992
+    ],
+    "sha256": "af11ade1b0a20cd3ebef506ee9501e7da5bcc61e1452ea15c2bc04e6e7874608"
+  },
+  {
+    "id": "akari",
+    "key": "relieved",
+    "file": "src/assets/images/characters/akari/waist/relieved.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 710743,
+    "opaquePixels": 1033,
+    "boundsAlphaAbove8": [
+      272,
+      43,
+      761,
+      992
+    ],
+    "sha256": "bb9561e49360986e9f47f2adb9e222466b7c0b9af11e919200516405f777d841"
+  },
+  {
+    "id": "akari",
+    "key": "determined",
+    "file": "src/assets/images/characters/akari/waist/determined.png",
+    "width": 1024,
+    "height": 1024,
+    "transparentPixels": 708927,
+    "opaquePixels": 1011,
+    "boundsAlphaAbove8": [
+      271,
+      44,
+      761,
+      992
+    ],
+    "sha256": "96de9ca222ab963f781fa9bf11e544dd7088f7336f0d5afa6405b06ce08b49bf"
+  }
+]

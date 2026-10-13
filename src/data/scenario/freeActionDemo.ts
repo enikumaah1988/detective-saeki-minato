@@ -1,6 +1,6 @@
 import type { Scenario, Stage } from '../../types/scenario'
 
-const solo: Stage = { backgroundId: 'office-afternoon', characters: [{ characterId: 'minato', expression: 'normal' }] }
+const solo: Stage = { backgroundId: 'office-afternoon', characters: [{ characterId: 'minato', expression: 'normal', position: 'left' }] }
 const stage: Stage = { backgroundId: 'office-afternoon', characters: [{ characterId: 'minato', expression: 'normal', position: 'left' }, { characterId: 'mio', expression: 'normal', position: 'right' }] }
 const requiredThinkInformation = [
   { id: 'brother_profile', summary: '兄は連絡を絶やさない几帳面な人だ' },
@@ -12,7 +12,20 @@ export const freeActionDemo: Scenario = {
   id: 'gray-testimony-part1-demo',
   title: '第1話「灰色の証言」第1部「依頼」の通し仮シナリオ（正式シナリオではありません）',
   start: 'office-daily',
-  scenes: { office: solo, request: stage },
+  scenes: { office: { ...solo, smokingAllowed: true }, request: { ...stage, smokingAllowed: true } },
+  smokingHints: {
+    rules: [
+      { id: 'finished', nodeIds: ['part2-placeholder'], text: 'ここまでの経緯は調査記録に残っている。次は事故の記録から足取りを追おう。' },
+      { id: 'accepted', nodeIds: ['accept-request', 'accepted'], text: '調査に出る前に、澪から聞いた内容を確認しておこう。' },
+      { id: 'listen-first', nodeIds: ['office-daily', 'visitor', 'welcome', 'request-intro', 'begin-inquiry', 'brother', 'missing', 'recent-brother', 'accident', 'client', 'photo'], text: 'まずは、今の話を最後まで聞こう。' },
+      { id: 'ready', condition: { type: 'hasAllInformation', ids: requiredThinkInformation.map(info => info.id) }, text: '必要な話は聞けた。いったん考えをまとめてみよう。' },
+      { id: 'brother', missingInformation: ['brother_profile'], text: '澪に、兄が普段どんな人なのか確認してみよう。' },
+      { id: 'missing', missingInformation: ['disappearance_timing'], text: 'いつから兄と連絡が取れないのか、澪に確認する必要がありそうだ。' },
+      { id: 'recent', missingInformation: ['last_known_activity'], text: '最後に連絡を取ったとき、兄は何を話していたのだろう。澪に最近の兄について聞いてみよう。' },
+      { id: 'accident', missingInformation: ['past_accident'], text: '兄が気にしていた事故について、澪にもう少し確認してみよう。' },
+    ],
+    fallback: '今わかっていることを、調査記録で確認してみよう。',
+  },
   nodes: {
     'office-daily': { type: 'dialogue', sceneId: 'office', stage: solo, speakerId: 'minato', text: '午後の事務所は静かだ。冷めたコーヒーを片づけようとした時、扉が鳴った。', next: 'visitor' },
     visitor: { type: 'dialogue', sceneId: 'request', stage, speakerId: 'mio', text: '相澤澪と申します。相談してもよろしいでしょうか。', next: 'welcome' },
