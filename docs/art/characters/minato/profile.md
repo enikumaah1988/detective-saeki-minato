@@ -1,5 +1,9 @@
 # 佐伯 湊
 
+## 最新補足：初期案の顔と髪型
+ユーザーは初期案の添付に近い顔・髪型を希望。38歳は維持し、削れた頬や深い目の下の影を弱め、柔らかくうねる前髪へ戻す。[試作5](drafts/gekiga-neutral-05-original-face.png)が最新候補。[生成記録](drafts/gekiga-neutral-05-original-face.md)。眼鏡・現在の衣装・劇画調を維持。画像は確認待ち。荒い筆致を老け顔で表現しない。
+
+
 ## 最新補足：前髪の長さ
 ユーザーが求める長さは前髪。眉・眼鏡の上縁へ落ちる束を増やした[試作4](drafts/gekiga-neutral-04-longer-bangs.png)を最新候補とする。[生成条件](drafts/gekiga-neutral-04-longer-bangs.md)。作風はユーザー了承、具体的な髪型と画像は確認待ち。試作3の耳・襟足の延長だけでは指示を満たさない。
 
