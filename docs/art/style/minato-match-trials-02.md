@@ -7,8 +7,8 @@
 | 人物 | 最新候補 | 状態 |
 |---|---|---|
 | 湊 | [眼鏡追加・試作2](../characters/minato/drafts/gekiga-neutral-02-glasses.png) | 眼鏡ありはユーザー指定。細い暗色の矩形フレームを追加。画像は確認待ち |
-| 澪 | [再試作3](../characters/mio/drafts/gekiga-neutral-03-minato-match.png) | 顔アップを参照して肌・頬・首の陰影を強化。確認待ち |
-| あかり | [試作2](../characters/akari/drafts/gekiga-neutral-02-minato-match.png) | 素朴なボブ・赤い普段着・バッグの左右を維持し、肌・手・首の陰影を強化。確認待ち |
+| 澪 | [再試作3](../../../src/assets/images/characters/mio/full/neutral.png) | 顔アップを参照して肌・頬・首の陰影を強化。確認待ち |
+| あかり | [試作2](../../../src/assets/images/characters/akari/full/neutral.png) | 素朴なボブ・赤い普段着・バッグの左右を維持し、肌・手・首の陰影を強化。確認待ち |
 
 澪の[初回試作2](../characters/mio/drafts/gekiga-neutral-02-minato-match.png)は衣服が粗くなった一方、顔の綺麗な塗りが残ったため、再試作3を最新候補にする。初回も比較履歴として保存。
 

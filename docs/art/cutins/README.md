@@ -1,4 +1,8 @@
 # 湊：思考整理の挿絵候補
+
+## 最新候補：2026-10-13
+[喫煙02](drafts/minato-smoking-02.png)・[非喫煙02](drafts/minato-non-smoking-02.png)を採用した湊の試作5に同期。1920×1080 RGB、抽象背景。電子タバコあり／口元の手だけ。[配置確認02](ui-review-02.png)、[生成条件と検証](../style/three-character-rebuild-02.md)。確認待ちで既存src/assets/cutinsへまだ適用していない。以下は旧候補の制作記録。
+
 2026-10-12。新規制作、正式素材候補・採用確認待ち。旧src/assets/cutinsの仮画像は完成扱いせず、今回上書きしていない。
 ゲーム側の喫煙可能場所、機能、表示配置は変更しない。
 
