@@ -1,0 +1,46 @@
+{
+  "environment": "Windows / bundled Chromium / file://",
+  "checks": [
+    {
+      "name": "assets loaded",
+      "ok": true
+    },
+    {
+      "name": "character appears before title",
+      "ok": true
+    },
+    {
+      "name": "title appears",
+      "ok": true
+    },
+    {
+      "name": "natural 12 second completion",
+      "ok": true
+    },
+    {
+      "name": "replay resets title",
+      "ok": true
+    },
+    {
+      "name": "skip final frame",
+      "ok": true
+    },
+    {
+      "name": "skip stays stopped",
+      "ok": true
+    },
+    {
+      "name": "escape skip",
+      "ok": true
+    },
+    {
+      "name": "mobile no horizontal overflow",
+      "ok": true
+    },
+    {
+      "name": "no script errors",
+      "ok": true
+    }
+  ],
+  "errors": []
+}
