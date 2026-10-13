@@ -1,5 +1,9 @@
 # 相澤 澪
 
+## 最新指示・画風合わせの試作：2026-10-13
+湊とのテイスト差を減らすユーザー指定で、[全身再試作3](drafts/gekiga-neutral-03-minato-match.png)を制作。顔アップを画風参照にして、女性の顔にも硬い影と荒い筆致を適用。長いウェーブと青系のスカート姿は維持。試作は確認待ち。
+[3人の比較と生成条件](../../style/minato-match-trials-02.md)。まず澪・あかりで画風を確認する段階。前回86素材の制作記録を保持し、新しい試作の採用済みとは扱わない。本節を最新指示として優先する。
+
 ## 現行画風・再制作：2026-10-13
 ユーザーが主要5人の新テイストを採用し、全キャラクター・サブキャラと人物別の必要表情の再制作を指示。共通画風は[手描き劇画調](../../style/gekiga-style-revision-proposal.md)。旧画像は人物の識別点を引き継ぐ制作履歴とし、旧塗りを再利用しない。
 [新画風確認シート](drafts/gekiga-sheet-01.png)を制作。全身通常1枚と腰上8表情をsrc/assets/images/characters/mio/に保存。キー：neutral, smile, amused, serious, surprised, worried, pained, relieved。

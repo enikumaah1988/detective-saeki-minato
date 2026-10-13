@@ -8,3 +8,4 @@ docs/art/illustrations/**/*.png filter=lfs diff=lfs merge=lfs -text
 docs/art/style/references/*.jpg filter=lfs diff=lfs merge=lfs -text
 
 docs/art/display-preview/*.png filter=lfs diff=lfs merge=lfs -text
+docs/art/style/**/*.png filter=lfs diff=lfs merge=lfs -text
