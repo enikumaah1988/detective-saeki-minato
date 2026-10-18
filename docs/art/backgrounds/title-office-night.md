@@ -2,9 +2,19 @@
 
 2026-10-18のユーザー依頼により制作。新規生成保留の例外は今回のタイトル専用背景1枚に限定する。
 
-現行成果: [title-office-night-03.png](drafts/title-office-night-03.png)。扉絵と同じ1672×941。文字・ロゴ・メニュー・人物なし。ゲームへの接続・正式採用は未実施。既存の事務所背景とReactコードは変更していない。01は「夜にしただけで机から遠い」とのユーザー指摘により旧候補として保持。
+現行成果: [title-office-night-04.png](drafts/title-office-night-04.png)。扉絵と同じ1672×941。文字・ロゴ・メニュー・人物なし。ゲームへの接続・正式採用は未実施。既存の事務所背景とReactコードは変更していない。01は「夜にしただけで机から遠い」とのユーザー指摘により旧候補として保持。
 
-## 現行候補03：机の向きの修正
+## 現行候補04：机上へさらに寄せる
+
+2026-10-19、ユーザーの「もっと寄りな絵」に対応。03を入力に、向きとカップ→PC→照明の並びを保って、机上の近接構図へ変更。椅子を左端、カップを左下、PCを下中央、ライトを右へ大きく描き、脚・床・書類棚を画角外にした。上中央は暗い窓、下中央は暗いPC背面となるため、文字の視認性は実際のUI接続時に確認する。画像自体は文字なし。
+
+内蔵image_genで編集1回。PNG1672×941を確認し、向きと並びを目視比較。既存背景・コードは変更なし。画像と記録のみのためゲームテスト・ビルドは未実行。
+
+### 04の生成プロンプト
+
+Edit this image into a MUCH TIGHTER CLOSE-UP game title background, same 1672x941. Preserve exact office, furniture orientation, camera yaw and perspective, NO rotation, NO relocation, NO mirror. Strong optical zoom/push-in toward the desktop from SAME viewing direction, and frame higher so the desk front board/legs and floor are below the bottom crop. Do NOT redesign the desk as a different horizontal table. Frame should be like a crop of the existing region x14%-66%, y0%-61%, enlarged to full canvas, with any subtle camera-height adjustment only to make the tabletop surface readable. Reference cup stays LEFT of laptop, lamp stays RIGHT of laptop, chair stays LEFT behind cup, bookcase stays behind chair left and window behind/right. Close foreground wooden tabletop and its near bevel occupy BOTTOM 20-25% only, with desk front panel, pedestal legs and floor completely OFFSCREEN. Large white cup at lower-left-quarter, open laptop lower middle, lamp lower right third, empty black leather chair only partly visible at far left; top of chair is large and close. At most narrow fragment of left bookcase; no filing cabinets, no floor, no door, no rug. Dark window/blinds occupy upper two thirds for CENTRAL title and menu, soft subdued background. Lamp shade may occupy right middle edge but must not move relative to laptop. Keep warm amber desk lighting, cool blue-gray night, low saturation semi-realistic environmental painting. SAME books, same plain papers, same warm wood desk grain; do not add anything. Output should feel intimate and cinematic, objects substantially larger than reference, a dramatic CLOSEUP, not a wide interior view. No people, no text, no logos, no menu, no watermarks. One edited image only.
+
+## 旧候補03：机の向きの修正
 
 02は机を正面向きの横長テーブルへ変えてしまい、既存背景と不整合だった。ユーザー指摘を受けて修正。03はサンプル画像を入力から外し、既存office-evening.pngだけを構造の正本として、元の方向から机へ寄せた。木製の前板・右の脚部・中央の足元空間、左の椅子、カップ→ノートPC→照明の並び、左書棚と奥の窓・右書類棚の関係を目視照合。02の「家具の移動ではない」との説明は誤りであり、採用根拠としない。
 
