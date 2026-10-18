@@ -69,7 +69,7 @@ export function StoryPlayer({ scenario, preview, smokingAllowed, suspended = fal
     try { const value = Number(localStorage.getItem('detective-saeki-minato.speed') ?? 35); return [0, 15, 35, 70].includes(value) ? value : 35 } catch { return 35 }
   })
   const dispatch = (action: GameAction) => {
-    if (!playback.paused && action.type === 'advance' && node.type === 'dialogue') {
+    if (!playback.paused && action.type === 'advance' && node.type === 'dialogue' && !illustration) {
       setHistory(entries => [...entries, { speaker: dialogueSpeaker(node, gameState), text: node.text, nodeId: gameState.nodeId }].slice(-MAX_HISTORY_ENTRIES))
     }
     if (action.type === 'reset') { setHistory([]); suppressRecordNotice.current = true; suppressAutoSave.current = true }
@@ -115,14 +115,18 @@ export function StoryPlayer({ scenario, preview, smokingAllowed, suspended = fal
         if (!target.closest('.dialogue-button') && target.closest('button')) return
       }
       event.preventDefault()
-      dialogueRef.current?.activate()
+      if (illustration) dispatch({ type: 'advance' })
+      else dialogueRef.current?.activate()
     }
     window.addEventListener('keydown', handleEnter)
     return () => window.removeEventListener('keydown', handleEnter)
-  }, [menuOpen, recordsOpen, smoking, acquisition, node.type])
+  }, [menuOpen, recordsOpen, smoking, acquisition, node.type, illustration, gameState.nodeId])
 
   const advanceFromStage = () => {
-    if (!menuOpen && !recordsOpen && !smoking && !acquisition && node.type === 'dialogue') dialogueRef.current?.activate()
+    if (!menuOpen && !recordsOpen && !smoking && !acquisition && node.type === 'dialogue') {
+      if (illustration) dispatch({ type: 'advance' })
+      else dialogueRef.current?.activate()
+    }
   }
 
   return (
@@ -156,10 +160,10 @@ export function StoryPlayer({ scenario, preview, smokingAllowed, suspended = fal
           {illustration && <div className={`chapter-heading${illustration.provisional ? ' chapter-title-card' : ''}`} data-illustration-id={illustration.id}>{illustration.provisional ? <><strong>探偵 <span>佐伯湊</span></strong><p className="title-cover-english">DETECTIVE SAEKI MINATO</p><p className="title-cover-episode">第1話 灰色の証言</p><small>{displayText(illustration.subtitle?.split(' — ')[1] ?? '')}</small></> : <><strong>{displayText(illustration.heading)}</strong>{illustration.subtitle && <p>{displayText(illustration.subtitle)}</p>}</>}</div>}
         </div>
       </div>
-      <div className="story-content" inert={menuOpen || Boolean(acquisition)}>
+      {!illustration && <div className="story-content" inert={menuOpen || Boolean(acquisition)}>
       <StoryContent key={`${gameState.nodeId}:${restoreRevision}`} interval={interval} paused={menuOpen || Boolean(acquisition)} node={node} state={gameState} thinking={scenario.nodes[gameState.nodeId].type === 'think'} dispatch={dispatch} dialogueRef={dialogueRef} />
-      </div>
-      {(!menuOpen || historyOpen) && !recordsOpen && !smoking && !acquisition && !itemSelection && <button ref={historyButton} type="button" className="history-entry" aria-label="会話履歴を開く" disabled={historyOpen} onClick={event=>{event.stopPropagation();setHistoryOpen(true);send({type:'menu',open:true})}}>履歴</button>}
+      </div>}
+      {!illustration && (!menuOpen || historyOpen) && !recordsOpen && !smoking && !acquisition && !itemSelection && <button ref={historyButton} type="button" className="history-entry" aria-label="会話履歴を開く" disabled={historyOpen} onClick={event=>{event.stopPropagation();setHistoryOpen(true);send({type:'menu',open:true})}}>履歴</button>}
       {smoking && <div className="smoking-overlay" onClick={event => { if (!(event.target instanceof Element) || !event.target.closest('.dialogue-button')) smokingDialogueRef.current?.activate() }} role="dialog" aria-label="喫煙ヒント" aria-modal="true">
         {smoking.imageFailed
           ? <div className="smoking-cut-in-fallback" aria-hidden="true" />
