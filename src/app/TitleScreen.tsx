@@ -9,12 +9,13 @@ import { SystemDialog } from '../features/story/SystemDialog'
 import { SettingsSlider } from '../features/story/SettingsSlider'
 import { MESSAGE_SPEEDS, MESSAGE_SPEED_LABELS, loadAudioSettings, saveAudioSettings } from '../features/story/settings'
 import { displayText } from '../features/story/displayText'
+import { UiIcon } from '../features/story/UiIcon'
 import './titleScreen.css'
 
 export type TitleSession = { state: GameState; history: HistoryEntry[] }
 const background = new URL('../assets/images/ui/title-office-night.png', import.meta.url).href
 
-export function TitleScreen({ scenario, onStart }: { scenario: Scenario; onStart: (session?: TitleSession) => void }) {
+export function TitleScreen({ scenario, onStart, logoSrc }: { scenario: Scenario; onStart: (session?: TitleSession) => void; logoSrc?: string }) {
   const [dialog, setDialog] = useState<'load' | 'settings'>()
   const invoker = useRef<HTMLButtonElement>(null)
   const [message, setMessage] = useState('')
@@ -38,12 +39,16 @@ export function TitleScreen({ scenario, onStart }: { scenario: Scenario; onStart
     <img className="title-screen-background" src={background} alt="ブラインド越しに新宿の夜景が見える探偵事務所" />
     <div className="title-screen-shade" aria-hidden="true" />
     <div className="title-screen-content" inert={Boolean(dialog)}>
-      <h1><span className="title-screen-prefix">探偵</span> 佐伯湊</h1>
-      <p className="title-screen-english">DETECTIVE SAEKI MINATO</p>
+      <header className="title-screen-brand">
+        {logoSrc ? <h1><img className="title-screen-logo" src={logoSrc} alt="探偵 佐伯湊" /></h1> : <>
+          <h1><span className="title-screen-prefix">探偵</span> 佐伯湊</h1>
+          <p className="title-screen-english">DETECTIVE SAEKI MINATO</p>
+        </>}
+      </header>
       <nav className="title-screen-menu" aria-label="タイトルメニュー">
-        <button type="button" aria-label="NEW GAME" onClick={() => onStart()}>NEW GAME</button>
-        <button type="button" aria-label="CONTINUE" onClick={openLoad}>CONTINUE</button>
-        <button type="button" aria-label="SETTINGS" onClick={event => { invoker.current = event.currentTarget; setDialog('settings') }}>SETTINGS</button>
+        <button type="button" aria-label="NEW GAME" onClick={() => onStart()}><UiIcon name="play" /><span>NEW GAME</span></button>
+        <button type="button" aria-label="CONTINUE" onClick={openLoad}><UiIcon name="load" /><span>CONTINUE</span></button>
+        <button type="button" aria-label="SETTINGS" onClick={event => { invoker.current = event.currentTarget; setDialog('settings') }}><UiIcon name="settings" /><span>SETTINGS</span></button>
       </nav>
     </div>
     {dialog === 'load' && <SystemDialog title="CONTINUE" label="戻る" onClose={close}>

@@ -30,7 +30,7 @@ import { selectSmokingPresentation } from './smoking'
 const smokingCutIn = new URL('../../assets/cutins/minato-smoking.png', import.meta.url).href
 const nonSmokingCutIn = new URL('../../assets/cutins/minato-non-smoking.png', import.meta.url).href
 
-export function StoryPlayer({ scenario, initialSession, preview, smokingAllowed, suspended = false }: { scenario: Scenario; initialSession?: TitleSession; preview?: { records: InvestigationRecord[]; label: string; invoker: HTMLElement }; smokingAllowed?: boolean; suspended?: boolean }) {
+export function StoryPlayer({ scenario, initialSession, preview, smokingAllowed, suspended = false, onReturnToTitle }: { scenario: Scenario; initialSession?: TitleSession; preview?: { records: InvestigationRecord[]; label: string; invoker: HTMLElement }; smokingAllowed?: boolean; suspended?: boolean; onReturnToTitle?: () => void }) {
   const [playback, send] = useReducer(
     (state: ReturnType<typeof createPlayback>, action: Parameters<typeof reducePlayback>[2]) => reducePlayback(scenario, state, action),
     scenario, value => ({ ...createPlayback(value), ...(initialSession ? { game: initialSession.state } : {}) }),
@@ -129,7 +129,7 @@ export function StoryPlayer({ scenario, initialSession, preview, smokingAllowed,
       <header className="story-toolbar" inert={recordsOpen || Boolean(smoking) || Boolean(acquisition) || historyOpen}>
         <span className="sr-only">{displayText(scenario.title)}</span>
         <div className="toolbar-actions">
-        <SaveControls state={gameState} scenario={scenario} interval={interval} onIntervalChange={value => {
+        <SaveControls state={gameState} scenario={scenario} interval={interval} onReturnToTitle={onReturnToTitle} onIntervalChange={value => {
           setInterval(value); try { localStorage.setItem('detective-saeki-minato.speed', String(value)) } catch { /* 設定はセッション中保持 */ }
         }} history={history} onRestore={(state, restoredHistory) => {
           suppressRecordNotice.current = true

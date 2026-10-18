@@ -25,7 +25,7 @@ export default function App() {
     <>
       <main className="game-shell" aria-label="探偵 佐伯湊 / Detective Saeki Minato">
         <div style={explorationMock ? { display: 'none' } : { display: 'contents' }} inert={explorationMock}>
-          {started ? <StoryPlayer key={scenario.id} scenario={scenario} initialSession={initialSession} preview={preview} smokingAllowed={smokingAllowed} suspended={explorationMock} />
+          {started ? <StoryPlayer key={scenario.id} scenario={scenario} initialSession={initialSession} preview={preview} smokingAllowed={smokingAllowed} suspended={explorationMock} onReturnToTitle={() => { setStarted(false); setInitialSession(undefined); setPreview(undefined); setSmokingAllowed(undefined) }} />
             : <TitleScreen scenario={scenario} onStart={session => { setInitialSession(session); setStarted(true) }} />}
         </div>
         {ExplorationMock && explorationMock && <Suspense fallback={<section className="story" role="status">モックを読み込み中</section>}><ExplorationMock onClose={() => setExplorationMock(false)} /></Suspense>}
