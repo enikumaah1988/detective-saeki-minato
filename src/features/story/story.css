@@ -186,10 +186,12 @@ button:disabled { cursor: default; color: var(--muted); }
 .command-heading { height: auto; min-height: calc(64 * var(--u)); padding: calc(12 * var(--u)) var(--command-padding); }
 
 /* 正式キービジュアル制作前の共通扉絵。既存の場面挿絵と区別して管理する。 */
-.chapter-title-card { inset: 0; padding: 0 12%; display: flex; flex-direction: column; justify-content: center; background: linear-gradient(135deg, #0b141f 10%, #283746 55%, #101721); text-align: center; align-items: center; }
-.chapter-title-card strong { font-size: calc(78 * var(--u)); font-weight: 400; border-block: 1px solid #b8965a; padding: .5em .2em; }
-.chapter-title-card p { font-size: calc(36 * var(--u)); }
-.chapter-title-card small { font-size: calc(20 * var(--u)); color: var(--muted); }
+.chapter-title-card { inset: 0; padding: 0 5% 0 56%; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: linear-gradient(90deg, transparent 48%, #080d1226 66%, #080d1240); color: #eeeae3; font-family: 'Yu Mincho', 'Hiragino Mincho ProN', serif; text-shadow: 0 2px 8px #000; }
+.chapter-title-card strong { white-space: nowrap; font-size: calc(70 * var(--u)); font-weight: 400; letter-spacing: .08em; }
+.chapter-title-card strong span { font-size: 1.35em; }
+.chapter-title-card .title-cover-english { width: 100%; margin: .35em 0 0; padding-bottom: .7em; border-bottom: 1px solid #b8965a66; font-size: calc(23 * var(--u)); letter-spacing: .24em; }
+.chapter-title-card .title-cover-episode { margin: .7em 0 0; font-size: calc(38 * var(--u)); letter-spacing: .15em; }
+.chapter-title-card small { margin-top: .8em; font-size: calc(22 * var(--u)); letter-spacing: .12em; color: #c8c3ba; }
 .history-entry { position: absolute; z-index: 4; right: calc(5% + 32 * var(--u)); bottom: calc(var(--dialogue-height) + var(--edge-y) - 80 * var(--u)); width: calc(112 * var(--u)); height: calc(56 * var(--u)); background: #101922e6; color: #eadfcf; font-size: calc(28 * var(--u)); text-align: center; border-radius: calc(4 * var(--u)); }
 .story:has(.history-entry) .dialogue-button .speaker { max-width: calc(100% - 128 * var(--u)); }
 .record-list button, .record-tabs button { font-size: calc(36 * var(--u)); font-weight: 400; }

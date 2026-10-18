@@ -19,14 +19,37 @@ for(const [width,height] of [[1920,1080],[1366,768]])test(`部の挿絵・読了
    await page.getByLabel('メニュー',{exact:true}).click();await loadForTest(page)
    await page.getByRole('dialog',{name:'ロードしました',exact:true}).getByRole('button',{name:'OK',exact:true}).click()
    await page.locator('.chapter-title-card').waitFor()
-   assert.equal(await page.locator('.chapter-illustration').count(),0)
-   assert.match(await page.locator('.chapter-title-card').textContent(),/探偵 佐伯　湊.*灰色の証言/s)
+   await page.waitForFunction(()=>{const image=document.querySelector('.chapter-illustration');return image?.complete&&image.naturalWidth>0})
+   assert.match(await page.locator('.chapter-title-card').textContent(),/探偵 佐伯湊.*DETECTIVE SAEKI MINATO.*第1話 灰色の証言/s)
+   const title=await page.locator('.chapter-title-card strong').boundingBox()
+   assert.ok(title.x>width*.56 && title.x+title.width<width*.96)
+   if(node.illustration.id==='C1-IN'){
+    await page.locator('.chapter-illustration').evaluate(image=>{image.src='/missing-episode-cover.png'})
+    await page.waitForFunction(()=>{const image=document.querySelector('.chapter-illustration');return image?.src.includes('default-title.png')&&image.complete&&image.naturalWidth>0})
+   }
    assert.equal(await page.locator('.character').count(),0)
+   assert.equal(await page.locator('.message-window, .history-entry').count(),0)
    assert.equal(await page.locator('[data-illustration-id]').getAttribute('data-illustration-id'),node.illustration.id)
    const rect=await page.locator('.chapter-title-card').boundingBox();assert.ok(Math.abs(rect.width-width)<1);assert.ok(Math.abs(rect.height-height)<1)
    if(process.env.SAEKI_SCREENSHOT_DIR)await page.screenshot({path:`${process.env.SAEKI_SCREENSHOT_DIR}/chapter-${node.illustration.id}-${width}.png`})
-   await page.locator('.dialogue-button').click()
+   await page.getByLabel('メニュー',{exact:true}).click()
+   await page.locator('.stage-input-area').click({position:{x:width*.8,y:height*.75}})
+   await page.keyboard.press('Enter')
+   assert.equal(await page.locator('.story').getAttribute('data-node-id'),nodeId)
+   await page.getByLabel('メニュー',{exact:true}).click()
+   if(node.illustration.id.endsWith('-IN'))await page.locator('.stage-input-area').click({position:{x:width*.8,y:height*.75}})
+   else {
+    await page.locator('.stage-input-area').click({position:{x:width*.8,y:height*.75},trial:true})
+    await page.evaluate(()=>document.activeElement?.blur())
+    await page.keyboard.press('Enter')
+   }
+   await page.waitForFunction(id=>document.querySelector('.story')?.getAttribute('data-node-id')!==id,nodeId)
    assert.notEqual(await page.locator('.story').getAttribute('data-node-id'),nodeId)
+   assert.equal(await page.locator('.story').getAttribute('data-node-id'),node.next)
+   if(api.scenario.nodes[node.next].type==='dialogue' && !api.scenario.nodes[node.next].illustration){
+    assert.equal(await page.locator('.message-window').count(),1)
+    assert.equal(await page.locator('.history-entry').count(),1)
+   }
   }
   for(const phaseId of ['P1-03','P2-08','P3-04','P4-10']){
    const state=run.checkpoints.find(point=>point.phase===phaseId).state
