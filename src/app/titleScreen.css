@@ -1,0 +1,11 @@
+.title-screen { background: #080d12; }
+.title-screen-background, .title-screen-shade { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.title-screen-shade { background: radial-gradient(ellipse at 50% 36%, #060b13b8 0%, #060b1373 30%, transparent 65%); pointer-events: none; }
+.title-screen-content { position: absolute; inset: 12% 15% 20%; display: flex; flex-direction: column; align-items: center; color: #eee6d7; font-family: 'Yu Mincho', 'Hiragino Mincho ProN', serif; text-shadow: 0 2px 8px #000; }
+.title-screen h1 { margin: 0; font-size: calc(116 * var(--u)); line-height: 1.4; font-weight: 400; letter-spacing: .08em; white-space: nowrap; }
+.title-screen-prefix { font-size: .7em; }
+.title-screen-english { margin: calc(12 * var(--u)) 0 0; padding: 0 calc(40 * var(--u)) calc(20 * var(--u)); border-bottom: 1px solid #b8965a88; font-size: calc(25 * var(--u)); letter-spacing: .24em; white-space: nowrap; }
+.title-screen-menu { display: flex; flex-direction: column; align-items: stretch; gap: calc(6 * var(--u)); margin-top: calc(44 * var(--u)); }
+.title-screen-menu button { position: relative; min-width: calc(400 * var(--u)); padding: calc(12 * var(--u)) calc(48 * var(--u)); text-align: center; font-size: calc(36 * var(--u)); letter-spacing: .14em; color: #e4ded3; text-shadow: 0 2px 8px #000; }
+.title-screen-menu button:hover, .title-screen-menu button:focus-visible { color: #f2d294; background: #080d1259; outline: 1px solid #b8965a99; }
+.title-screen-menu button:hover::before, .title-screen-menu button:focus-visible::before { content: '—'; position: absolute; left: calc(12 * var(--u)); }

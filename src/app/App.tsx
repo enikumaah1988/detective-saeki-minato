@@ -2,6 +2,8 @@ import { lazy, Suspense, useState } from 'react'
 import { scenarioCatalog, defaultScenario } from '../data/scenario/catalog'
 
 import { StoryPlayer } from '../features/story/StoryPlayer'
+import { TitleScreen } from './TitleScreen'
+import type { TitleSession } from './TitleScreen'
 import type { InvestigationRecord } from '../types/investigation'
 import type { PreviewMode } from '../dev/investigationPreview'
 
@@ -12,6 +14,8 @@ const ExplorationMock = import.meta.env.DEV
 
 export default function App() {
   const devMode = import.meta.env.DEV && new URLSearchParams(typeof location === 'undefined' ? '' : location.search).get('dev') === '1'
+  const [started, setStarted] = useState(devMode)
+  const [initialSession, setInitialSession] = useState<TitleSession>()
   const [scenario, setScenario] = useState(() => scenarioCatalog.find(item => item.id === new URLSearchParams(typeof location === 'undefined' ? '' : location.search).get('scenario')) ?? defaultScenario)
   const [preview, setPreview] = useState<{ records: InvestigationRecord[]; label: string; invoker: HTMLElement }>()
   const [smokingAllowed, setSmokingAllowed] = useState<boolean>()
@@ -21,7 +25,8 @@ export default function App() {
     <>
       <main className="game-shell" aria-label="探偵 佐伯湊 / Detective Saeki Minato">
         <div style={explorationMock ? { display: 'none' } : { display: 'contents' }} inert={explorationMock}>
-          <StoryPlayer key={scenario.id} scenario={scenario} preview={preview} smokingAllowed={smokingAllowed} suspended={explorationMock} />
+          {started ? <StoryPlayer key={scenario.id} scenario={scenario} initialSession={initialSession} preview={preview} smokingAllowed={smokingAllowed} suspended={explorationMock} />
+            : <TitleScreen scenario={scenario} onStart={session => { setInitialSession(session); setStarted(true) }} />}
         </div>
         {ExplorationMock && explorationMock && <Suspense fallback={<section className="story" role="status">モックを読み込み中</section>}><ExplorationMock onClose={() => setExplorationMock(false)} /></Suspense>}
       </main>
