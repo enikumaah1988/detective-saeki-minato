@@ -11,10 +11,10 @@ import { MESSAGE_SPEEDS, MESSAGE_SPEED_LABELS, loadAudioSettings, saveAudioSetti
 import { displayText } from './displayText'
 import { selectDateLabel } from './dateTime'
 
-export function SaveControls({ state, scenario, history = [], onRestore, onMenuToggle, interval = 35, onIntervalChange }: {
+export function SaveControls({ state, scenario, history = [], onRestore, onMenuToggle, interval = 35, onIntervalChange, onReturnToTitle }: {
   state: GameState; scenario: Scenario; history?: HistoryEntry[];
   onRestore: (state: GameState, history: HistoryEntry[]) => void;
-  onMenuToggle?: (open: boolean) => void; interval?: number; onIntervalChange?: (interval: number) => void
+  onMenuToggle?: (open: boolean) => void; interval?: number; onIntervalChange?: (interval: number) => void; onReturnToTitle?: () => void
 }) {
   const details=useRef<HTMLDetailsElement>(null)
   const [audio,setAudio]=useState(loadAudioSettings)
@@ -22,6 +22,7 @@ export function SaveControls({ state, scenario, history = [], onRestore, onMenuT
   const [message,setMessage]=useState('')
   const [slots,setSlots]=useState<{auto:SaveSlot|null;manual:SaveSlot[]}>()
   const [loaded,setLoaded]=useState<{state:GameState;history:HistoryEntry[]}>()
+  const [confirmTitle,setConfirmTitle]=useState(false)
   const closeMenu=()=>{details.current!.open=false;onMenuToggle?.(false)}
   const save=()=>{
     const result=writeSlot(state,'manual',selectDateLabel(scenario,state),history)
@@ -41,7 +42,12 @@ export function SaveControls({ state, scenario, history = [], onRestore, onMenuT
       <SettingsSlider label="メッセージスピード" value={Math.max(0,MESSAGE_SPEEDS.indexOf(interval as typeof MESSAGE_SPEEDS[number]))} maximum={3} labels={MESSAGE_SPEED_LABELS} onChange={point=>onIntervalChange?.(MESSAGE_SPEEDS[point])}/>
       {(['bgm','se'] as const).map(kind=><SettingsSlider key={kind} label={kind==='bgm'?'BGM音量':'SE音量'} value={audio[kind]} maximum={100} onChange={value=>{const next={...audio,[kind]:value};setAudio(next);saveAudioSettings(next)}}/>)}
       {message&&<p role="status">{message}</p>}
+      {onReturnToTitle && <button type="button" onClick={()=>setConfirmTitle(true)}><UiIcon name="home"/>タイトルに戻る</button>}
     </div>
+    {confirmTitle&&<SystemDialog title="タイトルに戻りますか？" label="戻らない" initialFocus="close" onClose={()=>setConfirmTitle(false)}>
+      <p>保存していない進行は失われます。</p>
+      <button type="button" onClick={()=>onReturnToTitle?.()}>タイトルに戻る</button>
+    </SystemDialog>}
     {saved&&<SystemDialog title="セーブしました" dismissible={false} onClose={()=>{setSaved(false);setMessage('');closeMenu()}}/>}
     {slots&&<SystemDialog title="LOAD" label="戻る" onClose={()=>{setSlots(undefined);setMessage('')}}>
       <div className="save-slot-list">{(['auto',0,1,2] as const).map(id=>{
