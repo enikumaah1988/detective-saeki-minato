@@ -125,3 +125,14 @@ test('自由行動とサブメニューは会話パネルを出さず、アイ�
   const save = renderToStaticMarkup(createElement(SaveControls, { state: initial, scenario, onRestore: () => {} }))
   assert.equal((save.match(/class="ui-icon"/g) ?? []).length, 3)
 })
+
+
+test('履歴入口は操作可能な会話だけに表示し、自由行動・終了・外部停止では隠す', () => {
+  const dialogueId = Object.keys(scenario.nodes).find(id => scenario.nodes[id].type === 'dialogue')
+  const renderPlayer = (start, suspended = false) => renderToStaticMarkup(createElement(StoryPlayer, {scenario: {...scenario, start}, suspended}))
+  assert.match(renderPlayer(dialogueId), /history-entry/)
+  assert.doesNotMatch(renderPlayer(dialogueId, true), /history-entry/)
+  for (const [id, node] of Object.entries(scenario.nodes)) {
+    if (node.type !== 'dialogue' && node.type !== 'think') assert.doesNotMatch(renderPlayer(id), /history-entry/, id)
+  }
+})

@@ -155,7 +155,7 @@ export function StoryPlayer({ scenario, preview, smokingAllowed, suspended = fal
       <div className="story-content" inert={menuOpen || Boolean(acquisition)}>
       <StoryContent key={`${gameState.nodeId}:${restoreRevision}`} interval={interval} paused={menuOpen || Boolean(acquisition)} node={node} state={gameState} thinking={scenario.nodes[gameState.nodeId].type === 'think'} dispatch={dispatch} dialogueRef={dialogueRef} />
       </div>
-      {(!menuOpen || historyOpen) && !recordsOpen && !smoking && !acquisition && !itemSelection && <button ref={historyButton} type="button" className="history-entry" aria-label="会話履歴を開く" disabled={historyOpen} onClick={event=>{event.stopPropagation();setHistoryOpen(true);send({type:'menu',open:true})}}>履歴</button>}
+      {node.type === 'dialogue' && !menuOpen && !recordsOpen && !smoking && !acquisition && !itemSelection && <button ref={historyButton} type="button" className="history-entry" aria-label="会話履歴を開く" disabled={historyOpen} onClick={event=>{event.stopPropagation();setHistoryOpen(true);send({type:'menu',open:true})}}>履歴</button>}
       {smoking && <div className="smoking-overlay" onClick={event => { if (!(event.target instanceof Element) || !event.target.closest('.dialogue-button')) smokingDialogueRef.current?.activate() }} role="dialog" aria-label="喫煙ヒント" aria-modal="true">
         {smoking.imageFailed
           ? <div className="smoking-cut-in-fallback" aria-hidden="true" />

@@ -35,8 +35,7 @@ for(const [width,height] of [[1920,1080],[1366,768]])test(`UI・SAVE3/AUTO1・�
   assert.equal(await page.evaluate(()=>localStorage.getItem('detective-saeki-minato.save.v1')),raw)
   const command=page.locator('.free-action-panel .command-name').first()
   const commandSize=await command.evaluate(el=>getComputedStyle(el).fontSize)
-  await page.getByRole('button',{name:'会話履歴を開く',exact:true}).press('Enter')
-  await history.getByRole('button',{name:'閉じる',exact:true}).press('Space');assert.equal(await node(),'P1-01-menu')
+  assert.equal(await page.getByRole('button',{name:'会話履歴を開く',exact:true}).count(),0)
   // 四回のSAVEで旧枠を押し出しても３枠・v2を維持。SAVE後の別通知なし。
   for(let i=0;i<4;i++){
    await menu().click();await page.getByRole('button',{name:'SAVE',exact:true}).click()
