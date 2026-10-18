@@ -76,41 +76,16 @@ for (const [width, height] of [[1920, 1080], [1366, 768]]) {
         await completeCutIn(variant, phrase)
       }
 
-      // 選択演出開始直後に呼び出しても、MENU一時停止で選択がキャンセルされ、Free Actionへ戻る。
+      // 通常会話以外では喫煙入口を隠し、選択操作を維持する。
       for (let index = 0; index < 40 && await page.locator('.free-action-panel').count() === 0; index++) await dialogue.click()
       const commands = page.locator('.free-action-panel')
       await commands.waitFor()
-      await page.evaluate(() => {
-        document.querySelector('.free-action-panel button').click()
-        const smokingButton = Array.from(document.querySelectorAll('.toolbar-actions > button')).find(button => button.textContent.includes('タバコを吸う'))
-        smokingButton.click()
-      })
-      const overlay = page.locator('.smoking-overlay .dialogue-button')
-      await overlay.waitFor()
-      assert.equal(await overlay.locator('.speaker').count(), 0)
-      await overlay.click(); await overlay.locator('.next').waitFor(); await overlay.click()
-      const hint = page.locator('.smoking-overlay .dialogue-button')
-      await hint.locator('.next').waitFor(); await hint.click()
-      await page.waitForFunction(() => !document.querySelector('.smoking-overlay'))
-      await commands.waitFor()
-      assert.equal(await page.getByLabel('聞く話題', { exact: true }).count(), 0)
-
-      // サブメニューを開いた状態も維持する。
+      assert.equal(await smokingButton.isVisible(), false)
       await commands.getByRole('button', { name: /聞く/ }).click()
-      const topics = page.getByLabel('聞く話題', { exact: true })
-      await topics.waitFor()
-      const topicLabels = await topics.locator('.command-name').allTextContents()
-      await smokingButton.click()
-      const submenuOverlay = page.locator('.smoking-overlay .dialogue-button')
-      await submenuOverlay.waitFor()
-      await submenuOverlay.click(); await submenuOverlay.locator('.next').waitFor(); await submenuOverlay.click()
-      const submenuHint = page.locator('.smoking-overlay .dialogue-button')
-      await submenuHint.locator('.next').waitFor(); await submenuHint.click()
-      await page.waitForFunction(() => !document.querySelector('.smoking-overlay'))
-      await topics.waitFor()
-      assert.deepEqual(await topics.locator('.command-name').allTextContents(), topicLabels)
+      await page.getByLabel('聞く話題', { exact: true }).waitFor()
+      assert.equal(await smokingButton.isVisible(), false)
       assert.equal(await page.evaluate(key => localStorage.getItem(key), saveKey), beforeSave)
-      console.log(JSON.stringify({ viewport: [width, height], variants: ['smoking', 'non-smoking'], sameDialogueGeometry: true, stateRestored: ['dialogue', 'free-action', 'submenu'] }))
+      console.log(JSON.stringify({ viewport: [width, height], variants: ['smoking', 'non-smoking'], sameDialogueGeometry: true, stateRestored: ['dialogue'], hiddenIn: ['free-action', 'submenu'] }))
     } finally { await browser.close() }
   })
 }

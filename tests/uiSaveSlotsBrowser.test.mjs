@@ -57,7 +57,10 @@ for(const [width,height] of [[1920,1080],[1366,768]])test(`UI・SAVE3/AUTO1・�
   await choose('話す')
   assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('detective-saeki-minato.slots.v1')).auto.savedAt),auto.savedAt)
   await load('AUTO');assert.equal(await node(),auto.data.nodeId)
-  const point=run.checkpoints.find(p=>p.phase==='P2-06').state
+  const checkpoint=run.checkpoints.find(p=>p.phase==='P2-06').state
+  const dialogueId=Object.entries(api.scenario.nodes).find(([id,n])=>!api.scenario.saveNodeAliases?.[id]&&n.type==='dialogue'&&!n.illustration&&!n.acquisition&&n.sceneId===api.scenario.nodes[checkpoint.nodeId].sceneId)?.[0]
+  assert.ok(dialogueId)
+  const point={...checkpoint,nodeId:dialogueId}
   await page.evaluate(data=>localStorage.setItem('detective-saeki-minato.slots.v1',JSON.stringify({version:1,auto:null,manual:[{data,savedAt:'',label:'test',history:[]}]})),api.createSaveData(point))
   await load()
   await page.getByRole('button',{name:'調査記録',exact:true}).click()

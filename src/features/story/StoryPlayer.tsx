@@ -96,6 +96,10 @@ export function StoryPlayer({ scenario, preview, smokingAllowed, suspended = fal
   const [restoreRevision, setRestoreRevision] = useState(0)
   const acquisition = node.type === 'dialogue' ? node.acquisition : undefined
   const illustration = scenario.nodes[gameState.nodeId].illustration
+  const mapNode = node.type === 'choice' && node.map ? node : undefined
+  const sourceNode = scenario.nodes[gameState.nodeId]
+  const isOpeningOrEnding = sourceNode.sceneId === 'episode-prologue-scene' || ['P4-09', 'P4-10', 'P4-11'].includes(sourceNode.savePhaseId ?? '')
+  const showConversationToolbar = node.type === 'dialogue' && !isOpeningOrEnding && !illustration && !acquisition && !menuOpen && !recordsOpen && !smoking && !historyOpen && !itemSelection
 
   useEffect(() => {
     const handleEnter = (event: KeyboardEvent) => {
@@ -119,10 +123,6 @@ export function StoryPlayer({ scenario, preview, smokingAllowed, suspended = fal
     if (!menuOpen && !recordsOpen && !smoking && !acquisition && node.type === 'dialogue') dialogueRef.current?.activate()
   }
 
-  if (node.type === 'choice' && node.map) return <section className="story" data-node-id={gameState.nodeId} aria-label="会話シーン"><TravelMap
-    key={gameState.nodeId} current={node.map.current} options={visibleChoices(node, gameState)}
-    onBack={() => dispatch({ type: 'choose', choiceId: 'return' })} onMove={id => dispatch({ type: 'choose', choiceId: id })} /></section>
-
   return (
     <section className={`${'options' in node ? 'story has-commands' : 'story'}${menuOpen ? ' menu-open' : ''}${recordsOpen ? ' records-open' : ''}`} data-node-id={gameState.nodeId} aria-label="会話シーン">
       <header className="story-toolbar" inert={recordsOpen || Boolean(smoking) || Boolean(acquisition) || historyOpen}>
@@ -134,15 +134,17 @@ export function StoryPlayer({ scenario, preview, smokingAllowed, suspended = fal
           suppressRecordNotice.current = true
           suppressAutoSave.current = true; send({ type: 'restore', state }); setHistory(restoredHistory); setRestoreRevision((value) => value + 1)
         }} onMenuToggle={(open) => send({ type: 'menu', open: open || recordsOpen || historyOpen })} />
-        <button ref={recordsButton} type="button" disabled={menuOpen} onClick={() => { setActivePreview(undefined); setRecordsOpen(true); send({ type: 'menu', open: true }) }}><UiIcon name="notebook" /><span>調査記録</span></button>
-        <button ref={smokingButton} type="button" disabled={menuOpen || recordsOpen || Boolean(smoking)} onClick={() => {
+        <button hidden={!showConversationToolbar} ref={recordsButton} type="button" disabled={menuOpen} onClick={() => { setActivePreview(undefined); setRecordsOpen(true); send({ type: 'menu', open: true }) }}><UiIcon name="notebook" /><span>調査記録</span></button>
+        <button hidden={!showConversationToolbar} ref={smokingButton} type="button" disabled={menuOpen || recordsOpen || Boolean(smoking)} onClick={() => {
           const presentation = selectSmokingPresentation(scenario, gameState)
           setSmoking({ allowed: import.meta.env.DEV ? smokingAllowed ?? presentation.allowed : presentation.allowed, hint: presentation.hint, phase: 'gesture', imageFailed: false })
           send({ type: 'menu', open: true })
         }}><UiIcon name="smoking" /><span>タバコを吸う</span></button>
         </div>
-        <div className="scene-context"><span>{displayText(resolveBackground(node.stage.backgroundId).name)}</span><span>{displayText(selectDateLabel(scenario, gameState))}</span></div>
+        <div hidden={!showConversationToolbar} className="scene-context"><span>{displayText(resolveBackground(node.stage.backgroundId).name)}</span><span>{displayText(selectDateLabel(scenario, gameState))}</span></div>
       </header>
+      {mapNode && mapNode.map ? <div inert={menuOpen}><TravelMap key={gameState.nodeId} current={mapNode.map.current} options={visibleChoices(mapNode, gameState)}
+        onBack={() => dispatch({ type: 'choose', choiceId: 'return' })} onMove={id => dispatch({ type: 'choose', choiceId: id })} /></div> : <>
       {recordNotice && <div className="record-notice" role="status">{displayText(recordNotice)}</div>}
       <div className={scenario.nodes[gameState.nodeId].type === 'think' ? 'stage-wrapper is-thinking' : 'stage-wrapper'}>
         <div className="stage-input-area" onClick={advanceFromStage}>
@@ -188,6 +190,7 @@ export function StoryPlayer({ scenario, preview, smokingAllowed, suspended = fal
           else useItem(itemId, uses[0]?.next)
         }}
         onClose={() => { setRecordsOpen(false); send({ type: 'menu', open: false }) }} />}
+      </>}
     </section>
   )
 }
