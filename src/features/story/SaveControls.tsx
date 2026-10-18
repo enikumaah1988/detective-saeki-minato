@@ -38,11 +38,15 @@ export function SaveControls({ state, scenario, history = [], onRestore, onMenuT
   return <details ref={details} className="save-controls" onToggle={event=>onMenuToggle?.(event.currentTarget.open)}>
     <summary aria-label="メニュー" onClick={event=>onMenuToggle?.(!(event.currentTarget.parentElement as HTMLDetailsElement).open)}><UiIcon name="menu"/><span className="menu-caption">MENU</span></summary>
     <div className="save-panel">
-      <div className="save-actions" aria-label="保存操作"><button type="button" onClick={save}><UiIcon name="save"/>SAVE</button><button type="button" onClick={openLoad}><UiIcon name="load"/>LOAD</button></div>
+      <div className="save-actions" aria-label="保存操作">
+        <button type="button" onClick={save}><UiIcon name="save"/>SAVE</button>
+        <button type="button" onClick={openLoad}><UiIcon name="load"/>LOAD</button>
+        {onReturnToTitle && <button type="button" onClick={()=>setConfirmTitle(true)}><UiIcon name="home"/>RETURN TO TITLE</button>}
+      </div>
+      <hr className="save-settings-divider"/>
       <SettingsSlider label="メッセージスピード" value={Math.max(0,MESSAGE_SPEEDS.indexOf(interval as typeof MESSAGE_SPEEDS[number]))} maximum={3} labels={MESSAGE_SPEED_LABELS} onChange={point=>onIntervalChange?.(MESSAGE_SPEEDS[point])}/>
       {(['bgm','se'] as const).map(kind=><SettingsSlider key={kind} label={kind==='bgm'?'BGM音量':'SE音量'} value={audio[kind]} maximum={100} onChange={value=>{const next={...audio,[kind]:value};setAudio(next);saveAudioSettings(next)}}/>)}
       {message&&<p role="status">{message}</p>}
-      {onReturnToTitle && <button type="button" onClick={()=>setConfirmTitle(true)}><UiIcon name="home"/>タイトルに戻る</button>}
     </div>
     {confirmTitle&&<SystemDialog title="タイトルに戻りますか？" label="戻らない" initialFocus="close" onClose={()=>setConfirmTitle(false)}>
       <p>保存していない進行は失われます。</p>
