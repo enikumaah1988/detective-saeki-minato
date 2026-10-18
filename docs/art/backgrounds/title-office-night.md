@@ -2,9 +2,19 @@
 
 2026-10-18のユーザー依頼により制作。新規生成保留の例外は今回のタイトル専用背景1枚に限定する。
 
-現行成果: [title-office-night-04.png](drafts/title-office-night-04.png)。扉絵と同じ1672×941。文字・ロゴ・メニュー・人物なし。ゲームへの接続・正式採用は未実施。既存の事務所背景とReactコードは変更していない。01は「夜にしただけで机から遠い」とのユーザー指摘により旧候補として保持。
+現行成果: [title-office-night-05.png](drafts/title-office-night-05.png)。扉絵と同じ1672×941。文字・ロゴ・メニュー・人物なし。ゲームへの接続・正式採用は未実施。既存の事務所背景とReactコードは変更していない。01は「夜にしただけで机から遠い」とのユーザー指摘により旧候補として保持。
 
-## 現行候補04：机上へさらに寄せる
+## 現行候補05：右窓と新宿の夜景
+
+2026-10-19、ユーザーが「右の窓をもう少し見せたい」「新宿っぽさ」「机の角度を変えるのはあり」と指定。今回から机角度の固定条件を解除し、04を入力に右窓を広く見せる構図へ編集。机を斜めに、椅子・カップ・PCを左下へまとめ、高層ビル群の夜景を中央〜右へ広げた。窓枠・ブラインド・家具のテイストは継続するが、旧候補と同一の投影・配置ではない。
+
+新宿らしい高層ビルのシルエットを採用したイメージ背景であり、実在の眺望・所在地・方角を確定する資料ではない。中央の夜景は04より細かいため、ロゴとメニューの視認性は実装時に確認する。内蔵image_gen編集1回、1672×941をPNGヘッダーで確認、文字なしを目視確認。既存ゲーム背景・コードは未変更。画像と記録のみのためゲームテスト・ビルドは未実行。
+
+### 05の生成プロンプト
+
+Edit the supplied detective-office title background to show substantially MORE OF THE RIGHT WINDOW and Shinjuku night skyline, preserving the intimate desktop closeup, 1672x941. User NOW explicitly permits changing the desk angle: rotate/re-angle desk modestly and pan camera RIGHT to favor window, this supersedes earlier desk-angle lock. Same existing office design and furniture identities. Composition: dark wooden desktop runs diagonally across bottom quarter; empty leather chair and book/file piles cluster near LEFT edge; white coffee cup lower left, laptop lower left-middle, smaller articulated warm brass/dark lamp at lower/right edge without blocking skyline. Move emphasis away from huge central laptop and lamp. The RIGHT clear window pane with blinds raised up near top must take roughly RIGHT 55-60% of picture and extend into center; left half of original blinds can remain at left background, do not invent new window architecture. Through clear glass show a convincing Nishi-Shinjuku Tokyo high-rise cluster: dense Japanese urban midrises at base and varied tall sober office towers behind, subtle red aviation lights, some warm lit windows, an understated twin-tower municipal silhouette or tapered/curved office tower among skyline shapes, recognizable Shinjuku atmosphere rather than generic low-rise city. No giant neon signs, no legible signage, no Tokyo Tower, no waterfront, no New York skyline. City occupies upper center/right, believable urban scale, slightly softened but recognizable tower silhouettes; night blue-gray palette, restrained amber desk light. Preserve semi-realistic low saturation environmental painting and quiet hardboiled atmosphere. Keep center x35-65% y15-65% relatively DARK and uncluttered for title/menu overlay: subdued building lights, objects mainly along lower and side edges, city detail strongest on right. No people, no letters, no logo, no menu, no watermark, no smoke, no new props. One revised image only.
+
+## 旧候補04：机上へさらに寄せる
 
 2026-10-19、ユーザーの「もっと寄りな絵」に対応。03を入力に、向きとカップ→PC→照明の並びを保って、机上の近接構図へ変更。椅子を左端、カップを左下、PCを下中央、ライトを右へ大きく描き、脚・床・書類棚を画角外にした。上中央は暗い窓、下中央は暗いPC背面となるため、文字の視認性は実際のUI接続時に確認する。画像自体は文字なし。
 
