@@ -78,7 +78,7 @@ test('保存操作は閉じたメニュー内にまとまり、画面は上下�
   const html = renderToStaticMarkup(createElement(SaveControls, { state, scenario, onRestore: () => {} }))
   assert.match(html, /<details class="save-controls">/)
   assert.doesNotMatch(html, /<details[^>]*\bopen/)
-  for (const label of ['メニュー', 'セーブ', 'ロード', 'セーブデータ削除']) assert.ok(html.includes(label))
+  for (const label of ['メニュー', 'SAVE', 'LOAD']) assert.ok(html.includes(label))
   const player = renderToStaticMarkup(createElement(StoryPlayer, { scenario }))
   assert.ok(player.indexOf('stage-wrapper') < player.indexOf('message-window'))
   assert.match(player, /dialogue-button/)
@@ -88,8 +88,8 @@ test('保存操作は閉じたメニュー内にまとまり、画面は上下�
 test('ゲーム本体を先に表示し、常時タイトルと開発切替を分離する', () => {
   const html = renderToStaticMarkup(createElement(App))
   assert.doesNotMatch(html, /<h1/)
-  assert.ok(html.indexOf('class="story"') < html.indexOf('class="scene-selector"'))
-  assert.match(html, /dev-label.*DEV/)
+  assert.match(html, /class="story"/)
+  assert.doesNotMatch(html, /scene-selector|dev-label/)
   assert.doesNotMatch(html, /クリック・タップ \/ Enter・Space/)
 })
 
@@ -123,5 +123,5 @@ test('自由行動とサブメニューは会話パネルを出さず、アイ�
     assert.match(html, /戻る/)
   }
   const save = renderToStaticMarkup(createElement(SaveControls, { state: initial, scenario, onRestore: () => {} }))
-  assert.equal((save.match(/class="ui-icon"/g) ?? []).length, 4)
+  assert.equal((save.match(/class="ui-icon"/g) ?? []).length, 3)
 })

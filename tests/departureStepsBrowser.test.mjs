@@ -1,3 +1,4 @@
+import {loadForTest,saveForTest} from './saveUiHelpers.mjs'
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import {loadRevision,buildPlaythrough} from './revisionHarness.mjs'
@@ -10,8 +11,8 @@ for(const [width,height] of [[1920,1080],[1366,768]]) test(`出発前の段取�
   await page.addInitScript(()=>localStorage.setItem('detective-saeki-minato.speed','0'))
   await page.goto(url)
   const restore=async state=>{
-   await page.evaluate(value=>localStorage.setItem('detective-saeki-minato.save.v1',JSON.stringify(value)),api.createSaveData(state))
-   await page.getByLabel('メニュー',{exact:true}).click();await page.getByRole('button',{name:'ロード',exact:true}).click()
+   await page.evaluate(value=>localStorage.removeItem('detective-saeki-minato.slots.v1') || localStorage.setItem('detective-saeki-minato.save.v1',JSON.stringify(value)),api.createSaveData(state))
+   await page.getByLabel('メニュー',{exact:true}).click();await loadForTest(page)
    await page.getByRole('dialog',{name:'ロードしました',exact:true}).getByRole('button',{name:'OK',exact:true}).click()
   }
   const choose=async label=>{
@@ -26,8 +27,8 @@ for(const [width,height] of [[1920,1080],[1366,768]]) test(`出発前の段取�
   while(await page.locator('.dialogue-button').count()){
    const id=await page.locator('.story').getAttribute('data-node-id');seen.push(id)
    if(id==='p1-company-call-3'){
-    await page.getByLabel('メニュー',{exact:true}).click();await page.getByRole('button',{name:'セーブ',exact:true}).click()
-    await page.getByRole('button',{name:'ロード',exact:true}).click()
+    await page.getByLabel('メニュー',{exact:true}).click();await saveForTest(page)
+    await loadForTest(page)
     await page.getByRole('dialog',{name:'ロードしました',exact:true}).getByRole('button',{name:'OK',exact:true}).click()
     assert.equal(await page.locator('.story').getAttribute('data-node-id'),id)
    }

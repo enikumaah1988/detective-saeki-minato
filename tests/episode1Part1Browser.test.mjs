@@ -1,3 +1,4 @@
+import {loadForTest,saveForTest} from './saveUiHelpers.mjs'
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import { loadRevision, buildPlaythrough } from './revisionHarness.mjs'
@@ -32,8 +33,8 @@ for (const [width, height] of [[1920, 1080], [1366, 768]]) test(`改稿4部完�
         await page.getByRole('button', { name: '調査記録を閉じる', exact: true }).click()
       }
       if (operation.before === 'P2-02-menu' && !shots.has('load')) {
-        shots.add('load'); await menu.click(); await page.getByRole('button', { name: 'セーブ', exact: true }).click()
-        await page.getByRole('button', { name: 'ロード', exact: true }).click()
+        shots.add('load'); await menu.click(); await saveForTest(page)
+        await loadForTest(page)
         const dialog = page.getByRole('dialog', { name: 'ロードしました', exact: true })
         await dialog.waitFor(); await page.keyboard.press('Escape'); assert.equal(await dialog.count(), 1)
         await dialog.getByRole('button', { name: 'OK', exact: true }).click()
@@ -56,10 +57,10 @@ for (const [width, height] of [[1920, 1080], [1366, 768]]) test(`改稿4部完�
       if (index % 200 === 0) console.log(JSON.stringify({ width, operation: index, total: run.operations.length, node: operation.after }))
     }
     assert.match(await page.locator('.end-window').textContent(), /灰色の証言/)
-    await menu.click(); await page.getByRole('button', { name: 'セーブ', exact: true }).click()
-    const saved = await page.evaluate(() => JSON.parse(localStorage.getItem('detective-saeki-minato.save.v1')))
+    await menu.click(); await saveForTest(page)
+    const saved = await page.evaluate(() => JSON.parse(localStorage.getItem('detective-saeki-minato.slots.v1')).manual[0].data)
     assert.deepEqual(saved, api.createSaveData(run.state))
-    await menu.click(); await page.getByRole('button', { name: '会話履歴', exact: true }).click()
+    await menu.click(); await page.getByRole('button', { name: '会話履歴を開く', exact: true }).click()
     const history = page.getByRole('dialog', { name: '会話履歴', exact: true }); assert.match(await history.textContent(), /兄妹|帳簿/)
     await history.getByRole('button', { name: '閉じる', exact: true }).click()
     assert.deepEqual(errors, [])

@@ -16,7 +16,9 @@ import { selectDateLabel } from './dateTime'
 import { SystemDialog } from './SystemDialog'
 import { TravelMap } from './TravelMap'
 import { matchesCondition, visibleChoices } from './freeAction'
-import { loadHistory, saveHistory, MAX_HISTORY_ENTRIES } from './history'
+import { MAX_HISTORY_ENTRIES } from './history'
+import { writeSlot } from './saveSlots'
+import { savePhase } from './autoSave'
 import type { HistoryEntry } from './history'
 import { InvestigationRecords } from './InvestigationRecords'
 import { SaveControls } from './SaveControls'
@@ -51,6 +53,15 @@ export function StoryPlayer({ scenario, preview, smokingAllowed, suspended = fal
   }, [records])
   const [history, setHistory] = useState<HistoryEntry[]>([])
   const [historyOpen, setHistoryOpen] = useState(false)
+  const historyButton = useRef<HTMLButtonElement>(null)
+  const previousSavePhase = useRef(savePhase(scenario, gameState))
+  const suppressAutoSave = useRef(false)
+  useEffect(() => {
+    const phase=savePhase(scenario,gameState), previous=previousSavePhase.current
+    previousSavePhase.current=phase
+    if(suppressAutoSave.current){suppressAutoSave.current=false;return}
+    if(phase && phase!==previous) writeSlot(gameState,'auto',selectDateLabel(scenario,gameState),history)
+  },[scenario,gameState,history])
   const historyList = useRef<HTMLDivElement>(null)
   useEffect(() => { if (historyOpen && historyList.current) historyList.current.scrollTop = historyList.current.scrollHeight }, [historyOpen])
   const [interval, setInterval] = useState(() => {
@@ -60,7 +71,7 @@ export function StoryPlayer({ scenario, preview, smokingAllowed, suspended = fal
     if (!playback.paused && action.type === 'advance' && node.type === 'dialogue') {
       setHistory(entries => [...entries, { speaker: dialogueSpeaker(node, gameState), text: node.text, nodeId: gameState.nodeId }].slice(-MAX_HISTORY_ENTRIES))
     }
-    if (action.type === 'reset') { setHistory([]); suppressRecordNotice.current = true }
+    if (action.type === 'reset') { setHistory([]); suppressRecordNotice.current = true; suppressAutoSave.current = true }
     send({ type: 'input', origin: { nodeId: gameState.nodeId, generation: playback.generation }, action })
   }
   const menuOpen = playback.paused || suspended
@@ -119,12 +130,11 @@ export function StoryPlayer({ scenario, preview, smokingAllowed, suspended = fal
         <div className="toolbar-actions">
         <SaveControls state={gameState} scenario={scenario} interval={interval} onIntervalChange={value => {
           setInterval(value); try { localStorage.setItem('detective-saeki-minato.speed', String(value)) } catch { /* 設定はセッション中保持 */ }
-        }} onSaved={() => saveHistory(gameState.scenarioId, gameState.nodeId, history)} onRestore={(state) => {
+        }} history={history} onRestore={(state, restoredHistory) => {
           suppressRecordNotice.current = true
-          send({ type: 'restore', state }); setHistory(loadHistory(state.scenarioId, state.nodeId)); setRestoreRevision((value) => value + 1)
+          suppressAutoSave.current = true; send({ type: 'restore', state }); setHistory(restoredHistory); setRestoreRevision((value) => value + 1)
         }} onMenuToggle={(open) => send({ type: 'menu', open: open || recordsOpen || historyOpen })} />
         <button ref={recordsButton} type="button" disabled={menuOpen} onClick={() => { setActivePreview(undefined); setRecordsOpen(true); send({ type: 'menu', open: true }) }}><UiIcon name="notebook" /><span>調査記録</span></button>
-        <button type="button" disabled={menuOpen} onClick={() => { setHistoryOpen(true); send({ type: 'menu', open: true }) }}><UiIcon name="notebook" /><span>会話履歴</span></button>
         <button ref={smokingButton} type="button" disabled={menuOpen || recordsOpen || Boolean(smoking)} onClick={() => {
           const presentation = selectSmokingPresentation(scenario, gameState)
           setSmoking({ allowed: import.meta.env.DEV ? smokingAllowed ?? presentation.allowed : presentation.allowed, hint: presentation.hint, phase: 'gesture', imageFailed: false })
@@ -145,6 +155,7 @@ export function StoryPlayer({ scenario, preview, smokingAllowed, suspended = fal
       <div className="story-content" inert={menuOpen || Boolean(acquisition)}>
       <StoryContent key={`${gameState.nodeId}:${restoreRevision}`} interval={interval} paused={menuOpen || Boolean(acquisition)} node={node} state={gameState} thinking={scenario.nodes[gameState.nodeId].type === 'think'} dispatch={dispatch} dialogueRef={dialogueRef} />
       </div>
+      {(!menuOpen || historyOpen) && !recordsOpen && !smoking && !acquisition && !itemSelection && <button ref={historyButton} type="button" className="history-entry" aria-label="会話履歴を開く" disabled={historyOpen} onClick={event=>{event.stopPropagation();setHistoryOpen(true);send({type:'menu',open:true})}}>履歴</button>}
       {smoking && <div className="smoking-overlay" onClick={event => { if (!(event.target instanceof Element) || !event.target.closest('.dialogue-button')) smokingDialogueRef.current?.activate() }} role="dialog" aria-label="喫煙ヒント" aria-modal="true">
         {smoking.imageFailed
           ? <div className="smoking-cut-in-fallback" aria-hidden="true" />
@@ -163,7 +174,7 @@ export function StoryPlayer({ scenario, preview, smokingAllowed, suspended = fal
       {acquisition && !menuOpen && <SystemDialog key={`${gameState.nodeId}:${restoreRevision}`} title={`${acquisition.title}を受け取った`} onClose={() => dispatch({ type: 'advance' })}>
         <div className="acquisition-photo"><img src={acquisition.imageSrc} alt={displayText(acquisition.title)} /></div><p>持ち物に加えます。</p>
       </SystemDialog>}
-      {historyOpen && <SystemDialog title="会話履歴" label="閉じる" onClose={() => { setHistoryOpen(false); send({ type: 'menu', open: false }) }}>
+      {historyOpen && <SystemDialog title="会話履歴" label="閉じる" onClose={() => { setHistoryOpen(false); send({ type: 'menu', open: false }); requestAnimationFrame(()=>historyButton.current?.focus()) }}>
         <div ref={historyList} className="history-list">{history.length ? history.map((entry, index) => <article key={index}><strong>{displayText(entry.speaker || '地の文・心の声')}</strong><p>{displayText(entry.text)}</p></article>) : <p>会話履歴はまだありません。</p>}</div>
       </SystemDialog>}
       {itemSelection && <SystemDialog title="使用する相手・目的" label="戻る" onClose={() => { setItemSelection(undefined); setRecordsOpen(true); send({ type: 'menu', open: true }) }}>

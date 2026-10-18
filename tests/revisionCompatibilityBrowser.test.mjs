@@ -1,3 +1,4 @@
+import {loadForTest,saveForTest} from './saveUiHelpers.mjs'
 import test from 'node:test'
 import assert from 'node:assert/strict'
 const playwrightPath=process.env.SAEKI_PLAYWRIGHT_PATH
@@ -9,8 +10,8 @@ for(const [width,height] of [[1920,1080],[1366,768]]) test(`改訂版 旧ビル�
   await page.goto(baseUrl)
   const menu=page.getByLabel('メニュー',{exact:true})
   const load=async value=>{
-   await page.evaluate(v=>localStorage.setItem('detective-saeki-minato.save.v1',JSON.stringify(v)),value)
-   await menu.click();await page.getByRole('button',{name:'ロード',exact:true}).click();await page.getByRole('dialog',{name:'ロードしました',exact:true}).getByRole('button',{name:'OK',exact:true}).click()
+   await page.evaluate(v=>localStorage.removeItem('detective-saeki-minato.slots.v1') || localStorage.setItem('detective-saeki-minato.save.v1',JSON.stringify(v)),value)
+   await menu.click();await loadForTest(page);await page.getByRole('dialog',{name:'ロードしました',exact:true}).getByRole('button',{name:'OK',exact:true}).click()
   }
   const old={version:2,scenarioId:'gray-testimony-ver001-part1',nodeId:'departure',flags:{request_accepted:true},heardTopics:['morning-contact-work'],inspectedTargets:[],acquiredInformation:['I01','search-photo']}
   await load(old)

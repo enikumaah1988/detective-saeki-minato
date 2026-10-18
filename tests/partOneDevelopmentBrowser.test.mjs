@@ -1,3 +1,4 @@
+import {loadForTest,saveForTest} from './saveUiHelpers.mjs'
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import {loadRevision,buildPlaythrough} from './revisionHarness.mjs'
@@ -10,8 +11,8 @@ for(const [width,height]of [[1920,1080],[1366,768]])test(`新第1部の受諾後
   await page.addInitScript(()=>localStorage.setItem('detective-saeki-minato.speed','0'))
   await page.goto(url)
   const restore=async state=>{
-   await page.evaluate(value=>localStorage.setItem('detective-saeki-minato.save.v1',JSON.stringify(value)),api.createSaveData(state))
-   await page.getByLabel('メニュー',{exact:true}).click();await page.getByRole('button',{name:'ロード',exact:true}).click()
+   await page.evaluate(value=>localStorage.removeItem('detective-saeki-minato.slots.v1') || localStorage.setItem('detective-saeki-minato.save.v1',JSON.stringify(value)),api.createSaveData(state))
+   await page.getByLabel('メニュー',{exact:true}).click();await loadForTest(page)
    await page.getByRole('dialog',{name:'ロードしました',exact:true}).getByRole('button',{name:'OK',exact:true}).click()
   }
   const choose=async label=>{
@@ -56,8 +57,8 @@ for(const [width,height]of [[1920,1080],[1366,768]])test(`新第1部の受諾後
   await choose('次に確かめること');await readTo('P1-08-REPORT-end')
   assert.match(await page.locator('.chapter-title-card').textContent(),/依頼と初動.*終/)
   assert.match(await page.locator('.story').textContent(),/１４:３０/)
-  await page.getByLabel('メニュー',{exact:true}).click();await page.getByRole('button',{name:'セーブ',exact:true}).click()
-  const saved=await page.evaluate(()=>JSON.parse(localStorage.getItem('detective-saeki-minato.save.v1')))
+  await page.getByLabel('メニュー',{exact:true}).click();await saveForTest(page)
+  const saved=await page.evaluate(()=>JSON.parse(localStorage.getItem('detective-saeki-minato.slots.v1')).manual[0].data)
   assert.equal(saved.flags.part1_completed,true)
   for(const id of ['E02','F36','F41','F42'])assert.equal(saved.acquiredInformation.includes(id),false,id)
   if(process.env.SAEKI_SCREENSHOT_DIR){await page.getByLabel('メニュー',{exact:true}).click();await page.screenshot({path:`${process.env.SAEKI_SCREENSHOT_DIR}/part1-new-ending-${width}.png`})}

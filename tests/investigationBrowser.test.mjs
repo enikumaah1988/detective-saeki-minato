@@ -1,3 +1,4 @@
+import {loadForTest,saveForTest} from './saveUiHelpers.mjs'
 import test from 'node:test'
 import assert from 'node:assert/strict'
 const playwrightPath = process.env.SAEKI_PLAYWRIGHT_PATH
@@ -65,9 +66,9 @@ for (const [width, height] of [[1920, 1080], [1366, 768]]) {
       assert.ok((await dialogue.locator('.dialogue > [aria-hidden]').textContent()).startsWith(textBefore))
       // 全取得状態を既存version2のロード経由で復元する。
       const saved = { version: 2, scenarioId: 'gray-testimony-part1-demo', nodeId: 'menu', flags: { photo_examined: true }, heardTopics: ['brother', 'missing', 'recent-brother', 'accident'], inspectedTargets: ['client', 'photo'], acquiredInformation: ['photo_date', 'disappearance_timing', 'missing_date', 'last_known_activity', 'brother_recent', 'past_accident', 'brother_profile', 'stress-test'] }
-      await page.evaluate(({ key, data }) => localStorage.setItem(key, JSON.stringify(data)), { key: saveKey, data: saved })
+      await page.evaluate(({ key, data }) => {localStorage.removeItem('detective-saeki-minato.slots.v1');localStorage.setItem(key, JSON.stringify(data))}, { key: saveKey, data: saved })
       const menu = page.getByLabel('メニュー', { exact: true })
-      await menu.click(); await page.getByRole('button', { name: 'ロード', exact: true }).click(); await page.getByRole('dialog', { name: 'ロードしました', exact: true }).getByRole('button', { name: 'OK', exact: true }).click()
+      await menu.click(); await loadForTest(page); await page.getByRole('dialog', { name: 'ロードしました', exact: true }).getByRole('button', { name: 'OK', exact: true }).click()
       await page.locator('.free-action-panel').waitFor()
       // 選択演出中に調査記録を開くと、その選択はキャンセルされる。
       await page.evaluate(() => {
@@ -84,7 +85,7 @@ for (const [width, height] of [[1920, 1080], [1366, 768]]) {
       await modal.getByRole('tab', { name: '証拠', exact: true }).click()
       assert.equal(await modal.locator('.record-list button').count(), 25)
       assert.equal(await modal.locator('.record-detail img').count(), 0)
-      await modal.getByRole('button', { name: '長い調査記録の検証項目 0', exact: true }).click()
+      await modal.getByRole('button', { name: '長い調査記録の検証項目 ０', exact: true }).click()
       await page.waitForTimeout(100)
       assert.equal(await modal.locator('.record-detail img').count(), 0) // 読み込み失敗でも本文は残る
       const metrics = await modal.evaluate(el => {
@@ -107,14 +108,14 @@ for (const [width, height] of [[1920, 1080], [1366, 768]]) {
       assert.doesNotMatch(await modal.locator('.record-list').textContent(), /写真/)
       await modal.getByRole('button', { name: '調査記録を閉じる', exact: true }).focus(); await page.keyboard.press('Space')
       await modal.waitFor({ state: 'detached' }); await page.locator('.free-action-panel').waitFor()
-      await menu.click(); await page.getByRole('button', { name: 'セーブ', exact: true }).click()
+      await menu.click(); await saveForTest(page)
       assert.deepEqual(await page.evaluate(key => JSON.parse(localStorage.getItem(key)), saveKey), saved)
       await menu.click()
       assert.deepEqual(await page.locator('.free-action-panel .command-name').allTextContents(), ['考える'])
       // 実際の聞き込み完了から取得した情報が、閲覧記録へ反映される。
       const fresh = { version: 2, scenarioId: 'gray-testimony-part1-demo', nodeId: 'topics', flags: {}, heardTopics: [], inspectedTargets: [], acquiredInformation: [] }
-      await page.evaluate(({ key, data }) => localStorage.setItem(key, JSON.stringify(data)), { key: saveKey, data: fresh })
-      await menu.click(); await page.getByRole('button', { name: 'ロード', exact: true }).click(); await page.getByRole('dialog', { name: 'ロードしました', exact: true }).getByRole('button', { name: 'OK', exact: true }).click()
+      await page.evaluate(({ key, data }) => {localStorage.removeItem('detective-saeki-minato.slots.v1');localStorage.setItem(key, JSON.stringify(data))}, { key: saveKey, data: fresh })
+      await menu.click(); await loadForTest(page); await page.getByRole('dialog', { name: 'ロードしました', exact: true }).getByRole('button', { name: 'OK', exact: true }).click()
       await page.getByLabel('聞く話題', { exact: true }).getByRole('button', { name: /兄について/ }).first().click()
       await dialogue.waitFor()
       for (let n = 0; n < 8 && await dialogue.count(); n++) await dialogue.click()
@@ -124,8 +125,8 @@ for (const [width, height] of [[1920, 1080], [1366, 768]]) {
       assert.match(await modal.locator('.record-detail').textContent(), /几帳面/)
       assert.doesNotMatch(await modal.locator('.record-detail').textContent(), /三日前|昔の事故/)
       await modal.getByRole('button', { name: '調査記録を閉じる', exact: true }).click()
-      await menu.click(); await page.getByRole('button', { name: 'セーブ', exact: true }).click()
-      const acquired = await page.evaluate(key => JSON.parse(localStorage.getItem(key)), saveKey)
+      await menu.click(); await saveForTest(page)
+      const acquired = await page.evaluate(() => JSON.parse(localStorage.getItem('detective-saeki-minato.slots.v1')).manual[0].data)
       assert.deepEqual(acquired.heardTopics, ['brother']); assert.deepEqual(acquired.acquiredInformation, ['brother_profile'])
       await menu.click()
       const hearMissing = async () => {
@@ -161,12 +162,12 @@ for (const [width, height] of [[1920, 1080], [1366, 768]]) {
       for (let n = 0; n < 8 && await dialogue.count(); n++) await dialogue.click()
       await page.locator('.free-action-panel').waitFor()
       await checkMissingRecord()
-      await menu.click(); await page.getByRole('button', { name: 'セーブ', exact: true }).click(); await menu.click()
-      const savedProgress = await page.evaluate(key => JSON.parse(localStorage.getItem(key)), saveKey)
+      await menu.click(); await saveForTest(page); await menu.click()
+      const savedProgress = await page.evaluate(() => JSON.parse(localStorage.getItem('detective-saeki-minato.slots.v1')).manual[0].data)
       assert.deepEqual(savedProgress.heardTopics, ['brother', 'missing'])
       assert.deepEqual(savedProgress.acquiredInformation, ['brother_profile', 'missing_date', 'disappearance_timing'])
       await page.reload()
-      await menu.click(); await page.getByRole('button', { name: 'ロード', exact: true }).click(); await page.getByRole('dialog', { name: 'ロードしました', exact: true }).getByRole('button', { name: 'OK', exact: true }).click()
+      await menu.click(); await loadForTest(page); await page.getByRole('dialog', { name: 'ロードしました', exact: true }).getByRole('button', { name: 'OK', exact: true }).click()
       await page.locator('.free-action-panel').waitFor()
       await checkMissingRecord()
       assert.deepEqual(errors, [])

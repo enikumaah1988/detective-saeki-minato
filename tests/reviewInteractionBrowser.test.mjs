@@ -1,3 +1,4 @@
+import {loadForTest,saveForTest} from './saveUiHelpers.mjs'
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import {loadRevision,buildPlaythrough} from './revisionHarness.mjs'
@@ -18,8 +19,8 @@ for(const [width,height]of [[1920,1080],[1366,768]])test(`導入と仮扉絵・�
     assert.match(await page.locator('.chapter-title-card').textContent(),/灰色の証言/)
     if(process.env.SAEKI_SCREENSHOT_DIR)await page.screenshot({path:`${process.env.SAEKI_SCREENSHOT_DIR}/review-title-${width}.png`})
     const restore=async state=>{
-      await page.evaluate(v=>localStorage.setItem('detective-saeki-minato.save.v1',JSON.stringify(v)),api.createSaveData(state))
-      await page.getByLabel('メニュー',{exact:true}).click();await page.getByRole('button',{name:'ロード',exact:true}).click()
+      await page.evaluate(v=>localStorage.removeItem('detective-saeki-minato.slots.v1') || localStorage.setItem('detective-saeki-minato.save.v1',JSON.stringify(v)),api.createSaveData(state))
+      await page.getByLabel('メニュー',{exact:true}).click();await loadForTest(page)
       await page.getByRole('dialog',{name:'ロードしました',exact:true}).getByRole('button',{name:'OK',exact:true}).click()
     }
     await restore(run.checkpoints.find(p=>p.phase==='P1-01').state)

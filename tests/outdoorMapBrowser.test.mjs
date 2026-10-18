@@ -11,7 +11,7 @@ for (const width of [1920, 1366]) {
     const errors = []
     page.on('pageerror', error => errors.push(error.message))
     try {
-      await page.goto(baseUrl)
+      await page.goto(baseUrl+(baseUrl.includes('?')?'&':'?')+'dev=1')
       await page.locator('.story .dialogue-button').click()
       const original = await page.locator('.story .dialogue').textContent()
       const storage = await page.evaluate(() => localStorage.getItem('detective-saeki-minato.save.v1'))
@@ -92,7 +92,7 @@ test('地図画像の失敗時もピン・説明・移動操作を維持する',
   const page = await browser.newPage()
   try {
     await page.route(/city-map-mock\.png/, route => route.abort())
-    await page.goto(baseUrl)
+    await page.goto(baseUrl+(baseUrl.includes('?')?'&':'?')+'dev=1')
     await page.locator('.scene-selector').filter({ hasText: '調査・移動UIモック' }).locator('summary').click()
     await page.getByRole('button', { name: '調査・移動モックを開く', exact: true }).click()
     const mock = page.getByRole('region', { name: '調査・移動UIモック', exact: true })

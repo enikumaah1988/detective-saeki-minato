@@ -1,3 +1,4 @@
+import {loadForTest,saveForTest} from './saveUiHelpers.mjs'
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import { mkdir } from 'node:fs/promises'
@@ -12,10 +13,10 @@ for (const width of [1920, 1366]) {
     page.on('pageerror', error => errors.push(error.message))
     try {
       const saved = { version: 2, scenarioId: 'gray-testimony-part1-demo', nodeId: 'menu', flags: {}, heardTopics: [], inspectedTargets: [], acquiredInformation: [] }
-      await page.addInitScript(save => localStorage.setItem('detective-saeki-minato.save.v1', JSON.stringify(save)), saved)
+      await page.addInitScript(save => localStorage.removeItem('detective-saeki-minato.slots.v1') || localStorage.setItem('detective-saeki-minato.save.v1', JSON.stringify(save)), saved)
       await page.goto(baseUrl)
       const menu = page.getByLabel('メニュー', { exact: true })
-      await menu.click(); await page.getByRole('button', { name: 'ロード', exact: true }).click(); await page.getByRole('dialog', { name: 'ロードしました', exact: true }).getByRole('button', { name: 'OK', exact: true }).click()
+      await menu.click(); await loadForTest(page); await page.getByRole('dialog', { name: 'ロードしました', exact: true }).getByRole('button', { name: 'OK', exact: true }).click()
       const talk = page.locator('.free-action-panel button').first()
       const geometry = async () => talk.evaluate(element => ({ box: element.getBoundingClientRect().toJSON(), font: getComputedStyle(element).fontSize, label: element.querySelector('.command-name').getBoundingClientRect().toJSON() }))
       const original = await geometry()
@@ -56,7 +57,7 @@ for (const width of [1920, 1366]) {
       await talk.press('Space'); await page.getByLabel('聞く話題', { exact: true }).waitFor()
       assert.match(await page.getByLabel('聞く話題', { exact: true }).textContent(), /未実行/)
       assert.equal(await page.locator('.free-action-panel button:disabled').count(), 0)
-      assert.deepEqual(await page.evaluate(() => JSON.parse(localStorage.getItem('detective-saeki-minato.save.v1'))), saved)
+      assert.deepEqual(await page.evaluate(() => JSON.parse(localStorage.getItem('detective-saeki-minato.slots.v1')).manual[0].data), saved)
       assert.deepEqual(errors, [])
     } finally { await browser.close() }
   })

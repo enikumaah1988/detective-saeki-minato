@@ -5,7 +5,7 @@ const audioKey = 'detective-saeki-minato.audio'
 export function loadAudioSettings(): AudioSettings {
   try {
     const value = JSON.parse(localStorage.getItem(audioKey) ?? '{}')
-    const volume = (input: unknown) => typeof input === 'number' && Number.isFinite(input) && input >= 0 && input <= 100 ? Math.round(input / 10) * 10 : 70
+    const volume = (input: unknown) => typeof input === 'number' && Number.isFinite(input) && input >= 0 && input <= 100 ? Math.round(input) : 70
     return { bgm: volume(value?.bgm), se: volume(value?.se) }
   } catch { return { bgm: 70, se: 70 } }
 }

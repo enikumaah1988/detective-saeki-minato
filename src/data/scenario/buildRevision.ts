@@ -380,5 +380,9 @@ export function buildRevision(base: Scenario, data: RevisionData): Scenario {
     next: index === episodePrologue.length - 1 ? `${firstPhase.id}-start` : `episode-prologue-${index + 2}`,
   }, timeLabel(firstPhase.sceneTime)))
   // 改稿のgrantsを正本とし、旧稿の集約条件で未読の証言・意思を先取りしない。
+  for (const [id, node] of Object.entries(nodes)) {
+    const phase = [...data.scenes].sort((a,b)=>b.id.length-a.id.length).find(phase=>sceneOwners.get(node.sceneId ?? '')===phase.id || id===phase.id || id.startsWith(phase.id+'-'))
+    if (phase) { node.savePhaseId=phase.id; node.savePhaseMarkers=(phase.topicTransitions??[]).flatMap(bridge=>bridge.grants) }
+  }
   return { ...base, start: 'episode-prologue-1', scenes, nodes, nodeTimes: times, milestones: [], itemUses: uses.filter(use=>use.nodeIds.length), arrivalEvents: [], saveNodeAliases, informationAliases }
 }

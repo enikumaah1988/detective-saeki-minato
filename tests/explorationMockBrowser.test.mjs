@@ -11,7 +11,7 @@ for (const width of [1920, 1366]) {
     const errors = []
     page.on('pageerror', error => errors.push(error.message))
     try {
-      await page.goto(baseUrl)
+      await page.goto(baseUrl+(baseUrl.includes('?')?'&':'?')+'dev=1')
       await page.locator('.story:not(.exploration-mock) .dialogue-button').click()
       const original = await page.locator('.story:not(.exploration-mock) .dialogue').textContent()
       const saved = await page.evaluate(() => localStorage.getItem('detective-saeki-minato.save.v1'))
