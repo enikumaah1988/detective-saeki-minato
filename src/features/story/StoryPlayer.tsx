@@ -97,7 +97,9 @@ export function StoryPlayer({ scenario, preview, smokingAllowed, suspended = fal
   const acquisition = node.type === 'dialogue' ? node.acquisition : undefined
   const illustration = scenario.nodes[gameState.nodeId].illustration
   const mapNode = node.type === 'choice' && node.map ? node : undefined
-  const showConversationToolbar = node.type === 'dialogue' && !illustration && !acquisition && !menuOpen && !recordsOpen && !smoking && !historyOpen && !itemSelection
+  const sourceNode = scenario.nodes[gameState.nodeId]
+  const isOpeningOrEnding = sourceNode.sceneId === 'episode-prologue-scene' || ['P4-09', 'P4-10', 'P4-11'].includes(sourceNode.savePhaseId ?? '')
+  const showConversationToolbar = node.type === 'dialogue' && !isOpeningOrEnding && !illustration && !acquisition && !menuOpen && !recordsOpen && !smoking && !historyOpen && !itemSelection
 
   useEffect(() => {
     const handleEnter = (event: KeyboardEvent) => {

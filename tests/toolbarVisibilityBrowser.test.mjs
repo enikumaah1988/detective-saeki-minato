@@ -14,7 +14,9 @@ for (const [width, height] of [[1920, 1080], [1366, 768]]) {
     page.on('pageerror', error => errors.push(error.message))
     const nodes = Object.entries(api.scenario.nodes).filter(([id]) => !api.scenario.saveNodeAliases?.[id])
     const cases = [
-      ['通常会話', node => node.type === 'dialogue' && !node.illustration && !node.acquisition, true],
+      ['通常会話', node => node.type === 'dialogue' && !node.illustration && !node.acquisition && node.savePhaseId === 'P1-01', true],
+      ['オープニング', node => node.sceneId === 'episode-prologue-scene', false],
+      ...['P4-09', 'P4-10', 'P4-11'].map(phase => [`エンディング ${phase}`, node => node.type === 'dialogue' && !node.autoAdvance && !node.illustration && node.savePhaseId === phase, false]),
       ['扉絵', node => Boolean(node.illustration), false],
       ['フリーアクション', node => node.type === 'choice' && node.mode === 'free-action', false],
       ['選択肢', node => node.type === 'choice' && !node.map && node.mode !== 'free-action', false],
