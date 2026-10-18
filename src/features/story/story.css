@@ -35,7 +35,7 @@ button:disabled { cursor: default; color: var(--muted); }
 .story-toolbar { z-index: 5; align-self: start; display: flex; justify-content: space-between; align-items: start; padding: var(--edge-y) var(--edge-x); pointer-events: none; }
 .toolbar-actions { font-size: var(--hud-font); display: flex; gap: calc(12 * var(--u)); align-items: start; pointer-events: auto; }
 .toolbar-actions > button, .save-controls summary { min-height: calc(52 * var(--u)); padding: calc(12 * var(--u)) calc(20 * var(--u)); background: #101922bf; border: 0; border-radius: calc(4 * var(--u)); }
-.scene-context { display: grid; gap: calc(6 * var(--u)); text-align: right; font-size: calc(36 * var(--u)); font-weight: 600; color: #f4ecdf; background: #101922e6; padding: calc(8 * var(--u)) calc(16 * var(--u)); border-radius: calc(4 * var(--u)); text-shadow: 0 1px 3px #000; }
+.scene-context { display: grid; gap: calc(6 * var(--u)); text-align: right; font-family: inherit; font-size: calc(36 * var(--u)); font-weight: 400; color: #f4ecdf; background: rgb(16 25 34 / 68%); padding: calc(8 * var(--u)) calc(16 * var(--u)); border-radius: calc(4 * var(--u)); text-shadow: 0 1px 3px #000; }
 .scene-context span + span { color: #f4ecdf; font-size: inherit; }
 .record-notice { position: absolute; z-index: 4; top: 12%; left: var(--edge-x); max-width: 70%; padding: calc(12 * var(--u)) calc(20 * var(--u)); background: #101922df; border-left: calc(3 * var(--u)) solid var(--accent); pointer-events: none; font-size: calc(22 * var(--u)); }
 .save-controls { position: relative; pointer-events: auto; }
@@ -138,7 +138,8 @@ button:disabled { cursor: default; color: var(--muted); }
 .smoking-cut-in-fallback { background: radial-gradient(ellipse at 48% 35%, #303740 0, #151d26 54%, #080d12 100%); }
 .smoking-overlay .dialogue-button { position: absolute; left: 5%; bottom: var(--edge-y); z-index: 1; width: 90%; height: var(--dialogue-height); margin: 0; pointer-events: auto; }
 .story:has(.smoking-overlay) .smoking-overlay .dialogue-button { opacity: 1; }
-.story:has(.smoking-overlay) .story-toolbar { visibility: hidden; pointer-events: none; }
+.story-toolbar [hidden] { display: none; }
+.story:has(.travel-map) .travel-map { padding-top: calc(120 * var(--u)); }
 .story:has(.smoking-overlay) > .story-content .message-window { visibility: hidden; }
 /* 名前のない文章も、通常会話と同じ本文の開始位置を保つ。 */
 .speaker-space { flex: 0 0 auto; height: calc(60 * var(--u)); margin-bottom: var(--speaker-gap); }
