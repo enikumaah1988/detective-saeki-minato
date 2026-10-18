@@ -2,9 +2,19 @@
 
 2026-10-18のユーザー依頼により制作。新規生成保留の例外は今回のタイトル専用背景1枚に限定する。
 
-現行成果: [title-office-night-06.png](drafts/title-office-night-06.png)。扉絵と同じ1672×941。文字・ロゴ・メニュー・人物なし。ゲームへの接続・正式採用は未実施。既存の事務所背景とReactコードは変更していない。01は「夜にしただけで机から遠い」とのユーザー指摘により旧候補として保持。
+現行成果: [title-office-night-07.png](drafts/title-office-night-07.png)。扉絵と同じ1672×941。文字・ロゴ・メニュー・人物なし。ゲームへの接続・正式採用は未実施。既存の事務所背景とReactコードは変更していない。01は「夜にしただけで机から遠い」とのユーザー指摘により旧候補として保持。
 
-## 現行候補06：ブラインドを下ろす
+## 現行候補07：窓の縦枠とブラインド密度を修正
+
+2026-10-19、ユーザーが既存背景と窓の格子が合っているか確認を依頼。06には元背景の太い縦枠が欠け、ブラインドも粗かったことを報告し、修正指示を受領。06を編集対象、現行office-evening.pngを窓の構造の参照として、木製の縦枠で区切られた複数窓と細い羽根のブラインドへ修正。単一の大きなガラス面に見える状態を解消。机・机上物・寄り・照明・新宿の夜景は06を基準に維持。
+
+内蔵image_gen編集1回。PNG1672×941、文字なし、縦枠・窓ごとの区切り・06より細かな羽根と窓下まで下ろした状態を目視確認。カメラ位置が元背景と異なるため画面上の枠位置・見かけ幅の完全一致ではなく、元の構造に寄せたタイトル用候補として確認待ち。既存事務所3画像のハッシュ不変を確認。ゲームコード未変更、画像と記録のみのためゲームテスト・ビルドは未実行。
+
+### 07の編集プロンプト
+
+Precise architectural correction of IMAGE1 (night title background). IMAGE2 (canonical evening office) is authoritative ONLY for WINDOW CONSTRUCTION and VENETIAN BLIND SLAT DENSITY. Change ONLY the window assembly in image1; preserve image1 camera, desk angle, every desk item, chair, bookshelf, lighting and same Shinjuku skyline exactly. Image1 wrongly turned the window into a huge uninterrupted sheet of glass with one continuous blind. Restore image2's brown wood outer frame and the multiple distinct narrower framed sliding glass sections with solid full-height vertical mullions/sash stiles: match image2's rhythm of approximately four glazing sections, including a more substantial central divider and thinner sash uprights. In image1's close rightward framing, put visibly solid brown vertical divisions across the exposed center/right window, approximately at x49% and x73% of whole canvas (adapt perspective from image2). These are structural full-height wood window frames BEHIND blinds, NOT cords or thin hanging tapes; they must be clearly visible from top cropped frame to sill and occlude skyline. Keep the existing left outer window jamb at x30%. Match physical wood material/width/section relationships to image2, adjusting apparent widths for closer camera; do not invent a lattice grid or add horizontal crossbars. Restore finer narrow-slat Venetian blinds like image2, about 35-40 horizontal slats from top crop to sill rather than current roughly 20-25 oversized widely spaced slats; slats partly open, realistic thin metal, regular spacing, grouped in independently hung sections rather than one gigantic continuous blind across all panes. Blinds remain lowered to sill across ALL visible panes including right, and same skyline remains visible between gaps. Preserve blue-gray night and warm desk lamp highlights. No new buildings, no changes to skyline, no relocation of furniture, no new props, no people, no letters, no logos, no menu, no watermark. Same semi-realistic painting. One edited 1672x941 image.
+
+## 旧候補06：ブラインドを下ろす
 
 2026-10-19、ユーザーの「ブラインドは下ろしたままでよい」に対応。05を入力に、広い右窓も含めてブラインドを窓下端まで下ろし、羽根の隙間から同じ夜景が見える状態へ編集。机の角度・寄り・家具と机上物の配置・照明・夜景は05を継続。窓を開放する演出は行わない。
 
