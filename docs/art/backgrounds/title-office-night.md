@@ -2,9 +2,19 @@
 
 2026-10-18のユーザー依頼により制作。新規生成保留の例外は今回のタイトル専用背景1枚に限定する。
 
-現行成果: [title-office-night-05.png](drafts/title-office-night-05.png)。扉絵と同じ1672×941。文字・ロゴ・メニュー・人物なし。ゲームへの接続・正式採用は未実施。既存の事務所背景とReactコードは変更していない。01は「夜にしただけで机から遠い」とのユーザー指摘により旧候補として保持。
+現行成果: [title-office-night-06.png](drafts/title-office-night-06.png)。扉絵と同じ1672×941。文字・ロゴ・メニュー・人物なし。ゲームへの接続・正式採用は未実施。既存の事務所背景とReactコードは変更していない。01は「夜にしただけで机から遠い」とのユーザー指摘により旧候補として保持。
 
-## 現行候補05：右窓と新宿の夜景
+## 現行候補06：ブラインドを下ろす
+
+2026-10-19、ユーザーの「ブラインドは下ろしたままでよい」に対応。05を入力に、広い右窓も含めてブラインドを窓下端まで下ろし、羽根の隙間から同じ夜景が見える状態へ編集。机の角度・寄り・家具と机上物の配置・照明・夜景は05を継続。窓を開放する演出は行わない。
+
+内蔵image_gen編集1回。PNG1672×941を確認し、ブラインドが下端まで続くこと、夜景が隙間から見えること、文字なしを目視確認。既存ゲーム背景・コードは未変更。画像と制作記録のみのためゲームテスト・ビルドは未実行。
+
+### 06の編集プロンプト
+
+Precise single-change edit of this image. LOWER the existing horizontal VENETIAN BLINDS all the way down across the ENTIRE WINDOW, including the wide clear center/right pane. Blinds are fully lowered in height to the windowsill, but the horizontal slats are tilted partially open, so the SAME Shinjuku skyline and lights remain visible through evenly spaced gaps. Match existing dark brown/charcoal blinds on left: thin regular horizontal slats, realistic perspective and suspension tapes, understated soft amber highlights, blue-gray nighttime shadows. The window itself remains CLOSED. Do not make an opaque blackout; skyline silhouettes should still be discernible behind the slats. Do not move or alter the buildings. CRITICAL preserve EVERYTHING else exactly: camera composition, close desktop angle, chair, cup, laptop, papers, lamp, desk grain, bookcase, warm lighting, palette, framing and semi-realistic style. Only extend/lower blinds over exposed window. No new props, no text, no logos, no menu, no watermark. One image, same1672x941.
+
+## 旧候補05：右窓と新宿の夜景
 
 2026-10-19、ユーザーが「右の窓をもう少し見せたい」「新宿っぽさ」「机の角度を変えるのはあり」と指定。今回から机角度の固定条件を解除し、04を入力に右窓を広く見せる構図へ編集。机を斜めに、椅子・カップ・PCを左下へまとめ、高層ビル群の夜景を中央〜右へ広げた。窓枠・ブラインド・家具のテイストは継続するが、旧候補と同一の投影・配置ではない。
 
