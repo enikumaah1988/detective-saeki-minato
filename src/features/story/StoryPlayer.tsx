@@ -68,7 +68,7 @@ export function StoryPlayer({ scenario, preview, smokingAllowed, suspended = fal
     try { const value = Number(localStorage.getItem('detective-saeki-minato.speed') ?? 35); return [0, 15, 35, 70].includes(value) ? value : 35 } catch { return 35 }
   })
   const dispatch = (action: GameAction) => {
-    if (!playback.paused && action.type === 'advance' && node.type === 'dialogue') {
+    if (!playback.paused && action.type === 'advance' && node.type === 'dialogue' && !isChapterOpening) {
       setHistory(entries => [...entries, { speaker: dialogueSpeaker(node, gameState), text: node.text, nodeId: gameState.nodeId }].slice(-MAX_HISTORY_ENTRIES))
     }
     if (action.type === 'reset') { setHistory([]); suppressRecordNotice.current = true; suppressAutoSave.current = true }
@@ -96,6 +96,7 @@ export function StoryPlayer({ scenario, preview, smokingAllowed, suspended = fal
   const [restoreRevision, setRestoreRevision] = useState(0)
   const acquisition = node.type === 'dialogue' ? node.acquisition : undefined
   const illustration = scenario.nodes[gameState.nodeId].illustration
+  const isChapterOpening = illustration?.id.endsWith('-IN') ?? false
   const mapNode = node.type === 'choice' && node.map ? node : undefined
   const sourceNode = scenario.nodes[gameState.nodeId]
   const isOpeningOrEnding = sourceNode.sceneId === 'episode-prologue-scene' || ['P4-09', 'P4-10', 'P4-11'].includes(sourceNode.savePhaseId ?? '')
@@ -113,14 +114,18 @@ export function StoryPlayer({ scenario, preview, smokingAllowed, suspended = fal
         if (!target.closest('.dialogue-button') && target.closest('button')) return
       }
       event.preventDefault()
-      dialogueRef.current?.activate()
+      if (isChapterOpening) dispatch({ type: 'advance' })
+      else dialogueRef.current?.activate()
     }
     window.addEventListener('keydown', handleEnter)
     return () => window.removeEventListener('keydown', handleEnter)
-  }, [menuOpen, recordsOpen, smoking, acquisition, node.type])
+  }, [menuOpen, recordsOpen, smoking, acquisition, node.type, isChapterOpening, gameState.nodeId])
 
   const advanceFromStage = () => {
-    if (!menuOpen && !recordsOpen && !smoking && !acquisition && node.type === 'dialogue') dialogueRef.current?.activate()
+    if (!menuOpen && !recordsOpen && !smoking && !acquisition && node.type === 'dialogue') {
+      if (isChapterOpening) dispatch({ type: 'advance' })
+      else dialogueRef.current?.activate()
+    }
   }
 
   return (
@@ -154,10 +159,10 @@ export function StoryPlayer({ scenario, preview, smokingAllowed, suspended = fal
           {illustration && <div className={`chapter-heading${illustration.provisional ? ' chapter-title-card' : ''}`} data-illustration-id={illustration.id}><strong>{displayText(illustration.heading)}</strong>{illustration.subtitle && <p>{displayText(illustration.subtitle)}</p>}{illustration.provisional && <small>仮の扉絵</small>}</div>}
         </div>
       </div>
-      <div className="story-content" inert={menuOpen || Boolean(acquisition)}>
+      {!isChapterOpening && <div className="story-content" inert={menuOpen || Boolean(acquisition)}>
       <StoryContent key={`${gameState.nodeId}:${restoreRevision}`} interval={interval} paused={menuOpen || Boolean(acquisition)} node={node} state={gameState} thinking={scenario.nodes[gameState.nodeId].type === 'think'} dispatch={dispatch} dialogueRef={dialogueRef} />
-      </div>
-      {(!menuOpen || historyOpen) && !recordsOpen && !smoking && !acquisition && !itemSelection && <button ref={historyButton} type="button" className="history-entry" aria-label="会話履歴を開く" disabled={historyOpen} onClick={event=>{event.stopPropagation();setHistoryOpen(true);send({type:'menu',open:true})}}>履歴</button>}
+      </div>}
+      {!isChapterOpening && (!menuOpen || historyOpen) && !recordsOpen && !smoking && !acquisition && !itemSelection && <button ref={historyButton} type="button" className="history-entry" aria-label="会話履歴を開く" disabled={historyOpen} onClick={event=>{event.stopPropagation();setHistoryOpen(true);send({type:'menu',open:true})}}>履歴</button>}
       {smoking && <div className="smoking-overlay" onClick={event => { if (!(event.target instanceof Element) || !event.target.closest('.dialogue-button')) smokingDialogueRef.current?.activate() }} role="dialog" aria-label="喫煙ヒント" aria-modal="true">
         {smoking.imageFailed
           ? <div className="smoking-cut-in-fallback" aria-hidden="true" />
