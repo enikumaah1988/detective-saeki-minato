@@ -1,5 +1,8 @@
-export type IconName = 'menu' | 'save' | 'load' | 'delete' | 'talk' | 'look' | 'think' | 'notebook' | 'smoking' | 'move' | 'return'
+export type IconName = 'menu' | 'save' | 'load' | 'delete' | 'talk' | 'look' | 'think' | 'notebook' | 'smoking' | 'move' | 'return' | 'play' | 'settings' | 'home'
 const paths: Record<IconName, string> = {
+  play: 'M8 4 21 12 8 20z',
+  settings: 'M9 3h6l1 3 3 1 2 5-2 5-3 1-1 3H9l-1-3-3-1-2-5 2-5 3-1z M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0',
+  home: 'M3 11 12 3l9 8 M5 10v11h14V10 M9 21v-7h6v7',
   move: 'M4 12h15m-6-6 6 6-6 6',
   return: 'M10 5 3 12l7 7 M3 12h12a5 5 0 0 1 5 5',
   notebook: 'M6 3h14v18H6z M9 3v18 M4 7h3 M4 12h3 M4 17h3 M12 8h5 M12 12h5',

@@ -85,10 +85,12 @@ test('保存操作は閉じたメニュー内にまとまり、画面は上下�
 })
 
 
-test('ゲーム本体を先に表示し、常時タイトルと開発切替を分離する', () => {
+test('通常起動はタイトル画面を表示し、開発切替は表示しない', () => {
   const html = renderToStaticMarkup(createElement(App))
-  assert.doesNotMatch(html, /<h1/)
-  assert.match(html, /class="story"/)
+  assert.match(html, /<h1/)
+  assert.match(html, /タイトル画面/)
+  assert.match(html, /NEW GAME.*CONTINUE.*SETTINGS/s)
+  assert.doesNotMatch(html, /data-node-id=/)
   assert.doesNotMatch(html, /scene-selector|dev-label/)
   assert.doesNotMatch(html, /クリック・タップ \/ Enter・Space/)
 })

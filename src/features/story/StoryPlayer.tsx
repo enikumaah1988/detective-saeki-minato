@@ -3,6 +3,7 @@ import { selectInvestigationRecords } from './investigation'
 import { useEffect, useMemo, useReducer, useRef, useState } from 'react'
 import type { InvestigationRecord } from '../../types/investigation'
 import type { Scenario } from '../../types/scenario'
+import type { TitleSession } from '../../app/TitleScreen'
 import { reduceGameState, selectCurrentNode } from './state'
 import type { GameAction } from './state'
 import { createPlayback, reducePlayback } from './playback'
@@ -29,10 +30,10 @@ import { selectSmokingPresentation } from './smoking'
 const smokingCutIn = new URL('../../assets/cutins/minato-smoking.png', import.meta.url).href
 const nonSmokingCutIn = new URL('../../assets/cutins/minato-non-smoking.png', import.meta.url).href
 
-export function StoryPlayer({ scenario, preview, smokingAllowed, suspended = false }: { scenario: Scenario; preview?: { records: InvestigationRecord[]; label: string; invoker: HTMLElement }; smokingAllowed?: boolean; suspended?: boolean }) {
+export function StoryPlayer({ scenario, initialSession, preview, smokingAllowed, suspended = false, onReturnToTitle }: { scenario: Scenario; initialSession?: TitleSession; preview?: { records: InvestigationRecord[]; label: string; invoker: HTMLElement }; smokingAllowed?: boolean; suspended?: boolean; onReturnToTitle?: () => void }) {
   const [playback, send] = useReducer(
     (state: ReturnType<typeof createPlayback>, action: Parameters<typeof reducePlayback>[2]) => reducePlayback(scenario, state, action),
-    scenario, createPlayback,
+    scenario, value => ({ ...createPlayback(value), ...(initialSession ? { game: initialSession.state } : {}) }),
   )
   const gameState = playback.game
   const node = selectCurrentNode(scenario, gameState)
@@ -51,7 +52,7 @@ export function StoryPlayer({ scenario, preview, smokingAllowed, suspended = fal
     clearTimeout(recordNoticeTimer.current)
     recordNoticeTimer.current = setTimeout(() => setRecordNotice(''), 3000)
   }, [records])
-  const [history, setHistory] = useState<HistoryEntry[]>([])
+  const [history, setHistory] = useState<HistoryEntry[]>(initialSession?.history ?? [])
   const [historyOpen, setHistoryOpen] = useState(false)
   const historyButton = useRef<HTMLButtonElement>(null)
   const previousSavePhase = useRef(savePhase(scenario, gameState))
@@ -133,7 +134,7 @@ export function StoryPlayer({ scenario, preview, smokingAllowed, suspended = fal
       <header className="story-toolbar" inert={recordsOpen || Boolean(smoking) || Boolean(acquisition) || historyOpen}>
         <span className="sr-only">{displayText(scenario.title)}</span>
         <div className="toolbar-actions">
-        <SaveControls state={gameState} scenario={scenario} interval={interval} onIntervalChange={value => {
+        <SaveControls state={gameState} scenario={scenario} interval={interval} onReturnToTitle={onReturnToTitle} onIntervalChange={value => {
           setInterval(value); try { localStorage.setItem('detective-saeki-minato.speed', String(value)) } catch { /* 設定はセッション中保持 */ }
         }} history={history} onRestore={(state, restoredHistory) => {
           suppressRecordNotice.current = true
