@@ -2,9 +2,19 @@
 
 2026-10-18のユーザー依頼により制作。新規生成保留の例外は今回のタイトル専用背景1枚に限定する。
 
-成果: [title-office-night-01.png](drafts/title-office-night-01.png)。扉絵と同じ1672×941。文字・ロゴ・メニュー・人物なし。ゲームへの接続・正式採用は未実施。既存の事務所背景とReactコードは変更していない。
+現行成果: [title-office-night-02.png](drafts/title-office-night-02.png)。扉絵と同じ1672×941。文字・ロゴ・メニュー・人物なし。ゲームへの接続・正式採用は未実施。既存の事務所背景とReactコードは変更していない。01は「夜にしただけで机から遠い」とのユーザー指摘により旧候補として保持。
 
-## 参照と整合性
+## 構図の修正（ユーザー確認後）
+
+机前の至近距離までカメラを寄せ、天板を画面下いっぱいに、空の椅子を左、既存机の右側にある照明を画面右へ大きく配置。背後の窓を中央の文字領域とし、書棚は左端だけ見せる。ソファ・ローテーブル・床・入口・右の書類棚は画角外とし、家具移動ではなく撮影位置と画角でサンプルへ近づけた。元の室内全景を再現することを優先しすぎた01を修正するもの。照明・椅子・書棚の識別点は参照を維持。窓の夜景・ガラスの細部は一枚絵による描画差があり、建物外観や天候の設定を新たに確定するものではない。
+
+内蔵image_genで修正候補を1回制作。PNGヘッダーで1672×941、既存の事務所3画像のハッシュ不変を再確認。画像のみのためゲームテスト・ビルドは未実行。
+
+### 02の生成プロンプト
+
+Create ONE revised game title background, 1672x941 wide 16:9, semi-realistic low-saturation painterly detective-office art. Image1 is authoritative EXISTING OFFICE layout and furniture design. Image2 is the user's desired CLOSE DESK composition; use its framing strongly, WITHOUT copying text or rearranging the established room. CRITICAL: move camera physically right up to the FRONT EDGE of the existing executive desk, at seated eye height looking across its tabletop toward the empty black leather executive chair and rear window. This is a dramatically CLOSE new shot, NOT the original wide room view and NOT merely a nighttime relight. Existing warm dark wooden desktop spans the entire foreground edge to edge, fills bottom 30-35% of frame with visible surface and papers/white coffee mug. Existing empty black office chair occupies lower LEFT third, large, cropped below by desk. Existing articulated brass/dark task lamp rises at RIGHT edge of the close desk view as it does on right side of existing desk; warm amber light pools on papers, no added telephone. Books/files from existing desk at outer edges. Backdrop existing broad brown wooden window with horizontal blinds, subdued same Tokyo midrise night city. Leftmost sliver of existing bookcase with trailing plant allowed, but tightly cropped. Door, coat rack, cabinets, sofa and coffee table must be OFF SCREEN because of this close camera, not moved or redesigned. Show virtually NO floor, NO rug, NO broad empty room. The original room arrangement stays intact outside the shot. Layout should visually closely resemble image2's intimate desk, empty chair, lamp and night window composition, while maintaining image1's desk/chair/lamp/window designs and semi-realistic style. Center x30%-70%, y10%-68% is quiet dark softly blurred window/negative space for central title and menu, no bright central details, no prop blocking center. Cool blue charcoal night and warm amber desk light, restrained muted colors, silent hardboiled mood. NO people, NO letters, NO menu, NO logo, NO watermark, NO cigarette, NO smoke, NO new architectural elements. Single completed background only.
+
+## 初回候補01の参照と整合性（以下は制作経緯）
 
 - `src/data/presentation.ts` から現行の事務所背景を確認し、`src/assets/backgrounds/office-day.png` と `office-evening.png` を目視確認。
 - `docs/art/backgrounds/README.md` の「左の書棚・机・ソファ、中央窓、右の書類棚・入口」を優先。
