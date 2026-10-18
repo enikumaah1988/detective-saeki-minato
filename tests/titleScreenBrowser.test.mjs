@@ -17,7 +17,7 @@ for (const [width, height] of [[1920,1080],[1366,768]]) test(`タイトル画面
     const heading = await page.locator('h1').boundingBox()
     assert.ok(heading.x > width*.15 && heading.x + heading.width < width*.85)
     const titleMenu = await page.locator('.title-screen-menu').boundingBox()
-    assert.ok(titleMenu.y > height*.60 && titleMenu.y + titleMenu.height < height*.92)
+    assert.ok(titleMenu.y > height*.48 && titleMenu.y < height*.58 && titleMenu.y + titleMenu.height < height*.78)
     const menuButtons = await page.locator('.title-screen-menu button').all()
     const buttonRects = await Promise.all(menuButtons.map(button => button.boundingBox()))
     assert.ok(buttonRects.every(rect => Math.abs(rect.x - buttonRects[0].x) < 1))

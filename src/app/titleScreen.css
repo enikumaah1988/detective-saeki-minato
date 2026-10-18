@@ -7,7 +7,7 @@
 .title-screen h1 { margin: 0; font-size: calc(116 * var(--u)); line-height: 1.4; font-weight: 400; letter-spacing: .08em; white-space: nowrap; }
 .title-screen-prefix { font-size: .7em; }
 .title-screen-english { margin: calc(12 * var(--u)) 0 0; padding: 0 calc(40 * var(--u)) calc(20 * var(--u)); border-bottom: 1px solid #b8965a88; font-size: calc(25 * var(--u)); letter-spacing: .24em; white-space: nowrap; }
-.title-screen-menu { position: absolute; bottom: 10%; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; gap: calc(12 * var(--u)); }
+.title-screen-menu { position: absolute; bottom: calc(10% + 168 * var(--u)); left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; gap: calc(12 * var(--u)); }
 .title-screen-menu button { display: flex; align-items: center; justify-content: center; gap: calc(20 * var(--u)); min-width: calc(380 * var(--u)); min-height: calc(72 * var(--u)); padding: calc(12 * var(--u)) calc(28 * var(--u)); background: #080d1266; border: 1px solid #b8965a4d; border-radius: calc(4 * var(--u)); text-align: center; font-size: calc(30 * var(--u)); letter-spacing: .12em; white-space: nowrap; color: #e4ded3; text-shadow: 0 2px 8px #000; }
 .title-screen-menu .ui-icon { width: calc(36 * var(--u)); height: calc(36 * var(--u)); }
 .title-screen-menu button:hover, .title-screen-menu button:focus-visible { color: #f2d294; background: #080d1259; outline: 1px solid #b8965a99; }
