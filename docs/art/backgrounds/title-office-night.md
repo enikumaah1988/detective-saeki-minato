@@ -2,9 +2,19 @@
 
 2026-10-18のユーザー依頼により制作。新規生成保留の例外は今回のタイトル専用背景1枚に限定する。
 
-現行成果: [title-office-night-02.png](drafts/title-office-night-02.png)。扉絵と同じ1672×941。文字・ロゴ・メニュー・人物なし。ゲームへの接続・正式採用は未実施。既存の事務所背景とReactコードは変更していない。01は「夜にしただけで机から遠い」とのユーザー指摘により旧候補として保持。
+現行成果: [title-office-night-03.png](drafts/title-office-night-03.png)。扉絵と同じ1672×941。文字・ロゴ・メニュー・人物なし。ゲームへの接続・正式採用は未実施。既存の事務所背景とReactコードは変更していない。01は「夜にしただけで机から遠い」とのユーザー指摘により旧候補として保持。
 
-## 構図の修正（ユーザー確認後）
+## 現行候補03：机の向きの修正
+
+02は机を正面向きの横長テーブルへ変えてしまい、既存背景と不整合だった。ユーザー指摘を受けて修正。03はサンプル画像を入力から外し、既存office-evening.pngだけを構造の正本として、元の方向から机へ寄せた。木製の前板・右の脚部・中央の足元空間、左の椅子、カップ→ノートPC→照明の並び、左書棚と奥の窓・右書類棚の関係を目視照合。02の「家具の移動ではない」との説明は誤りであり、採用根拠としない。
+
+内蔵image_genによる修正は今回1回。1672×941、文字なし。既存ゲーム背景とコードは変更しない。画像と記録のみのためゲームテスト・ビルドは未実行。
+
+### 03の生成プロンプト
+
+Edit this SINGLE authoritative office reference into one NIGHTTIME CLOSE VIEW for a game title background, 1672x941. User rejected a prior image because it ROTATED THE DESK. Architectural / furniture orientation preservation is the highest priority. Treat the reference as a locked 3D scene: do NOT rotate, translate, mirror, redesign or rearrange the executive desk, black chair, laptop, white coffee cup, articulated desk lamp, bookcase, window, plants, cabinets or door. Keep camera viewing direction and yaw EXACTLY as reference; only push camera forward / zoom strongly toward the EXISTING LEFT executive desk and window, same oblique perspective, NO front-on re-staging. The desk must retain its exact existing angle to window and bookcase: reference's visible large wooden FRONT MODESTY PANEL and the RIGHT PEDESTAL/SIDE PANEL with central leg gap are essential identifying geometry. Keep those faces visible and identically angled. This is NOT a broad thin tabletop spanning horizontally across the full picture. The desk remains a bulky executive pedestal desk on LEFT extending from left foreground toward center-right, never turned into a table parallel to the screen. Preserve reference relative positions: black chair behind desk toward LEFT; white coffee mug LEFT of open laptop; open laptop near desk center; brass/dark articulated lamp RIGHT of laptop, same size and design, not moved to extreme right window edge. Keep existing tabletop book/paper piles LEFT. Camera move makes this SAME desk much larger: desktop around middle-lower frame with wooden front/pedestal panels below, left desk edge may be cropped, desk fills left 65-75% of foreground. Window on rear wall remains behind/right of desk and dominates upper half; partial bookcase at left. Floor/sofa/coffee table mostly outside tighter crop. NO need to show whole room. Title safe space across middle upper half: dark low contrast blinds/window, subdued same city buildings. Quiet cool blue-gray NIGHT, existing lamp emits restrained warm light on the same desk; semi-realistic low saturation environmental painting SAME as reference. Do not invent skyline towers, rain, telephone, smoke, props or new architecture. No people, no text, no UI, no logos, no watermark. This is a physical camera push-in in unchanged room, not a rearranged composition. Produce one image.
+
+## 旧候補02の構図（机の向きが変わったため不採用）
 
 机前の至近距離までカメラを寄せ、天板を画面下いっぱいに、空の椅子を左、既存机の右側にある照明を画面右へ大きく配置。背後の窓を中央の文字領域とし、書棚は左端だけ見せる。ソファ・ローテーブル・床・入口・右の書類棚は画角外とし、家具移動ではなく撮影位置と画角でサンプルへ近づけた。元の室内全景を再現することを優先しすぎた01を修正するもの。照明・椅子・書棚の識別点は参照を維持。窓の夜景・ガラスの細部は一枚絵による描画差があり、建物外観や天候の設定を新たに確定するものではない。
 
