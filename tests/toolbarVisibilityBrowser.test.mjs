@@ -18,6 +18,7 @@ for (const [width, height] of [[1920, 1080], [1366, 768]]) {
       ['オープニング', node => node.sceneId === 'episode-prologue-scene', false],
       ...['P4-09', 'P4-10', 'P4-11'].map(phase => [`エンディング ${phase}`, node => node.type === 'dialogue' && !node.autoAdvance && !node.illustration && node.savePhaseId === phase, false]),
       ['扉絵', node => Boolean(node.illustration), false],
+      ...[1, 2, 3, 4].map(part => ['部開始 ' + part, node => node.illustration?.id === 'C' + part + '-IN', false]),
       ['フリーアクション', node => node.type === 'choice' && node.mode === 'free-action', false],
       ['選択肢', node => node.type === 'choice' && !node.map && node.mode !== 'free-action', false],
       ['話題', node => node.type === 'topic', false],
@@ -51,6 +52,14 @@ for (const [width, height] of [[1920, 1080], [1366, 768]]) {
         await page.getByRole('dialog', { name: 'ロードしました', exact: true }).getByRole('button', { name: 'OK', exact: true }).click()
         assert.equal(await page.locator('.story').getAttribute('data-node-id'), entry[0], label)
         await check(visible)
+        if (label.startsWith('部開始 ')) {
+          assert.equal(await page.locator('.story-content').count(), 0)
+          assert.equal(await page.locator('.history-entry').count(), 0)
+          assert.equal(await page.locator('.chapter-heading').isVisible(), true)
+          if (label.endsWith('1') || label.endsWith('3')) await page.locator('.chapter-heading').click()
+          else await page.keyboard.press('Enter')
+          await page.waitForFunction(id => document.querySelector('.story')?.getAttribute('data-node-id') !== id, entry[0])
+        }
         if (label === '通常会話') {
           await menu().click()
           await check(false)
