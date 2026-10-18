@@ -16,7 +16,7 @@ for (const width of [1920,1366]) {
       const hud = page.locator('.toolbar-actions').getByRole('button',{name:'タバコを吸う'})
       for (const [count, phrase] of [[0,'普段どんな人'],[1,'いつから'],[2,'最近の兄'],[3,'事故について'],[4,'考えをまとめ']]) {
         const save = {version:2,scenarioId:'gray-testimony-part1-demo',nodeId:'menu',flags:{},heardTopics:['brother','recent-brother'],inspectedTargets:[],acquiredInformation:required.slice(0,count)}
-        await page.evaluate(([key,save])=>localStorage.setItem(key,JSON.stringify(save)),[key,save])
+        await page.evaluate(([key,save])=>{localStorage.removeItem('detective-saeki-minato.slots.v1');localStorage.setItem(key,JSON.stringify(save))},[key,save])
         await menu.click(); await loadForTest(page); await page.getByRole('dialog', { name: 'ロードしました', exact: true }).getByRole('button', { name: 'OK', exact: true }).click()
         await page.locator('.free-action-panel').waitFor()
         const labels = await page.locator('.free-action-panel .command-name').allTextContents()

@@ -11,7 +11,8 @@ for (const viewport of [{ width: 1920, height: 1080 }, { width: 1366, height: 76
   const screenshots = new URL('../work/records-preview/', import.meta.url)
   await mkdir(screenshots, { recursive: true })
   try {
-   await page.goto(process.env.SAEKI_BASE_URL ?? 'http://127.0.0.1:5176')
+   const url=process.env.SAEKI_BASE_URL ?? 'http://127.0.0.1:5176'
+   await page.goto(url+(url.includes('?')?'&':'?')+'dev=1')
    assert.equal(await page.getByRole('dialog').count(), 0)
    const before = await page.evaluate(() => JSON.stringify(localStorage))
    await page.getByText('調査記録UIプレビュー（本編・セーブとは無関係）').click()
