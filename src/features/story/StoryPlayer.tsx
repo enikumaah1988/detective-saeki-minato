@@ -1,4 +1,5 @@
 import { displayText } from './displayText'
+import { defaultTitleCover, resolveTitleCover } from '../../data/titleCover'
 import { selectInvestigationRecords } from './investigation'
 import { useEffect, useMemo, useReducer, useRef, useState } from 'react'
 import type { InvestigationRecord } from '../../types/investigation'
@@ -96,6 +97,7 @@ export function StoryPlayer({ scenario, preview, smokingAllowed, suspended = fal
   const [restoreRevision, setRestoreRevision] = useState(0)
   const acquisition = node.type === 'dialogue' ? node.acquisition : undefined
   const illustration = scenario.nodes[gameState.nodeId].illustration
+  const coverSrc = illustration?.provisional ? resolveTitleCover(scenario.id, illustration.imageSrc) : illustration?.imageSrc
   const mapNode = node.type === 'choice' && node.map ? node : undefined
   const sourceNode = scenario.nodes[gameState.nodeId]
   const isOpeningOrEnding = sourceNode.sceneId === 'episode-prologue-scene' || ['P4-09', 'P4-10', 'P4-11'].includes(sourceNode.savePhaseId ?? '')
@@ -148,10 +150,10 @@ export function StoryPlayer({ scenario, preview, smokingAllowed, suspended = fal
       {recordNotice && <div className="record-notice" role="status">{displayText(recordNotice)}</div>}
       <div className={scenario.nodes[gameState.nodeId].type === 'think' ? 'stage-wrapper is-thinking' : 'stage-wrapper'}>
         <div className="stage-input-area" onClick={advanceFromStage}>
-          {illustration?.imageSrc
-            ? <AssetImage key={illustration.imageSrc} src={illustration.imageSrc} alt={displayText(illustration.alt)} className="chapter-illustration" fallback={<StageView stage={{ backgroundId: node.stage.backgroundId, characters: [] }} />} />
+          {coverSrc
+            ? <AssetImage key={coverSrc} src={coverSrc} alt={displayText(illustration!.alt)} className="chapter-illustration" fallback={illustration?.provisional ? <AssetImage key={defaultTitleCover} src={defaultTitleCover} alt="夜の探偵事務所でくつろぐ佐伯湊" className="chapter-illustration" /> : <StageView stage={{ backgroundId: node.stage.backgroundId, characters: [] }} />} />
             : <StageView stage={illustration ? { backgroundId: node.stage.backgroundId, characters: [] } : node.stage} />}
-          {illustration && <div className={`chapter-heading${illustration.provisional ? ' chapter-title-card' : ''}`} data-illustration-id={illustration.id}><strong>{displayText(illustration.heading)}</strong>{illustration.subtitle && <p>{displayText(illustration.subtitle)}</p>}{illustration.provisional && <small>仮の扉絵</small>}</div>}
+          {illustration && <div className={`chapter-heading${illustration.provisional ? ' chapter-title-card' : ''}`} data-illustration-id={illustration.id}>{illustration.provisional ? <><strong>探偵 <span>佐伯湊</span></strong><p className="title-cover-english">DETECTIVE SAEKI MINATO</p><p className="title-cover-episode">第1話 灰色の証言</p><small>{displayText(illustration.subtitle?.split(' — ')[1] ?? '')}</small></> : <><strong>{displayText(illustration.heading)}</strong>{illustration.subtitle && <p>{displayText(illustration.subtitle)}</p>}</>}</div>}
         </div>
       </div>
       <div className="story-content" inert={menuOpen || Boolean(acquisition)}>

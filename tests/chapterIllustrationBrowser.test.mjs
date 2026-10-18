@@ -19,8 +19,14 @@ for(const [width,height] of [[1920,1080],[1366,768]])test(`部の挿絵・読了
    await page.getByLabel('メニュー',{exact:true}).click();await loadForTest(page)
    await page.getByRole('dialog',{name:'ロードしました',exact:true}).getByRole('button',{name:'OK',exact:true}).click()
    await page.locator('.chapter-title-card').waitFor()
-   assert.equal(await page.locator('.chapter-illustration').count(),0)
-   assert.match(await page.locator('.chapter-title-card').textContent(),/探偵 佐伯　湊.*灰色の証言/s)
+   await page.waitForFunction(()=>{const image=document.querySelector('.chapter-illustration');return image?.complete&&image.naturalWidth>0})
+   assert.match(await page.locator('.chapter-title-card').textContent(),/探偵 佐伯湊.*DETECTIVE SAEKI MINATO.*第1話 灰色の証言/s)
+   const title=await page.locator('.chapter-title-card strong').boundingBox()
+   assert.ok(title.x>width*.56 && title.x+title.width<width*.96)
+   if(node.illustration.id==='C1-IN'){
+    await page.locator('.chapter-illustration').evaluate(image=>{image.src='/missing-episode-cover.png'})
+    await page.waitForFunction(()=>{const image=document.querySelector('.chapter-illustration');return image?.src.includes('default-title.png')&&image.complete&&image.naturalWidth>0})
+   }
    assert.equal(await page.locator('.character').count(),0)
    assert.equal(await page.locator('[data-illustration-id]').getAttribute('data-illustration-id'),node.illustration.id)
    const rect=await page.locator('.chapter-title-card').boundingBox();assert.ok(Math.abs(rect.width-width)<1);assert.ok(Math.abs(rect.height-height)<1)
