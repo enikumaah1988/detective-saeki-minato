@@ -48,6 +48,23 @@ test('人物記録は話題登場で未知顔、対面で顔、新しい情報�
   assert.ok(final.find(record => record.id === 'naoto').details.some(text => /脅し/.test(text)))
   assert.equal(final.find(record => record.id === 'narumi').imageSrc, undefined)
 })
+test('受付のモブ人物は記録せず、取得済み情報を含むセーブの復元と主要人物・証拠を維持する', () => {
+  const acquiredInformation = [...new Set([...full.state.acquiredInformation,
+    'mentioned-company-reception', 'recognized-company-reception', 'met-company-reception',
+    'recognized-police-reception', 'F14', 'F34'])]
+  const state = { ...full.state, acquiredInformation }
+  const restored = api.restoreSaveData(api.createSaveData(state), [api.scenario])
+  assert.equal(restored.ok, true)
+  assert.deepEqual(restored.state, state)
+  for (const current of [api.createInitialState(api.scenario), state, restored.state]) {
+    const records = api.selectInvestigationRecords(current, api.scenario.records)
+    assert.equal(records.some(record => ['company-reception', 'police-reception'].includes(record.id)), false)
+  }
+  const records = api.selectInvestigationRecords(restored.state, api.scenario.records)
+  for (const id of ['minato', 'mio', 'akari', 'naoto', 'kuroda', 'miyahara', 'misaki', 'okumura', 'segawa', 'narumi', 'I02', 'E02']) {
+    assert.ok(records.some(record => record.id === id), id)
+  }
+})
 test('旧稿の集約条件で、考える前の聞き取りや証言意思の未読情報を先取りしない', () => {
   const hearing = mandatory.checkpoints.find(point => point.phase === 'P1-03').state
   assert.equal(hearing.acquiredInformation.includes('I01'),false)
