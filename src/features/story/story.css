@@ -47,6 +47,7 @@ button:disabled { cursor: default; color: var(--muted); }
 .save-controls summary:hover, .save-controls summary:focus-visible, .save-controls[open] summary { color: var(--accent); }
 .save-panel { position: absolute; left: 0; top: 100%; width: calc(320 * var(--u)); max-height: calc(750 * var(--u)); overflow-y: auto; padding: calc(12 * var(--u)); background: var(--panel); border-radius: 0 calc(4 * var(--u)) calc(4 * var(--u)) calc(4 * var(--u)); }
 .save-actions { display: grid; }
+.save-settings-divider { margin: calc(12 * var(--u)); border: 0; border-top: 1px solid #6b676180; }
 .slider-setting { margin: calc(22 * var(--u)) calc(12 * var(--u)); font-size: calc(20 * var(--u)); }
 .slider-setting label { display: flex; justify-content: space-between; gap: calc(12 * var(--u)); }
 .slider-setting output { color: var(--accent); }
