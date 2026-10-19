@@ -40,7 +40,7 @@ export function TravelMap({ options, current, onBack, onMove }: { options: Choic
   return <div ref={root} className={`travel-map${moving ? ' is-moving' : ''}`} aria-label="移動マップ" onKeyDown={event => {
     if (event.key === 'Escape' && !moving) { event.preventDefault(); onBack() }
   }}>
-    <header><div><h1>移動先を選ぶ</h1><p>西新宿</p></div><button type="button" disabled={moving} onClick={onBack}>× 戻る</button></header>
+    <header><div><h1>移動先を選択</h1><p>西新宿周辺</p></div><button type="button" disabled={moving} onClick={onBack}>× 戻る</button></header>
     <div className="travel-body">
       <nav className="travel-canvas" aria-label="地図の移動先">
         <div ref={viewport} className="travel-map-viewport"><div className="travel-map-surface" style={mapSize}>
@@ -60,7 +60,6 @@ export function TravelMap({ options, current, onBack, onMove }: { options: Choic
         }}>{selected === current ? '現在地' : 'ここへ移動 ›'}</button>
       </> : <><h2>行き先を選択</h2><p>地図のピンを選ぶと、場所の情報が表示されます。</p></>}</aside>
     </div>
-    <footer>現在地：{places.find(place => place.id === current)?.name}<span>調査エリア案内図</span></footer>
     {moving && <div className="travel-fade" role="status">移動中</div>}
   </div>
 }

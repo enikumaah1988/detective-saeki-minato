@@ -29,6 +29,8 @@ test('解放済みの場所だけを表示し、現在地と会社の選択を�
     current:'office', options:[{id:'company',label:'東成ビルサービス',next:'arrival'}], onBack(){}, onMove(){},
   }))
   assert.match(html,/nishi-shinjuku-geographic-05\.png/)
+  assert.match(html,/<h1>移動先を選択<\/h1><p>西新宿周辺<\/p>/)
+  assert.doesNotMatch(html,/<footer|調査エリア案内図|現在地：/)
   assert.match(html,/佐伯探偵事務所（現在地）/)
   assert.equal((html.match(/travel-destination travel-pin/g)??[]).length,2)
   assert.doesNotMatch(html,/travel-area-place|アイランド/)

@@ -37,6 +37,13 @@ for (const [width,height] of [[1920,1080],[1366,768]]) test(`実地理マップ�
     assert.ok(image.y+image.height>=viewport.y+viewport.height-.5)
     assert.equal(await page.locator('.travel-attribution').count(),0)
     assert.doesNotMatch(await page.locator('.travel-map').textContent(),/上が北|OpenStreetMap/)
+    assert.equal(await page.locator('.travel-map h1').textContent(),'移動先を選択')
+    assert.equal(await page.locator('.travel-map header p').textContent(),'西新宿周辺')
+    assert.equal(await page.locator('.travel-map footer').count(),0)
+    assert.doesNotMatch(await page.locator('.travel-map').textContent(),/調査エリア案内図|現在地：/)
+    const menu=await page.getByLabel('メニュー',{exact:true}).boundingBox()
+    const heading=await page.locator('.travel-map header').boundingBox()
+    assert.ok(heading.y>=menu.y+menu.height+8,'Map heading clears enlarged MENU')
   }
   try {
     await loadMap(initial)
