@@ -1,0 +1,164 @@
+{
+  "schemaVersion": 1,
+  "mapId": "nishi-shinjuku-geographic-05",
+  "asset": {
+    "file": "nishi-shinjuku-geographic-05.png",
+    "width": 2400,
+    "height": 1600,
+    "sha256": "e6f7172d8b82b5530ca8f5b0dc999ec0db931c9065496b1e561289de413fcbab"
+  },
+  "geographicCRS": "EPSG:4326",
+  "projectedCRS": "EPSG:3857",
+  "earthRadiusMeters": 6378137,
+  "boundsWGS84": {
+    "west": 139.686,
+    "south": 35.68801272588789,
+    "east": 139.705,
+    "north": 35.6983
+  },
+  "projectedBounds": {
+    "xmin": 15549774.390949212,
+    "ymin": 4257776.887072638,
+    "xmax": 15551889.461274285,
+    "ymax": 4259186.93395602
+  },
+  "orientation": {
+    "north": "top",
+    "east": "right",
+    "rotationDegrees": 0
+  },
+  "coordinates": {
+    "input": "{lon, lat}, WGS84 degrees",
+    "origin": "top-left image edge",
+    "x": "right",
+    "y": "down",
+    "imageExtent": [
+      0,
+      0,
+      2400,
+      1600
+    ],
+    "pixelConvention": "continuous image-edge coordinates; bottom-right edge=(2400,1600)",
+    "outsidePolicy": "retain outside coordinates; hide or use another map, never clamp",
+    "percentConvention": "left=100*x/width, top=100*y/height; relative to rendered IMAGE rectangle, not letterbox host"
+  },
+  "display": {
+    "recommendedFit": "contain",
+    "recommendedObjectPosition": "50% 50%",
+    "aspectRatio": [
+      3,
+      2
+    ],
+    "resize": "use exact rendered image rectangle for both image and pin layer",
+    "crop": "cover requires cropping offsets; see getImageRect example",
+    "paddingAndBorders": "put border/padding on an outer wrapper, not the coordinate host"
+  },
+  "locations": [
+    {
+      "id": "office",
+      "name": "佐伯探偵事務所",
+      "status": "address_reference",
+      "coordinate": {
+        "lon": 139.69574,
+        "lat": 35.695038
+      },
+      "imagePixel": {
+        "x": 1230.316,
+        "y": 507.368
+      },
+      "percent": {
+        "left": 51.2632,
+        "top": 31.7105
+      },
+      "referenceId": "office_address_reference",
+      "note": "参照点。架空施設の入口・ピンの最終位置は未確定。"
+    },
+    {
+      "id": "building",
+      "name": "成子坂共同ビル",
+      "status": "address_reference",
+      "coordinate": {
+        "lon": 139.691132,
+        "lat": 35.695789
+      },
+      "imagePixel": {
+        "x": 648.253,
+        "y": 390.56
+      },
+      "percent": {
+        "left": 27.0105,
+        "top": 24.41
+      },
+      "referenceId": "building_address_reference",
+      "note": "参照点。架空施設の入口・ピンの最終位置は未確定。"
+    },
+    {
+      "id": "police",
+      "name": "西新宿警察署",
+      "status": "building_reference",
+      "coordinate": {
+        "lon": 139.6945321,
+        "lat": 35.6935169
+      },
+      "imagePixel": {
+        "x": 1077.739,
+        "y": 743.951
+      },
+      "percent": {
+        "left": 44.9058,
+        "top": 46.4969
+      },
+      "referenceId": "shinjuku_police",
+      "note": "参照点。架空施設の入口・ピンの最終位置は未確定。"
+    },
+    {
+      "id": "company",
+      "name": "東成ビルサービス",
+      "status": "unresolved",
+      "coordinate": null,
+      "note": "新宿アイランドタワー周辺。会社の番地とピン位置は未決。areaReferenceを会社座標に代用しない。",
+      "areaReference": {
+        "name": "新宿アイランドタワー",
+        "coordinate": {
+          "lon": 139.6930302,
+          "lat": 35.6931208
+        },
+        "imagePixel": {
+          "x": 888.025,
+          "y": 805.557
+        }
+      }
+    }
+  ],
+  "remoteLocations": [
+    {
+      "id": "takase-home",
+      "name": "高瀬家",
+      "mapId": null,
+      "coordinate": null,
+      "status": "outside-area-unresolved",
+      "note": "新宿区外。西新宿内に丸めて表示しない。"
+    },
+    {
+      "id": "hideout",
+      "name": "潜伏先",
+      "mapId": null,
+      "coordinate": null,
+      "status": "unresolved",
+      "note": "場所未決。既存地点に推測で割り当てない。"
+    }
+  ],
+  "attribution": {
+    "text": "© OpenStreetMap contributors",
+    "url": "https://www.openstreetmap.org/copyright",
+    "license": "ODbL-1.0",
+    "bakedIntoImage": true,
+    "visibleAtDisplaySizeRequired": true,
+    "cornerRectPx": {
+      "x": 1857,
+      "y": 1563,
+      "width": 543,
+      "height": 37
+    }
+  }
+}
