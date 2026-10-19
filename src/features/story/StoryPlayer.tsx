@@ -81,7 +81,7 @@ export function StoryPlayer({ scenario, initialSession, preview, smokingAllowed,
   const [activePreview, setActivePreview] = useState<typeof preview>()
   const [smoking, setSmoking] = useState<{ allowed: boolean; hint: string; phase: 'gesture' | 'hint'; imageFailed: boolean }>()
   const [itemSelection, setItemSelection] = useState<{ itemId: string; uses: NonNullable<Scenario['itemUses']> }>()
-  const useItem = (itemId: string, useId?: string) => {
+  const handleUseItem = (itemId: string, useId?: string) => {
     setItemSelection(undefined); setRecordsOpen(false); send({ type: 'menu', open: false })
     send({ type: 'restore', state: reduceGameState(scenario, gameState, { type: 'use-item', itemId, useId }) })
     setRestoreRevision(value => value + 1)
@@ -189,14 +189,14 @@ export function StoryPlayer({ scenario, initialSession, preview, smokingAllowed,
         <div ref={historyList} className="history-list">{history.length ? history.map((entry, index) => <article key={index}><strong>{displayText(entry.speaker || '地の文・心の声')}</strong><p>{displayText(entry.text)}</p></article>) : <p>会話履歴はまだありません。</p>}</div>
       </SystemDialog>}
       {itemSelection && <SystemDialog title="使用する相手・目的" label="戻る" onClose={() => { setItemSelection(undefined); setRecordsOpen(true); send({ type: 'menu', open: true }) }}>
-        <div className="item-use-choices">{itemSelection.uses.map(use => <button key={use.next} type="button" onClick={() => useItem(itemSelection.itemId, use.next)}>{displayText(use.label ?? '使用する')}</button>)}</div>
+        <div className="item-use-choices">{itemSelection.uses.map(use => <button key={use.next} type="button" onClick={() => handleUseItem(itemSelection.itemId, use.next)}>{displayText(use.label ?? '使用する')}</button>)}</div>
       </SystemDialog>}
       {recordsOpen && <InvestigationRecords state={gameState} records={activePreview?.records ?? records} previewLabel={activePreview?.label} returnFocus={activePreview?.invoker ?? recordsButton.current}
         usableItems={activePreview ? [] : (scenario.itemUses ?? []).filter(use => use.nodeIds.includes(gameState.nodeId) && matchesCondition(gameState, use.condition)).map(use => use.itemId)}
         onUse={itemId => {
           const uses = [...new Map((scenario.itemUses ?? []).filter(use => use.itemId === itemId && use.nodeIds.includes(gameState.nodeId) && matchesCondition(gameState, use.condition)).map(use => [use.next, use])).values()]
           if (uses.length > 1) { setRecordsOpen(false); setItemSelection({ itemId, uses }) }
-          else useItem(itemId, uses[0]?.next)
+          else handleUseItem(itemId, uses[0]?.next)
         }}
         onClose={() => { setRecordsOpen(false); send({ type: 'menu', open: false }) }} />}
       </>}
