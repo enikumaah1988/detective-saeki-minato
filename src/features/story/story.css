@@ -33,14 +33,14 @@ button:disabled { cursor: default; color: var(--muted); }
 .character-placeholder span { font-size: .8em; }
 .is-thinking::after { content: ''; position: absolute; inset: 0; background: #10111640; pointer-events: none; }
 .story-toolbar { z-index: 5; align-self: start; display: flex; justify-content: space-between; align-items: start; padding: var(--edge-y) var(--edge-x); pointer-events: none; }
-.toolbar-actions { font-size: var(--hud-font); display: flex; gap: calc(12 * var(--u)); align-items: start; pointer-events: auto; }
-.toolbar-actions > button, .save-controls summary { min-height: calc(52 * var(--u)); padding: calc(12 * var(--u)) calc(20 * var(--u)); background: #101922bf; border: 0; border-radius: calc(4 * var(--u)); }
+.toolbar-actions { --hud-font: calc(36 * var(--u)); --hud-icon: calc(56 * var(--u)); font-size: var(--hud-font); display: flex; gap: calc(16 * var(--u)); align-items: start; pointer-events: auto; }
+.toolbar-actions > button, .save-controls summary { min-height: calc(68 * var(--u)); padding: calc(16 * var(--u)) calc(26 * var(--u)); background: #101922bf; border: 0; border-radius: calc(4 * var(--u)); }
 .scene-context { display: grid; gap: calc(6 * var(--u)); text-align: right; font-family: inherit; font-size: calc(36 * var(--u)); font-weight: 400; color: #f4ecdf; background: rgb(16 25 34 / 68%); padding: calc(8 * var(--u)) calc(16 * var(--u)); border-radius: calc(4 * var(--u)); text-shadow: 0 1px 3px #000; }
 .scene-context span + span { color: #f4ecdf; font-size: inherit; }
 .record-notice { position: absolute; z-index: 4; top: 12%; left: var(--edge-x); max-width: 70%; padding: calc(12 * var(--u)) calc(20 * var(--u)); background: #101922df; border-left: calc(3 * var(--u)) solid var(--accent); pointer-events: none; font-size: calc(22 * var(--u)); }
 .save-controls { position: relative; pointer-events: auto; }
 .ui-icon { width: calc(32 * var(--u)); height: calc(32 * var(--u)); flex-shrink: 0; }
-.toolbar-actions > button, .save-controls summary { display: flex; align-items: center; gap: calc(12 * var(--u)); white-space: nowrap; list-style: none; }
+.toolbar-actions > button, .save-controls summary { display: flex; align-items: center; gap: calc(16 * var(--u)); white-space: nowrap; list-style: none; }
 .save-controls summary::-webkit-details-marker { display: none; }
 .toolbar-actions > button .ui-icon, .save-controls summary .ui-icon { width: var(--hud-icon); height: var(--hud-icon); }
 .menu-caption { letter-spacing: .08em; }
