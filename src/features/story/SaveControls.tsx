@@ -1,5 +1,5 @@
 import { UiIcon } from './UiIcon'
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { SystemDialog } from './SystemDialog'
 import type { GameState } from '../../types/gameState'
 import type { Scenario } from '../../types/scenario'
@@ -10,6 +10,8 @@ import { SettingsSlider } from './SettingsSlider'
 import { MESSAGE_SPEEDS, MESSAGE_SPEED_LABELS, loadAudioSettings, saveAudioSettings } from './settings'
 import { displayText } from './displayText'
 import { selectDateLabel } from './dateTime'
+import { layoutGamePanel } from './panelLayout'
+import './recordsFrames.css'
 
 export function SaveControls({ state, scenario, history = [], onRestore, onMenuToggle, interval = 35, onIntervalChange, onReturnToTitle }: {
   state: GameState; scenario: Scenario; history?: HistoryEntry[];
@@ -17,6 +19,8 @@ export function SaveControls({ state, scenario, history = [], onRestore, onMenuT
   onMenuToggle?: (open: boolean) => void; interval?: number; onIntervalChange?: (interval: number) => void; onReturnToTitle?: () => void
 }) {
   const details=useRef<HTMLDetailsElement>(null)
+  const panel=useRef<HTMLDialogElement>(null)
+  const [menuOpen,setMenuOpen]=useState(false)
   const [audio,setAudio]=useState(loadAudioSettings)
   const [saved,setSaved]=useState(false)
   const [message,setMessage]=useState('')
@@ -24,6 +28,22 @@ export function SaveControls({ state, scenario, history = [], onRestore, onMenuT
   const [loaded,setLoaded]=useState<{state:GameState;history:HistoryEntry[]}>()
   const [confirmTitle,setConfirmTitle]=useState(false)
   const closeMenu=()=>{details.current!.open=false;onMenuToggle?.(false)}
+  useEffect(()=>{
+    if(!menuOpen) return
+    const element=panel.current!, game=details.current!.closest<HTMLElement>('.story')!
+    const layout=()=>layoutGamePanel(element,game)
+    const previousOverflow=document.body.style.overflow
+    document.body.style.overflow='hidden'
+    layout(); element.showModal()
+    const observer=new ResizeObserver(layout)
+    observer.observe(game)
+    window.addEventListener('resize',layout)
+    return ()=>{
+      observer.disconnect(); window.removeEventListener('resize',layout); element.close()
+      document.body.style.overflow=previousOverflow
+      details.current?.querySelector('summary')?.focus()
+    }
+  },[menuOpen])
   const save=()=>{
     const result=writeSlot(state,'manual',selectDateLabel(scenario,state),history)
     setMessage(result.ok?'':'保存できませんでした。ブラウザーの設定や空き容量をご確認ください。')
@@ -35,22 +55,26 @@ export function SaveControls({ state, scenario, history = [], onRestore, onMenuT
     if(result.ok){setSlots(undefined);setLoaded(result)}
     else setMessage(result.reason==='no-save'?'この枠は空です。':'この保存データを読み込めません。')
   }
-  return <details ref={details} className="save-controls" onToggle={event=>onMenuToggle?.(event.currentTarget.open)}>
+  return <details ref={details} className="save-controls" onToggle={event=>{setMenuOpen(event.currentTarget.open);onMenuToggle?.(event.currentTarget.open)}}>
     <summary aria-label="メニュー" onClick={event=>onMenuToggle?.(!(event.currentTarget.parentElement as HTMLDetailsElement).open)}><UiIcon name="menu"/><span className="menu-caption">MENU</span></summary>
-    <div className="save-panel">
+    <dialog ref={panel} className="save-panel investigation-records system-menu-panel" aria-label="システムメニュー" onCancel={event=>{event.preventDefault();closeMenu()}}>
+      <header className="record-header"><h2>システムメニュー</h2><button type="button" onClick={closeMenu} aria-label="システムメニューを閉じる">× 閉じる</button></header>
+      <div className="system-menu-body">
       <div className="save-actions" aria-label="保存操作">
         <button type="button" onClick={save}><UiIcon name="save"/>SAVE</button>
         <button type="button" onClick={openLoad}><UiIcon name="load"/>LOAD</button>
         {onReturnToTitle && <button type="button" onClick={()=>setConfirmTitle(true)}><UiIcon name="home"/>RETURN TO TITLE</button>}
       </div>
       <hr className="save-settings-divider"/>
+      <div className="system-menu-settings">
       <SettingsSlider label="メッセージスピード" value={Math.max(0,MESSAGE_SPEEDS.indexOf(interval as typeof MESSAGE_SPEEDS[number]))} maximum={3} labels={MESSAGE_SPEED_LABELS} onChange={point=>onIntervalChange?.(MESSAGE_SPEEDS[point])}/>
       {(['bgm','se'] as const).map(kind=><SettingsSlider key={kind} label={kind==='bgm'?'BGM音量':'SE音量'} value={audio[kind]} maximum={100} onChange={value=>{const next={...audio,[kind]:value};setAudio(next);saveAudioSettings(next)}}/>)}
       {message&&<p role="status">{message}</p>}
-    </div>
-    {confirmTitle&&<SystemDialog title="タイトルに戻りますか？" label="戻らない" initialFocus="close" onClose={()=>setConfirmTitle(false)}>
+      </div>
+      </div>
+    </dialog>
+    {confirmTitle&&<SystemDialog title="タイトルに戻りますか？" label="ゲームに戻る" initialFocus="close" onClose={()=>setConfirmTitle(false)} confirmAction={<button type="button" onClick={()=>onReturnToTitle?.()}>タイトルに戻る</button>}>
       <p>保存していない進行は失われます。</p>
-      <button type="button" onClick={()=>onReturnToTitle?.()}>タイトルに戻る</button>
     </SystemDialog>}
     {saved&&<SystemDialog title="セーブしました" dismissible={false} onClose={()=>{setSaved(false);setMessage('');closeMenu()}}/>}
     {slots&&<SystemDialog title="LOAD" label="戻る" onClose={()=>{setSlots(undefined);setMessage('')}}>

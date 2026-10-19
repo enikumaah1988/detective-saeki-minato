@@ -33,14 +33,14 @@ button:disabled { cursor: default; color: var(--muted); }
 .character-placeholder span { font-size: .8em; }
 .is-thinking::after { content: ''; position: absolute; inset: 0; background: #10111640; pointer-events: none; }
 .story-toolbar { z-index: 5; align-self: start; display: flex; justify-content: space-between; align-items: start; padding: var(--edge-y) var(--edge-x); pointer-events: none; }
-.toolbar-actions { font-size: var(--hud-font); display: flex; gap: calc(12 * var(--u)); align-items: start; pointer-events: auto; }
-.toolbar-actions > button, .save-controls summary { min-height: calc(52 * var(--u)); padding: calc(12 * var(--u)) calc(20 * var(--u)); background: #101922bf; border: 0; border-radius: calc(4 * var(--u)); }
+.toolbar-actions { --hud-font: calc(35 * var(--u)); --hud-icon: calc(55 * var(--u)); font-size: var(--hud-font); display: flex; gap: calc(15 * var(--u)); align-items: start; pointer-events: auto; }
+.toolbar-actions > button, .save-controls summary { min-height: calc(65 * var(--u)); padding: calc(15 * var(--u)) calc(25 * var(--u)); background: #101922bf; border: 0; border-radius: calc(4 * var(--u)); }
 .scene-context { display: grid; gap: calc(6 * var(--u)); text-align: right; font-family: inherit; font-size: calc(36 * var(--u)); font-weight: 400; color: #f4ecdf; background: rgb(16 25 34 / 68%); padding: calc(8 * var(--u)) calc(16 * var(--u)); border-radius: calc(4 * var(--u)); text-shadow: 0 1px 3px #000; }
 .scene-context span + span { color: #f4ecdf; font-size: inherit; }
 .record-notice { position: absolute; z-index: 4; top: 12%; left: var(--edge-x); max-width: 70%; padding: calc(12 * var(--u)) calc(20 * var(--u)); background: #101922df; border-left: calc(3 * var(--u)) solid var(--accent); pointer-events: none; font-size: calc(22 * var(--u)); }
 .save-controls { position: relative; pointer-events: auto; }
 .ui-icon { width: calc(32 * var(--u)); height: calc(32 * var(--u)); flex-shrink: 0; }
-.toolbar-actions > button, .save-controls summary { display: flex; align-items: center; gap: calc(12 * var(--u)); white-space: nowrap; list-style: none; }
+.toolbar-actions > button, .save-controls summary { display: flex; align-items: center; gap: calc(15 * var(--u)); white-space: nowrap; list-style: none; }
 .save-controls summary::-webkit-details-marker { display: none; }
 .toolbar-actions > button .ui-icon, .save-controls summary .ui-icon { width: var(--hud-icon); height: var(--hud-icon); }
 .menu-caption { letter-spacing: .08em; }
@@ -59,6 +59,15 @@ button:disabled { cursor: default; color: var(--muted); }
 .save-panel:has(.slider-setting) { width: calc(430 * var(--u)); }
 .save-actions button { display: flex; align-items: center; gap: calc(12 * var(--u)); min-height: calc(64 * var(--u)); padding: calc(12 * var(--u)); font-size: calc(22 * var(--u)); }
 .save-actions button:hover, .save-actions button:focus-visible { background: #b8965a20; color: var(--accent); }
+.save-panel.system-menu-panel { inset: auto; max-height: none; grid-template-rows: auto minmax(0, 1fr); }
+.system-menu-body { min-height: 0; display: grid; grid-template-columns: minmax(0, 2fr) auto minmax(0, 3fr); gap: calc(24 * var(--u)); }
+.system-menu-body .save-actions { align-content: start; gap: calc(16 * var(--u)); overflow: auto; }
+.system-menu-body .save-actions button { font-size: calc(36 * var(--u)); padding: calc(20 * var(--u)); min-height: calc(88 * var(--u)); }
+.system-menu-body .save-actions .ui-icon { width: calc(44 * var(--u)); height: calc(44 * var(--u)); flex-shrink: 0; }
+.system-menu-body .save-settings-divider { margin: 0; border-top: 0; border-left: 1px solid #b8965a80; }
+.system-menu-settings { min-height: 0; overflow: auto; padding: 0 calc(12 * var(--u)); }
+.system-menu-settings .slider-setting { font-size: calc(32 * var(--u)); margin: calc(20 * var(--u)) 0 calc(32 * var(--u)); }
+.system-menu-settings .slider-stops small { font-size: calc(24 * var(--u)); }
 .save-panel p { margin: calc(12 * var(--u)); padding-top: calc(12 * var(--u)); border-top: 1px solid #6b67614d; color: var(--muted); font-size: calc(18 * var(--u)); line-height: 1.7; overflow-wrap: anywhere; }
 .menu-open .command-panel { display: none; }
 .menu-open .message-window { opacity: .55; pointer-events: none; }

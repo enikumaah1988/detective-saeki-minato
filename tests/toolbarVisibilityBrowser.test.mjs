@@ -5,7 +5,7 @@ import { loadRevision } from './revisionHarness.mjs'
 const path = process.env.SAEKI_PLAYWRIGHT_PATH
 const url = process.env.SAEKI_PART1_URL ?? 'http://127.0.0.1:5191/'
 for (const [width, height] of [[1920, 1080], [1366, 768]]) {
-  test(`上部表示は通常会話だけ・MENUは各画面に残る ${width}`, { skip: !path }, async () => {
+  test(`上部表示は通常会話と自由行動・履歴は会話窓のみ ${width}`, { skip: !path }, async () => {
     const api = await loadRevision()
     const { chromium } = await import(path)
     const browser = await chromium.launch()
@@ -19,10 +19,12 @@ for (const [width, height] of [[1920, 1080], [1366, 768]]) {
       ...['P4-09', 'P4-10', 'P4-11'].map(phase => [`エンディング ${phase}`, node => node.type === 'dialogue' && !node.autoAdvance && !node.illustration && node.savePhaseId === phase, false]),
       ['扉絵', node => Boolean(node.illustration), false],
       ...[1, 2, 3, 4].map(part => ['部開始 ' + part, node => node.illustration?.id === 'C' + part + '-IN', false]),
-      ['フリーアクション', node => node.type === 'choice' && node.mode === 'free-action', false],
-      ['選択肢', node => node.type === 'choice' && !node.map && node.mode !== 'free-action', false],
-      ['話題', node => node.type === 'topic', false],
-      ['調査対象', node => node.type === 'inspect', false],
+      ['フリーアクション', node => node.type === 'choice' && node.mode === 'free-action', true],
+      ['選択肢', node => node.type === 'choice' && !node.map && node.mode !== 'free-action', true],
+      ['移動サブコマンド', node => node.type === 'choice' && !node.map && node.prompt === '移動', true],
+      ['建物の前', node => node.type === 'choice' && !node.map && node.prompt.endsWith('前'), true],
+      ['話題', node => node.type === 'topic', true],
+      ['調査対象', node => node.type === 'inspect', true],
       ['地図', node => Boolean(node.map), false],
       ['受取', node => Boolean(node.acquisition), false],
       ['終了', node => node.type === 'end', false],
@@ -52,6 +54,7 @@ for (const [width, height] of [[1920, 1080], [1366, 768]]) {
         await page.getByRole('dialog', { name: 'ロードしました', exact: true }).getByRole('button', { name: 'OK', exact: true }).click()
         assert.equal(await page.locator('.story').getAttribute('data-node-id'), entry[0], label)
         await check(visible)
+        assert.equal(await page.locator('.history-entry').count() > 0, await page.locator('.message-window').count() > 0, label)
         if (label.startsWith('部開始 ')) {
           assert.equal(await page.locator('.story-content').count(), 0)
           assert.equal(await page.locator('.history-entry').count(), 0)

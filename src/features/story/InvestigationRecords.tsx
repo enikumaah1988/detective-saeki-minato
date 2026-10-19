@@ -5,6 +5,7 @@ import type { InvestigationRecord, RecordCategory } from '../../types/investigat
 import { RECORD_CATEGORIES, selectInvestigationRecords } from './investigation'
 import { AssetImage } from './StageView'
 import './recordsFrames.css'
+import { layoutGamePanel } from './panelLayout'
 
 export function InvestigationRecords({ state, onClose, returnFocus, previewLabel, records = selectInvestigationRecords(state), usableItems = [], onUse }: {
   state: GameState
@@ -31,8 +32,7 @@ export function InvestigationRecords({ state, onClose, returnFocus, previewLabel
     const element = dialog.current!
     const game = element.parentElement!
     const layout = () => {
-      const rect = game.getBoundingClientRect()
-      Object.assign(element.style, { left: `${rect.left + rect.width * .075}px`, top: `${rect.top + rect.height * .1}px`, width: `${rect.width * .85}px`, height: `${rect.height * .8}px` })
+      layoutGamePanel(element, game)
     }
     const invoker = returnFocus ?? document.activeElement as HTMLElement | null
     const previousOverflow = document.body.style.overflow
