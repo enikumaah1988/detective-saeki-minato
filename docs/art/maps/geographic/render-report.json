@@ -1,0 +1,84 @@
+{
+  "svg": "C:\\Users\\lemon\\OneDrive\\ドキュメント\\ChatGPT\\探偵 佐伯湊\\map-integration-pr\\docs\\art\\maps\\geographic\\nishi-shinjuku-geographic-05.svg",
+  "bbox": {
+    "west": 139.686,
+    "south": 35.68801272588789,
+    "east": 139.705,
+    "north": 35.6983
+  },
+  "counts": {
+    "land_polygons": 260,
+    "land_relations": 45,
+    "buildings": 3267,
+    "surface_roads": 2123,
+    "surface_railways": 125,
+    "mapped_trees": 548
+  },
+  "anchors": {
+    "island_tower": {
+      "osm_way": "137626254",
+      "lat": 35.6931208,
+      "lon": 139.6930302,
+      "pixel": [
+        888.025,
+        805.557
+      ],
+      "percent": [
+        37.0011,
+        50.3473
+      ]
+    },
+    "shinjuku_police": {
+      "osm_way": "137626342",
+      "lat": 35.6935169,
+      "lon": 139.6945321,
+      "pixel": [
+        1077.739,
+        743.951
+      ],
+      "percent": [
+        44.9058,
+        46.4969
+      ]
+    },
+    "tokyo_metropolitan_main": {
+      "osm_way": "89877471",
+      "lat": 35.6894906,
+      "lon": 139.6917116,
+      "pixel": [
+        721.465,
+        1370.156
+      ],
+      "percent": [
+        30.0611,
+        85.6348
+      ]
+    },
+    "office_address_reference": {
+      "lat": 35.695038,
+      "lon": 139.69574,
+      "source": "GSI address-search; reference only, not surveyed entrance",
+      "pixel": [
+        1230.316,
+        507.368
+      ],
+      "percent": [
+        51.2632,
+        31.7105
+      ]
+    },
+    "building_address_reference": {
+      "lat": 35.695789,
+      "lon": 139.691132,
+      "source": "GSI address-search; reference only, not surveyed entrance",
+      "pixel": [
+        648.253,
+        390.56
+      ],
+      "percent": [
+        27.0105,
+        24.41
+      ]
+    }
+  }
+}

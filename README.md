@@ -1,5 +1,7 @@
 # 探偵 佐伯湊 / Detective Saeki Minato
 
+2026-10-19：[実地理マップを本編へ接続](docs/art/maps/integration.md)。地図と座標JSONで4地点をピン表示。会社は西新宿六丁目の架空のオフィスビルに設定し、実名の建物名称は使用しない。
+
 現代日本の探偵ADV。React・TypeScript・Viteを使用する。更新：2026-10-13。
 
 ## 状態の正本

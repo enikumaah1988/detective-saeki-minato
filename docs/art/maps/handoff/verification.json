@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "pngMatchesManifest": true,
+  "corners": 4,
+  "independentControlPoints": 5,
+  "displayFitCases": 4,
+  "pixelCenterWorldFileVerified": true,
+  "resizeAndCropOffsetsVerified": true,
+  "companyFictionalLocationVerified": true,
+  "unresolvedRemoteLocationsNotAssigned": true,
+  "productionAppModified": false
+}

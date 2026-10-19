@@ -1,4 +1,7 @@
 src/assets/images/**/*.png filter=lfs diff=lfs merge=lfs -text
+docs/art/maps/**/*.png filter=lfs diff=lfs merge=lfs -text
+docs/art/maps/geographic/osm-*.xml filter=lfs diff=lfs merge=lfs -text
+docs/art/maps/geographic/nishi-shinjuku-geographic-*.svg filter=lfs diff=lfs merge=lfs -text
 docs/art/characters/**/*.png filter=lfs diff=lfs merge=lfs -text
 docs/art/neutral-review.png filter=lfs diff=lfs merge=lfs -text
 docs/art/episode-design-*.png filter=lfs diff=lfs merge=lfs -text

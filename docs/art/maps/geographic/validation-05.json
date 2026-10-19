@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "source_geometry_paths_verified": 5515,
+  "vertices_verified": 33003,
+  "max_rounding_error_px": 0.0006886481317990258,
+  "coordinate_displacement_applied": false,
+  "png_size": [
+    2400,
+    1600
+  ],
+  "png_sha256": "3299c07c65d9de30a6ee6b3ca28820e1e264ca60fae250defe8229ff67169f64",
+  "orientation_checks_passed": true,
+  "not_verified": [
+    "survey accuracy of OSM",
+    "exact fictional building entrances",
+    "company address not yet chosen",
+    "live gameplay appearance"
+  ],
+  "visual_crosscheck": "GSI standard tile mosaic: main road topology, railway corridor, central park and metropolitan government area compared visually; no GSI imagery in deliverable."
+}

@@ -1,0 +1,122 @@
+{
+  "width": 2400,
+  "height": 1600,
+  "north_up": true,
+  "projection": "EPSG:3857",
+  "bbox_wgs84": {
+    "west": 139.686,
+    "south": 35.68801272588789,
+    "east": 139.705,
+    "north": 35.6983
+  },
+  "projected_bounds_m": {
+    "xmin": 15549774.390949212,
+    "ymin": 4257776.887072638,
+    "xmax": 15551889.461274285,
+    "ymax": 4259186.93395602
+  },
+  "projected_m_per_pixel": 0.8812793021136894,
+  "geometry_policy": "Coordinates unchanged; surface-only feature selection. Cartographic road widths and decorative fill texture do not imply surveyed widths.",
+  "license": "ODbL 1.0",
+  "attribution": "© OpenStreetMap contributors",
+  "license_url": "https://www.openstreetmap.org/copyright",
+  "sources": [
+    {
+      "file": "osm-ne.xml",
+      "bytes": 5311833,
+      "sha256": "a87cc5125d329511f039fb246e7bee57505f62aa5e2588004b215f21b0b6e204"
+    },
+    {
+      "file": "osm-nw.xml",
+      "bytes": 2970445,
+      "sha256": "e0b7f0832fc5be8afb98f694acbefe4d49bdc55c952e442807ab1ec2c94bcd9a"
+    },
+    {
+      "file": "osm-se.xml",
+      "bytes": 9190319,
+      "sha256": "fc3274f3344d2983fcd9e20c2e6f03dc6b6bde74317c32ca9e704ecafae59b31"
+    },
+    {
+      "file": "osm-sw.xml",
+      "bytes": 3476093,
+      "sha256": "e62501d35a28f04ea29c44dbfa07bbafcfded1c1668f300e8baaa4b4efce58d6"
+    }
+  ],
+  "feature_counts": {
+    "land_polygons": 260,
+    "land_relations": 45,
+    "buildings": 3267,
+    "surface_roads": 2123,
+    "surface_railways": 125,
+    "mapped_trees": 548
+  },
+  "reference_anchors": {
+    "island_tower": {
+      "osm_way": "137626254",
+      "lat": 35.6931208,
+      "lon": 139.6930302,
+      "pixel": [
+        888.025,
+        805.557
+      ],
+      "percent": [
+        37.0011,
+        50.3473
+      ]
+    },
+    "shinjuku_police": {
+      "osm_way": "137626342",
+      "lat": 35.6935169,
+      "lon": 139.6945321,
+      "pixel": [
+        1077.739,
+        743.951
+      ],
+      "percent": [
+        44.9058,
+        46.4969
+      ]
+    },
+    "tokyo_metropolitan_main": {
+      "osm_way": "89877471",
+      "lat": 35.6894906,
+      "lon": 139.6917116,
+      "pixel": [
+        721.465,
+        1370.156
+      ],
+      "percent": [
+        30.0611,
+        85.6348
+      ]
+    },
+    "office_address_reference": {
+      "lat": 35.695038,
+      "lon": 139.69574,
+      "source": "GSI address-search; reference only, not surveyed entrance",
+      "pixel": [
+        1230.316,
+        507.368
+      ],
+      "percent": [
+        51.2632,
+        31.7105
+      ]
+    },
+    "building_address_reference": {
+      "lat": 35.695789,
+      "lon": 139.691132,
+      "source": "GSI address-search; reference only, not surveyed entrance",
+      "pixel": [
+        648.253,
+        390.56
+      ],
+      "percent": [
+        27.0105,
+        24.41
+      ]
+    }
+  },
+  "pins_baked_in": false,
+  "address_points_are_provisional": true
+}
