@@ -54,7 +54,7 @@ for (const [width,height] of [[1920,1080],[1366,768]]) test(`実地理マップ�
     await page.getByRole('button',{name:'佐伯探偵事務所（現在地）',exact:true}).click()
     assert.equal(await page.getByRole('button',{name:'現在地',exact:true}).isDisabled(),true)
     await page.getByRole('button',{name:'東成ビルサービスを選択',exact:true}).click()
-    assert.match(await page.locator('aside[aria-label="選択した場所"]').textContent(),/西新宿六丁目のオフィスビル/)
+    assert.match(await page.locator('aside[aria-label="選択した場所"]').textContent(),/西新宿六丁目・西新宿セントラルタワー12階/)
     const companyImage=await page.locator('.travel-map-image').boundingBox()
     const companyPin=await page.getByRole('button',{name:'東成ビルサービスを選択',exact:true}).boundingBox()
     assert.ok(Math.abs(companyPin.x+companyPin.width/2-(companyImage.x+companyImage.width*.3973684211))<1)

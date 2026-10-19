@@ -5,7 +5,7 @@ import { formatNames } from '../displayNames'
 import { personObservation } from './personObservations'
 import { episodePrologue } from './episodePrologue'
 
-export type RevisionLine = { speakerId: string; text: string; grants?: string[] }
+export type RevisionLine = { speakerId: string; text: string; grants?: string[]; backgroundId?: string }
 export type RevisionAction = { id: string; personId?: string | null; label?: string; lines: RevisionLine[]; requires: string[]; grants: string[]; required?: boolean; interaction?: 'think' | 'organize' | 'phone' | 'item-use'; itemId?: string; questionSetId?: string;
   questions?: { id: string; prompt: string; choices: { id: string; text: string }[]; answer: string; requires: string[]; hint: string; grants: string[] }[];
   successLines?: RevisionLine[]; retainCorrectAnswers?: boolean;
@@ -88,7 +88,13 @@ export function buildRevision(base: Scenario, data: RevisionData): Scenario {
       const explicitTime = line.text.match(/^(\d{1,2}):(\d{2})。/)
       if (explicitTime) currentTime = `${phase.sceneTime.slice(0, 11)}${explicitTime[1].padStart(2, '0')}:${explicitTime[2]}:00`
       const key = index ? `${id}-${index + 1}` : id
-      add(key, { type: 'dialogue', stage: scenes[sceneId], sceneId, speakerId: line.speakerId, text: line.text,
+      // 入館・室内の眺めだけを切り替え、既存の移動先・進捗条件・保存形式を維持する。
+      const lineSceneId = line.backgroundId ? `${sceneId}-view-${index + 1}` : sceneId
+      if (line.backgroundId) {
+        scenes[lineSceneId] = { ...scenes[sceneId], backgroundId: line.backgroundId, characters: [] }
+        sceneOwners.set(lineSceneId, phase.id)
+      }
+      add(key, { type: 'dialogue', stage: scenes[lineSceneId], sceneId: lineSceneId, speakerId: line.speakerId, text: line.text,
         ...(!lines.length ? { autoAdvance: true } : {}),
         ...(names[line.speakerId] ? { speakerName: names[line.speakerId], speakerNameCondition: has([`named-${line.speakerId}`]) } : {}),
         next: index === content.length - 1 ? next : `${id}-${index + 2}`,
@@ -121,7 +127,9 @@ export function buildRevision(base: Scenario, data: RevisionData): Scenario {
     const intro = sequence(`${phase.id}-intro`, phase, phase.intro, automatic?.id ?? menuId)
     nodes[intro].entryUpdates = [...(nodes[intro].entryUpdates ?? []), ...phase.people.filter(person => !['minato', 'mio', 'company-reception', 'police-reception', 'narumi'].includes(person)).map(person => information(`met-${person}`))]
     if (first) boundary(`${phase.id}-start`, phase, 'IN', intro)
-    add(arrival(phase), { type: 'dialogue', stage: phaseStage, sceneId, speakerId: 'narrator', text: phase.roomId.endsWith('exterior') ? `${placeNames[phase.locationId]}の前に着いた。` : `${roomNames[phase.roomId] ?? placeNames[phase.locationId]}に入った。`, next: first ? `${phase.id}-start` : intro }, time)
+    const entryBackground = phase.intro[0]?.backgroundId
+    const entryStage = entryBackground ? { ...phaseStage, backgroundId: entryBackground, characters: [] } : phaseStage
+    add(arrival(phase), { type: 'dialogue', stage: entryStage, sceneId, speakerId: 'narrator', text: entryBackground ? '建物内へ入った。' : phase.roomId.endsWith('exterior') ? `${placeNames[phase.locationId]}の前に着いた。` : `${roomNames[phase.roomId] ?? placeNames[phase.locationId]}に入った。`, next: first ? `${phase.id}-start` : intro }, time)
     const carried: {kind: 'ask'|'speak'; action: RevisionAction}[] = []
     for(let i=data.scenes.indexOf(phase)-1;i>=0;i--){
       const earlier=data.scenes[i]
