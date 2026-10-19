@@ -22,7 +22,10 @@ for (const [width,height] of [[1920,1080],[1366,768]]) test(`実地理マップ�
   const verifyAlignment=async()=>{
     await page.waitForFunction(()=>{
       const img=document.querySelector('.travel-map-image')?.getBoundingClientRect()
-      return img&&Math.abs(img.width/img.height-1.5)<.001
+      const viewport=document.querySelector('.travel-map-viewport')?.getBoundingClientRect()
+      if(!img||!viewport)return false
+      const scale=Math.max(viewport.width/2400,viewport.height/1600)
+      return Math.abs(img.width-2400*scale)<.5&&Math.abs(img.height-1600*scale)<.5
     })
     const image=await page.locator('.travel-map-image').boundingBox()
     const pin=await page.getByRole('button',{name:'佐伯探偵事務所（現在地）',exact:true}).boundingBox()
@@ -38,12 +41,17 @@ for (const [width,height] of [[1920,1080],[1366,768]]) test(`実地理マップ�
   try {
     await loadMap(initial)
     await verifyAlignment()
-    assert.equal(await page.locator('.travel-area-place').count(),1)
-    assert.equal(await page.locator('.travel-map-surface .travel-pin').count(),1)
+    assert.equal(await page.locator('.travel-area-place').count(),0)
+    assert.equal(await page.locator('.travel-map-surface .travel-pin').count(),2)
+    assert.doesNotMatch(await page.locator('.travel-map').textContent(),/アイランド/)
     await page.getByRole('button',{name:'佐伯探偵事務所（現在地）',exact:true}).click()
     assert.equal(await page.getByRole('button',{name:'現在地',exact:true}).isDisabled(),true)
     await page.getByRole('button',{name:'東成ビルサービスを選択',exact:true}).click()
-    assert.match(await page.locator('aside[aria-label="選択した場所"]').textContent(),/新宿アイランドタワー周辺/)
+    assert.match(await page.locator('aside[aria-label="選択した場所"]').textContent(),/西新宿六丁目のオフィスビル/)
+    const companyImage=await page.locator('.travel-map-image').boundingBox()
+    const companyPin=await page.getByRole('button',{name:'東成ビルサービスを選択',exact:true}).boundingBox()
+    assert.ok(Math.abs(companyPin.x+companyPin.width/2-(companyImage.x+companyImage.width*.3973684211))<1)
+    assert.ok(Math.abs(companyPin.y+companyPin.height/2-(companyImage.y+companyImage.height*.52493648))<1)
     assert.equal(await page.locator('.story').getAttribute('data-node-id'),'P2-01-map')
     if(process.env.SAEKI_SCREENSHOT_DIR)await page.screenshot({path:`${process.env.SAEKI_SCREENSHOT_DIR}/map-company-${width}.png`})
     await page.setViewportSize({width:width===1920?1366:1920,height:width===1920?768:1080})

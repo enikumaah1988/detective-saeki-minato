@@ -1,5 +1,6 @@
 import { readFile, writeFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
+import { geoToImage } from './map-coordinates.mjs';
 
 const geographic = new URL('../geographic/', import.meta.url);
 const assets = new URL('../../../../src/assets/images/maps/', import.meta.url);
@@ -14,7 +15,8 @@ const location = (id, name, referenceId, status) => {
     percent: { left: a.percent[0], top: a.percent[1] }, referenceId,
     note: '参照点。架空施設の入口・ピンの最終位置は未確定。' };
 };
-const island = meta.reference_anchors.island_tower;
+const companyCoordinate = { lon: 139.69355, lat: 35.6929 };
+const companyPoint = geoToImage({asset:{width:meta.width,height:meta.height},projectedBounds:meta.projected_bounds_m}, companyCoordinate);
 const manifest = {
   schemaVersion: 1,
   mapId: 'nishi-shinjuku-geographic-05',
@@ -36,10 +38,11 @@ const manifest = {
     location('office', '佐伯探偵事務所', 'office_address_reference', 'address_reference'),
     location('building', '成子坂共同ビル', 'building_address_reference', 'address_reference'),
     location('police', '西新宿警察署', 'shinjuku_police', 'building_reference'),
-    { id: 'company', name: '東成ビルサービス', status: 'unresolved', coordinate: null,
-      note: '新宿アイランドタワー周辺。会社の番地とピン位置は未決。areaReferenceを会社座標に代用しない。',
-      areaReference: { name: '新宿アイランドタワー', coordinate: { lon: island.lon, lat: island.lat },
-        imagePixel: { x: island.pixel[0], y: island.pixel[1] } } },
+    { id: 'company', name: '東成ビルサービス', status: 'fictional_location', coordinate: companyCoordinate,
+      buildingName: '東成ビルサービス入居ビル',
+      imagePixel: { x: companyPoint.x, y: companyPoint.y },
+      percent: { left: companyPoint.leftPercent, top: companyPoint.topPercent },
+      note: '西新宿六丁目の架空のオフィスビルとして設定したゲーム用の位置。実在施設の名称・住所・入居企業を示さない。' },
   ],
   remoteLocations: [
     { id: 'takase-home', name: '高瀬家', mapId: null, coordinate: null, status: 'outside-area-unresolved', note: '新宿区外。西新宿内に丸めて表示しない。' },

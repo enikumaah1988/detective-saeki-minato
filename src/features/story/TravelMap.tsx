@@ -5,7 +5,7 @@ import { travelMapDefinition, travelMapImage, travelMapPoint, travelMapSize } fr
 
 const places = [
   { id: 'office', name: '佐伯探偵事務所', background: 'office-before-noon', description: '西新宿七丁目。あかりから兄の捜索依頼を受けた事務所。' },
-  { id: 'company', name: '東成ビルサービス', background: 'company-reception', description: '新宿アイランドタワー周辺にある直人の勤務先。最後の出勤状況と、会社に残る記録を確認する。' },
+  { id: 'company', name: '東成ビルサービス', background: 'company-reception', description: '西新宿六丁目のオフィスビルに入る直人の勤務先。最後の出勤状況と、会社に残る記録を確認する。' },
   { id: 'building', name: '成子坂共同ビル', background: 'building-entrance', description: '取り壊しを控えた旧ビル。管理人への確認と、残された記録の調査を行う。' },
   { id: 'police', name: '西新宿警察署', background: 'police-exterior', description: '奥村・瀬川に面会し、過去の出来事と調査で分かったことを確認する。' },
 ]
@@ -23,7 +23,6 @@ export function TravelMap({ options, current, onBack, onMove }: { options: Choic
     const point = travelMapPoint(place.id)
     return point ? [{ ...place, point }] : []
   })
-  const areaPlaces = visiblePlaces.filter(place => !travelMapPoint(place.id))
   useEffect(() => {
     const element = viewport.current
     if (!element) return
@@ -51,11 +50,6 @@ export function TravelMap({ options, current, onBack, onMove }: { options: Choic
           disabled={moving} aria-pressed={selected === place.id} aria-label={`${place.name}${place.id === current ? '（現在地）' : 'を選択'}`}
           onClick={() => setSelected(place.id)}><span aria-hidden="true">●</span><span className="travel-pin-label">{place.name}{place.id === current && <small>現在地</small>}</span></button>)}
         </div></div>
-        {areaPlaces.length > 0 && <div className="travel-area-places">{areaPlaces.map(place => <button key={place.id} type="button"
-          className={`travel-destination travel-area-place${place.id === current ? ' current' : ''}`} disabled={moving} aria-pressed={selected === place.id}
-          aria-label={`${place.name}${place.id === current ? '（現在地）' : 'を選択'}`} onClick={() => setSelected(place.id)}>
-          <strong>{place.name}</strong><span>新宿アイランドタワー周辺</span>{place.id === current && <small>現在地</small>}
-        </button>)}</div>}
       </nav>
       <aside aria-label="選択した場所">{place ? <>
         <h2>{place.name}</h2><img src={resolveBackground(place.background).imageSrc} alt={place.name} /><p>{place.description}</p>

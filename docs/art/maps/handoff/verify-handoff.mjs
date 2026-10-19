@@ -38,7 +38,11 @@ assert.ok(geoToImage(m,{lon:b.west-.01,lat:b.north}).x<0); // outside points wer
 assert.throws(()=>geoToImage(m,{lon:35.695,lat:139.695}),RangeError); // swapped coordinates
 assert.throws(()=>geoToImage(m,{lon:NaN,lat:0}),TypeError);
 assert.throws(()=>getImageRect(m,{width:0,height:650}),RangeError);
-assert.equal(m.locations.find(p=>p.id==='company').coordinate,null);
+const company=m.locations.find(p=>p.id==='company');
+assert.equal(company.status,'fictional_location');
+assert.deepEqual(company.coordinate,{lon:139.69355,lat:35.6929});
+assert.equal('areaReference' in company,false);
+assert.equal(geoToImage(m,company.coordinate).insideImage,true);
 assert.ok(m.remoteLocations.every(p=>p.coordinate===null && p.mapId===null));
 const world=(await readFile(new URL('nishi-shinjuku-geographic-05.pgw',assets),'utf8')).trim().split(/\s+/).map(Number);
 assert.equal(world.length,6);
@@ -46,7 +50,7 @@ near(world[0],source.projected_m_per_pixel,1e-10);near(world[3],-world[0],1e-10)
 near(world[4]-world[0]/2,source.projected_bounds_m.xmin,1e-8);
 near(world[5]-world[3]/2,source.projected_bounds_m.ymax,1e-8);
 const result={passed:true,pngMatchesManifest:true,corners:4,independentControlPoints:5,displayFitCases:4,
-  pixelCenterWorldFileVerified:true,resizeAndCropOffsetsVerified:true,unresolvedLocationsNotAssigned:true,
+  pixelCenterWorldFileVerified:true,resizeAndCropOffsetsVerified:true,companyFictionalLocationVerified:true,unresolvedRemoteLocationsNotAssigned:true,
   productionAppModified:false};
 await writeFile(new URL('verification.json',import.meta.url),JSON.stringify(result,null,2)+'\n');
 console.log(JSON.stringify(result,null,2));

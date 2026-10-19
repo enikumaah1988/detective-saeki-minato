@@ -114,20 +114,21 @@
     {
       "id": "company",
       "name": "東成ビルサービス",
-      "status": "unresolved",
-      "coordinate": null,
-      "note": "新宿アイランドタワー周辺。会社の番地とピン位置は未決。areaReferenceを会社座標に代用しない。",
-      "areaReference": {
-        "name": "新宿アイランドタワー",
-        "coordinate": {
-          "lon": 139.6930302,
-          "lat": 35.6931208
-        },
-        "imagePixel": {
-          "x": 888.025,
-          "y": 805.557
-        }
-      }
+      "status": "fictional_location",
+      "coordinate": {
+        "lon": 139.69355,
+        "lat": 35.6929
+      },
+      "buildingName": "東成ビルサービス入居ビル",
+      "imagePixel": {
+        "x": 953.6842105239464,
+        "y": 839.898366295585
+      },
+      "percent": {
+        "left": 39.736842105164435,
+        "top": 52.49364789347406
+      },
+      "note": "西新宿六丁目の架空のオフィスビルとして設定したゲーム用の位置。実在施設の名称・住所・入居企業を示さない。"
     }
   ],
   "remoteLocations": [

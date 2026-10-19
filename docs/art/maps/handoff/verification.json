@@ -6,6 +6,7 @@
   "displayFitCases": 4,
   "pixelCenterWorldFileVerified": true,
   "resizeAndCropOffsetsVerified": true,
-  "unresolvedLocationsNotAssigned": true,
+  "companyFictionalLocationVerified": true,
+  "unresolvedRemoteLocationsNotAssigned": true,
   "productionAppModified": false
 }
