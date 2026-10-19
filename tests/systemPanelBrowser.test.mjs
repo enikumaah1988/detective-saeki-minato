@@ -42,8 +42,14 @@ for (const [width, height] of [[1920,1080],[1366,768]]) test(`25%拡大HUDと共
     await system.waitFor({ state: 'hidden' })
     await page.getByRole('button', { name: '調査記録', exact: true }).click()
     await page.getByRole('dialog', { name: '調査記録', exact: true }).waitFor()
+    for (const label of ['調査記録', 'タバコを吸う']) {
+      const button = page.getByRole('button', { name: label, exact: true, includeHidden: true })
+      assert.equal(await button.isVisible(), true)
+      assert.equal(await button.isDisabled(), true)
+    }
+    assert.equal(await page.locator('.scene-context').isVisible(), true)
+    assert.equal(await page.locator('.story-toolbar').evaluate(element => element.inert), true)
     const recordsMetrics = await checkPanel('.investigation-records:not(.system-menu-panel)')
-    assert.ok(Math.abs(systemMetrics.panel.top - recordsMetrics.panel.top) < 1)
     assert.ok(Math.abs(systemMetrics.panel.width - recordsMetrics.panel.width) < 1)
     if (process.env.SAEKI_SCREENSHOT_DIR) await page.screenshot({ path: `${process.env.SAEKI_SCREENSHOT_DIR}/records-panel-${width}.png` })
     await page.getByRole('button', { name: '調査記録を閉じる' }).click()

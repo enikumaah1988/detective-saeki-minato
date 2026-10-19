@@ -103,7 +103,7 @@ export function StoryPlayer({ scenario, initialSession, preview, smokingAllowed,
   const sourceNode = scenario.nodes[gameState.nodeId]
   const isOpeningOrEnding = sourceNode.sceneId === 'episode-prologue-scene' || ['P4-09', 'P4-10', 'P4-11'].includes(sourceNode.savePhaseId ?? '')
   const isExploration = (node.type === 'choice' && !node.map) || node.type === 'topic' || node.type === 'inspect'
-  const showConversationToolbar = (node.type === 'dialogue' || isExploration) && !isOpeningOrEnding && !illustration && !acquisition && !menuOpen && !recordsOpen && !smoking && !historyOpen && !itemSelection
+  const showConversationToolbar = (node.type === 'dialogue' || isExploration) && !isOpeningOrEnding && !illustration && !acquisition && (!menuOpen || recordsOpen) && !smoking && !historyOpen && !itemSelection
   const hasMessageWindow = node.type === 'dialogue' || node.type === 'end'
 
   useEffect(() => {
