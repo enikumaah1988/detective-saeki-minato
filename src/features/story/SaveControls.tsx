@@ -48,9 +48,8 @@ export function SaveControls({ state, scenario, history = [], onRestore, onMenuT
       {(['bgm','se'] as const).map(kind=><SettingsSlider key={kind} label={kind==='bgm'?'BGM音量':'SE音量'} value={audio[kind]} maximum={100} onChange={value=>{const next={...audio,[kind]:value};setAudio(next);saveAudioSettings(next)}}/>)}
       {message&&<p role="status">{message}</p>}
     </div>
-    {confirmTitle&&<SystemDialog title="タイトルに戻りますか？" label="戻らない" initialFocus="close" onClose={()=>setConfirmTitle(false)}>
+    {confirmTitle&&<SystemDialog title="タイトルに戻りますか？" label="ゲームに戻る" initialFocus="close" onClose={()=>setConfirmTitle(false)} confirmAction={<button type="button" onClick={()=>onReturnToTitle?.()}>タイトルに戻る</button>}>
       <p>保存していない進行は失われます。</p>
-      <button type="button" onClick={()=>onReturnToTitle?.()}>タイトルに戻る</button>
     </SystemDialog>}
     {saved&&<SystemDialog title="セーブしました" dismissible={false} onClose={()=>{setSaved(false);setMessage('');closeMenu()}}/>}
     {slots&&<SystemDialog title="LOAD" label="戻る" onClose={()=>{setSlots(undefined);setMessage('')}}>
