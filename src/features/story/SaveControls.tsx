@@ -31,6 +31,7 @@ export function SaveControls({ state, scenario, history = [], onRestore, onMenuT
   useEffect(()=>{
     if(!menuOpen) return
     const element=panel.current!, game=details.current!.closest<HTMLElement>('.story')!
+    const invoker=details.current?.querySelector('summary')
     const layout=()=>layoutGamePanel(element,game)
     const previousOverflow=document.body.style.overflow
     document.body.style.overflow='hidden'
@@ -41,7 +42,7 @@ export function SaveControls({ state, scenario, history = [], onRestore, onMenuT
     return ()=>{
       observer.disconnect(); window.removeEventListener('resize',layout); element.close()
       document.body.style.overflow=previousOverflow
-      details.current?.querySelector('summary')?.focus()
+      if(invoker?.isConnected) invoker.focus()
     }
   },[menuOpen])
   const save=()=>{

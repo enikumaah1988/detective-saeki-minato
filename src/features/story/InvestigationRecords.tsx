@@ -1,5 +1,6 @@
 import { displayText } from './displayText'
 import { useEffect, useRef, useState } from 'react'
+import type { RefObject } from 'react'
 import type { GameState } from '../../types/gameState'
 import type { InvestigationRecord, RecordCategory } from '../../types/investigation'
 import { RECORD_CATEGORIES, selectInvestigationRecords } from './investigation'
@@ -7,10 +8,11 @@ import { AssetImage } from './StageView'
 import './recordsFrames.css'
 import { layoutGamePanel } from './panelLayout'
 
-export function InvestigationRecords({ state, onClose, returnFocus, previewLabel, records = selectInvestigationRecords(state), usableItems = [], onUse }: {
+export function InvestigationRecords({ state, onClose, returnFocus, returnFocusRef, previewLabel, records = selectInvestigationRecords(state), usableItems = [], onUse }: {
   state: GameState
   onClose: () => void
   returnFocus?: HTMLElement | null
+  returnFocusRef?: RefObject<HTMLElement | null>
   previewLabel?: string
   records?: readonly InvestigationRecord[]
   usableItems?: string[]
@@ -34,7 +36,7 @@ export function InvestigationRecords({ state, onClose, returnFocus, previewLabel
     const layout = () => {
       layoutGamePanel(element, game)
     }
-    const invoker = returnFocus ?? document.activeElement as HTMLElement | null
+    const invoker = returnFocus ?? returnFocusRef?.current ?? document.activeElement as HTMLElement | null
     const previousOverflow = document.body.style.overflow
     document.body.style.overflow = 'hidden'
     layout()
@@ -48,7 +50,7 @@ export function InvestigationRecords({ state, onClose, returnFocus, previewLabel
       document.body.style.overflow = previousOverflow
       if (invoker?.isConnected) invoker.focus()
     }
-  }, [returnFocus])
+  }, [returnFocus, returnFocusRef])
 
   return <dialog ref={dialog} className="investigation-records" aria-labelledby="record-title" aria-modal="true"
     onKeyDown={event => {
