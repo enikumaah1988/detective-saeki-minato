@@ -22,15 +22,6 @@ export default defineConfig(
     extends: [reactHooks.configs.flat.recommended],
   },
   {
-    files: ['src/features/story/StoryPlayer.tsx'],
-    // Keep these existing findings visible until their interaction regressions
-    // can be tested. All other files retain the recommended error severity.
-    rules: {
-      'react-hooks/set-state-in-effect': 'warn',
-      'react-hooks/refs': 'warn',
-    },
-  },
-  {
     files: ['tools/lint/**/*.mjs'],
     extends: [js.configs.recommended],
     languageOptions: { globals: globals.node },

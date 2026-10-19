@@ -1,7 +1,7 @@
 import { displayText } from './displayText'
 import { defaultTitleCover, resolveTitleCover } from '../../data/titleCover'
 import { selectInvestigationRecords } from './investigation'
-import { useEffect, useMemo, useReducer, useRef, useState } from 'react'
+import { useCallback, useEffect, useMemo, useReducer, useRef, useState } from 'react'
 import type { InvestigationRecord } from '../../types/investigation'
 import type { Scenario } from '../../types/scenario'
 import type { TitleSession } from '../../app/TitleScreen'
@@ -69,13 +69,14 @@ export function StoryPlayer({ scenario, initialSession, preview, smokingAllowed,
   const [interval, setInterval] = useState(() => {
     try { const value = Number(localStorage.getItem('detective-saeki-minato.speed') ?? 35); return [0, 15, 35, 70].includes(value) ? value : 35 } catch { return 35 }
   })
-  const dispatch = (action: GameAction) => {
+  const illustration = scenario.nodes[gameState.nodeId].illustration
+  const dispatch = useCallback((action: GameAction) => {
     if (!playback.paused && action.type === 'advance' && node.type === 'dialogue' && !illustration) {
       setHistory(entries => [...entries, { speaker: dialogueSpeaker(node, gameState), text: node.text, nodeId: gameState.nodeId }].slice(-MAX_HISTORY_ENTRIES))
     }
     if (action.type === 'reset') { setHistory([]); suppressRecordNotice.current = true; suppressAutoSave.current = true }
     send({ type: 'input', origin: { nodeId: gameState.nodeId, generation: playback.generation }, action })
-  }
+  }, [playback.paused, playback.generation, gameState, node, illustration])
   const menuOpen = playback.paused || suspended
   const [recordsOpen, setRecordsOpen] = useState(false)
   const [activePreview, setActivePreview] = useState<typeof preview>()
@@ -86,18 +87,20 @@ export function StoryPlayer({ scenario, initialSession, preview, smokingAllowed,
     send({ type: 'restore', state: reduceGameState(scenario, gameState, { type: 'use-item', itemId, useId }) })
     setRestoreRevision(value => value + 1)
   }
-  useEffect(() => {
+  const [previousPreview, setPreviousPreview] = useState<typeof preview>()
+  // 新しいDEV要求で一度だけ状態を調整し、Effectによる後追い更新を避ける。
+  if (preview !== previousPreview) {
+    setPreviousPreview(preview)
     if (import.meta.env.DEV && preview) {
       setActivePreview(preview); setRecordsOpen(true); send({ type: 'menu', open: true })
     }
-  }, [preview])
+  }
   const recordsButton = useRef<HTMLButtonElement>(null)
   const smokingButton = useRef<HTMLButtonElement>(null)
   const dialogueRef = useRef<DialogueWindow>(null)
   const smokingDialogueRef = useRef<DialogueWindow>(null)
   const [restoreRevision, setRestoreRevision] = useState(0)
   const acquisition = node.type === 'dialogue' ? node.acquisition : undefined
-  const illustration = scenario.nodes[gameState.nodeId].illustration
   const coverSrc = illustration?.provisional ? resolveTitleCover(scenario.id, illustration.imageSrc) : illustration?.imageSrc
   const mapNode = node.type === 'choice' && node.map ? node : undefined
   const sourceNode = scenario.nodes[gameState.nodeId]
@@ -123,7 +126,7 @@ export function StoryPlayer({ scenario, initialSession, preview, smokingAllowed,
     }
     window.addEventListener('keydown', handleEnter)
     return () => window.removeEventListener('keydown', handleEnter)
-  }, [menuOpen, recordsOpen, smoking, acquisition, node.type, illustration, gameState.nodeId])
+  }, [menuOpen, recordsOpen, smoking, acquisition, node.type, illustration, dispatch])
 
   const advanceFromStage = () => {
     if (!menuOpen && !recordsOpen && !smoking && !acquisition && node.type === 'dialogue') {
@@ -191,7 +194,7 @@ export function StoryPlayer({ scenario, initialSession, preview, smokingAllowed,
       {itemSelection && <SystemDialog title="使用する相手・目的" label="戻る" onClose={() => { setItemSelection(undefined); setRecordsOpen(true); send({ type: 'menu', open: true }) }}>
         <div className="item-use-choices">{itemSelection.uses.map(use => <button key={use.next} type="button" onClick={() => handleUseItem(itemSelection.itemId, use.next)}>{displayText(use.label ?? '使用する')}</button>)}</div>
       </SystemDialog>}
-      {recordsOpen && <InvestigationRecords state={gameState} records={activePreview?.records ?? records} previewLabel={activePreview?.label} returnFocus={activePreview?.invoker ?? recordsButton.current}
+      {recordsOpen && <InvestigationRecords state={gameState} records={activePreview?.records ?? records} previewLabel={activePreview?.label} returnFocus={activePreview?.invoker} returnFocusRef={recordsButton}
         usableItems={activePreview ? [] : (scenario.itemUses ?? []).filter(use => use.nodeIds.includes(gameState.nodeId) && matchesCondition(gameState, use.condition)).map(use => use.itemId)}
         onUse={itemId => {
           const uses = [...new Map((scenario.itemUses ?? []).filter(use => use.itemId === itemId && use.nodeIds.includes(gameState.nodeId) && matchesCondition(gameState, use.condition)).map(use => [use.next, use])).values()]
