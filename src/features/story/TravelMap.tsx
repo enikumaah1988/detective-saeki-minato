@@ -5,7 +5,7 @@ import { travelMapDefinition, travelMapImage, travelMapPoint, travelMapSize } fr
 
 const places = [
   { id: 'office', name: '佐伯探偵事務所', background: 'office-before-noon', description: '西新宿七丁目。あかりから兄の捜索依頼を受けた事務所。' },
-  { id: 'company', name: '東成ビルサービス', background: 'company-reception', description: '西新宿六丁目のオフィスビルに入る直人の勤務先。最後の出勤状況と、会社に残る記録を確認する。' },
+  { id: 'company', name: '東成ビルサービス', background: 'company-exterior', description: '西新宿六丁目・西新宿セントラルタワー12階に入る直人の勤務先。最後の出勤状況と、会社に残る記録を確認する。' },
   { id: 'building', name: '成子坂共同ビル', background: 'building-entrance', description: '取り壊しを控えた旧ビル。管理人への確認と、残された記録の調査を行う。' },
   { id: 'police', name: '西新宿警察署', background: 'police-exterior', description: '奥村・瀬川に面会し、過去の出来事と調査で分かったことを確認する。' },
 ]

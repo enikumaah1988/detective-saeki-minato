@@ -440,7 +440,7 @@ export const revisionData = {
             },
             {
               "speakerId": "akari",
-              "text": "東成ビルサービスです。ビルの管理や修繕の仕事をしています。"
+              "text": "東成ビルサービスです。ビルの設備や清掃、施設の管理をしています。"
             },
             {
               "speakerId": "mio",
@@ -1360,7 +1360,7 @@ export const revisionData = {
       "intro": [
         {
           "speakerId": "narrator",
-          "text": "通り沿いの表示を、澪のメモと見比べた。東成ビルサービス。直人がいつものように出勤したと、あかりが思っていた会社だ。"
+          "text": "西新宿六丁目。西新宿セントラルタワーの表示を、澪のメモと見比べた。十二階に、東成ビルサービスが入っている。直人がいつものように出勤したと、あかりが思っていた会社だ。"
         },
         {
           "speakerId": "minato",
@@ -1378,7 +1378,7 @@ export const revisionData = {
           "lines": [
             {
               "speakerId": "narrator",
-              "text": "東成ビルサービス。住所は澪が確認したものと一致する。"
+              "text": "西新宿セントラルタワー。東成ビルサービス株式会社は十二階の一部を借りている。所在地は澪が確認したものと一致する。"
             }
           ],
           "requires": [],
@@ -1406,7 +1406,12 @@ export const revisionData = {
       "intro": [
         {
           "speakerId": "narrator",
-          "text": "小さなカウンターの向こうで、電話の受話器が戻された。まだ、こちらへ声はかかっていない。"
+          "text": "石張りの共用ロビーを抜け、案内板で十二階を確かめる。エレベーターで上がり、東成ビルサービスの受付へ向かった。",
+          "backgroundId": "company-lobby"
+        },
+        {
+          "speakerId": "narrator",
+          "text": "木目のカウンターの向こうで、電話の受話器が戻された。まだ、こちらへ声はかかっていない。"
         }
       ],
       "people": [
@@ -1435,7 +1440,7 @@ export const revisionData = {
             },
             {
               "speakerId": "narrator",
-              "text": "端末を確認する間、壁の案内を見る。管理、清掃、修繕。直人の一日は、この中のどこかにあった。"
+              "text": "端末を確認する間、壁の案内を見る。設備管理、清掃管理、施設管理。直人の一日は、この中のどこかにあった。"
             },
             {
               "speakerId": "company-reception",
@@ -1630,6 +1635,11 @@ export const revisionData = {
             {
               "speakerId": "narrator",
               "text": "社員証を下げた人が席にいる。受付担当だ。"
+            },
+            {
+              "speakerId": "narrator",
+              "text": "受付脇のガラス越しに、執務室が見える。灰色の机が奥まで並び、図面や点検報告書のファイルが整然と収まっていた。",
+              "backgroundId": "company-office"
             }
           ],
           "requires": [],

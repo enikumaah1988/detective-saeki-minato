@@ -14,12 +14,14 @@ export const backgrounds: Record<string, BackgroundDefinition> = {
   'office-before-noon': { id: 'office-before-noon', name: '佐伯探偵事務所', imageSrc: new URL('../assets/backgrounds/office-day.png', import.meta.url).href },
   'office-exterior': { id: 'office-exterior', name: '佐伯探偵事務所前', imageSrc: new URL('../assets/backgrounds/office-exterior.png', import.meta.url).href },
   'company-exterior': { id: 'company-exterior', name: '東成ビルサービス前', imageSrc: new URL('../assets/backgrounds/company-exterior.png', import.meta.url).href },
+  'company-lobby': { id: 'company-lobby', name: '西新宿セントラルタワー・共用ロビー', imageSrc: new URL('../assets/backgrounds/company-lobby.png', import.meta.url).href },
+  'company-office': { id: 'company-office', name: '東成ビルサービス・執務室', imageSrc: new URL('../assets/backgrounds/company-office.png', import.meta.url).href },
   'company-lounge': { id: 'company-lounge', name: '東成ビルサービス・応接室', imageSrc: new URL('../assets/backgrounds/company-lounge.png', import.meta.url).href },
   'building-exterior': { id: 'building-exterior', name: '成子坂共同ビル前', imageSrc: new URL('../assets/backgrounds/building-exterior.png', import.meta.url).href },
   'police-exterior': { id: 'police-exterior', name: '西新宿警察署前', imageSrc: new URL('../assets/backgrounds/police-exterior.png', import.meta.url).href },
   'police-reception': { id: 'police-reception', name: '西新宿警察署・受付', imageSrc: new URL('../assets/backgrounds/police-reception.png', import.meta.url).href },
   'police-meeting': { id: 'police-meeting', name: '西新宿警察署・面会室', imageSrc: new URL('../assets/backgrounds/police-meeting.png', import.meta.url).href },
-  'company-reception': { id: 'company-reception', name: '東成ビルサービス', imageSrc: new URL('../assets/backgrounds/company-reception.png', import.meta.url).href },
+  'company-reception': { id: 'company-reception', name: '東成ビルサービス・12階受付', imageSrc: new URL('../assets/backgrounds/company-reception.png', import.meta.url).href },
   'office-afternoon': { id: 'office-afternoon', name: '佐伯探偵事務所', imageSrc: new URL('../assets/backgrounds/office-afternoon.png', import.meta.url).href },
 }
 
