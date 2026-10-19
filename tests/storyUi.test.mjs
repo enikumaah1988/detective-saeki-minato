@@ -85,6 +85,19 @@ test('保存操作は閉じたメニュー内にまとまり、画面は上下�
 })
 
 
+test('自由行動・サブメニューは調査記録と喫煙を表示し、履歴は会話窓がある時だけ表示する', () => {
+  const state = createInitialState(scenario)
+  for (const nodeId of ['menu', 'topics', 'targets']) {
+    const html = renderToStaticMarkup(createElement(StoryPlayer, { scenario, initialSession: { state: { ...state, nodeId }, history: [] } }))
+    assert.doesNotMatch(html, /history-entry|message-window/)
+    assert.match(html, /<button(?![^>]*hidden)[^>]*><svg[^>]*>.*?<span>調査記録<\/span>/s)
+    assert.match(html, /<button(?![^>]*hidden)[^>]*><svg[^>]*>.*?<span>タバコを吸う<\/span>/s)
+  }
+  const html = renderToStaticMarkup(createElement(StoryPlayer, { scenario }))
+  assert.match(html, /message-window/)
+  assert.match(html, /history-entry/)
+})
+
 test('通常起動はタイトル画面を表示し、開発切替は表示しない', () => {
   const html = renderToStaticMarkup(createElement(App))
   assert.match(html, /<h1/)
