@@ -20,8 +20,8 @@ test('実地理の参照点を使用し、未確定の会社座標を作らな�
   assert.ok(Math.abs(point('police').top - 46.4969) < .001)
   assert.equal(point('company'), undefined)
   assert.equal(point('takase-home'), undefined)
-  assert.deepEqual(size(900,650), { width:900, height:600 })
-  assert.deepEqual(size(1200,600), { width:900, height:600 })
+  assert.deepEqual(size(900,650), { width:975, height:650 })
+  assert.deepEqual(size(1200,600), { width:1200, height:800 })
 })
 test('解放済みの場所だけを表示し、現在地と会社の選択を維持する', () => {
   const html = renderToStaticMarkup(createElement(TravelMap, {
@@ -32,5 +32,5 @@ test('解放済みの場所だけを表示し、現在地と会社の選択を�
   assert.match(html,/travel-area-place/)
   assert.match(html,/東成ビルサービスを選択/)
   assert.doesNotMatch(html,/成子坂共同ビルを選択|西新宿警察署を選択/)
-  assert.match(html,/https:\/\/www.openstreetmap.org\/copyright/)
+  assert.doesNotMatch(html,/上が北|travel-attribution|openstreetmap\.org/)
 })

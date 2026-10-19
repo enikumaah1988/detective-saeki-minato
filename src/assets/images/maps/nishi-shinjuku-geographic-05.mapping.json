@@ -5,7 +5,7 @@
     "file": "nishi-shinjuku-geographic-05.png",
     "width": 2400,
     "height": 1600,
-    "sha256": "e6f7172d8b82b5530ca8f5b0dc999ec0db931c9065496b1e561289de413fcbab"
+    "sha256": "3299c07c65d9de30a6ee6b3ca28820e1e264ca60fae250defe8229ff67169f64"
   },
   "geographicCRS": "EPSG:4326",
   "projectedCRS": "EPSG:3857",
@@ -43,7 +43,7 @@
     "percentConvention": "left=100*x/width, top=100*y/height; relative to rendered IMAGE rectangle, not letterbox host"
   },
   "display": {
-    "recommendedFit": "contain",
+    "recommendedFit": "cover",
     "recommendedObjectPosition": "50% 50%",
     "aspectRatio": [
       3,
@@ -152,13 +152,8 @@
     "text": "© OpenStreetMap contributors",
     "url": "https://www.openstreetmap.org/copyright",
     "license": "ODbL-1.0",
-    "bakedIntoImage": true,
-    "visibleAtDisplaySizeRequired": true,
-    "cornerRectPx": {
-      "x": 1857,
-      "y": 1563,
-      "width": 543,
-      "height": 37
-    }
+    "bakedIntoImage": false,
+    "displayPlacement": "centralized-licenses-planned",
+    "centralizedDisplayImplemented": false
   }
 }

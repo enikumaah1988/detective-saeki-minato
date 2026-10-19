@@ -41,11 +41,11 @@ export function TravelMap({ options, current, onBack, onMove }: { options: Choic
   return <div ref={root} className={`travel-map${moving ? ' is-moving' : ''}`} aria-label="移動マップ" onKeyDown={event => {
     if (event.key === 'Escape' && !moving) { event.preventDefault(); onBack() }
   }}>
-    <header><div><h1>移動先を選ぶ</h1><p>西新宿 · 上が北</p></div><button type="button" disabled={moving} onClick={onBack}>× 戻る</button></header>
+    <header><div><h1>移動先を選ぶ</h1><p>西新宿</p></div><button type="button" disabled={moving} onClick={onBack}>× 戻る</button></header>
     <div className="travel-body">
       <nav className="travel-canvas" aria-label="地図の移動先">
         <div ref={viewport} className="travel-map-viewport"><div className="travel-map-surface" style={mapSize}>
-          <img className="travel-map-image" src={travelMapImage} alt="西新宿周辺の地図。上が北" width={travelMapDefinition.asset.width} height={travelMapDefinition.asset.height} />
+          <img className="travel-map-image" src={travelMapImage} alt="西新宿周辺の地図" width={travelMapDefinition.asset.width} height={travelMapDefinition.asset.height} />
         {mappedPlaces.map(place => <button key={place.id} type="button"
           className={`travel-destination travel-pin${place.id === current ? ' current' : ''}`} style={{ left: `${place.point.left}%`, top: `${place.point.top}%` }}
           disabled={moving} aria-pressed={selected === place.id} aria-label={`${place.name}${place.id === current ? '（現在地）' : 'を選択'}`}
@@ -56,7 +56,6 @@ export function TravelMap({ options, current, onBack, onMove }: { options: Choic
           aria-label={`${place.name}${place.id === current ? '（現在地）' : 'を選択'}`} onClick={() => setSelected(place.id)}>
           <strong>{place.name}</strong><span>新宿アイランドタワー周辺</span>{place.id === current && <small>現在地</small>}
         </button>)}</div>}
-        <a className="travel-attribution" href={travelMapDefinition.attribution.url} target="_blank" rel="noreferrer">{travelMapDefinition.attribution.text}</a>
       </nav>
       <aside aria-label="選択した場所">{place ? <>
         <h2>{place.name}</h2><img src={resolveBackground(place.background).imageSrc} alt={place.name} /><p>{place.description}</p>

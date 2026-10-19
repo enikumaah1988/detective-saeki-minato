@@ -28,7 +28,7 @@ const manifest = {
     imageExtent: [0, 0, meta.width, meta.height], pixelConvention: 'continuous image-edge coordinates; bottom-right edge=(2400,1600)',
     outsidePolicy: 'retain outside coordinates; hide or use another map, never clamp',
     percentConvention: 'left=100*x/width, top=100*y/height; relative to rendered IMAGE rectangle, not letterbox host' },
-  display: { recommendedFit: 'contain', recommendedObjectPosition: '50% 50%',
+  display: { recommendedFit: 'cover', recommendedObjectPosition: '50% 50%',
     aspectRatio: [3, 2], resize: 'use exact rendered image rectangle for both image and pin layer',
     crop: 'cover requires cropping offsets; see getImageRect example',
     paddingAndBorders: 'put border/padding on an outer wrapper, not the coordinate host' },
@@ -46,7 +46,7 @@ const manifest = {
     { id: 'hideout', name: '潜伏先', mapId: null, coordinate: null, status: 'unresolved', note: '場所未決。既存地点に推測で割り当てない。' },
   ],
   attribution: { text: meta.attribution, url: meta.license_url, license: 'ODbL-1.0',
-    bakedIntoImage: true, visibleAtDisplaySizeRequired: true, cornerRectPx: { x: 1857, y: 1563, width: 543, height: 37 } },
+    bakedIntoImage: false, displayPlacement: 'centralized-licenses-planned', centralizedDisplayImplemented: false },
 };
 await writeFile(new URL('nishi-shinjuku-geographic-05.mapping.json', assets), JSON.stringify(manifest, null, 2) + '\n');
 // PNG world file: pixel-center registration, unlike the runtime edge coordinates.

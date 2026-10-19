@@ -16,6 +16,6 @@ export function travelMapPoint(id: string) {
 }
 
 export function travelMapSize(width: number, height: number) {
-  const scale = Math.min(width / definition.asset.width, height / definition.asset.height)
+  const scale = Math.max(width / definition.asset.width, height / definition.asset.height)
   return { width: definition.asset.width * scale, height: definition.asset.height * scale }
 }

@@ -167,8 +167,9 @@ if texture.exists():
     b64=base64.b64encode(texture.read_bytes()).decode('ascii')
     svg.append(f'<image href="data:image/png;base64,{b64}" width="{W}" height="{H}" preserveAspectRatio="none" opacity=".17" style="mix-blend-mode:soft-light" pointer-events="none"/>')
 svg.append(f'<rect width="{W}" height="{H}" filter="url(#pigment)" opacity=".6" pointer-events="none"/>')
-# Attribution is the sole text baked into the standalone deliverable.
-svg.extend(['<a href="https://www.openstreetmap.org/copyright">',f'<rect x="{W-543}" y="{H-37}" width="543" height="37" fill="#172126" fill-opacity=".93"/>',f'<text x="{W-15}" y="{H-13}" text-anchor="end" font-family="Arial,sans-serif" font-size="17" fill="#d9d3c2">© OpenStreetMap contributors · openstreetmap.org/copyright</text></a>','</svg>'])
+# The user requested credits to be consolidated outside the map UI.
+# Source/license metadata is retained in the SVG description and handoff files.
+svg.append('</svg>')
 out=ROOT/'nishi-shinjuku-geographic-05.svg'
 out.write_text('\n'.join(svg),encoding='utf-8')
 anchors={

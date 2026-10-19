@@ -8,7 +8,7 @@ const m = JSON.parse(await readFile(new URL('nishi-shinjuku-geographic-05.mappin
 const source = JSON.parse(await readFile(new URL('../geographic/map-georeference-05.json', import.meta.url), 'utf8'));
 const png = await readFile(new URL(m.asset.file, assets));
 assert.equal(createHash('sha256').update(png).digest('hex'), m.asset.sha256);
-assert.equal(m.asset.sha256, 'e6f7172d8b82b5530ca8f5b0dc999ec0db931c9065496b1e561289de413fcbab');
+assert.equal(m.asset.sha256, '3299c07c65d9de30a6ee6b3ca28820e1e264ca60fae250defe8229ff67169f64');
 assert.deepEqual([png.readUInt32BE(16), png.readUInt32BE(20)], [2400,1600]);
 function near(a,b,tol=1e-6) { assert.ok(Math.abs(a-b)<tol,`${a} != ${b}`); }
 const b = m.boundsWGS84;
@@ -45,7 +45,7 @@ assert.equal(world.length,6);
 near(world[0],source.projected_m_per_pixel,1e-10);near(world[3],-world[0],1e-10);
 near(world[4]-world[0]/2,source.projected_bounds_m.xmin,1e-8);
 near(world[5]-world[3]/2,source.projected_bounds_m.ymax,1e-8);
-const result={passed:true,pngUnchanged:true,corners:4,independentControlPoints:5,displayFitCases:4,
+const result={passed:true,pngMatchesManifest:true,corners:4,independentControlPoints:5,displayFitCases:4,
   pixelCenterWorldFileVerified:true,resizeAndCropOffsetsVerified:true,unresolvedLocationsNotAssigned:true,
   productionAppModified:false};
 await writeFile(new URL('verification.json',import.meta.url),JSON.stringify(result,null,2)+'\n');

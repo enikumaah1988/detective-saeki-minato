@@ -28,9 +28,12 @@ for (const [width,height] of [[1920,1080],[1366,768]]) test(`実地理マップ�
     const pin=await page.getByRole('button',{name:'佐伯探偵事務所（現在地）',exact:true}).boundingBox()
     assert.ok(Math.abs(pin.x+pin.width/2-(image.x+image.width*.512632))<1)
     assert.ok(Math.abs(pin.y+pin.height/2-(image.y+image.height*.317105))<1)
-    const source=page.getByRole('link',{name:'© OpenStreetMap contributors',exact:true})
-    assert.equal(await source.isVisible(),true)
-    assert.ok(await source.evaluate(el=>parseFloat(getComputedStyle(el).fontSize))>=12)
+    const viewport=await page.locator('.travel-map-viewport').boundingBox()
+    assert.ok(image.x<=viewport.x+.5 && image.y<=viewport.y+.5)
+    assert.ok(image.x+image.width>=viewport.x+viewport.width-.5)
+    assert.ok(image.y+image.height>=viewport.y+viewport.height-.5)
+    assert.equal(await page.locator('.travel-attribution').count(),0)
+    assert.doesNotMatch(await page.locator('.travel-map').textContent(),/上が北|OpenStreetMap/)
   }
   try {
     await loadMap(initial)
