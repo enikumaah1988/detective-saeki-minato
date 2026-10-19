@@ -3,6 +3,7 @@ import assert from 'node:assert/strict'
 import { createElement } from 'react'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { createServer } from './viteServer.mjs'
+import { loadRevision } from './revisionHarness.mjs'
 import { freeActionDemo as scenario } from '../src/data/scenario/freeActionDemo.ts'
 let App, StoryContent, StoryPlayer, SaveControls, choiceStatus, selectCurrentNode, createInitialState
 before(async () => {
@@ -96,6 +97,24 @@ test('自由行動・サブメニューは調査記録と喫煙を表示し、�
   const html = renderToStaticMarkup(createElement(StoryPlayer, { scenario }))
   assert.match(html, /message-window/)
   assert.match(html, /history-entry/)
+})
+
+test('本編の通常選択・サブコマンド・屋外でも上部操作を表示し、会話窓のない履歴は隠す', async () => {
+  const api = await loadRevision()
+  const state = api.createInitialState(api.scenario)
+  const entries = Object.entries(api.scenario.nodes).filter(([, node]) => node.type === 'choice' && !node.map && !node.illustration && node.sceneId !== 'episode-prologue-scene' && !['P4-09', 'P4-10', 'P4-11'].includes(node.savePhaseId))
+  assert.ok(entries.some(([, node]) => !node.mode && node.prompt.endsWith('前')))
+  assert.ok(entries.some(([, node]) => !node.mode && node.prompt === '移動'))
+  for (const [nodeId] of entries) {
+    const html = renderToStaticMarkup(createElement(StoryPlayer, { scenario: api.scenario, initialSession: { state: { ...state, nodeId }, history: [] } }))
+    for (const label of ['調査記録', 'タバコを吸う']) {
+      const button = [...html.matchAll(/<button\b[^>]*>[\s\S]*?<\/button>/g)].find(([markup]) => markup.includes(`<span>${label}</span>`))
+      assert.ok(button, `${nodeId}: ${label}`)
+      assert.doesNotMatch(button[0], /\bhidden=/, `${nodeId}: ${label}`)
+    }
+    assert.doesNotMatch(html, /history-entry|message-window/, nodeId)
+    assert.match(html, /<div class="scene-context">/, nodeId)
+  }
 })
 
 test('通常起動はタイトル画面を表示し、開発切替は表示しない', () => {
