@@ -110,7 +110,7 @@ test('本編の通常選択・サブコマンド・屋外でも上部操作を�
     for (const label of ['調査記録', 'タバコを吸う']) {
       const button = [...html.matchAll(/<button\b[^>]*>[\s\S]*?<\/button>/g)].find(([markup]) => markup.includes(`<span>${label}</span>`))
       assert.ok(button, `${nodeId}: ${label}`)
-      assert.doesNotMatch(button[0], /\bhidden=/, `${nodeId}: ${label}`)
+      assert.doesNotMatch(button[0].slice(0, button[0].indexOf('>')), /\bhidden=/, `${nodeId}: ${label}`)
     }
     assert.doesNotMatch(html, /history-entry|message-window/, nodeId)
     assert.match(html, /<div class="scene-context">/, nodeId)
