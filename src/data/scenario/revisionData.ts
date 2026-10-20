@@ -1,6 +1,6 @@
 // ver0.03を基準に組込側で第1部を共同改稿。原稿正本への反映は物語担当と連携。
 import type { RevisionData } from './buildRevision'
-export const revisionData = {
+export const revisionData: RevisionData = {
   "scenes": [
     {
       "id": "P1-01",
@@ -19,11 +19,17 @@ export const revisionData = {
         },
         {
           "speakerId": "mio",
-          "text": "佐伯さん。コーヒー、置きますね。"
+          "text": "佐伯さん。コーヒー、置きますね。",
+          "expressions": {
+            "mio": "smile"
+          }
         },
         {
           "speakerId": "minato",
-          "text": "ありがとう。"
+          "text": "ありがとう。",
+          "expressions": {
+            "minato": "smile"
+          }
         },
         {
           "speakerId": "mio",
@@ -39,7 +45,10 @@ export const revisionData = {
         },
         {
           "speakerId": "mio",
-          "text": "こちらも、今のうちに。"
+          "text": "こちらも、今のうちに。",
+          "expressions": {
+            "mio": "serious"
+          }
         },
         {
           "speakerId": "minato",
@@ -51,7 +60,10 @@ export const revisionData = {
         },
         {
           "speakerId": "minato",
-          "text": "今日は逃げ道がないな。"
+          "text": "今日は逃げ道がないな。",
+          "expressions": {
+            "minato": "pained"
+          }
         },
         {
           "speakerId": "mio",
@@ -59,7 +71,10 @@ export const revisionData = {
         },
         {
           "speakerId": "narrator",
-          "text": "俺は帳簿を開いた。澪は笑わずに、領収書の束を向けてきた。その方が少し堪える。"
+          "text": "俺は帳簿を開いた。澪は笑わずに、領収書の束を向けてきた。その方が少し堪える。",
+          "expressions": {
+            "mio": "serious"
+          }
         }
       ],
       "people": [
@@ -113,15 +128,24 @@ export const revisionData = {
           "lines": [
             {
               "speakerId": "minato",
-              "text": "今日のは、少し違うな。"
+              "text": "今日のは、少し違うな。",
+              "expressions": {
+                "minato": "surprised"
+              }
             },
             {
               "speakerId": "mio",
-              "text": "昨日より軽めです。帳簿を見ながら何杯も飲まれると思って。"
+              "text": "昨日より軽めです。帳簿を見ながら何杯も飲まれると思って。",
+              "expressions": {
+                "mio": "amused"
+              }
             },
             {
               "speakerId": "minato",
-              "text": "そこまで予定に入っていたか？"
+              "text": "そこまで予定に入っていたか？",
+              "expressions": {
+                "minato": "smile"
+              }
             },
             {
               "speakerId": "mio",
@@ -326,11 +350,17 @@ export const revisionData = {
           "lines": [
             {
               "speakerId": "minato",
-              "text": "いつから帰っていない？"
+              "text": "いつから帰っていない？",
+              "expressions": {
+                "minato": "serious"
+              }
             },
             {
               "speakerId": "akari",
-              "text": "月曜日です。五日の朝に出かけて、そのまま。今日で三日になります。"
+              "text": "月曜日です。五日の朝に出かけて、そのまま。今日で三日になります。",
+              "expressions": {
+                "akari": "worried"
+              }
             },
             {
               "speakerId": "mio",
@@ -338,7 +368,10 @@ export const revisionData = {
             },
             {
               "speakerId": "akari",
-              "text": "夜には戻ると思っていました。夕飯も残しておいたんです。"
+              "text": "夜には戻ると思っていました。夕飯も残しておいたんです。",
+              "expressions": {
+                "akari": "sad"
+              }
             }
           ],
           "requires": [],
@@ -921,11 +954,17 @@ export const revisionData = {
           "lines": [
             {
               "speakerId": "minato",
-              "text": "まず会社で、兄の予定を確かめる。行き先が分かれば、そこから足取りを追う。"
+              "text": "まず会社で、兄の予定を確かめる。行き先が分かれば、そこから足取りを追う。",
+              "expressions": {
+                "minato": "serious"
+              }
             },
             {
               "speakerId": "akari",
-              "text": "お願いします。料金は、どのくらい……。"
+              "text": "お願いします。料金は、どのくらい……。",
+              "expressions": {
+                "akari": "worried"
+              }
             },
             {
               "speakerId": "narrator",
@@ -953,11 +992,17 @@ export const revisionData = {
             },
             {
               "speakerId": "akari",
-              "text": "兄がどこにいるか、知りたいんです。"
+              "text": "兄がどこにいるか、知りたいんです。",
+              "expressions": {
+                "akari": "determined"
+              }
             },
             {
               "speakerId": "minato",
-              "text": "分かった。引き受ける。"
+              "text": "分かった。引き受ける。",
+              "expressions": {
+                "minato": "normal"
+              }
             }
           ],
           "requires": [
@@ -1728,7 +1773,10 @@ export const revisionData = {
             },
             {
               "speakerId": "kuroda",
-              "text": "昔の事故です。もう終わったことを、急に持ち出しまして。"
+              "text": "昔の事故です。もう終わったことを、急に持ち出しまして。",
+              "expressions": {
+                "kuroda": "serious"
+              }
             },
             {
               "speakerId": "minato",
@@ -1739,7 +1787,10 @@ export const revisionData = {
               "text": "成子坂共同ビルで、三崎という社員が亡くなった件です。",
               "grants": [
                 "mentioned-misaki"
-              ]
+              ],
+              "expressions": {
+                "kuroda": "pained"
+              }
             }
           ],
           "requires": [
@@ -1762,11 +1813,17 @@ export const revisionData = {
             },
             {
               "speakerId": "kuroda",
-              "text": "本当のことを話してほしい、と。意味が分からない。"
+              "text": "本当のことを話してほしい、と。意味が分からない。",
+              "expressions": {
+                "kuroda": "serious"
+              }
             },
             {
               "speakerId": "narrator",
-              "text": "黒田はそこで口を閉じた。終わった話だと告げるには、少し長い間だった。"
+              "text": "黒田はそこで口を閉じた。終わった話だと告げるには、少し長い間だった。",
+              "expressions": {
+                "kuroda": "worried"
+              }
             },
             {
               "speakerId": "minato",
@@ -1774,7 +1831,10 @@ export const revisionData = {
             },
             {
               "speakerId": "kuroda",
-              "text": "ええ。彼は当時、何も見ていないと答えています。"
+              "text": "ええ。彼は当時、何も見ていないと答えています。",
+              "expressions": {
+                "kuroda": "serious"
+              }
             },
             {
               "speakerId": "minato",
@@ -1782,7 +1842,10 @@ export const revisionData = {
             },
             {
               "speakerId": "kuroda",
-              "text": "そうです。こちらも戸惑っています。"
+              "text": "そうです。こちらも戸惑っています。",
+              "expressions": {
+                "kuroda": "worried"
+              }
             }
           ],
           "requires": [
@@ -2259,7 +2322,10 @@ export const revisionData = {
             },
             {
               "speakerId": "miyahara",
-              "text": "はい。二年前の十月です。ここの階段で。"
+              "text": "はい。二年前の十月です。ここの階段で。",
+              "expressions": {
+                "miyahara": "pained"
+              }
             },
             {
               "speakerId": "minato",
@@ -2270,7 +2336,10 @@ export const revisionData = {
               "text": "三崎健です。",
               "grants": [
                 "named-misaki"
-              ]
+              ],
+              "expressions": {
+                "miyahara": "serious"
+              }
             }
           ],
           "requires": [
@@ -3220,11 +3289,17 @@ export const revisionData = {
             },
             {
               "speakerId": "okumura",
-              "text": "三崎は階段で転落した。誰かに押されたという証言は得られていなかった。本人の不注意として処理された。"
+              "text": "三崎は階段で転落した。誰かに押されたという証言は得られていなかった。本人の不注意として処理された。",
+              "expressions": {
+                "okumura": "serious"
+              }
             },
             {
               "speakerId": "okumura",
-              "text": "記録全部を渡すわけにはいかん。今話した範囲を使え。"
+              "text": "記録全部を渡すわけにはいかん。今話した範囲を使え。",
+              "expressions": {
+                "okumura": "stern"
+              }
             },
             {
               "speakerId": "minato",
@@ -3276,7 +3351,11 @@ export const revisionData = {
           "lines": [
             {
               "speakerId": "segawa",
-              "text": "民間の調査で集めた話を、そのまま事実として使うわけではありません。"
+              "text": "民間の調査で集めた話を、そのまま事実として使うわけではありません。",
+              "expressions": {
+                "segawa": "skeptical",
+                "okumura": "serious"
+              }
             },
             {
               "speakerId": "minato",
@@ -3284,11 +3363,17 @@ export const revisionData = {
             },
             {
               "speakerId": "segawa",
-              "text": "……原本と、本人の説明を確認します。"
+              "text": "……原本と、本人の説明を確認します。",
+              "expressions": {
+                "segawa": "serious"
+              }
             },
             {
               "speakerId": "okumura",
-              "text": "線は引く。使える話まで捨てる必要はない。"
+              "text": "線は引く。使える話まで捨てる必要はない。",
+              "expressions": {
+                "okumura": "serious"
+              }
             }
           ],
           "requires": [
@@ -4006,7 +4091,10 @@ export const revisionData = {
             "met-naoto",
             "named-naoto",
             "F43"
-          ]
+          ],
+          "expressions": {
+            "naoto": "worried"
+          }
         },
         {
           "speakerId": "minato",
@@ -4014,7 +4102,10 @@ export const revisionData = {
         },
         {
           "speakerId": "naoto",
-          "text": "大丈夫です。"
+          "text": "大丈夫です。",
+          "expressions": {
+            "naoto": "relieved"
+          }
         }
       ],
       "people": [
@@ -4244,7 +4335,10 @@ export const revisionData = {
             },
             {
               "speakerId": "naoto",
-              "text": "倒れた三崎さんと、階段側から戻ってくる黒田さんです。"
+              "text": "倒れた三崎さんと、階段側から戻ってくる黒田さんです。",
+              "expressions": {
+                "naoto": "pained"
+              }
             },
             {
               "speakerId": "minato",
@@ -4252,7 +4346,10 @@ export const revisionData = {
             },
             {
               "speakerId": "naoto",
-              "text": "はい。旧事務室の戸口で。手には三崎さんの書類を持っていました。"
+              "text": "はい。旧事務室の戸口で。手には三崎さんの書類を持っていました。",
+              "expressions": {
+                "naoto": "serious"
+              }
             },
             {
               "speakerId": "minato",
@@ -4260,7 +4357,10 @@ export const revisionData = {
             },
             {
               "speakerId": "naoto",
-              "text": "見ていません。でも、あの日いなかったなんて嘘です。"
+              "text": "見ていません。でも、あの日いなかったなんて嘘です。",
+              "expressions": {
+                "naoto": "serious"
+              }
             }
           ],
           "requires": [
@@ -4283,7 +4383,10 @@ export const revisionData = {
             },
             {
               "speakerId": "naoto",
-              "text": "余計なことを言えば仕事は続けられない、って。妹の学校はどうするんだと。"
+              "text": "余計なことを言えば仕事は続けられない、って。妹の学校はどうするんだと。",
+              "expressions": {
+                "naoto": "worried"
+              }
             },
             {
               "speakerId": "minato",
@@ -4295,7 +4398,10 @@ export const revisionData = {
             },
             {
               "speakerId": "naoto",
-              "text": "両親がいなくなってから、俺が何とかしなきゃと思って。あかりには学校を続けてほしかった。"
+              "text": "両親がいなくなってから、俺が何とかしなきゃと思って。あかりには学校を続けてほしかった。",
+              "expressions": {
+                "naoto": "pained"
+              }
             },
             {
               "speakerId": "minato",
@@ -4303,7 +4409,10 @@ export const revisionData = {
             },
             {
               "speakerId": "naoto",
-              "text": "……はい。"
+              "text": "……はい。",
+              "expressions": {
+                "naoto": "remorseful"
+              }
             },
             {
               "speakerId": "narrator",
@@ -4542,7 +4651,10 @@ export const revisionData = {
           "lines": [
             {
               "speakerId": "naoto",
-              "text": "今からでも、話せますか？"
+              "text": "今からでも、話せますか？",
+              "expressions": {
+                "naoto": "worried"
+              }
             },
             {
               "speakerId": "minato",
@@ -4550,7 +4662,10 @@ export const revisionData = {
             },
             {
               "speakerId": "naoto",
-              "text": "警察で話します。当時の答えも、訂正します。"
+              "text": "警察で話します。当時の答えも、訂正します。",
+              "expressions": {
+                "naoto": "serious"
+              }
             },
             {
               "speakerId": "minato",
@@ -5248,7 +5363,10 @@ export const revisionData = {
             },
             {
               "speakerId": "miyahara",
-              "text": "押しました。体が前へ出て、その人は手を離した。三崎さんは階段へ落ちました。"
+              "text": "押しました。体が前へ出て、その人は手を離した。三崎さんは階段へ落ちました。",
+              "expressions": {
+                "miyahara": "pained"
+              }
             },
             {
               "speakerId": "okumura",
@@ -5256,7 +5374,10 @@ export const revisionData = {
             },
             {
               "speakerId": "miyahara",
-              "text": "はい。そこは、覚えています。"
+              "text": "はい。そこは、覚えています。",
+              "expressions": {
+                "miyahara": "serious"
+              }
             }
           ],
           "requires": [
@@ -6010,11 +6131,17 @@ export const revisionData = {
             },
             {
               "speakerId": "kuroda",
-              "text": "帰れと言ったんです。聞かなかった。"
+              "text": "帰れと言ったんです。聞かなかった。",
+              "expressions": {
+                "kuroda": "worried"
+              }
             },
             {
               "speakerId": "kuroda",
-              "text": "戻ってきて、また話そうとして。俺は……。"
+              "text": "戻ってきて、また話そうとして。俺は……。",
+              "expressions": {
+                "kuroda": "pained"
+              }
             },
             {
               "speakerId": "okumura",
@@ -6311,7 +6438,10 @@ export const revisionData = {
             },
             {
               "speakerId": "naoto",
-              "text": "ああ。"
+              "text": "ああ。",
+              "expressions": {
+                "naoto": "pained"
+              }
             },
             {
               "speakerId": "akari",
@@ -6351,7 +6481,10 @@ export const revisionData = {
             },
             {
               "speakerId": "naoto",
-              "text": "……ごめん。"
+              "text": "……ごめん。",
+              "expressions": {
+                "naoto": "remorseful"
+              }
             },
             {
               "speakerId": "akari",
@@ -6371,7 +6504,10 @@ export const revisionData = {
             },
             {
               "speakerId": "naoto",
-              "text": "警察で話すことも、仕事のことも、まだある。前と同じには戻れない。"
+              "text": "警察で話すことも、仕事のことも、まだある。前と同じには戻れない。",
+              "expressions": {
+                "naoto": "serious"
+              }
             },
             {
               "speakerId": "akari",
@@ -6379,7 +6515,10 @@ export const revisionData = {
             },
             {
               "speakerId": "naoto",
-              "text": "……ああ。"
+              "text": "……ああ。",
+              "expressions": {
+                "naoto": "relieved"
+              }
             },
             {
               "speakerId": "akari",
@@ -6493,7 +6632,10 @@ export const revisionData = {
             },
             {
               "speakerId": "mio",
-              "text": "お茶、ほとんど冷めてしまいました。"
+              "text": "お茶、ほとんど冷めてしまいました。",
+              "expressions": {
+                "mio": "normal"
+              }
             },
             {
               "speakerId": "minato",
@@ -6501,7 +6643,10 @@ export const revisionData = {
             },
             {
               "speakerId": "mio",
-              "text": "はい。"
+              "text": "はい。",
+              "expressions": {
+                "mio": "relieved"
+              }
             },
             {
               "speakerId": "narrator",
@@ -6521,11 +6666,17 @@ export const revisionData = {
             },
             {
               "speakerId": "mio",
-              "text": "お疲れさまでした、佐伯さん。"
+              "text": "お疲れさまでした、佐伯さん。",
+              "expressions": {
+                "mio": "smile"
+              }
             },
             {
               "speakerId": "minato",
-              "text": "ああ。澪も。"
+              "text": "ああ。澪も。",
+              "expressions": {
+                "minato": "smile"
+              }
             },
             {
               "speakerId": "narrator",
@@ -6556,4 +6707,4 @@ export const revisionData = {
       "organize": []
     }
   ]
-} satisfies RevisionData
+}
