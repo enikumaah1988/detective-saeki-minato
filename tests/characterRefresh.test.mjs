@@ -5,7 +5,7 @@ import {resolveExpression} from '../src/data/presentation.ts'
 import {loadRevision,buildPlaythrough} from './revisionHarness.mjs'
 
 test('全75表情と肖像が新素材へ接続し、旧画風の角度候補を表示しない',async()=>{
- const manifest=JSON.parse(await readFile(new URL('../docs/imported-character-assets.json',import.meta.url),'utf8'))
+ const manifest=JSON.parse(await readFile(new URL('../docs/04-art/manifests/imported-character-assets.json',import.meta.url),'utf8'))
  assert.equal(manifest.counts.characters,11)
  for(const entry of manifest.files.filter(entry=>entry.kind!=='full')){
   const image=resolveExpression(entry.characterId,entry.kind==='portrait'?'normal':entry.expression).imageSrc

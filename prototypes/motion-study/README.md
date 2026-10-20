@@ -21,8 +21,8 @@
 
 ## 参照元と採用状態
 
-- 背景 `assets/office-afternoon.png`：参照元 `C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-ui-windows/src/assets/backgrounds/office-afternoon.png`。既存の事務所仮背景。午後の絵をCSSで暗く青くした夜調の代用で、窓の昼光・日差しの構造は残る。正式な夜背景ではない。制作側 `docs/art/display-preview/README.md` にも仮背景として記載あり。
-- 人物 `assets/minato-neutral.png`：参照元 `C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/src/assets/images/characters/minato/waist/neutral.png`。`docs/art/characters/minato/profile.md` を確認。設定シートは採用済み、個別透過画像と寸法は採用待ち。本試作への使用は正式採用を意味しない。
+- 背景 `assets/office-afternoon.png`：参照元 `C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-ui-windows/src/assets/backgrounds/office-afternoon.png`。既存の事務所仮背景。午後の絵をCSSで暗く青くした夜調の代用で、窓の昼光・日差しの構造は残る。正式な夜背景ではない。制作側 `docs/04-art/display-preview/README.md` にも仮背景として記載あり。
+- 人物 `assets/minato-neutral.png`：参照元 `C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/src/assets/images/characters/minato/waist/neutral.png`。`docs/04-art/characters/minato/profile.md` を確認。設定シートは採用済み、個別透過画像と寸法は採用待ち。本試作への使用は正式採用を意味しない。
 - 管理資料：同プロジェクト `management/ADV進行管理.md`。
 - ストーリー：`C:/Users/lemon/Documents/Codex/2026-10-11/saeki-story/outputs/story/第1話_制作引継ぎと相談メモ.md`。未確定の事件・台詞・過去設定は追加していない。
 - 元画像はコピーのみ。元ゲーム、素材制作側、同期資料sourcesは変更していない。他チャットへの送信なし。

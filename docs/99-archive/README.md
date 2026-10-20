@@ -24,9 +24,9 @@
 - [システムレビュー](../system-review-2026-10-13.md)、[ボタン試作](../talk-button-image-prototype.md)：未解決の判断・未採用案を含む。
 - [統合記録](../integration-2026-10-13.md)、[改稿検証](../revision-validation.md)、[UI進捗](../ui-progress-2026-10-11.md)、[地図修正記録](../background-map-fix-2026-10-20.md)：Issue／PRによる完全代替を確認していないため原文保持。
 - [旧管理資料](../project-management)：チェックアウト・当時の依頼・検証。現行の担当・手順は[workflow](../06-development/workflow.md)を優先。
-- [旧作画履歴](../art/history/README.md)、[作画試作](../art/characters)とJSON重複4組：素材・JSON・制作ツールと共に2-Bで扱う。未参照だけで不要とは判断しない。
+- [旧作画履歴](../04-art/history/README.md)、[作画試作](../04-art/characters)：2-Bで素材・JSON・制作ツールと同じ構造のまま04へ移動した。未参照だけで不要とは判断しない。
 - Episode 01の旧原稿・未採用の筋候補等は[話別資料一覧](../02-story/episode-01/README.md)、人物の未採用案は[人物入口](../03-characters/人物設定.md)から確認する。
 
-今回削除した全文重複は、story/part1-development-ver004.mdだけ。同一blobの[日本語名の共同稿](../02-story/episode-01/第1話_第1部共同改稿_ver0.04.md)を保持し参照を一本化した。JSONの重複は削除していない。
+Phase 2-Aではstory/part1-development-ver004.mdを、同一blobの[日本語名の共同稿](../02-story/episode-01/第1話_第1部共同改稿_ver0.04.md)へ一本化した。2-Bでは移動前mainの完全一致と参照を確認したJSON4件も一本化した。minato-front-source／validationは04-art/characters/minato/draftsのfront-neutral-01-prompt／validationへ、character-refresh-source-gekiga-rebuild-validation／three-character-02は04-art/styleのgekiga-rebuild-validation／three-character-rebuild-02へ対応する。生成条件・ハッシュ・由来は保持先とGit履歴から確認できる。
 
 歴史的な絶対パスや消失した試作への参照は、現在の実行手順・取得先ではない。意味内容の推測修正はせず、必要な復元元をGit履歴から調べる。Phase 1で確認した既存リンク未解決候補も、今回の移動による新規破損と区別する。

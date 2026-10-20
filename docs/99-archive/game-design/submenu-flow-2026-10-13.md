@@ -15,7 +15,7 @@
 
 ## 全一覧
 
-[全一覧Markdown](../../02-story/episode-01/free-action-catalog.md)、[全一覧JSON](../../free-action-catalog.json)を修正後のコンパイル済みシナリオから出力。46場面、メイン出現130件、話題/対象/行き先/推理282項目、建物前/マップ32メニュー。条件付きの全候補と共通の戻る操作を含む。旧互換ノードと独立DEVモックは現行本編と分ける。
+[全一覧Markdown](../../02-story/episode-01/free-action-catalog.md)、[全一覧JSON](../../02-story/episode-01/free-action-catalog.json)を修正後のコンパイル済みシナリオから出力。46場面、メイン出現130件、話題/対象/行き先/推理282項目、建物前/マップ32メニュー。条件付きの全候補と共通の戻る操作を含む。旧互換ノードと独立DEVモックは現行本編と分ける。
 
 ## 検証
 
