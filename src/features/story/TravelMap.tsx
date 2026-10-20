@@ -48,11 +48,14 @@ export function TravelMap({ options, current, onBack, onMove }: { options: Choic
         {mappedPlaces.map(place => <button key={place.id} type="button"
           className={`travel-destination travel-pin${place.id === current ? ' current' : ''}`} style={{ left: `${place.point.left}%`, top: `${place.point.top}%` }}
           disabled={moving} aria-pressed={selected === place.id} aria-label={`${place.name}${place.id === current ? '（現在地）' : 'を選択'}`}
-          onClick={() => setSelected(place.id)}><span aria-hidden="true">●</span><span className="travel-pin-label">{place.name}{place.id === current && <small>現在地</small>}</span></button>)}
+          onClick={() => setSelected(place.id)}><svg className="travel-pin-icon" viewBox="0 0 40 54" aria-hidden="true">
+            <path d="M20 1C9.5 1 1 9.5 1 20c0 13 19 33 19 33s19-20 19-33C39 9.5 30.5 1 20 1Z" />
+            <circle cx="20" cy="20" r="7" />
+          </svg><span className="travel-pin-label">{place.name}{place.id === current && <small>現在地</small>}</span></button>)}
         </div></div>
       </nav>
       <aside aria-label="選択した場所">{place ? <>
-        <h2>{place.name}</h2><img src={resolveBackground(place.background).imageSrc} alt={place.name} /><p>{place.description}</p>
+        <h2>{place.name}</h2><img key={place.background} src={resolveBackground(place.background).imageSrc} alt={place.name} /><p>{place.description}</p>
         <button type="button" disabled={moving || selected === current} onClick={() => {
           if (moving || selected === current) return
           setMoving(true)
