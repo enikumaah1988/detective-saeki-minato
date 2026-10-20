@@ -6,7 +6,7 @@
 
 ## 起動
 
-Node.js・npmとGit LFS対象を取得した環境で、Windowsは` .\start-local.cmd `、Linuxは`sh ./start-local.sh`。初回は依存関係を導入する。ブラウザーで http://127.0.0.1:5187/ を開き、終了はCtrl+C。ポート指定やWSL環境は[開発環境](docs/06-development/development-setup.md)、テスト・Lint・ビルド・ブラウザー設定は[検証手順](docs/06-development/verification.md)を参照する。
+Node.js・npmとGit LFS対象を取得した環境で、Windowsは` .\start-local.cmd `、Linuxは`sh ./start-local.sh`。初回は依存関係を導入する。ブラウザーで http://127.0.0.1:5187/ を開き、停止はWindowsで` .\start-local.cmd -Action stop `、Linuxで`sh ./start-local.sh stop`。状態確認は同じコマンドの`stop`を`status`に変える。起動コマンド終了後もサーバーはバックグラウンドで動作する。ポート指定やWSL環境は[開発環境](docs/06-development/development-setup.md)、テスト・Lint・ビルド・ブラウザー設定は[検証手順](docs/06-development/verification.md)を参照する。
 
 通常はタイトル画面からNEW GAME／CONTINUE／SETTINGSを使用する。開発サーバーの`?dev=1`だけ本編直行とDEV確認を表示する。本編では会話窓・背景・人物クリックまたはEnterで文章を送り、文字送り中は全文表示、読了後は次ページまたは次の会話へ進む。[操作](docs/01-game-design/actions.md)と[保存](docs/01-game-design/save-and-settings.md)を参照する。
 

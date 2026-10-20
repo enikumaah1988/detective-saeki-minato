@@ -2,7 +2,7 @@
 
 現行の起動入口はWindowsの[start-local.cmd](../../start-local.cmd)、Linuxの[start-local.sh](../../start-local.sh)。Node.jsとnpm、Git LFS対象の取得が必要。初回はnpm ciで依存導入する。依存更新後もnpm ciを再実行する。
 
-既定は http://127.0.0.1:5187/ 。Ctrl+Cで停止。ポート使用中はstrictPortでエラー終了する。別ポートはWindowsで` .\start-local.cmd -Port 5197 `、Linuxで`sh ./start-local.sh 5197`。ローカルPC以外へ公開しない。停止・状態確認の新機能は#58の別課題。
+既定は http://127.0.0.1:5187/ 。起動後はバックグラウンドで動作する。停止はWindowsで` .\start-local.cmd -Action stop `、Linuxで`sh ./start-local.sh stop`、状態確認は`stop`を`status`に変える。二重起動は既存サーバーのURLを表示し、別プロセスがポートを使用していればstrictPortでエラー終了する。別ポートはWindowsで` .\start-local.cmd -Port 5197 `、Linuxで`sh ./start-local.sh 5197`。ローカルPC以外へ公開しない。指定ポートの停止・状態確認はWindowsで`-Port 5197`、Linuxで`stop 5197` / `status 5197`。管理状態・起動ログはGit対象外の`.local-server/`に保存する。停止はランダムトークンで確認したこの起動入口のサーバーだけへ要求し、PIDやポートを根拠にプロセスを強制終了しない。古い状態は記録PIDの終了を確認した場合だけ除去する。確認できない場合はエラーとしてログと状態を手動確認する。手動の`npm run dev`はこの管理対象外。
 
 手動起動は`npm run dev -- --port 5187 --strictPort`。通常はタイトルから開始し、開発サーバーの`?dev=1`だけDEVと本編直行を有効にする。
 
