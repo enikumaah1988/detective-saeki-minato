@@ -52,7 +52,7 @@ export function TravelMap({ options, current, onBack, onMove }: { options: Choic
           onClick={() => setSelected(place.id)}><svg className="travel-pin-icon" viewBox="0 0 40 54" aria-hidden="true">
             <path d="M20 1C9.5 1 1 9.5 1 20c0 13 19 33 19 33s19-20 19-33C39 9.5 30.5 1 20 1Z" />
             <circle cx="20" cy="20" r="7" />
-          </svg><span className="travel-pin-label">{place.name}{place.id === current && <small>現在地</small>}</span></button>)}
+          </svg><span className="travel-pin-label">{place.name}</span></button>)}
         </div></div>
       </nav>
       <aside aria-label="選択した場所">{place ? <>

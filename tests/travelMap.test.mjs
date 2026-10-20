@@ -37,6 +37,7 @@ test('解放済みの場所だけを表示し、現在地と会社の選択を�
   assert.match(html,/東成ビルサービスを選択/)
   assert.equal((html.match(/class="travel-pin-icon"/g)??[]).length,2)
   assert.doesNotMatch(html,/●/)
+  assert.doesNotMatch(html,/<small>現在地<\/small>/)
   assert.doesNotMatch(html,/成子坂共同ビルを選択|西新宿警察署を選択/)
   assert.doesNotMatch(html,/上が北|travel-attribution|openstreetmap\.org/)
 })

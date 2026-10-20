@@ -60,6 +60,7 @@ for (const [width,height] of [[1920,1080],[1366,768]]) test(`実地理マップ�
     assert.equal(await page.locator('.travel-area-place').count(),0)
     assert.equal(await page.locator('.travel-map-surface .travel-pin').count(),2)
     assert.equal(await page.locator('.travel-pin .travel-pin-icon').count(),2)
+    assert.equal(await page.locator('.travel-pin-label small').count(),0)
     assert.doesNotMatch(await page.locator('.travel-map').textContent(),/アイランド/)
     await page.getByRole('button',{name:'佐伯探偵事務所（現在地）',exact:true}).click()
     await verifyPreview('office-day')
