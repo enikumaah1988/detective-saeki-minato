@@ -107,7 +107,7 @@ export function buildRevision(base: Scenario, data: RevisionData): Scenario {
     const sceneId = `${phase.id}-boundary`
     scenes[sceneId] = { ...stageFor(phase), characters: [] }
     add(id, { type: 'dialogue', stage: scenes[sceneId], sceneId, speakerId: 'narrator', text: direction === 'IN' ? `第${phase.part}部　${['', '依頼と初動', '展開', '核心', '解決'][phase.part]}` : `第${phase.part}部　終わり`, next,
-      illustration: { id: `C${phase.part}-${direction}`, imageSrc: undefined, alt: `第${phase.part}部${direction === 'IN' ? '始まり' : '終わり'}の挿絵`, heading: '探偵 佐伯　湊', subtitle: `第1話　灰色の証言 — 第${phase.part}部　${['', '依頼と初動', '展開', '核心', '解決'][phase.part]}${direction === 'OUT' ? '　終' : ''}`, provisional: true },
+      illustration: { id: `C${phase.part}-${direction}`, imageSrc: undefined, alt: `第${phase.part}部${direction === 'IN' ? '始まり' : '終わり'}の挿絵`, heading: '探偵 佐伯　湊', subtitle: `Episode 01　灰色の証言 — 第${phase.part}部　${['', '依頼と初動', '展開', '核心', '解決'][phase.part]}${direction === 'OUT' ? '　終' : ''}`, provisional: true },
     }, timeLabel(phase.sceneTime))
   }
   const arrival = (phase: RevisionScene) => `${phase.id}-arrival`
@@ -338,7 +338,7 @@ export function buildRevision(base: Scenario, data: RevisionData): Scenario {
   const last = data.scenes.at(-1)!
   // 旧部境界を保存していた場合も、会社へ向かう会話から新しい第1部へ続ける。
   for(const id of ['P1-06-end','P2-01-start']) if(!nodes[id]) add(id,{type:'dialogue',stage:stageFor(phaseById.get('P2-01')!),sceneId:'P2-01',speakerId:'narrator',text:'写真を持って、会社へ向かう。まずは勤務の記録を確かめる。',next:'P2-01-intro'},timeLabel(phaseById.get('P2-01')!.sceneTime))
-  add('episode-complete', { type: 'end', stage: stageFor(last), sceneId: last.id, text: '第1話「灰色の証言」完了。' }, timeLabel(last.sceneTime))
+  add('episode-complete', { type: 'end', stage: stageFor(last), sceneId: last.id, text: 'Episode 01「灰色の証言」完了。' }, timeLabel(last.sceneTime))
   const saveNodeAliases: Record<string, string> = {}
   for (const id of Object.keys(base.nodes)) {
     if (id === 'episode-complete') continue

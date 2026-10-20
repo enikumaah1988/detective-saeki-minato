@@ -12,7 +12,7 @@
 .system-dialog::backdrop, .investigation-records::backdrop { background: #030a1299; }
 .system-dialog h2, .record-header h2 {
   display: flex; align-items: center; gap: calc(16 * var(--u));
-  font-size: calc(40 * var(--u)); line-height: 1.35; font-weight: 600;
+  line-height: 1.35;
   padding-bottom: calc(20 * var(--u)); border-bottom: 1px solid #b8965a66;
   overflow-wrap: anywhere;
 }
@@ -21,18 +21,18 @@
 .record-header h2 { flex-wrap: wrap; min-width: 0; }
 .record-header { align-items: flex-start; }
 .record-preview-label { flex-basis: 100%; }
-.system-dialog > button, .system-menu-body .save-actions button, .save-slot-list button,
+.system-dialog-actions > button, .system-menu-body .save-actions button, .save-slot-list button,
 .item-use-choices button, .use-item, .history-entry, .travel-map > header > button, .travel-map aside > button {
   border: calc(12 * var(--u)) solid transparent;
   border-image: url('./assets/command-button-normal.svg') 12 fill / calc(12 * var(--u)) / 0 stretch;
   background: transparent; border-radius: 0;
 }
-.system-dialog > button, .use-item, .item-use-choices button, .record-header button, .record-tabs button,
+.system-dialog-actions > button, .use-item, .item-use-choices button, .record-header button, .record-tabs button,
 .history-entry, .travel-map > header > button, .travel-map aside > button, .end-window > button {
   display: flex; align-items: center; justify-content: center; gap: calc(12 * var(--u)); line-height: 1.35;
 }
-.system-dialog > button { display: inline-flex; margin: calc(24 * var(--u)) calc(8 * var(--u)) 0; min-height: calc(72 * var(--u)); }
-.system-dialog > button:hover, .system-dialog > button:focus-visible,
+.system-dialog-actions > button { display: inline-flex; margin: calc(24 * var(--u)) calc(8 * var(--u)) 0; min-height: calc(72 * var(--u)); }
+.system-dialog-actions > button:hover, .system-dialog-actions > button:focus-visible,
 .save-actions button:hover, .save-actions button:focus-visible,
 .save-slot-list button:not(:disabled):hover, .save-slot-list button:focus-visible,
 .item-use-choices button:hover, .item-use-choices button:focus-visible,
@@ -41,7 +41,7 @@
 .travel-map aside > button:not(:disabled):hover, .travel-map aside > button:focus-visible {
   border-image-source: url('./assets/command-button-active.svg'); color: var(--accent);
 }
-.system-dialog > button:active, .save-actions button:active, .save-slot-list button:not(:disabled):active,
+.system-dialog-actions > button:active, .save-actions button:active, .save-slot-list button:not(:disabled):active,
 .item-use-choices button:active, .use-item:active, .history-entry:active,
 .travel-map > header > button:active, .travel-map aside > button:not(:disabled):active {
   border-image-source: url('./assets/command-button-pressed.svg');
@@ -61,3 +61,15 @@
 .story:has(.history-entry) .dialogue-button .speaker { max-width: calc(100% - 160 * var(--u)); }
 .system-dialog .slider-setting { font-size: calc(28 * var(--u)); margin: calc(24 * var(--u)) 0; text-align: left; }
 .system-dialog .slider-stops small { font-size: calc(22 * var(--u)); }
+
+/* 確認操作は同じ幅で並べ、狭い画面では同じ幅のまま縦に送る。 */
+.system-dialog-actions { display: flex; justify-content: center; gap: calc(16 * var(--u)); margin-top: calc(24 * var(--u)); }
+.system-dialog-actions > button { margin: 0; min-width: 0; }
+.system-dialog-actions-confirm { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.system-dialog-actions-confirm > button { width: 100%; font-size: calc(28 * var(--u)); overflow-wrap: anywhere; }
+@media (max-width: 600px) { .system-dialog-actions-confirm { grid-template-columns: minmax(0, 1fr); } }
+
+/* メッセージ本文・作品ロゴを除き、操作ウィンドウの見出しを統一する。 */
+.story :is(.system-dialog h2, .record-header h2, .travel-map h1, .travel-map h2, .command-heading, .end-window .window-label) {
+  font-family: inherit; font-size: calc(36 * var(--u)); font-weight: 600;
+}

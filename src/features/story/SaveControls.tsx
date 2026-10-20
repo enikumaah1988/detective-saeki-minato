@@ -74,7 +74,7 @@ export function SaveControls({ state, scenario, history = [], onRestore, onMenuT
       </div>
       </div>
     </dialog>
-    {confirmTitle&&<SystemDialog icon="home" title="タイトルに戻りますか？" label="ゲームに戻る" initialFocus="close" onClose={()=>setConfirmTitle(false)} confirmAction={<button type="button" onClick={()=>onReturnToTitle?.()}><UiIcon name="home"/><span>タイトルに戻る</span></button>}>
+    {confirmTitle&&<SystemDialog icon="home" title="タイトルに戻りますか？" label="BACK TO GAME" initialFocus="close" onClose={()=>setConfirmTitle(false)} confirmAction={<button type="button" onClick={()=>onReturnToTitle?.()}><UiIcon name="home"/><span>RETURN TO TITLE</span></button>}>
       <p>保存していない進行は失われます。</p>
     </SystemDialog>}
     {saved&&<SystemDialog icon="save" title="セーブしました" dismissible={false} onClose={()=>{setSaved(false);setMessage('');closeMenu()}}/>}

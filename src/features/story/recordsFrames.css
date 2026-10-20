@@ -1,6 +1,5 @@
 .investigation-records { background-color: #101922f5; background-image: url('./assets/dialogue-texture.svg'); border-color: transparent; }
 .investigation-records::before { content: ''; position: absolute; inset: 0; pointer-events: none; border: calc(12 * var(--u)) solid transparent; border-image: url('./assets/dialogue-frame.svg') 12 / calc(12 * var(--u)) / 0 stretch; }
-.record-header h2 { font-size: calc(48 * var(--u)); }
 .record-tabs { gap: calc(12 * var(--u)); }
 .record-tabs button { flex: 1; text-align: center; position: relative; isolation: isolate; }
 .record-tabs button::before, .record-header button::before, .record-list button::before { content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none; border: calc(12 * var(--u)) solid transparent; border-image: url('./assets/command-button-normal.svg') 12 fill / calc(12 * var(--u)) / 0 stretch; }

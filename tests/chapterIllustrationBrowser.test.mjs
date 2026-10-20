@@ -1,4 +1,4 @@
-import {loadForTest,saveForTest} from './saveUiHelpers.mjs'
+import {loadForTest,saveForTest,closeMenuForTest} from './saveUiHelpers.mjs'
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import { loadRevision, buildPlaythrough } from './revisionHarness.mjs'
@@ -10,6 +10,7 @@ for(const [width,height] of [[1920,1080],[1366,768]])test(`部の挿絵・読了
  try{
   await page.addInitScript(()=>localStorage.setItem('detective-saeki-minato.speed','0'))
   await page.goto(baseUrl)
+  await page.getByRole('button',{name:'NEW GAME',exact:true}).click()
   const nodes=Object.entries(api.scenario.nodes).filter(([,node])=>node.illustration)
   assert.equal(nodes.length,8)
   for(const [nodeId,node]of nodes){
@@ -20,7 +21,7 @@ for(const [width,height] of [[1920,1080],[1366,768]])test(`部の挿絵・読了
    await page.getByRole('dialog',{name:'ロードしました',exact:true}).getByRole('button',{name:'OK',exact:true}).click()
    await page.locator('.chapter-title-card').waitFor()
    await page.waitForFunction(()=>{const image=document.querySelector('.chapter-illustration');return image?.complete&&image.naturalWidth>0})
-   assert.match(await page.locator('.chapter-title-card').textContent(),/探偵 佐伯湊.*DETECTIVE SAEKI MINATO.*第1話 灰色の証言/s)
+   assert.match(await page.locator('.chapter-title-card').textContent(),/探偵 佐伯湊.*DETECTIVE SAEKI MINATO.*Episode 01　灰色の証言/s)
    const title=await page.locator('.chapter-title-card strong').boundingBox()
    assert.ok(title.x>width*.56 && title.x+title.width<width*.96)
    if(node.illustration.id==='C1-IN'){
@@ -33,10 +34,10 @@ for(const [width,height] of [[1920,1080],[1366,768]])test(`部の挿絵・読了
    const rect=await page.locator('.chapter-title-card').boundingBox();assert.ok(Math.abs(rect.width-width)<1);assert.ok(Math.abs(rect.height-height)<1)
    if(process.env.SAEKI_SCREENSHOT_DIR)await page.screenshot({path:`${process.env.SAEKI_SCREENSHOT_DIR}/chapter-${node.illustration.id}-${width}.png`})
    await page.getByLabel('メニュー',{exact:true}).click()
-   await page.locator('.stage-input-area').click({position:{x:width*.8,y:height*.75}})
+   await page.mouse.click(8,height*.75)
    await page.keyboard.press('Enter')
    assert.equal(await page.locator('.story').getAttribute('data-node-id'),nodeId)
-   await page.getByLabel('メニュー',{exact:true}).click()
+   await closeMenuForTest(page)
    if(node.illustration.id.endsWith('-IN'))await page.locator('.stage-input-area').click({position:{x:width*.8,y:height*.75}})
    else {
     await page.locator('.stage-input-area').click({position:{x:width*.8,y:height*.75},trial:true})
