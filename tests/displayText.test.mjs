@@ -9,3 +9,7 @@ test('数字の表示だけを全角化し、漢数字・記号・結合文字�
   assert.equal(displayText(result), result)
   assert.equal(text.includes('14:30'), true)
 })
+
+test('Episode番号は半角の指定表記を保ち、日時・部番号は全角化する', () => {
+  assert.equal(displayText('Episode 01　灰色の証言 — 第1部 10月8日'), 'Episode 01　灰色の証言 — 第１部 １０月８日')
+})

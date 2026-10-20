@@ -39,7 +39,7 @@ const scenes: Record<string, Scene> = {
 
 export const episode1Part1Legacy: Scenario = {
   id: "gray-testimony-ver001-part1",
-  title: "第1話「灰色の証言」ver0.01 第1部「依頼」",
+  title: "Episode 01「灰色の証言」ver0.01 第1部「依頼」",
   start: "opening-1",
   smokingHints: {"rules":[{"id":"finished","nodeIds":["part1-complete","part2-boundary"],"text":"第1部の確認は済んだ。調査記録を読み返せる。"},{"id":"company","nodeIds":["departure","destinations"],"text":"次は東成ビルサービスへ確認に行こう。"},{"id":"listen","nodeIds":["office-menu","office-topics"],"missingInformation":["I01"],"text":"最後の朝、連絡、勤務先について、あかりに聞こう。"},{"id":"company-inquiry","nodeIds":["company-menu","company-topics"],"text":"会社の担当に、休暇記録と面会申込みを確認しよう。"}],"fallback":"今の話を最後まで読み、確認した内容を調査記録で確かめよう。"},
   scenes,

@@ -290,7 +290,7 @@ sequence('police-confirmation', 'documents', [['narrator', '奥村たちは、�
 time = '2026年10月12日（月）17:20'
 sequence('reunion-opening', 'reunion', [['narrator', '数日後。事務所で、あかりと直人が向かい合った。俺と澪は少し離れている。お茶を置く音だけが、しばらく聞こえた。'], ['akari', '仕事がなくなるかもしれないって、ずっと思ってたの？'], ['naoto', 'ああ。'], ['akari', '私の学校のことも？'], ['naoto', '続けてほしかった。父さんたちも、そう思ってたはずだから。'], ['akari', '……私、普通に通ってた。お兄ちゃんが、そんなこと考えてるって知らないで。'], ['narrator', '声が細くなった。直人は顔を上げられなかった。'], ['akari', '気づかなかった。お金の話をしても、大丈夫って言うから。私、それで……。'], ['naoto', '大丈夫って言ったのは、俺だ。'], ['naoto', '黙るって決めたのも。あかりが学校に行ったからじゃない。'], ['akari', '分かってる。でも、話してほしかった。'], ['akari', '私が何を言うか、聞いてほしかった。', 'serious'], ['naoto', '……ごめん。', 'sad'], ['akari', 'いなくなった時、私、何かしたのかなって。帰りたくなくなったのかなって。'], ['naoto', '違う。そんなことは。'], ['akari', 'うん。でも、分からなかった。'], ['narrator', '直人は手を開いた。握り込んでいた指が、少しずつほどけた。'], ['naoto', 'これから、仕事のことも、警察で話すこともある。前と同じには戻れない。'], ['akari', '一緒に考えよう。', 'determined'], ['naoto', '……ああ。'], ['akari', '今日は、帰ってくる？'], ['naoto', '帰る。', 'relieved'], ['narrator', 'あかりはうなずいた。涙を拭いて、もう一度うなずいた。'], ['akari', '冷蔵庫、牛乳が余ってる。何本も買ってしまって。'], ['naoto', '……一緒に飲もう。'], ['narrator', 'その約束だけは、今日のうちに果たせる。二人は相談して、同じ電車で帰ることにした。']], 'epilogue')
 sequence('epilogue', 'routine', [['narrator', '兄妹が帰ったあと、扉の音が静かに収まった。澪が机に残ったカップを集める。'], ['mio', 'お茶、ほとんど冷めてしまいました。'], ['minato', '話せたなら、いい。'], ['mio', 'はい。'], ['narrator', '澪がコーヒーを置く。俺はカップへ手を伸ばした。黙っていた年月は消えない。三崎が帰ってくるわけでもない。'], ['narrator', '高瀬は、自分の言葉を訂正する。これから何度も、その日に戻ることになるだろう。だが今夜、妹は帰ってくる兄を待てる。'], ['mio', 'お疲れさまでした、佐伯さん。', 'smile'], ['minato', 'ああ。澪も。'], ['narrator', 'コーヒーは、まだ温かかった。机の端には、閉じた帳簿がある。今度は、あとにしないでおこうと思った。']], 'episode-complete', [flag('part4_completed')])
-nodes['episode-complete'] = { type: 'end', stage: scenes.routine, sceneId: 'routine', text: '第1話「灰色の証言」　終' }
+nodes['episode-complete'] = { type: 'end', stage: scenes.routine, sceneId: 'routine', text: 'Episode 01「灰色の証言」　終' }
 times['episode-complete'] = time
 // 旧セーブの途中会話も保持。旧ルートからは新しい区切りへ合流する。
 nodes['accept-14'] = { ...nodes['accept-14'], next: 'photo-handoff', updates: [flag('request_accepted')] } as Scenario['nodes'][string]
@@ -306,7 +306,7 @@ for (const id of ['inquiry-1', 'inquiry-3', 'inquiry-5', 'inquiry-11', 'accept-6
 
 export const episode1Part1Previous: Scenario = {
   id: episode1Part1Legacy.id,
-  title: '第1話「灰色の証言」', start: 'opening-1', scenes, nodes,
+  title: 'Episode 01「灰色の証言」', start: 'opening-1', scenes, nodes,
   records: episode1Part1Records, dateLabel: '2026年10月8日（木）午前', nodeTimes: times,
   milestones: [{ id: 'I01', required: ['morning', 'contact', 'workplace'] }, { id: 'W01', required: ['naoto-witness', 'naoto-threat'] }],
   saveAliases: [

@@ -13,3 +13,6 @@ docs/art/style/references/*.jpg filter=lfs diff=lfs merge=lfs -text
 
 docs/art/display-preview/*.png filter=lfs diff=lfs merge=lfs -text
 docs/art/style/**/*.png filter=lfs diff=lfs merge=lfs -text
+start-local.sh text eol=lf
+start-local.cmd text eol=crlf
+tools/start-local.ps1 text eol=crlf

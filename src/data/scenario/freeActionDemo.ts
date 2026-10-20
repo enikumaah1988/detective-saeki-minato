@@ -10,7 +10,7 @@ const requiredThinkInformation = [
 ]
 export const freeActionDemo: Scenario = {
   id: 'gray-testimony-part1-demo',
-  title: '第1話「灰色の証言」第1部「依頼」の通し仮シナリオ（正式シナリオではありません）',
+  title: 'Episode 01「灰色の証言」第1部「依頼」の通し仮シナリオ（正式シナリオではありません）',
   start: 'office-daily',
   scenes: { office: { ...solo, smokingAllowed: true }, request: { ...stage, smokingAllowed: true } },
   smokingHints: {

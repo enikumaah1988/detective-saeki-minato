@@ -110,3 +110,11 @@ test('推理誤答で同じ問いに戻り、前問の正解と取得情報を�
   while (api.selectCurrentNode(api.scenario, state).type === 'dialogue') state = api.reduceGameState(api.scenario, state, { type: 'advance' })
   assert.equal(state.nodeId, `${phase.id}-Q1-2`); assert.equal(state.flags['Q1-1-solved'], true)
 })
+
+test('Episode 01表記を作品名・全ての部間扉・終了文へ反映する', () => {
+  assert.equal(api.scenario.title, 'Episode 01「灰色の証言」')
+  const covers = Object.values(api.scenario.nodes).filter(node => node.illustration)
+  assert.equal(covers.length, 8)
+  for (const node of covers) assert.match(node.illustration.subtitle, /^Episode 01　灰色の証言 — /)
+  assert.match(api.scenario.nodes['episode-complete'].text, /^Episode 01/)
+})
