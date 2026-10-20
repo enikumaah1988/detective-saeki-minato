@@ -35,6 +35,16 @@ test('解放済みの場所だけを表示し、現在地と会社の選択を�
   assert.equal((html.match(/travel-destination travel-pin/g)??[]).length,2)
   assert.doesNotMatch(html,/travel-area-place|アイランド/)
   assert.match(html,/東成ビルサービスを選択/)
+  assert.equal((html.match(/class="travel-pin-icon"/g)??[]).length,2)
+  assert.doesNotMatch(html,/●/)
   assert.doesNotMatch(html,/成子坂共同ビルを選択|西新宿警察署を選択/)
   assert.doesNotMatch(html,/上が北|travel-attribution|openstreetmap\.org/)
+})
+
+test('事務所・会社・共同ビル・警察署の各行き先にピンを割り当てる', () => {
+  const html = renderToStaticMarkup(createElement(TravelMap, {
+    current:'office', options:['company','building','police'].map(id=>({id,label:id,next:'arrival'})), onBack(){}, onMove(){},
+  }))
+  assert.equal((html.match(/class="travel-pin-icon"/g)??[]).length,4)
+  for(const name of ['佐伯探偵事務所（現在地）','東成ビルサービスを選択','成子坂共同ビルを選択','西新宿警察署を選択']) assert.ok(html.includes(name),name)
 })

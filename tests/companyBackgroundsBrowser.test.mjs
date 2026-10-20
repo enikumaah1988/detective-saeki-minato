@@ -1,6 +1,8 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import { mkdir } from 'node:fs/promises'
+import { readFileSync } from 'node:fs'
+import { createHash } from 'node:crypto'
 import { loadRevision, buildPlaythrough } from './revisionHarness.mjs'
 
 const path = process.env.SAEKI_PLAYWRIGHT_PATH
@@ -29,6 +31,11 @@ for (const [width, height] of [[1920, 1080], [1366, 768]]) test(`会社5背景�
       await page.locator(`.stage[data-background-id="${background}"]`).waitFor()
       await page.waitForFunction(() => { const image = document.querySelector('.background-image'); return image?.complete && image.naturalWidth === 1920 && image.naturalHeight === 1080 })
       assert.equal(await page.locator('.background-label').count(), 0)
+      const source = await page.locator('.background-image').getAttribute('src')
+      const response = await page.request.get(new URL(source, url).href)
+      assert.equal(response.ok(), true)
+      const hash = bytes => createHash('sha256').update(bytes).digest('hex')
+      assert.equal(hash(await response.body()), hash(readFileSync(new URL(`../src/assets/backgrounds/${background}.png`, import.meta.url))), `${background}: 今回制作した素材を配信する`)
     }
     const advanceNode = async () => {
       const current = await page.locator('.story').getAttribute('data-node-id')
