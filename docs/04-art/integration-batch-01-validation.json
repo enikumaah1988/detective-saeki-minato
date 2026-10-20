@@ -1,0 +1,58 @@
+[
+  {
+    "id": "minato-smoking",
+    "kind": "cutins",
+    "file": "docs/04-art/cutins/drafts/minato-smoking-01.png",
+    "width": 1920,
+    "height": 1080,
+    "sourceSize": [
+      1672,
+      941
+    ],
+    "time": "場所・時刻非限定",
+    "state": "正式素材候補・採用確認待ち",
+    "sha256": "6207e94cd06b9d7ca2e5955a8466878ebf147a8b8582284cf134e2b7bb7e4b62"
+  },
+  {
+    "id": "minato-non-smoking",
+    "kind": "cutins",
+    "file": "docs/04-art/cutins/drafts/minato-non-smoking-01.png",
+    "width": 1920,
+    "height": 1080,
+    "sourceSize": [
+      1672,
+      941
+    ],
+    "time": "場所・時刻非限定",
+    "state": "正式素材候補・採用確認待ち",
+    "sha256": "4fcad8f2e22281347bf1b760dccb0c0b96d30d05be4719195ea00b5c62bc7cd7"
+  },
+  {
+    "id": "office-interior-day",
+    "kind": "backgrounds",
+    "file": "docs/04-art/backgrounds/drafts/office-interior-day-01.png",
+    "width": 1920,
+    "height": 1080,
+    "sourceSize": [
+      1672,
+      941
+    ],
+    "time": "朝・昼共用の候補",
+    "state": "正式素材候補・採用確認待ち",
+    "sha256": "b7239d589c843f3b8ccb27d9eedf9799ba906e190eb6a3cf39ebf6237ad7c370"
+  },
+  {
+    "id": "office-exterior-day",
+    "kind": "backgrounds",
+    "file": "docs/04-art/backgrounds/drafts/office-exterior-day-01.png",
+    "width": 1920,
+    "height": 1080,
+    "sourceSize": [
+      1672,
+      941
+    ],
+    "time": "朝・昼共用の候補",
+    "state": "正式素材候補・採用確認待ち",
+    "sha256": "f233800207f88d1710e5ea221d93fdc5eb0b489ede0c394798cc47101e548428"
+  }
+]

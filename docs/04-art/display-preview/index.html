@@ -1,0 +1,49 @@
+<!doctype html><html lang="ja"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>湊・澪｜会話用素材の表示確認</title>
+<link rel="stylesheet" href="../../../src/features/story/story.css">
+<style>
+body{padding:24px}.review-header,.controls,.notes{max-width:1440px;margin:0 auto 18px}h1{font-size:24px;margin:0 0 8px}p{line-height:1.7}.controls{display:flex;gap:16px;align-items:center;flex-wrap:wrap}.controls label{display:flex;align-items:center;gap:8px}select,input, .controls button{font:inherit;color:#eadfcf;background:#16232e;border:1px solid #6b767e;border-radius:4px;padding:8px}.controls button[aria-pressed="true"]{border-color:#d4b780;color:#d4b780}
+.game-shell{width:min(100%,1440px);height:auto;display:block}.story{height:56.25cqw}.candidate .character{--character-top:12%;--character-width:54%;--character-height:108%}.calibrated .character--right{--character-width:48.6%;--character-top:18%}
+.guide{display:none;position:absolute;inset:0;z-index:6;pointer-events:none}.guides .guide{display:block}.guide:before{content:"会話欄の上端";position:absolute;top:68.148%;left:5%;width:90%;border-top:1px dashed #ffcf7e;color:#ffcf7e;font-size:calc(20 * var(--u))}.guide .anchor{position:absolute;top:12%;width:1px;height:88%;border-left:1px dashed #8dd5e8}.anchor.left{left:26%}.anchor.right{left:74%}.ghost{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center top;opacity:.32;filter:sepia(1) hue-rotate(140deg)}
+.free .message-window{display:none}.next{animation:none}.notes{font-size:14px;color:#bac2c9}.notes summary{cursor:pointer}.notes a{color:#d4b780}
+.capture body{padding:0}.capture .review-header,.capture .controls,.capture .notes{display:none}.capture .game-shell{width:100vw;max-width:none}.capture .story{height:56.25cqw}
+</style>
+<div class="review-header"><h1>湊・澪｜会話用素材の表示確認</h1><p>表示確認用の見本です。既存の仮背景と現行UIを使用しています。配置案は未採用です。</p></div>
+<div class="controls">
+<label>配置 <select id="layout"><option value="calibrated">顔の大きさを調整：澪90％</option><option value="candidate">以前の案：2人とも幅54％</option><option value="current">現行：幅36％・上17％</option></select></label>
+<label>湊 <select id="minato"></select></label><label>澪 <select id="mio"></select></label>
+<button id="panel" aria-pressed="true">会話欄 ON</button><button id="guides" aria-pressed="false">配置ガイド</button><button id="ghost" aria-pressed="false">通常を半透明で重ねる</button><button id="cycle" aria-pressed="false">表情を順送り</button>
+</div>
+<main class="game-shell"><section class="story candidate calibrated">
+<header class="story-toolbar"><div class="toolbar-actions">
+<button type="button"><span>MENU</span></button>
+<button type="button"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 3h13v18H6zM3 7h6M3 12h6M3 17h6"/></svg><span>調査記録</span></button>
+<button type="button"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 15h18v4H3zM16 15v4M19 10c-4-4 2-4-2-8M14 10c-4-4 2-4-2-8"/></svg><span>タバコを吸う</span></button>
+</div><div class="scene-context"><span>佐伯探偵事務所・仮背景</span><span>日時未設定</span></div></header>
+<div class="stage-wrapper"><div class="stage">
+<img class="background-image" src="../../../src/assets/backgrounds/office-afternoon.png" alt="既存の事務所仮背景">
+<div class="character character--left"><img id="minatoImage" class="character-image" alt="湊の腰上素材"><img class="ghost" hidden src="../../../src/assets/images/characters/minato/waist/neutral.png" alt=""></div>
+<div class="character character--right"><img id="mioImage" class="character-image" alt="澪の腰上素材"><img class="ghost" hidden src="../../../src/assets/images/characters/mio/waist/neutral.png" alt=""></div>
+</div></div>
+<button class="message-window dialogue-button" type="button"><span class="speaker">表示確認用</span><span class="dialogue">顔の大きさと、手の見え方を確認します。
+表情を切り替えて、位置の変化を比べてください。
+この文章は確認用で、本編の台詞ではありません。</span><span class="next">▼</span></button>
+<div class="guide"><span class="anchor left"></span><span class="anchor right"></span></div>
+</section></main>
+<div class="notes"><p>確認点：顔の大きさ／胸元や口元の手／会話欄に隠れる腰付近の手／通常と各表情の位置差。会話欄をOFFにすると素材下端の切れ目も確認できます。</p><details><summary>配置案と見本の範囲</summary><p>1920×1080基準、湊x26％・澪x74％。会話欄は幅90％・高さ320px・下余白24px・不透明度68％。現行story.cssを直接参照し、人物の幅と上位置だけを見本内で変更します。以前の案は2人とも幅54％・上12％。顔の寸法を比較した調整案では湊をそのまま、澪を90％（幅48.6％・上18％）で表示します。澪の位置も下げて素材下端を画面外に保ちます。これは表示確認上の仮位置で、身長設定ではありません。腰の手は会話欄に隠れます。身長設定や正式配置の確定ではありません。HUDのアイコンは見本用の簡略線画で、ボタンはゲーム操作を行いません。</p></details><p><a href="../waist-review.md">素材一覧と制作記録</a> · <a href="README.md">検証結果</a></p></div>
+<script>
+const keys={minato:['neutral','smile','serious','surprised','irritated','pained','relieved'],mio:['neutral','smile','amused','serious','surprised','worried','pained','relieved']};
+const names={neutral:'通常',smile:'微笑み',serious:'真剣',surprised:'驚き',irritated:'苛立ち',pained:'沈痛',relieved:'安堵',amused:'楽しげ',worried:'心配'};
+const story=document.querySelector('.story');
+function setExpression(id,key){document.getElementById(id).value=key;document.getElementById(id+'Image').src='../../../src/assets/images/characters'+id+'/waist/'+key+'.png';}
+for(const id of Object.keys(keys)){const select=document.getElementById(id);for(const key of keys[id]){const o=document.createElement('option');o.value=key;o.textContent=names[key]+' / '+key;select.append(o);}select.onchange=()=>setExpression(id,select.value);setExpression(id,'neutral');}
+function setLayout(value){document.getElementById('layout').value=value;story.classList.toggle('candidate',value!=='current');story.classList.toggle('calibrated',value==='calibrated');}document.getElementById('layout').onchange=e=>setLayout(e.target.value);
+function toggle(id,action){const b=document.getElementById(id);b.onclick=()=>{const on=b.getAttribute('aria-pressed')!=='true';b.setAttribute('aria-pressed',on);action(on);};}
+toggle('panel',on=>{story.classList.toggle('free',!on);document.getElementById('panel').textContent='会話欄 '+(on?'ON':'OFF');});
+toggle('guides',on=>story.classList.toggle('guides',on));
+toggle('ghost',on=>document.querySelectorAll('.ghost').forEach(el=>el.hidden=!on));
+let timer;toggle('cycle',on=>{clearInterval(timer);if(on)timer=setInterval(()=>{for(const id of Object.keys(keys)){const current=document.getElementById(id).value;setExpression(id,keys[id][(keys[id].indexOf(current)+1)%keys[id].length]);}},1200);});
+const params=new URLSearchParams(location.search);if(params.has('capture'))document.documentElement.classList.add('capture');
+setLayout(['current','candidate','calibrated'].includes(params.get('layout'))?params.get('layout'):'calibrated');
+for(const id of Object.keys(keys)){if(keys[id].includes(params.get(id)))setExpression(id,params.get(id));}
+if(params.get('panel')==='off')document.getElementById('panel').click();
+</script></html>

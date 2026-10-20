@@ -1,4 +1,4 @@
-> コンパイル済みシナリオから生成した参照用スナップショット。手編集の正式仕様・制作原稿とは区別する。対応する[JSON](../../free-action-catalog.json)はPhase 2-Bまで旧パスに保持。現行の優先関係は[話別入口](README.md)、共通操作は[actions](../../01-game-design/actions.md)を参照。
+> コンパイル済みシナリオから生成した参照用スナップショット。手編集の正式仕様・制作原稿とは区別する。対応する[JSON](free-action-catalog.json)はこの文書と同じ場所に保持。現行の優先関係は[話別入口](README.md)、共通操作は[actions](../../01-game-design/actions.md)を参照。
 
 # フリーアクションと全サブメニュー一覧
 

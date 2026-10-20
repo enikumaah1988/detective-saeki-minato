@@ -1,18 +1,18 @@
 src/assets/images/**/*.png filter=lfs diff=lfs merge=lfs -text
 src/assets/backgrounds/company-*.png filter=lfs diff=lfs merge=lfs -text
-docs/art/maps/**/*.png filter=lfs diff=lfs merge=lfs -text
-docs/art/maps/geographic/osm-*.xml filter=lfs diff=lfs merge=lfs -text
-docs/art/maps/geographic/nishi-shinjuku-geographic-*.svg filter=lfs diff=lfs merge=lfs -text
-docs/art/characters/**/*.png filter=lfs diff=lfs merge=lfs -text
-docs/art/neutral-review.png filter=lfs diff=lfs merge=lfs -text
-docs/art/episode-design-*.png filter=lfs diff=lfs merge=lfs -text
-docs/art/cutins/**/*.png filter=lfs diff=lfs merge=lfs -text
-docs/art/backgrounds/**/*.png filter=lfs diff=lfs merge=lfs -text
-docs/art/illustrations/**/*.png filter=lfs diff=lfs merge=lfs -text
-docs/art/style/references/*.jpg filter=lfs diff=lfs merge=lfs -text
+docs/04-art/maps/**/*.png filter=lfs diff=lfs merge=lfs -text
+docs/04-art/maps/geographic/osm-*.xml filter=lfs diff=lfs merge=lfs -text
+docs/04-art/maps/geographic/nishi-shinjuku-geographic-*.svg filter=lfs diff=lfs merge=lfs -text
+docs/04-art/characters/**/*.png filter=lfs diff=lfs merge=lfs -text
+docs/04-art/neutral-review.png filter=lfs diff=lfs merge=lfs -text
+docs/04-art/episode-design-*.png filter=lfs diff=lfs merge=lfs -text
+docs/04-art/cutins/**/*.png filter=lfs diff=lfs merge=lfs -text
+docs/04-art/backgrounds/**/*.png filter=lfs diff=lfs merge=lfs -text
+docs/04-art/illustrations/**/*.png filter=lfs diff=lfs merge=lfs -text
+docs/04-art/style/references/*.jpg filter=lfs diff=lfs merge=lfs -text
 
-docs/art/display-preview/*.png filter=lfs diff=lfs merge=lfs -text
-docs/art/style/**/*.png filter=lfs diff=lfs merge=lfs -text
+docs/04-art/display-preview/*.png filter=lfs diff=lfs merge=lfs -text
+docs/04-art/style/**/*.png filter=lfs diff=lfs merge=lfs -text
 start-local.sh text eol=lf
 start-local.cmd text eol=crlf
 tools/start-local.ps1 text eol=crlf

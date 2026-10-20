@@ -71,4 +71,4 @@ AI開発方式・委任範囲・役割分担・検証方法を変更した場合
 
 ## 素材制作の正本
 人物・背景・イベントCGの新規生成は現在保留。下記は資料・既存成果の管理規則であり、制作再開の許可ではない。アイコンは既存ライブラリやCSS/SVGを優先する。
-画像制作は docs/art/README.md と対象人物の docs/art/characters/<id>/profile.md を読む。history は更新しない履歴。制作資料の試作は docs/art/characters/<id>/drafts、採用した設定資料は sheet.png。ゲーム用画像だけ src/assets/images/characters/<id>/ に置き、二重コピーを維持しない。素材制作だけでストーリー・実装・採用状態を変更しない。
+画像制作は docs/04-art/production-guide.md と対象人物の docs/04-art/characters/<id>/profile.md を読む。history は更新しない履歴。制作資料の試作は docs/04-art/characters/<id>/drafts、採用した設定資料は sheet.png。ゲーム用画像だけ src/assets/images/characters/<id>/ に置き、二重コピーを維持しない。素材制作だけでストーリー・実装・採用状態を変更しない。

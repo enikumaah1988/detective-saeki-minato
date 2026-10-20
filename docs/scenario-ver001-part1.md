@@ -48,7 +48,7 @@
 
 ## 素材と担当への残件
 
-素材checkoutの docs/art/README.md / neutral-review.md を参照。あかりの個別画像は未制作、主要人物のneutral画像は採用待ち。新画像は取り込まない。normalは既存UI画像の登録を維持し、neutralへ自動置換しない。
+素材checkoutの docs/04-art/production-guide.md / neutral-review.md を参照。あかりの個別画像は未制作、主要人物のneutral画像は採用待ち。新画像は取り込まない。normalは既存UI画像の登録を維持し、neutralへ自動置換しない。
 
 昼前事務所は既存office-afternoonの仮使用、会社は画像なし仮背景、あかりは名前付き仮表示。澪は事務所の声で登場するが、2人表示制限により湊とあかりを表示する。会社は湊と澪、事務担当は声のみ。正式背景・あかり・写真画像・表情演出・音響は後続担当へ。3人同時表示、新しい移動演出、大きなUI変更は未実装。
 

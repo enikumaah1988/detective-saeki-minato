@@ -1,0 +1,1101 @@
+{
+  "date": "2026-10-13",
+  "status": "generation_and_file_validation_complete_review_pending",
+  "scope": "湊試作5を採用。3人の全身3・腰上23を更新、喫煙と非喫煙の挿絵2候補。",
+  "records": [
+    {
+      "id": "minato",
+      "key": "neutral",
+      "kind": "waist",
+      "source": "C:/Users/lemon/.codex/generated_images/01a123a2-b46f-77d3-b27e-a7f8a37b3920/exec-f884712a-5247-4419-865a-7dfa23aac4e5.png",
+      "prompt": "Create ONE square 1024x1024 waist-up conversation sprite based on this exact adopted full-body Saeki Minato. Preserve this specific youthful-looking adult38 face, thin rectangular glasses, soft tousled wavy black hair and eyebrow-length curved fringe, light stubble, charcoal short suit and white shirt with loose black tie. Same neutral quietly attentive expression, facing slightly screen RIGHT. Both hands in trouser pockets, shoulders relaxed. Recompose head to upper hips, not just enlarged crop; whole head at y40, face centered x512 y230, waist y900, bottom crop at upper hip. Keep face proportions, no aging or deep sunken cheeks. Exact same irregular ink, coarse brush patches, muted pigment and strong uneven shadows; do not beautify or smooth. Entire head and hands inside canvas. True transparent outside character, no glow, haze, backdrop, text or floor. No legs.",
+      "refs": [
+        "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/docs/art/characters/minato/drafts/gekiga-neutral-05-original-face.png"
+      ],
+      "dest": "src/assets/images/characters/minato/waist/neutral.png",
+      "validation": {
+        "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-f884712a-5247-4419-865a-7dfa23aac4e5.png",
+        "destination": "src\\assets\\images\\characters\\minato\\waist\\neutral.png",
+        "source_size": [
+          1254,
+          1254
+        ],
+        "size": [
+          1024,
+          1024
+        ],
+        "mode": "RGBA",
+        "alpha_range": [
+          0,
+          255
+        ],
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "sha256": "5db08fb88ff82b5eb5e616428c6989f672d73f9948eea4dd4397459aeb0ba22c"
+      }
+    },
+    {
+      "id": "minato",
+      "kind": "waist",
+      "key": "smile",
+      "prompt": "Edit input1 exact waist-up neutral sprite, square1024x1024. Input2 full-body is identity/costume reference. Preserve head placement, size, shoulders, waist crop and orientation; change only expression and necessary hands. Japanese detective38, exact adopted softly angular youthful adult face with light stubble, thin rectangular glasses, loose wavy black hair and curved eyebrow-length fringe, charcoal short suit, white shirt and loose black tie. No deep aging lines. Expression smile: a clearly warmer small closed-mouth smile, softer brows and eyes, one hand gently open low in friendly response. All fingers/hand gestures fit canvas. Same adopted hand-drawn late1990s detective ADV gekiga. Irregular ink, rough brush patches, matte muted pigment, uneven angular shadow planes, not smooth gradient or glossy anime. Preserve facial identity, age and natural modest eyes; rough texture does not mean aging. Absolutely true transparent outside silhouette, no glow/haze/shadow/paper/text.",
+      "refs": [
+        "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/src/assets/images/characters/minato/waist/neutral.png",
+        "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/src/assets/images/characters/minato/full/neutral.png"
+      ],
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-3a3017d9-0d1d-42ba-a885-e4de50d55b2d.png",
+      "dest": "src/assets/images/characters/minato/waist/smile.png",
+      "validation": {
+        "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-3a3017d9-0d1d-42ba-a885-e4de50d55b2d.png",
+        "destination": "src\\assets\\images\\characters\\minato\\waist\\smile.png",
+        "source_size": [
+          1254,
+          1254
+        ],
+        "size": [
+          1024,
+          1024
+        ],
+        "mode": "RGBA",
+        "alpha_range": [
+          0,
+          255
+        ],
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "sha256": "b6b7291113e1512a73c0d38103960e64d402994df6f8b68a7fe906dc8c6175d6"
+      }
+    },
+    {
+      "id": "minato",
+      "kind": "waist",
+      "key": "serious",
+      "prompt": "Edit input1 exact waist-up neutral sprite, square1024x1024. Input2 full-body is identity/costume reference. Preserve head placement, size, shoulders, waist crop and orientation; change only expression and necessary hands. Japanese detective38, exact adopted softly angular youthful adult face with light stubble, thin rectangular glasses, loose wavy black hair and curved eyebrow-length fringe, charcoal short suit, white shirt and loose black tie. No deep aging lines. Expression serious: Focused steady listening eyes, firm closed mouth; one hand lightly at mouth thinking, other forearm relaxed. All fingers/hand gestures fit canvas. Same adopted hand-drawn late1990s detective ADV gekiga. Irregular ink, rough brush patches, matte muted pigment, uneven angular shadow planes, not smooth gradient or glossy anime. Preserve facial identity, age and natural modest eyes; rough texture does not mean aging. Absolutely true transparent outside silhouette, no glow/haze/shadow/paper/text.",
+      "refs": [
+        "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/src/assets/images/characters/minato/waist/neutral.png",
+        "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/src/assets/images/characters/minato/full/neutral.png"
+      ],
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-b6d9d9d8-5a57-40ea-9a5f-050ca4b0d96b.png",
+      "dest": "src/assets/images/characters/minato/waist/serious.png",
+      "validation": {
+        "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-b6d9d9d8-5a57-40ea-9a5f-050ca4b0d96b.png",
+        "destination": "src\\assets\\images\\characters\\minato\\waist\\serious.png",
+        "source_size": [
+          1254,
+          1254
+        ],
+        "size": [
+          1024,
+          1024
+        ],
+        "mode": "RGBA",
+        "alpha_range": [
+          0,
+          255
+        ],
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "sha256": "be915e93455be9a9ad452112a05e037df71d122f26dcebc76e70fb7814d66431"
+      }
+    },
+    {
+      "id": "minato",
+      "kind": "waist",
+      "key": "surprised",
+      "prompt": "Edit input1 exact waist-up neutral sprite, square1024x1024. Input2 full-body is identity/costume reference. Preserve head placement, size, shoulders, waist crop and orientation; change only expression and necessary hands. Japanese detective38, exact adopted softly angular youthful adult face with light stubble, thin rectangular glasses, loose wavy black hair and curved eyebrow-length fringe, charcoal short suit, white shirt and loose black tie. No deep aging lines. Expression surprised: raised eyebrows, modestly widened eyes and slightly open mouth, one hand half raised near chest; controlled adult surprise. All fingers/hand gestures fit canvas. Same adopted hand-drawn late1990s detective ADV gekiga. Irregular ink, rough brush patches, matte muted pigment, uneven angular shadow planes, not smooth gradient or glossy anime. Preserve facial identity, age and natural modest eyes; rough texture does not mean aging. Absolutely true transparent outside silhouette, no glow/haze/shadow/paper/text.",
+      "refs": [
+        "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/src/assets/images/characters/minato/waist/neutral.png",
+        "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/src/assets/images/characters/minato/full/neutral.png"
+      ],
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-cc1486e0-a947-4224-bc3c-89cad1c4d5a4.png",
+      "dest": "src/assets/images/characters/minato/waist/surprised.png",
+      "validation": {
+        "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-cc1486e0-a947-4224-bc3c-89cad1c4d5a4.png",
+        "destination": "src\\assets\\images\\characters\\minato\\waist\\surprised.png",
+        "source_size": [
+          1254,
+          1254
+        ],
+        "size": [
+          1024,
+          1024
+        ],
+        "mode": "RGBA",
+        "alpha_range": [
+          0,
+          255
+        ],
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "sha256": "90ae7c43d961e76b795c02f1d3559fcbe06f50264b20f4fc0c6ae103967d2afd"
+      }
+    },
+    {
+      "id": "minato",
+      "kind": "waist",
+      "key": "irritated",
+      "prompt": "Edit input1 exact waist-up neutral sprite, square1024x1024. Input2 full-body identity/costume. Preserve exact head size, placement, waist crop, orientation and youthful adult face. Change only expression and arms. Japanese detective38, exact adopted softly angular youthful adult face with light stubble, thin rectangular glasses, loose wavy black hair and curved eyebrow-length fringe, charcoal short suit, white shirt and loose black tie. No deep aging lines. Expression irritated: visible annoyance, tightened brows and mouth, one hand slightly tense low in front, not yelling. Same adopted hand-drawn late1990s detective ADV gekiga. Irregular ink, rough brush patches, matte muted pigment, uneven angular shadow planes, not smooth gradient or glossy anime. Preserve facial identity, age and natural modest eyes; rough texture does not mean aging. Absolutely true transparent outside silhouette, no glow/haze/shadow/paper/text.",
+      "refs": [
+        "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/src/assets/images/characters/minato/waist/neutral.png",
+        "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/src/assets/images/characters/minato/full/neutral.png"
+      ],
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-81e5c2de-e27a-4d39-a554-11c695aa6719.png",
+      "dest": "src/assets/images/characters/minato/waist/irritated.png",
+      "validation": {
+        "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-81e5c2de-e27a-4d39-a554-11c695aa6719.png",
+        "destination": "src\\assets\\images\\characters\\minato\\waist\\irritated.png",
+        "source_size": [
+          1254,
+          1254
+        ],
+        "size": [
+          1024,
+          1024
+        ],
+        "mode": "RGBA",
+        "alpha_range": [
+          0,
+          255
+        ],
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "sha256": "de4ce98e1467b689d17e18ecada63ebd4d7c1961f91c66dc0a2909e4f8366589"
+      }
+    },
+    {
+      "id": "minato",
+      "kind": "waist",
+      "key": "pained",
+      "prompt": "Edit input1 exact waist-up neutral sprite, square1024x1024. Input2 full-body identity/costume. Preserve exact head size, placement, waist crop, orientation and youthful adult face. Change only expression and arms. Japanese detective38, exact adopted softly angular youthful adult face with light stubble, thin rectangular glasses, loose wavy black hair and curved eyebrow-length fringe, charcoal short suit, white shirt and loose black tie. No deep aging lines. Expression pained: receiving a painful heavy fact, lowered eyes and brows with tight closed mouth, shoulders slightly lowered and hands loosely clasped low; not personal guilt. Same adopted hand-drawn late1990s detective ADV gekiga. Irregular ink, rough brush patches, matte muted pigment, uneven angular shadow planes, not smooth gradient or glossy anime. Preserve facial identity, age and natural modest eyes; rough texture does not mean aging. Absolutely true transparent outside silhouette, no glow/haze/shadow/paper/text.",
+      "refs": [
+        "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/src/assets/images/characters/minato/waist/neutral.png",
+        "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/src/assets/images/characters/minato/full/neutral.png"
+      ],
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-5755daf4-3c81-4318-9f69-fef32fa1038b.png",
+      "dest": "src/assets/images/characters/minato/waist/pained.png",
+      "validation": {
+        "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-5755daf4-3c81-4318-9f69-fef32fa1038b.png",
+        "destination": "src\\assets\\images\\characters\\minato\\waist\\pained.png",
+        "source_size": [
+          1254,
+          1254
+        ],
+        "size": [
+          1024,
+          1024
+        ],
+        "mode": "RGBA",
+        "alpha_range": [
+          0,
+          255
+        ],
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "sha256": "3e9663ab82c6497c94bd4bdf8f21290544b154f53819d284448b9506f7721891"
+      }
+    },
+    {
+      "id": "minato",
+      "kind": "waist",
+      "key": "relieved",
+      "prompt": "Edit input1 exact waist-up neutral sprite, square1024x1024. Input2 full-body identity/costume. Preserve exact head size, placement, waist crop, orientation and youthful adult face. Change only expression and arms. Japanese detective38, exact adopted softly angular youthful adult face with light stubble, thin rectangular glasses, loose wavy black hair and curved eyebrow-length fringe, charcoal short suit, white shirt and loose black tie. No deep aging lines. Expression relieved: tension visibly released with softened eyelids/brows, small gentle closed-mouth smile and eased shoulders, one hand loosely over upper chest. Same adopted hand-drawn late1990s detective ADV gekiga. Irregular ink, rough brush patches, matte muted pigment, uneven angular shadow planes, not smooth gradient or glossy anime. Preserve facial identity, age and natural modest eyes; rough texture does not mean aging. Absolutely true transparent outside silhouette, no glow/haze/shadow/paper/text.",
+      "refs": [
+        "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/src/assets/images/characters/minato/waist/neutral.png",
+        "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/src/assets/images/characters/minato/full/neutral.png"
+      ],
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-e61b3411-a9fb-49cf-b20f-efbc8eda487a.png",
+      "dest": "src/assets/images/characters/minato/waist/relieved.png",
+      "validation": {
+        "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-e61b3411-a9fb-49cf-b20f-efbc8eda487a.png",
+        "destination": "src\\assets\\images\\characters\\minato\\waist\\relieved.png",
+        "source_size": [
+          1254,
+          1254
+        ],
+        "size": [
+          1024,
+          1024
+        ],
+        "mode": "RGBA",
+        "alpha_range": [
+          0,
+          255
+        ],
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "sha256": "c87e14839d3625a52022bc191d66f41b681a2372aa89185ab5b91b25844e0f52"
+      }
+    },
+    {
+      "id": "mio",
+      "kind": "waist",
+      "key": "neutral",
+      "prompt": "ONE waist-up square1024x1024 conversation sprite. Input1 exact Mio identity/hair/costume and neutral gentle listening expression. Input2 STYLE ONLY, do not copy masculine facial features or glasses. Japanese woman32, intelligent gentle adult face with modest natural eyes, long loose dark-brown wavy hair NOT tied back, light dusty-blue blazer, off-white modest blouse, pale blue-grey calf-length skirt, grey pumps, delicate pendant and earrings and wristwatch. Maintain brighter palette and adult grace without sexiness. Recompose complete head to upper hip, head near y40, face center near x512 y230, waist y900; hands loosely overlapped low. Face shallow angle slightly screen LEFT as input1, not mirrored. Match input2 coarse drawing without making Mio older or tired. Same adopted hand-drawn late1990s detective ADV gekiga. Irregular ink, rough brush patches, matte muted pigment, uneven angular shadow planes, not smooth gradient or glossy anime. Preserve facial identity, age and natural modest eyes; rough texture does not mean aging. Absolutely true transparent outside silhouette, no glow/haze/shadow/paper/text.",
+      "refs": [
+        "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/src/assets/images/characters/mio/full/neutral.png",
+        "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/src/assets/images/characters/minato/waist/neutral.png"
+      ],
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-104e9a74-ec05-427d-8466-830047385fe6.png",
+      "dest": "src/assets/images/characters/mio/waist/neutral.png",
+      "validation": {
+        "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-104e9a74-ec05-427d-8466-830047385fe6.png",
+        "destination": "src\\assets\\images\\characters\\mio\\waist\\neutral.png",
+        "source_size": [
+          1254,
+          1254
+        ],
+        "size": [
+          1024,
+          1024
+        ],
+        "mode": "RGBA",
+        "alpha_range": [
+          0,
+          255
+        ],
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "sha256": "b99ab2e9f0275d9c70d63351361ab13c40ed39192bc44eb2a3251c8845d45c9d"
+      }
+    },
+    {
+      "id": "mio",
+      "kind": "waist",
+      "key": "smile",
+      "prompt": "Edit input1 exact waist-up neutral sprite square1024x1024. Input2 full-body identity/costume reference. Preserve exact head placement/size, face identity, orientation, waist crop, clothes and style. Change only expression and hands. Japanese woman32, intelligent gentle adult face with modest natural eyes, long loose dark-brown wavy hair NOT tied back, light dusty-blue blazer, off-white modest blouse, pale blue-grey calf-length skirt, grey pumps, delicate pendant and earrings and wristwatch. Maintain brighter palette and adult grace without sexiness. Expression smile: a clearly warmer small closed-mouth smile, softer brows and eyes, one hand gently open low in friendly response. Hands natural five fingers, inside canvas. Same adopted hand-drawn late1990s detective ADV gekiga. Irregular ink, rough brush patches, matte muted pigment, uneven angular shadow planes, not smooth gradient or glossy anime. Preserve facial identity, age and natural modest eyes; rough texture does not mean aging. Absolutely true transparent outside silhouette, no glow/haze/shadow/paper/text.",
+      "refs": [
+        "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/src/assets/images/characters/mio/waist/neutral.png",
+        "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/src/assets/images/characters/mio/full/neutral.png"
+      ],
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-f69a9563-6f64-4477-89b4-e1f28ae11216.png",
+      "dest": "src/assets/images/characters/mio/waist/smile.png",
+      "validation": {
+        "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-f69a9563-6f64-4477-89b4-e1f28ae11216.png",
+        "destination": "src\\assets\\images\\characters\\mio\\waist\\smile.png",
+        "source_size": [
+          1254,
+          1254
+        ],
+        "size": [
+          1024,
+          1024
+        ],
+        "mode": "RGBA",
+        "alpha_range": [
+          0,
+          255
+        ],
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "sha256": "c44f541b00c8b3a40653fd4397e0e4e60f29e83fba50458f30162bea7dbcb6ae"
+      }
+    },
+    {
+      "id": "mio",
+      "kind": "waist",
+      "key": "amused",
+      "prompt": "Edit input1 exact waist-up neutral sprite square1024x1024. Input2 full-body identity/costume reference. Preserve exact head placement/size, face identity, orientation, waist crop, clothes and style. Change only expression and hands. Japanese woman32, intelligent gentle adult face with modest natural eyes, long loose dark-brown wavy hair NOT tied back, light dusty-blue blazer, off-white modest blouse, pale blue-grey calf-length skirt, grey pumps, delicate pendant and earrings and wristwatch. Maintain brighter palette and adult grace without sexiness. Expression amused: Gentle light open smile, softly narrowed eyes; wristwatch hand tucking hair at ear. Hands natural five fingers, inside canvas. Same adopted hand-drawn late1990s detective ADV gekiga. Irregular ink, rough brush patches, matte muted pigment, uneven angular shadow planes, not smooth gradient or glossy anime. Preserve facial identity, age and natural modest eyes; rough texture does not mean aging. Absolutely true transparent outside silhouette, no glow/haze/shadow/paper/text.",
+      "refs": [
+        "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/src/assets/images/characters/mio/waist/neutral.png",
+        "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/src/assets/images/characters/mio/full/neutral.png"
+      ],
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-6e704765-20d0-4ac8-8311-65288813cb29.png",
+      "dest": "src/assets/images/characters/mio/waist/amused.png",
+      "validation": {
+        "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-6e704765-20d0-4ac8-8311-65288813cb29.png",
+        "destination": "src\\assets\\images\\characters\\mio\\waist\\amused.png",
+        "source_size": [
+          1254,
+          1254
+        ],
+        "size": [
+          1024,
+          1024
+        ],
+        "mode": "RGBA",
+        "alpha_range": [
+          0,
+          255
+        ],
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "sha256": "5e3c237de7bf2d93e53e98ad6d41d1913df46c65990279c1bb983abe41d1f8d0"
+      }
+    },
+    {
+      "id": "mio",
+      "kind": "waist",
+      "key": "serious",
+      "prompt": "Edit input1 exact waist-up neutral sprite square1024x1024. Input2 full-body identity/costume reference. Preserve exact head placement/size, face identity, orientation, waist crop, clothes and style. Change only expression and hands. Japanese woman32, intelligent gentle adult face with modest natural eyes, long loose dark-brown wavy hair NOT tied back, light dusty-blue blazer, off-white modest blouse, pale blue-grey calf-length skirt, grey pumps, delicate pendant and earrings and wristwatch. Maintain brighter palette and adult grace without sexiness. Expression serious: focused listening or explaining, steady intent eyes with firm closed mouth, one open palm making a restrained explanatory gesture. Hands natural five fingers, inside canvas. Same adopted hand-drawn late1990s detective ADV gekiga. Irregular ink, rough brush patches, matte muted pigment, uneven angular shadow planes, not smooth gradient or glossy anime. Preserve facial identity, age and natural modest eyes; rough texture does not mean aging. Absolutely true transparent outside silhouette, no glow/haze/shadow/paper/text.",
+      "refs": [
+        "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/src/assets/images/characters/mio/waist/neutral.png",
+        "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/src/assets/images/characters/mio/full/neutral.png"
+      ],
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-e6506437-1d94-4fe9-b548-bcbc24b3ea55.png",
+      "dest": "src/assets/images/characters/mio/waist/serious.png",
+      "validation": {
+        "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-e6506437-1d94-4fe9-b548-bcbc24b3ea55.png",
+        "destination": "src\\assets\\images\\characters\\mio\\waist\\serious.png",
+        "source_size": [
+          1254,
+          1254
+        ],
+        "size": [
+          1024,
+          1024
+        ],
+        "mode": "RGBA",
+        "alpha_range": [
+          0,
+          255
+        ],
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "sha256": "21e7eef025cd31261d9a1cb8ff9fda2dcf9f357f1b4bf86e6c79092eb184b1af"
+      }
+    },
+    {
+      "id": "mio",
+      "kind": "waist",
+      "key": "surprised",
+      "prompt": "Edit input1 exact waist-up neutral sprite square1024x1024. Input2 full-body identity/costume. Preserve head placement/size, waist crop, direction, clothes, face and style. Change only expression and hands. Japanese woman32, intelligent gentle adult face with modest natural eyes, long loose dark-brown wavy hair NOT tied back, light dusty-blue blazer, off-white modest blouse, pale blue-grey calf-length skirt, grey pumps, delicate pendant and earrings and wristwatch. Maintain brighter palette and adult grace without sexiness. Expression surprised: raised eyebrows, modestly widened eyes and slightly open mouth, one hand half raised near chest; controlled adult surprise. Keep five fingers natural and within canvas. Same adopted hand-drawn late1990s detective ADV gekiga. Irregular ink, rough brush patches, matte muted pigment, uneven angular shadow planes, not smooth gradient or glossy anime. Preserve facial identity, age and natural modest eyes; rough texture does not mean aging. Absolutely true transparent outside silhouette, no glow/haze/shadow/paper/text.",
+      "refs": [
+        "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/src/assets/images/characters/mio/waist/neutral.png",
+        "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/src/assets/images/characters/mio/full/neutral.png"
+      ],
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-582a5167-91a7-4851-9c49-b80e56806386.png",
+      "dest": "src/assets/images/characters/mio/waist/surprised.png",
+      "validation": {
+        "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-582a5167-91a7-4851-9c49-b80e56806386.png",
+        "destination": "src\\assets\\images\\characters\\mio\\waist\\surprised.png",
+        "source_size": [
+          1254,
+          1254
+        ],
+        "size": [
+          1024,
+          1024
+        ],
+        "mode": "RGBA",
+        "alpha_range": [
+          0,
+          255
+        ],
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "sha256": "d1328b4807e172b391dcdca67907a6785d9eff408675f8ef5edf044f5fcd5184"
+      }
+    },
+    {
+      "id": "mio",
+      "kind": "waist",
+      "key": "worried",
+      "prompt": "Edit input1 exact waist-up neutral sprite square1024x1024. Input2 full-body identity/costume. Preserve head placement/size, waist crop, direction, clothes, face and style. Change only expression and hands. Japanese woman32, intelligent gentle adult face with modest natural eyes, long loose dark-brown wavy hair NOT tied back, light dusty-blue blazer, off-white modest blouse, pale blue-grey calf-length skirt, grey pumps, delicate pendant and earrings and wristwatch. Maintain brighter palette and adult grace without sexiness. Expression worried: concerned inward-raised brows and anxious eyes, pressed mouth, one hand over chest or supporting the other wrist; worry about somebody. Keep five fingers natural and within canvas. Same adopted hand-drawn late1990s detective ADV gekiga. Irregular ink, rough brush patches, matte muted pigment, uneven angular shadow planes, not smooth gradient or glossy anime. Preserve facial identity, age and natural modest eyes; rough texture does not mean aging. Absolutely true transparent outside silhouette, no glow/haze/shadow/paper/text.",
+      "refs": [
+        "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/src/assets/images/characters/mio/waist/neutral.png",
+        "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/src/assets/images/characters/mio/full/neutral.png"
+      ],
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-5265064b-5dcb-4b67-995d-5408e5c8fc54.png",
+      "dest": "src/assets/images/characters/mio/waist/worried.png",
+      "validation": {
+        "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-5265064b-5dcb-4b67-995d-5408e5c8fc54.png",
+        "destination": "src\\assets\\images\\characters\\mio\\waist\\worried.png",
+        "source_size": [
+          1254,
+          1254
+        ],
+        "size": [
+          1024,
+          1024
+        ],
+        "mode": "RGBA",
+        "alpha_range": [
+          0,
+          255
+        ],
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "sha256": "d611f8eb2f57b79314a2014efb4be19f2c335a729a09c5f1d278c9ed9db6cf57"
+      }
+    },
+    {
+      "id": "mio",
+      "kind": "waist",
+      "key": "pained",
+      "prompt": "Edit input1 exact waist-up neutral sprite square1024x1024. Input2 full-body identity/costume. Preserve head placement/size, waist crop, direction, clothes, face and style. Change only expression and hands. Japanese woman32, intelligent gentle adult face with modest natural eyes, long loose dark-brown wavy hair NOT tied back, light dusty-blue blazer, off-white modest blouse, pale blue-grey calf-length skirt, grey pumps, delicate pendant and earrings and wristwatch. Maintain brighter palette and adult grace without sexiness. Expression pained: receiving a painful heavy fact, lowered eyes and brows with tight closed mouth, shoulders slightly lowered and hands loosely clasped low; not personal guilt. Keep five fingers natural and within canvas. Same adopted hand-drawn late1990s detective ADV gekiga. Irregular ink, rough brush patches, matte muted pigment, uneven angular shadow planes, not smooth gradient or glossy anime. Preserve facial identity, age and natural modest eyes; rough texture does not mean aging. Absolutely true transparent outside silhouette, no glow/haze/shadow/paper/text.",
+      "refs": [
+        "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/src/assets/images/characters/mio/waist/neutral.png",
+        "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/src/assets/images/characters/mio/full/neutral.png"
+      ],
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-a9ab9146-7b75-40cc-ab34-d39e72f145a9.png",
+      "dest": "src/assets/images/characters/mio/waist/pained.png",
+      "validation": {
+        "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-a9ab9146-7b75-40cc-ab34-d39e72f145a9.png",
+        "destination": "src\\assets\\images\\characters\\mio\\waist\\pained.png",
+        "source_size": [
+          1254,
+          1254
+        ],
+        "size": [
+          1024,
+          1024
+        ],
+        "mode": "RGBA",
+        "alpha_range": [
+          0,
+          255
+        ],
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "sha256": "540358e118a7ba694bdbae3d615643bf1b905c35d5ccf4314b3c9e4b44a52c43"
+      }
+    },
+    {
+      "id": "mio",
+      "kind": "waist",
+      "key": "relieved",
+      "prompt": "Edit input1 exact waist-up neutral sprite square1024x1024. Input2 full-body identity/costume. Preserve head placement/size, waist crop, direction, clothes, face and style. Change only expression and hands. Japanese woman32, intelligent gentle adult face with modest natural eyes, long loose dark-brown wavy hair NOT tied back, light dusty-blue blazer, off-white modest blouse, pale blue-grey calf-length skirt, grey pumps, delicate pendant and earrings and wristwatch. Maintain brighter palette and adult grace without sexiness. Expression relieved: tension visibly released with softened eyelids/brows, small gentle closed-mouth smile and eased shoulders, one hand loosely over upper chest. Keep five fingers natural and within canvas. Same adopted hand-drawn late1990s detective ADV gekiga. Irregular ink, rough brush patches, matte muted pigment, uneven angular shadow planes, not smooth gradient or glossy anime. Preserve facial identity, age and natural modest eyes; rough texture does not mean aging. Absolutely true transparent outside silhouette, no glow/haze/shadow/paper/text.",
+      "refs": [
+        "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/src/assets/images/characters/mio/waist/neutral.png",
+        "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/src/assets/images/characters/mio/full/neutral.png"
+      ],
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-cef5d75c-c5a2-4dcf-9d82-111c92e2f6ea.png",
+      "dest": "src/assets/images/characters/mio/waist/relieved.png",
+      "validation": {
+        "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-cef5d75c-c5a2-4dcf-9d82-111c92e2f6ea.png",
+        "destination": "src\\assets\\images\\characters\\mio\\waist\\relieved.png",
+        "source_size": [
+          1254,
+          1254
+        ],
+        "size": [
+          1024,
+          1024
+        ],
+        "mode": "RGBA",
+        "alpha_range": [
+          0,
+          255
+        ],
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "sha256": "52c3348a50b3dd1877580cbf503a1ff6943b268bdcc8834fc52ddc3b76095a4c"
+      }
+    },
+    {
+      "id": "akari",
+      "kind": "waist",
+      "key": "neutral",
+      "prompt": "ONE waist-up square1024x1024 conversation sprite. Input1 exact Akari face, hair, clothes, neutral attentive expression. Input2 STYLE ONLY, do not copy male facial features. Japanese woman21, plain youthful rounded face, modest eyes, short eyelashes, straight dark brown chin-length bob with fringe, modest makeup. Muted RED cardigan over off-white crewneck T, dark NAVY below-knee flared skirt, dark flats, small dark crossbody bag. Strap is anchored at SCREEN RIGHT shoulder across to SCREEN LEFT hip bag, never mirror. Not Mio's glamorous face, no wavy hair. Recompose complete head at y40 to upper hip crop, face center x512 y230, waist y900; hands quietly overlapped low. Shallow angle screen LEFT as input1. Bag screen LEFT hip and strap SCREEN RIGHT shoulder remain, no mirror. Same rough style as input2, distinguish plain rounded young adult face from Mio. Same adopted hand-drawn late1990s detective ADV gekiga. Irregular ink, rough brush patches, matte muted pigment, uneven angular shadow planes, not smooth gradient or glossy anime. Preserve facial identity, age and natural modest eyes; rough texture does not mean aging. Absolutely true transparent outside silhouette, no glow/haze/shadow/paper/text.",
+      "refs": [
+        "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/src/assets/images/characters/akari/full/neutral.png",
+        "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/src/assets/images/characters/minato/waist/neutral.png"
+      ],
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-d28dee08-475e-4450-bdd1-6ffcb187b6d3.png",
+      "dest": "src/assets/images/characters/akari/waist/neutral.png",
+      "validation": {
+        "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-d28dee08-475e-4450-bdd1-6ffcb187b6d3.png",
+        "destination": "src\\assets\\images\\characters\\akari\\waist\\neutral.png",
+        "source_size": [
+          1254,
+          1254
+        ],
+        "size": [
+          1024,
+          1024
+        ],
+        "mode": "RGBA",
+        "alpha_range": [
+          0,
+          255
+        ],
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "sha256": "b41f50ac0155456985f115fa8311cde71d806335063183c8d60c61127734522b"
+      }
+    },
+    {
+      "id": "akari",
+      "kind": "waist",
+      "key": "smile",
+      "prompt": "Edit input1 exact waist-up neutral sprite square1024x1024. Input2 full-body identity/costume. Preserve head placement/size, waist crop, direction, rounded face, straight bob, clothes and rough style. Change only expression and arms/hands. Japanese woman21, plain youthful rounded face, modest eyes, short eyelashes, straight dark brown chin-length bob with fringe, modest makeup. Muted RED cardigan over off-white crewneck T, dark NAVY below-knee flared skirt, dark flats, small dark crossbody bag. Strap is anchored at SCREEN RIGHT shoulder across to SCREEN LEFT hip bag, never mirror. Not Mio's glamorous face, no wavy hair. Expression smile: a clearly warmer small closed-mouth smile, softer brows and eyes, one hand gently open low in friendly response; keep crossbody bag strap from SCREEN RIGHT shoulder to SCREEN LEFT hip. Hands within canvas, five fingers natural. Same adopted hand-drawn late1990s detective ADV gekiga. Irregular ink, rough brush patches, matte muted pigment, uneven angular shadow planes, not smooth gradient or glossy anime. Preserve facial identity, age and natural modest eyes; rough texture does not mean aging. Absolutely true transparent outside silhouette, no glow/haze/shadow/paper/text.",
+      "refs": [
+        "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/src/assets/images/characters/akari/waist/neutral.png",
+        "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/src/assets/images/characters/akari/full/neutral.png"
+      ],
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-1d7509aa-d2b9-439a-80ae-aebfb78925b9.png",
+      "dest": "src/assets/images/characters/akari/waist/smile.png",
+      "validation": {
+        "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-1d7509aa-d2b9-439a-80ae-aebfb78925b9.png",
+        "destination": "src\\assets\\images\\characters\\akari\\waist\\smile.png",
+        "source_size": [
+          1254,
+          1254
+        ],
+        "size": [
+          1024,
+          1024
+        ],
+        "mode": "RGBA",
+        "alpha_range": [
+          0,
+          255
+        ],
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "sha256": "5e506668061d536b18fe0a3398244b5183f24426b3dde5610db5517a5e978354"
+      }
+    },
+    {
+      "id": "akari",
+      "kind": "waist",
+      "key": "serious",
+      "prompt": "Edit input1 exact waist-up neutral sprite square1024x1024. Input2 full-body identity/costume. Preserve head placement/size, waist crop, direction, rounded face, straight bob, clothes and rough style. Change only expression and arms/hands. Japanese woman21, plain youthful rounded face, modest eyes, short eyelashes, straight dark brown chin-length bob with fringe, modest makeup. Muted RED cardigan over off-white crewneck T, dark NAVY below-knee flared skirt, dark flats, small dark crossbody bag. Strap is anchored at SCREEN RIGHT shoulder across to SCREEN LEFT hip bag, never mirror. Not Mio's glamorous face, no wavy hair. Expression serious: focused listening or explaining, steady intent eyes with firm closed mouth, one open palm making a restrained explanatory gesture; keep crossbody bag strap from SCREEN RIGHT shoulder to SCREEN LEFT hip. Hands within canvas, five fingers natural. Same adopted hand-drawn late1990s detective ADV gekiga. Irregular ink, rough brush patches, matte muted pigment, uneven angular shadow planes, not smooth gradient or glossy anime. Preserve facial identity, age and natural modest eyes; rough texture does not mean aging. Absolutely true transparent outside silhouette, no glow/haze/shadow/paper/text.",
+      "refs": [
+        "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/src/assets/images/characters/akari/waist/neutral.png",
+        "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/src/assets/images/characters/akari/full/neutral.png"
+      ],
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-3835f8ec-cb13-4965-a991-03763854950c.png",
+      "dest": "src/assets/images/characters/akari/waist/serious.png",
+      "validation": {
+        "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-3835f8ec-cb13-4965-a991-03763854950c.png",
+        "destination": "src\\assets\\images\\characters\\akari\\waist\\serious.png",
+        "source_size": [
+          1254,
+          1254
+        ],
+        "size": [
+          1024,
+          1024
+        ],
+        "mode": "RGBA",
+        "alpha_range": [
+          0,
+          255
+        ],
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "sha256": "850ffa32453d66312c1447e7802cba9477a212f1798e88cf67f095f85d2743be"
+      }
+    },
+    {
+      "id": "akari",
+      "kind": "waist",
+      "key": "surprised",
+      "prompt": "Edit input1 exact waist-up neutral sprite square1024x1024. Input2 full-body identity/costume. Preserve head placement/size, waist crop, direction, rounded face, straight bob, clothes and rough style. Change only expression and arms/hands. Japanese woman21, plain youthful rounded face, modest eyes, short eyelashes, straight dark brown chin-length bob with fringe, modest makeup. Muted RED cardigan over off-white crewneck T, dark NAVY below-knee flared skirt, dark flats, small dark crossbody bag. Strap is anchored at SCREEN RIGHT shoulder across to SCREEN LEFT hip bag, never mirror. Not Mio's glamorous face, no wavy hair. Expression surprised: raised eyebrows, modestly widened eyes and slightly open mouth, one hand half raised near chest; controlled adult surprise; keep crossbody bag strap from SCREEN RIGHT shoulder to SCREEN LEFT hip. Hands within canvas, five fingers natural. Same adopted hand-drawn late1990s detective ADV gekiga. Irregular ink, rough brush patches, matte muted pigment, uneven angular shadow planes, not smooth gradient or glossy anime. Preserve facial identity, age and natural modest eyes; rough texture does not mean aging. Absolutely true transparent outside silhouette, no glow/haze/shadow/paper/text.",
+      "refs": [
+        "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/src/assets/images/characters/akari/waist/neutral.png",
+        "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/src/assets/images/characters/akari/full/neutral.png"
+      ],
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-71672d9b-a053-4f57-9b53-b2f509b8fbcb.png",
+      "dest": "src/assets/images/characters/akari/waist/surprised.png",
+      "validation": {
+        "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-71672d9b-a053-4f57-9b53-b2f509b8fbcb.png",
+        "destination": "src\\assets\\images\\characters\\akari\\waist\\surprised.png",
+        "source_size": [
+          1254,
+          1254
+        ],
+        "size": [
+          1024,
+          1024
+        ],
+        "mode": "RGBA",
+        "alpha_range": [
+          0,
+          255
+        ],
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "sha256": "7cde560871b0c139693716e5c3f37e017287f0030eb0d9e5580ac1c7060af8d8"
+      }
+    },
+    {
+      "id": "akari",
+      "kind": "waist",
+      "key": "worried",
+      "prompt": "Edit input1 exact waist-up neutral sprite square1024x1024. Input2 full-body identity/costume. Preserve head placement/size, waist crop, direction, rounded face, straight bob, clothes and rough style. Change only expression and arms/hands. Japanese woman21, plain youthful rounded face, modest eyes, short eyelashes, straight dark brown chin-length bob with fringe, modest makeup. Muted RED cardigan over off-white crewneck T, dark NAVY below-knee flared skirt, dark flats, small dark crossbody bag. Strap is anchored at SCREEN RIGHT shoulder across to SCREEN LEFT hip bag, never mirror. Not Mio's glamorous face, no wavy hair. Expression worried: concerned inward-raised brows and anxious eyes, pressed mouth, one hand over chest or supporting the other wrist; worry about somebody; keep crossbody bag strap from SCREEN RIGHT shoulder to SCREEN LEFT hip. Hands within canvas, five fingers natural. Same adopted hand-drawn late1990s detective ADV gekiga. Irregular ink, rough brush patches, matte muted pigment, uneven angular shadow planes, not smooth gradient or glossy anime. Preserve facial identity, age and natural modest eyes; rough texture does not mean aging. Absolutely true transparent outside silhouette, no glow/haze/shadow/paper/text.",
+      "refs": [
+        "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/src/assets/images/characters/akari/waist/neutral.png",
+        "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/src/assets/images/characters/akari/full/neutral.png"
+      ],
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-adc6c505-32ac-498c-8ed3-abec27ca61f0.png",
+      "dest": "src/assets/images/characters/akari/waist/worried.png",
+      "validation": {
+        "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-adc6c505-32ac-498c-8ed3-abec27ca61f0.png",
+        "destination": "src\\assets\\images\\characters\\akari\\waist\\worried.png",
+        "source_size": [
+          1254,
+          1254
+        ],
+        "size": [
+          1024,
+          1024
+        ],
+        "mode": "RGBA",
+        "alpha_range": [
+          0,
+          255
+        ],
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "sha256": "fca843b85c65c2c1c27f0885cefd1aae6a6bebedbd335db3a343e95d2baf83d3"
+      }
+    },
+    {
+      "id": "akari",
+      "kind": "waist",
+      "key": "sad",
+      "prompt": "Edit input1 exact waist-up neutral sprite square1024x1024. Input2 full-body identity/costume. Preserve head placement/size, waist crop, direction, rounded face, straight bob, costume/style. Change only expression and hands. Japanese woman21, plain youthful rounded face, modest eyes, short eyelashes, straight dark brown chin-length bob with fringe, modest makeup. Muted RED cardigan over off-white crewneck T, dark NAVY below-knee flared skirt, dark flats, small dark crossbody bag. Strap is anchored at SCREEN RIGHT shoulder across to SCREEN LEFT hip bag, never mirror. Not Mio's glamorous face, no wavy hair. Expression sad: clearly sad eyes lowered and mouth downturned slightly, loosely overlapping hands low, no big crying or tears needed; keep crossbody bag strap from SCREEN RIGHT shoulder to SCREEN LEFT hip. Hands inside canvas, natural fingers. Same adopted hand-drawn late1990s detective ADV gekiga. Irregular ink, rough brush patches, matte muted pigment, uneven angular shadow planes, not smooth gradient or glossy anime. Preserve facial identity, age and natural modest eyes; rough texture does not mean aging. Absolutely true transparent outside silhouette, no glow/haze/shadow/paper/text.",
+      "refs": [
+        "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/src/assets/images/characters/akari/waist/neutral.png",
+        "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/src/assets/images/characters/akari/full/neutral.png"
+      ],
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-a6af7503-6d90-4998-a52f-90303b77cccb.png",
+      "dest": "src/assets/images/characters/akari/waist/sad.png",
+      "validation": {
+        "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-a6af7503-6d90-4998-a52f-90303b77cccb.png",
+        "destination": "src\\assets\\images\\characters\\akari\\waist\\sad.png",
+        "source_size": [
+          1254,
+          1254
+        ],
+        "size": [
+          1024,
+          1024
+        ],
+        "mode": "RGBA",
+        "alpha_range": [
+          0,
+          255
+        ],
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "sha256": "1cbe93d2d796f58717f0090854daf8ff2505fbbe664083d222dbc26e8e1360ba"
+      }
+    },
+    {
+      "id": "akari",
+      "kind": "waist",
+      "key": "determined",
+      "prompt": "Edit input1 exact waist-up neutral sprite square1024x1024. Input2 full-body identity/costume. Preserve head placement/size, waist crop, direction, rounded face, straight bob, costume/style. Change only expression and hands. Japanese woman21, plain youthful rounded face, modest eyes, short eyelashes, straight dark brown chin-length bob with fringe, modest makeup. Muted RED cardigan over off-white crewneck T, dark NAVY below-knee flared skirt, dark flats, small dark crossbody bag. Strap is anchored at SCREEN RIGHT shoulder across to SCREEN LEFT hip bag, never mirror. Not Mio's glamorous face, no wavy hair. Expression determined: quiet resolved forward gaze with firm closed mouth and straightened posture, hands firmly clasped low, distinguish from listening; keep crossbody bag strap from SCREEN RIGHT shoulder to SCREEN LEFT hip. Hands inside canvas, natural fingers. Same adopted hand-drawn late1990s detective ADV gekiga. Irregular ink, rough brush patches, matte muted pigment, uneven angular shadow planes, not smooth gradient or glossy anime. Preserve facial identity, age and natural modest eyes; rough texture does not mean aging. Absolutely true transparent outside silhouette, no glow/haze/shadow/paper/text.",
+      "refs": [
+        "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/src/assets/images/characters/akari/waist/neutral.png",
+        "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/src/assets/images/characters/akari/full/neutral.png"
+      ],
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-5df04658-3867-4d16-86cd-2754f7fef6cd.png",
+      "dest": "src/assets/images/characters/akari/waist/determined.png",
+      "validation": {
+        "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-5df04658-3867-4d16-86cd-2754f7fef6cd.png",
+        "destination": "src\\assets\\images\\characters\\akari\\waist\\determined.png",
+        "source_size": [
+          1254,
+          1254
+        ],
+        "size": [
+          1024,
+          1024
+        ],
+        "mode": "RGBA",
+        "alpha_range": [
+          0,
+          255
+        ],
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "sha256": "7a1cd13069c3d714bf1e194a6b30851f76efb1bc4bc0032e4721fa3c20962842"
+      }
+    },
+    {
+      "id": "akari",
+      "kind": "waist",
+      "key": "relieved",
+      "prompt": "Edit exact Akari waist-up input1 square1024x1024. Preserve head size/position, rounded young adult21 face, straight bob, clothing, strap SCREEN RIGHT shoulder to SCREEN LEFT hip, style and direction. Expression relieved: softer eyebrows/eyelids, small relieved closed smile, shoulders eased. BOTH hands fully visible: one hand on upper chest, other hand rests gently across lower abdomen at y760-850, all fingertips above y900, not hanging at bottom crop. Head through upper hip remains the same framing, do not zoom. Input2 costume. Same adopted hand-drawn late1990s detective ADV gekiga. Irregular ink, rough brush patches, matte muted pigment, uneven angular shadow planes, not smooth gradient or glossy anime. Preserve facial identity, age and natural modest eyes; rough texture does not mean aging. Absolutely true transparent outside silhouette, no glow/haze/shadow/paper/text.",
+      "refs": [
+        "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/src/assets/images/characters/akari/waist/neutral.png",
+        "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/src/assets/images/characters/akari/full/neutral.png"
+      ],
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-d478891e-aaf9-424c-806e-baf44915c96b.png",
+      "dest": "src/assets/images/characters/akari/waist/relieved.png",
+      "validation": {
+        "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-d478891e-aaf9-424c-806e-baf44915c96b.png",
+        "destination": "src\\assets\\images\\characters\\akari\\waist\\relieved.png",
+        "source_size": [
+          1254,
+          1254
+        ],
+        "size": [
+          1024,
+          1024
+        ],
+        "mode": "RGBA",
+        "alpha_range": [
+          0,
+          255
+        ],
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "sha256": "a882f8273dd04348828bbc12ef9b7f4a7a5405ff954ce605fab6bb73b41412bd"
+      }
+    },
+    {
+      "id": "minato",
+      "kind": "full",
+      "key": "neutral",
+      "dest": "src/assets/images/characters/minato/full/neutral.png",
+      "source": "C:/Users/lemon/.codex/generated_images/01a123a2-b46f-77d3-b27e-a7f8a37b3920/exec-41eee6d9-75a3-48e2-9ced-fbf22c43b999.png",
+      "operation": "最新全身の生成原本を正本へ移動。画像加工なし。",
+      "validation": {
+        "size": [
+          1024,
+          1536
+        ],
+        "mode": "RGBA",
+        "sha256": "0f416536c7b31cb69a6d006b48a505ddac729d889a62ef847d238e2c42d58bec",
+        "alpha_range": [
+          0,
+          254
+        ],
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "generation_record": "docs/04-art/characters/minato/drafts/gekiga-neutral-05-original-face.md"
+    },
+    {
+      "id": "mio",
+      "kind": "full",
+      "key": "neutral",
+      "dest": "src/assets/images/characters/mio/full/neutral.png",
+      "source": "C:/Users/lemon/.codex/generated_images/01a123a2-b46f-77d3-b27e-a7f8a37b3920/exec-6604a21a-20f9-4377-9120-92769cf8da01.png",
+      "operation": "最新全身の生成原本を正本へ移動。画像加工なし。",
+      "validation": {
+        "size": [
+          1024,
+          1536
+        ],
+        "mode": "RGBA",
+        "sha256": "b1c70f5e5e636388d595495cf69df85929e5f0930fabf132a00fb316063eb9ea",
+        "alpha_range": [
+          0,
+          254
+        ],
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "generation_record": "docs/04-art/style/minato-match-trials-02.json"
+    },
+    {
+      "id": "akari",
+      "kind": "full",
+      "key": "neutral",
+      "dest": "src/assets/images/characters/akari/full/neutral.png",
+      "source": "C:/Users/lemon/.codex/generated_images/01a123a2-b46f-77d3-b27e-a7f8a37b3920/exec-18ed7c91-dfff-4623-b100-1e030560a4a1.png",
+      "operation": "最新全身の生成原本を正本へ移動。画像加工なし。",
+      "validation": {
+        "size": [
+          1024,
+          1536
+        ],
+        "mode": "RGBA",
+        "sha256": "cb298b832e6e0ac429f5d44b573fe6aa3b92b1cb6d3c8f8362519faf1c7b6cef",
+        "alpha_range": [
+          0,
+          254
+        ],
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "generation_record": "docs/04-art/style/minato-match-trials-02.json"
+    }
+  ],
+  "cutins": [
+    {
+      "id": "minato",
+      "kind": "cutin",
+      "key": "smoking",
+      "prompt": "Create landscape 16:9 1920x1080 detective ADV thought-organizing cut-in illustration. Saeki Minato38 EXACT face from input1, input2 full-body costume and hair. Thin rectangular glasses, youthful adult slim face, light stubble, soft wavy black eyebrow fringe, charcoal short suit, off-white open shirt and loose black tie. Waist/chest portrait placed slightly left of center facing slightly screen right, head fully visible, eyes lowered thoughtfully. He is using the BLACK ELECTRONIC VAPE from input3, correct matte black rounded flat rectangular body with black mouthpiece, held naturally in fingers at lips, no paper cigarette, no ember or ash. A small discreet trace of vapor, not clouds. Face, fingertips and entire vape above 65percent canvas height, bottom25percent quiet dark low-detail suit/background space for later message box. Abstract charcoal/blue-grey ochre painterly backdrop, no identifiable room/street/objects. Same rough late1990s PS1 Japanese detective ADV gekiga artwork as input1, irregular ink, coarse patches of pigment, uneven bold shadow planes, muted slightly faded colors. Style is in drawing, not noise filter. Keep youthful vitality of adopted face, not carved old cheeks. No text or message box baked in. Opaque background. Cinematic restrained contemplative mood.",
+      "refs": [
+        "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/src/assets/images/characters/minato/waist/neutral.png",
+        "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/src/assets/images/characters/minato/full/neutral.png",
+        "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/src/assets/images/items/electronic-cigarette.png"
+      ],
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-2c724940-c244-4399-ad18-7e08e61a7974.png",
+      "dest": "docs/04-art/cutins/drafts/minato-smoking-02.png",
+      "source_size": [
+        1672,
+        941
+      ],
+      "validation": {
+        "size": [
+          1920,
+          1080
+        ],
+        "mode": "RGB",
+        "sha256": "65f0df0325f323ff2af79bcc047a61a1b6cfdb499308fc882439d25bfe79dfc4",
+        "alpha_range": null,
+        "corner_alpha": null
+      }
+    },
+    {
+      "id": "minato",
+      "kind": "cutin",
+      "key": "non-smoking",
+      "prompt": "Edit input1 into matching NON-SMOKING thought-organizing cut-in. Remove black electronic vape completely and remove all vapor. Same raised hand now empty, index finger resting lightly near lips and thumb near chin in contemplation, natural relaxed fingers. Keep exact face, glasses, wavy hair, expression, suit shirt loose tie, head scale/placement, lighting, abstract charcoal/blue ochre background, composition and rough brush/ink style. Input2 confirms adopted character face. Do not add objects or scenery or text. Face and fingers remain above lower25percent message-box area. Same landscape16:9 1920x1080 opaque artwork. No smoking device or paper cigarette anywhere.",
+      "refs": [
+        "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-2c724940-c244-4399-ad18-7e08e61a7974.png",
+        "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/src/assets/images/characters/minato/waist/neutral.png"
+      ],
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-6a4a169a-2ff7-465f-9d23-8a65a04a9f5a.png",
+      "dest": "docs/04-art/cutins/drafts/minato-non-smoking-02.png",
+      "source_size": [
+        1672,
+        941
+      ],
+      "validation": {
+        "size": [
+          1920,
+          1080
+        ],
+        "mode": "RGB",
+        "sha256": "1a17bdd5cbd231f680e647013a5f4d5ab7259786125b10c5b530426c820ca30c",
+        "alpha_range": null,
+        "corner_alpha": null
+      }
+    }
+  ],
+  "discarded": [
+    {
+      "id": "akari",
+      "kind": "waist",
+      "key": "relieved",
+      "prompt": "Edit input1 exact waist-up neutral sprite square1024x1024. Input2 full-body identity/costume. Preserve head placement/size, waist crop, direction, rounded face, straight bob, costume/style. Change only expression and hands. Japanese woman21, plain youthful rounded face, modest eyes, short eyelashes, straight dark brown chin-length bob with fringe, modest makeup. Muted RED cardigan over off-white crewneck T, dark NAVY below-knee flared skirt, dark flats, small dark crossbody bag. Strap is anchored at SCREEN RIGHT shoulder across to SCREEN LEFT hip bag, never mirror. Not Mio's glamorous face, no wavy hair. Expression relieved: tension visibly released with softened eyelids/brows, small gentle closed-mouth smile and eased shoulders, one hand loosely over upper chest; keep crossbody bag strap from SCREEN RIGHT shoulder to SCREEN LEFT hip. Hands inside canvas, natural fingers. Same adopted hand-drawn late1990s detective ADV gekiga. Irregular ink, rough brush patches, matte muted pigment, uneven angular shadow planes, not smooth gradient or glossy anime. Preserve facial identity, age and natural modest eyes; rough texture does not mean aging. Absolutely true transparent outside silhouette, no glow/haze/shadow/paper/text.",
+      "refs": [
+        "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/src/assets/images/characters/akari/waist/neutral.png",
+        "C:/Users/lemon/.codex/.chatgpt-projects/g-p-6a244918b2988191ac325bc113799e3e/saeki-talk-issue5/src/assets/images/characters/akari/full/neutral.png"
+      ],
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-d234afcf-ed65-4983-a5ad-511e265fd708.png",
+      "dest": "src/assets/images/characters/akari/waist/relieved.png",
+      "validation": {
+        "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a123a2-b46f-77d3-b27e-a7f8a37b3920\\exec-d234afcf-ed65-4983-a5ad-511e265fd708.png",
+        "destination": "src\\assets\\images\\characters\\akari\\waist\\relieved.png",
+        "source_size": [
+          1254,
+          1254
+        ],
+        "size": [
+          1024,
+          1024
+        ],
+        "mode": "RGBA",
+        "alpha_range": [
+          0,
+          255
+        ],
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "sha256": "66c433589a540d7d250b877a7f6133b7c4c2c429e59fb911cdc87fc5f048002b"
+      }
+    }
+  ],
+  "relocations": [
+    {
+      "from": "docs/04-art/characters/minato/drafts/gekiga-neutral-05-original-face.png",
+      "to": "src/assets/images/characters/minato/full/neutral.png"
+    },
+    {
+      "from": "docs/04-art/characters/mio/drafts/gekiga-neutral-03-minato-match.png",
+      "to": "src/assets/images/characters/mio/full/neutral.png"
+    },
+    {
+      "from": "docs/04-art/characters/akari/drafts/gekiga-neutral-02-minato-match.png",
+      "to": "src/assets/images/characters/akari/full/neutral.png"
+    }
+  ],
+  "characters": [
+    {
+      "id": "minato",
+      "keys": [
+        "neutral",
+        "smile",
+        "serious",
+        "surprised",
+        "irritated",
+        "pained",
+        "relieved"
+      ],
+      "desc": "Japanese detective38, exact adopted softly angular youthful adult face with light stubble, thin rectangular glasses, loose wavy black hair and curved eyebrow-length fringe, charcoal short suit, white shirt and loose black tie. No deep aging lines.",
+      "expressions": {
+        "smile": "a clearly warmer small closed-mouth smile, softer brows and eyes, one hand gently open low in friendly response.",
+        "serious": "Focused steady listening eyes, firm closed mouth; one hand lightly at mouth thinking, other forearm relaxed.",
+        "surprised": "raised eyebrows, modestly widened eyes and slightly open mouth, one hand half raised near chest; controlled adult surprise.",
+        "irritated": "visible annoyance, tightened brows and mouth, one hand slightly tense low in front, not yelling.",
+        "pained": "receiving a painful heavy fact, lowered eyes and brows with tight closed mouth, shoulders slightly lowered and hands loosely clasped low; not personal guilt.",
+        "relieved": "tension visibly released with softened eyelids/brows, small gentle closed-mouth smile and eased shoulders, one hand loosely over upper chest."
+      },
+      "sheet": "docs/04-art/characters/minato/drafts/gekiga-sheet-02.png"
+    },
+    {
+      "id": "mio",
+      "keys": [
+        "neutral",
+        "smile",
+        "amused",
+        "serious",
+        "surprised",
+        "worried",
+        "pained",
+        "relieved"
+      ],
+      "desc": "Japanese woman32, intelligent gentle adult face with modest natural eyes, long loose dark-brown wavy hair NOT tied back, light dusty-blue blazer, off-white modest blouse, pale blue-grey calf-length skirt, grey pumps, delicate pendant and earrings and wristwatch. Maintain brighter palette and adult grace without sexiness.",
+      "expressions": {
+        "smile": "a clearly warmer small closed-mouth smile, softer brows and eyes, one hand gently open low in friendly response.",
+        "amused": "Gentle light open smile, softly narrowed eyes; wristwatch hand tucking hair at ear.",
+        "serious": "focused listening or explaining, steady intent eyes with firm closed mouth, one open palm making a restrained explanatory gesture.",
+        "surprised": "raised eyebrows, modestly widened eyes and slightly open mouth, one hand half raised near chest; controlled adult surprise.",
+        "worried": "concerned inward-raised brows and anxious eyes, pressed mouth, one hand over chest or supporting the other wrist; worry about somebody.",
+        "pained": "receiving a painful heavy fact, lowered eyes and brows with tight closed mouth, shoulders slightly lowered and hands loosely clasped low; not personal guilt.",
+        "relieved": "tension visibly released with softened eyelids/brows, small gentle closed-mouth smile and eased shoulders, one hand loosely over upper chest."
+      },
+      "sheet": "docs/04-art/characters/mio/drafts/gekiga-sheet-02.png"
+    },
+    {
+      "id": "akari",
+      "keys": [
+        "neutral",
+        "smile",
+        "serious",
+        "surprised",
+        "worried",
+        "sad",
+        "relieved",
+        "determined"
+      ],
+      "desc": "Japanese woman21, plain youthful rounded face, modest eyes, short eyelashes, straight dark brown chin-length bob with fringe, modest makeup. Muted RED cardigan over off-white crewneck T, dark NAVY below-knee flared skirt, dark flats, small dark crossbody bag. Strap is anchored at SCREEN RIGHT shoulder across to SCREEN LEFT hip bag, never mirror. Not Mio's glamorous face, no wavy hair.",
+      "expressions": {
+        "smile": "a clearly warmer small closed-mouth smile, softer brows and eyes, one hand gently open low in friendly response; keep crossbody bag strap from SCREEN RIGHT shoulder to SCREEN LEFT hip.",
+        "serious": "focused listening or explaining, steady intent eyes with firm closed mouth, one open palm making a restrained explanatory gesture; keep crossbody bag strap from SCREEN RIGHT shoulder to SCREEN LEFT hip.",
+        "surprised": "raised eyebrows, modestly widened eyes and slightly open mouth, one hand half raised near chest; controlled adult surprise; keep crossbody bag strap from SCREEN RIGHT shoulder to SCREEN LEFT hip.",
+        "worried": "concerned inward-raised brows and anxious eyes, pressed mouth, one hand over chest or supporting the other wrist; worry about somebody; keep crossbody bag strap from SCREEN RIGHT shoulder to SCREEN LEFT hip.",
+        "sad": "clearly sad eyes lowered and mouth downturned slightly, loosely overlapping hands low, no big crying or tears needed; keep crossbody bag strap from SCREEN RIGHT shoulder to SCREEN LEFT hip.",
+        "relieved": "tension visibly released with softened eyelids/brows, small gentle closed-mouth smile and eased shoulders, one hand loosely over upper chest; keep crossbody bag strap from SCREEN RIGHT shoulder to SCREEN LEFT hip.",
+        "determined": "quiet resolved forward gaze with firm closed mouth and straightened posture, hands firmly clasped low, distinguish from listening; keep crossbody bag strap from SCREEN RIGHT shoulder to SCREEN LEFT hip."
+      },
+      "sheet": "docs/04-art/characters/akari/drafts/gekiga-sheet-02.png"
+    }
+  ],
+  "limitations": [
+    "ゲーム実装・表示テストは未実施。身長に基づく頭身合わせは既存バックログ。",
+    "原画の顔・手・陰影は生成による微差がある。",
+    "透過エッジは半透明画素を含み、背景上の見え方は組み込み時に確認。",
+    "挿絵は頭頂の髪が上端に少しかかる構図。顔・電子タバコ・指は下部メッセージ欄を避ける。"
+  ],
+  "cutin_normalization": "1672x941 to1920x1080; nominal16:9, less than0.1percent aspect difference; dimensional resampling only."
+}
