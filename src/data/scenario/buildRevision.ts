@@ -5,7 +5,7 @@ import { formatNames } from '../displayNames'
 import { personObservation } from './personObservations'
 import { episodePrologue } from './episodePrologue'
 
-export type RevisionLine = { speakerId: string; text: string; grants?: string[]; backgroundId?: string }
+export type RevisionLine = { speakerId: string; text: string; grants?: string[]; backgroundId?: string; expressions?: Record<string, string> }
 export type RevisionAction = { id: string; personId?: string | null; label?: string; lines: RevisionLine[]; requires: string[]; grants: string[]; required?: boolean; interaction?: 'think' | 'organize' | 'phone' | 'item-use'; itemId?: string; questionSetId?: string;
   questions?: { id: string; prompt: string; choices: { id: string; text: string }[]; answer: string; requires: string[]; hint: string; grants: string[] }[];
   successLines?: RevisionLine[]; retainCorrectAnswers?: boolean;
@@ -84,7 +84,10 @@ export function buildRevision(base: Scenario, data: RevisionData): Scenario {
     scenes[sceneId] = stageFor(phase, person, id)
     const content = lines.length ? lines : [{ speakerId: 'narrator', text: '' }]
     let currentTime = phase.sceneTime
+    // 表情は会話内だけ引き継ぎ、ノードへ確定してロード時にも同じ表示を得る。
+    let expressions: Record<string, string> = {}
     content.forEach((line, index) => {
+      expressions = { ...expressions, ...line.expressions }
       const explicitTime = line.text.match(/^(\d{1,2}):(\d{2})。/)
       if (explicitTime) currentTime = `${phase.sceneTime.slice(0, 11)}${explicitTime[1].padStart(2, '0')}:${explicitTime[2]}:00`
       const key = index ? `${id}-${index + 1}` : id
@@ -95,6 +98,7 @@ export function buildRevision(base: Scenario, data: RevisionData): Scenario {
         sceneOwners.set(lineSceneId, phase.id)
       }
       add(key, { type: 'dialogue', stage: scenes[lineSceneId], sceneId: lineSceneId, speakerId: line.speakerId, text: line.text,
+        ...(Object.keys(expressions).length ? { expressions } : {}),
         ...(!lines.length ? { autoAdvance: true } : {}),
         ...(names[line.speakerId] ? { speakerName: names[line.speakerId], speakerNameCondition: has([`named-${line.speakerId}`]) } : {}),
         next: index === content.length - 1 ? next : `${id}-${index + 2}`,
