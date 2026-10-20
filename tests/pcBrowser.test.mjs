@@ -1,4 +1,4 @@
-import {loadForTest,saveForTest} from './saveUiHelpers.mjs'
+import {closeMenuForTest,loadForTest,saveForTest} from './saveUiHelpers.mjs'
 import test from 'node:test'
 import assert from 'node:assert/strict'
 
@@ -72,7 +72,7 @@ for (const [width, height] of [[1920, 1080], [1366, 768]]) {
       await page.waitForTimeout(120)
       assert.equal(await visible(), before)
       const pageBefore = await dialogue.getAttribute('data-page')
-      await menu.click()
+      await closeMenuForTest(page)
       assert.equal(await dialogue.getAttribute('data-page'), pageBefore)
       let result = ''
       for (let index = 0; index < count; index++) {
@@ -126,7 +126,7 @@ for (const [width, height] of [[1920, 1080], [1366, 768]]) {
       await menu.click(); await saveForTest(page)
       const completed = await page.evaluate(() => JSON.parse(localStorage.getItem('detective-saeki-minato.slots.v1')).manual[0].data)
       assert.equal(completed.nodeId, 'visitor'); assert.equal(completed.flags.paged_done, true)
-      await menu.click()
+      await closeMenuForTest(page)
       const people = () => page.locator('.character').evaluateAll(els => els.map(el => ({ id: el.dataset.characterId, className: el.className, rect: el.getBoundingClientRect().toJSON() })))
       const scenePeople = await people()
       assert.deepEqual(scenePeople.map(p => p.id), ['minato', 'mio'])
@@ -139,12 +139,12 @@ for (const [width, height] of [[1920, 1080], [1366, 768]]) {
         document.querySelector('.save-controls summary').click()
       })
       await page.waitForTimeout(220)
-      await menu.click(); await page.locator('.free-action-panel').waitFor()
+      await closeMenuForTest(page); await page.locator('.free-action-panel').waitFor()
       // 別項目を同時に押しても最初の項目だけが実行される。
       await page.locator('.free-action-panel').evaluate(el => { const b = el.querySelectorAll('button'); b[0].click(); b[1].click(); b[0].click() })
       await page.getByLabel('聞く話題', { exact: true }).waitFor()
       assert.deepEqual(await people(), scenePeople)
-      await menu.click(); await saveForTest(page); await menu.click()
+      await menu.click(); await saveForTest(page); await closeMenuForTest(page)
       await page.getByRole('button', { name: /兄について/ }).first().click()
       await dialogue.waitFor()
       for (let i = 0; i < 6 && await dialogue.count(); i++) await dialogue.click()
