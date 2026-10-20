@@ -5,10 +5,10 @@
 
 ## 参照すべき正本
 - ゲームの現行概要・起動・検証: README.md
-- PC通常GAME / Free Actionの確定UI仕様: docs/pc-game-ui.md
-- 開発環境: docs/development-setup.md
-- AI開発方式の変遷: docs/ai-development/evolution.md
-- 現行の担当分担・依頼・Issue判断: docs/ai-development/README.md（2026-10-13標準運用）。旧資料の担当窓口・Issue必須という記載より優先する。
+- PC通常GAME / Free Actionの確定UI仕様: docs/01-game-design/pc-ui.md
+- 開発環境: docs/06-development/development-setup.md
+- AI開発方式の変遷: docs/07-decisions/ai-development.md
+- 現行の担当分担・依頼・Issue判断: docs/06-development/workflow.md（2026-10-13標準運用）。旧資料の担当窓口・Issue必須という記載より優先する。
 矛盾を発見した場合は独断で仕様を変更せず、該当箇所と選択肢を報告する。確定仕様と実装状況を混同しない。
 
 ## 実装ルール
@@ -67,7 +67,7 @@
 5. Issue/PRへのリンク（存在する場合）
 
 ## 学習記録
-AI開発方式・委任範囲・役割分担・検証方法を変更した場合、docs/ai-development/evolution.md の更新を提案する。新しい自律化の実験では docs/ai-development/experiments/ に仮説・方法・結果・学びを残す。通常の小規模なゲーム修正ごとに学習記録を増やす必要はない。
+AI開発方式・委任範囲・役割分担・検証方法を変更した場合、docs/07-decisions/ai-development.md の更新を提案する。新しい自律化の実験では docs/06-development/experiments/ に仮説・方法・結果・学びを残す。通常の小規模なゲーム修正ごとに学習記録を増やす必要はない。
 
 ## 素材制作の正本
 人物・背景・イベントCGの新規生成は現在保留。下記は資料・既存成果の管理規則であり、制作再開の許可ではない。アイコンは既存ライブラリやCSS/SVGを優先する。

@@ -1,6 +1,6 @@
 # Windows UI担当・保存時点の進捗
 
-これは2026-10-11の保存時点の記録。現在の本編の接続・採用・検証・担当状態は [制作状態・担当台帳](production-status.md) と [改訂版仕様](scenario-ver002.md) を参照する。以下の当時の未接続表記を、現在の本編全体へ適用しない。
+これは2026-10-11の保存時点の記録。現在の本編の接続・採用・検証・担当状態は [制作状態・担当台帳](06-development/production-status.md) と [改訂版仕様](scenario-ver002.md) を参照する。以下の当時の未接続表記を、現在の本編全体へ適用しない。
 
 作業ブランチ: work/ui-windows。基点: main 34c36df。
 
@@ -23,4 +23,4 @@
 
 型チェックと本番ビルド成功。Windows外部Chromiumと開発URL5186で全体回帰を実行。詳細なテスト結果、画面、素材引渡し記録は親フォルダmanagement/ui-check-2026-10-11に保存。コミット保存時の結果とSHAは同フォルダのui-commit-report.mdを参照。
 
-今回のUI担当成果から、既存のdocs/ai-development/evolution.mdのWindows移行差分を除外して保存する。sources・WSL・旧UI領域・キャラクター制作側は変更しない。今回の追加依頼にpush・PR・mergeは含まれない。
+今回のUI担当成果から、既存のdocs/07-decisions/ai-development.mdのWindows移行差分を除外して保存する。sources・WSL・旧UI領域・キャラクター制作側は変更しない。今回の追加依頼にpush・PR・mergeは含まれない。

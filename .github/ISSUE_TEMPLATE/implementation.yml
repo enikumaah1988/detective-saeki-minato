@@ -21,7 +21,7 @@ body:
     id: references
     attributes:
       label: 参照仕様
-      description: docs/pc-game-ui.md など、正本のファイル・節を指定する
+      description: docs/01-game-design/pc-ui.md など、正本のファイル・節を指定する
     validations:
       required: true
   - type: textarea

@@ -1,3 +1,5 @@
+> 履歴・保留資料。現行仕様・手順は[共通入口](README.md)から確認する。以下の当時の提案・検証・未実装表記を現行仕様として適用しない。固有情報の確認が終わっていないため削除せず保持している。
+
 # ver0.01 第1部の実装対応
 
 本書は旧実装の記録。2026-10-12の改訂版については [scenario-ver002.md](scenario-ver002.md) を優先する。第2〜4部の実装、素材、質問、区切り、日時に関する以下の旧残件は改訂版で更新した。
@@ -60,4 +62,3 @@
 外部Playwrightの本編通しテストは tests/episode1Part1Browser.test.mjs。SAEKI_PART1_URLを本編URL、従来のブラウザー回帰ではSAEKI_BASE_URLを `?scenario=gray-testimony-part1-demo` 付きURLにする。Chromiumのパスは既存管理環境を指定する。sandbox環境では起動とブラウザ検証を同じ親プロセス内にまとめ、検証サーバーのcacheDirをロジックテストと分ける必要があった。
 
 既存テストは検証内容を変えず tests/viteServer.mjs に設定読込を集約した。Windowsのみnative loaderを使い、他OSは元の既定値を維持する。DEV記録プレビューのスクリーンショット保存先は固定 `/tmp` からworkへ変更した。
-
