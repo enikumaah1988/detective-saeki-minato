@@ -60,10 +60,10 @@ M1-01の共通作業として以下を実施する。別の大型管理システ
 | 変更の影響を追う | 変更元の担当＋管理 | 人物・場面・情報等を変更した際、影響する素材・台詞・機能と同期の未完を記録できる |
 
 正本の現時点の所在:
-- 全体の優先順位・将来計画: 既存docs/roadmap.md。この管理メモは現状・担当・依存関係の補助記録。
+- 全体の優先順位・将来計画: 既存docs/99-archive/development/roadmap.md。この管理メモは現状・担当・依存関係の補助記録。
 - 第1話ストーリーの現在の作業記録: C:/Users/lemon/Documents/Codex/2026-10-11/saeki-story/outputs/story/第1話_制作引継ぎと相談メモ.md。各具体項目の確定状態は担当記録で確認。管理側story/第1話_構成案.mdは未採用。
 - 人物の素材制作資料: saeki-talk-issue5/docs/art/characters/<id>/profile.md、採用設定画は各人物の採用記録が示すファイル。ストーリー設定と未照合なら同期待ちを維持。
-- 現行UI仕様・本編接続待ち: saeki-ui-windows/docs/pc-game-ui.md、docs/outdoor-movement-integration.md。素材側にある同名UI仕様書は別ブランチのコピーで、最新UI作業の正本とは区別する。
+- 現行UI仕様・本編接続待ち: saeki-ui-windows/docs/99-archive/game-design/pc-game-ui.md、docs/outdoor-movement-integration.md。素材側にある同名UI仕様書は別ブランチのコピーで、最新UI作業の正本とは区別する。
 - 作業の目的・受入条件・取り込み: GitHub Issue・PR。記録がない作業は未登録と明記する。
 
 状態の共通原則:
@@ -113,9 +113,9 @@ M1〜M5はゲームの具体的な成果を中心に進め、節目で再利用�
 
 ## 正本と確認範囲
 
-- 優先順位: ../saeki-talk-issue5/docs/roadmap.md
+- 優先順位: ../saeki-talk-issue5/docs/99-archive/development/roadmap.md
 - 現行実装の説明: ../saeki-talk-issue5/README.md
-- 確定UI仕様: ../saeki-talk-issue5/docs/pc-game-ui.md
+- 確定UI仕様: ../saeki-talk-issue5/docs/99-archive/game-design/pc-game-ui.md
 - 作業・受入条件: https://github.com/enikumaah1988/detective-saeki-minato/issues
 
 このメモはローカル資料を読んだ時点の整理。GitHubの最新状態、実際の作業ブランチ、実装・動作はまだ確認していない。同期資料は変更しない。

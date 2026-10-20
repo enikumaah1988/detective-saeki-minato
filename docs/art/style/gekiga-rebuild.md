@@ -23,7 +23,7 @@
 ## 保存と由来
 ゲーム素材はsrc/assets/images/characters/<id>/full/neutral.pngとwaist/<key>.png。三崎はportrait/neutral.png。同一PNGの二重管理をしない。主要5人の試作はゲーム素材正本へ移し、リンクを更新。原本はgenerated_imagesに保持。旧版はGit b749657、11924ee以前から参照できる。新確認シートは背景付き1920×1080、左全身・右4×2最大8表情。実際の個別素材を縮小合成しており、別の顔を生成していない。
 
-[制作対象](gekiga-rebuild-plan.json) / [各プロンプト・原本・検証記録](rebuild-records/) / [全86素材の検証](gekiga-rebuild-validation.json) / [書出し](save-rebuild-asset.py) / [確認シート作成](finalize-rebuild.py)。
+[制作対象](gekiga-rebuild-plan.json) / [各プロンプト・原本・検証記録](rebuild-records) / [全86素材の検証](gekiga-rebuild-validation.json) / [書出し](save-rebuild-asset.py) / [確認シート作成](finalize-rebuild.py)。
 
 ## 確認範囲・残る調整
 生成結果を目視し、顔・衣装・表情・所作・全身の収まりを確認。必要キー、共通寸法、RGBA、立ち絵の四隅と肖像の上側2隅の透明、ハッシュ、全86点の重複なしを照合済み。原本全キャンバスを等比調整し、表情ごとの輪郭再フィット・左右反転・後付け画風フィルターを使っていない。

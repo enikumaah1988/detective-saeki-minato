@@ -63,7 +63,7 @@ C:/Users/lemon/.codex/codex-remote-attachments/01a123a2-b46f-77d3-b27e-a7f8a37b3
 PC内のファイル保存はChatGPTプロジェクトへのアップロードやクラウド同期を意味しない。別環境で継続する場合は、本資料と必要な画像をプロジェクト資料として登録する必要がある。
 
 ## エージェント用手順
-対話の進め方は[character-workflow.md](character-workflow.md)、新しい候補は[character-template.md](character-template.md)を使用する。
+対話の進め方は[character-workflow.md](../character-workflow.md)、新しい候補は[character-template.md](../character-template.md)を使用する。
 2026-10-10：ユーザーの希望により、候補人物のストック、対話での仕様決定、試作と修正、記録更新の手順を文書化した。
 
 ## 鳴海 ユウ：6項目シート（検討中）

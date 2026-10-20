@@ -6,9 +6,9 @@
 
 - 今後のUI・必要なシステム変更：`../saeki-ui-windows`、`work/ui-windows`。
 - HEAD：`34c36dfddbe2b9d87d61fd5b584e87274d2447d7`。ネットワークで最新mainを取得したという意味ではない。
-- 開始時の変更：`docs/ai-development/evolution.md`にWindows移行記録8行。既存変更として維持。
+- 開始時の変更：`docs/07-decisions/ai-development.md`にWindows移行記録8行。既存変更として維持。
 - `saeki-ui-work`、WSL、`saeki-talk-issue5`には変更を加えない。
-- 参照：AGENTS.md、README.md、docs/pc-game-ui.md、docs/roadmap.md、Windows開発の案内.md、関連src・tests。
+- 参照：AGENTS.md、README.md、docs/99-archive/game-design/pc-game-ui.md、docs/99-archive/development/roadmap.md、Windows開発の案内.md、関連src・tests。
 
 ## UI相談と現行実装の対応
 
