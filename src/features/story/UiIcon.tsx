@@ -1,5 +1,13 @@
-export type IconName = 'menu' | 'save' | 'load' | 'delete' | 'talk' | 'look' | 'think' | 'notebook' | 'smoking' | 'move' | 'return' | 'play' | 'settings' | 'home'
+export type IconName = 'menu' | 'save' | 'load' | 'delete' | 'talk' | 'look' | 'think' | 'notebook' | 'smoking' | 'move' | 'return' | 'play' | 'settings' | 'home' | 'close' | 'check' | 'history' | 'people' | 'evidence' | 'events' | 'bag' | 'use'
 const paths: Record<IconName, string> = {
+  close: 'M6 6l12 12 M18 6 6 18',
+  check: 'M4 12l5 5L20 6',
+  history: 'M3 11a9 9 0 1 1 2 7 M3 4v7h7 M12 7v5l3 2',
+  people: 'M16 7a4 4 0 1 1-8 0 4 4 0 0 1 8 0 M4 21v-2a8 8 0 0 1 16 0v2',
+  evidence: 'M6 3h12v18H6z M9 7h6 M9 11h6 M9 15h3',
+  events: 'M6 3v4 M18 3v4 M3 7h18v14H3z M3 11h18 M7 15h2 M15 15h2',
+  bag: 'M4 7h16v14H4z M8 7V3h8v4 M4 12h16 M10 12v3h4v-3',
+  use: 'M4 12h16 M14 6l6 6-6 6',
   play: 'M8 4 21 12 8 20z',
   settings: 'M9 3h6l1 3 3 1 2 5-2 5-3 1-1 3H9l-1-3-3-1-2-5 2-5 3-1z M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0',
   home: 'M3 11 12 3l9 8 M5 10v11h14V10 M9 21v-7h6v7',

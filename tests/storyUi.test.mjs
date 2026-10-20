@@ -157,5 +157,9 @@ test('自由行動とサブメニューは会話パネルを出さず、アイ�
     assert.match(html, /戻る/)
   }
   const save = renderToStaticMarkup(createElement(SaveControls, { state: initial, scenario, onRestore: () => {} }))
-  assert.equal((save.match(/class="ui-icon"/g) ?? []).length, 3)
+  for (const button of save.slice(save.indexOf('class="save-actions"'), save.indexOf('<hr')).matchAll(/<button\b[^>]*>([\s\S]*?)<[/]button>/g)) assert.match(button[1], /class="ui-icon"/)
+  for (const nodeId of ['topics', 'targets']) {
+    const html = render({ ...initial, nodeId })
+    for (const button of html.matchAll(/<button\b[^>]*>([\s\S]*?)<[/]button>/g)) assert.match(button[1], /class="ui-icon"/)
+  }
 })

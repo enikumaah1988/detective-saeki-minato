@@ -169,7 +169,7 @@ export function StoryPlayer({ scenario, initialSession, preview, smokingAllowed,
       {!illustration && <div className="story-content" inert={menuOpen || Boolean(acquisition)}>
       <StoryContent key={`${gameState.nodeId}:${restoreRevision}`} interval={interval} paused={menuOpen || Boolean(acquisition)} node={node} state={gameState} thinking={scenario.nodes[gameState.nodeId].type === 'think'} dispatch={dispatch} dialogueRef={dialogueRef} />
       </div>}
-      {hasMessageWindow && !illustration && (!menuOpen || historyOpen) && !recordsOpen && !smoking && !acquisition && !itemSelection && <button ref={historyButton} type="button" className="history-entry" aria-label="会話履歴を開く" disabled={historyOpen} onClick={event=>{event.stopPropagation();setHistoryOpen(true);send({type:'menu',open:true})}}>履歴</button>}
+      {hasMessageWindow && !illustration && (!menuOpen || historyOpen) && !recordsOpen && !smoking && !acquisition && !itemSelection && <button ref={historyButton} type="button" className="history-entry" aria-label="会話履歴を開く" disabled={historyOpen} onClick={event=>{event.stopPropagation();setHistoryOpen(true);send({type:'menu',open:true})}}><UiIcon name="history"/><span>履歴</span></button>}
       {smoking && <div className="smoking-overlay" onClick={event => { if (!(event.target instanceof Element) || !event.target.closest('.dialogue-button')) smokingDialogueRef.current?.activate() }} role="dialog" aria-label="喫煙ヒント" aria-modal="true">
         {smoking.imageFailed
           ? <div className="smoking-cut-in-fallback" aria-hidden="true" />
@@ -185,14 +185,14 @@ export function StoryPlayer({ scenario, initialSession, preview, smokingAllowed,
             else { setSmoking(undefined); send({ type: 'menu', open: false }); requestAnimationFrame(() => smokingButton.current?.focus()) }
           }} />
       </div>}
-      {acquisition && !menuOpen && <SystemDialog key={`${gameState.nodeId}:${restoreRevision}`} title={`${acquisition.title}を受け取った`} onClose={() => dispatch({ type: 'advance' })}>
+      {acquisition && !menuOpen && <SystemDialog key={`${gameState.nodeId}:${restoreRevision}`} icon="bag" title={`${acquisition.title}を受け取った`} onClose={() => dispatch({ type: 'advance' })}>
         <div className="acquisition-photo"><img src={acquisition.imageSrc} alt={displayText(acquisition.title)} /></div><p>持ち物に加えます。</p>
       </SystemDialog>}
-      {historyOpen && <SystemDialog title="会話履歴" label="閉じる" onClose={() => { setHistoryOpen(false); send({ type: 'menu', open: false }); requestAnimationFrame(()=>historyButton.current?.focus()) }}>
+      {historyOpen && <SystemDialog icon="history" title="会話履歴" label="閉じる" onClose={() => { setHistoryOpen(false); send({ type: 'menu', open: false }); requestAnimationFrame(()=>historyButton.current?.focus()) }}>
         <div ref={historyList} className="history-list">{history.length ? history.map((entry, index) => <article key={index}><strong>{displayText(entry.speaker || '地の文・心の声')}</strong><p>{displayText(entry.text)}</p></article>) : <p>会話履歴はまだありません。</p>}</div>
       </SystemDialog>}
-      {itemSelection && <SystemDialog title="使用する相手・目的" label="戻る" onClose={() => { setItemSelection(undefined); setRecordsOpen(true); send({ type: 'menu', open: true }) }}>
-        <div className="item-use-choices">{itemSelection.uses.map(use => <button key={use.next} type="button" onClick={() => handleUseItem(itemSelection.itemId, use.next)}>{displayText(use.label ?? '使用する')}</button>)}</div>
+      {itemSelection && <SystemDialog icon="use" title="使用する相手・目的" label="戻る" onClose={() => { setItemSelection(undefined); setRecordsOpen(true); send({ type: 'menu', open: true }) }}>
+        <div className="item-use-choices">{itemSelection.uses.map(use => <button key={use.next} type="button" onClick={() => handleUseItem(itemSelection.itemId, use.next)}><UiIcon name="use"/><span>{displayText(use.label ?? '使用する')}</span></button>)}</div>
       </SystemDialog>}
       {recordsOpen && <InvestigationRecords state={gameState} records={activePreview?.records ?? records} previewLabel={activePreview?.label} returnFocus={activePreview?.invoker} returnFocusRef={recordsButton}
         usableItems={activePreview ? [] : (scenario.itemUses ?? []).filter(use => use.nodeIds.includes(gameState.nodeId) && matchesCondition(gameState, use.condition)).map(use => use.itemId)}

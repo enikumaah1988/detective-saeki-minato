@@ -1,8 +1,10 @@
 import { useEffect, useRef } from 'react'
 import type { ReactNode } from 'react'
+import { UiIcon } from './UiIcon'
+import type { IconName } from './UiIcon'
 import { displayText } from './displayText'
 
-export function SystemDialog({ title, children, onClose, label = 'OK', dismissible = true, initialFocus, confirmAction }: { title: string; children?: ReactNode; onClose: () => void; label?: string; dismissible?: boolean; initialFocus?: 'close'; confirmAction?: ReactNode }) {
+export function SystemDialog({ title, children, onClose, label = 'OK', dismissible = true, initialFocus, confirmAction, icon = 'menu' }: { title: string; icon?: IconName; children?: ReactNode; onClose: () => void; label?: string; dismissible?: boolean; initialFocus?: 'close'; confirmAction?: ReactNode }) {
   const dialog = useRef<HTMLDialogElement>(null)
   const closeButton = useRef<HTMLButtonElement>(null)
   // 初回表示の指定を保持し、再描画でフォーカスを移動しない。
@@ -20,6 +22,6 @@ export function SystemDialog({ title, children, onClose, label = 'OK', dismissib
     const index=targets.indexOf(document.activeElement as HTMLElement)
     if(event.shiftKey?index<=0:index<0||index===targets.length-1){event.preventDefault();targets[event.shiftKey?targets.length-1:0]?.focus()}
   }} onCancel={event => { event.preventDefault(); if (dismissible) onClose() }}>
-    <h2>{displayText(title)}</h2>{children}<button ref={closeButton} autoFocus type="button" onClick={onClose}>{displayText(label)}</button>{confirmAction}
+    <h2><UiIcon name={icon}/><span>{displayText(title)}</span></h2>{children}<button ref={closeButton} autoFocus type="button" onClick={onClose}><UiIcon name={label === 'OK' ? 'check' : label === '閉じる' ? 'close' : 'return'}/><span>{displayText(label)}</span></button>{confirmAction}
   </dialog>
 }

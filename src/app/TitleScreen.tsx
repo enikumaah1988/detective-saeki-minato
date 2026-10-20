@@ -51,7 +51,7 @@ export function TitleScreen({ scenario, onStart, logoSrc }: { scenario: Scenario
         <button type="button" aria-label="SETTINGS" onClick={event => { invoker.current = event.currentTarget; setDialog('settings') }}><UiIcon name="settings" /><span>SETTINGS</span></button>
       </nav>
     </div>
-    {dialog === 'load' && <SystemDialog title="CONTINUE" label="戻る" onClose={close}>
+    {dialog === 'load' && <SystemDialog icon="load" title="CONTINUE" label="戻る" onClose={close}>
       <div className="save-slot-list">{(['auto', 0, 1, 2] as const).map(id => {
         const slot = id === 'auto' ? slots?.auto : slots?.manual[id]
         const name = id === 'auto' ? 'AUTO' : `SAVE ${id + 1}`
@@ -60,7 +60,7 @@ export function TitleScreen({ scenario, onStart, logoSrc }: { scenario: Scenario
       {slots && !slots.auto && !slots.manual.length && <p>保存データはありません。</p>}
       {message && <p role="status">{message}</p>}
     </SystemDialog>}
-    {dialog === 'settings' && <SystemDialog title="SETTINGS" label="戻る" onClose={close}>
+    {dialog === 'settings' && <SystemDialog icon="settings" title="SETTINGS" label="戻る" onClose={close}>
       <SettingsSlider label="メッセージスピード" value={MESSAGE_SPEEDS.indexOf(speed as typeof MESSAGE_SPEEDS[number])} maximum={3} labels={MESSAGE_SPEED_LABELS} onChange={point => {
         const value = MESSAGE_SPEEDS[point]; setSpeed(value)
         try { localStorage.setItem('detective-saeki-minato.speed', String(value)) } catch { /* セッション中は保持 */ }

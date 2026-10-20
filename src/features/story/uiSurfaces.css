@@ -1,0 +1,63 @@
+/* 調査記録・設定・確認に同じ青黒の面と真鍮の枠を使う。 */
+.system-dialog, .investigation-records {
+  background-color: #101922f5;
+  background-image: url('./assets/dialogue-texture.svg');
+  border: calc(12 * var(--u)) solid transparent;
+  border-image: url('./assets/dialogue-frame.svg') 12 / calc(12 * var(--u)) / 0 stretch;
+  border-radius: 0;
+  padding: calc(32 * var(--u));
+  scrollbar-color: #8d784f #101922;
+}
+.investigation-records::before { content: none; }
+.system-dialog::backdrop, .investigation-records::backdrop { background: #030a1299; }
+.system-dialog h2, .record-header h2 {
+  display: flex; align-items: center; gap: calc(16 * var(--u));
+  font-size: calc(40 * var(--u)); line-height: 1.35; font-weight: 600;
+  padding-bottom: calc(20 * var(--u)); border-bottom: 1px solid #b8965a66;
+  overflow-wrap: anywhere;
+}
+.system-dialog h2 { text-align: left; }
+.system-dialog h2 .ui-icon, .record-header h2 .ui-icon { width: calc(44 * var(--u)); height: calc(44 * var(--u)); }
+.record-header h2 { flex-wrap: wrap; min-width: 0; }
+.record-header { align-items: flex-start; }
+.record-preview-label { flex-basis: 100%; }
+.system-dialog > button, .system-menu-body .save-actions button, .save-slot-list button,
+.item-use-choices button, .use-item, .history-entry, .travel-map > header > button, .travel-map aside > button {
+  border: calc(12 * var(--u)) solid transparent;
+  border-image: url('./assets/command-button-normal.svg') 12 fill / calc(12 * var(--u)) / 0 stretch;
+  background: transparent; border-radius: 0;
+}
+.system-dialog > button, .use-item, .item-use-choices button, .record-header button, .record-tabs button,
+.history-entry, .travel-map > header > button, .travel-map aside > button, .end-window > button {
+  display: flex; align-items: center; justify-content: center; gap: calc(12 * var(--u)); line-height: 1.35;
+}
+.system-dialog > button { display: inline-flex; margin: calc(24 * var(--u)) calc(8 * var(--u)) 0; min-height: calc(72 * var(--u)); }
+.system-dialog > button:hover, .system-dialog > button:focus-visible,
+.save-actions button:hover, .save-actions button:focus-visible,
+.save-slot-list button:not(:disabled):hover, .save-slot-list button:focus-visible,
+.item-use-choices button:hover, .item-use-choices button:focus-visible,
+.use-item:hover, .use-item:focus-visible, .history-entry:hover, .history-entry:focus-visible,
+.travel-map > header > button:hover, .travel-map > header > button:focus-visible,
+.travel-map aside > button:not(:disabled):hover, .travel-map aside > button:focus-visible {
+  border-image-source: url('./assets/command-button-active.svg'); color: var(--accent);
+}
+.system-dialog > button:active, .save-actions button:active, .save-slot-list button:not(:disabled):active,
+.item-use-choices button:active, .use-item:active, .history-entry:active,
+.travel-map > header > button:active, .travel-map aside > button:not(:disabled):active {
+  border-image-source: url('./assets/command-button-pressed.svg');
+}
+.record-header button { flex-shrink: 0; white-space: nowrap; }
+.record-tabs button .ui-icon { width: calc(36 * var(--u)); height: calc(36 * var(--u)); }
+.command-list .ui-icon, .item-list .ui-icon { width: calc(36 * var(--u)); height: calc(36 * var(--u)); color: var(--muted); }
+.command-list button, .item-list button { gap: calc(12 * var(--u)); }
+/* 長い英語操作名がアイコンに押されて不自然に折れない幅・文字サイズ。 */
+.system-menu-body .save-actions button { font-size: calc(30 * var(--u)); line-height: 1.35; gap: calc(16 * var(--u)); overflow-wrap: anywhere; }
+.system-menu-body .save-actions .ui-icon { width: calc(40 * var(--u)); height: calc(40 * var(--u)); }
+.save-slot-list button { text-align: left; min-width: 0; }
+.save-slot-list strong { flex: 0 0 calc(132 * var(--u)); }
+.save-slot-list span { min-width: 0; overflow-wrap: anywhere; }
+.history-entry { width: calc(144 * var(--u)); padding: calc(8 * var(--u)); }
+.history-entry .ui-icon { width: calc(28 * var(--u)); height: calc(28 * var(--u)); }
+.story:has(.history-entry) .dialogue-button .speaker { max-width: calc(100% - 160 * var(--u)); }
+.system-dialog .slider-setting { font-size: calc(28 * var(--u)); margin: calc(24 * var(--u)) 0; text-align: left; }
+.system-dialog .slider-stops small { font-size: calc(22 * var(--u)); }

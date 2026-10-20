@@ -68,7 +68,7 @@ for (const [width,height] of [[1920,1080],[1366,768]]) test(`実地理マップ�
     await page.setViewportSize({width,height})
     await loadMap(initial)
     await page.getByRole('button',{name:'東成ビルサービスを選択',exact:true}).click()
-    await page.getByRole('button',{name:'ここへ移動 ›',exact:true}).click()
+    await page.getByRole('button',{name:'ここへ移動',exact:true}).click()
     await page.locator('.travel-map').waitFor({state:'hidden'})
     const expected=api.reduceGameState(api.scenario,initial,{type:'choose',choiceId:'company'})
     assert.equal(await page.locator('.story').getAttribute('data-node-id'),expected.nodeId)
