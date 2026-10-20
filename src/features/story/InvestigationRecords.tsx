@@ -1,3 +1,5 @@
+import { UiIcon } from './UiIcon'
+import type { IconName } from './UiIcon'
 import { displayText } from './displayText'
 import { useEffect, useRef, useState } from 'react'
 import type { RefObject } from 'react'
@@ -63,7 +65,7 @@ export function InvestigationRecords({ state, onClose, returnFocus, returnFocusR
         targets[event.shiftKey ? targets.length - 1 : 0]?.focus()
       }
     }} onCancel={event => { event.preventDefault(); onClose() }}>
-    <header className="record-header"><h2 id="record-title">調査記録{previewLabel && <span className="record-preview-label">DEV・UI確認用：{previewLabel}</span>}</h2><button type="button" onClick={onClose} aria-label="調査記録を閉じる">× 閉じる</button></header>
+    <header className="record-header"><h2 id="record-title"><UiIcon name="notebook"/>調査記録{previewLabel && <span className="record-preview-label">DEV・UI確認用：{previewLabel}</span>}</h2><button type="button" onClick={onClose} aria-label="調査記録を閉じる"><UiIcon name="close"/><span>閉じる</span></button></header>
     <div className="record-tabs" role="tablist" aria-label="調査記録の分類">
       {RECORD_CATEGORIES.map((tab, index) => <button key={tab.id} ref={element => { tabs.current[index] = element }} type="button" role="tab"
         id={`record-tab-${tab.id}`} aria-selected={category === tab.id} aria-controls="record-panel" tabIndex={category === tab.id ? 0 : -1}
@@ -72,7 +74,7 @@ export function InvestigationRecords({ state, onClose, returnFocus, returnFocusR
             : event.key === 'ArrowLeft' ? (index + RECORD_CATEGORIES.length - 1) % RECORD_CATEGORIES.length
             : event.key === 'Home' ? 0 : event.key === 'End' ? RECORD_CATEGORIES.length - 1 : undefined
           if (next !== undefined) { event.preventDefault(); selectTab(next) }
-        }}>{tab.label}</button>)}
+        }}><UiIcon name={({people: 'people', evidence: 'evidence', events: 'events', belongings: 'bag'} as Record<RecordCategory, IconName>)[tab.id]}/><span>{tab.label}</span></button>)}
     </div>
     <div id="record-panel" className="record-body" role="tabpanel" aria-labelledby={`record-tab-${category}`}>
       <section className="record-list" aria-label={`${RECORD_CATEGORIES.find(tab => tab.id === category)!.label}の一覧`} tabIndex={0}>
@@ -91,7 +93,7 @@ export function InvestigationRecords({ state, onClose, returnFocus, returnFocusR
             : <AssetImage key={selected.imageSrc} className="record-image" src={selected.imageSrc} alt={displayText(selected.imageAlt ?? selected.title)} />)}
           {selected.category === 'people' && !selected.imageSrc && <div className="record-portrait portrait-unknown" aria-label={displayText(selected.faceKnown ? selected.title : '顔は未確認')}>{selected.faceKnown ? '◉' : 'UNKNOWN'}</div>}
           {selected.details.map((text, index) => <p key={index}>{displayText(text)}</p>)}
-          {selected.category === 'belongings' && usableItems.includes(selected.id) && <button className="use-item" type="button" onClick={() => onUse?.(selected.id)}>使用する</button>}
+          {selected.category === 'belongings' && usableItems.includes(selected.id) && <button className="use-item" type="button" onClick={() => onUse?.(selected.id)}><UiIcon name="use"/><span>使用する</span></button>}
         </> : null}
       </section>
     </div>

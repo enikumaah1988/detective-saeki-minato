@@ -5,6 +5,7 @@ import { StoryPlayer } from '../features/story/StoryPlayer'
 import { TitleScreen } from './TitleScreen'
 import type { TitleSession } from './TitleScreen'
 import type { InvestigationRecord } from '../types/investigation'
+import '../features/story/uiSurfaces.css'
 import type { PreviewMode } from '../dev/investigationPreview'
 
 

@@ -59,7 +59,7 @@ export function SaveControls({ state, scenario, history = [], onRestore, onMenuT
   return <details ref={details} className="save-controls" onToggle={event=>{setMenuOpen(event.currentTarget.open);onMenuToggle?.(event.currentTarget.open)}}>
     <summary aria-label="メニュー" onClick={event=>onMenuToggle?.(!(event.currentTarget.parentElement as HTMLDetailsElement).open)}><UiIcon name="menu"/><span className="menu-caption">MENU</span></summary>
     <dialog ref={panel} className="save-panel investigation-records system-menu-panel" aria-label="システムメニュー" onCancel={event=>{event.preventDefault();closeMenu()}}>
-      <header className="record-header"><h2>システムメニュー</h2><button type="button" onClick={closeMenu} aria-label="システムメニューを閉じる">× 閉じる</button></header>
+      <header className="record-header"><h2><UiIcon name="menu"/>システムメニュー</h2><button type="button" onClick={closeMenu} aria-label="システムメニューを閉じる"><UiIcon name="close"/><span>閉じる</span></button></header>
       <div className="system-menu-body">
       <div className="save-actions" aria-label="保存操作">
         <button type="button" onClick={save}><UiIcon name="save"/>SAVE</button>
@@ -74,16 +74,16 @@ export function SaveControls({ state, scenario, history = [], onRestore, onMenuT
       </div>
       </div>
     </dialog>
-    {confirmTitle&&<SystemDialog title="タイトルに戻りますか？" label="ゲームに戻る" initialFocus="close" onClose={()=>setConfirmTitle(false)} confirmAction={<button type="button" onClick={()=>onReturnToTitle?.()}>タイトルに戻る</button>}>
+    {confirmTitle&&<SystemDialog icon="home" title="タイトルに戻りますか？" label="ゲームに戻る" initialFocus="close" onClose={()=>setConfirmTitle(false)} confirmAction={<button type="button" onClick={()=>onReturnToTitle?.()}><UiIcon name="home"/><span>タイトルに戻る</span></button>}>
       <p>保存していない進行は失われます。</p>
     </SystemDialog>}
-    {saved&&<SystemDialog title="セーブしました" dismissible={false} onClose={()=>{setSaved(false);setMessage('');closeMenu()}}/>}
-    {slots&&<SystemDialog title="LOAD" label="戻る" onClose={()=>{setSlots(undefined);setMessage('')}}>
+    {saved&&<SystemDialog icon="save" title="セーブしました" dismissible={false} onClose={()=>{setSaved(false);setMessage('');closeMenu()}}/>}
+    {slots&&<SystemDialog icon="load" title="LOAD" label="戻る" onClose={()=>{setSlots(undefined);setMessage('')}}>
       <div className="save-slot-list">{(['auto',0,1,2] as const).map(id=>{
         const slot=id==='auto'?slots.auto:slots.manual[id],name=id==='auto'?'AUTO':`SAVE ${id+1}`
         return <button type="button" key={id} disabled={!slot} aria-label={displayText(name)} onClick={()=>load(id)}><strong>{displayText(name)}</strong><span>{slot?displayText(slot.label):'空き枠'}</span></button>
       })}</div>{message&&<p role="status">{message}</p>}
     </SystemDialog>}
-    {loaded&&<SystemDialog title="ロードしました" dismissible={false} onClose={()=>{const restored=loaded;setLoaded(undefined);closeMenu();onRestore(restored.state,restored.history)}}/>}
+    {loaded&&<SystemDialog icon="load" title="ロードしました" dismissible={false} onClose={()=>{const restored=loaded;setLoaded(undefined);closeMenu();onRestore(restored.state,restored.history)}}/>}
   </details>
 }

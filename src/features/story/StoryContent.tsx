@@ -32,7 +32,7 @@ export function StoryContent({ node, state, thinking, dispatch, paused, dialogue
     const options = visibleChoices(node, state)
     if (options.length === 0) {
       const continuation = emptyContinuation(node, state)
-      return continuation ? <nav className="command-panel" aria-label="進行"><SelectionMenu paused={paused}><CommandButton paused={paused} onSelect={() => dispatch({ type: 'continue' })}><span className="command-name">{displayText(continuation.label)}</span></CommandButton></SelectionMenu></nav> : null
+      return continuation ? <nav className="command-panel" aria-label="進行"><SelectionMenu paused={paused}><CommandButton paused={paused} onSelect={() => dispatch({ type: 'continue' })}><UiIcon name="move"/><span className="command-name">{displayText(continuation.label)}</span></CommandButton></SelectionMenu></nav> : null
     }
     return (
       <nav className={`command-panel${freeAction ? ' free-action-panel' : ''}`} aria-label={node.type === 'topic' ? node.selection === 'person' ? '相手を選ぶ' : node.parent.commandId === 'speak' ? '話す話題' : '聞く話題' : node.type === 'inspect' ? '調査対象' : '選択肢'}>
@@ -41,7 +41,7 @@ export function StoryContent({ node, state, thinking, dispatch, paused, dialogue
         <SelectionMenu paused={paused} className={`choices ${node.type === 'topic' || node.type === 'inspect' ? 'item-list' : 'command-list'}`}>
           {options.map((option) => {
             const status = choiceStatus(node, option, state)
-            const icon = freeAction || node.type==='choice' || option.id==='return' ? icons[option.id] : undefined
+            const icon = icons[option.id] ?? (node.type === 'topic' ? node.selection === 'person' ? 'people' : 'talk' : node.type === 'inspect' ? 'look' : 'move')
             return (
               <CommandButton key={option.id} paused={paused} onSelect={() => dispatch({ type: 'choose', choiceId: option.id })}>
                 {icon && <UiIcon name={icon} />}
@@ -59,7 +59,7 @@ export function StoryContent({ node, state, thinking, dispatch, paused, dialogue
     <div className="message-window end-window">
       <p className="window-label">シーン終了</p>
       <p className="dialogue" aria-live="polite">{displayText(node.text)}</p>
-      <button type="button" onClick={() => dispatch({ type: 'reset' })}>最初から</button>
+      <button type="button" onClick={() => dispatch({ type: 'reset' })}><UiIcon name="return"/><span>最初から</span></button>
     </div>
   )
 }

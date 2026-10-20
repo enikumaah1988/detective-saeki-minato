@@ -1,3 +1,4 @@
+import { UiIcon } from './UiIcon'
 import { useEffect, useRef, useState } from 'react'
 import type { Choice } from '../../types/scenario'
 import { resolveBackground } from '../../data/presentation'
@@ -40,7 +41,7 @@ export function TravelMap({ options, current, onBack, onMove }: { options: Choic
   return <div ref={root} className={`travel-map${moving ? ' is-moving' : ''}`} aria-label="移動マップ" onKeyDown={event => {
     if (event.key === 'Escape' && !moving) { event.preventDefault(); onBack() }
   }}>
-    <header><div><h1>移動先を選択</h1><p>西新宿周辺</p></div><button type="button" disabled={moving} onClick={onBack}>× 戻る</button></header>
+    <header><div><h1>移動先を選択</h1><p>西新宿周辺</p></div><button type="button" disabled={moving} onClick={onBack}><UiIcon name="return"/><span>戻る</span></button></header>
     <div className="travel-body">
       <nav className="travel-canvas" aria-label="地図の移動先">
         <div ref={viewport} className="travel-map-viewport"><div className="travel-map-surface" style={mapSize}>
@@ -60,7 +61,7 @@ export function TravelMap({ options, current, onBack, onMove }: { options: Choic
           if (moving || selected === current) return
           setMoving(true)
           timer.current = setTimeout(() => onMove(place.id), 300)
-        }}>{selected === current ? '現在地' : 'ここへ移動 ›'}</button>
+        }}><UiIcon name="move"/><span>{selected === current ? '現在地' : 'ここへ移動'}</span></button>
       </> : <><h2>行き先を選択</h2><p>地図のピンを選ぶと、場所の情報が表示されます。</p></>}</aside>
     </div>
     {moving && <div className="travel-fade" role="status">移動中</div>}
