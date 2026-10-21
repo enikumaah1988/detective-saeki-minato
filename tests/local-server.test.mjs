@@ -58,3 +58,39 @@ test('local server owns its lifecycle and preserves foreign processes', { timeou
     }
   } finally { await run('stop', port).catch(() => {}); }
 });
+
+test('concurrent state publication never exposes partial JSON', { timeout: 90000 }, async () => {
+  const reservation = await listener();
+  const port = reservation.address().port;
+  await new Promise(done => reservation.close(done));
+  const statePath = resolve(root, '.local-server', `${port}.json`);
+  try {
+    for (let round = 0; round < 3; round++) {
+      const starts = Array.from({ length: 6 }, () => run('start', port));
+      let watching = true;
+      let snapshots = 0;
+      const observer = (async () => {
+        while (watching) {
+          try {
+            const state = JSON.parse(readFileSync(statePath, 'utf8'));
+            assert.match(state.token, /^[a-f0-9]{64}$/);
+            assert.ok(Number.isInteger(state.pid));
+            snapshots++;
+          } catch (error) {
+            if (error.code !== 'ENOENT') throw error;
+          }
+          await new Promise(done => setTimeout(done, 1));
+        }
+      })();
+      let results;
+      try { results = await Promise.allSettled(starts); }
+      finally { watching = false; await observer; }
+      assert.ok(snapshots > 0);
+      assert.equal(results.filter(result => result.status === 'fulfilled' && /Started:/.test(result.value.stdout)).length, 1);
+      for (const result of results) {
+        if (result.status === 'rejected') assert.doesNotMatch(result.reason.stderr, /Invalid server state/);
+      }
+      assert.match((await run('stop', port)).stdout, /Stopped/);
+    }
+  } finally { await run('stop', port).catch(() => {}); }
+});

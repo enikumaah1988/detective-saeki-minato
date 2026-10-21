@@ -1,6 +1,6 @@
 import { spawn, spawnSync } from 'node:child_process';
 import { randomBytes } from 'node:crypto';
-import { existsSync, mkdirSync, readFileSync, writeFileSync, unlinkSync, openSync, closeSync, renameSync } from 'node:fs';
+import { existsSync, mkdirSync, readFileSync, writeFileSync, unlinkSync, openSync, closeSync, renameSync, linkSync } from 'node:fs';
 import { createServer as createHttpServer } from 'node:http';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -33,10 +33,15 @@ async function control(state, method = 'GET') {
     return response.ok && await response.text() === state.token;
   } catch { return false; }
 }
-function updateState(state) {
-  const temporary = statePath + '.' + process.pid + '.tmp';
-  writeFileSync(temporary, JSON.stringify(state), { mode: 0o600 });
-  renameSync(temporary, statePath);
+function updateState(state, exclusive = false) {
+  const temporary = statePath + '.' + process.pid + '.' + randomBytes(8).toString('hex') + '.tmp';
+  try {
+    writeFileSync(temporary, JSON.stringify(state), { flag: 'wx', mode: 0o600 });
+    if (exclusive) linkSync(temporary, statePath);
+    else renameSync(temporary, statePath);
+  } finally {
+    try { unlinkSync(temporary); } catch (error) { if (error.code !== 'ENOENT') throw error; }
+  }
 }
 function removeOwned(token) {
   if (readState()?.token === token) unlinkSync(statePath);
@@ -91,7 +96,7 @@ async function main() {
   mkdirSync(stateDir, { recursive: true });
   const token = randomBytes(32).toString('hex');
   // Exclusive creation serializes simultaneous starts without killing a PID or a port owner.
-  writeFileSync(statePath, JSON.stringify({ token, pid: process.pid }), { flag: 'wx', mode: 0o600 });
+  updateState({ token, pid: process.pid }, true);
   try {
     if (!existsSync(resolve(root, 'node_modules/vite/bin/vite.js'))) {
       const install = spawnSync(process.platform === 'win32' ? 'npm.cmd' : 'npm', ['ci'], { cwd: root, stdio: 'inherit', shell: process.platform === 'win32' });
