@@ -19,8 +19,12 @@ test('画像定義とフォールバックを表示 UI へ反映する', async (
     const render = (stage) => renderToStaticMarkup(createElement(StageView, { stage }))
     const normal = render({ backgroundId: 'office-afternoon', characterId: 'minato', expression: 'normal' })
     const serious = render({ backgroundId: 'office-afternoon', characterId: 'minato', expression: 'serious' })
-    assert.match(normal, /background-image/)
-    assert.match(normal, /character-image/)
+    // Static rendering has not loaded/decoded images yet. Keep a current-scene
+    // fallback and a hidden loading image rather than presenting an empty img.
+    assert.match(normal, /background-label/)
+    assert.match(normal, /character-silhouette/)
+    assert.match(normal, /style="display:none"/)
+    assert.doesNotMatch(normal, /class="background-image"|class="character-image"/)
     assert.match(normal, /minato\/waist\/neutral\.png/)
     assert.match(serious, /minato\/waist\/serious\.png/)
     const unknown = render({ backgroundId: 'unknown', characterId: 'unknown', expression: 'unknown' })
