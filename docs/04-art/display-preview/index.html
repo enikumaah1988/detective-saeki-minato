@@ -20,9 +20,9 @@ body{padding:24px}.review-header,.controls,.notes{max-width:1440px;margin:0 auto
 <button type="button"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 15h18v4H3zM16 15v4M19 10c-4-4 2-4-2-8M14 10c-4-4 2-4-2-8"/></svg><span>タバコを吸う</span></button>
 </div><div class="scene-context"><span>佐伯探偵事務所・仮背景</span><span>日時未設定</span></div></header>
 <div class="stage-wrapper"><div class="stage">
-<img class="background-image" src="../../../src/assets/backgrounds/office-afternoon.png" alt="既存の事務所仮背景">
-<div class="character character--left"><img id="minatoImage" class="character-image" alt="湊の腰上素材"><img class="ghost" hidden src="../../../src/assets/images/characters/minato/waist/neutral.png" alt=""></div>
-<div class="character character--right"><img id="mioImage" class="character-image" alt="澪の腰上素材"><img class="ghost" hidden src="../../../src/assets/images/characters/mio/waist/neutral.png" alt=""></div>
+<img class="background-image" src="../../../../src/assets/images/backgrounds/office-afternoon.png" alt="既存の事務所仮背景">
+<div class="character character--left"><img id="minatoImage" class="character-image" alt="湊の腰上素材"><img class="ghost" hidden src="../../../../src/assets/images/characters/minato/waist/neutral.png" alt=""></div>
+<div class="character character--right"><img id="mioImage" class="character-image" alt="澪の腰上素材"><img class="ghost" hidden src="../../../../src/assets/images/characters/mio/waist/neutral.png" alt=""></div>
 </div></div>
 <button class="message-window dialogue-button" type="button"><span class="speaker">表示確認用</span><span class="dialogue">顔の大きさと、手の見え方を確認します。
 表情を切り替えて、位置の変化を比べてください。
@@ -34,7 +34,7 @@ body{padding:24px}.review-header,.controls,.notes{max-width:1440px;margin:0 auto
 const keys={minato:['neutral','smile','serious','surprised','irritated','pained','relieved'],mio:['neutral','smile','amused','serious','surprised','worried','pained','relieved']};
 const names={neutral:'通常',smile:'微笑み',serious:'真剣',surprised:'驚き',irritated:'苛立ち',pained:'沈痛',relieved:'安堵',amused:'楽しげ',worried:'心配'};
 const story=document.querySelector('.story');
-function setExpression(id,key){document.getElementById(id).value=key;document.getElementById(id+'Image').src='../../../src/assets/images/characters'+id+'/waist/'+key+'.png';}
+function setExpression(id,key){document.getElementById(id).value=key;document.getElementById(id+'Image').src='../../../../src/assets/images/characters'+id+'/waist/'+key+'.png';}
 for(const id of Object.keys(keys)){const select=document.getElementById(id);for(const key of keys[id]){const o=document.createElement('option');o.value=key;o.textContent=names[key]+' / '+key;select.append(o);}select.onchange=()=>setExpression(id,select.value);setExpression(id,'neutral');}
 function setLayout(value){document.getElementById('layout').value=value;story.classList.toggle('candidate',value!=='current');story.classList.toggle('calibrated',value==='calibrated');}document.getElementById('layout').onchange=e=>setLayout(e.target.value);
 function toggle(id,action){const b=document.getElementById(id);b.onclick=()=>{const on=b.getAttribute('aria-pressed')!=='true';b.setAttribute('aria-pressed',on);action(on);};}

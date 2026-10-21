@@ -16,7 +16,7 @@ for (const [width,height] of [[1920,1080],[1366,768]]) test(`実地理マップ�
     const source=await page.locator('aside[aria-label="選択した場所"] img').getAttribute('src')
     const response=await page.request.get(new URL(source,url).href)
     const hash=bytes=>createHash('sha256').update(bytes).digest('hex')
-    assert.equal(hash(await response.body()),hash(readFileSync(new URL(`../src/assets/backgrounds/${background}.png`,import.meta.url))))
+    assert.equal(hash(await response.body()),hash(readFileSync(new URL(`../src/assets/images/backgrounds/${background}.png`,import.meta.url))))
   }
   const api=await loadRevision(), run=buildPlaythrough(api,true)
   const initial={...run.checkpoints.find(p=>p.phase==='P2-01').state,nodeId:'P2-01-map'}

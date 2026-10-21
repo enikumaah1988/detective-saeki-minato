@@ -2,8 +2,8 @@
 
 2026-10-13。両画像とも正式採用前の候補。本編の向き確認用に接続。既存70素材は上書きしない。
 
-- 湊の正面通常：デザイン担当の内蔵画像生成による原本を、担当が全キャンバス等比縮小した1024×1024候補として受領。制作元docs/04-art/characters/minato/drafts/front-neutral-01.png、報告コミットdb0fcbf・引継ぎ11924ee。[確認用PNG](../../src/assets/direction-candidates/minato-front.png)。原本は C:/Users/lemon/.codex/generated_images/01a123a2-b46f-77d3-b27e-a7f8a37b3920/exec-cc64a5c6-0111-4d86-bb3e-a249d585e0a5.png。ゲーム保存先 src/assets/direction-candidates/minato-front.png。
-- あかりの右向き悲しみ：組込担当がimagegenスキルの内蔵image_genツールで既存sad画像を編集。CLI/APIキー方式は使わない。[確認用PNG](../../src/assets/direction-candidates/akari-right-sad.png)。原本は C:/Users/lemon/.codex/generated_images/01a12b79-c2e5-7ba0-80be-fe6944fa8fce/exec-1bb5c6cb-e8ef-4f67-8d9e-9dfb305bdcc8.png。ゲーム保存先 src/assets/direction-candidates/akari-right-sad.png。
+- 湊の正面通常：デザイン担当の内蔵画像生成による原本を、担当が全キャンバス等比縮小した1024×1024候補として受領。制作元docs/04-art/characters/minato/drafts/front-neutral-01.png、報告コミットdb0fcbf・引継ぎ11924ee。[確認用PNG](../../../src/assets/images/direction-candidates/minato-front.png)。原本は C:/Users/lemon/.codex/generated_images/01a123a2-b46f-77d3-b27e-a7f8a37b3920/exec-cc64a5c6-0111-4d86-bb3e-a249d585e0a5.png。ゲーム保存先 src/assets/images/direction-candidates/minato-front.png。
+- あかりの右向き悲しみ：組込担当がimagegenスキルの内蔵image_genツールで既存sad画像を編集。CLI/APIキー方式は使わない。[確認用PNG](../../../src/assets/images/direction-candidates/akari-right-sad.png)。原本は C:/Users/lemon/.codex/generated_images/01a12b79-c2e5-7ba0-80be-fe6944fa8fce/exec-1bb5c6cb-e8ef-4f67-8d9e-9dfb305bdcc8.png。ゲーム保存先 src/assets/images/direction-candidates/akari-right-sad.png。
 
 湊1024×1024、あかり1254×1254。ともにRGBA、alpha範囲0〜255。コピー元とゲーム画像のSHA-256一致を確認。顔・髪・衣装・手・バッグの左右を目視。3人配置では向きを画像として使い、CSS水平反転はしない。女性90%・上17%の既定の暫定表示倍率を維持。左22%・中央50%・右78%は3人時の確認用配置であり、実身長設定や正式作画基準の新しい確定ではない。
 

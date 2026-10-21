@@ -26,7 +26,7 @@
 - 全員が左を向くという指摘の画面では、元PNG・デモ画像・表示反転の適用を組込側で照合する。今回確認した元PNGの湊・瀬川は画面右寄り。
 
 ## 先行納品
-- [湊の正面通常候補](../../src/assets/direction-candidates/minato-front.png)：透過1024×1024。[生成条件・原本](characters/minato/drafts/front-neutral-01-prompt.json)、[検証](characters/minato/drafts/front-neutral-01.validation.json)。
+- [湊の正面通常候補](../../../src/assets/images/direction-candidates/minato-front.png)：透過1024×1024。[生成条件・原本](characters/minato/drafts/front-neutral-01-prompt.json)、[検証](characters/minato/drafts/front-neutral-01.validation.json)。
 - 顔・眼鏡・無精髭・衣装・胸ポケット側・手の所作を目視確認。正面の頭と肩を新規作画。顔・頭頂・衣服のしわの微差は採用確認対象。全キャンバスを等比寸法調整し、輪郭での拡大や反転はしていない。
 - 既存waist/neutral.pngと採用sheetは維持。候補はdraftsに保存、正式採用・置換・本編接続はしていない。
 - 湊の先行制作コミット：db0fcbf（art/main-characters、ローカル）。

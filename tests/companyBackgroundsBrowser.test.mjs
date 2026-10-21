@@ -35,7 +35,7 @@ for (const [width, height] of [[1920, 1080], [1366, 768]]) test(`会社5背景�
       const response = await page.request.get(new URL(source, url).href)
       assert.equal(response.ok(), true)
       const hash = bytes => createHash('sha256').update(bytes).digest('hex')
-      assert.equal(hash(await response.body()), hash(readFileSync(new URL(`../src/assets/backgrounds/${background}.png`, import.meta.url))), `${background}: 今回制作した素材を配信する`)
+      assert.equal(hash(await response.body()), hash(readFileSync(new URL(`../src/assets/images/backgrounds/${background}.png`, import.meta.url))), `${background}: 今回制作した素材を配信する`)
     }
     const advanceNode = async () => {
       const current = await page.locator('.story').getAttribute('data-node-id')

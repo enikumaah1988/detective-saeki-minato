@@ -8,7 +8,7 @@ export const stationImage = new URL('./assets/station-mock.png', import.meta.url
 export const cafeImage = new URL('./assets/cafe-mock.png', import.meta.url).href
 export type OutdoorPlace = 'outside' | 'station' | 'cafe'
 const locations = [
-  { id: 'outside', name: '探偵事務所', description: '事務所のあるビル。ロビーから事務所へ戻れる。', image: new URL('../assets/backgrounds/office-afternoon.png', import.meta.url).href, x: 22, y: 65 },
+  { id: 'outside', name: '探偵事務所', description: '事務所のあるビル。ロビーから事務所へ戻れる。', image: new URL('../assets/images/backgrounds/office-afternoon.png', import.meta.url).href, x: 22, y: 65 },
   { id: 'station', name: '駅前', description: '駅前の広場。人の往来が多い。', image: stationImage, x: 49, y: 32 },
   { id: 'cafe', name: '喫茶店', description: '静かな通りにある喫茶店。窓から暖かな灯りが漏れている。', image: cafeImage, x: 72, y: 77 },
 ] as const

@@ -2,7 +2,7 @@
 
 2026-10-18のユーザー依頼により制作。新規生成保留の例外は今回のタイトル専用背景1枚に限定する。
 
-現行成果: [title-office-night.png](../../../src/assets/images/ui/title-office-night.png)。扉絵と同じ1672×941。文字・ロゴ・メニュー・人物なし。ユーザーが07を了承しタイトル画面の制作を依頼したため、07をゲーム素材の正本へ移動して接続。二重コピーは保持しない。既存の本編事務所背景は変更していない。01〜06は旧候補として保持。
+現行成果: [title-office-night.png](../../../../src/assets/images/ui/title-office-night.png)。扉絵と同じ1672×941。文字・ロゴ・メニュー・人物なし。ユーザーが07を了承しタイトル画面の制作を依頼したため、07をゲーム素材の正本へ移動して接続。二重コピーは保持しない。既存の本編事務所背景は変更していない。01〜06は旧候補として保持。
 
 ## 現行候補07：窓の縦枠とブラインド密度を修正
 
@@ -66,7 +66,7 @@ Create ONE revised game title background, 1672x941 wide 16:9, semi-realistic low
 
 ## 初回候補01の参照と整合性（以下は制作経緯）
 
-- `src/data/presentation.ts` から現行の事務所背景を確認し、`src/assets/backgrounds/office-day.png` と `office-evening.png` を目視確認。
+- `src/data/presentation.ts` から現行の事務所背景を確認し、`src/assets/images/backgrounds/office-day.png` と `office-evening.png` を目視確認。
 - `docs/04-art/backgrounds/README.md` の「左の書棚・机・ソファ、中央窓、右の書類棚・入口」を優先。
 - 添付画像は雰囲気と中央のタイトル・メニュー配置の参考のみ。添付の机・照明配置は現行背景と異なるため、制作前に報告し、既存背景の配置を維持した。
 - 同じ室内の窓寄りにわずかに寄った専用フレーミング。茶色の窓枠・ブラインド、左の書棚と執務机・照明・ソファ、右の書類棚・植物・コート掛け・傘立て・額・入口、床とラグを照合。未確認の壁・窓・扉や家具を追加していない。

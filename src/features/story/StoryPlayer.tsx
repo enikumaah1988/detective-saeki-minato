@@ -28,8 +28,8 @@ import { DialogueWindow } from './DialogueWindow'
 import { UiIcon } from './UiIcon'
 import { selectSmokingPresentation } from './smoking'
 
-const smokingCutIn = new URL('../../assets/cutins/minato-smoking.png', import.meta.url).href
-const nonSmokingCutIn = new URL('../../assets/cutins/minato-non-smoking.png', import.meta.url).href
+const smokingCutIn = new URL('../../assets/images/cutins/minato-smoking.png', import.meta.url).href
+const nonSmokingCutIn = new URL('../../assets/images/cutins/minato-non-smoking.png', import.meta.url).href
 
 export function StoryPlayer({ scenario, initialSession, preview, smokingAllowed, suspended = false, onReturnToTitle }: { scenario: Scenario; initialSession?: TitleSession; preview?: { records: InvestigationRecord[]; label: string; invoker: HTMLElement }; smokingAllowed?: boolean; suspended?: boolean; onReturnToTitle?: () => void }) {
   const [playback, send] = useReducer(
