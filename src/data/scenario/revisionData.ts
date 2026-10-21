@@ -1405,7 +1405,7 @@ export const revisionData: RevisionData = {
       "intro": [
         {
           "speakerId": "narrator",
-          "text": "西新宿六丁目。西新宿セントラルタワーの表示を、澪のメモと見比べた。十二階に、東成ビルサービスが入っている。直人がいつものように出勤したと、あかりが思っていた会社だ。"
+          "text": "西新宿六丁目。西新宿セントラルタワーの表示を、澪のメモと見比べた。東成ビルサービスが入っているビルだ。直人がいつものように出勤したと、あかりが思っていた会社だ。"
         },
         {
           "speakerId": "minato",
@@ -1423,7 +1423,7 @@ export const revisionData: RevisionData = {
           "lines": [
             {
               "speakerId": "narrator",
-              "text": "西新宿セントラルタワー。東成ビルサービス株式会社は十二階の一部を借りている。所在地は澪が確認したものと一致する。"
+              "text": "西新宿セントラルタワー。東成ビルサービス株式会社の表示がある。所在地は澪が確認したものと一致する。"
             }
           ],
           "requires": [],
@@ -1435,15 +1435,67 @@ export const revisionData: RevisionData = {
       ],
       "think": [],
       "exit": {
-        "label": "受付",
-        "nextSceneId": "P2-02",
+        "label": "エレベーターホール",
+        "nextSceneId": "P2-02-LOBBY",
         "requires": []
       },
       "ending": [],
       "organize": []
     },
     {
+      "id": "P2-02-LOBBY",
+      "part": 1,
+      "locationId": "company",
+      "roomId": "company-lobby",
+      "sceneTime": "2026-10-08T12:22:00",
+      "intro": [
+        {
+          "speakerId": "narrator",
+          "text": "石張りの共用ロビーの奥に、エレベーターが並ぶ。脇にはテナント一覧が掲げられている。"
+        }
+      ],
+      "people": [],
+      "required": [
+        "company-floor-confirmed"
+      ],
+      "ask": [],
+      "speak": [],
+      "inspect": [
+        {
+          "id": "p2-tenant-list",
+          "label": "テナント一覧",
+          "inspection": "investigate",
+          "lines": [
+            {
+              "speakerId": "narrator",
+              "text": "東成ビルサービス株式会社――十二階。入居先を確かめた。"
+            }
+          ],
+          "requires": [],
+          "grants": [
+            "company-floor-confirmed"
+          ],
+          "required": true
+        }
+      ],
+      "think": [],
+      "returnExit": {
+        "label": "外に出る",
+        "nextSceneId": "P2-02-EXT"
+      },
+      "exit": {
+        "label": "12Fに移動",
+        "nextSceneId": "P2-02",
+        "requires": [
+          "company-floor-confirmed"
+        ]
+      },
+      "ending": [],
+      "organize": []
+    },
+    {
       "id": "P2-02",
+      "returnExit": { "label": "1Fに移動", "nextSceneId": "P2-02-LOBBY" },
       "part": 1,
       "locationId": "company",
       "roomId": "company-reception",
@@ -1451,8 +1503,8 @@ export const revisionData: RevisionData = {
       "intro": [
         {
           "speakerId": "narrator",
-          "text": "石張りの共用ロビーを抜け、案内板で十二階を確かめる。エレベーターで上がり、東成ビルサービスの受付へ向かった。",
-          "backgroundId": "company-lobby"
+          "text": "エレベーターを十二階で降り、東成ビルサービスの受付へ向かった。",
+          "backgroundId": "company-reception"
         },
         {
           "speakerId": "narrator",
@@ -2043,6 +2095,36 @@ export const revisionData: RevisionData = {
       "speak": [],
       "inspect": [],
       "think": [],
+      "exit": {
+        "label": "1Fに移動",
+        "nextSceneId": "P2-03-LOBBY-EXIT",
+        "requires": []
+      },
+      "ending": [],
+      "organize": []
+    },
+    {
+      "id": "P2-03-LOBBY-EXIT",
+      "part": 1,
+      "locationId": "company",
+      "roomId": "company-lobby",
+      "sceneTime": "2026-10-08T13:06:00",
+      "intro": [
+        {
+          "speakerId": "narrator",
+          "text": "一階のエレベーターホールへ戻った。外へ出て、次の訪問先へ向かおう。"
+        }
+      ],
+      "people": [],
+      "required": [],
+      "ask": [],
+      "speak": [],
+      "inspect": [],
+      "think": [],
+      "returnExit": {
+        "label": "12Fに移動",
+        "nextSceneId": "P2-03-EXIT"
+      },
       "exit": {
         "label": "外に出る",
         "nextSceneId": "P2-04",

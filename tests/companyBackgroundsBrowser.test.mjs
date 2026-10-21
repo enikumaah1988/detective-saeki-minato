@@ -43,13 +43,31 @@ for (const [width, height] of [[1920, 1080], [1366, 768]]) test(`会社5背景�
       assert.notEqual(await page.locator('.story').getAttribute('data-node-id'), current)
     }
     if (process.env.SAEKI_COMPANY_EVIDENCE) await mkdir(process.env.SAEKI_COMPANY_EVIDENCE, { recursive: true })
-    for (const [nodeId, background] of [['P2-02-EXT-intro', 'company-exterior'], ['P2-02-intro', 'company-lobby'], ['P2-02-intro-2', 'company-reception'], ['P2-03-intro', 'company-lounge'], ['p2-reception-exists-2', 'company-office']]) {
+    for (const [nodeId, background] of [['P2-02-EXT-intro', 'company-exterior'], ['P2-02-LOBBY-intro', 'company-lobby'], ['P2-02-intro-2', 'company-reception'], ['P2-03-intro', 'company-lounge'], ['p2-reception-exists-2', 'company-office']]) {
       await load(nodeId)
       await verify(background)
       if (process.env.SAEKI_COMPANY_EVIDENCE) await page.screenshot({ path: `${process.env.SAEKI_COMPANY_EVIDENCE}/${background}-${width}.png` })
-      if (background === 'company-lobby') { await advanceNode(); await verify('company-reception') }
+      if (background === 'company-lobby') { await advanceNode(); assert.equal(await page.locator('.story').getAttribute('data-node-id'), 'P2-02-LOBBY-menu') }
       if (background === 'company-office') { await advanceNode(); await verify('company-reception'); assert.equal(await page.locator('.story').getAttribute('data-node-id'), 'P2-02-targets') }
     }
+    const choose = async label => {
+      const current = await page.locator('.story').getAttribute('data-node-id')
+      await page.locator('.command-panel button').filter({ has: page.locator('.command-name', { hasText: new RegExp('^' + label + String.fromCharCode(36)) }) }).click()
+      await page.waitForFunction(id => document.querySelector('.story')?.getAttribute('data-node-id') !== id, current)
+    }
+    const read = async () => { for (let n = 0; n < 25 && await page.locator('.dialogue-button').count(); n++) await advanceNode() }
+    await load('P2-02-LOBBY-menu')
+    await page.getByRole('button', { name: 'タバコを吸う', exact: true }).click()
+    for (let n = 0; n < 12 && !/テナント一覧/.test(await page.locator('.smoking-overlay').textContent()); n++) await page.locator('.smoking-overlay .dialogue-button').click()
+    assert.match(await page.locator('.smoking-overlay').textContent(), /テナント一覧/)
+    for (let n = 0; n < 12 && await page.locator('.smoking-overlay').count(); n++) await page.locator('.smoking-overlay .dialogue-button').click()
+    await choose('移動')
+    assert.equal(await page.locator('.command-name', { hasText: '１２Fに移動' }).count(), 0)
+    await choose('戻る'); await choose('調べる'); await choose('テナント一覧'); await read(); await choose('戻る')
+    await choose('移動'); await choose('１２Fに移動'); await read()
+    assert.equal(await page.locator('.story').getAttribute('data-node-id'), 'P2-02-menu')
+    await choose('移動'); await choose('１Fに移動')
+    assert.equal(await page.locator('.story').getAttribute('data-node-id'), 'P2-02-LOBBY-menu')
     assert.deepEqual(errors, [])
   } finally { await browser.close() }
 })

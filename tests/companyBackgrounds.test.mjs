@@ -19,8 +19,8 @@ test('会社背景5枚は独立した1920×1080 PNGで、既存の会社場面�
 
 test('ロビー・執務室の演出をセーブ復元しても受付へ戻り、受付認識を取得する', () => {
   const { scenario, createInitialState, createSaveData, restoreSaveData, reduceGameState } = api
-  assert.equal(scenario.nodes['P2-02-arrival'].stage.backgroundId, 'company-lobby')
-  for (const [start, background, end] of [['P2-02-intro', 'company-lobby', 'P2-02-menu'], ['p2-reception-exists-2', 'company-office', 'P2-02-targets']]) {
+  assert.equal(scenario.nodes['P2-02-arrival'].stage.backgroundId, 'company-reception')
+  for (const [start, background, end] of [['P2-02-intro', 'company-reception', 'P2-02-menu'], ['p2-reception-exists-2', 'company-office', 'P2-02-targets']]) {
     let state = { ...createInitialState(scenario), nodeId: start }
     assert.equal(scenario.nodes[start].stage.backgroundId, background)
     const save = createSaveData(state)
@@ -39,5 +39,5 @@ test('ロビー・執務室の演出をセーブ復元しても受付へ戻り�
 })
 
 test('会社の移動先は既存の外観・受付・応接室に留まる', () => {
-  assert.deepEqual([...new Set(api.revisionData.scenes.filter(phase => phase.locationId === 'company').map(phase => phase.roomId))].sort(), ['company-exterior', 'company-lounge', 'company-reception'])
+  assert.deepEqual([...new Set(api.revisionData.scenes.filter(phase => phase.locationId === 'company').map(phase => phase.roomId))].sort(), ['company-exterior', 'company-lobby', 'company-lounge', 'company-reception'])
 })

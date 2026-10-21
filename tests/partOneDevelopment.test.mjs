@@ -4,7 +4,7 @@ import {loadRevision,buildPlaythrough} from './revisionHarness.mjs'
 
 test('新第1部は会社・旧ビル・階段・帰所まで。警察と本人との約束は第2部',async()=>{
  const api=await loadRevision(),run=buildPlaythrough(api,true)
- assert.equal(api.revisionData.scenes.filter(phase=>phase.part===1).length,16)
+ assert.equal(api.revisionData.scenes.filter(phase=>phase.part===1).length,18)
  assert.equal(api.revisionData.scenes.find(phase=>phase.id==='P2-06').part,1)
  assert.equal(api.revisionData.scenes.find(phase=>phase.id==='P2-07').part,2)
  assert.equal(api.revisionData.scenes.find(phase=>phase.id==='P2-07').locationId,'office')
