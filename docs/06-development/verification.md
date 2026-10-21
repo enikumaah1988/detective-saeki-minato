@@ -13,6 +13,7 @@ npm run build
 - lint依存は[tools/lint](../../tools/lint/README.md)でゲーム用TypeScriptから分離する。警告上限を引き上げて隠さない。
 - ブラウザーは外部Playwright／Chromiumが必要。SAEKI_PLAYWRIGHT_PATHにモジュール、SAEKI_PART1_URLに本編URL、SAEKI_BASE_URLに旧デモURL（?scenario=gray-testimony-part1-demo付き）を指定する。各テストの通常タイトル／DEV直行の前提を確認する。未設定のブラウザー項目はスキップであり確認済みではない。
 - PCの主な確認サイズは1920×1080・1366×768。Firefox／Safari・スマホの実機保証と区別する。人の所要時間・難易度・没入感は自動完走だけでは確認できない。
+- `tests/mobileLandscapeBrowser.test.mjs`は667×375・844×390・915×412をChromiumの横向きタッチ環境で確認する。外部Playwrightと本編URLを上記の環境変数で指定し、HUD・会話履歴・保存／復元・調査記録・選択肢・地図を実際にタップする。各対象の画面内配置と中心点のヒット判定も調べる。既存の比例縮小レイアウトを対象とし、スマホ専用UIの採用やiOS／Android実機での押しやすさ・ブラウザー固有挙動の保証とは区別する。
 - ブラウザーサーバーはロジックテストと別のViteキャッシュを使い、終了時は自分が開始したものだけを止める。環境固有の[Windows設定](../../tools/windows-vite.config.mjs)を一般環境へ無条件に適用しない。
 - 文書整理ではMarkdownリンク・相対パス・参照・非対象ファイルの保持を確認し、影響に応じた既存テストを選ぶ。アプリ挙動を変えない文書変更でゲームのビルドや全ブラウザーを省略した場合は、その理由をPRに記す。
 
