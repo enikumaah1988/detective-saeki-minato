@@ -13,10 +13,11 @@ export async function loadRevision() {
     return { scenario, revisionData, ...state, ...free, ...saves, ...records, ...dates, ...commands }
   } finally { await server.close() }
 }
-export function buildPlaythrough(api, requiredOnly = false) {
+export function buildPlaythrough(api, requiredOnly = false, config = {}) {
   const { scenario, revisionData, createInitialState, reduceGameState, visibleChoices, matchesCondition, applyUpdates } = api
-  let state=createInitialState(scenario), count=0
-  const operations=[], checkpoints=[], boundaries=[]
+  let state=config.state ?? createInitialState(scenario), count=0
+  const operations=[], checkpoints=[], boundaries=[], states=[]
+  const returned=new Set()
   const phaseFor=node=>[...revisionData.scenes].sort((a,b)=>b.id.length-a.id.length).find(phase=>node.sceneId===phase.id||node.sceneId?.startsWith(phase.id+'-'))
   const actions=new Map(revisionData.scenes.flatMap(phase=>[...phase.ask,...phase.speak,...phase.inspect,...phase.think,...(phase.organize??[])].map(action=>[action.id,action])))
   const checkpoint=(phase,value)=>{
@@ -33,10 +34,20 @@ export function buildPlaythrough(api, requiredOnly = false) {
     if(node.type==='choice'&&node.mode==='free-action'&&action.choiceId==='move')checkpoint(phase,state)
     const before=state,after=reduceGameState(scenario,state,action)
     if(after===before)throw new Error('拒否された操作 '+state.nodeId+' '+JSON.stringify(action))
+    states.push(before)
     operations.push({before:before.nodeId,after:after.nodeId,action,label:option?.label,map:Boolean(node.map)})
     state=after;if(++count>6000)throw new Error('進行ループ')
   }
-  const choose=id=>input({type:'choose',choiceId:id})
+  const choose=id=>{
+    const action={type:'choose',choiceId:id}
+    input(action)
+    const node=scenario.nodes[state.nodeId]
+    if(config.returns && (node.type==='topic'||node.type==='inspect'||node.map) && !returned.has(state.nodeId)){
+      returned.add(state.nodeId)
+      input({type:'choose',choiceId:'return'})
+      input(action)
+    }
+  }
   while(state.nodeId!=='episode-complete'){
     const node=scenario.nodes[state.nodeId]
     if(node.type==='dialogue'){
@@ -62,7 +73,7 @@ export function buildPlaythrough(api, requiredOnly = false) {
         if(requiredOnly&&!(action?.required??item.topic.required))return false
         return !(item.kind==='inspect'?state.inspectedTargets:state.heardTopics).includes(item.topic.id) && !(item.kind==='thought'&&action?.grants.every(id=>state.acquiredInformation.includes(id)))
       }).sort((a,b)=>Number(actions.get(a.topic.id)?.required??a.topic.required??false)-Number(actions.get(b.topic.id)?.required??b.topic.required??false))
-      const selected=available[0]
+      const selected=config.reverse ? available.at(-1) : available[0]
       if(selected){choose(selected.command);if(selected.person)choose(selected.person);if(selected.kind!=='thought')choose(selected.topic.id);continue}
       if(options.some(item=>item.id==='move')){choose('move');continue}
       throw new Error('未解決の進行 '+state.nodeId+' '+JSON.stringify(options.map(item=>item.id)))
@@ -74,5 +85,5 @@ export function buildPlaythrough(api, requiredOnly = false) {
     if(move){choose(move.id);continue}
     throw new Error('未知の選択 '+state.nodeId)
   }
-  return {state,operations,checkpoints,boundaries}
+  return {state,operations,checkpoints,boundaries,states}
 }
