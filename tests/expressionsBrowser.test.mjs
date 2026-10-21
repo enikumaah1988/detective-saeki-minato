@@ -12,9 +12,15 @@ for (const [width, height] of [[1920, 1080], [1366, 768]]) test(`感情別立ち
   const person = id => page.locator(`[data-character-id="${id}"]`)
   const expectExpression = async (id, expression) => {
     assert.equal(await person(id).getAttribute('data-expression'), expression)
-    await person(id).locator('img').evaluate(image => image.decode())
-    assert.ok(await person(id).locator('img').evaluate(image => image.naturalWidth > 0))
-    return person(id).locator('img').getAttribute('src')
+    const expected = await page.evaluate(async ({ id, expression }) => {
+      const { resolveExpression } = await import('/src/data/presentation.ts')
+      return resolveExpression(id, expression).imageSrc
+    }, { id, expression })
+    await page.waitForFunction(({ id, expected }) => {
+      const image = document.querySelector(`[data-character-id="${id}"] .character-image`)
+      return image?.src === expected && image.complete && image.naturalWidth > 0
+    }, { id, expected })
+    return person(id).locator('.character-image').getAttribute('src')
   }
   const load = async (nodeId, phase) => {
     await page.goto(url)

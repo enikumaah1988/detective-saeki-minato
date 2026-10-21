@@ -127,16 +127,20 @@ test('通常起動はタイトル画面を表示し、開発切替は表示し�
   assert.doesNotMatch(html, /クリック・タップ \/ Enter・Space/)
 })
 
-test('画像表示中は素材ラベルを重ねず、未設定と読み込み失敗で代替表示する', async () => {
+test('読み込み待ちと失敗では代替表示し、準備済み画像に素材ラベルを重ねない', async () => {
   const server = await createServer({ server: { middlewareMode: true, hmr: false, ws: false }, appType: 'custom' })
   try {
-    const { StageView, AssetImage } = await server.ssrLoadModule('/src/features/story/StageView.tsx')
+    const { StageView, StageImage } = await server.ssrLoadModule('/src/features/story/StageView.tsx')
     const html = renderToStaticMarkup(createElement(StageView, { stage: scenario.nodes['office-daily'].stage }))
-    assert.doesNotMatch(html, /background-label|人物表示領域|character-placeholder/)
+    assert.match(html, /background-label|character-silhouette/)
     const fallback = createElement('span', null, '代替人物')
-    const image = new AssetImage({ src: '/missing.svg', alt: '人物', className: 'character-image', fallback })
-    image.setState = (update) => { image.state = { ...image.state, ...update } }
-    image.render().props.onError()
+    const image = new StageImage({ src: '/normal.svg', alt: '人物', className: 'character-image', fallback })
+    assert.match(renderToStaticMarkup(image.render()), /代替人物/)
+    image.state = { ...image.state, ready: { src: '/normal.svg', alt: '人物' } }
+    const ready = renderToStaticMarkup(image.render())
+    assert.match(ready, /class="character-image"/)
+    assert.doesNotMatch(ready, /代替人物|background-label/)
+    image.state = { ...image.state, failed: true }
     assert.strictEqual(image.render(), fallback)
   } finally { await server.close() }
 })
