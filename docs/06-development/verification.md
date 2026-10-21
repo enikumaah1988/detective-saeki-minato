@@ -18,4 +18,16 @@ npm run build
 
 既存[GitHub Actions](../../.github/workflows/ci.yml)はPRとmainへのpushで、LFS取得、Node 24、npm ci、Nodeテスト、分離lint、型チェック・ビルドを実行する。CIが成功しても、環境未指定でスキップされたブラウザーを確認済みとしない。
 
+## 配布用ビルドの確認
+
+Git LFS素材・依存関係と外部Playwright／Chromiumを用意し、`SAEKI_PLAYWRIGHT_PATH`を設定して`npm run test:distribution`を実行する。Chromiumの格納先を既定から変えた環境では`PLAYWRIGHT_BROWSERS_PATH`も指定する。このコマンドは型チェックと本番ビルド後、`dist`だけを一時的な静的HTTPサーバー（127.0.0.1・空きポート）で配信し、終了時にブラウザーとサーバーを閉じる。開発サーバーの起動や`SAEKI_PART1_URL`の設定は不要。
+
+- 全配布画像・フォントのHTTP取得、Content-Type・ファイルヘッダー・LFSポインター混入を検査する。
+- Chromiumの1366×768でタイトル画像、新規開始、会話進行、画面操作によるSAVE、再読み込み後のCONTINUE、保存位置・履歴・音量設定の維持を確認する。`?dev=1`でもDEV操作が表示されないこと、ブラウザー例外・HTTPエラーがないことも検査する。
+- 明示コマンドはPlaywright未設定、Chromium未導入、ビルド失敗、検証失敗で非ゼロ終了する。通常のNodeテスト一括実行ではPlaywright未設定時にこのブラウザー項目をスキップする。既存CIは外部ブラウザー未設定のため配布ブラウザー検証を保証しない。
+
+手動確認は`npm run build`後に`npm run preview -- --host 127.0.0.1`で表示されたHTTP URLを開く。サーバー停止はCtrl+C。配布物は`dist`全体であり、現行設定の配置先はHTTPサイトのルート（`/`）。`file://`でHTMLを直接開く方式は対象外。サブディレクトリ配信は現行の既定設定で保証せず、配信先に合わせたViteのbase設定と再ビルド・別検証を要する。
+
+この確認は配布物からの基本起動と保存復帰を対象とし、全シナリオ完走、全画像の目視品質、音素材の再生、Firefox／Safari・スマホ実機・外部ホスティング固有の設定まで確認済みとは扱わない。
+
 由来：既存ルートREADME、AGENTS.mdの検証節、[旧開発タスクの型](../project-management/開発タスクの型.md)、現行ci.yml。検証の新しい承認ルールを追加する文書ではない。

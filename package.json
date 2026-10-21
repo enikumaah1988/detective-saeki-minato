@@ -7,6 +7,7 @@
     "dev": "vite",
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview",
+    "test:distribution": "npm run build && node tools/check-distribution.mjs",
     "lint": "node tools/lint/node_modules/eslint/bin/eslint.js --config tools/lint/eslint.config.mjs --max-warnings 0 src vite.config.ts tools/lint/eslint.config.mjs"
   },
   "dependencies": {
