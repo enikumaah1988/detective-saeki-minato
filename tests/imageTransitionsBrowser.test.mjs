@@ -22,17 +22,8 @@ test('遅い画像切替・競合・失敗でも同一人物と場面の表示�
     })
     // テスト内だけで実コンポーネントへ場面を渡す。本編にプレビューや素材を足さない。
     await page.evaluate(async () => {
-      const react = await import('/node_modules/.vite/deps/react.js')
-      const createElement = react.createElement ?? react.default.createElement
-      const reactDom = await import('/node_modules/.vite/deps/react-dom_client.js')
-      const createRoot = reactDom.createRoot ?? reactDom.default.createRoot
-      const { StageView } = await import('/src/features/story/StageView.tsx')
-      document.getElementById('root').remove()
-      const host = document.createElement('div')
-      host.className = 'game-shell'
-      document.body.append(host)
-      const root = createRoot(host)
-      window.renderStage = stage => root.render(createElement('div', { className: 'story' }, createElement(StageView, { stage })))
+      const { mountTestStage } = await import('/tests/fixtures/imageTransitions.tsx')
+      window.renderStage = mountTestStage()
       window.renderStage({ backgroundId: 'office-before-noon', characterId: 'minato', expression: 'normal' })
     })
     await page.waitForFunction(() => [...document.querySelectorAll('.stage img')].every(img => img.complete && img.naturalWidth > 0))
