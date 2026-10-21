@@ -189,7 +189,7 @@ export function StoryPlayer({ scenario, initialSession, preview, smokingAllowed,
         <div className="acquisition-photo"><img src={acquisition.imageSrc} alt={displayText(acquisition.title)} /></div><p>持ち物に加えます。</p>
       </SystemDialog>}
       {historyOpen && <SystemDialog icon="history" title="会話履歴" label="閉じる" onClose={() => { setHistoryOpen(false); send({ type: 'menu', open: false }); requestAnimationFrame(()=>historyButton.current?.focus()) }}>
-        <div ref={historyList} className="history-list">{history.length ? history.map((entry, index) => <article key={index}><strong>{displayText(entry.speaker || '地の文・心の声')}</strong><p>{displayText(entry.text)}</p></article>) : <p>会話履歴はまだありません。</p>}</div>
+        <div ref={historyList} className="history-list">{history.length ? history.map((entry, index) => <article key={index}>{entry.speaker && <strong>{displayText(entry.speaker)}</strong>}<p>{displayText(entry.text)}</p></article>) : <p>会話履歴はまだありません。</p>}</div>
       </SystemDialog>}
       {itemSelection && <SystemDialog icon="use" title="使用する相手・目的" label="戻る" onClose={() => { setItemSelection(undefined); setRecordsOpen(true); send({ type: 'menu', open: true }) }}>
         <div className="item-use-choices">{itemSelection.uses.map(use => <button key={use.next} type="button" onClick={() => handleUseItem(itemSelection.itemId, use.next)}><UiIcon name="use"/><span>{displayText(use.label ?? '使用する')}</span></button>)}</div>
