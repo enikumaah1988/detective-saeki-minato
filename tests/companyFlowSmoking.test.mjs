@@ -1,0 +1,50 @@
+import test from 'node:test'
+import assert from 'node:assert/strict'
+import { loadRevision } from './revisionHarness.mjs'
+import { createServer } from './viteServer.mjs'
+const api = await loadRevision()
+const server = await createServer({server:{middlewareMode:true,hmr:false,ws:false},appType:'custom'})
+let selectSmokingPresentation
+try { ({selectSmokingPresentation}=await server.ssrLoadModule('/src/features/story/smoking.ts')) } finally {await server.close()}
+const state=(nodeId, acquiredInformation=[])=>({...api.createInitialState(api.scenario),nodeId,acquiredInformation})
+const choices=s=>api.visibleChoices(api.scenario.nodes[s.nodeId],s)
+const choose=(s,id)=>api.reduceGameState(api.scenario,s,{type:'choose',choiceId:id})
+const advance=s=>{for(let i=0;i<30&&api.scenario.nodes[s.nodeId].type==='dialogue';i++)s=api.reduceGameState(api.scenario,s,{type:'advance'});return s}
+test('テナント調査前後、再訪、v2復元で12F移動を解放し、受付帰路は1F',()=>{
+ let s=state('P2-02-LOBBY-menu')
+ assert.ok(choices(s).some(c=>c.id==='investigate'))
+ let exit=choose(s,'move')
+ assert.equal(choices(exit).some(c=>c.id==='proceed'),false)
+ assert.equal(choose(exit,'proceed').nodeId,exit.nodeId)
+ assert.equal(choose(exit,'backtrack').nodeId,'P2-02-EXT-menu')
+ s=choose(choose(s,'investigate'),'p2-tenant-list')
+ s=advance(s)
+ assert.ok(s.acquiredInformation.includes('company-floor-confirmed'))
+ const restored=api.restoreSaveData(JSON.parse(JSON.stringify(api.createSaveData(s))),[api.scenario])
+ assert.equal(restored.ok,true)
+ s=choose(restored.state,'return');exit=choose(s,'move')
+ assert.equal(choices(exit).find(c=>c.id==='proceed').label,'12Fに移動')
+ assert.equal(advance(choose(exit,'proceed')).nodeId,'P2-02-menu')
+ const reception=choose(state('P2-02-menu'),'move')
+ assert.equal(choices(reception).find(c=>c.id==='backtrack').label,'1Fに移動')
+ assert.equal(choose(reception,'backtrack').nodeId,'P2-02-LOBBY-menu')
+ assert.equal(api.scenario.nodes['P2-03-EXIT-exit'].options[0].label,'1Fに移動')
+ assert.ok(api.restoreSaveData(api.createSaveData(state('P2-02-intro')),[api.scenario]).ok)
+})
+test('現行本編の独白は場所と不足情報に追従し、未読証言や保存内容を先取りしない',()=>{
+ const hint=s=>selectSmokingPresentation(api.scenario,s)
+ const initial=state('P2-02-LOBBY-menu'),before=JSON.stringify(initial)
+ assert.match(hint(initial).hint,/テナント一覧/)
+ assert.match(hint(state('P2-02-LOBBY-menu',['company-floor-confirmed'])).hint,/確認は済んだ/)
+ assert.match(hint(state('P2-01-destination')).hint,/東成ビルサービス/)
+ assert.doesNotMatch(hint(state('P2-01-destination')).hint,/勤務の記録|休暇|黒田/)
+ assert.match(hint(state('P2-02-menu')).hint,/受付カウンター/)
+ assert.match(hint(state('P2-02-menu',['recognized-company-reception'])).hint,/訪問の用件/)
+ assert.match(hint(state('P2-02-intro')).hint,/話を最後まで/)
+ assert.equal(hint(state('P2-02-menu')).allowed,false)
+ assert.equal(hint(state('P1-01-menu')).allowed,true)
+ assert.doesNotMatch(hint(state('P1-02-menu')).hint,/あかり|高瀬/)
+ assert.equal(JSON.stringify(initial),before)
+ const restored=api.restoreSaveData(api.createSaveData(initial),[api.scenario]);assert.equal(restored.ok,true)
+ assert.equal(hint(restored.state).hint,hint(initial).hint)
+})
