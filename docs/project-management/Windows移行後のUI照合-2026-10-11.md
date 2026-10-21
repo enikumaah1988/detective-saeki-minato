@@ -28,7 +28,7 @@
 
 - `App.tsx`の`smokingAllowed`は初期true、開発用切替で変更するUI状態。本番の場所判定ではない。
 - `StoryPlayer.tsx`のヒントは固定文。本編情報が揃っていても同じヒントになる。
-- 挿入絵の実参照先は`src/assets/cutins/minato-smoking.png`／`minato-non-smoking.png`。過去の提案`assets/events/...`は現行参照先ではない。
+- 挿入絵の実参照先は`src/assets/images/cutins/minato-smoking.png`／`minato-non-smoking.png`。過去の提案`assets/events/...`は現行参照先ではない。
 - 次の実装では、シーン／場所の可否と現在の取得情報から演出・ヒントを導出する。ヒント閲覧でGameStateやSaveDataを更新しない。
 - ヒントの優先順と全必須情報取得後の文面は、実際のシナリオと整合させて確定する。新しい事件設定は補わない。
 
@@ -47,7 +47,7 @@
 
 | 対象 | 影響と調整事項 |
 | --- | --- |
-| `src/data/presentation.ts` | 現在は旧`assets/characters`の湊・澪、normal/serious。管理資料にある正式`assets/images/characters/<id>`とneutralの対応を明示。人物ID・既存normal参照の互換性を保つ |
+| `src/data/presentation.ts` | 現在は旧`assets/images/characters`の湊・澪、normal/serious。管理資料にある正式`assets/images/characters/<id>`とneutralの対応を明示。人物ID・既存normal参照の互換性を保つ |
 | `StageView.tsx`、`story.css` | 現在は人物上17%・幅36%・高さ86%、object-fit:contain。正式全身画像の頭位置・見える範囲・左右配置を確認してから調整する |
 | 調査記録画像・開発プレビュー | presentationの画像変更が一覧・詳細にも波及。顔肩／胸上のクロップと画像失敗時を確認する |
 | 喫煙／非喫煙の挿入絵 | 立ち絵とは別の横長一枚絵。正式キャラクターの顔・服装と合わせ、下部会話欄で重要部分が隠れないことを確認する |

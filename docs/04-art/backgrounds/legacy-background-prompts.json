@@ -3,8 +3,8 @@
     "id": "company-reception",
     "prompt": "Use case: illustration-story. Create ONE production game background, wide 16:9 landscape 1920x1080 intended. Reference image is STYLE ONLY, not the target scene: match its mature Japanese detective visual novel environment painting, finely rendered realistic architecture, restrained painterly surface texture, natural perspective, cinematic soft daylight, quiet charcoal/olive/beige palette, grounded contemporary Japan. Full-bleed scene, no people, no character silhouettes, no UI, no captions, no watermarks, no large text, no crimes depicted. Camera human eye level, broad unobstructed central space to overlay two standing character sprites; keep scene details above bottom 30% reserved for dialogue. Do not reproduce reference room. Scene/backdrop: A small active building maintenance company's reception and modest meeting area in a contemporary office building in Nishi-Shinjuku Tokyo. Reception desk toward the rear right, a few practical files and an office telephone, a simple conference table to rear left, visitor chairs against wall, office partition and frosted door, soft noon daylight through left windows, clean everyday working place rather than luxurious corporate lobby. No company logo or readable signage.",
     "mode": "built-in image_gen",
-    "reference": "src/assets/backgrounds/office-afternoon.png",
-    "file": "src/assets/backgrounds/company-reception.png",
+    "reference": "src/assets/images/backgrounds/office-afternoon.png",
+    "file": "src/assets/images/backgrounds/company-reception.png",
     "historical": true,
     "supersededBy": "docs/04-art/manifests/imported-revision-assets.json",
     "note": "ver0.02の旧テスト背景の生成条件。現行ファイルの生成条件ではない。"
@@ -13,8 +13,8 @@
     "id": "building-entrance",
     "prompt": "Use case: illustration-story. Create ONE production game background, wide 16:9 landscape 1920x1080 intended. Reference image is STYLE ONLY, not the target scene: match its mature Japanese detective visual novel environment painting, finely rendered realistic architecture, restrained painterly surface texture, natural perspective, cinematic soft daylight, quiet charcoal/olive/beige palette, grounded contemporary Japan. Full-bleed scene, no people, no character silhouettes, no UI, no captions, no watermarks, no large text, no crimes depicted. Camera human eye level, broad unobstructed central space to overlay two standing character sprites; keep scene details above bottom 30% reserved for dialogue. Do not reproduce reference room. Scene/backdrop: Street-level entrance of an aging five-storey mixed-use commercial building in Nishi-Shinjuku Tokyo awaiting demolition. Daylight autumn afternoon, worn tile facade, glass entrance door and recessed small lobby, a modest notice paper at the door (unreadable blank blocks, dates will be UI text), neighboring buildings tight urban street, quiet narrow sidewalk. Believable maintained but old architecture, no ruins, no destruction, no construction machinery, no barricades blocking safe entrance. Entrance centered, natural oblique street view.",
     "mode": "built-in image_gen",
-    "reference": "src/assets/backgrounds/office-afternoon.png",
-    "file": "src/assets/backgrounds/building-entrance.png",
+    "reference": "src/assets/images/backgrounds/office-afternoon.png",
+    "file": "src/assets/images/backgrounds/building-entrance.png",
     "historical": true,
     "supersededBy": "docs/04-art/manifests/imported-revision-assets.json",
     "note": "ver0.02の旧テスト背景の生成条件。現行ファイルの生成条件ではない。"
@@ -23,8 +23,8 @@
     "id": "building-stairs",
     "prompt": "Use case: illustration-story. Create ONE production game background, wide 16:9 landscape 1920x1080 intended. Reference image is STYLE ONLY, not the target scene: match its mature Japanese detective visual novel environment painting, finely rendered realistic architecture, restrained painterly surface texture, natural perspective, cinematic soft daylight, quiet charcoal/olive/beige palette, grounded contemporary Japan. Full-bleed scene, no people, no character silhouettes, no UI, no captions, no watermarks, no large text, no crimes depicted. Camera human eye level, broad unobstructed central space to overlay two standing character sprites; keep scene details above bottom 30% reserved for dialogue. Do not reproduce reference room. Scene/backdrop: Interior stairwell of the SAME type of aging Japanese commercial building. View from the LOWER FLOOR doorway diagonally looking up one flight toward a landing and upper old office doorway. Visible simple concrete steps, metal handrail, grey-cream worn plaster walls, small high frosted window admitting soft daylight. Upper office door partly open with jamb plausibly hiding a person's face from this lower viewpoint. Correct continuous walkable geometry, comprehensible investigation scene, no impossible stairs. No people or blood, no arrows or labels.",
     "mode": "built-in image_gen",
-    "reference": "src/assets/backgrounds/office-afternoon.png",
-    "file": "src/assets/backgrounds/building-stairs.png",
+    "reference": "src/assets/images/backgrounds/office-afternoon.png",
+    "file": "src/assets/images/backgrounds/building-stairs.png",
     "historical": true,
     "supersededBy": "docs/04-art/manifests/imported-revision-assets.json",
     "note": "ver0.02の旧テスト背景の生成条件。現行ファイルの生成条件ではない。"
@@ -33,8 +33,8 @@
     "id": "old-office",
     "prompt": "Use case: illustration-story. Create ONE production game background, wide 16:9 landscape 1920x1080 intended. Reference image is STYLE ONLY, not the target scene: match its mature Japanese detective visual novel environment painting, finely rendered realistic architecture, restrained painterly surface texture, natural perspective, cinematic soft daylight, quiet charcoal/olive/beige palette, grounded contemporary Japan. Full-bleed scene, no people, no character silhouettes, no UI, no captions, no watermarks, no large text, no crimes depicted. Camera human eye level, broad unobstructed central space to overlay two standing character sprites; keep scene details above bottom 30% reserved for dialogue. Do not reproduce reference room. Scene/backdrop: A closed former building maintenance company office in an aging Japanese commercial building, now being sorted before demolition. Simple quiet room with several sturdy filing cabinets, one lockable document cupboard, old desk with small organized files and a blue document folder, a few stacked moving boxes by the far wall, subdued morning daylight through venetian blinds. Dust and patina subtly present, no exaggerated abandoned horror mood. Keep open foreground so dialogue and two detectives may be overlaid. No reception counter, no wall text, no brand logos.",
     "mode": "built-in image_gen",
-    "reference": "src/assets/backgrounds/office-afternoon.png",
-    "file": "src/assets/backgrounds/old-office.png",
+    "reference": "src/assets/images/backgrounds/office-afternoon.png",
+    "file": "src/assets/images/backgrounds/old-office.png",
     "historical": true,
     "supersededBy": "docs/04-art/manifests/imported-revision-assets.json",
     "note": "ver0.02の旧テスト背景の生成条件。現行ファイルの生成条件ではない。"

@@ -46,7 +46,7 @@ OSMの位置精度・収録漏れや更新時差を超える測量精度は保�
 
 ## 作風の照合結果
 
-参照：`src/assets/images/characters/minato/waist/neutral.png`、`src/assets/backgrounds/office-day.png`、共通の手描き劇画調ガイド。
+参照：`src/assets/images/characters/minato/waist/neutral.png`、`src/assets/images/backgrounds/office-day.png`、共通の手描き劇画調ガイド。
 
 | 観点 | 評価・調整 |
 |---|---|

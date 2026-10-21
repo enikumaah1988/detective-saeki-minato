@@ -7,7 +7,7 @@ const api = await loadRevision()
 
 test('会社背景5枚は独立した1920×1080 PNGで、既存の会社場面から使われる', () => {
   const ids = ['company-exterior', 'company-lobby', 'company-reception', 'company-lounge', 'company-office']
-  const images = ids.map(id => readFileSync(new URL(`../src/assets/backgrounds/${id}.png`, import.meta.url)))
+  const images = ids.map(id => readFileSync(new URL(`../src/assets/images/backgrounds/${id}.png`, import.meta.url)))
   for (const [index, image] of images.entries()) {
     assert.equal(image.subarray(1, 4).toString(), 'PNG')
     assert.equal(image.readUInt32BE(16), 1920)

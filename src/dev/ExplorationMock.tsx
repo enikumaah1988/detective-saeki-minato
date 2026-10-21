@@ -20,7 +20,7 @@ const targets = {
   station: [{ id: 'station-entrance', name: '駅の入口', text: '駅の入口には、人が行き交っている。今は周囲の様子を確認しておこう。' }],
   cafe: [{ id: 'cafe-window', name: '店の窓', text: '窓越しに、落ち着いた店内が見える。ここは仮の調査対象だ。' }],
 }
-const officeImage = new URL('../assets/backgrounds/office-afternoon.png', import.meta.url).href
+const officeImage = new URL('../assets/images/backgrounds/office-afternoon.png', import.meta.url).href
 
 // 閲覧用のローカル状態だけを持つ。本編のGameState・保存処理とは接続しない。
 export function ExplorationMock({ onClose }: { onClose: () => void }) {

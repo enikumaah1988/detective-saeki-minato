@@ -1,9 +1,9 @@
 # 湊：思考整理の挿絵候補
 
 ## 最新候補：2026-10-13
-[喫煙02](drafts/minato-smoking-02.png)・[非喫煙02](drafts/minato-non-smoking-02.png)を採用した湊の試作5に同期。1920×1080 RGB、抽象背景。電子タバコあり／口元の手だけ。[配置確認02](ui-review-02.png)、[生成条件と検証](../style/three-character-rebuild-02.md)。確認待ちで既存src/assets/cutinsへまだ適用していない。以下は旧候補の制作記録。
+[喫煙02](drafts/minato-smoking-02.png)・[非喫煙02](drafts/minato-non-smoking-02.png)を採用した湊の試作5に同期。1920×1080 RGB、抽象背景。電子タバコあり／口元の手だけ。[配置確認02](ui-review-02.png)、[生成条件と検証](../style/three-character-rebuild-02.md)。確認待ちで既存src/assets/images/cutinsへまだ適用していない。以下は旧候補の制作記録。
 
-2026-10-12。新規制作、正式素材候補・採用確認待ち。旧src/assets/cutinsの仮画像は完成扱いせず、今回上書きしていない。
+2026-10-12。新規制作、正式素材候補・採用確認待ち。旧src/assets/images/cutinsの仮画像は完成扱いせず、今回上書きしていない。
 ゲーム側の喫煙可能場所、機能、表示配置は変更しない。
 
 | ID | 候補ファイル | 所作・時間帯 | 状態 |
@@ -19,5 +19,5 @@
 [会話欄の確認](ui-review-01.png)は上段が画像のみ、下段が静的な会話欄合成。1920×1080の各絵を半分サイズで2×2に表示。
 実ゲーム・CSS描画・縮小端末での検証ではない。候補の採用と組み込み時に確認する。
 生成条件・原本：[生成記録](../integration-batch-01-sources.json)。[寸法・SHA-256](../integration-batch-01-validation.json)。
-採用後の配置先は既定のsrc/assets/cutins/minato-smoking.png、minato-non-smoking.png。採用時に移動し候補の二重コピーは維持しない。ゲーム実装担当が適用する。
+採用後の配置先は既定のsrc/assets/images/cutins/minato-smoking.png、minato-non-smoking.png。採用時に移動し候補の二重コピーは維持しない。ゲーム実装担当が適用する。
 部始まり・部末の8接続挿絵の代用品にしない。部間の指定表は未受領のため制作未開始。

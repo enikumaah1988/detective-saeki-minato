@@ -14,7 +14,7 @@
 
 内蔵image_genを使用。提供された5場面の参考画像を建築・内装の参考に、既存company-reception.pngを画風の基準にした。コラージュの切抜きではなく、それぞれ独立して生成した。元出力1672×940または1672×941を既存の1920×1080 PNGへ寸法正規化。人物・UI・見出し帯なし。外観のビル名と受付の社名は読めることを目視確認。応接室と執務室は初稿の夕色を昼光に修正し、執務室は40〜50席規模の奥行きを確保した。
 
-| ファイル（src/assets/backgrounds/） | 使用先 |
+| ファイル（src/assets/images/backgrounds/） | 使用先 |
 | --- | --- |
 | company-exterior.png | 外観、地図選択時のプレビュー |
 | company-lobby.png | P2-02-arrivalとP2-02-intro。共用ロビーを経て12階へ |
@@ -28,7 +28,7 @@
 
 ## 変更ファイル
 
-- `src/assets/backgrounds/company-{exterior,lobby,reception,lounge,office}.png`：5背景
+- `src/assets/images/backgrounds/company-{exterior,lobby,reception,lounge,office}.png`：5背景
 - `src/data/presentation.ts`：背景登録と受付の表示名
 - `src/data/scenario/revisionData.ts`：所在地・事業内容と短い入館・執務室描写
 - `src/data/scenario/buildRevision.ts`：一文単位の背景指定、入館背景。既存の進行処理は維持
