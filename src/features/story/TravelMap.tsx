@@ -15,6 +15,8 @@ export function TravelMap({ options, current, onBack, onMove }: { options: Choic
   const [selected, setSelected] = useState<string>()
   const [moving, setMoving] = useState(false)
   const timer = useRef<ReturnType<typeof setTimeout>>(undefined)
+  const movePending = useRef(false)
+  const goBack = () => { if (!movePending.current) onBack() }
   const root = useRef<HTMLDivElement>(null)
   const viewport = useRef<HTMLDivElement>(null)
   const [mapSize, setMapSize] = useState<{ width: number; height: number }>()
@@ -39,9 +41,9 @@ export function TravelMap({ options, current, onBack, onMove }: { options: Choic
     return () => clearTimeout(timer.current)
   }, [])
   return <div ref={root} className={`travel-map${moving ? ' is-moving' : ''}`} aria-label="移動マップ" onKeyDown={event => {
-    if (event.key === 'Escape' && !moving) { event.preventDefault(); onBack() }
+    if (event.key === 'Escape') { event.preventDefault(); goBack() }
   }}>
-    <header><div><h1>移動先を選択</h1><p>西新宿周辺</p></div><button type="button" disabled={moving} onClick={onBack}><UiIcon name="return"/><span>戻る</span></button></header>
+    <header><div><h1>移動先を選択</h1><p>西新宿周辺</p></div><button type="button" disabled={moving} onClick={goBack}><UiIcon name="return"/><span>戻る</span></button></header>
     <div className="travel-body">
       <nav className="travel-canvas" aria-label="地図の移動先">
         <div ref={viewport} className="travel-map-viewport"><div className="travel-map-surface" style={mapSize}>
@@ -58,7 +60,8 @@ export function TravelMap({ options, current, onBack, onMove }: { options: Choic
       <aside aria-label="選択した場所">{place ? <>
         <h2>{place.name}</h2><img key={place.background} src={resolveBackground(place.background).imageSrc} alt={place.name} /><p>{place.description}</p>
         <button type="button" disabled={moving || selected === current} onClick={() => {
-          if (moving || selected === current) return
+          if (movePending.current || selected === current) return
+          movePending.current = true
           setMoving(true)
           timer.current = setTimeout(() => onMove(place.id), 300)
         }}><UiIcon name="move"/><span>{selected === current ? '現在地' : 'ここへ移動'}</span></button>
