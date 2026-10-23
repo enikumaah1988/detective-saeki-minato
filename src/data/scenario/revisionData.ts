@@ -357,14 +357,14 @@ export const revisionData: RevisionData = {
             },
             {
               "speakerId": "akari",
-              "text": "月曜日です。五日の朝に出かけて、そのまま。今日で三日になります。",
+              "text": "月曜日です。5日の朝に出かけて、そのまま。今日で3日になります。",
               "expressions": {
                 "akari": "worried"
               }
             },
             {
               "speakerId": "mio",
-              "text": "五日の朝からですね。"
+              "text": "5日の朝からですね。"
             },
             {
               "speakerId": "akari",
@@ -391,7 +391,7 @@ export const revisionData: RevisionData = {
             },
             {
               "speakerId": "akari",
-              "text": "普通でした。七時半ごろ、いつもの服で。"
+              "text": "普通でした。7時半ごろ、いつもの服で。"
             },
             {
               "speakerId": "akari",
@@ -597,7 +597,7 @@ export const revisionData: RevisionData = {
             },
             {
               "speakerId": "akari",
-              "text": "二十九です。私とは八つ違います。"
+              "text": "29です。私とは8つ違います。"
             }
           ],
           "requires": [],
@@ -706,7 +706,7 @@ export const revisionData: RevisionData = {
           "lines": [
             {
               "speakerId": "minato",
-              "text": "五日の朝に家を出て、夜から連絡が取れていない。そこまでは分かった。"
+              "text": "5日の朝に家を出て、夜から連絡が取れていない。そこまでは分かった。"
             },
             {
               "speakerId": "akari",
@@ -796,7 +796,7 @@ export const revisionData: RevisionData = {
           "lines": [
             {
               "speakerId": "narrator",
-              "text": "五日の朝、家を出た。連絡は途絶えた。会社では出勤を確認できていない。"
+              "text": "5日の朝、家を出た。連絡は途絶えた。会社では出勤を確認できていない。"
             },
             {
               "speakerId": "narrator",
@@ -1405,7 +1405,7 @@ export const revisionData: RevisionData = {
       "intro": [
         {
           "speakerId": "narrator",
-          "text": "西新宿六丁目。西新宿セントラルタワーの表示を、澪のメモと見比べた。東成ビルサービスが入っているビルだ。直人がいつものように出勤したと、あかりが思っていた会社だ。"
+          "text": "西新宿6丁目。西新宿セントラルタワーの表示を、澪のメモと見比べた。東成ビルサービスが入っているビルだ。直人がいつものように出勤したと、あかりが思っていた会社だ。"
         },
         {
           "speakerId": "minato",
@@ -1468,7 +1468,7 @@ export const revisionData: RevisionData = {
           "lines": [
             {
               "speakerId": "narrator",
-              "text": "東成ビルサービス株式会社――十二階。入居先を確かめた。"
+              "text": "東成ビルサービス株式会社――12階。入居先を確かめた。"
             }
           ],
           "requires": [],
@@ -1503,7 +1503,7 @@ export const revisionData: RevisionData = {
       "intro": [
         {
           "speakerId": "narrator",
-          "text": "エレベーターを十二階で降り、東成ビルサービスの受付へ向かった。",
+          "text": "エレベーターを12階で降り、東成ビルサービスの受付へ向かった。",
           "backgroundId": "company-reception"
         },
         {
@@ -1529,7 +1529,7 @@ export const revisionData: RevisionData = {
           "lines": [
             {
               "speakerId": "minato",
-              "text": "五日の勤務記録を、確認してもらえるか？"
+              "text": "5日の勤務記録を、確認してもらえるか？"
             },
             {
               "speakerId": "company-reception",
@@ -1821,7 +1821,7 @@ export const revisionData: RevisionData = {
           "lines": [
             {
               "speakerId": "minato",
-              "text": "五日に、どんな話をした？"
+              "text": "5日に、どんな話をした？"
             },
             {
               "speakerId": "kuroda",
@@ -2112,7 +2112,7 @@ export const revisionData: RevisionData = {
       "intro": [
         {
           "speakerId": "narrator",
-          "text": "一階のエレベーターホールへ戻った。外へ出て、次の訪問先へ向かおう。"
+          "text": "1階のエレベーターホールへ戻った。外へ出て、次の訪問先へ向かおう。"
         }
       ],
       "people": [],
@@ -2404,7 +2404,7 @@ export const revisionData: RevisionData = {
             },
             {
               "speakerId": "miyahara",
-              "text": "はい。二年前の十月です。ここの階段で。",
+              "text": "はい。2年前の10月です。ここの階段で。",
               "expressions": {
                 "miyahara": "pained"
               }
@@ -2569,7 +2569,7 @@ export const revisionData: RevisionData = {
             },
             {
               "speakerId": "narrator",
-              "text": "宮原が開いたページを読む。十月の日付の下に、黒田部長への旧事務室の鍵の貸出。返却欄は空白だった。"
+              "text": "宮原が開いたページを読む。10月の日付の下に、黒田部長への旧事務室の鍵の貸出。返却欄は空白だった。"
             },
             {
               "speakerId": "minato",
@@ -2924,7 +2924,7 @@ export const revisionData: RevisionData = {
             },
             {
               "speakerId": "minato",
-              "text": "二年前の事故だ。本当のことを話してほしいと言ったらしい。"
+              "text": "2年前の事故だ。本当のことを話してほしいと言ったらしい。"
             },
             {
               "speakerId": "mio",
@@ -3937,7 +3937,7 @@ export const revisionData: RevisionData = {
             },
             {
               "speakerId": "minato",
-              "text": "四時半に行く。それでいいか？"
+              "text": "4時半に行く。それでいいか？"
             },
             {
               "speakerId": "naoto",
@@ -3973,7 +3973,7 @@ export const revisionData: RevisionData = {
       "ending": [
         {
           "speakerId": "minato",
-          "text": "四時半、成子坂共同ビルだ。"
+          "text": "4時半、成子坂共同ビルだ。"
         },
         {
           "speakerId": "mio",
@@ -3994,7 +3994,7 @@ export const revisionData: RevisionData = {
       "intro": [
         {
           "speakerId": "mio",
-          "text": "宮原さんにも、四時半と伝わっています。"
+          "text": "宮原さんにも、4時半と伝わっています。"
         },
         {
           "speakerId": "minato",
@@ -4383,7 +4383,7 @@ export const revisionData: RevisionData = {
           "lines": [
             {
               "speakerId": "minato",
-              "text": "五日、黒田に何を話した？"
+              "text": "5日、黒田に何を話した？"
             },
             {
               "speakerId": "naoto",
@@ -4994,7 +4994,7 @@ export const revisionData: RevisionData = {
           "lines": [
             {
               "speakerId": "okumura",
-              "text": "会社へ正式に確認する。明日の朝、十時にビルで会おう。"
+              "text": "会社へ正式に確認する。明日の朝、10時にビルで会おう。"
             },
             {
               "speakerId": "minato",
@@ -5181,7 +5181,7 @@ export const revisionData: RevisionData = {
       "intro": [
         {
           "speakerId": "narrator",
-          "text": "宮原へ到着を告げると、奥村たちが来るまで待ってほしいと応じた。十時、警察の車が停まった。"
+          "text": "宮原へ到着を告げると、奥村たちが来るまで待ってほしいと応じた。10時、警察の車が停まった。"
         },
         {
           "speakerId": "okumura",
@@ -5721,7 +5721,7 @@ export const revisionData: RevisionData = {
             },
             {
               "speakerId": "okumura",
-              "text": "午後一時に、署へ来る。面会室で話を聞く。"
+              "text": "午後1時に、署へ来る。面会室で話を聞く。"
             },
             {
               "speakerId": "minato",
@@ -6078,7 +6078,7 @@ export const revisionData: RevisionData = {
       "ending": [
         {
           "speakerId": "narrator",
-          "text": "書類を確認して待った。午後一時、受付から黒田の到着の連絡が入った。"
+          "text": "書類を確認して待った。午後1時、受付から黒田の到着の連絡が入った。"
         }
       ],
       "organize": []
@@ -6125,7 +6125,7 @@ export const revisionData: RevisionData = {
             },
             {
               "speakerId": "kuroda",
-              "text": "二年も前のことです。記憶だけでは。"
+              "text": "2年も前のことです。記憶だけでは。"
             },
             {
               "speakerId": "okumura",
