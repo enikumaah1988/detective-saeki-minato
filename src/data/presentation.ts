@@ -13,7 +13,7 @@ export const backgrounds: Record<string, BackgroundDefinition> = {
   'building-stairs': { id: 'building-stairs', name: '成子坂共同ビル・階段', imageSrc: new URL('../assets/images/backgrounds/building-stairs.png', import.meta.url).href },
   'office-before-noon': { id: 'office-before-noon', name: '佐伯探偵事務所', imageSrc: new URL('../assets/images/backgrounds/office-day.png', import.meta.url).href },
   'office-exterior': { id: 'office-exterior', name: '佐伯探偵事務所前', imageSrc: new URL('../assets/images/backgrounds/office-exterior.png', import.meta.url).href },
-  'company-exterior': { id: 'company-exterior', name: '東成ビルサービス前', imageSrc: new URL('../assets/images/backgrounds/company-exterior.png', import.meta.url).href },
+  'company-exterior': { id: 'company-exterior', name: '西新宿セントラルタワー前', imageSrc: new URL('../assets/images/backgrounds/company-exterior.png', import.meta.url).href },
   'company-lobby': { id: 'company-lobby', name: '西新宿セントラルタワー・共用ロビー', imageSrc: new URL('../assets/images/backgrounds/company-lobby.png', import.meta.url).href },
   'company-office': { id: 'company-office', name: '東成ビルサービス・執務室', imageSrc: new URL('../assets/images/backgrounds/company-office.png', import.meta.url).href },
   'company-lounge': { id: 'company-lounge', name: '東成ビルサービス・応接室', imageSrc: new URL('../assets/images/backgrounds/company-lounge.png', import.meta.url).href },

@@ -29,6 +29,8 @@ for (const [width, height] of [[1920, 1080], [1366, 768]]) test(`会社5背景�
     }
     const verify = async background => {
       await page.locator(`.stage[data-background-id="${background}"]`).waitFor()
+      const placeNames = { 'company-exterior': '西新宿セントラルタワー前', 'company-lobby': '西新宿セントラルタワー・共用ロビー', 'company-reception': '東成ビルサービス・１２階受付', 'company-lounge': '東成ビルサービス・応接室', 'company-office': '東成ビルサービス・執務室' }
+      assert.equal(await page.locator('.scene-context span').first().textContent(), placeNames[background])
       await page.waitForFunction(() => { const image = document.querySelector('.background-image'); return image?.complete && image.naturalWidth === 1920 && image.naturalHeight === 1080 })
       assert.equal(await page.locator('.background-label').count(), 0)
       const source = await page.locator('.background-image').getAttribute('src')
