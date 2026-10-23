@@ -397,7 +397,13 @@ export function buildRevision(base: Scenario, data: RevisionData): Scenario {
   // 改稿のgrantsを正本とし、旧稿の集約条件で未読の証言・意思を先取りしない。
   for (const [id, node] of Object.entries(nodes)) {
     const phase = [...data.scenes].sort((a,b)=>b.id.length-a.id.length).find(phase=>sceneOwners.get(node.sceneId ?? '')===phase.id || id===phase.id || id.startsWith(phase.id+'-'))
-    if (phase) { node.savePhaseId=phase.id; node.savePhaseMarkers=(phase.topicTransitions??[]).flatMap(bridge=>bridge.grants) }
+    if (phase) { node.savePhaseId=phase.id; node.savePhaseMarkers=(phase.topicTransitions??[]).flatMap(bridge=>bridge.grants); node.historyScope=`part-${phase.part}` }
+    else if (node.sceneId === prologueScene) node.historyScope = 'prologue'
+    else if (id === 'episode-complete') node.historyScope = `part-${data.scenes[data.scenes.length - 1].part}`
+  }
+  // 旧ノードの履歴も、セーブ復元で既に採用している移行先の部へ分類する。
+  for (const [id, target] of Object.entries(saveNodeAliases)) {
+    if (nodes[id] && !nodes[id].historyScope) nodes[id].historyScope = nodes[target]?.historyScope
   }
   const smokingHints: NonNullable<Scenario['smokingHints']> = { rules: [], fallback: '今は目の前の話を聞こう。確かめたことは、調査記録に残してある。' }
   for (const phase of data.scenes) {
