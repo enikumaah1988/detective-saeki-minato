@@ -13,6 +13,7 @@ npm run build
 - lint依存は[tools/lint](../../tools/lint/README.md)でゲーム用TypeScriptから分離する。警告上限を引き上げて隠さない。
 - ブラウザーは外部Playwright／Chromiumが必要。SAEKI_PLAYWRIGHT_PATHにモジュール、SAEKI_PART1_URLに本編URL、SAEKI_BASE_URLに旧デモURL（?scenario=gray-testimony-part1-demo付き）を指定する。各テストの通常タイトル／DEV直行の前提を確認する。未設定のブラウザー項目はスキップであり確認済みではない。
 - PCの主な確認サイズは1920×1080・1366×768。Firefox／Safari・スマホの実機保証と区別する。人の所要時間・難易度・没入感は自動完走だけでは確認できない。
+- 開始・再開は`tests/titleScreenBrowser.test.mjs`と`tests/uiSaveSlotsBrowser.test.mjs`を併用する。通常URLではタイトルのNEW GAME／CONTINUEを経由し、タイトルのCONTINUEダイアログと本編MENUのLOADを区別する。保存なし・手動枠・AUTO・旧単一保存・破損データ、再起動後の設定、未保存進行の取消を確認する。現行のNEW GAMEは直接本編を開始し、未実装の作品選択画面を成功条件に加えない。
 - `tests/historyResumeBrowser.test.mjs`はPCの2サイズで、文字表示途中の履歴連続開閉、停止と再開、背面入力の拒否、複数ページの位置保持、次ノードへの入力復帰と履歴の追加を検証する。長文はテスト時だけ差し替え、タイプライターの時間はPlaywrightの時計で制御する。
 - `tests/mobileLandscapeBrowser.test.mjs`は667×375・844×390・915×412をChromiumの横向きタッチ環境で確認する。外部Playwrightと本編URLを上記の環境変数で指定し、HUD・会話履歴・保存／復元・調査記録・選択肢・地図を実際にタップする。各対象の画面内配置と中心点のヒット判定も調べる。既存の比例縮小レイアウトを対象とし、スマホ専用UIの採用やiOS／Android実機での押しやすさ・ブラウザー固有挙動の保証とは区別する。
 - ブラウザーサーバーはロジックテストと別のViteキャッシュを使い、終了時は自分が開始したものだけを止める。環境固有の[Windows設定](../../tools/windows-vite.config.mjs)を一般環境へ無条件に適用しない。
