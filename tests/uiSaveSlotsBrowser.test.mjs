@@ -11,6 +11,7 @@ for(const [width,height] of [[1920,1080],[1366,768]])test(`UI・SAVE3/AUTO1・�
  const load=async(id='SAVE １')=>{await menu().click();await page.getByRole('button',{name:'LOAD',exact:true}).click();await page.getByRole('dialog',{name:'LOAD',exact:true}).getByRole('button',{name:id,exact:true}).click();await page.getByRole('dialog',{name:'ロードしました',exact:true}).getByRole('button',{name:'OK',exact:true}).click()}
  try{
   await page.goto(url)
+  await page.getByRole('button',{name:'NEW GAME',exact:true}).click()
   assert.equal(await page.locator('.scene-selector').count(),0)
   const before=await node();await page.waitForFunction(()=>document.querySelector('.dialogue [aria-hidden]')?.textContent.length>2)
   const text=await page.locator('.dialogue [aria-hidden]').textContent()
@@ -27,7 +28,7 @@ for(const [width,height] of [[1920,1080],[1366,768]])test(`UI・SAVE3/AUTO1・�
   assert.equal(await page.locator('.slider-stops').count(),1)
   await page.getByLabel('BGM音量',{exact:true}).press('ArrowRight')
   assert.deepEqual(await page.evaluate(()=>JSON.parse(localStorage.getItem('detective-saeki-minato.audio'))),{bgm:38,se:63})
-  await menu().click()
+  await page.getByRole('button',{name:'システムメニューを閉じる',exact:true}).click()
   const legacy={...run.checkpoints.find(p=>p.phase==='P1-01').state,nodeId:'P1-01-menu'}
   const raw=JSON.stringify(api.createSaveData(legacy))
   await page.evaluate(value=>{localStorage.setItem('detective-saeki-minato.save.v1',value);localStorage.removeItem('detective-saeki-minato.slots.v1')},raw)
@@ -35,8 +36,7 @@ for(const [width,height] of [[1920,1080],[1366,768]])test(`UI・SAVE3/AUTO1・�
   assert.equal(await page.evaluate(()=>localStorage.getItem('detective-saeki-minato.save.v1')),raw)
   const command=page.locator('.free-action-panel .command-name').first()
   const commandSize=await command.evaluate(el=>getComputedStyle(el).fontSize)
-  await page.getByRole('button',{name:'会話履歴を開く',exact:true}).press('Enter')
-  await history.getByRole('button',{name:'閉じる',exact:true}).press('Space');assert.equal(await node(),'P1-01-menu')
+  assert.equal(await page.getByRole('button',{name:'会話履歴を開く',exact:true}).isVisible(),false)
   // 四回のSAVEで旧枠を押し出しても３枠・v2を維持。SAVE後の別通知なし。
   for(let i=0;i<4;i++){
    await menu().click();await page.getByRole('button',{name:'SAVE',exact:true}).click()
@@ -70,7 +70,10 @@ for(const [width,height] of [[1920,1080],[1366,768]])test(`UI・SAVE3/AUTO1・�
   assert.ok(bounds.x>=toolbar.x+toolbar.width);assert.ok(bounds.x+bounds.width<=width&&bounds.y>=0)
   const size=await page.locator('.scene-context').evaluate(el=>parseFloat(getComputedStyle(el).fontSize));assert.ok(Math.abs(size-36*width/1920)<1)
   if(process.env.SAEKI_SCREENSHOT_DIR)await page.screenshot({path:`${process.env.SAEKI_SCREENSHOT_DIR}/ui-save-slots-${width}.png`})
-  await page.reload();await menu().click();assert.equal(await page.getByLabel('BGM音量',{exact:true}).inputValue(),'38')
+  await page.reload()
+  await page.getByRole('button',{name:'CONTINUE',exact:true}).click()
+  await page.getByRole('dialog',{name:'CONTINUE',exact:true}).getByRole('button',{name:'SAVE １',exact:true}).click()
+  await menu().click();assert.equal(await page.getByLabel('BGM音量',{exact:true}).inputValue(),'38')
   await page.goto(url+(url.includes('?')?'&':'?')+'dev=1');assert.ok(await page.locator('.scene-selector').count()>0)
   assert.deepEqual(errors,[])
  }finally{await browser.close()}
