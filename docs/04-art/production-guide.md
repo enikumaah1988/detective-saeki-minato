@@ -28,6 +28,22 @@
 characters/<id>/full/neutral.png（全身通常）、characters/<id>/waist/neutral.png・smile.png 等（会話用腰上）を基本とし、backgrounds、maps、items、cutins、illustrations、ui は必要に応じて追加する。
 主要5人とあかり・直人・沙織の計8人、全身通常8枚と腰上62枚を制作。[全身通常](neutral-review.md)、[腰上素材一覧](waist-review.md)。寸法は全身1024×1536・腰上1024×1024の制作上の仮案。個別画像の正式採用は未確認。既存デモ素材と実装上の参照は変更していない。あかりの個別素材9枚も制作済み、確認待ち。
 
+## 画像ファイル名と登録ID
+
+ゲーム用画像は`src/assets/images/`の用途別ディレクトリに置く。人物は`characters/<人物ID>/full/neutral.png`、`characters/<人物ID>/waist/<表情>.png`、背景は`backgrounds/company-reception.png`等を使用する。新規追加時は同種の既存ファイルに合わせ、小文字の英数字と必要なハイフンで用途や差分を表す。拡張子は実際の画像形式と一致させ、ケースだけが違う別ファイルや表示名を使った重複を作らない。
+
+ファイル名とゲーム内の登録IDは必ずしも一致しない。登録先は`src/data/presentation.ts`であり、シナリオからは登録IDを指定する。
+
+| 例外・用途 | 現行の対応 |
+| --- | --- |
+| 通常表情 | `minato`等の表情ID`normal`と`neutral`は同じ`waist/neutral.png`を参照する。指定名をファイル名へ機械置換しない |
+| 背景の別名 | 背景ID`office-before-noon`は`backgrounds/office-day.png`へ対応する。背景名・場所名・ファイル名は別の値 |
+| 向きの差分 | `front-normal`・`right-sad`等の登録IDを保持。人物別フォルダー外の`direction-candidates/`の既存参照も、表記統一だけを理由に移動しない |
+| 場面絵・地図 | `c1-in.png`等の略称や、用途を持つ地図ファイル名は既存の制作記録・出典とともに保持する |
+| 制作資料 | `docs/04-art/characters/<id>/profile.md`・`sheet.png`・`drafts/`等はゲーム用素材とは別用途。ゲーム向けの命名規則を履歴・試作へ一括適用しない |
+
+この整理は新規素材の制作再開や既存ファイルの改名・再採用を許可するものではない。追加・変更時は参照コード、制作manifest、Git LFS設定との整合を確認する。表情IDの指定は[表情契約](character-expressions.md)、シナリオ・保存IDの命名と例外は[状態設計](../05-architecture/state-and-scenario.md#idの命名と互換性)、参照チェックの範囲は[検証手順](../06-development/verification.md)を参照する。
+
 ## 設定資料シートの運用
 
 調査記録の持ち物：スマホ・電子タバコ・名刺の透過PNG3点を制作。[素材仕様・確認一覧](items/README.md)。画像は確認待ち、機種・形は仮案。ゲームへの組み込みは未実施。
