@@ -2,8 +2,28 @@ import test from 'node:test'
 import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
 import { loadRevision } from './revisionHarness.mjs'
+import { resolveBackground } from '../src/data/presentation.ts'
 
 const api = await loadRevision()
+
+test('保存済みの会社場面IDから外観の建物名と各屋内の場所名を復元する', () => {
+  const { scenario, createInitialState, createSaveData, restoreSaveData } = api
+  for (const [nodeId, backgroundId, name] of [
+    ['P2-02-EXT-intro', 'company-exterior', '西新宿セントラルタワー前'],
+    ['P2-02-LOBBY-intro', 'company-lobby', '西新宿セントラルタワー・共用ロビー'],
+    ['P2-02-intro-2', 'company-reception', '東成ビルサービス・12階受付'],
+    ['P2-03-intro', 'company-lounge', '東成ビルサービス・応接室'],
+    ['p2-reception-exists-2', 'company-office', '東成ビルサービス・執務室'],
+  ]) {
+    const save = createSaveData({ ...createInitialState(scenario), nodeId })
+    assert.equal(save.version, 2)
+    const restored = restoreSaveData(JSON.parse(JSON.stringify(save)), [scenario])
+    assert.equal(restored.ok, true)
+    assert.equal(restored.state.nodeId, nodeId)
+    assert.equal(scenario.nodes[restored.state.nodeId].stage.backgroundId, backgroundId)
+    assert.equal(resolveBackground(backgroundId).name, name)
+  }
+})
 
 test('会社背景5枚は独立した1920×1080 PNGで、既存の会社場面から使われる', () => {
   const ids = ['company-exterior', 'company-lobby', 'company-reception', 'company-lounge', 'company-office']
