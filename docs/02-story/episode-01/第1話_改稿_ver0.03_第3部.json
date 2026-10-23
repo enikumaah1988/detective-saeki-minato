@@ -12,7 +12,7 @@
       "intro": [
         {
           "speakerId": "mio",
-          "text": "宮原さんにも、四時半と伝わっています。"
+          "text": "宮原さんにも、4時半と伝わっています。"
         },
         {
           "speakerId": "minato",
@@ -395,7 +395,7 @@
           "lines": [
             {
               "speakerId": "minato",
-              "text": "五日、黒田に何を話した？"
+              "text": "5日、黒田に何を話した？"
             },
             {
               "speakerId": "naoto",
@@ -982,7 +982,7 @@
           "lines": [
             {
               "speakerId": "okumura",
-              "text": "会社へ正式に確認する。明日の朝、十時にビルで会おう。"
+              "text": "会社へ正式に確認する。明日の朝、10時にビルで会おう。"
             },
             {
               "speakerId": "minato",
