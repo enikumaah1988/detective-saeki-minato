@@ -1,6 +1,6 @@
 # Episode 01 未決事項
 
-詳細台帳：[`15_reconsideration_backlog.md`](15_reconsideration_backlog.md)。
+詳細台帳：[`15_reconsideration_backlog.md`](archive/15_reconsideration_backlog.md)。
 
 ## A：事件
 - A01：午前救出後のシーン再配置。
