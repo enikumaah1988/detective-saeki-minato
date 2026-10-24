@@ -9,16 +9,19 @@
 - 旧S09夕方救出の流れは使わない。S01〜S10と4部48場面の対応は未確定。
 
 ## 台詞の原文保管先
-- archive/01_S01_dialogue_draft.md：S01と聞く5項目の草案。
-- archive/02_S02_to_ED_new_dialogue_draft.md：S02〜EDの追加草案。旧救出時刻等を含むため改稿が必要。
-- archive/14_20261023_tone_and_scene_reassessment.md：人物の口調、S03とEDの改稿例。
+- 01_S01_dialogue_draft.md：S01と聞く5項目の草案。
+- 02_S02_to_ED_new_dialogue_draft.md：S02〜EDの追加草案。旧救出時刻等を含むため改稿が必要。
+- 14_20261023_tone_and_scene_reassessment.md：人物の口調、S03とEDの改稿例。
 - archive/16_A01_morning_rescue_and_misaki_bridge.md：午前救出と救出後の会話案。
 - archive/17_A03_independent_incidents_bridge.md：二事件の分離と宮原の記録の会話案。
 - archive/18〜22：三崎・黒田の事件の検討履歴。具体的な台詞は未承認。
-- archive/04・05：過去の草案。現行シナリオへ直接実装しない。
+- 04（直下）・archive/05：過去の草案。現行シナリオへ直接実装しない。
 
 ## 会話の方向
 佐伯は冷静さと人情味、澪は自然な機転、奥村は信頼できる警察官。宮原の目撃と推測を区別する。BARは任意で恋愛を匂わせない。
 
 ## 次の作業
 救出時刻を基準にシーンを再配置し、救出後の証拠・会話・QA・EDを順次レビューする。ユーザー承認前に正式原稿へ反映しない。
+
+
+注：原資料の移動が完了していないため、上記の参照は現時点の実在パスを示す。直下に残る旧稿も未承認・履歴資料である。
