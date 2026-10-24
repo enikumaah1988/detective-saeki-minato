@@ -31,3 +31,5 @@ PR #223/#227を正本とは扱いません。ここに置く資料は実装承�
 - `18_A03_fictitious_repair_billing_2024.md`：2024年の架空修繕費請求（A案・承認済み）、三崎の発見・証拠三層・黒田の動機（詳細NEW_DRAFT）。旧資料の資金還流との整合は未決。
 
 - `19_A03_emergency_lighting_fictitious_repair.md`：2024年の架空修繕対象を非常照明に確定。蓄電池交換・証拠・三崎の発見経路はNEW_DRAFT。
+
+- `20_A03_multiyear_fictitious_repairs.md`：複数設備・複数年の架空修繕（承認済み）。非常照明が主たる推理対象、給排水・空調は補助。黒田の動機と資金帰属は未決。
