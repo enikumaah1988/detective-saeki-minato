@@ -33,3 +33,5 @@ PR #223/#227を正本とは扱いません。ここに置く資料は実装承�
 - `19_A03_emergency_lighting_fictitious_repair.md`：2024年の架空修繕対象を非常照明に確定。蓄電池交換・証拠・三崎の発見経路はNEW_DRAFT。
 
 - `20_A03_multiyear_fictitious_repairs.md`：複数設備・複数年の架空修繕（承認済み）。非常照明が主たる推理対象、給排水・空調は補助。黒田の動機と資金帰属は未決。
+
+- `21_A03_kuroda_performance_motive.md`：黒田の動機は部門売上・業績維持（B案承認済み）。私的利得案は不採用。会計構造・告白は未決。
