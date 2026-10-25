@@ -1,17 +1,26 @@
-# Episode 01 復旧・再検討資料
+# Episode01 ストーリー・マスター（作業正本）
 
-## 通常読む資料（4ファイル）
-1. [decisions.md](decisions.md) — 合意した設定と承認境界
-2. [case-design.md](case-design.md) — 事件の仕組み・証拠
-3. [scenario-draft.md](scenario-draft.md) — シーンと台詞草案の入口
-4. [open-issues.md](open-issues.md) — 未決事項の概要
+**ストーリー制作の正本ブランチ：`docs/e01-recovery-20261024`**
 
-## 原資料
-- [archive/](archive/) — 移管・検証済みの旧資料。詳細な再検討バックログは [archive/15_reconsideration_backlog.md](archive/15_reconsideration_backlog.md)。
-- 番号付きMarkdownの一部は直下に残存。コピーが安全性チェックで止まったため、**内容を失わないよう元ファイルを保全**している。これらも旧資料であり通常は読まない。
+2026-10-26以降、このブランチをEpisode01のストーリー・人物設定・会話の継続的な更新先とする。名称に recovery とあるが、単なる復旧用の仮置き場ではない。GitHubのデフォルトブランチ `main` は変更せず、ゲーム実装も自動更新しない。
 
-## 運用
-- 決定事項は decisions.md、事件の証拠設計は case-design.md、会話草案は scenario-draft.md、未決事項は open-issues.md。
-- 正式原稿・mainには未反映。10月23日の原会話全文の完全復元ではない。
-- 午前救出の決定を優先し、古い夕方救出シーンは採用しない。
-- 残る旧資料は、アーカイブ移動と内容照合ができるまで削除しない。
+## 正本の入口
+1. [decisions.md](decisions.md) — 合意済みの設定・採用事項、優先順位
+2. [case-design.md](case-design.md) — 事件・証拠の基本設計
+3. [scenario-draft.md](scenario-draft.md) — シナリオ・会話の入口
+4. [open-issues.md](open-issues.md) — 未解決事項
+
+## 直近の制作資料
+- [全5部・30シーン構成案](episode01-scene-outline-30-provisional-20261026.md)
+- [第1部 S01〜S06 会話初稿](part1-dialogue-s01-s06-draft-20261026.md)
+- [統合時系列・開示順](episode01-integrated-timeline-and-reveal-order-20261026.md)
+- [救出と法的結末の境界](e01-final-rescue-and-legal-boundaries-20261026.md)
+
+## 更新ルール
+- 今後のストーリー議論・会話・人物設定の**編集先はこのブランチ**。単に別の草案を増やすだけでなく、採用された内容を対応する正本ファイルに統合する。
+- 会話は既存台詞を確認し、残す・修正する・追加するを判断する。会話から人物像が変わったら人物設定も同期する。
+- 「確定・採用」「仮採用」「提案」「未解決」を区別する。過去の記述と矛盾したら新しい採用判断を明記し、古い説明を放置しない。
+- 書き込み後は**同じブランチの同じファイルを再取得して検証**する。
+- `main`、ゲーム用正式原稿、アプリ実装への反映は別工程とし、無断で上書きしない。
+- 旧資料は [archive/](archive/) 等に保全。過去の原会話全文が完全復元できたという意味ではない。
+- 現在の5部・30シーンと会話初稿は制作基準の**仮採用案**。今後の会話検討により改訂できる。
