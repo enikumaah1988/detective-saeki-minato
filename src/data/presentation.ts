@@ -2,6 +2,8 @@ import type { BackgroundDefinition, CharacterDefinition, ExpressionDefinition } 
 
 // 検証用画像。本番画像へ差し替える際もシナリオの ID は変更しない。
 export const backgrounds: Record<string, BackgroundDefinition> = {
+  'building-equipment': { id: 'building-equipment', name: '成子坂共同ビル・地下設備区画' },
+  'bar-amayadori': { id: 'bar-amayadori', name: 'BAR「雨宿り」' },
   prologue: { id: 'prologue', name: '西新宿' },
   'building-room': { id: 'building-room', name: '成子坂共同ビル・管理人室', imageSrc: new URL('../assets/images/backgrounds/building-room.png', import.meta.url).href },
   'building-room-evening': { id: 'building-room-evening', name: '成子坂共同ビル・管理人室', imageSrc: new URL('../assets/images/backgrounds/building-room-evening.png', import.meta.url).href },
@@ -26,6 +28,12 @@ export const backgrounds: Record<string, BackgroundDefinition> = {
 }
 
 export const characters: Record<string, CharacterDefinition> = {
+  'night-manager': { id: 'night-manager', name: '夜間管理者', expressions: {} },
+  'rescue-worker': { id: 'rescue-worker', name: '救助隊員', expressions: {} },
+  technician: { id: 'technician', name: '設備技術者', expressions: {} },
+  'company-reviewer': { id: 'company-reviewer', name: '確認担当', expressions: {} },
+  reiko: { id: 'reiko', name: '怜子', expressions: {} },
+  anna: { id: 'anna', name: '杏奈', expressions: {} },
   'building-manager': { id: 'building-manager', name: '管理担当者', expressions: {} },
   narrator: { id: 'narrator', name: '', expressions: {} },
   kuroda: { id: 'kuroda', name: '黒田　征司', expressions: {
