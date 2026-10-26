@@ -26,6 +26,7 @@ export const backgrounds: Record<string, BackgroundDefinition> = {
 }
 
 export const characters: Record<string, CharacterDefinition> = {
+  'building-manager': { id: 'building-manager', name: '管理担当者', expressions: {} },
   narrator: { id: 'narrator', name: '', expressions: {} },
   kuroda: { id: 'kuroda', name: '黒田　征司', expressions: {
     neutral: { id: 'neutral', name: '通常', imageSrc: new URL('../assets/images/characters/kuroda/waist/neutral.png', import.meta.url).href },
