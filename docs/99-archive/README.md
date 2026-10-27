@@ -4,6 +4,8 @@
 
 ## 現行仕様へ統合した資料の保存先
 
+- [素材制作の引継ぎ・2026-10-12〜13](art/delivery-handoff-2026-10-13.md)：旧 `outputs/art/README.md`。制作コミット・由来・当時の採用状態を保持。現行の素材入口は[04 作画](../04-art/README.md)。
+
 - [docs/pc-game-ui.md](game-design/pc-game-ui.md)
 - [docs/conversation-flow-2026-10-13.md](game-design/conversation-flow-2026-10-13.md)
 - [docs/submenu-flow-2026-10-13.md](game-design/submenu-flow-2026-10-13.md)

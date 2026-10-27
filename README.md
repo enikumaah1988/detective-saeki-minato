@@ -12,4 +12,16 @@ Node.js・npmとGit LFS対象を取得した環境で、Windowsは` .\start-loca
 
 ## 作業ルールと履歴
 
+リポジトリの配置は次のとおり。仕様・制作資料と、本編のコード・素材をそれぞれの入口から辿る。
+
+| 場所 | 内容 |
+| --- | --- |
+| [src/](src) | ゲーム本編のコード・シナリオ・ゲーム用素材 |
+| [docs/](docs/README.md) | 仕様・原稿・人物・作画・開発資料 |
+| [tests/](tests) | ゲームと保存互換性などの自動検証 |
+| [tools/](tools) | 起動・Lint・配布確認などの開発用ツール |
+| [.github/](.github) | CI・Issueテンプレート |
+
+本編未接続の[演出試作](docs/04-art/prototypes/motion-study/README.md)は作画資料内、旧納品入口の[素材引継ぎ記録](docs/99-archive/art/delivery-handoff-2026-10-13.md)は履歴資料内に保持する。実行時に生成するログ・ビルド・一時出力はGitの管理対象にしない。
+
 共通ルールは[AGENTS.md](AGENTS.md)。整理前の実装説明・検証時点・素材引継ぎの記録は[旧README](docs/99-archive/development/README-before-phase2a.md)に保持する。過去のブランチ状態を現在のmainの状態と混同しない。

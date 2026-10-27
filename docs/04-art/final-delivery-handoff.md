@@ -14,7 +14,7 @@
 
 計25候補。部間初回4図柄は202a449、現行7図柄の版・台帳を確定した制作コミットは220bbc3。旧紙面と旧構図を現行として使わない。
 全ファイルの素材ID、時間帯、保存先、生成原本ファイル、原本と出力SHA-256、制作コミット、採用状態は[統合検証・引継ぎJSON](final-delivery-validation.json)に保存。[再検証スクリプト](verify-final-delivery.py)。
-画像をoutputsへ二重コピーせず、[閲覧入口](../../outputs/art/README.md)からこの正本へリンクする。
+画像をoutputsへ二重コピーせず、[閲覧入口](../99-archive/art/delivery-handoff-2026-10-13.md)からこの正本へリンクする。
 
 ## 部間8接続の現行対応
 

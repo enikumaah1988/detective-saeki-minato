@@ -6,7 +6,7 @@
 - [喫煙・非喫煙](cutins/README.md)：採用湊に合わせた正式制作候補。場所・時刻非限定。既存の配置・喫煙機能を維持。
 - [背景台帳](backgrounds/README.md)：基本構図、時間帯共用・光差分・別画像の判断、残作業と改稿待ち。
 - [生成条件・原本](integration-batch-01-sources.json)、[画像検証](integration-batch-01-validation.json)、[書き出し・合成](export-integration-batch-01.py)。
-- [閲覧用引継ぎ入口](../../outputs/art/README.md)。正本へのリンクで二重管理しない。
+- [閲覧用引継ぎ入口](../99-archive/art/delivery-handoff-2026-10-13.md)。正本へのリンクで二重管理しない。
 
 4点は1920×1080、不透過、確認待ち。描画の比率を維持して書き出し。生成原本保持、SHA-256記録。
 静的な会話欄と人物合成で顔・口元の手の視認性を確認。実ゲーム・1366表示・CSS・動作・場面切替の検証は未実施。
