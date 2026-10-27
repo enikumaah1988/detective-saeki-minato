@@ -2,7 +2,7 @@
   "version": 1,
   "date": "2026-10-27",
   "status": "draft-unapproved",
-  "scope": "30シーン稿の追加3背景・7人物の通常候補。今回のユーザー依頼の対象だけを制作。ゲームへの登録・外見採用・表情差分は未実施。",
+  "scope": "30シーン稿の3背景・追加8人物の通常候補。藤井は名前のみ登場。既存の三原沙織9点は再生成せず再利用準備。ゲームへの登場追加・画像登録・外見採用は未実施。",
   "generator": "built-in image_gen",
   "storySource": "docs/e01-recovery-20261024@b36e278d6f08b911dd7dcdf05dedd80d8e9b1d77",
   "sourceDirectory": "C:/Users/lemon/.codex/generated_images/01a17884-3005-77b1-a1f1-26f29b6c2cdb",
@@ -265,6 +265,281 @@
           0,
           1236,
           1254
+        ]
+      }
+    },
+    {
+      "id": "fujii",
+      "name": "藤井拓海",
+      "kind": "character",
+      "scenes": [
+        "S01",
+        "S03"
+      ],
+      "sceneMode": "mentioned-only",
+      "path": "docs/04-art/characters/fujii/drafts/neutral-01.png",
+      "sourceFile": "exec-53482fac-de03-4da9-972f-33b8fe967c7c.png",
+      "prompt": "Create exactly one isolated waist-up character sprite for a Japanese detective visual novel, true transparent background, square canvas. Character: Fujii Takumi, mentioned as Naoto's workplace junior colleague. His age, exact duties, gender and appearance are not fixed by the manuscript; this is only a proposed adult male visual design. Visually late20s to early30s, Japanese man with a rounded squarer face, calm natural small dark eyes, straightforward softer brows, short dense black hair with clipped sides and a small natural wave on top leaving the forehead visible, clean-shaven, no glasses. Make him clearly distinct from Naoto's narrower face and longer messy brown fringe. Proposed workplace clothing consistent with Naoto and Saori's ensemble: plain muted light-blue work blouson with a central front zipper, fold collar, one flap chest pocket on the wearer's LEFT, simple slanted waist pockets and cuffs; plain pale-beige collared undershirt. No logos, name badge, tools, phone, evidence props, helmet or special rank. Composed ordinary professional expression, neither anxious nor sinister. Hands naturally relaxed together at lower waist, complete fingers visible, entire head through upper hips inside frame with small transparent margins. Three-quarter body and attentive gaze slightly toward viewer's left. Match late1990s Japanese detective ADV hand-painted gekiga: fine irregular ink contours, angular faceted pigment planes on face and clothing, visible restrained brush texture, muted low saturation, uneven natural shadows, realistic adult proportions. No glossy anime skin, huge eyes, photorealistic finish, frame, text, labels, second person or background scene. No relationship or crime clues beyond a normal colleague.",
+      "profile": "docs/04-art/characters/fujii/profile.md",
+      "image": {
+        "width": 1254,
+        "height": 1254,
+        "mode": "RGBA",
+        "sha256": "53e89e2b5047222302f8b8e83e9cb0fe8b462286b1d911d6a46cdd9fa60293b5",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaBounds": [
+          0,
+          0,
+          1190,
+          1254
+        ]
+      }
+    }
+  ],
+  "reusedAssets": [
+    {
+      "id": "saori-full-neutral",
+      "characterId": "saori",
+      "name": "三原沙織",
+      "expression": "neutral",
+      "kind": "full",
+      "path": "src/assets/images/characters/saori/full/neutral.png",
+      "status": "existing-image-unchanged",
+      "storyStatus": "no-direct-scene-in-current-30-scene-draft",
+      "profile": "docs/04-art/characters/saori/profile.md",
+      "image": {
+        "width": 1024,
+        "height": 1536,
+        "mode": "RGBA",
+        "sha256": "a4f630c02bbdbdef3e46df770165e59fd8ef6ad5dfa7256c2aa4fb079a588652",
+        "alphaExtrema": [
+          0,
+          254
+        ],
+        "alphaBounds": [
+          49,
+          0,
+          972,
+          1525
+        ]
+      }
+    },
+    {
+      "id": "saori-waist-confused",
+      "characterId": "saori",
+      "name": "三原沙織",
+      "expression": "confused",
+      "kind": "waist",
+      "path": "src/assets/images/characters/saori/waist/confused.png",
+      "status": "existing-image-unchanged",
+      "storyStatus": "no-direct-scene-in-current-30-scene-draft",
+      "profile": "docs/04-art/characters/saori/profile.md",
+      "image": {
+        "width": 1024,
+        "height": 1024,
+        "mode": "RGBA",
+        "sha256": "3268f92b5a0bcf768596c83f34b642e0510024b470f9669ce24a48e25806b1aa",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaBounds": [
+          66,
+          0,
+          947,
+          1024
+        ]
+      }
+    },
+    {
+      "id": "saori-waist-neutral",
+      "characterId": "saori",
+      "name": "三原沙織",
+      "expression": "neutral",
+      "kind": "waist",
+      "path": "src/assets/images/characters/saori/waist/neutral.png",
+      "status": "existing-image-unchanged",
+      "storyStatus": "no-direct-scene-in-current-30-scene-draft",
+      "profile": "docs/04-art/characters/saori/profile.md",
+      "image": {
+        "width": 1024,
+        "height": 1024,
+        "mode": "RGBA",
+        "sha256": "032737ec54ae86388fdec83dd6a4ad0496e9448f7c15ae39b2d2dff7b53d96a3",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaBounds": [
+          0,
+          6,
+          1008,
+          1024
+        ]
+      }
+    },
+    {
+      "id": "saori-waist-pained",
+      "characterId": "saori",
+      "name": "三原沙織",
+      "expression": "pained",
+      "kind": "waist",
+      "path": "src/assets/images/characters/saori/waist/pained.png",
+      "status": "existing-image-unchanged",
+      "storyStatus": "no-direct-scene-in-current-30-scene-draft",
+      "profile": "docs/04-art/characters/saori/profile.md",
+      "image": {
+        "width": 1024,
+        "height": 1024,
+        "mode": "RGBA",
+        "sha256": "13e795f2072c8a9df8b16807b26e57d91db073916c4b17d7a39ff32c37886a7f",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaBounds": [
+          0,
+          0,
+          985,
+          1024
+        ]
+      }
+    },
+    {
+      "id": "saori-waist-relieved",
+      "characterId": "saori",
+      "name": "三原沙織",
+      "expression": "relieved",
+      "kind": "waist",
+      "path": "src/assets/images/characters/saori/waist/relieved.png",
+      "status": "existing-image-unchanged",
+      "storyStatus": "no-direct-scene-in-current-30-scene-draft",
+      "profile": "docs/04-art/characters/saori/profile.md",
+      "image": {
+        "width": 1024,
+        "height": 1024,
+        "mode": "RGBA",
+        "sha256": "60759f7d89661ffe25a80affae9bb84187b00ece44764c87c37bcf5e886d78ee",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaBounds": [
+          20,
+          0,
+          1021,
+          1024
+        ]
+      }
+    },
+    {
+      "id": "saori-waist-serious",
+      "characterId": "saori",
+      "name": "三原沙織",
+      "expression": "serious",
+      "kind": "waist",
+      "path": "src/assets/images/characters/saori/waist/serious.png",
+      "status": "existing-image-unchanged",
+      "storyStatus": "no-direct-scene-in-current-30-scene-draft",
+      "profile": "docs/04-art/characters/saori/profile.md",
+      "image": {
+        "width": 1024,
+        "height": 1024,
+        "mode": "RGBA",
+        "sha256": "1e2c9131951be188506b83a2e61cdfab0a815a5e03a830480b873ebe49eb87f5",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaBounds": [
+          60,
+          8,
+          1014,
+          1024
+        ]
+      }
+    },
+    {
+      "id": "saori-waist-smile",
+      "characterId": "saori",
+      "name": "三原沙織",
+      "expression": "smile",
+      "kind": "waist",
+      "path": "src/assets/images/characters/saori/waist/smile.png",
+      "status": "existing-image-unchanged",
+      "storyStatus": "no-direct-scene-in-current-30-scene-draft",
+      "profile": "docs/04-art/characters/saori/profile.md",
+      "image": {
+        "width": 1024,
+        "height": 1024,
+        "mode": "RGBA",
+        "sha256": "c0bef9e1b2503838e46a8b3eab340057aa280f9a51c34a14b81c3f960c98f2b9",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaBounds": [
+          145,
+          1,
+          1008,
+          1024
+        ]
+      }
+    },
+    {
+      "id": "saori-waist-surprised",
+      "characterId": "saori",
+      "name": "三原沙織",
+      "expression": "surprised",
+      "kind": "waist",
+      "path": "src/assets/images/characters/saori/waist/surprised.png",
+      "status": "existing-image-unchanged",
+      "storyStatus": "no-direct-scene-in-current-30-scene-draft",
+      "profile": "docs/04-art/characters/saori/profile.md",
+      "image": {
+        "width": 1024,
+        "height": 1024,
+        "mode": "RGBA",
+        "sha256": "f8fdf3af7911d7f6614bc64b4c2c3f6603c7235845fd55c9fbe7401e0ae1bf78",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaBounds": [
+          27,
+          0,
+          978,
+          1024
+        ]
+      }
+    },
+    {
+      "id": "saori-waist-worried",
+      "characterId": "saori",
+      "name": "三原沙織",
+      "expression": "worried",
+      "kind": "waist",
+      "path": "src/assets/images/characters/saori/waist/worried.png",
+      "status": "existing-image-unchanged",
+      "storyStatus": "no-direct-scene-in-current-30-scene-draft",
+      "profile": "docs/04-art/characters/saori/profile.md",
+      "image": {
+        "width": 1024,
+        "height": 1024,
+        "mode": "RGBA",
+        "sha256": "25183ba48e638ade0f6d25797464d787f7a482526cd7c053776c88370f88d7cf",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaBounds": [
+          0,
+          0,
+          888,
+          1024
         ]
       }
     }

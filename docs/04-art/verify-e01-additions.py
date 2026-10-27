@@ -23,8 +23,8 @@ def inspect(path):
 
 def verify():
     manifest = json.loads(manifest_path.read_text(encoding='utf-8'))
-    assert len(manifest['assets']) == 10
-    assert len({entry['id'] for entry in manifest['assets']}) == 10
+    assert len(manifest['assets']) == 11
+    assert len({entry['id'] for entry in manifest['assets']}) == 11
     for entry in manifest['assets']:
         path = (root / entry['path']).resolve()
         assert path.is_relative_to(root / 'docs/04-art'), entry['id']
@@ -38,6 +38,16 @@ def verify():
             assert abs(actual['width'] / actual['height'] - 16 / 9) < 0.01, entry['id']
         assert entry['prompt'] and entry['sourceFile'] and entry['scenes'], entry['id']
         print(entry['id'], actual['width'], actual['height'], actual['mode'], 'OK')
+    reused = manifest['reusedAssets']
+    assert len(reused) == 9
+    for entry in reused:
+        path = (root / entry['path']).resolve()
+        assert path.is_relative_to(root / 'src/assets/images/characters/saori'), entry['id']
+        actual = inspect(path)
+        assert actual == entry['image'], entry['id']
+        # Preserve existing opacity values (some source full-body assets peak below 255).
+        assert actual['alphaExtrema'][0] == 0 and actual['alphaExtrema'][1] >= 128, entry['id']
+        print(entry['id'], 'existing asset, unchanged OK')
 
 if __name__ == '__main__':
     verify()
