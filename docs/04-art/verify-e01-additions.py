@@ -23,11 +23,11 @@ def inspect(path):
 
 def verify():
     manifest = json.loads(manifest_path.read_text(encoding='utf-8'))
-    assert len(manifest['assets']) == 11
-    assert len({entry['id'] for entry in manifest['assets']}) == 11
+    assert len(manifest['assets']) == 12
+    assert len({entry['id'] for entry in manifest['assets']}) == 12
     for entry in manifest['assets']:
         path = (root / entry['path']).resolve()
-        assert path.is_relative_to(root / 'docs/04-art'), entry['id']
+        assert path.is_relative_to(root / ('src/assets/images/backgrounds' if entry['kind'] == 'background' else 'docs/04-art')), entry['id']
         actual = inspect(path)
         assert actual == entry['image'], entry['id']
         if entry['kind'] == 'character':
@@ -53,7 +53,7 @@ def verify():
     assert len({entry['id'] for entry in revisions}) == 9
     for entry in revisions:
         path = (root / entry['path']).resolve()
-        assert path.is_relative_to(root / 'docs/04-art/characters'), entry['id']
+        assert path.is_relative_to(root / ('src/assets/images/characters' if entry['status'] == 'integrated-normal' else 'docs/04-art/characters')), entry['id']
         actual = inspect(path)
         assert actual == entry['image'], entry['id']
         assert actual['mode'] == 'RGBA' and actual['alphaExtrema'] == [0, 255], entry['id']

@@ -14,7 +14,7 @@
       "scenes": [
         "S07"
       ],
-      "path": "docs/04-art/backgrounds/drafts/building-equipment-01.png",
+      "path": "src/assets/images/backgrounds/building-equipment.png",
       "sourceFile": "exec-dee9c7cf-462c-4179-ba8d-24034b9eb2c5.png",
       "prompt": "Generate one finished 16:9 landscape background illustration for a Japanese detective visual novel, no people, no text, no UI. Place: service basement of an aging, well maintained Tokyo commercial building, circa 2026. Match a mature grounded hand-painted Japanese gekiga visual-novel aesthetic: fine ink contours, muted olive-gray concrete, worn practical metal, detailed painterly material textures, restrained cinematic lighting, realistic architectural proportions, neither anime cel shading nor photorealistic photography. Composition at standing eye level, wide view looking along equipment shelves on one side and low overhead pipes. Important story geometry: a person-sized walkable narrow service passage remains OPEN beside/behind the shelves and turns out of sight around a fixed wall; the storage-room door farther around the corner is NOT yet visible from this frontal position. Shelves are stationary and do not block the route. Some work supplies partly screen the sightline but no dangerous solid barricade. Ordinary ceiling service lights, subdued nighttime interior light, credible safety signage without legible letters. No sunlight, windows, broken door, blood, trapped people, moving shelves, dramatic horror or supernatural clues. Keep lower quarter and center readable beneath character sprites and dialogue overlay; visual navigation detail in middle distance. Single complete environment, not collage or floor plan. Desired canvas 1920x1080 or closest native landscape size. This is a production candidate for S07 of Episode01 '消された記録'; do not invent an emergency or show rescue taking place.",
       "conditions": "棚の裏に人が通れる通路があり、折れ曲がった先の入口は正面から見えない。棚は移動せず出入口を塞がない。",
@@ -23,7 +23,8 @@
         "height": 941,
         "mode": "RGB",
         "sha256": "ff4ccf28fcd84c977c9337a09f298df3145648f2393b4cedf64f7ef361b0a8f1"
-      }
+      },
+      "status": "integrated"
     },
     {
       "id": "building-storage-door",
@@ -33,7 +34,7 @@
         "S09",
         "S10"
       ],
-      "path": "docs/04-art/backgrounds/drafts/building-storage-door-01.png",
+      "path": "src/assets/images/backgrounds/building-storage-door.png",
       "sourceFile": "exec-b3bbad8d-3488-45bb-b06f-0598e4a5a77b.png",
       "prompt": "Create a second background view of THIS SAME basement after the camera has walked down the OPEN passage and turned around the concrete corner. Preserve this image's grounded painterly gekiga rendering, worn gray-green concrete, conduits, shelving materials, overhead service lamps, restrained color and believable building. View now faces one ordinary CLOSED old gray metal storage-room door at the end of a short clear service passage. Door has a simple lever handle and normal frame, no padlock, chains, external barricade, injury clues, transparent window, damage, broken lock, people or readable lettering. It was out of sight from the earlier frontal shelving view; show a near-edge section of shelving or concrete return to convey the turn. Door must remain accessible to professional rescue workers; foreground passage wide enough for a person to approach safely. This is a narrative location illustration for S09 before professionals open the door, not a floor plan or exact architectural specification. Keep no people, no UI, no title, no emergency event drawn. Landscape16:9, same art style and interior lighting as the reference. Do not copy the broad original frontal composition: use the new camera around the corner, with door in clear middle-distance view.",
       "conditions": "地下通路と材質を共通化。曲がった先に通常の閉じた金属扉。鎖・外側の障害物・破損原因・内部の人物を描かない。S10の開放後描写は別差分が必要。",
@@ -42,7 +43,8 @@
         "height": 941,
         "mode": "RGB",
         "sha256": "30ab0173d8fc5edf81a00fd03ccb69f41e4aec47b35d50402ede1b227a44afed"
-      }
+      },
+      "status": "integrated"
     },
     {
       "id": "bar-amayadori",
@@ -52,7 +54,7 @@
         "BAR-A",
         "BAR-B"
       ],
-      "path": "docs/04-art/backgrounds/drafts/bar-amayadori-01.png",
+      "path": "src/assets/images/backgrounds/bar-amayadori.png",
       "sourceFile": "exec-23f61506-1ba9-4c4c-930d-7c2a876d56f1.png",
       "prompt": "Generate one polished 16:9 landscape background illustration for a grounded Japanese detective visual novel. Scene: the quiet interior of a small neighborhood bar called 雨宿り in contemporary Tokyo, evening. No people, silhouettes, portraits, text, logos, menus, UI, cigarette smoke or readable labels. Mature hand-painted gekiga aesthetic, fine controlled ink contour work, muted painterly shading with realistic timber, worn leather and glass materials, closely consistent with a warm, lived-in Tokyo detective-office background. Wide eye-level view from the customer side looking toward a well-kept dark timber counter, restrained amber pendant lights, a few plain glass tumblers and a glass water carafe, compact shelves of bottles with abstract illegible labels behind the counter, quiet stools. Welcoming but understated, neither nightclub nor luxury hotel, noir influence without neon spectacle. Leave a usable calm lower quarter for dialogue overlay, space above counter for two waist-up character sprites. It is a daily resting place for a regular customer, not a source of crime evidence; do not include case files, clues, weapons, policing imagery, romance imagery, signage, ominous hidden doors or dramatic staging. Single cohesive room. Desired 1920x1080 or closest native landscape size. New production candidate only, do not imply final adoption of its layout.",
       "conditions": "落ち着いたカウンター、グラス、水差し。事件の証拠・恋愛記号・実在ブランドを追加しない。店の住所や間取りは未確定。",
@@ -61,7 +63,8 @@
         "height": 941,
         "mode": "RGB",
         "sha256": "ffd709db0b590d697eb5b64af0a2b811c62d28303c23b56c85ea3aef20537b22"
-      }
+      },
+      "status": "integrated"
     },
     {
       "id": "building-manager",
@@ -297,6 +300,25 @@
           1254
         ]
       }
+    },
+    {
+      "id": "building-storage-open",
+      "name": "旧保管室・開扉後",
+      "kind": "background",
+      "scenes": [
+        "S10"
+      ],
+      "path": "src/assets/images/backgrounds/building-storage-open.png",
+      "sourceFile": "exec-4a317d99-f467-4d00-a902-43af6751913d.png",
+      "prompt": "Edit this Japanese detective visual novel background into the same exact location AFTER the plain metal storage door has safely been opened. Preserve camera, room proportions, floor, overhead pipes, shelving, concrete textures, subdued lighting, muted painted graphic style and all surrounding architecture. Change ONLY door state: show the existing door swung open into the storage room, with a small dim empty storage interior visible behind it. The opening must be unobstructed, no locks/chains/barricades, no broken door or new fault clues. No people, injured person, stretcher, blood, tools in use, text, brands or UI. This is the calm background behind rescue-worker sprites in S10, not an event illustration. Landscape 16:9, original framing and resolution.",
+      "referenceImage": "src/assets/images/backgrounds/building-storage-door.png",
+      "image": {
+        "width": 1672,
+        "height": 941,
+        "mode": "RGB",
+        "sha256": "5e076955c47077876c8525d880c21ebf172e4edf3a1be20bfbaa55eb89151895"
+      },
+      "status": "integrated"
     }
   ],
   "reusedAssets": [
@@ -628,7 +650,7 @@
     {
       "id": "reiko",
       "target": "docs/04-art/characters/reiko/drafts/neutral-01.png",
-      "path": "docs/04-art/characters/reiko/drafts/neutral-02-minato-mio.png",
+      "path": "src/assets/images/characters/reiko/waist/neutral.png",
       "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a17884-3005-77b1-a1f1-26f29b6c2cdb\\exec-b2db7e19-5152-4494-bedc-1b317b079a0a.png",
       "prompt": "Use case: style-transfer. Edit image 3 (the target character) to look painted by the SAME artist and in the SAME game sprite series as images 1 and 2 (Minato and Mio: style references ONLY). Preserve the target's distinct identity, age, gender, hairstyle, hair color, clothes, colors, neutral expression, pose, hands and waist-up framing. Do NOT copy the reference characters' faces, glasses, jewelry, tie or costumes. Strong crisp dark ink contours with varied weight; angular facial planes, stylized mature Japanese manga/gekiga facial anatomy, defined eyelids/nose/jaw; deep clean shadow shapes; distinctive small angular faceted brush marks across skin and fabric as in references; high contrast with restrained earthy colors. Replace the soft grainy watercolor rendering with the reference's sharper graphic faceted painted shading. This must visually belong beside Minato and Mio. One single character, centered waist-up, complete head and both hands within frame, actual transparent background, no text, no panels, no border, no extra props. Keep transparent edges clean. Output one square PNG. Target character: reiko",
       "image": {
@@ -648,7 +670,7 @@
         ]
       },
       "generator": "built-in image_gen",
-      "status": "draft-unapproved",
+      "status": "integrated-normal",
       "profile": "docs/04-art/characters/reiko/profile.md",
       "referenceImages": [
         {
@@ -668,7 +690,7 @@
     {
       "id": "anna",
       "target": "docs/04-art/characters/anna/drafts/neutral-01.png",
-      "path": "docs/04-art/characters/anna/drafts/neutral-02-minato-mio.png",
+      "path": "src/assets/images/characters/anna/waist/neutral.png",
       "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a17884-3005-77b1-a1f1-26f29b6c2cdb\\exec-3f257f7c-77fd-4656-8f12-069b87a7a2a8.png",
       "prompt": "Use case: style-transfer. Edit image 3 (the target character) to look painted by the SAME artist and in the SAME game sprite series as images 1 and 2 (Minato and Mio: style references ONLY). Preserve the target's distinct identity, age, gender, hairstyle, hair color, clothes, colors, neutral expression, pose, hands and waist-up framing. Do NOT copy the reference characters' faces, glasses, jewelry, tie or costumes. Strong crisp dark ink contours with varied weight; angular facial planes, stylized mature Japanese manga/gekiga facial anatomy, defined eyelids/nose/jaw; deep clean shadow shapes; distinctive small angular faceted brush marks across skin and fabric as in references; high contrast with restrained earthy colors. Replace the soft grainy watercolor rendering with the reference's sharper graphic faceted painted shading. This must visually belong beside Minato and Mio. One single character, centered waist-up, complete head and both hands within frame, actual transparent background, no text, no panels, no border, no extra props. Keep transparent edges clean. Output one square PNG. Target character: anna",
       "image": {
@@ -688,7 +710,7 @@
         ]
       },
       "generator": "built-in image_gen",
-      "status": "draft-unapproved",
+      "status": "integrated-normal",
       "profile": "docs/04-art/characters/anna/profile.md",
       "referenceImages": [
         {
@@ -708,7 +730,7 @@
     {
       "id": "building-manager",
       "target": "docs/04-art/characters/building-manager/drafts/neutral-01.png",
-      "path": "docs/04-art/characters/building-manager/drafts/neutral-02-minato-mio.png",
+      "path": "src/assets/images/characters/building-manager/waist/neutral.png",
       "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a17884-3005-77b1-a1f1-26f29b6c2cdb\\exec-a69cb3a8-2210-4c05-9efa-f8f7eb176dfe.png",
       "prompt": "Use case: style-transfer. Edit image 3 (the target character) to look painted by the SAME artist and in the SAME game sprite series as images 1 and 2 (Minato and Mio: style references ONLY). Preserve the target's distinct identity, age, gender, hairstyle, hair color, clothes, colors, neutral expression, pose, hands and waist-up framing. Do NOT copy the reference characters' faces, glasses, jewelry, tie or costumes. Strong crisp dark ink contours with varied weight; angular facial planes, stylized mature Japanese manga/gekiga facial anatomy, defined eyelids/nose/jaw; deep clean shadow shapes; distinctive small angular faceted brush marks across skin and fabric as in references; high contrast with restrained earthy colors. Replace the soft grainy watercolor rendering with the reference's sharper graphic faceted painted shading. This must visually belong beside Minato and Mio. One single character, centered waist-up, complete head and both hands within frame, actual transparent background, no text, no panels, no border, no extra props. Keep transparent edges clean. Output one square PNG. Target character: building-manager",
       "image": {
@@ -728,7 +750,7 @@
         ]
       },
       "generator": "built-in image_gen",
-      "status": "draft-unapproved",
+      "status": "integrated-normal",
       "profile": "docs/04-art/characters/building-manager/profile.md",
       "referenceImages": [
         {
@@ -748,7 +770,7 @@
     {
       "id": "night-manager",
       "target": "docs/04-art/characters/night-manager/drafts/neutral-01.png",
-      "path": "docs/04-art/characters/night-manager/drafts/neutral-02-minato-mio.png",
+      "path": "src/assets/images/characters/night-manager/waist/neutral.png",
       "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a17884-3005-77b1-a1f1-26f29b6c2cdb\\exec-0f217a66-b92b-455b-b827-94421244fb95.png",
       "prompt": "Use case: style-transfer. Edit image 3 (the target character) to look painted by the SAME artist and in the SAME game sprite series as images 1 and 2 (Minato and Mio: style references ONLY). Preserve the target's distinct identity, age, gender, hairstyle, hair color, clothes, colors, neutral expression, pose, hands and waist-up framing. Do NOT copy the reference characters' faces, glasses, jewelry, tie or costumes. Strong crisp dark ink contours with varied weight; angular facial planes, stylized mature Japanese manga/gekiga facial anatomy, defined eyelids/nose/jaw; deep clean shadow shapes; distinctive small angular faceted brush marks across skin and fabric as in references; high contrast with restrained earthy colors. Replace the soft grainy watercolor rendering with the reference's sharper graphic faceted painted shading. This must visually belong beside Minato and Mio. One single character, centered waist-up, complete head and both hands within frame, actual transparent background, no text, no panels, no border, no extra props. Keep transparent edges clean. Output one square PNG. Target character: night-manager",
       "image": {
@@ -768,7 +790,7 @@
         ]
       },
       "generator": "built-in image_gen",
-      "status": "draft-unapproved",
+      "status": "integrated-normal",
       "profile": "docs/04-art/characters/night-manager/profile.md",
       "referenceImages": [
         {
@@ -788,7 +810,7 @@
     {
       "id": "rescue-worker",
       "target": "docs/04-art/characters/rescue-worker/drafts/neutral-01.png",
-      "path": "docs/04-art/characters/rescue-worker/drafts/neutral-02-minato-mio.png",
+      "path": "src/assets/images/characters/rescue-worker/waist/neutral.png",
       "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a17884-3005-77b1-a1f1-26f29b6c2cdb\\exec-b29d641a-21e1-4baf-8c5c-e6508077b079.png",
       "prompt": "Use case: style-transfer. Edit image 3 (the target character) to look painted by the SAME artist and in the SAME game sprite series as images 1 and 2 (Minato and Mio: style references ONLY). Preserve the target's distinct identity, age, gender, hairstyle, hair color, clothes, colors, neutral expression, pose, hands and waist-up framing. Do NOT copy the reference characters' faces, glasses, jewelry, tie or costumes. Strong crisp dark ink contours with varied weight; angular facial planes, stylized mature Japanese manga/gekiga facial anatomy, defined eyelids/nose/jaw; deep clean shadow shapes; distinctive small angular faceted brush marks across skin and fabric as in references; high contrast with restrained earthy colors. Replace the soft grainy watercolor rendering with the reference's sharper graphic faceted painted shading. This must visually belong beside Minato and Mio. One single character, centered waist-up, complete head and both hands within frame, actual transparent background, no text, no panels, no border, no extra props. Keep transparent edges clean. Output one square PNG. Target character: rescue-worker",
       "image": {
@@ -808,7 +830,7 @@
         ]
       },
       "generator": "built-in image_gen",
-      "status": "draft-unapproved",
+      "status": "integrated-normal",
       "profile": "docs/04-art/characters/rescue-worker/profile.md",
       "referenceImages": [
         {
@@ -828,7 +850,7 @@
     {
       "id": "technician",
       "target": "docs/04-art/characters/technician/drafts/neutral-01.png",
-      "path": "docs/04-art/characters/technician/drafts/neutral-02-minato-mio.png",
+      "path": "src/assets/images/characters/technician/waist/neutral.png",
       "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a17884-3005-77b1-a1f1-26f29b6c2cdb\\exec-b6cde022-480c-4551-b0c3-6fa60039f102.png",
       "prompt": "Use case: style-transfer. Edit image 3 (the target character) to look painted by the SAME artist and in the SAME game sprite series as images 1 and 2 (Minato and Mio: style references ONLY). Preserve the target's distinct identity, age, gender, hairstyle, hair color, clothes, colors, neutral expression, pose, hands and waist-up framing. Do NOT copy the reference characters' faces, glasses, jewelry, tie or costumes. Strong crisp dark ink contours with varied weight; angular facial planes, stylized mature Japanese manga/gekiga facial anatomy, defined eyelids/nose/jaw; deep clean shadow shapes; distinctive small angular faceted brush marks across skin and fabric as in references; high contrast with restrained earthy colors. Replace the soft grainy watercolor rendering with the reference's sharper graphic faceted painted shading. This must visually belong beside Minato and Mio. One single character, centered waist-up, complete head and both hands within frame, actual transparent background, no text, no panels, no border, no extra props. Keep transparent edges clean. Output one square PNG. Target character: technician",
       "image": {
@@ -848,7 +870,7 @@
         ]
       },
       "generator": "built-in image_gen",
-      "status": "draft-unapproved",
+      "status": "integrated-normal",
       "profile": "docs/04-art/characters/technician/profile.md",
       "referenceImages": [
         {
@@ -868,7 +890,7 @@
     {
       "id": "company-reviewer",
       "target": "docs/04-art/characters/company-reviewer/drafts/neutral-01.png",
-      "path": "docs/04-art/characters/company-reviewer/drafts/neutral-02-minato-mio.png",
+      "path": "src/assets/images/characters/company-reviewer/waist/neutral.png",
       "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a17884-3005-77b1-a1f1-26f29b6c2cdb\\exec-3289047f-6ee0-4f7c-815d-81c7f9e26c04.png",
       "prompt": "Use case: style-transfer. Edit image 3 (the target character) to look painted by the SAME artist and in the SAME game sprite series as images 1 and 2 (Minato and Mio: style references ONLY). Preserve the target's distinct identity, age, gender, hairstyle, hair color, clothes, colors, neutral expression, pose, hands and waist-up framing. Do NOT copy the reference characters' faces, glasses, jewelry, tie or costumes. Strong crisp dark ink contours with varied weight; angular facial planes, stylized mature Japanese manga/gekiga facial anatomy, defined eyelids/nose/jaw; deep clean shadow shapes; distinctive small angular faceted brush marks across skin and fabric as in references; high contrast with restrained earthy colors. Replace the soft grainy watercolor rendering with the reference's sharper graphic faceted painted shading. This must visually belong beside Minato and Mio. One single character, centered waist-up, complete head and both hands within frame, actual transparent background, no text, no panels, no border, no extra props. Keep transparent edges clean. Output one square PNG. Target character: company-reviewer",
       "image": {
@@ -888,7 +910,7 @@
         ]
       },
       "generator": "built-in image_gen",
-      "status": "draft-unapproved",
+      "status": "integrated-normal",
       "profile": "docs/04-art/characters/company-reviewer/profile.md",
       "referenceImages": [
         {
@@ -907,5 +929,28 @@
     }
   ],
   "reviewDate": "2026-10-28",
-  "reviewScope": "新規8人と既存沙織の通常候補を湊・澪へ画風合わせ。旧11候補・既存沙織9画像は変更せず保持。"
+  "reviewScope": "新規8人と既存沙織の通常候補を湊・澪へ画風合わせ。旧11候補・既存沙織9画像は変更せず保持。",
+  "integration": {
+    "date": "2026-10-28",
+    "characters": [
+      "building-manager",
+      "night-manager",
+      "rescue-worker",
+      "technician",
+      "company-reviewer",
+      "reiko",
+      "anna"
+    ],
+    "backgrounds": [
+      "building-equipment",
+      "building-storage-door",
+      "bar-amayadori",
+      "building-storage-open"
+    ],
+    "deferred": [
+      "fujii",
+      "saori"
+    ],
+    "saveDataVersion": 2
+  }
 }

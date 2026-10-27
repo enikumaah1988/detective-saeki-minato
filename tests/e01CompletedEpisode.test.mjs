@@ -17,6 +17,46 @@ test('全30シーンと任意BARの遷移・演出参照・終了経路が有効
     assert.ok(audit.canReachEnd.has(id), id)
   }
 })
+
+test('追加人物の出番・救助後の退出・BAR離席をノードから復元する', () => {
+  const at = id => api.selectCurrentNode(scenario, { ...api.createInitialState(scenario), nodeId: id })
+  const cast = id => at(id).stage.characters.map(person => person.characterId)
+  for (const [scene, people] of Object.entries({ S04: ['building-manager'], S05: ['building-manager'], S06: ['building-manager'],
+    S07: ['night-manager'], S08: ['night-manager'], S09: ['night-manager'], S10: ['rescue-worker'], S15: ['building-manager', 'technician'],
+    S16: ['company-reviewer'], S18: ['company-reviewer'], S20: ['building-manager'] })) {
+    for (const person of people) assert.ok(cast(`${scene}-intro`).includes(person), scene + '/' + person)
+  }
+  assert.equal(at('S09-intro').stage.backgroundId, 'building-storage-door')
+  assert.equal(at('S10-intro').stage.backgroundId, 'building-storage-open')
+  const find = text => Object.entries(scenario.nodes).find(([,node]) => node.type === 'dialogue' && node.text.startsWith(text))[0]
+  const transport = find('（隊員が直人を搬送）'), outside = find('（救急車の扉が閉まる。')
+  assert.ok(!cast(transport).includes('rescue-worker'))
+  assert.equal(at(outside).stage.backgroundId, 'building-exterior')
+  assert.equal(at('S10-menu').stage.backgroundId, 'building-exterior')
+  for (const id of ['BAR-A','BAR-B']) {
+    assert.ok(cast(`${id}-intro`).includes('anna'))
+    assert.ok(cast(`${id}-menu`).includes('reiko'))
+    assert.ok(!cast(`${id}-menu`).includes('anna'))
+  }
+  assert.ok(!cast(find('（杏奈は静かに席を離れる）')).includes('anna'))
+  for (const [id, node] of Object.entries(scenario.nodes)) {
+    if (id.startsWith('BAR') && node.type === 'dialogue' && node.speakerId === 'anna' && id.includes('-action-')) {
+      assert.ok(cast(node.next).includes('anna'), node.next)
+    }
+  }
+  for (const [id,node] of Object.entries(scenario.nodes)) {
+    const people = cast(id)
+    assert.ok(people.length <= 3, id)
+    assert.ok(!people.includes('fujii') && !people.includes('saori'), id)
+    if (node.type === 'dialogue' && node.speakerId === 'anna') assert.ok(people.includes('anna'), id)
+    if (['S10-transported','S10-outside','S16-kuroda','BAR-A-anna','BAR-B-anna'].includes(node.sceneId)) {
+      const state = { ...api.createInitialState(scenario), nodeId: id }
+      const restored = api.restoreSaveData(api.createSaveData(state), api.scenarioCatalog)
+      assert.equal(restored.ok, true)
+      assert.deepEqual(api.selectCurrentNode(scenario, restored.state).stage, at(id).stage, id)
+    }
+  }
+})
 test('原稿転記の全発言とト書きが実行データに保持される', () => {
   assert.equal(createHash('sha256').update(JSON.stringify(api.source)).digest('hex'), '3872a0c640af88cdd110127af239bd1cbaaf3e5e81377f7194b9ce20708d1faa')
   const values = Object.values(scenario.nodes).filter(node => node.type === 'dialogue')

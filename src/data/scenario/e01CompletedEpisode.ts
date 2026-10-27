@@ -21,11 +21,14 @@ const sceneDates: Record<string, string> = {
 function setup(id: string) {
   const office = ['S11', 'S14', 'S17', 'S19', 'S23', 'S26', 'S27', 'S29', 'S30'].includes(id)
   const backgroundId = id.startsWith('BAR') ? 'bar-amayadori' : police.has(id) || id === 'S21' ? 'police-meeting' : id === 'S20' ? 'building-stairs'
-    : ['S07', 'S09', 'S10'].includes(id) ? 'building-equipment' : ['S08', 'S15'].includes(id) ? 'building-room' : office ? id === 'S11' || id === 'S30' ? 'office-evening' : 'office-afternoon' : 'company-lounge'
+    : id === 'S07' ? 'building-equipment' : id === 'S09' ? 'building-storage-door' : id === 'S10' ? 'building-storage-open'
+      : ['S08', 'S15'].includes(id) ? 'building-room' : office ? id === 'S11' || id === 'S30' ? 'office-evening' : 'office-afternoon' : 'company-lounge'
   const people = police.has(id) ? ['segawa', 'kuroda', 'okumura'] : id === 'S21' ? ['segawa', 'minato', 'okumura']
-    : id === 'S11' ? ['mio', 'minato', 'akari'] : id === 'S29' ? ['mio', 'minato', 'okumura'] : id === 'S12' || id === 'S16' ? ['miyahara', 'minato', 'kuroda']
-    : id === 'S13' || id === 'S18' ? ['minato', 'miyahara'] : id === 'S20' || id === 'S15' ? ['minato'] : ['minato', 'mio']
-  scenes[id] = { backgroundId, characters: cast(id.startsWith('BAR') ? ['minato'] : people) }
+    : id === 'S11' ? ['mio', 'minato', 'akari'] : id === 'S29' ? ['mio', 'minato', 'okumura'] : id === 'S12' ? ['miyahara', 'minato', 'kuroda']
+    : id === 'S16' || id === 'S18' ? ['miyahara', 'minato', 'company-reviewer'] : id === 'S13' ? ['minato', 'miyahara']
+    : id === 'S15' ? ['building-manager', 'minato', 'technician'] : id === 'S20' ? ['minato', 'building-manager']
+    : ['S07', 'S08', 'S09'].includes(id) ? ['mio', 'minato', 'night-manager'] : id === 'S10' ? ['mio', 'minato', 'rescue-worker'] : ['minato', 'mio']
+  scenes[id] = { backgroundId, characters: cast(id.startsWith('BAR') ? ['reiko', 'minato'] : people) }
   for (const person of scenes[id].characters ?? []) {
     if (id === 'S11' && person.characterId === 'akari') person.condition = { type: 'flag', id: 'F_AKARI_LEFT', value: false }
     if (id === 'S29' && person.characterId === 'okumura') person.condition = { type: 'flag', id: 'F_OKUMURA_LEFT', value: false }
@@ -53,6 +56,12 @@ function event(scene: CompletedScene, label: string) { return scene.actions.find
 function chainedEvents(scene: CompletedScene, labels: string[]) { return labels.flatMap(label => event(scene, label)) }
 
 for (const source of completedContinuationSource) setup(source.id)
+// Presentation variants derive from existing node IDs, without adding save state or progress flags.
+scenes['S08-underground'] = { ...scenes.S08, backgroundId: 'building-equipment' }
+scenes['S10-transported'] = { ...scenes.S10, characters: cast(['minato', 'mio']) }
+scenes['S10-outside'] = { backgroundId: 'building-exterior', characters: cast(['minato', 'mio']) }
+scenes['S16-kuroda'] = { ...scenes.S16, characters: cast(['miyahara', 'minato', 'kuroda']) }
+for (const id of ['BAR-A', 'BAR-B']) scenes[`${id}-anna`] = { ...scenes[id], characters: cast(['reiko', 'minato', 'anna']) }
 // Keep the first-stage scenario and its saved ending intact; only the full scenario continues.
 nodes['S06-end'] = { stage: e01CompletedPart1.nodes['S06-end'].stage,
   sceneId: 'S06', historyScope: 'S06', savePhaseId: 'S06', type: 'dialogue', speakerId: 'narrator', text: '第1部「消えた男」終了。', next: 'S07-intro' }
@@ -184,5 +193,45 @@ add('S30', 'episode-complete-menu', { ...meta('S30'), type: 'choice', prompt: 'E
   { id: 'proceed', label: 'エピソードを終了する', next: 'episode-complete' }, { id: 'bar', label: 'BAR「雨宿り」エピローグ（任意）', next: 'BAR-B-entry' },
 ] })
 add('S30', 'episode-complete', { ...meta('S30'), type: 'end', text: 'Episode 01「消された記録」完' })
+
+// Keep historyScope/savePhaseId and every dialogue/progression ID unchanged.
+// Variants use the existing scene selector, so loading any old v2 node restores its presentation.
+for (const [name, node] of Object.entries(nodes)) {
+  if (node.sceneId === 'S08' && (name.startsWith('S08-discovery') || name.startsWith('S08-finish'))) node.sceneId = 'S08-underground'
+  if (node.sceneId === 'S16' && node.type === 'dialogue' && node.speakerId === 'kuroda') node.sceneId = 'S16-kuroda'
+  if (node.sceneId?.startsWith('BAR') && node.type === 'dialogue' && node.speakerId === 'anna') node.sceneId = `${node.sceneId}-anna`
+}
+function stageAfter(start: string, sceneId: string) {
+  let name = start
+  while (nodes[name]?.type === 'dialogue') {
+    const node = nodes[name]
+    if (node.type !== 'dialogue') break
+    node.sceneId = sceneId
+    name = node.next
+  }
+}
+const rescue = Object.entries(nodes).filter(([, node]) => node.sceneId === 'S10' && node.type === 'dialogue')
+const transported = rescue.find(([, node]) => node.type === 'dialogue' && node.text === '（隊員が直人を搬送）')
+const outside = rescue.find(([, node]) => node.type === 'dialogue' && node.text.startsWith('（救急車の扉が閉まる。'))
+if (transported) stageAfter(transported[0], 'S10-transported')
+if (outside) stageAfter(outside[0], 'S10-outside')
+for (const [name, node] of Object.entries(nodes)) {
+  if (node.sceneId === 'S10' && !name.startsWith('S10-intro')) node.sceneId = 'S10-outside'
+}
+// Anna is present during the opening service, then leaves; optional talk can show her again.
+for (const id of ['BAR-A', 'BAR-B']) {
+  let name = `${id}-intro`
+  while (nodes[name]?.type === 'dialogue') {
+    const node = nodes[name]
+    if (node.type !== 'dialogue' || node.text === '（杏奈は静かに席を離れる）') break
+    node.sceneId = `${id}-anna`
+    name = node.next
+  }
+  for (const [index, action] of sources.get(id)!.actions.entries()) {
+    if (['talk', 'look'].includes(action.kind) && action.lines.some(line => line.speakerId === 'anna')) {
+      stageAfter(`${id}-action-${index}`, `${id}-anna`)
+    }
+  }
+}
 
 export const e01CompletedEpisode: Scenario = { ...e01CompletedPart1, id: 'erased-records-30-scenes', title: 'Episode 01「消された記録」全30シーン', nodes, scenes, records, nodeTimes: times }
