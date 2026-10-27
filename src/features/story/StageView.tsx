@@ -54,7 +54,7 @@ export function StageView({ stage }: { stage: Stage }) {
         const character = resolveCharacter(person.characterId)
         const expression = resolveExpression(person.characterId, person.expression)
         const fallback = <div className="character-silhouette" aria-label={displayText(character.name)}><svg viewBox="0 0 400 650" aria-hidden="true"><ellipse cx="200" cy="120" rx="65" ry="85" /><path d="M105 230Q200 175 295 230L360 640H40Z" /></svg></div>
-        return <div key={person.characterId} className={`character character--${person.position}${['mio', 'akari', 'saori'].includes(person.characterId) ? ' character--female' : ''}`} aria-label="キャラクター領域" data-character-id={person.characterId} data-expression={person.expression}>
+        return <div key={person.characterId} className={`character character--${person.position}${['mio', 'akari', 'saori', 'building-manager', 'rescue-worker', 'company-reviewer', 'reiko', 'anna'].includes(person.characterId) ? ' character--female' : ''}`} aria-label="キャラクター領域" data-character-id={person.characterId} data-expression={person.expression}>
           {expression.imageSrc ? <StageImage src={expression.imageSrc} alt={displayText(`${character.name}・${expression.name}`)} className="character-image" fallback={fallback} /> : fallback}
         </div>
       })}

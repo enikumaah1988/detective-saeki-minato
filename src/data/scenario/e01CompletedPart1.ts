@@ -19,14 +19,19 @@ const scenes: NonNullable<Scenario['scenes']> = {
     { characterId: 'minato', expression: 'normal', position: 'left' },
     { characterId: 'miyahara', expression: 'normal', position: 'right' },
   ] },
-  S04: { backgroundId: 'building-room', characters: [{ characterId: 'minato', expression: 'normal', position: 'left' }] },
+  S04: { backgroundId: 'building-room', characters: [
+    { characterId: 'minato', expression: 'normal', position: 'left' },
+    { characterId: 'building-manager', expression: 'normal', position: 'right' },
+  ] },
   S05: { backgroundId: 'building-room', characters: [
     { characterId: 'minato', expression: 'normal', position: 'left' },
-    { characterId: 'mio', expression: 'normal', position: 'right' },
+    { characterId: 'mio', expression: 'normal', position: 'center' },
+    { characterId: 'building-manager', expression: 'normal', position: 'right' },
   ] },
   S06: { backgroundId: 'building-room-evening', characters: [
     { characterId: 'minato', expression: 'serious', position: 'left' },
-    { characterId: 'mio', expression: 'serious', position: 'right' },
+    { characterId: 'mio', expression: 'serious', position: 'center' },
+    { characterId: 'building-manager', expression: 'normal', position: 'right' },
   ] },
 }
 const records: InvestigationEntry[] = []

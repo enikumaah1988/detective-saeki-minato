@@ -4,6 +4,8 @@
 
 ## 現行の参照先
 
+- [30シーン稿の追加場所・人物](episode-01-30-scene-additions.md)：追加7人の通常修正版と4背景をゲームへ接続。湊・澪を画風基準とし、生成条件・profile・確認ページを管理。藤井・沙織は登場未追加の準備素材。表情差分は後続。
+
 - [素材制作ガイドと人物profile](production-guide.md)、[人物ごとの資料](characters)。原文には制作当時の状態を含む。画風採用、個別画像の最終採用、ゲーム組み込みを区別する。
 - [表情切り替えの指定方法](character-expressions.md)。既存画像の明示指定を使い、台詞から感情を自動推測しない。配置・表示条件は変更しない。
 - [最新画風の取り込み](character-refresh-2026-10-13.md)、[86素材manifest](manifests/imported-character-assets.json)、[追加素材manifest](manifests/imported-revision-assets.json)。生成条件・原本・ハッシュを保持する。
