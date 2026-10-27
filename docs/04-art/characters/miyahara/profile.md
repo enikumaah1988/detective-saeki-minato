@@ -1,5 +1,9 @@
 # 宮原 文雄：6項目の仮シート
 
+## 30シーン稿との区別：2026-10-27
+
+新稿のS03/S12/S13/S16/S18では東成ビルサービス側の窓口として登場する。別役の[管理担当者](../building-manager/profile.md)・[夜間管理者](../night-manager/profile.md)と混同しない。以下の旧ver0.01にある「64歳のビル管理人」は移行前の制作根拠であり、新稿の役職・年齢の再確定には使用しない。既存の宮原画像の顔・衣装や旧資料は今回変更していない。
+
 ## 現行画風・再制作：2026-10-13
 ユーザーが主要5人の新テイストを採用し、全キャラクター・サブキャラと人物別の必要表情の再制作を指示。共通画風は[手描き劇画調](../../style/gekiga-style-revision-proposal.md)。旧画像は人物の識別点を引き継ぐ制作履歴とし、旧塗りを再利用しない。
 [新画風確認シート](drafts/gekiga-sheet-01.png)を制作。全身通常1枚と腰上7表情をsrc/assets/images/characters/miyahara/に保存。キー：neutral, smile, serious, worried, pained, surprised, relieved。

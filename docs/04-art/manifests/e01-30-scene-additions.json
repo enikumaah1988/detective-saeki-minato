@@ -1,0 +1,272 @@
+{
+  "version": 1,
+  "date": "2026-10-27",
+  "status": "draft-unapproved",
+  "scope": "30シーン稿の追加3背景・7人物の通常候補。今回のユーザー依頼の対象だけを制作。ゲームへの登録・外見採用・表情差分は未実施。",
+  "generator": "built-in image_gen",
+  "storySource": "docs/e01-recovery-20261024@b36e278d6f08b911dd7dcdf05dedd80d8e9b1d77",
+  "sourceDirectory": "C:/Users/lemon/.codex/generated_images/01a17884-3005-77b1-a1f1-26f29b6c2cdb",
+  "assets": [
+    {
+      "id": "building-equipment",
+      "name": "地下設備区画・入口未発見",
+      "kind": "background",
+      "scenes": [
+        "S07"
+      ],
+      "path": "docs/04-art/backgrounds/drafts/building-equipment-01.png",
+      "sourceFile": "exec-dee9c7cf-462c-4179-ba8d-24034b9eb2c5.png",
+      "prompt": "Generate one finished 16:9 landscape background illustration for a Japanese detective visual novel, no people, no text, no UI. Place: service basement of an aging, well maintained Tokyo commercial building, circa 2026. Match a mature grounded hand-painted Japanese gekiga visual-novel aesthetic: fine ink contours, muted olive-gray concrete, worn practical metal, detailed painterly material textures, restrained cinematic lighting, realistic architectural proportions, neither anime cel shading nor photorealistic photography. Composition at standing eye level, wide view looking along equipment shelves on one side and low overhead pipes. Important story geometry: a person-sized walkable narrow service passage remains OPEN beside/behind the shelves and turns out of sight around a fixed wall; the storage-room door farther around the corner is NOT yet visible from this frontal position. Shelves are stationary and do not block the route. Some work supplies partly screen the sightline but no dangerous solid barricade. Ordinary ceiling service lights, subdued nighttime interior light, credible safety signage without legible letters. No sunlight, windows, broken door, blood, trapped people, moving shelves, dramatic horror or supernatural clues. Keep lower quarter and center readable beneath character sprites and dialogue overlay; visual navigation detail in middle distance. Single complete environment, not collage or floor plan. Desired canvas 1920x1080 or closest native landscape size. This is a production candidate for S07 of Episode01 '消された記録'; do not invent an emergency or show rescue taking place.",
+      "conditions": "棚の裏に人が通れる通路があり、折れ曲がった先の入口は正面から見えない。棚は移動せず出入口を塞がない。",
+      "image": {
+        "width": 1672,
+        "height": 941,
+        "mode": "RGB",
+        "sha256": "ff4ccf28fcd84c977c9337a09f298df3145648f2393b4cedf64f7ef361b0a8f1"
+      }
+    },
+    {
+      "id": "building-storage-door",
+      "name": "地下旧保管室・扉前",
+      "kind": "background",
+      "scenes": [
+        "S09",
+        "S10"
+      ],
+      "path": "docs/04-art/backgrounds/drafts/building-storage-door-01.png",
+      "sourceFile": "exec-b3bbad8d-3488-45bb-b06f-0598e4a5a77b.png",
+      "prompt": "Create a second background view of THIS SAME basement after the camera has walked down the OPEN passage and turned around the concrete corner. Preserve this image's grounded painterly gekiga rendering, worn gray-green concrete, conduits, shelving materials, overhead service lamps, restrained color and believable building. View now faces one ordinary CLOSED old gray metal storage-room door at the end of a short clear service passage. Door has a simple lever handle and normal frame, no padlock, chains, external barricade, injury clues, transparent window, damage, broken lock, people or readable lettering. It was out of sight from the earlier frontal shelving view; show a near-edge section of shelving or concrete return to convey the turn. Door must remain accessible to professional rescue workers; foreground passage wide enough for a person to approach safely. This is a narrative location illustration for S09 before professionals open the door, not a floor plan or exact architectural specification. Keep no people, no UI, no title, no emergency event drawn. Landscape16:9, same art style and interior lighting as the reference. Do not copy the broad original frontal composition: use the new camera around the corner, with door in clear middle-distance view.",
+      "conditions": "地下通路と材質を共通化。曲がった先に通常の閉じた金属扉。鎖・外側の障害物・破損原因・内部の人物を描かない。S10の開放後描写は別差分が必要。",
+      "image": {
+        "width": 1672,
+        "height": 941,
+        "mode": "RGB",
+        "sha256": "30ab0173d8fc5edf81a00fd03ccb69f41e4aec47b35d50402ede1b227a44afed"
+      }
+    },
+    {
+      "id": "bar-amayadori",
+      "name": "BAR「雨宿り」・夜",
+      "kind": "background",
+      "scenes": [
+        "BAR-A",
+        "BAR-B"
+      ],
+      "path": "docs/04-art/backgrounds/drafts/bar-amayadori-01.png",
+      "sourceFile": "exec-23f61506-1ba9-4c4c-930d-7c2a876d56f1.png",
+      "prompt": "Generate one polished 16:9 landscape background illustration for a grounded Japanese detective visual novel. Scene: the quiet interior of a small neighborhood bar called 雨宿り in contemporary Tokyo, evening. No people, silhouettes, portraits, text, logos, menus, UI, cigarette smoke or readable labels. Mature hand-painted gekiga aesthetic, fine controlled ink contour work, muted painterly shading with realistic timber, worn leather and glass materials, closely consistent with a warm, lived-in Tokyo detective-office background. Wide eye-level view from the customer side looking toward a well-kept dark timber counter, restrained amber pendant lights, a few plain glass tumblers and a glass water carafe, compact shelves of bottles with abstract illegible labels behind the counter, quiet stools. Welcoming but understated, neither nightclub nor luxury hotel, noir influence without neon spectacle. Leave a usable calm lower quarter for dialogue overlay, space above counter for two waist-up character sprites. It is a daily resting place for a regular customer, not a source of crime evidence; do not include case files, clues, weapons, policing imagery, romance imagery, signage, ominous hidden doors or dramatic staging. Single cohesive room. Desired 1920x1080 or closest native landscape size. New production candidate only, do not imply final adoption of its layout.",
+      "conditions": "落ち着いたカウンター、グラス、水差し。事件の証拠・恋愛記号・実在ブランドを追加しない。店の住所や間取りは未確定。",
+      "image": {
+        "width": 1672,
+        "height": 941,
+        "mode": "RGB",
+        "sha256": "ffd709db0b590d697eb5b64af0a2b811c62d28303c23b56c85ea3aef20537b22"
+      }
+    },
+    {
+      "id": "building-manager",
+      "name": "管理担当者",
+      "kind": "character",
+      "scenes": [
+        "S04",
+        "S05",
+        "S06",
+        "S15",
+        "S20"
+      ],
+      "path": "docs/04-art/characters/building-manager/drafts/neutral-01.png",
+      "sourceFile": "exec-84b0847a-dbec-49a0-b0ee-19cd7ec42c00.png",
+      "prompt": "One isolated Japanese visual-novel character sprite, waist-up with entire head, both hands and torso down to upper hips fully visible, square 1024x1024 canvas, true transparent background. New character: a middle-aged Japanese woman who serves as the daytime building-management contact. Proposed visual design only: about 50, practical composed expression, short straight dark-brown bob with a few gray strands, softly angular face, ordinary natural proportions, small unobtrusive rectangular glasses. A muted sage-gray practical work jacket over an off-white collared shirt, no company logo, badge, name text or props. Hands resting naturally together low at waist, fingers anatomically clear. Body in slight three-quarter angle, attentive gaze toward the viewer's left, neutral professional expression, no smile of secrecy, no panic. Art style: late-1990s Japanese detective ADV hand-painted gekiga; fine irregular ink contours, visible angular painterly pigment planes, muted low saturation, uneven restrained shadows, modest human imperfections, no glossy anime skin, no large anime eyes, no photograph, no watercolor paper outside the silhouette. Keep an even diffuse neutral light compatible with day or interior backgrounds. Exactly one person, no room, no graphic frame, no writing or character sheet. Leave a small transparent margin around head and hands. Do not depict the existing male gray-haired Miyahara: this is a distinct unnamed management contact.",
+      "profile": "docs/04-art/characters/building-manager/profile.md",
+      "image": {
+        "width": 1254,
+        "height": 1254,
+        "mode": "RGBA",
+        "sha256": "746ffb5bc518aeba866f1bfd6dee3df5ee920d922016b5528dea601f43aa7799",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaBounds": [
+          27,
+          0,
+          1176,
+          1254
+        ]
+      }
+    },
+    {
+      "id": "night-manager",
+      "name": "夜間管理者",
+      "kind": "character",
+      "scenes": [
+        "S07",
+        "S08",
+        "S09"
+      ],
+      "path": "docs/04-art/characters/night-manager/drafts/neutral-01.png",
+      "sourceFile": "exec-eb00663a-2801-4f70-9877-9d1de042bd0c.png",
+      "prompt": "Create exactly ONE isolated waist-up character sprite for a Japanese detective ADV, true transparent background, square canvas. Head to upper hips including both relaxed hands fully inside frame, with transparent margins; no text, logo, UI, background scene, frame, contact sheet or extra people. Mature late-1990s hand-painted gekiga illustration: irregular fine ink contour, angular visible painterly pigment planes, muted colors, restrained uneven light and material texture on face and clothes. Natural small eyes and realistic adult proportions, no glossy anime finish or photorealistic skin. Three-quarter body with attentive gaze slightly toward viewer's left. Neutral professional expression, no sinister hints, no exaggerated emotion. Diffuse neutral lighting suitable for compositing. Proposed visual design, not established biography. Subject: a Japanese male night-shift building manager, visually about 55, broad square face, short close-cropped salt-and-pepper hair, clean-shaven, no glasses, sturdy ordinary build. Dark slate-gray zip work jacket over muted beige polo, plain utility work trousers just visible. One hand lightly resting on other wrist at lower waist, all fingers natural. No flashlight, radio, keys or special props. Distinct from thin gray-haired Miyahara; an experienced practical worker, not elderly comic relief.",
+      "profile": "docs/04-art/characters/night-manager/profile.md",
+      "image": {
+        "width": 1254,
+        "height": 1254,
+        "mode": "RGBA",
+        "sha256": "97863420d6713bd78142325dbe63d9800590ce1b6cdbd267fb3a558ea9db76e7",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaBounds": [
+          41,
+          0,
+          1236,
+          1254
+        ]
+      }
+    },
+    {
+      "id": "rescue-worker",
+      "name": "救助隊員",
+      "kind": "character",
+      "scenes": [
+        "S10"
+      ],
+      "path": "docs/04-art/characters/rescue-worker/drafts/neutral-01.png",
+      "sourceFile": "exec-b25a3c2c-52bc-48b7-b2ca-a62b38cec077.png",
+      "prompt": "Create exactly ONE isolated waist-up character sprite for a Japanese detective ADV, true transparent background, square canvas. Head to upper hips including both relaxed hands fully inside frame, with transparent margins; no text, logo, UI, background scene, frame, contact sheet or extra people. Mature late-1990s hand-painted gekiga illustration: irregular fine ink contour, angular visible painterly pigment planes, muted colors, restrained uneven light and material texture on face and clothes. Natural small eyes and realistic adult proportions, no glossy anime finish or photorealistic skin. Three-quarter body with attentive gaze slightly toward viewer's left. Neutral professional expression, no sinister hints, no exaggerated emotion. Diffuse neutral lighting suitable for compositing. Proposed visual design, not established biography. Subject: a Japanese female professional rescue worker, visually about 30, athletic ordinary build, dark short hair gathered away from face, composed focused look. Generic practical muted orange and charcoal protective rescue jacket, plain off-white safety helmet with chin strap and no insignia, gloves tucked into waistband rather than covering both hands. No visor obscuring face, weapons, badges, medical diagnosis equipment, victim or active rescue action. Neutral hands low and clearly drawn. Not a branded real agency uniform.",
+      "profile": "docs/04-art/characters/rescue-worker/profile.md",
+      "image": {
+        "width": 1254,
+        "height": 1254,
+        "mode": "RGBA",
+        "sha256": "4c44049a215d655a18b97e81a0ba7e3d21c075d22c4f5899cec3d407573ed207",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaBounds": [
+          17,
+          0,
+          1234,
+          1254
+        ]
+      }
+    },
+    {
+      "id": "technician",
+      "name": "設備技術者",
+      "kind": "character",
+      "scenes": [
+        "S15"
+      ],
+      "path": "docs/04-art/characters/technician/drafts/neutral-01.png",
+      "sourceFile": "exec-d9d6a446-01db-4784-a6b1-2064da8711cc.png",
+      "prompt": "Create exactly ONE isolated waist-up character sprite for a Japanese detective ADV, true transparent background, square canvas. Head to upper hips including both relaxed hands fully inside frame, with transparent margins; no text, logo, UI, background scene, frame, contact sheet or extra people. Mature late-1990s hand-painted gekiga illustration: irregular fine ink contour, angular visible painterly pigment planes, muted colors, restrained uneven light and material texture on face and clothes. Natural small eyes and realistic adult proportions, no glossy anime finish or photorealistic skin. Three-quarter body with attentive gaze slightly toward viewer's left. Neutral professional expression, no sinister hints, no exaggerated emotion. Diffuse neutral lighting suitable for compositing. Proposed visual design, not established biography. Subject: a Japanese male building equipment technician, visually about 40, lean ordinary build, short slightly tousled straight black hair, clean-shaven, long face and calm direct eyes, no glasses. Plain faded charcoal work coverall over muted pale-gray undershirt, sleeves neatly at wrists. Hands relaxed together at waist. No tools, clipboards, logo, name tag, helmet or evidence objects. A competent modest professional, not a detective, villain or rugged action hero.",
+      "profile": "docs/04-art/characters/technician/profile.md",
+      "image": {
+        "width": 1254,
+        "height": 1254,
+        "mode": "RGBA",
+        "sha256": "5d225364de6d16d712a342a1c6f0bfd41e3d7648ac2419dc0f49ae8f82a5c2d7",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaBounds": [
+          0,
+          19,
+          1234,
+          1254
+        ]
+      }
+    },
+    {
+      "id": "company-reviewer",
+      "name": "確認担当",
+      "kind": "character",
+      "scenes": [
+        "S16",
+        "S18"
+      ],
+      "path": "docs/04-art/characters/company-reviewer/drafts/neutral-01.png",
+      "sourceFile": "exec-49372818-5c93-4ca4-80fa-d320d9ec3bfb.png",
+      "prompt": "Exactly one isolated waist-up Japanese woman, a company records-verification staff member for a grounded detective visual novel. Proposed visual design, approximately early40s, neat dark brown bob tucked behind one ear, softly rectangular face, calm composed dark eyes, no glasses, understated professional demeanor. Muted light taupe-gray blazer over a plain white crew-neck blouse, no tie, jewelry, company logo, name badge, clipboard or props. Hands naturally lightly folded low at waist, whole fingers and head visible, framing from top of head to upper hips with transparent margin. Slight three-quarter stance, gaze toward viewer's left, neutral attentive expression. Mature late1990s hand-painted Japanese gekiga illustration: fine irregular ink line, angular textured pigment on skin and fabric, muted natural colors, restrained uneven shadow planes, no glossy anime finish, giant eyes, photograph or airbrushed face. Square canvas, TRUE transparent background with clear alpha outside silhouette. No backdrop, text, labels, panels, second person, frame, signature or watermark. Match a practical understated ensemble cast, not a glamorous detective or villain.",
+      "profile": "docs/04-art/characters/company-reviewer/profile.md",
+      "image": {
+        "width": 1254,
+        "height": 1254,
+        "mode": "RGBA",
+        "sha256": "17ffa2c0462c442b95ad9de26d41787c1f83bcbb767debb6c02f7327980baeed",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaBounds": [
+          25,
+          0,
+          1238,
+          1254
+        ]
+      }
+    },
+    {
+      "id": "reiko",
+      "name": "怜子",
+      "kind": "character",
+      "scenes": [
+        "BAR-A",
+        "BAR-B"
+      ],
+      "path": "docs/04-art/characters/reiko/drafts/neutral-01.png",
+      "sourceFile": "exec-480f058c-2beb-4a6d-8b6e-4f01bf5f6a9f.png",
+      "prompt": "One isolated waist-up character sprite of Reiko, the woman who hosts a quiet Japanese neighborhood bar, for a mature detective visual novel. This is a proposed visual design, not fixed age or biography: Japanese woman visually in her mid40s, gently angular adult face, alert understated eyes with a knowing but non-flirtatious calm, dark straight shoulder-length hair simply parted, no glasses. Plain muted ivory collared blouse with sleeves to wrists, charcoal-black fitted service vest, discreet small ear studs only, no necklace, no low neckline, no glamorous dress. Neutral welcoming slight closed-mouth smile. Hands naturally resting together near waist, fingers complete, no glass or cigarette. Three-quarter stance with gaze a little toward viewer's right. Frame from full hair to upper hips with both hands entirely visible and small margins. Match grounded late1990s Japanese detective ADV hand-painted gekiga: fine irregular ink outlines, angular textured pigment on skin and cloth, restrained low saturation and uneven shadow planes, realistic adult proportions. No shiny anime eyes, glossy airbrush, photorealism, romance styling or 'femme fatale' coding. EXACTLY one person, true transparent background, square canvas. No text, names, graphic frame, watermark, background, table or second person.",
+      "profile": "docs/04-art/characters/reiko/profile.md",
+      "image": {
+        "width": 1254,
+        "height": 1254,
+        "mode": "RGBA",
+        "sha256": "810346dfa928a18570f3c786a9789f104e2cc330ee1e0e69153e6cb96419c519",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaBounds": [
+          0,
+          0,
+          1224,
+          1254
+        ]
+      }
+    },
+    {
+      "id": "anna",
+      "name": "杏奈",
+      "kind": "character",
+      "scenes": [
+        "BAR-A",
+        "BAR-B"
+      ],
+      "path": "docs/04-art/characters/anna/drafts/neutral-01.png",
+      "sourceFile": "exec-b115a90f-2b61-42e0-9b76-8f995b9bf449.png",
+      "prompt": "Exactly one isolated waist-up sprite of Anna, a young adult woman who quietly helps serve water in a Japanese neighborhood bar, for a mature detective visual novel. Proposed visual design only: Japanese woman visually late20s, compact oval face, natural modest dark eyes, dark hair tied in a simple low ponytail with a few loose strands, no glasses, calm reserved friendly expression with a very slight smile. Plain muted light-gray collared shirt with sleeves at wrists and a charcoal waist apron just visible at hips, no jewelry, logo, name badge, bow tie or frills. Hands relaxed together low at waist, fingers anatomically complete, holding no glass or tray. Body slight three-quarter angle and gaze toward viewer's left, not a glamorous pose. Frame full hair to upper hips with whole hands and transparent margins. Late1990s Japanese detective ADV hand-painted gekiga: fine uneven ink line, visible angular paint texture on skin and fabric, low saturation, sober uneven shadow planes, realistic adult proportions; no glossy modern anime rendering, large eyes, photorealistic face, romance or maid-costume coding. Square image with true transparent background. One person only, no room, text, caption, character sheet, frame or watermark. She must look distinct from the older shoulder-length-haired woman in ivory blouse and dark vest, and from long-wavy-haired Mio in blue suit.",
+      "profile": "docs/04-art/characters/anna/profile.md",
+      "image": {
+        "width": 1254,
+        "height": 1254,
+        "mode": "RGBA",
+        "sha256": "4a53436aa811b3c0a0f421cf178aa35f6e4115b3e2f953b4fadc72d960457ae6",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaBounds": [
+          0,
+          0,
+          1236,
+          1254
+        ]
+      }
+    }
+  ]
+}
