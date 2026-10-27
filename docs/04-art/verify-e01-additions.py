@@ -48,6 +48,23 @@ def verify():
         # Preserve existing opacity values (some source full-body assets peak below 255).
         assert actual['alphaExtrema'][0] == 0 and actual['alphaExtrema'][1] >= 128, entry['id']
         print(entry['id'], 'existing asset, unchanged OK')
+    revisions = manifest['styleRevisions']
+    assert len(revisions) == 9
+    assert len({entry['id'] for entry in revisions}) == 9
+    for entry in revisions:
+        path = (root / entry['path']).resolve()
+        assert path.is_relative_to(root / 'docs/04-art/characters'), entry['id']
+        actual = inspect(path)
+        assert actual == entry['image'], entry['id']
+        assert actual['mode'] == 'RGBA' and actual['alphaExtrema'] == [0, 255], entry['id']
+        assert actual['width'] == actual['height'], entry['id']
+        assert (root / entry['profile']).is_file(), entry['id']
+        assert (root / entry['target']).is_file(), entry['id']
+        assert entry['prompt'] and entry['generator'] == 'built-in image_gen', entry['id']
+        assert len(entry['referenceImages']) == 3, entry['id']
+        for reference in entry['referenceImages']:
+            assert hashlib.sha256((root / reference['path']).read_bytes()).hexdigest() == reference['sha256'], entry['id']
+        print(entry['id'], 'style revision and references OK')
 
 if __name__ == '__main__':
     verify()

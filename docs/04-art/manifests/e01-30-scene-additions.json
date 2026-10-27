@@ -543,5 +543,369 @@
         ]
       }
     }
-  ]
+  ],
+  "styleRevisions": [
+    {
+      "id": "fujii",
+      "target": "docs/04-art/characters/fujii/drafts/neutral-01.png",
+      "path": "docs/04-art/characters/fujii/drafts/neutral-02-minato-mio.png",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a17884-3005-77b1-a1f1-26f29b6c2cdb\\exec-c718ae6d-0154-48da-8f72-00d8935c55f1.png",
+      "prompt": "Use case: style-transfer. Edit image 3 (the target character) to look painted by the SAME artist and in the SAME game sprite series as images 1 and 2 (Minato and Mio: style references ONLY). Preserve the target's distinct identity, age, gender, hairstyle, hair color, clothes, colors, neutral expression, pose, hands and waist-up framing. Do NOT copy the reference characters' faces, glasses, jewelry, tie or costumes. Strong crisp dark ink contours with varied weight; angular facial planes, stylized mature Japanese manga/gekiga facial anatomy, defined eyelids/nose/jaw; deep clean shadow shapes; distinctive small angular faceted brush marks across skin and fabric as in references; high contrast with restrained earthy colors. Replace the soft grainy watercolor rendering with the reference's sharper graphic faceted painted shading. This must visually belong beside Minato and Mio. One single character, centered waist-up, complete head and both hands within frame, actual transparent background, no text, no panels, no border, no extra props. Keep transparent edges clean. Output one square PNG. Target character: fujii",
+      "image": {
+        "width": 1254,
+        "height": 1254,
+        "mode": "RGBA",
+        "sha256": "ccfed69c624820306c36da63792d8ddd349a49ef8321f2f778cdedfad04bcd98",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaBounds": [
+          43,
+          0,
+          1073,
+          1254
+        ]
+      },
+      "generator": "built-in image_gen",
+      "status": "draft-unapproved",
+      "profile": "docs/04-art/characters/fujii/profile.md",
+      "referenceImages": [
+        {
+          "path": "src/assets/images/characters/minato/waist/neutral.png",
+          "sha256": "5db08fb88ff82b5eb5e616428c6989f672d73f9948eea4dd4397459aeb0ba22c"
+        },
+        {
+          "path": "src/assets/images/characters/mio/waist/neutral.png",
+          "sha256": "b99ab2e9f0275d9c70d63351361ab13c40ed39192bc44eb2a3251c8845d45c9d"
+        },
+        {
+          "path": "docs/04-art/characters/fujii/drafts/neutral-01.png",
+          "sha256": "53e89e2b5047222302f8b8e83e9cb0fe8b462286b1d911d6a46cdd9fa60293b5"
+        }
+      ]
+    },
+    {
+      "id": "saori",
+      "target": "src/assets/images/characters/saori/waist/neutral.png",
+      "path": "docs/04-art/characters/saori/drafts/neutral-02-minato-mio.png",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a17884-3005-77b1-a1f1-26f29b6c2cdb\\exec-38a4915f-0526-43f9-a24c-7b2e8b8702cb.png",
+      "prompt": "Use case: style-transfer. Edit image 3 (the target character) to look painted by the SAME artist and in the SAME game sprite series as images 1 and 2 (Minato and Mio: style references ONLY). Preserve the target's distinct identity, age, gender, hairstyle, hair color, clothes, colors, neutral expression, pose, hands and waist-up framing. Do NOT copy the reference characters' faces, glasses, jewelry, tie or costumes. Strong crisp dark ink contours with varied weight; angular facial planes, stylized mature Japanese manga/gekiga facial anatomy, defined eyelids/nose/jaw; deep clean shadow shapes; distinctive small angular faceted brush marks across skin and fabric as in references; high contrast with restrained earthy colors. Replace the soft grainy watercolor rendering with the reference's sharper graphic faceted painted shading. This must visually belong beside Minato and Mio. One single character, centered waist-up, complete head and both hands within frame, actual transparent background, no text, no panels, no border, no extra props. Keep transparent edges clean. Output one square PNG. Target character: saori",
+      "image": {
+        "width": 1254,
+        "height": 1254,
+        "mode": "RGBA",
+        "sha256": "b1154c1bb3750f553635f20491d52f9d195a75bed5efd474194c98232c6885b1",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaBounds": [
+          33,
+          5,
+          1194,
+          1254
+        ]
+      },
+      "generator": "built-in image_gen",
+      "status": "draft-unapproved",
+      "profile": "docs/04-art/characters/saori/profile.md",
+      "referenceImages": [
+        {
+          "path": "src/assets/images/characters/minato/waist/neutral.png",
+          "sha256": "5db08fb88ff82b5eb5e616428c6989f672d73f9948eea4dd4397459aeb0ba22c"
+        },
+        {
+          "path": "src/assets/images/characters/mio/waist/neutral.png",
+          "sha256": "b99ab2e9f0275d9c70d63351361ab13c40ed39192bc44eb2a3251c8845d45c9d"
+        },
+        {
+          "path": "src/assets/images/characters/saori/waist/neutral.png",
+          "sha256": "032737ec54ae86388fdec83dd6a4ad0496e9448f7c15ae39b2d2dff7b53d96a3"
+        }
+      ]
+    },
+    {
+      "id": "reiko",
+      "target": "docs/04-art/characters/reiko/drafts/neutral-01.png",
+      "path": "docs/04-art/characters/reiko/drafts/neutral-02-minato-mio.png",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a17884-3005-77b1-a1f1-26f29b6c2cdb\\exec-b2db7e19-5152-4494-bedc-1b317b079a0a.png",
+      "prompt": "Use case: style-transfer. Edit image 3 (the target character) to look painted by the SAME artist and in the SAME game sprite series as images 1 and 2 (Minato and Mio: style references ONLY). Preserve the target's distinct identity, age, gender, hairstyle, hair color, clothes, colors, neutral expression, pose, hands and waist-up framing. Do NOT copy the reference characters' faces, glasses, jewelry, tie or costumes. Strong crisp dark ink contours with varied weight; angular facial planes, stylized mature Japanese manga/gekiga facial anatomy, defined eyelids/nose/jaw; deep clean shadow shapes; distinctive small angular faceted brush marks across skin and fabric as in references; high contrast with restrained earthy colors. Replace the soft grainy watercolor rendering with the reference's sharper graphic faceted painted shading. This must visually belong beside Minato and Mio. One single character, centered waist-up, complete head and both hands within frame, actual transparent background, no text, no panels, no border, no extra props. Keep transparent edges clean. Output one square PNG. Target character: reiko",
+      "image": {
+        "width": 1254,
+        "height": 1254,
+        "mode": "RGBA",
+        "sha256": "b3329a33b2534310053f049a0d7e624209d5f1c8d6af97e80be311603fef808a",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaBounds": [
+          0,
+          0,
+          1198,
+          1254
+        ]
+      },
+      "generator": "built-in image_gen",
+      "status": "draft-unapproved",
+      "profile": "docs/04-art/characters/reiko/profile.md",
+      "referenceImages": [
+        {
+          "path": "src/assets/images/characters/minato/waist/neutral.png",
+          "sha256": "5db08fb88ff82b5eb5e616428c6989f672d73f9948eea4dd4397459aeb0ba22c"
+        },
+        {
+          "path": "src/assets/images/characters/mio/waist/neutral.png",
+          "sha256": "b99ab2e9f0275d9c70d63351361ab13c40ed39192bc44eb2a3251c8845d45c9d"
+        },
+        {
+          "path": "docs/04-art/characters/reiko/drafts/neutral-01.png",
+          "sha256": "810346dfa928a18570f3c786a9789f104e2cc330ee1e0e69153e6cb96419c519"
+        }
+      ]
+    },
+    {
+      "id": "anna",
+      "target": "docs/04-art/characters/anna/drafts/neutral-01.png",
+      "path": "docs/04-art/characters/anna/drafts/neutral-02-minato-mio.png",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a17884-3005-77b1-a1f1-26f29b6c2cdb\\exec-3f257f7c-77fd-4656-8f12-069b87a7a2a8.png",
+      "prompt": "Use case: style-transfer. Edit image 3 (the target character) to look painted by the SAME artist and in the SAME game sprite series as images 1 and 2 (Minato and Mio: style references ONLY). Preserve the target's distinct identity, age, gender, hairstyle, hair color, clothes, colors, neutral expression, pose, hands and waist-up framing. Do NOT copy the reference characters' faces, glasses, jewelry, tie or costumes. Strong crisp dark ink contours with varied weight; angular facial planes, stylized mature Japanese manga/gekiga facial anatomy, defined eyelids/nose/jaw; deep clean shadow shapes; distinctive small angular faceted brush marks across skin and fabric as in references; high contrast with restrained earthy colors. Replace the soft grainy watercolor rendering with the reference's sharper graphic faceted painted shading. This must visually belong beside Minato and Mio. One single character, centered waist-up, complete head and both hands within frame, actual transparent background, no text, no panels, no border, no extra props. Keep transparent edges clean. Output one square PNG. Target character: anna",
+      "image": {
+        "width": 1254,
+        "height": 1254,
+        "mode": "RGBA",
+        "sha256": "59f4601831daab0f13bb492d42ca138bf2054bbe3435b04943087c378905b83c",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaBounds": [
+          0,
+          0,
+          1039,
+          1254
+        ]
+      },
+      "generator": "built-in image_gen",
+      "status": "draft-unapproved",
+      "profile": "docs/04-art/characters/anna/profile.md",
+      "referenceImages": [
+        {
+          "path": "src/assets/images/characters/minato/waist/neutral.png",
+          "sha256": "5db08fb88ff82b5eb5e616428c6989f672d73f9948eea4dd4397459aeb0ba22c"
+        },
+        {
+          "path": "src/assets/images/characters/mio/waist/neutral.png",
+          "sha256": "b99ab2e9f0275d9c70d63351361ab13c40ed39192bc44eb2a3251c8845d45c9d"
+        },
+        {
+          "path": "docs/04-art/characters/anna/drafts/neutral-01.png",
+          "sha256": "4a53436aa811b3c0a0f421cf178aa35f6e4115b3e2f953b4fadc72d960457ae6"
+        }
+      ]
+    },
+    {
+      "id": "building-manager",
+      "target": "docs/04-art/characters/building-manager/drafts/neutral-01.png",
+      "path": "docs/04-art/characters/building-manager/drafts/neutral-02-minato-mio.png",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a17884-3005-77b1-a1f1-26f29b6c2cdb\\exec-a69cb3a8-2210-4c05-9efa-f8f7eb176dfe.png",
+      "prompt": "Use case: style-transfer. Edit image 3 (the target character) to look painted by the SAME artist and in the SAME game sprite series as images 1 and 2 (Minato and Mio: style references ONLY). Preserve the target's distinct identity, age, gender, hairstyle, hair color, clothes, colors, neutral expression, pose, hands and waist-up framing. Do NOT copy the reference characters' faces, glasses, jewelry, tie or costumes. Strong crisp dark ink contours with varied weight; angular facial planes, stylized mature Japanese manga/gekiga facial anatomy, defined eyelids/nose/jaw; deep clean shadow shapes; distinctive small angular faceted brush marks across skin and fabric as in references; high contrast with restrained earthy colors. Replace the soft grainy watercolor rendering with the reference's sharper graphic faceted painted shading. This must visually belong beside Minato and Mio. One single character, centered waist-up, complete head and both hands within frame, actual transparent background, no text, no panels, no border, no extra props. Keep transparent edges clean. Output one square PNG. Target character: building-manager",
+      "image": {
+        "width": 1254,
+        "height": 1254,
+        "mode": "RGBA",
+        "sha256": "1e58ad82f32ae79dd879d8aeb85ea242187122c5b1e1160b7f10f53ecac3b775",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaBounds": [
+          25,
+          0,
+          1234,
+          1254
+        ]
+      },
+      "generator": "built-in image_gen",
+      "status": "draft-unapproved",
+      "profile": "docs/04-art/characters/building-manager/profile.md",
+      "referenceImages": [
+        {
+          "path": "src/assets/images/characters/minato/waist/neutral.png",
+          "sha256": "5db08fb88ff82b5eb5e616428c6989f672d73f9948eea4dd4397459aeb0ba22c"
+        },
+        {
+          "path": "src/assets/images/characters/mio/waist/neutral.png",
+          "sha256": "b99ab2e9f0275d9c70d63351361ab13c40ed39192bc44eb2a3251c8845d45c9d"
+        },
+        {
+          "path": "docs/04-art/characters/building-manager/drafts/neutral-01.png",
+          "sha256": "746ffb5bc518aeba866f1bfd6dee3df5ee920d922016b5528dea601f43aa7799"
+        }
+      ]
+    },
+    {
+      "id": "night-manager",
+      "target": "docs/04-art/characters/night-manager/drafts/neutral-01.png",
+      "path": "docs/04-art/characters/night-manager/drafts/neutral-02-minato-mio.png",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a17884-3005-77b1-a1f1-26f29b6c2cdb\\exec-0f217a66-b92b-455b-b827-94421244fb95.png",
+      "prompt": "Use case: style-transfer. Edit image 3 (the target character) to look painted by the SAME artist and in the SAME game sprite series as images 1 and 2 (Minato and Mio: style references ONLY). Preserve the target's distinct identity, age, gender, hairstyle, hair color, clothes, colors, neutral expression, pose, hands and waist-up framing. Do NOT copy the reference characters' faces, glasses, jewelry, tie or costumes. Strong crisp dark ink contours with varied weight; angular facial planes, stylized mature Japanese manga/gekiga facial anatomy, defined eyelids/nose/jaw; deep clean shadow shapes; distinctive small angular faceted brush marks across skin and fabric as in references; high contrast with restrained earthy colors. Replace the soft grainy watercolor rendering with the reference's sharper graphic faceted painted shading. This must visually belong beside Minato and Mio. One single character, centered waist-up, complete head and both hands within frame, actual transparent background, no text, no panels, no border, no extra props. Keep transparent edges clean. Output one square PNG. Target character: night-manager",
+      "image": {
+        "width": 1254,
+        "height": 1254,
+        "mode": "RGBA",
+        "sha256": "7c38339be1f87332909db38bdd16d28da7699429b8890b317fce4ca34df1207f",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaBounds": [
+          57,
+          0,
+          1216,
+          1254
+        ]
+      },
+      "generator": "built-in image_gen",
+      "status": "draft-unapproved",
+      "profile": "docs/04-art/characters/night-manager/profile.md",
+      "referenceImages": [
+        {
+          "path": "src/assets/images/characters/minato/waist/neutral.png",
+          "sha256": "5db08fb88ff82b5eb5e616428c6989f672d73f9948eea4dd4397459aeb0ba22c"
+        },
+        {
+          "path": "src/assets/images/characters/mio/waist/neutral.png",
+          "sha256": "b99ab2e9f0275d9c70d63351361ab13c40ed39192bc44eb2a3251c8845d45c9d"
+        },
+        {
+          "path": "docs/04-art/characters/night-manager/drafts/neutral-01.png",
+          "sha256": "97863420d6713bd78142325dbe63d9800590ce1b6cdbd267fb3a558ea9db76e7"
+        }
+      ]
+    },
+    {
+      "id": "rescue-worker",
+      "target": "docs/04-art/characters/rescue-worker/drafts/neutral-01.png",
+      "path": "docs/04-art/characters/rescue-worker/drafts/neutral-02-minato-mio.png",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a17884-3005-77b1-a1f1-26f29b6c2cdb\\exec-b29d641a-21e1-4baf-8c5c-e6508077b079.png",
+      "prompt": "Use case: style-transfer. Edit image 3 (the target character) to look painted by the SAME artist and in the SAME game sprite series as images 1 and 2 (Minato and Mio: style references ONLY). Preserve the target's distinct identity, age, gender, hairstyle, hair color, clothes, colors, neutral expression, pose, hands and waist-up framing. Do NOT copy the reference characters' faces, glasses, jewelry, tie or costumes. Strong crisp dark ink contours with varied weight; angular facial planes, stylized mature Japanese manga/gekiga facial anatomy, defined eyelids/nose/jaw; deep clean shadow shapes; distinctive small angular faceted brush marks across skin and fabric as in references; high contrast with restrained earthy colors. Replace the soft grainy watercolor rendering with the reference's sharper graphic faceted painted shading. This must visually belong beside Minato and Mio. One single character, centered waist-up, complete head and both hands within frame, actual transparent background, no text, no panels, no border, no extra props. Keep transparent edges clean. Output one square PNG. Target character: rescue-worker",
+      "image": {
+        "width": 1254,
+        "height": 1254,
+        "mode": "RGBA",
+        "sha256": "b907e36fc62c2af667965d87900aed593738594651fc46a462434395f129f41b",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaBounds": [
+          99,
+          0,
+          1208,
+          1254
+        ]
+      },
+      "generator": "built-in image_gen",
+      "status": "draft-unapproved",
+      "profile": "docs/04-art/characters/rescue-worker/profile.md",
+      "referenceImages": [
+        {
+          "path": "src/assets/images/characters/minato/waist/neutral.png",
+          "sha256": "5db08fb88ff82b5eb5e616428c6989f672d73f9948eea4dd4397459aeb0ba22c"
+        },
+        {
+          "path": "src/assets/images/characters/mio/waist/neutral.png",
+          "sha256": "b99ab2e9f0275d9c70d63351361ab13c40ed39192bc44eb2a3251c8845d45c9d"
+        },
+        {
+          "path": "docs/04-art/characters/rescue-worker/drafts/neutral-01.png",
+          "sha256": "4c44049a215d655a18b97e81a0ba7e3d21c075d22c4f5899cec3d407573ed207"
+        }
+      ]
+    },
+    {
+      "id": "technician",
+      "target": "docs/04-art/characters/technician/drafts/neutral-01.png",
+      "path": "docs/04-art/characters/technician/drafts/neutral-02-minato-mio.png",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a17884-3005-77b1-a1f1-26f29b6c2cdb\\exec-b6cde022-480c-4551-b0c3-6fa60039f102.png",
+      "prompt": "Use case: style-transfer. Edit image 3 (the target character) to look painted by the SAME artist and in the SAME game sprite series as images 1 and 2 (Minato and Mio: style references ONLY). Preserve the target's distinct identity, age, gender, hairstyle, hair color, clothes, colors, neutral expression, pose, hands and waist-up framing. Do NOT copy the reference characters' faces, glasses, jewelry, tie or costumes. Strong crisp dark ink contours with varied weight; angular facial planes, stylized mature Japanese manga/gekiga facial anatomy, defined eyelids/nose/jaw; deep clean shadow shapes; distinctive small angular faceted brush marks across skin and fabric as in references; high contrast with restrained earthy colors. Replace the soft grainy watercolor rendering with the reference's sharper graphic faceted painted shading. This must visually belong beside Minato and Mio. One single character, centered waist-up, complete head and both hands within frame, actual transparent background, no text, no panels, no border, no extra props. Keep transparent edges clean. Output one square PNG. Target character: technician",
+      "image": {
+        "width": 1254,
+        "height": 1254,
+        "mode": "RGBA",
+        "sha256": "5b6d2c754a5f2d0f211cdfe2599401ce093823a5bcbc0c21fa14d285c197cf34",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaBounds": [
+          146,
+          0,
+          1043,
+          1254
+        ]
+      },
+      "generator": "built-in image_gen",
+      "status": "draft-unapproved",
+      "profile": "docs/04-art/characters/technician/profile.md",
+      "referenceImages": [
+        {
+          "path": "src/assets/images/characters/minato/waist/neutral.png",
+          "sha256": "5db08fb88ff82b5eb5e616428c6989f672d73f9948eea4dd4397459aeb0ba22c"
+        },
+        {
+          "path": "src/assets/images/characters/mio/waist/neutral.png",
+          "sha256": "b99ab2e9f0275d9c70d63351361ab13c40ed39192bc44eb2a3251c8845d45c9d"
+        },
+        {
+          "path": "docs/04-art/characters/technician/drafts/neutral-01.png",
+          "sha256": "5d225364de6d16d712a342a1c6f0bfd41e3d7648ac2419dc0f49ae8f82a5c2d7"
+        }
+      ]
+    },
+    {
+      "id": "company-reviewer",
+      "target": "docs/04-art/characters/company-reviewer/drafts/neutral-01.png",
+      "path": "docs/04-art/characters/company-reviewer/drafts/neutral-02-minato-mio.png",
+      "source": "C:\\Users\\lemon\\.codex\\generated_images\\01a17884-3005-77b1-a1f1-26f29b6c2cdb\\exec-3289047f-6ee0-4f7c-815d-81c7f9e26c04.png",
+      "prompt": "Use case: style-transfer. Edit image 3 (the target character) to look painted by the SAME artist and in the SAME game sprite series as images 1 and 2 (Minato and Mio: style references ONLY). Preserve the target's distinct identity, age, gender, hairstyle, hair color, clothes, colors, neutral expression, pose, hands and waist-up framing. Do NOT copy the reference characters' faces, glasses, jewelry, tie or costumes. Strong crisp dark ink contours with varied weight; angular facial planes, stylized mature Japanese manga/gekiga facial anatomy, defined eyelids/nose/jaw; deep clean shadow shapes; distinctive small angular faceted brush marks across skin and fabric as in references; high contrast with restrained earthy colors. Replace the soft grainy watercolor rendering with the reference's sharper graphic faceted painted shading. This must visually belong beside Minato and Mio. One single character, centered waist-up, complete head and both hands within frame, actual transparent background, no text, no panels, no border, no extra props. Keep transparent edges clean. Output one square PNG. Target character: company-reviewer",
+      "image": {
+        "width": 1254,
+        "height": 1254,
+        "mode": "RGBA",
+        "sha256": "7e5b3c8436bcfa577f9d99883fd16672a6e16557207ce603dfe34a50f9abd1ff",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaBounds": [
+          41,
+          0,
+          1166,
+          1254
+        ]
+      },
+      "generator": "built-in image_gen",
+      "status": "draft-unapproved",
+      "profile": "docs/04-art/characters/company-reviewer/profile.md",
+      "referenceImages": [
+        {
+          "path": "src/assets/images/characters/minato/waist/neutral.png",
+          "sha256": "5db08fb88ff82b5eb5e616428c6989f672d73f9948eea4dd4397459aeb0ba22c"
+        },
+        {
+          "path": "src/assets/images/characters/mio/waist/neutral.png",
+          "sha256": "b99ab2e9f0275d9c70d63351361ab13c40ed39192bc44eb2a3251c8845d45c9d"
+        },
+        {
+          "path": "docs/04-art/characters/company-reviewer/drafts/neutral-01.png",
+          "sha256": "17ffa2c0462c442b95ad9de26d41787c1f83bcbb767debb6c02f7327980baeed"
+        }
+      ]
+    }
+  ],
+  "reviewDate": "2026-10-28",
+  "reviewScope": "新規8人と既存沙織の通常候補を湊・澪へ画風合わせ。旧11候補・既存沙織9画像は変更せず保持。"
 }
