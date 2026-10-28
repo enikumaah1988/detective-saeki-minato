@@ -27,6 +27,7 @@ import { SaveControls } from './SaveControls'
 import { DialogueWindow } from './DialogueWindow'
 import { UiIcon } from './UiIcon'
 import { selectSmokingPresentation } from './smoking'
+import { loadMessageSpeed, saveMessageSpeed } from './settings'
 
 const smokingCutIn = new URL('../../assets/images/cutins/minato-smoking.png', import.meta.url).href
 const nonSmokingCutIn = new URL('../../assets/images/cutins/minato-non-smoking.png', import.meta.url).href
@@ -67,9 +68,7 @@ export function StoryPlayer({ scenario, initialSession, preview, smokingAllowed,
   },[scenario,gameState,history])
   const historyList = useRef<HTMLDivElement>(null)
   useEffect(() => { if (historyOpen && historyList.current) historyList.current.scrollTop = historyList.current.scrollHeight }, [historyOpen])
-  const [interval, setInterval] = useState(() => {
-    try { const value = Number(localStorage.getItem('detective-saeki-minato.speed') ?? 35); return [0, 15, 35, 70].includes(value) ? value : 35 } catch { return 35 }
-  })
+  const [interval, setInterval] = useState<number>(loadMessageSpeed)
   const illustration = scenario.nodes[gameState.nodeId].illustration
   const dispatch = useCallback((action: GameAction) => {
     if (!playback.paused && action.type === 'advance' && node.type === 'dialogue' && !illustration) {
@@ -142,7 +141,7 @@ export function StoryPlayer({ scenario, initialSession, preview, smokingAllowed,
         <span className="sr-only">{displayText(scenario.title)}</span>
         <div className="toolbar-actions">
         <SaveControls state={gameState} scenario={scenario} interval={interval} onReturnToTitle={onReturnToTitle} onIntervalChange={value => {
-          setInterval(value); try { localStorage.setItem('detective-saeki-minato.speed', String(value)) } catch { /* 設定はセッション中保持 */ }
+          setInterval(value); saveMessageSpeed(value)
         }} history={history} onRestore={(state, restoredHistory) => {
           suppressRecordNotice.current = true
           suppressAutoSave.current = true; send({ type: 'restore', state }); setHistory(restoredHistory); setRestoreRevision((value) => value + 1)
