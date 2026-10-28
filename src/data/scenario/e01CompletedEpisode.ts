@@ -166,6 +166,14 @@ for (let number = 7; number <= 30; number++) {
   }
 }
 
+// S26's initial source line is an audit-only knowledge constraint, not narration.
+// Keep both old save IDs: show the first spoken line at intro, then skip its old
+// duplicate on normal entry. Loading intro-1 directly still shows that spoken line once.
+const s26FirstLine = nodes['S26-intro-1']
+if (s26FirstLine.type !== 'dialogue') throw new Error('S26の冒頭会話がありません')
+nodes['S26-intro'] = { ...s26FirstLine, next: 'S26-intro-1' }
+s26FirstLine.autoAdvance = true
+
 function bar(id: 'BAR-A' | 'BAR-B', back: string) {
   const source = sources.get(id)!
   const once = `${id}_VISITED`
@@ -234,4 +242,5 @@ for (const id of ['BAR-A', 'BAR-B']) {
   }
 }
 
-export const e01CompletedEpisode: Scenario = { ...e01CompletedPart1, id: 'erased-records-30-scenes', title: 'Episode 01「消された記録」', nodes, scenes, records, nodeTimes: times }
+export const e01CompletedEpisode: Scenario = { ...e01CompletedPart1, id: 'erased-records-30-scenes', title: 'Episode 01「消された記録」', nodes, scenes, records, nodeTimes: times,
+  hiddenHistoryTexts: [sources.get('S26')!.body[0].text] }
