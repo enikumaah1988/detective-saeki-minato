@@ -20,5 +20,8 @@ Thumbs.db
 
 /work/
 
+# Local generated output; production sources belong in src/ or docs/.
+/outputs/
+
 # Local development server ownership and logs
 .local-server/

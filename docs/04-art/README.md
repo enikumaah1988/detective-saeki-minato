@@ -14,6 +14,8 @@
 
 ## 所在と管理責任
 
+- [演出試作01](prototypes/motion-study/README.md)：単独HTMLと専用の旧画像・確認記録を同梱。本編未接続の試作を、ゲーム用正本と分けて保存する。
+
 - 制作資料・試作・生成条件・検証記録はこの04-artに配置する。人物別の仕様と採用状態は各profile、背景・扉絵・持ち物・地図は各分野の入口を確認する。従来の素材ガイドは[production-guide](production-guide.md)に保持した。そこにある日付付きの状態は制作当時の記録として読む。
 - ゲームが読み込む画像の正本は`src/assets/images/`（背景・人物・挿絵・UI等を用途別に分類）。この整理で画像を再生成・再圧縮・再採用していない。制作資料とゲーム画像の異なる用途を維持する。
 - 取り込み先・ハッシュ・由来・採用状態は[人物manifest](manifests/imported-character-assets.json)と[追加素材manifest](manifests/imported-revision-assets.json)。旧背景の生成条件は[旧プロンプト](backgrounds/legacy-background-prompts.json)に保持する。パスは原則リポジトリ基準、素材内の短いファイル名は対応スクリプトの解決方法に従う。

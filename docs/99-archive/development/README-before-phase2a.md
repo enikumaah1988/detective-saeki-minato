@@ -118,6 +118,6 @@ DEV欄には旧デモ・調査記録プレビュー・調査／移動モック�
 
 ## 履歴
 
-2026-10-13の全体保存地点は [統合記録](../../integration-2026-10-13.md) を参照。ストーリーは [制作資料](../story/README-before-phase2a.md)、画像候補・採用状態は [素材制作ガイド](../../04-art/production-guide.md)、人物像は `docs/characters/`、独立演出試作は `prototypes/motion-study/` に保存している。
+2026-10-13の全体保存地点は [統合記録](../../integration-2026-10-13.md) を参照。ストーリーは [制作資料](../story/README-before-phase2a.md)、画像候補・採用状態は [素材制作ガイド](../../04-art/production-guide.md)、人物像は `docs/characters/`、独立演出試作は[現在の保存先](../../04-art/prototypes/motion-study/README.md)へ移動した（当時は `prototypes/motion-study/`）。
 
 旧第1部だけの対応表は [ver0.01実装記録](../../scenario-ver001-part1.md)、2026-10-11のUI成果は [UI進捗記録](../../ui-progress-2026-10-11.md) に保存。現在の状態と担当は制作台帳を優先する。
