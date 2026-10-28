@@ -62,7 +62,7 @@
 - 型チェックとビルド: npm run build
 - Lintの依存関係: npm ci --prefix tools/lint（ゲーム用TypeScriptと互換性を分離）
 - Lint: npm run lint。対象・既存警告と段階的解消方針は tools/lint/README.md を参照する。
-- ブラウザーテストはREADME記載の外部Playwright/Chromium環境を要する。未準備ならスキップしたことを明示する。
+- Episode01のローカルE2Eは `npm run test:e2e:install` → `npm run test:e2e`。既存 `tests/*.test.mjs` 内のブラウザーテストはREADME記載の外部Playwright/Chromium環境を要する。実行条件と証跡は docs/06-development/verification.md を参照し、未準備ならスキップしたことを明示する。
 
 - 変更した機能に関連する既存テストを実行し、挙動変更・不具合修正には必要な回帰テストを追加する。進行・シナリオ変更では重要経路、保存関連の変更では保存・復元と旧データ互換を確認する。
 - 型チェック・ビルドに加え、コード変更時はLintも実施する。既存警告を解消したら警告上限を下げ、新しい警告のために上限を引き上げたり規則を無効化したりしない。
