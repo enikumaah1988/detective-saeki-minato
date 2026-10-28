@@ -38,7 +38,7 @@ for (const [width, height] of [[1920,1080],[1366,768]]) test(`タイトル画面
     assert.equal(await page.evaluate(() => JSON.parse(localStorage.getItem('detective-saeki-minato.audio')).bgm), 100)
     await page.evaluate(value => localStorage.setItem('detective-saeki-minato.slots.v1', JSON.stringify(value)), saved)
     await page.getByRole('button', { name: 'NEW GAME', exact: true }).focus(); await page.keyboard.press('Enter')
-    await page.locator('[data-node-id="episode-prologue-1"]').waitFor()
+    await page.locator('[data-node-id="S01-intro"]').waitFor()
     assert.deepEqual(await page.evaluate(() => JSON.parse(localStorage.getItem('detective-saeki-minato.slots.v1'))), saved)
     await page.getByLabel('メニュー', { exact: true }).click()
     assert.equal(await page.getByRole('slider', { name: 'BGM音量', exact: true }).inputValue(), '100')
@@ -55,7 +55,7 @@ for (const [width, height] of [[1920,1080],[1366,768]]) test(`タイトル画面
     assert.deepEqual(typography, menuTypography)
     await page.keyboard.press('Enter')
     await page.waitForFunction(() => !document.querySelector('.system-dialog'))
-    assert.equal(await page.locator('.story').getAttribute('data-node-id'), 'episode-prologue-1')
+    assert.equal(await page.locator('.story').getAttribute('data-node-id'), 'S01-intro')
     await page.getByRole('button', { name: 'RETURN TO TITLE', exact: true }).click()
     await page.keyboard.press('Escape')
     await page.waitForFunction(() => !document.querySelector('.system-dialog'))
@@ -83,7 +83,7 @@ for (const [width, height] of [[1920,1080],[1366,768]]) test(`タイトル画面
     await page.getByRole('button', { name: 'RETURN TO TITLE', exact: true }).click()
     await page.getByRole('dialog', { name: 'タイトルに戻りますか？', exact: true }).getByRole('button', { name: 'RETURN TO TITLE', exact: true }).click()
     await page.getByRole('button', { name: 'NEW GAME', exact: true }).click()
-    await page.locator('[data-node-id="episode-prologue-1"]').waitFor()
+    await page.locator('[data-node-id="S01-intro"]').waitFor()
     await page.getByLabel('会話履歴を開く', { exact: true }).click()
     assert.match(await page.getByRole('dialog').textContent(), /会話履歴はまだありません/)
     await page.reload()
@@ -103,5 +103,9 @@ for (const [width, height] of [[1920,1080],[1366,768]]) test(`タイトル画面
     await page.locator('[data-node-id="P1-01-menu"]').waitFor()
     assert.deepEqual(await page.evaluate(() => JSON.parse(localStorage.getItem('detective-saeki-minato.save.v1'))), saved.manual[0].data)
     assert.deepEqual(errors, [])
+  } catch (error) {
+    console.error('Title checkpoint:', width, await page.locator('.story').getAttribute('data-node-id'))
+    if (process.env.SAEKI_SCREENSHOT_DIR) await page.screenshot({path:`${process.env.SAEKI_SCREENSHOT_DIR}/title-failure-${width}.png`})
+    throw error
   } finally { await browser.close() }
 })

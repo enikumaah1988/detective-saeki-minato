@@ -17,7 +17,8 @@ export default function App() {
   const devMode = import.meta.env.DEV && new URLSearchParams(typeof location === 'undefined' ? '' : location.search).get('dev') === '1'
   const [started, setStarted] = useState(devMode)
   const [initialSession, setInitialSession] = useState<TitleSession>()
-  const [scenario, setScenario] = useState(() => scenarioCatalog.find(item => item.id === new URLSearchParams(typeof location === 'undefined' ? '' : location.search).get('scenario')) ?? defaultScenario)
+  const [startingScenario] = useState(() => scenarioCatalog.find(item => item.id === new URLSearchParams(typeof location === 'undefined' ? '' : location.search).get('scenario')) ?? defaultScenario)
+  const [scenario, setScenario] = useState(startingScenario)
   const [preview, setPreview] = useState<{ records: InvestigationRecord[]; label: string; invoker: HTMLElement }>()
   const [smokingAllowed, setSmokingAllowed] = useState<boolean>()
   const [explorationMock, setExplorationMock] = useState(false)
@@ -27,7 +28,10 @@ export default function App() {
       <main className="game-shell" aria-label="探偵 佐伯湊 / Detective Saeki Minato">
         <div style={explorationMock ? { display: 'none' } : { display: 'contents' }} inert={explorationMock}>
           {started ? <StoryPlayer key={scenario.id} scenario={scenario} initialSession={initialSession} preview={preview} smokingAllowed={smokingAllowed} suspended={explorationMock} onReturnToTitle={() => { setStarted(false); setInitialSession(undefined); setPreview(undefined); setSmokingAllowed(undefined) }} />
-            : <TitleScreen scenario={scenario} onStart={session => { setInitialSession(session); setStarted(true) }} />}
+            : <TitleScreen scenario={startingScenario} scenarios={scenarioCatalog} onStart={session => {
+              setScenario(session ? scenarioCatalog.find(item => item.id === session.state.scenarioId) ?? startingScenario : startingScenario)
+              setInitialSession(session); setStarted(true)
+            }} />}
         </div>
         {ExplorationMock && explorationMock && <Suspense fallback={<section className="story" role="status">モックを読み込み中</section>}><ExplorationMock onClose={() => setExplorationMock(false)} /></Suspense>}
       </main>

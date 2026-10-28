@@ -15,7 +15,7 @@ import './titleScreen.css'
 export type TitleSession = { state: GameState; history: HistoryEntry[] }
 const background = new URL('../assets/images/ui/title-office-night.png', import.meta.url).href
 
-export function TitleScreen({ scenario, onStart, logoSrc }: { scenario: Scenario; onStart: (session?: TitleSession) => void; logoSrc?: string }) {
+export function TitleScreen({ scenario, scenarios = [scenario], onStart, logoSrc }: { scenario: Scenario; scenarios?: readonly Scenario[]; onStart: (session?: TitleSession) => void; logoSrc?: string }) {
   const [dialog, setDialog] = useState<'load' | 'settings'>()
   const invoker = useRef<HTMLButtonElement>(null)
   const [message, setMessage] = useState('')
@@ -31,7 +31,7 @@ export function TitleScreen({ scenario, onStart, logoSrc }: { scenario: Scenario
     try { setSlots(readSlots()) } catch { setSlots(undefined); setMessage('保存データを確認できません。') }
   }
   const load = (id: SlotId) => {
-    const result = loadSlot(id, [scenario])
+    const result = loadSlot(id, scenarios)
     if (result.ok) onStart({ state: result.state, history: result.history })
     else setMessage('この保存データを読み込めません。')
   }
@@ -44,6 +44,7 @@ export function TitleScreen({ scenario, onStart, logoSrc }: { scenario: Scenario
           <h1><span className="title-screen-prefix">探偵</span> 佐伯湊</h1>
           <p className="title-screen-english">DETECTIVE SAEKI MINATO</p>
         </>}
+        <p className="title-screen-episode">{displayText(scenario.title)}</p>
       </header>
       <nav className="title-screen-menu" aria-label="タイトルメニュー">
         <button type="button" aria-label="NEW GAME" onClick={() => onStart()}><UiIcon name="play" /><span>NEW GAME</span></button>

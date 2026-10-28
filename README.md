@@ -2,7 +2,9 @@
 
 現代日本の探偵ADV。React・TypeScript・Viteを使用する。
 
-仕様・原稿・人物・素材・技術・開発手順は[ドキュメントの共通入口](docs/README.md)から必要な分野を選ぶ。[制作状態](docs/06-development/production-status.md)では実装済み・正式採用・未確認を区別し、[物語資料](docs/02-story/README.md)ではver0.04の第1部・接続とver0.03の第3～4部の適用範囲を示す。
+現在のEpisode 01は**「消された記録」全30シーン**。通常のNEW GAMEから開始する。旧稿「灰色の証言」と第1部限定版の保存はCONTINUEから元のシナリオを再開できる。保存データを新稿へ自動変換・削除しない。
+
+仕様・原稿・人物・素材・技術・開発手順は[ドキュメントの共通入口](docs/README.md)から必要な分野を選ぶ。[制作状態](docs/06-development/production-status.md)では実装済み・正式採用・未確認を区別し、[物語資料](docs/02-story/README.md)では現行30シーンと旧稿ver0.04／ver0.03の適用範囲を示す。
 
 ## 起動
 

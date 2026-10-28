@@ -9,7 +9,7 @@ for(const [width,height] of [[1920,1080],[1366,768]])test(`部の挿絵・読了
  const {chromium}=await import(playwrightPath),browser=await chromium.launch(),page=await browser.newPage({viewport:{width,height}})
  try{
   await page.addInitScript(()=>localStorage.setItem('detective-saeki-minato.speed','0'))
-  await page.goto(baseUrl)
+  await page.goto(baseUrl+'?scenario=gray-testimony-ver001-part1')
   await page.getByRole('button',{name:'NEW GAME',exact:true}).click()
   const nodes=Object.entries(api.scenario.nodes).filter(([,node])=>node.illustration)
   assert.equal(nodes.length,8)

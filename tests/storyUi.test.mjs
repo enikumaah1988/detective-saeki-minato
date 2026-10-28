@@ -122,6 +122,8 @@ test('通常起動はタイトル画面を表示し、開発切替は表示し�
   assert.match(html, /<h1/)
   assert.match(html, /タイトル画面/)
   assert.match(html, /NEW GAME.*CONTINUE.*SETTINGS/s)
+  assert.match(html, /消された記録/)
+  assert.doesNotMatch(html, /灰色の証言/)
   assert.doesNotMatch(html, /data-node-id=/)
   assert.doesNotMatch(html, /scene-selector|dev-label/)
   assert.doesNotMatch(html, /クリック・タップ \/ Enter・Space/)

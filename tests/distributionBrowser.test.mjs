@@ -54,13 +54,13 @@ test('配布dist: 静的HTTP・素材・本番タイトル・UI保存と再読�
     await page.waitForFunction(() => { const image = document.querySelector('.title-screen-background'); return image?.complete && image.naturalWidth > 0 })
     assert.equal(await page.locator('.scene-selector, .dev-label').count(), 0)
     await page.getByRole('button', { name: 'NEW GAME', exact: true }).click()
-    await page.locator('[data-node-id="episode-prologue-1"]').waitFor()
+    await page.locator('[data-node-id="S01-intro"]').waitFor()
     await page.getByLabel('メニュー', { exact: true }).click()
     await page.getByRole('button', { name: 'メッセージスピード：一括表示', exact: true }).click()
     await page.getByLabel('BGM音量', { exact: true }).fill('37')
     await page.getByRole('button', { name: 'システムメニューを閉じる', exact: true }).click()
     // 実データをUIで読み進め、背景と人物がそろう最初の会話で保存する。
-    for (let step = 0; step < 100 && !await page.locator('.background-image, .character-image').evaluateAll(images => images.some(image => image.classList.contains('background-image')) && images.some(image => image.classList.contains('character-image'))); step++) {
+    for (let step = 0; step < 100 && (step === 0 || !await page.locator('.background-image, .character-image').evaluateAll(images => images.some(image => image.classList.contains('background-image')) && images.some(image => image.classList.contains('character-image')))); step++) {
       if (await page.locator('.chapter-heading').count()) await page.keyboard.press('Enter')
       else {
         await page.locator('.dialogue-button .next').waitFor()
