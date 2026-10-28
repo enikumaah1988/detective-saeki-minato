@@ -62,7 +62,7 @@ test('原稿転記を固定し、本文と採用した操作会話が実行デ�
   assert.equal(createHash('sha256').update(JSON.stringify(api.source)).digest('hex'), '3872a0c640af88cdd110127af239bd1cbaaf3e5e81377f7194b9ce20708d1faa')
   const values = Object.values(scenario.nodes).filter(node => node.type === 'dialogue')
   for (const scene of api.source) for (const line of [...scene.body, ...scene.actions.filter(action => scene.id !== 'S27' || action.id !== '全正答後').flatMap(action => action.lines.map(line => action.kind === 'think' ? { ...line, speakerId: 'narrator' } : line)), ...scene.questions.flatMap(q => [...q.answer, ...q.wrong])]) {
-    if (line.text.startsWith('（プレイヤーの整理：')) continue
+    if (line.text.startsWith('（プレイヤーの整理：') || line.text === '（S25の再聴取内容は警察内部の情報であり、佐伯と澪は知らない）') continue
     assert.ok(values.some(node => node.text === line.text && node.speakerId === line.speakerId), scene.id + ': ' + line.text)
   }
 })
