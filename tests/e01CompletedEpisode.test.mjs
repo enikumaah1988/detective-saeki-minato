@@ -124,9 +124,9 @@ test('救助と会社調査の日付を維持し、必須の考える・聞く�
     }
   }
 })
-test('旧稿と第1部限定版の保存・NEW GAME接続は保持', () => {
-  assert.equal(api.defaultScenario.id, 'gray-testimony-ver001-part1')
-  for (const legacy of [api.defaultScenario, api.firstPart]) for (const nodeId of Object.keys(legacy.nodes)) {
+test('NEW GAMEは完成稿へ切替え、旧稿と第1部限定版の保存は保持', () => {
+  assert.equal(api.defaultScenario.id, scenario.id)
+  for (const legacy of [api.scenarioCatalog.find(item => item.id === 'gray-testimony-ver001-part1'), api.firstPart]) for (const nodeId of Object.keys(legacy.nodes)) {
     const saved = api.createSaveData({ ...api.createInitialState(legacy), nodeId })
     assert.deepEqual(api.restoreSaveData(saved, api.scenarioCatalog), api.restoreSaveData(saved, [legacy]))
   }

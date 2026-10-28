@@ -120,10 +120,9 @@ test('調査記録は取得した新稿情報だけを表示し、心の声は�
   assert.equal(api.dialogueSpeaker(manager, run.state), '管理担当者')
 })
 
-test('NEW GAMEの既定は旧稿、旧part3-organize保存と既存全ノードのv2復元結果はカタログ追加前後で同一', () => {
-  assert.equal(api.defaultScenario.id, 'gray-testimony-ver001-part1')
-  assert.equal(scenarioCatalog[0], api.defaultScenario)
-  const legacy = api.defaultScenario
+test('NEW GAMEは完成稿、旧part3-organize保存と既存全ノードのv2復元結果はカタログ追加前後で同一', () => {
+  assert.equal(api.defaultScenario.id, 'erased-records-30-scenes')
+  const legacy = scenarioCatalog.find(item => item.id === 'gray-testimony-ver001-part1')
   assert.ok(Object.hasOwn(legacy.nodes, 'part3-organize'))
   for (const nodeId of Object.keys(legacy.nodes)) {
     const saved = { version: 2, scenarioId: legacy.id, nodeId, flags: { custom: true }, heardTopics: [], inspectedTargets: [], acquiredInformation: [] }

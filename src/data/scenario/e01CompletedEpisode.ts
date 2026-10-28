@@ -234,4 +234,4 @@ for (const id of ['BAR-A', 'BAR-B']) {
   }
 }
 
-export const e01CompletedEpisode: Scenario = { ...e01CompletedPart1, id: 'erased-records-30-scenes', title: 'Episode 01「消された記録」全30シーン', nodes, scenes, records, nodeTimes: times }
+export const e01CompletedEpisode: Scenario = { ...e01CompletedPart1, id: 'erased-records-30-scenes', title: 'Episode 01「消された記録」', nodes, scenes, records, nodeTimes: times }
