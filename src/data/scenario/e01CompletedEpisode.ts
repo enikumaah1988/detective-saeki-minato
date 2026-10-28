@@ -57,7 +57,7 @@ function chainedEvents(scene: CompletedScene, labels: string[]) { return labels.
 
 for (const source of completedContinuationSource) setup(source.id)
 // Presentation variants derive from existing node IDs, without adding save state or progress flags.
-scenes['S08-underground'] = { ...scenes.S08, backgroundId: 'building-equipment' }
+scenes['S08-underground'] = { ...scenes.S08, backgroundId: 'building-storage-door' }
 scenes['S10-transported'] = { ...scenes.S10, characters: cast(['minato', 'mio']) }
 scenes['S10-outside'] = { backgroundId: 'building-exterior', characters: cast(['minato', 'mio']) }
 scenes['S16-kuroda'] = { ...scenes.S16, characters: cast(['miyahara', 'minato', 'kuroda']) }
@@ -129,10 +129,16 @@ for (let number = 7; number <= 30; number++) {
     options.push({ id: 'move', label: '移動', next: 'S09-wait' })
   }
   if (id === 'S08') {
-    dialogue(id, 'S08-discovery', event(source, '発見演出'), exit, info('F_ROUTE_SELECTED'))
+    // Preserve the existing dialogue IDs while securing the route before the guide announces it.
+    dialogue(id, 'S08-discovery', event(source, '発見演出'), 'S08-finish-1', info('F_ROUTE_SELECTED'))
+    const secure = nodes['S08-finish-1'], guide = nodes['S08-finish']
+    if (secure.type !== 'dialogue' || guide.type !== 'dialogue') throw new Error('S08の経路案内がありません')
+    secure.next = 'S08-finish'
+    guide.next = 'S08-finish-2'
     add(id, 'S08-route', { ...meta(id), type: 'choice', prompt: '詳細図の折れ曲がる通路の先を選ぶ', options: [
       { id: 'route', label: '棚の裏で折れ曲がる通路の先', next: 'S08-discovery' }, { id: 'return', label: '戻る', next: 'S08-menu' },
     ] })
+    times['S08-route'] = '2026年10月8日（木）朝'
     exit = 'S08-route'
   }
   if (source.questions.length) {
@@ -197,7 +203,7 @@ add('S30', 'episode-complete', { ...meta('S30'), type: 'end', text: 'Episode 01�
 // Keep historyScope/savePhaseId and every dialogue/progression ID unchanged.
 // Variants use the existing scene selector, so loading any old v2 node restores its presentation.
 for (const [name, node] of Object.entries(nodes)) {
-  if (node.sceneId === 'S08' && (name.startsWith('S08-discovery') || name.startsWith('S08-finish'))) node.sceneId = 'S08-underground'
+  if (node.sceneId === 'S08' && ['S08-finish-2', 'S08-finish-3'].includes(name)) node.sceneId = 'S08-underground'
   if (node.sceneId === 'S16' && node.type === 'dialogue' && node.speakerId === 'kuroda') node.sceneId = 'S16-kuroda'
   if (node.sceneId?.startsWith('BAR') && node.type === 'dialogue' && node.speakerId === 'anna') node.sceneId = `${node.sceneId}-anna`
 }

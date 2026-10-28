@@ -31,6 +31,7 @@
 - `app/App.tsx` → `scenario/catalog.ts` → `StoryPlayer`。旧稿は `episode1Part1.ts` の合成経路を維持。新稿は `e01CompletedPart1.ts` と原文転記 `e01CompletedPart1Lines.ts` で構成する。
 - 全編版は `e01CompletedEpisode.ts` で第1部を複製して続編を接続。S07〜S30とBARの本文・操作会話・設問は `e01CompletedContinuationSource.ts` に原文を転記する。会話の語句は変更せず、原稿の操作指示は既存の条件・選択UIへ対応させる。
 - `state.ts` のreducer、`freeAction.ts` の条件・取得情報・既読管理、`scene.ts` の場面、`dateTime.ts` の日時、`investigation.ts` の調査記録、既存コマンド／会話UIを共用する。新規UI・保存項目・依存ライブラリは追加しない。
+- S08は詳細図の必須確認→通路選択（戻る可）→安全確認の依頼→明け方の安全確保→案内→入口発見→物音→S09の順に接続する（#236）。通路選択は10/8朝、安全確保・案内までは管理室の表示を維持し、入口発見から旧保管室前へ切り替える。既存の発言・ノードID・取得フラグは保持する。
 - `saveData.ts` のSaveData v2をそのまま使用。新稿の `F_*` / `O_*` は既存のflags／acquiredInformationへ格納する。場面の `savePhaseId` は既存AUTO保存で使用する。旧ID・旧ノード・エイリアスは変更しない。旧保存を新稿へ変換しない。
 - `part3-organize` を含む旧ノードの復元結果は、カタログ追加前後の同一性と既存互換テストで確認する。旧保存の復帰先は旧稿の既存エイリアスが決める。新稿へ番号対応させない。
 - 全編の確認入口は `/?dev=1&scenario=erased-records-30-scenes`、または既存DEVのシナリオ切替。第1部限定版の入口も維持。通常URLのタイトル／NEW GAMEは「消された記録」を使用。CONTINUEは保存内のscenarioIdをカタログで判別し、元のシナリオと履歴へ復帰。本編中LOADは現在のシナリオ内に限定する。旧稿からタイトルに戻ってNEW GAMEを選んでも既定の全編版へ戻る。明示的な `?scenario=...` は従来どおり指定シナリオの開始先を使う。
