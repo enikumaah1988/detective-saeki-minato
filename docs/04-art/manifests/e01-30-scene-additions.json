@@ -31,8 +31,8 @@
       "name": "地下旧保管室・扉前",
       "kind": "background",
       "scenes": [
-        "S09",
-        "S10"
+        "S08",
+        "S09"
       ],
       "path": "src/assets/images/backgrounds/building-storage-door.png",
       "sourceFile": "exec-b3bbad8d-3488-45bb-b06f-0598e4a5a77b.png",

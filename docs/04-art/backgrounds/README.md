@@ -67,4 +67,4 @@ flowchart BT
 現場背景は人物を描かず、目撃位置の図・挿絵を別管理する。
 
 
-2026-10-28：追加3背景をゲーム用正本へ移動し、[開扉後](../../../src/assets/images/backgrounds/building-storage-open.png)も追加。S07地下・S09扉前・S10救助・BARへ登録。生成条件は[manifest](../manifests/e01-30-scene-additions.json)で管理。
+2026-10-28：追加3背景をゲーム用正本へ移動し、[開扉後](../../../src/assets/images/backgrounds/building-storage-open.png)も追加。S07地下・S08の入口発見後〜S09扉前・S10救助・BARへ登録。S08の図面照合・安全確保・案内までは管理室を表示する（#236）。生成条件は[manifest](../manifests/e01-30-scene-additions.json)で管理。
