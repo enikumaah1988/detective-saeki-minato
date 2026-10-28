@@ -13,7 +13,8 @@ test('全30シーンと任意BARの遷移・演出参照・終了経路が有効
   assert.deepEqual(audit.missing, [])
   assert.deepEqual(auditPresentation(scenario), [])
   for (const id of Object.keys(scenario.nodes)) {
-    assert.ok(audit.reachableFromStart.has(id), id)
+    // Retained input nodes for saves made before #235; normal play uses finish-2 onward.
+    if (!['S27-finish', 'S27-finish-1'].includes(id)) assert.ok(audit.reachableFromStart.has(id), id)
     assert.ok(audit.canReachEnd.has(id), id)
   }
 })
@@ -57,10 +58,10 @@ test('追加人物の出番・救助後の退出・BAR離席をノードから�
     }
   }
 })
-test('原稿転記の全発言とト書きが実行データに保持される', () => {
+test('原稿転記を固定し、本文と採用した操作会話が実行データに保持される', () => {
   assert.equal(createHash('sha256').update(JSON.stringify(api.source)).digest('hex'), '3872a0c640af88cdd110127af239bd1cbaaf3e5e81377f7194b9ce20708d1faa')
   const values = Object.values(scenario.nodes).filter(node => node.type === 'dialogue')
-  for (const scene of api.source) for (const line of [...scene.body, ...scene.actions.flatMap(action => action.lines.map(line => action.kind === 'think' ? { ...line, speakerId: 'narrator' } : line)), ...scene.questions.flatMap(q => [...q.answer, ...q.wrong])]) {
+  for (const scene of api.source) for (const line of [...scene.body, ...scene.actions.filter(action => scene.id !== 'S27' || action.id !== '全正答後').flatMap(action => action.lines.map(line => action.kind === 'think' ? { ...line, speakerId: 'narrator' } : line)), ...scene.questions.flatMap(q => [...q.answer, ...q.wrong])]) {
     if (line.text.startsWith('（プレイヤーの整理：')) continue
     assert.ok(values.some(node => node.text === line.text && node.speakerId === line.speakerId), scene.id + ': ' + line.text)
   }

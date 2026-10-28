@@ -123,6 +123,13 @@ for (let number = 7; number <= 30; number++) {
   const updates = flags.flatMap(info)
   // Even when there is no extra speech, use an explicit scene-boundary dialogue.
   dialogue(id, exit, ending.length ? ending : [{ speakerId: 'narrator', text: source.heading }], id === 'S17' ? 'S17-after-menu' : next, updates)
+  if (id === 'S27') {
+    // The gameplay handoff is an alternative to the script's phone exchange, not a prelude.
+    // Keep the script's conclusion -> phone -> exchange, and retain the two old save positions.
+    nodes['S27-finish'] = { ...nodes['S27-finish-2'] }
+    nodes['S27-finish-1'] = { ...nodes['S27-finish-3'] }
+    exit = 'S27-finish-2'
+  }
   if (id === 'S11' || id === 'S29') nodes[exit].entryUpdates = [{ type: 'setFlag', id: id === 'S11' ? 'F_AKARI_LEFT' : 'F_OKUMURA_LEFT', value: true }]
   if (id === 'S09') {
     dialogue(id, 'S09-wait', event(source, '移動不可'), 'S09-menu')
