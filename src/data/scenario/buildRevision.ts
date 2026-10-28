@@ -400,6 +400,7 @@ export function buildRevision(base: Scenario, data: RevisionData): Scenario {
     if (phase) { node.savePhaseId=phase.id; node.savePhaseMarkers=(phase.topicTransitions??[]).flatMap(bridge=>bridge.grants); node.historyScope=`part-${phase.part}` }
     else if (node.sceneId === prologueScene) node.historyScope = 'prologue'
     else if (id === 'episode-complete') node.historyScope = `part-${data.scenes[data.scenes.length - 1].part}`
+    if (node.sceneId === prologueScene || ['P4-09', 'P4-10', 'P4-11'].includes(node.savePhaseId ?? '')) node.hideConversationToolbar = true
   }
   // 旧ノードの履歴も、セーブ復元で既に採用している移行先の部へ分類する。
   for (const [id, target] of Object.entries(saveNodeAliases)) {
