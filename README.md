@@ -12,6 +12,8 @@ Node.js・npmとGit LFS対象を取得した環境で、Windowsは` .\start-loca
 
 通常はタイトル画面からNEW GAME／CONTINUE／SETTINGSを使用する。開発サーバーの`?dev=1`だけ本編直行とDEV確認を表示する。本編では会話窓・背景・人物クリックまたはEnterで文章を送り、文字送り中は全文表示、読了後は次ページまたは次の会話へ進む。[操作](docs/01-game-design/actions.md)と[保存](docs/01-game-design/save-and-settings.md)を参照する。
 
+全編のローカルE2Eは`npm ci`、`npm run test:e2e:install`、`npm run test:e2e`。専用Viteを127.0.0.1:5290で起動し、PCとスマホ横画面のChromiumを検証する。既存テストとの違い・修正PRへの依存・失敗証跡は[検証手順](docs/06-development/verification.md#episode01-ローカルe2eplaywright-test)を参照する。
+
 ## 作業ルールと履歴
 
 リポジトリの配置は次のとおり。仕様・制作資料と、本編のコード・素材をそれぞれの入口から辿る。

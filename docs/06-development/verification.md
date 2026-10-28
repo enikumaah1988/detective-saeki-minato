@@ -21,6 +21,26 @@ npm run build
 
 既存[GitHub Actions](../../.github/workflows/ci.yml)はPRとmainへのpushで、LFS取得、Node 24、npm ci、Nodeテスト、分離lint、型チェック・ビルドを実行する。CIが成功しても、環境未指定でスキップされたブラウザーを確認済みとしない。
 
+## Episode01 ローカルE2E（Playwright Test）
+
+Node.js・npm・Git LFS素材を用意し、リポジトリ直下で実行する。Windows PowerShellでも同じコマンドを使う。
+
+~~~sh
+npm ci
+npm run test:e2e:install
+npm run test:e2e
+~~~
+
+`@playwright/test`は開発依存だけに追加する。既存の外部Playwright方式には通常タイトルから全編を操作する共通ランナーと失敗証跡の管理がないため、本項のE2Eはプロジェクト内の固定バージョンを使う。配布ゲームには組み込まない。既存Nodeテストと外部環境を使うブラウザーテストは維持する。
+
+`playwright.config.mjs`が127.0.0.1:5290のViteを開始・終了する。通常開発ポート5187とは別で、既存サーバーは再利用しない。使用中ならエラーとなり、他プロセスを停止しない。変更する場合はPowerShellで`$env:SAEKI_E2E_PORT='5291'`を設定する。公開URL・デプロイ・Work接続は不要。Viteキャッシュは`.cache/e2e-vite`に分離する。LinuxではPlaywrightのOS依存ライブラリも別途必要になる場合がある。
+
+PC 1920×1080とタッチ対応Chromiumの横844×390で、タイトル→NEW GAME、必須の聞く・調べる・考える前後、S08の戻る／通路選択、S09の移動不可、S17/S23/S27の全設問の誤答・再挑戦・正答、BAR有無のS30到達、画面のSAVE/LOAD、警察場面前後の進捗・調査記録表示を検査する。ルート探索には既存reducerを使い、ブラウザー内の進捗を注入しない。表示ラベルと会話本文、独立した期待順序・必須条件も照合する。全選択肢・任意会話の組合せや実機の操作性保証ではない。
+
+S08/S27の会話順とS26注記非表示は#235〜#237の修正を取り込んだ状態が成功条件。修正前のmainでは該当検査が失敗する。検証時は対象SHAと一時統合の有無をPRへ記載し、修正のコードをE2Eブランチへ重複実装しない。正式なmainでの再確認は修正PRのマージ後に行う。
+
+`npm run test:e2e -- --grep タイトル`で短い導入確認、`npm run test:e2e -- --project pc`でPCだけ実行できる。`playwright-report/index.html`が結果、`test-results/`に代表スクリーンショットと失敗時のスクリーンショット・`trace.zip`が残る（すべてGit対象外、次の実行で更新される）。必要な証跡は次の実行前に別の場所へ保存する。`npx playwright show-report`または`npx playwright show-trace <trace.zipのパス>`で確認する。失敗テストの自動再試行はしない。横幅・会話枠のはみ出し、画面内のタップ対象と中心ヒット判定も確認するが、スクリーンショットの芸術的判断やFirefox/Safari、iOS/Android実機の保証とは区別する。
+
 ## 配布用ビルドの確認
 
 Git LFS素材・依存関係と外部Playwright／Chromiumを用意し、`SAEKI_PLAYWRIGHT_PATH`を設定して`npm run test:distribution`を実行する。Chromiumの格納先を既定から変えた環境では`PLAYWRIGHT_BROWSERS_PATH`も指定する。このコマンドは型チェックと本番ビルド後、`dist`だけを一時的な静的HTTPサーバー（127.0.0.1・空きポート）で配信し、終了時にブラウザーとサーバーを閉じる。開発サーバーの起動や`SAEKI_PART1_URL`の設定は不要。
