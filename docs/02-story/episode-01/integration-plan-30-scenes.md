@@ -30,6 +30,7 @@
 ### 現行実行経路と保存境界
 - `app/App.tsx` → `scenario/catalog.ts` → `StoryPlayer`。旧稿は `episode1Part1.ts` の合成経路を維持。新稿は `e01CompletedPart1.ts` と原文転記 `e01CompletedPart1Lines.ts` で構成する。
 - 全編版は `e01CompletedEpisode.ts` で第1部を複製して続編を接続。S07〜S30とBARの本文・操作会話・設問は `e01CompletedContinuationSource.ts` に原文を転記する。会話の語句は変更せず、原稿の操作指示は既存の条件・選択UIへ対応させる。
+- S27の操作原稿「全正答後」の連絡2行は本文の電話場面と同趣旨の代替表現として扱い、重ねて表示しない（#235）。本編は3問の後、本文の結論→電話開始→連絡1回。旧 `S27-finish`／`S27-finish-1` は途中v2保存の互換入口として保持し、それぞれ結論／電話開始から合流する。通常進行は `S27-finish-2` から入り、最終行で既存の引渡しフラグを取得する。
 - `state.ts` のreducer、`freeAction.ts` の条件・取得情報・既読管理、`scene.ts` の場面、`dateTime.ts` の日時、`investigation.ts` の調査記録、既存コマンド／会話UIを共用する。新規UI・保存項目・依存ライブラリは追加しない。
 - `saveData.ts` のSaveData v2をそのまま使用。新稿の `F_*` / `O_*` は既存のflags／acquiredInformationへ格納する。場面の `savePhaseId` は既存AUTO保存で使用する。旧ID・旧ノード・エイリアスは変更しない。旧保存を新稿へ変換しない。
 - `part3-organize` を含む旧ノードの復元結果は、カタログ追加前後の同一性と既存互換テストで確認する。旧保存の復帰先は旧稿の既存エイリアスが決める。新稿へ番号対応させない。
