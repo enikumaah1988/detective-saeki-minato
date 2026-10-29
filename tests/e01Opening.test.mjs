@@ -72,7 +72,13 @@ test('日常の任意操作を省略でき、戻る・全導入ノードのv2復
   assert.deepEqual(state, menu)
   assert.equal(choose(choose(choose(state, 'speak'), 'mio'), 'S01-opening-coffee').nodeId, 'S01-intro')
   for (const [id, node] of Object.entries(api.firstPart.nodes).filter(([id]) => id.startsWith('S01-'))) {
-    assert.deepEqual(scenario.nodes[id], node, `既存S01ノードを変更しない: ${id}`)
+    // Conversation restoration changes the main-story menu hierarchy and return
+    // destination; manuscript, updates and every saved S01 ID stay intact.
+    if (node.type === 'dialogue') {
+      const { next: _oldNext, ...before } = node
+      const { next: _newNext, ...after } = scenario.nodes[id]
+      assert.deepEqual(after, before, `既存S01本文・更新を変更しない: ${id}`)
+    }
     const saved = { ...api.createInitialState(api.firstPart), scenarioId: scenario.id, nodeId: id }
     assert.deepEqual(api.restoreSaveData(api.createSaveData(saved), api.scenarioCatalog), { ok: true, state: saved })
   }
