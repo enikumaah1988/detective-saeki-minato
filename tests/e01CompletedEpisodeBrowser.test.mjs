@@ -21,6 +21,8 @@ for (const [width, height] of [[1920, 1080], [1366, 768]]) test(`完成稿30シ�
       const index = options.findIndex(option => option.id === operation.action.choiceId)
       assert.ok(index >= 0, before)
       await page.locator('.command-panel button').nth(index).click()
+    } else if (api.scenario.nodes[before].illustration) {
+      await page.locator('.stage-input-area').click()
     } else {
       for (let count = 0; count < 16 && await current() === before; count++) {
         await page.locator('.dialogue-button .next').waitFor()

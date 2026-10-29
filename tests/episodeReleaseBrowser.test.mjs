@@ -32,7 +32,7 @@ for (const [width,height] of [[1920,1080],[1366,768]]) test(`通常起動は消�
     assert.ok(title.y+title.height<menu.y)
     if(process.env.SAEKI_SCREENSHOT_DIR) await page.screenshot({path:`${process.env.SAEKI_SCREENSHOT_DIR}/release-title-${width}.png`})
     await page.getByRole('button',{name:'NEW GAME',exact:true}).click()
-    await page.locator('[data-node-id="S01-intro"]').waitFor()
+    await page.locator('[data-node-id="S01-opening-prologue-1"]').waitFor()
     assert.deepEqual(await page.evaluate(()=>JSON.parse(localStorage.getItem('detective-saeki-minato.slots.v1'))),slots)
     await returnToTitle()
     for(const [label,entry] of [['SAVE １',slots.manual[0]],['SAVE ２',slots.manual[1]],['SAVE ３',slots.manual[2]],['AUTO',slots.auto]]){
@@ -48,7 +48,7 @@ for (const [width,height] of [[1920,1080],[1366,768]]) test(`通常起動は消�
         await returnToTitle()
         assert.match(await page.locator('.title-screen-episode').textContent(),/消された記録/)
         await page.getByRole('button',{name:'NEW GAME',exact:true}).click()
-        await page.locator('[data-node-id="S01-intro"]').waitFor()
+        await page.locator('[data-node-id="S01-opening-prologue-1"]').waitFor()
       }
     }
     // Explicit scenario URLs retain the existing legacy development entry.

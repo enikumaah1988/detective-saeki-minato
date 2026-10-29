@@ -10,7 +10,7 @@ export async function press(page, target) {
 export async function start(page) {
   await page.goto('/')
   await press(page, page.getByRole('button', { name: 'NEW GAME', exact: true }))
-  await expect(page.locator('.story')).toHaveAttribute('data-node-id', 'S01-intro')
+  await expect(page.locator('.story')).toHaveAttribute('data-node-id', 'S01-opening-prologue-1')
   await press(page, page.getByLabel('メニュー', { exact: true }))
   await press(page, page.getByRole('button', { name: 'メッセージスピード：一括表示', exact: true }))
   await press(page, page.getByRole('button', { name: 'システムメニューを閉じる' }))
@@ -23,6 +23,11 @@ export async function step(page, operation, state, api) {
   const node = api.scenario.nodes[operation.before]
   let text = ''
   if (operation.action.type === 'advance') {
+    if (node.illustration) {
+      await press(page, page.locator('.stage-input-area'))
+      await expect(page.locator('.story')).toHaveAttribute('data-node-id', operation.after)
+      return text
+    }
     const acquisition = page.getByRole('dialog').filter({ hasText: '持ち物に加えます。' })
     if (await acquisition.isVisible()) await press(page, acquisition.getByRole('button', { name: 'OK', exact: true }))
     else {

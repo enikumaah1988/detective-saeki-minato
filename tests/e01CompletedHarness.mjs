@@ -18,12 +18,12 @@ export async function loadCompleted() {
 
 // Deterministic playable witness using only visible choices and the real reducer.
 // It also finishes from saved submenus, responses, questions, and retries.
-export function playCompleted(api, { state = api.createInitialState(api.scenario), optional = false, reverse = false } = {}) {
+export function playCompleted(api, { state = api.createInitialState(api.scenario), optional = false, reverse = false, stopAt } = {}) {
   const { scenario, visibleChoices, reduceGameState } = api
   const operations = [], states = []
   for (let count = 0; count < 800; count++) {
     const node = scenario.nodes[state.nodeId]
-    if (node.type === 'end') return { state, states: [...states, state], operations }
+    if (node.type === 'end' || state.nodeId === stopAt) return { state, states: [...states, state], operations }
     let action
     if (node.type === 'dialogue') action = { type: 'advance' }
     else {
@@ -32,13 +32,17 @@ export function playCompleted(api, { state = api.createInitialState(api.scenario
       if (node.type === 'topic' || node.type === 'inspect') {
         const completed = node.type === 'topic' ? state.heardTopics : state.inspectedTargets
         let remaining = options.filter(option => option.id !== 'return' && !completed.includes(option.id) && (optional || option.required))
+        if (node.type === 'topic' && node.selection === 'person') remaining = options.filter(option => option.id !== 'return'
+          && visibleChoices(scenario.nodes[option.next], state).some(topic => topic.id !== 'return' && !state.heardTopics.includes(topic.id) && (optional || topic.required)))
         if (reverse) remaining = remaining.reverse()
         selected = remaining[0] ?? options.find(option => option.id === 'return')
       } else if (node.mode === 'free-action') {
-        const commands = options.filter(option => ['talk', 'look'].includes(option.id))
+        const commands = options.filter(option => ['talk', 'look', 'speak'].includes(option.id))
         if (reverse) commands.reverse()
         selected = commands.find(command => {
           const target = scenario.nodes[command.next]
+          if (target.type === 'topic' && target.selection === 'person') return visibleChoices(target, state).some(person => person.id !== 'return'
+            && visibleChoices(scenario.nodes[person.next], state).some(topic => topic.id !== 'return' && !state.heardTopics.includes(topic.id) && (optional || topic.required)))
           const completed = target.type === 'topic' ? state.heardTopics : state.inspectedTargets
           return visibleChoices(target, state).some(option => option.id !== 'return' && !completed.includes(option.id) && (optional || option.required))
         }) ?? options.find(option => ['proceed', 'organize', 'move'].includes(option.id))

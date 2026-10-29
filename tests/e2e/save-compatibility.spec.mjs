@@ -18,7 +18,7 @@ test('ゲーム内LOADで旧稿・限定版・全編版へ復帰し、保存枠�
   page.on('pageerror', error => errors.push(error.message))
   await page.goto('/')
   await press(page, page.getByRole('button', { name: 'NEW GAME', exact: true }))
-  await expect(page.locator('.story')).toHaveAttribute('data-node-id', 'S01-intro')
+  await expect(page.locator('.story')).toHaveAttribute('data-node-id', 'S01-opening-prologue-1')
   const openLoad = async () => {
     await press(page, page.getByLabel('メニュー', { exact: true }))
     await press(page, page.getByRole('button', { name: 'LOAD', exact: true }))
@@ -82,7 +82,7 @@ test('ゲーム内LOADで旧稿・限定版・全編版へ復帰し、保存枠�
   await press(page, page.getByRole('button', { name: 'RETURN TO TITLE', exact: true }))
   await press(page, page.getByRole('dialog', { name: 'タイトルに戻りますか？', exact: true }).getByRole('button', { name: 'RETURN TO TITLE', exact: true }))
   await press(page, page.getByRole('button', { name: 'NEW GAME', exact: true }))
-  await expect(page.locator('.story')).toHaveAttribute('data-node-id', 'S01-intro')
+  await expect(page.locator('.story')).toHaveAttribute('data-node-id', 'S01-opening-prologue-1')
   expect(errors).toEqual([])
 })
 
