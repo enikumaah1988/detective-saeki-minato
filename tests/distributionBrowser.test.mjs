@@ -54,23 +54,38 @@ test('配布dist: 静的HTTP・素材・本番タイトル・UI保存と再読�
     await page.waitForFunction(() => { const image = document.querySelector('.title-screen-background'); return image?.complete && image.naturalWidth > 0 })
     assert.equal(await page.locator('.scene-selector, .dev-label').count(), 0)
     await page.getByRole('button', { name: 'NEW GAME', exact: true }).click()
-    await page.locator('[data-node-id="S01-intro"]').waitFor()
+    await page.locator('[data-node-id="S01-opening-prologue-1"]').waitFor()
     await page.getByLabel('メニュー', { exact: true }).click()
     await page.getByRole('button', { name: 'メッセージスピード：一括表示', exact: true }).click()
     await page.getByLabel('BGM音量', { exact: true }).fill('37')
     await page.getByRole('button', { name: 'システムメニューを閉じる', exact: true }).click()
-    // 実データをUIで読み進め、背景と人物がそろう最初の会話で保存する。
-    for (let step = 0; step < 100 && (step === 0 || !await page.locator('.background-image, .character-image').evaluateAll(images => images.some(image => image.classList.contains('background-image')) && images.some(image => image.classList.contains('character-image')))); step++) {
+    // 導入・扉を読み、人物がいる最初の事務所会話へ進む。
+    for (let step = 0; step < 100 && await page.locator('.story').getAttribute('data-node-id') !== 'S01-opening-daily'; step++) {
+      const before = await page.locator('.story').getAttribute('data-node-id')
+      const previous = await page.locator('.dialogue-button').count()
+        ? await page.locator('.dialogue-button').getAttribute('data-page') : null
       if (await page.locator('.chapter-heading').count()) await page.keyboard.press('Enter')
       else {
         await page.locator('.dialogue-button .next').waitFor()
         await page.locator('.dialogue-button').click()
       }
+      await page.waitForFunction(({ before, previous }) => document.querySelector('.story')?.dataset.nodeId !== before
+        || document.querySelector('.dialogue-button')?.getAttribute('data-page') !== previous, { before, previous })
     }
+    assert.equal(await page.locator('.story').getAttribute('data-node-id'), 'S01-opening-daily')
     await page.waitForFunction(() => ['.background-image', '.character-image'].every(selector => {
       const image = document.querySelector(selector)
       return image?.complete && image.naturalWidth > 0
     }))
+    // Read one office line so this scene has history, separate from the prologue.
+    const officeEntry = await page.locator('.story').getAttribute('data-node-id')
+    for (let count = 0; count < 12 && await page.locator('.story').getAttribute('data-node-id') === officeEntry; count++) {
+      const previous = await page.locator('.dialogue-button').getAttribute('data-page')
+      await page.locator('.dialogue-button .next').waitFor()
+      await page.locator('.dialogue-button').click()
+      await page.waitForFunction(({ before, previous }) => document.querySelector('.story')?.dataset.nodeId !== before
+        || document.querySelector('.dialogue-button')?.getAttribute('data-page') !== previous, { before: officeEntry, previous })
+    }
     const nodeId = await page.locator('.story').getAttribute('data-node-id')
     await page.getByLabel('メニュー', { exact: true }).click()
     await page.getByRole('button', { name: 'SAVE', exact: true }).click()
@@ -85,7 +100,9 @@ test('配布dist: 静的HTTP・素材・本番タイトル・UI保存と再読�
     assert.equal(await page.evaluate(() => localStorage.getItem('detective-saeki-minato.slots.v1')), saved)
     await page.getByLabel('会話履歴を開く', { exact: true }).click()
     const history = page.getByRole('dialog', { name: '会話履歴', exact: true })
-    for (const entry of JSON.parse(saved).manual[0].history) assert.ok((await history.textContent()).includes(entry.text))
+    const visibleHistory = JSON.parse(saved).manual[0].history.filter(entry => !entry.nodeId.startsWith('S01-opening-prologue-'))
+    assert.ok(visibleHistory.length > 0)
+    for (const entry of visibleHistory) assert.ok((await history.textContent()).includes(entry.text))
     await page.keyboard.press('Escape')
     await page.getByLabel('メニュー', { exact: true }).click()
     assert.equal(await page.getByLabel('BGM音量', { exact: true }).inputValue(), '37')

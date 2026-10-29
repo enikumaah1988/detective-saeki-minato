@@ -27,12 +27,14 @@ const render = (state) => renderToStaticMarkup(createElement(StoryContent, {
   node: selectCurrentNode(scenario, state), state, thinking: state.nodeId === 'think', dispatch: () => {},
 }))
 
-test('全シナリオのHUD非表示指定は従来の対象ノードと一致する', () => {
+test('既存HUD非表示指定を維持し、30シーン版では新しい導入・扉だけを追加する', () => {
   let hidden = 0
   for (const current of scenarioCatalog) for (const [id, node] of Object.entries(current.nodes)) {
     const previouslyHidden = node.sceneId === 'episode-prologue-scene' || ['P4-09', 'P4-10', 'P4-11'].includes(node.savePhaseId ?? '')
-    assert.equal(Boolean(node.hideConversationToolbar), previouslyHidden, `${current.id}/${id}`)
-    if (previouslyHidden) hidden++
+    const restoredOpening = current.id === 'erased-records-30-scenes'
+      && (/^S01-opening-prologue-[1-4]$/.test(id) || id === 'S01-opening-cover')
+    assert.equal(Boolean(node.hideConversationToolbar), previouslyHidden || restoredOpening, `${current.id}/${id}`)
+    if (previouslyHidden || restoredOpening) hidden++
   }
   assert.ok(hidden > 0)
 })

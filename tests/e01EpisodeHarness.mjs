@@ -12,7 +12,9 @@ export async function loadEpisode() {
   } finally { await server.close() }
 }
 export function playEpisode(api, { state, optional = false, reverse = false, bar = false, wrong = false } = {}) {
-  const first = state ? { state, states: [], operations: [] } : playCompleted({ ...api, scenario: api.firstPart }, { optional, reverse })
+  const first = !state || state.nodeId.startsWith('S01-opening-')
+    ? playCompleted(api, { state, optional, reverse, stopAt: 'S06-end' })
+    : { state, states: [], operations: [] }
   let current = { ...first.state, scenarioId: api.scenario.id }
   const operations = [...first.operations], states = first.states.slice(0, -1).map(value => ({ ...value, scenarioId: api.scenario.id }))
   const wrongDone = new Set(), barDone = new Set()
