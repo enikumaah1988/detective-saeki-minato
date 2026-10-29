@@ -1,6 +1,6 @@
 // 原文転記: b36e278d6f08b911dd7dcdf05dedd80d8e9b1d77 / draft-v2/dialogue/part-02〜05 と gameplay-interactions 2ファイル。
 export type CompletedLine = { speakerId: string; text: string }
-export type CompletedAction = { id: string; label: string; kind: string; required: boolean; flag?: string; lines: CompletedLine[] }
+export type CompletedAction = { id: string; label: string; kind: 'talk' | 'look' | 'think' | 'event'; required: boolean; flag?: string; lines: CompletedLine[] }
 export type CompletedScene = { id: string; heading: string; body: CompletedLine[]; actions: CompletedAction[]; questions: { prompt: string; choices: { id: string; label: string }[]; correct: string; answer: CompletedLine[]; wrong: CompletedLine[] }[] }
 export const completedContinuationSource: CompletedScene[] = [
   {
