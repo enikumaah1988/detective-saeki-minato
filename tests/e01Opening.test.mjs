@@ -26,7 +26,7 @@ test('導入・作品扉・来訪前の日常操作を経て、新稿のコー�
   assert.equal(state.nodeId, 'S01-opening-cover')
   assert.equal(scenario.nodes[state.nodeId].illustration.subtitle, 'Episode 01　消された記録 — 第1部　消えた男')
   state = advanceTo(state, 'S01-opening-menu')
-  assert.deepEqual(visibleChoices(scenario.nodes[state.nodeId], state).map(choice => choice.label), ['話す', '調べる'])
+  assert.deepEqual(visibleChoices(scenario.nodes[state.nodeId], state).map(choice => choice.label), ['見る', '話す'])
   assert.deepEqual(api.selectCurrentNode(scenario, state).stage.characters.map(person => [person.characterId, person.position]), [['minato', 'left'], ['mio', 'right']])
   assert.deepEqual(state.acquiredInformation, [])
   state = choose(state, 'speak')
@@ -39,6 +39,7 @@ test('導入・作品扉・来訪前の日常操作を経て、新稿のコー�
   state = choose(choose(state, 'return'), 'return')
   assert.equal(state.nodeId, 'S01-opening-menu')
   state = choose(state, 'look')
+  assert.equal(scenario.nodes[state.nodeId].heading, '見る')
   state = choose(state, 'S01-opening-window')
   state = advanceTo(state, 'S01-opening-targets')
   assert.ok(state.inspectedTargets.includes('S01-opening-window'))
@@ -76,4 +77,49 @@ test('日常の任意操作を省略でき、戻る・全導入ノードのv2復
     assert.deepEqual(api.restoreSaveData(api.createSaveData(saved), api.scenarioCatalog), { ok: true, state: saved })
   }
   assert.equal(api.firstPart.start, 'S01-intro')
+})
+
+test('窓は任意の観察で、調査・汎用進行・通常のempty復帰を表示も実行もしない', () => {
+  const menu = advanceTo(createInitialState(scenario), 'S01-opening-menu')
+  let state = choose(choose(menu, 'look'), 'S01-opening-window')
+  state = advanceTo(state, 'S01-opening-targets')
+  assert.deepEqual(state.flags, menu.flags)
+  assert.deepEqual(state.acquiredInformation, menu.acquiredInformation)
+  state = choose(state, 'return')
+  for (const current of [menu, state]) {
+    assert.deepEqual(visibleChoices(scenario.nodes[current.nodeId], current).map(choice => choice.label), ['見る', '話す'])
+    assert.equal(api.emptyContinuation(scenario.nodes[current.nodeId], current), undefined)
+    for (const choiceId of ['investigate', 'proceed', 'p1-ledger']) {
+      assert.deepEqual(choose(current, choiceId), current)
+    }
+    assert.deepEqual(reduceGameState(scenario, current, { type: 'continue' }), current)
+  }
+  // Even an artificial zero-option menu must return to daily life, not bypass coffee.
+  const emptyScenario = { ...scenario, nodes: { ...scenario.nodes,
+    [menu.nodeId]: { ...scenario.nodes[menu.nodeId], options: [] } } }
+  let fallback = reduceGameState(emptyScenario, menu, { type: 'continue' })
+  assert.equal(fallback.nodeId, 'S01-opening-daily')
+  for (let count = 0; fallback.nodeId !== menu.nodeId; count++) {
+    assert.ok(count < 3)
+    fallback = reduceGameState(emptyScenario, fallback, { type: 'advance' })
+  }
+  assert.deepEqual(fallback, menu)
+})
+
+test('導入から本編への出口はコーヒー話題だけで、任意行動を省略して来訪へ進める', () => {
+  const exits = []
+  for (const [id, node] of Object.entries(scenario.nodes).filter(([id]) => id.startsWith('S01-opening-'))) {
+    if ('options' in node) for (const choice of node.options) {
+      if (!choice.next.startsWith('S01-opening-')) exits.push([id, choice.id, choice.next])
+    }
+    if (node.type === 'dialogue') assert.ok(node.next.startsWith('S01-opening-'))
+    if (node.type === 'choice') assert.ok(node.empty.next.startsWith('S01-opening-'))
+  }
+  assert.deepEqual(exits, [['S01-opening-topics', 'S01-opening-coffee', 'S01-intro']])
+  const menu = advanceTo(createInitialState(scenario), 'S01-opening-menu')
+  const coffee = choose(choose(choose(menu, 'speak'), 'mio'), 'S01-opening-coffee')
+  assert.deepEqual(coffee.heardTopics, [])
+  assert.deepEqual(coffee.inspectedTargets, [])
+  const arrived = advanceTo(coffee, 'S01-intro-8')
+  assert.equal(arrived.flags.akari_present, true)
 })

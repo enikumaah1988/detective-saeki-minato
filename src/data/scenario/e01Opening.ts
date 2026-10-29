@@ -45,17 +45,19 @@ export function withEpisode01Opening(scenario: Scenario): Scenario {
   dialogue('S01-opening-schedule', schedule.lines, 'S01-opening-topics', 'addHeardTopic')
   dialogue('S01-opening-window', e01CompletedPart1Lines['S01-調べる：窓'], 'S01-opening-targets', 'addInspectedTarget')
   nodes[menu] = { ...meta, type: 'choice', mode: 'free-action', keepQuestions: true,
-    implementedCommands: ['speak', 'look'], prompt: '何をしますか？',
+    // Use the existing full-story command contract. Registration never exposes
+    // investigate without a matching, unlocked option; this opening has none.
+    implementedCommands: ['speak', 'look', 'investigate'], prompt: '何をしますか？',
     options: [{ id: 'speak', label: '話す', next: 'S01-opening-people' },
-      { id: 'look', label: '調べる', next: 'S01-opening-targets' }],
-    empty: { label: '会話に戻る', next: 'S01-intro' } }
+      { id: 'look', label: '見る', next: 'S01-opening-targets' }],
+    empty: { label: '会話に戻る', next: 'S01-opening-daily' } }
   nodes['S01-opening-people'] = { ...meta, type: 'topic', selection: 'person', heading: '話す', prompt: '相手を選ぶ',
     parent: { commandId: 'speak', nodeId: menu }, options: [{ id: 'mio', label: '澪', next: 'S01-opening-topics' }] }
   nodes['S01-opening-topics'] = { ...meta, type: 'topic', heading: '話す', prompt: '話題を選ぶ',
     parent: { commandId: 'speak', nodeId: 'S01-opening-people' },
     options: [{ id: 'S01-opening-schedule', label: '今日の予定', next: 'S01-opening-schedule' },
       { id: 'S01-opening-coffee', label: 'コーヒー', next: 'S01-intro', required: true }] }
-  nodes['S01-opening-targets'] = { ...meta, type: 'inspect', prompt: 'どこを調べますか？',
+  nodes['S01-opening-targets'] = { ...meta, type: 'inspect', heading: '見る', prompt: '何を見ますか？',
     parent: { commandId: 'look', nodeId: menu }, options: [{ id: 'S01-opening-window', label: '窓', next: 'S01-opening-window' }] }
   return { ...scenario, start: `${prologue}-1`, nodes, scenes,
     nodeTimes: { ...scenario.nodeTimes, ...Object.fromEntries(Object.keys(nodes).filter(id => id.startsWith('S01-opening-'))

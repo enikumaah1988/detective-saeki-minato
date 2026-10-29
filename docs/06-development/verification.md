@@ -41,7 +41,7 @@ S08/S27の会話順とS26注記非表示は#235〜#237の修正を取り込ん�
 
 `npm run test:e2e -- --grep タイトル`で短い導入確認、`npm run test:e2e -- --project pc`でPCだけ実行できる。`playwright-report/index.html`が結果、`test-results/`に代表スクリーンショットと失敗時のスクリーンショット・`trace.zip`が残る（すべてGit対象外、次の実行で更新される）。必要な証跡は次の実行前に別の場所へ保存する。`npx playwright show-report`または`npx playwright show-trace <trace.zipのパス>`で確認する。失敗テストの自動再試行はしない。横幅・会話枠のはみ出し、画面内のタップ対象と中心ヒット判定も確認するが、スクリーンショットの芸術的判断やFirefox/Safari、iOS/Android実機の保証とは区別する。
 
-`npm run test:e2e -- tests/e2e/opening.spec.mjs`は生成経路に依存しない期待順で、導入4段落・作品扉・来訪前の日常操作・「話す→澪→今日の予定」・日常のSAVE/LOAD・新稿コーヒー・ノック後のあかり表示を確認する。`tests/e01Opening.test.mjs`は任意操作の省略、戻る、情報の先取りがないこと、既存S01ノードとv2復元の保持も検査する。
+`npm run test:e2e -- tests/e2e/opening.spec.mjs`は生成経路に依存しない期待順で、導入4段落・作品扉・来訪前の日常操作・「見る→窓」・「話す→澪→今日の予定」・日常のSAVE/LOAD・「話す→澪→コーヒー」・ノック後のあかり表示を確認する。未解放の「調べる」や汎用進行・通常時の「会話に戻る」が出ないことも確認する。`tests/e01Opening.test.mjs`は任意操作の省略、戻る、情報の先取りがないこと、既存S01ノードとv2復元の保持に加え、コーヒーだけが本編への出口であること、未解放調査・continue入力の拒否、人工的に選択肢を0件にした場合も日常へ戻ることを検査する。
 
 ## 配布用ビルドの確認
 
