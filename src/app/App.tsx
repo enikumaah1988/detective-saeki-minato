@@ -27,7 +27,11 @@ export default function App() {
     <>
       <main className="game-shell" aria-label="探偵 佐伯湊 / Detective Saeki Minato">
         <div style={explorationMock ? { display: 'none' } : { display: 'contents' }} inert={explorationMock}>
-          {started ? <StoryPlayer key={scenario.id} scenario={scenario} initialSession={initialSession} preview={preview} smokingAllowed={smokingAllowed} suspended={explorationMock} onReturnToTitle={() => { setStarted(false); setInitialSession(undefined); setPreview(undefined); setSmokingAllowed(undefined) }} />
+          {started ? <StoryPlayer key={scenario.id} scenario={scenario} scenarios={scenarioCatalog} initialSession={initialSession} preview={preview} smokingAllowed={smokingAllowed} suspended={explorationMock} onChangeScenario={session => {
+            const restoredScenario = scenarioCatalog.find(item => item.id === session.state.scenarioId)
+            if (!restoredScenario) return
+            setScenario(restoredScenario); setInitialSession(session); setPreview(undefined); setSmokingAllowed(undefined)
+          }} onReturnToTitle={() => { setStarted(false); setInitialSession(undefined); setPreview(undefined); setSmokingAllowed(undefined) }} />
             : <TitleScreen scenario={startingScenario} scenarios={scenarioCatalog} onStart={session => {
               setScenario(session ? scenarioCatalog.find(item => item.id === session.state.scenarioId) ?? startingScenario : startingScenario)
               setInitialSession(session); setStarted(true)
@@ -40,7 +44,7 @@ export default function App() {
       <div className="choices" aria-label="検証用シーン選択">
         {scenarioCatalog.map(item => <button key={item.id} type="button" onClick={() => { setExplorationMock(false); setPreview(undefined); setScenario(item) }}>{item.title}</button>)}
       </div>
-      <p className="story-note">シーン切替時は初期状態に戻ります。ロードは保存したシーンを選んで実行してください。</p>
+      <p className="story-note">シーン切替時は初期状態に戻ります。ロードは保存したシナリオと進行位置へ復帰します。</p>
       </details>}
       {devMode && <details className="scene-selector">
         <summary><span className="dev-label">DEV</span> 調査記録UIプレビュー（本編・セーブとは無関係）</summary>

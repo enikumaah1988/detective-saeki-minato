@@ -32,7 +32,7 @@ import { loadMessageSpeed, saveMessageSpeed } from './settings'
 const smokingCutIn = new URL('../../assets/images/cutins/minato-smoking.png', import.meta.url).href
 const nonSmokingCutIn = new URL('../../assets/images/cutins/minato-non-smoking.png', import.meta.url).href
 
-export function StoryPlayer({ scenario, initialSession, preview, smokingAllowed, suspended = false, onReturnToTitle }: { scenario: Scenario; initialSession?: TitleSession; preview?: { records: InvestigationRecord[]; label: string; invoker: HTMLElement }; smokingAllowed?: boolean; suspended?: boolean; onReturnToTitle?: () => void }) {
+export function StoryPlayer({ scenario, scenarios = [scenario], initialSession, preview, smokingAllowed, suspended = false, onReturnToTitle, onChangeScenario }: { scenario: Scenario; scenarios?: readonly Scenario[]; initialSession?: TitleSession; preview?: { records: InvestigationRecord[]; label: string; invoker: HTMLElement }; smokingAllowed?: boolean; suspended?: boolean; onReturnToTitle?: () => void; onChangeScenario?: (session: TitleSession) => void }) {
   const [playback, send] = useReducer(
     (state: ReturnType<typeof createPlayback>, action: Parameters<typeof reducePlayback>[2]) => reducePlayback(scenario, state, action),
     scenario, value => ({ ...createPlayback(value), ...(initialSession ? { game: initialSession.state } : {}) }),
@@ -139,9 +139,13 @@ export function StoryPlayer({ scenario, initialSession, preview, smokingAllowed,
       <header className="story-toolbar" inert={recordsOpen || Boolean(smoking) || Boolean(acquisition) || historyOpen}>
         <span className="sr-only">{displayText(scenario.title)}</span>
         <div className="toolbar-actions">
-        <SaveControls state={gameState} scenario={scenario} interval={interval} onReturnToTitle={onReturnToTitle} onIntervalChange={value => {
+        <SaveControls state={gameState} scenario={scenario} scenarios={onChangeScenario ? scenarios : [scenario]} interval={interval} onReturnToTitle={onReturnToTitle} onIntervalChange={value => {
           setInterval(value); saveMessageSpeed(value)
         }} history={history} onRestore={(state, restoredHistory) => {
+          if (state.scenarioId !== scenario.id && onChangeScenario) {
+            onChangeScenario({ state, history: restoredHistory })
+            return
+          }
           suppressRecordNotice.current = true
           suppressAutoSave.current = true; send({ type: 'restore', state }); setHistory(restoredHistory); setRestoreRevision((value) => value + 1)
         }} onMenuToggle={(open) => send({ type: 'menu', open: open || recordsOpen || historyOpen })} />
