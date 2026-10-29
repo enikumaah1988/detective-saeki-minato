@@ -4,7 +4,7 @@
 
 | 分野 | 最初に読む文書 | 適用範囲 |
 | --- | --- | --- |
-| 01 ゲーム仕様 | [PC UI](01-game-design/pc-ui.md)、[操作・会話](01-game-design/actions.md)、[保存・設定の操作](01-game-design/save-and-settings.md)、[タイトル](01-game-design/title-screen.md)、[移動](01-game-design/map.md) | プレイヤーに見える表示・操作 |
+| 01 ゲーム仕様 | [基本方針](01-game-design/design-philosophy.md)、[PC UI](01-game-design/pc-ui.md)、[操作・会話](01-game-design/actions.md)、[保存・設定の操作](01-game-design/save-and-settings.md)、[タイトル](01-game-design/title-screen.md)、[移動](01-game-design/map.md) | プレイヤーに見える表示・操作 |
 | 02 物語 | [物語資料](02-story/README.md)、[Episode 01の適用範囲](02-story/episode-01/README.md) | 事件・場面・原稿・話別の進行条件 |
 | 03 人物 | [人物設定と採否](03-characters/人物設定.md) | 作品共通の人物像・口調・呼称・関係。相談稿は未採用部分を含む |
 | 04 作画・素材 | [作画資料への入口](04-art/README.md)、[表情指定](04-art/character-expressions.md) | 作画・画像・向き・制作スクリプト・取り込みmanifest。ゲーム用画像はsrc/assets配下 |
