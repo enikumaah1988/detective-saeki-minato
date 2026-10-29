@@ -13,8 +13,8 @@ import { selectDateLabel } from './dateTime'
 import { layoutGamePanel } from './panelLayout'
 import './recordsFrames.css'
 
-export function SaveControls({ state, scenario, history = [], onRestore, onMenuToggle, interval = 35, onIntervalChange, onReturnToTitle }: {
-  state: GameState; scenario: Scenario; history?: HistoryEntry[];
+export function SaveControls({ state, scenario, scenarios = [scenario], history = [], onRestore, onMenuToggle, interval = 35, onIntervalChange, onReturnToTitle }: {
+  state: GameState; scenario: Scenario; scenarios?: readonly Scenario[]; history?: HistoryEntry[];
   onRestore: (state: GameState, history: HistoryEntry[]) => void;
   onMenuToggle?: (open: boolean) => void; interval?: number; onIntervalChange?: (interval: number) => void; onReturnToTitle?: () => void
 }) {
@@ -52,7 +52,7 @@ export function SaveControls({ state, scenario, history = [], onRestore, onMenuT
   }
   const openLoad=()=>{try{setSlots(readSlots());setMessage('')}catch{setMessage('保存データを確認できません。既存のデータは変更していません。')}}
   const load=(id:SlotId)=>{
-    const result=loadSlot(id,[scenario])
+    const result=loadSlot(id,scenarios)
     if(result.ok){setSlots(undefined);setLoaded(result)}
     else setMessage(result.reason==='no-save'?'この枠は空です。':'この保存データを読み込めません。')
   }

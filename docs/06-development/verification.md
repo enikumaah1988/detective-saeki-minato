@@ -71,6 +71,10 @@ Git LFS素材・依存関係と外部Playwright／Chromiumを用意し、`SAEKI_
 
 ## 進行途中の保存復元
 
+`tests/savedScenarioCompatibility.test.mjs`は、30シーン導入前のmain `b51b4e83ee2d399799376a186750bb58d06d1a88` のシナリオ・reducer・保存処理・話者名解決と、同コミットの`revisionHarness.buildPlaythrough(api, true)`から生成した固定fixtureを復元する。`tests/fixtures/save-v2-before-30-scenes.json`は旧稿のP2-06-menuへの到達状態、直前12件の履歴、選択肢・人物背景・記録IDを保持する。ユーザーの実SAVEを採取したものではなく、実データ固有の破損やorigin違いは別途確認が必要。
+
+`npm run test:e2e -- tests/e2e/save-compatibility.spec.mjs`は独立したブラウザーの保存領域だけにfixtureを配置し、通常のNEW GAME後のゲーム内LOADから旧稿・第1部限定版・全編版・AUTOへ復帰する。枠と履歴の保持、旧単一保存の移行と原本保持、SAVEし直した内容、同一シナリオのLOAD、再読み込み後のCONTINUE、未知シナリオ／ノード／未対応versionの失敗時非上書き、旧稿からタイトルに戻った後のNEW GAMEをPC・横向きタッチで検証する。
+
 `tests/saveProgressBrowser.test.mjs`は調査途中・地図移動直後・推理正解後に、画面操作でSAVE、別状態への進行、LOAD、再読み込み後のCONTINUEと次操作を確認する。全進捗、背景・人物・表情、選択肢・会話・場所日時を比較する。v2の旧ノード変換や保存形式の異常値検査は既存の保存テストと併用する。
 
 ## 演出指定の整合性

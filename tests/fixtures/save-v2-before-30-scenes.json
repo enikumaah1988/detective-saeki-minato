@@ -1,0 +1,269 @@
+{
+  "sourceCommit": "b51b4e83ee2d399799376a186750bb58d06d1a88",
+  "provenance": "Generated with the source commit scenario, reducer, save serializer, speaker resolver, and required-only revisionHarness. Not a user save.",
+  "slot": {
+    "data": {
+      "version": 2,
+      "scenarioId": "gray-testimony-ver001-part1",
+      "nodeId": "P2-06-menu",
+      "flags": {
+        "request_accepted": true
+      },
+      "heardTopics": [
+        "p1-visitor",
+        "p1-missing",
+        "p1-morning",
+        "p1-contact",
+        "p1-workplace",
+        "p1-searched",
+        "p1-company-answer",
+        "p1-police",
+        "P1-03-close-conversation",
+        "p1-accept",
+        "p1-photo",
+        "p1-client-contact",
+        "P1-05-farewell",
+        "p1-company-call",
+        "p1-mio-role",
+        "p2-depart",
+        "p2-reception-purpose",
+        "p2-work-record",
+        "p2-appointment",
+        "p2-arrange-kuroda",
+        "p2-photo-kuroda",
+        "p2-kuroda-meeting",
+        "p2-naoto-demand",
+        "p2-accident-explanation",
+        "p2-building-work",
+        "p2-after-meeting",
+        "p2-manager-introduce",
+        "p2-photo-miyahara",
+        "p2-naoto-sighting",
+        "p2-relay-contact",
+        "p2-past-incident",
+        "p2-preserve-journal",
+        "p2-document-permission"
+      ],
+      "inspectedTargets": [
+        "p1-ledger",
+        "p1-inspect-photo",
+        "p2-tenant-list",
+        "p2-reception-exists",
+        "p2-demolition",
+        "p2-manager-exists",
+        "p2-journal-notice",
+        "p2-journal",
+        "p2-envelope-notice",
+        "p2-envelope"
+      ],
+      "acquiredInformation": [
+        "clock:2026-10-08T10:40:00",
+        "F00",
+        "met-mio",
+        "named-mio",
+        "clock:2026-10-08T10:55:00",
+        "met-akari",
+        "named-akari",
+        "mentioned-naoto",
+        "named-naoto",
+        "brother-profile",
+        "clock:2026-10-08T11:00:00",
+        "F01",
+        "F02",
+        "morning",
+        "F03",
+        "contact",
+        "p1-basics-to-search-read",
+        "F04",
+        "F06a",
+        "F05",
+        "workplace",
+        "F06",
+        "police-consulted",
+        "p1-search-to-background-read",
+        "P1-03-conversation-closed",
+        "clock:2026-10-08T11:30:00",
+        "F07",
+        "I01",
+        "clock:2026-10-08T11:35:00",
+        "F08",
+        "request_accepted",
+        "p1-request-to-materials-read",
+        "IT01",
+        "search-photo",
+        "F09",
+        "akari-contact",
+        "p1-materials-to-farewell-read",
+        "P1-05-farewell",
+        "clock:2026-10-08T11:55:00",
+        "F10",
+        "F11",
+        "mentioned-company-reception",
+        "F12",
+        "clock:2026-10-08T12:00:00",
+        "p2-departed",
+        "clock:2026-10-08T12:20:00",
+        "clock:2026-10-08T12:22:00",
+        "company-floor-confirmed",
+        "clock:2026-10-08T12:25:00",
+        "recognized-company-reception",
+        "met-company-reception",
+        "F13",
+        "F14",
+        "mentioned-kuroda",
+        "known-kuroda-title",
+        "F15",
+        "I02",
+        "F16",
+        "clock:2026-10-08T12:45:00",
+        "met-kuroda",
+        "named-kuroda",
+        "F17",
+        "mentioned-misaki",
+        "F18",
+        "F19",
+        "F20",
+        "I03",
+        "F22",
+        "mentioned-miyahara",
+        "F21",
+        "clock:2026-10-08T13:05:00",
+        "clock:2026-10-08T13:06:00",
+        "clock:2026-10-08T13:20:00",
+        "met-miyahara",
+        "F23",
+        "demolition-date",
+        "recognized-miyahara",
+        "named-miyahara",
+        "F24",
+        "F25",
+        "I04-sighting",
+        "F26",
+        "F27",
+        "clock:2026-10-08T13:30:00",
+        "named-misaki",
+        "F28",
+        "p2-journal-noticed",
+        "E01",
+        "IT02",
+        "F29",
+        "F30",
+        "p2-envelope-noticed",
+        "E03",
+        "IT03",
+        "clock:2026-10-08T13:50:00"
+      ]
+    },
+    "savedAt": "2026-10-26T00:00:00.000Z",
+    "label": "旧稿 第2部 調査途中",
+    "history": [
+      {
+        "nodeId": "p2-document-permission-3",
+        "speaker": "佐伯　湊",
+        "text": "分かった。ここで会っていることも伝えてくれたか？"
+      },
+      {
+        "nodeId": "p2-document-permission-4",
+        "speaker": "宮原　文雄",
+        "text": "はい。事務所の番号を渡しました。"
+      },
+      {
+        "nodeId": "p2-envelope-notice",
+        "speaker": "",
+        "text": "預かった封筒がある。詳しく調べてみよう。"
+      },
+      {
+        "nodeId": "p2-envelope",
+        "speaker": "宮原　文雄",
+        "text": "捨てないでほしいと、昨日預かりました。"
+      },
+      {
+        "nodeId": "p2-envelope-2",
+        "speaker": "",
+        "text": "三崎の報告書の控えだった。負傷した社員について、人員不足と作業指示の確認を求めている。書き直した跡が多い。"
+      },
+      {
+        "nodeId": "p2-envelope-3",
+        "speaker": "佐伯　湊",
+        "text": "会社の説明と、違う原因を確かめようとしたのか？"
+      },
+      {
+        "nodeId": "p2-envelope-4",
+        "speaker": "宮原　文雄",
+        "text": "会社は、本人の不注意だと言っていました。"
+      },
+      {
+        "nodeId": "p2-envelope-5",
+        "speaker": "佐伯　湊",
+        "text": "三崎さんの時も、同じ説明だった。"
+      },
+      {
+        "nodeId": "p2-envelope-6",
+        "speaker": "宮原　文雄",
+        "text": "ええ。"
+      },
+      {
+        "nodeId": "P2-06-arrival",
+        "speaker": "",
+        "text": "階段に入った。"
+      },
+      {
+        "nodeId": "P2-06-intro",
+        "speaker": "",
+        "text": "宮原に案内してもらう。下階の戸口から踊り場は見えるが、上の戸口の奥は壁と扉に隠れていた。"
+      },
+      {
+        "nodeId": "P2-06-intro-2",
+        "speaker": "佐伯　湊",
+        "text": "まず、どこから何が見えるか確かめたい。順に見せてもらえるか？"
+      }
+    ]
+  },
+  "expectedChoices": [
+    "見る"
+  ],
+  "expectedStage": {
+    "backgroundId": "building-stairs",
+    "characters": [
+      {
+        "characterId": "minato",
+        "expression": "normal",
+        "position": "left"
+      },
+      {
+        "characterId": "miyahara",
+        "expression": "normal",
+        "position": "right",
+        "condition": {
+          "type": "hasAllInformation",
+          "ids": [
+            "met-miyahara"
+          ]
+        }
+      }
+    ]
+  },
+  "expectedRecordIds": [
+    "minato",
+    "mio",
+    "akari",
+    "naoto",
+    "kuroda",
+    "miyahara",
+    "misaki",
+    "I01",
+    "I02",
+    "I03",
+    "E01",
+    "E03",
+    "old-building",
+    "missing-morning",
+    "demolition",
+    "naoto-photo",
+    "journal-copy",
+    "report-copy",
+    "smartphone",
+    "electronic-cigarette",
+    "business-card"
+  ]
+}
