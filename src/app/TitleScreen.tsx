@@ -7,7 +7,7 @@ import { readSlots, loadSlot } from '../features/story/saveSlots'
 import type { SlotId } from '../features/story/saveSlots'
 import { SystemDialog } from '../features/story/SystemDialog'
 import { SettingsSlider } from '../features/story/SettingsSlider'
-import { MESSAGE_SPEEDS, MESSAGE_SPEED_LABELS, loadAudioSettings, saveAudioSettings } from '../features/story/settings'
+import { MESSAGE_SPEEDS, MESSAGE_SPEED_LABELS, loadMessageSpeed, saveMessageSpeed, loadAudioSettings, saveAudioSettings } from '../features/story/settings'
 import { displayText } from '../features/story/displayText'
 import { UiIcon } from '../features/story/UiIcon'
 import './titleScreen.css'
@@ -21,9 +21,7 @@ export function TitleScreen({ scenario, scenarios = [scenario], onStart, logoSrc
   const [message, setMessage] = useState('')
   const [slots, setSlots] = useState<ReturnType<typeof readSlots>>()
   const [audio, setAudio] = useState(loadAudioSettings)
-  const [speed, setSpeed] = useState(() => {
-    try { const value = Number(localStorage.getItem('detective-saeki-minato.speed') ?? 35); return MESSAGE_SPEEDS.includes(value as typeof MESSAGE_SPEEDS[number]) ? value : 35 } catch { return 35 }
-  })
+  const [speed, setSpeed] = useState(loadMessageSpeed)
   const close = () => { setDialog(undefined); setMessage(''); requestAnimationFrame(() => invoker.current?.focus()) }
   const openLoad = (event: MouseEvent<HTMLButtonElement>) => {
     invoker.current = event.currentTarget
@@ -62,9 +60,9 @@ export function TitleScreen({ scenario, scenarios = [scenario], onStart, logoSrc
       {message && <p role="status">{message}</p>}
     </SystemDialog>}
     {dialog === 'settings' && <SystemDialog icon="settings" title="SETTINGS" label="戻る" onClose={close}>
-      <SettingsSlider label="メッセージスピード" value={MESSAGE_SPEEDS.indexOf(speed as typeof MESSAGE_SPEEDS[number])} maximum={3} labels={MESSAGE_SPEED_LABELS} onChange={point => {
+      <SettingsSlider label="メッセージスピード" value={MESSAGE_SPEEDS.indexOf(speed)} maximum={3} labels={MESSAGE_SPEED_LABELS} onChange={point => {
         const value = MESSAGE_SPEEDS[point]; setSpeed(value)
-        try { localStorage.setItem('detective-saeki-minato.speed', String(value)) } catch { /* セッション中は保持 */ }
+        saveMessageSpeed(value)
       }} />
       {(['bgm', 'se'] as const).map(kind => <SettingsSlider key={kind} label={kind === 'bgm' ? 'BGM音量' : 'SE音量'} value={audio[kind]} maximum={100} onChange={value => {
         const next = { ...audio, [kind]: value }; setAudio(next); saveAudioSettings(next)
