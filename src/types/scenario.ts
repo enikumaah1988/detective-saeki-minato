@@ -64,5 +64,5 @@ export type Scenario = {
   // Hide retired production notes from stored history without rewriting save slots.
   hiddenHistoryTexts?: readonly string[]
   smokingHints?: { rules: SmokingHint[]; fallback: string }
-  nodes: Record<string, ScenarioNode & { historyScope?: string; savePhaseId?: string; savePhaseMarkers?: string[]; sceneId?: string; autoAdvance?: boolean; automaticNext?: { condition: Condition; next: string }[]; entryUpdates?: StateUpdate[]; illustration?: { id: string; imageSrc?: string; alt: string; heading: string; subtitle?: string; provisional?: boolean } }>
+  nodes: Record<string, ScenarioNode & { hideConversationToolbar?: boolean; historyScope?: string; savePhaseId?: string; savePhaseMarkers?: string[]; sceneId?: string; autoAdvance?: boolean; automaticNext?: { condition: Condition; next: string }[]; entryUpdates?: StateUpdate[]; illustration?: { id: string; imageSrc?: string; alt: string; heading: string; subtitle?: string; provisional?: boolean } }>
 }

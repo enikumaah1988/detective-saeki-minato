@@ -4,7 +4,7 @@ import { loadRevision } from './revisionHarness.mjs'
 
 const path = process.env.SAEKI_PLAYWRIGHT_PATH
 const url = process.env.SAEKI_PART1_URL ?? 'http://127.0.0.1:5191/'
-for (const [width, height] of [[1920, 1080], [1366, 768]]) {
+for (const [width, height] of [[1920, 1080], [1366, 768], [844, 390]]) {
   test(`上部表示は通常会話と自由行動・履歴は会話窓のみ ${width}`, { skip: !path }, async () => {
     const api = await loadRevision()
     const { chromium } = await import(path)
@@ -54,19 +54,23 @@ for (const [width, height] of [[1920, 1080], [1366, 768]]) {
         await page.getByRole('dialog', { name: 'ロードしました', exact: true }).getByRole('button', { name: 'OK', exact: true }).click()
         assert.equal(await page.locator('.story').getAttribute('data-node-id'), entry[0], label)
         await check(visible)
-        assert.equal(await page.locator('.history-entry').count() > 0, await page.locator('.message-window').count() > 0, label)
+        assert.equal(await page.locator('.history-entry').count() > 0, await page.locator('.message-window').count() > 0 && !entry[1].acquisition, label)
         if (label.startsWith('部開始 ')) {
           assert.equal(await page.locator('.story-content').count(), 0)
           assert.equal(await page.locator('.history-entry').count(), 0)
           assert.equal(await page.locator('.chapter-heading').isVisible(), true)
           if (label.endsWith('1') || label.endsWith('3')) await page.locator('.chapter-heading').click()
-          else await page.keyboard.press('Enter')
+          else {
+            // LOAD returns focus to MENU; Enter there operates the menu, not the story.
+            await menu().evaluate(element => element.blur())
+            await page.keyboard.press('Enter')
+          }
           await page.waitForFunction(id => document.querySelector('.story')?.getAttribute('data-node-id') !== id, entry[0])
         }
         if (label === '通常会話') {
           await menu().click()
           await check(false)
-          await menu().click()
+          await page.getByRole('button', { name: 'システムメニューを閉じる', exact: true }).click()
           await check(true)
           await page.getByRole('button', { name: 'タバコを吸う', exact: true }).click()
           await page.locator('.smoking-overlay').waitFor()

@@ -5,7 +5,7 @@ import { renderToStaticMarkup } from 'react-dom/server'
 import { createServer } from './viteServer.mjs'
 import { loadRevision } from './revisionHarness.mjs'
 import { freeActionDemo as scenario } from '../src/data/scenario/freeActionDemo.ts'
-let App, StoryContent, StoryPlayer, SaveControls, choiceStatus, selectCurrentNode, createInitialState
+let App, StoryContent, StoryPlayer, SaveControls, choiceStatus, selectCurrentNode, createInitialState, scenarioCatalog
 before(async () => {
   const server = await createServer({ server: { middlewareMode: true, hmr: false, ws: false }, appType: 'custom' })
   try {
@@ -20,11 +20,32 @@ before(async () => {
     const state = await server.ssrLoadModule('/src/features/story/state.ts')
     selectCurrentNode = state.selectCurrentNode
     createInitialState = state.createInitialState
+    scenarioCatalog = (await server.ssrLoadModule('/src/data/scenario/catalog.ts')).scenarioCatalog
   } finally { await server.close() }
 })
 const render = (state) => renderToStaticMarkup(createElement(StoryContent, {
   node: selectCurrentNode(scenario, state), state, thinking: state.nodeId === 'think', dispatch: () => {},
 }))
+
+test('全シナリオのHUD非表示指定は従来の対象ノードと一致する', () => {
+  let hidden = 0
+  for (const current of scenarioCatalog) for (const [id, node] of Object.entries(current.nodes)) {
+    const previouslyHidden = node.sceneId === 'episode-prologue-scene' || ['P4-09', 'P4-10', 'P4-11'].includes(node.savePhaseId ?? '')
+    assert.equal(Boolean(node.hideConversationToolbar), previouslyHidden, `${current.id}/${id}`)
+    if (previouslyHidden) hidden++
+  }
+  assert.ok(hidden > 0)
+})
+
+test('共通UIは場面IDによらずノードのHUD表示指定だけを使う', () => {
+  for (const hideConversationToolbar of [false, true]) {
+    for (const sceneId of ['episode-prologue-scene', 'other-episode-scene']) {
+      const current = { ...scenario, start: 'display-test', scenes: { ...scenario.scenes, [sceneId]: scenario.nodes[scenario.start].stage }, nodes: { ...scenario.nodes, 'display-test': { ...scenario.nodes[scenario.start], sceneId, savePhaseId: 'P4-09', hideConversationToolbar } } }
+      const html = renderToStaticMarkup(createElement(StoryPlayer, { scenario: current }))
+      assert.equal(html.includes('<div class="scene-context">'), !hideConversationToolbar)
+    }
+  }
+})
 
 test('通常会話には話者・本文・次へがあり、自由行動コマンドはない', () => {
   const html = render(createInitialState(scenario))
