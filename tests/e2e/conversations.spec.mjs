@@ -66,4 +66,3 @@ test('本編の話す・人物別の話題・戻る・旧会話SAVE復元を確�
   }
   expect(errors).toEqual([])
 })
-
