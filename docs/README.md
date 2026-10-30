@@ -6,7 +6,7 @@
 | --- | --- | --- |
 | 01 ゲーム仕様 | [基本方針](01-game-design/design-philosophy.md)、[PC UI](01-game-design/pc-ui.md)、[操作・会話](01-game-design/actions.md)、[保存・設定の操作](01-game-design/save-and-settings.md)、[タイトル](01-game-design/title-screen.md)、[移動](01-game-design/map.md) | プレイヤーに見える表示・操作 |
 | 02 物語 | [物語資料](02-story/README.md)、[Episode 01の適用範囲](02-story/episode-01/README.md)、[「消された記録」本文正本](02-story/episode-01/erased-records/README.md) | 事件・場面・原稿・話別の進行条件 |
-| 03 人物 | [人物設定と採否](03-characters/人物設定.md) | 作品共通の人物像・口調・呼称・関係。相談稿は未採用部分を含む |
+| 03 人物 | [人物設定と採否](03-characters/人物設定.md)、[対象版・合意記録の読み方](02-story/README.md#シナリオ制作時の参照順) | 作品共通の人物像・口調・呼称・関係。旧稿由来の記載・相談稿の未採用部分を現行稿の確定設定と混同しない |
 | 04 作画・素材 | [作画資料への入口](04-art/README.md)、[表情指定](04-art/character-expressions.md) | 作画・画像・向き・制作スクリプト・取り込みmanifest。ゲーム用画像はsrc/assets配下 |
 | 05 技術設計 | [状態とシナリオ](05-architecture/state-and-scenario.md)、[保存データ](05-architecture/save-data.md) | 共通の状態遷移・データ契約・保存互換 |
 | 06 開発 | [環境と起動](06-development/development-setup.md)、[検証](06-development/verification.md)、[担当・依頼](06-development/workflow.md)、[現状](06-development/production-status.md)、[ロードマップ](06-development/roadmap.md) | 開発手順・現在状態・優先順位 |
