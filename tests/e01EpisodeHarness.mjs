@@ -31,14 +31,18 @@ export function playEpisode(api, { state, optional = false, reverse = false, bar
       const done = option => [...current.heardTopics, ...current.inspectedTargets].includes(option.id)
       if (node.type === 'topic' || node.type === 'inspect') {
         let candidates = options.filter(option => option.id !== 'return' && !done(option) && (optional || option.required))
+        if (node.type === 'topic' && node.selection === 'person') candidates = options.filter(option => option.id !== 'return'
+          && visibleChoices(scenario.nodes[option.next], current).some(topic => topic.id !== 'return' && !done(topic) && (optional || topic.required)))
         if (reverse) candidates.reverse()
         selected = candidates[0] ?? options.find(option => option.id === 'return')
       } else if (node.mode === 'free-action') {
-        let commands = options.filter(option => ['talk', 'look'].includes(option.id))
+        let commands = options.filter(option => ['talk', 'look', 'speak'].includes(option.id))
         if (reverse) commands.reverse()
         selected = commands.find(option => {
           const target = scenario.nodes[option.next]
           if (!['topic', 'inspect'].includes(target.type)) return optional && !done({ id: option.next }) && !barDone.has(option.next)
+          if (target.type === 'topic' && target.selection === 'person') return visibleChoices(target, current).some(person => person.id !== 'return'
+            && visibleChoices(scenario.nodes[person.next], current).some(topic => topic.id !== 'return' && !done(topic) && (optional || topic.required)))
           return visibleChoices(target, current).some(choice => choice.id !== 'return' && !done(choice) && (optional || choice.required))
         })
         if (!selected) selected = options.find(option => option.id === 'think' && (option.required || optional && !done({ id: option.next })))
