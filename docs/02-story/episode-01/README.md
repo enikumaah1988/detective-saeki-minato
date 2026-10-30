@@ -1,6 +1,6 @@
 # Episode 01「消された記録」
 
-通常NEW GAMEは完成稿の全30シーン＋任意BAR 2場面（`erased-records-30-scenes`）から開始する。[完成稿の接続・原文の出典・全30シーン対応](integration-plan-30-scenes.md)を参照。旧稿「灰色の証言」と第1部限定版は保存互換のため保持し、タイトルのCONTINUEから保存した元のシナリオを再開できる。旧セーブの新稿への変換は行わない。
+通常NEW GAMEは完成稿の全30シーン＋任意BAR 2場面（`erased-records-30-scenes`）から開始する。本文の正本は[「消された記録」本文正本](erased-records/README.md)（構成表・part-01〜05・操作台本）、凍結後の実装差分は[実装差分](erased-records/implementation-deltas.md)。[完成稿の接続・原文の出典・全30シーン対応](integration-plan-30-scenes.md)を参照。旧稿「灰色の証言」と第1部限定版は保存互換のため保持し、タイトルのCONTINUEから保存した元のシナリオを再開できる。旧セーブの新稿への変換は行わない。
 
 ## 旧稿「灰色の証言」の適用範囲・制作資料
 

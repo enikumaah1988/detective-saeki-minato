@@ -1,7 +1,7 @@
 # Episode01『消された記録』30シーン実装移行計画
 
 ## 目的と境界
-完成済みの5部30シーン台本を、既存React/TypeScriptゲームへ段階的に接続するための実装設計。本文の正本は `docs/e01-recovery-20261024` ブランチの `docs/02-story/episode-01/draft-v2/`（構成表、part-01〜05、gameplay-interactionsの2ファイル）。この文書は実装側の移行計画であり、旧稿の履歴や凍結稿を上書きしない。
+完成済みの5部30シーン台本を、既存React/TypeScriptゲームへ段階的に接続するための実装設計。本文の正本は[erased-records/](erased-records/README.md)（[構成表](erased-records/story/outline.md)、part-01〜05、gameplay-interactionsの2ファイル）。`docs/e01-recovery-20261024` ブランチのコミット b36e278d の `docs/02-story/episode-01/draft-v2/` から内容を変えずに移設した（#263）。凍結後の実装差分は[implementation-deltas.md](erased-records/implementation-deltas.md)。この文書は実装側の移行計画であり、旧稿の履歴や凍結稿を上書きしない。
 
 ## 現状確認
 - mainの現行正本 `docs/02-story/episode-01/README.md` は旧4部48場面を維持する仕様。2026-10-23の実行経路調査では実装上の場面は4部50場面で、資料の48場面と異なる。

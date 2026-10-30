@@ -5,7 +5,7 @@
 | 分野 | 最初に読む文書 | 適用範囲 |
 | --- | --- | --- |
 | 01 ゲーム仕様 | [基本方針](01-game-design/design-philosophy.md)、[PC UI](01-game-design/pc-ui.md)、[操作・会話](01-game-design/actions.md)、[保存・設定の操作](01-game-design/save-and-settings.md)、[タイトル](01-game-design/title-screen.md)、[移動](01-game-design/map.md) | プレイヤーに見える表示・操作 |
-| 02 物語 | [物語資料](02-story/README.md)、[Episode 01の適用範囲](02-story/episode-01/README.md) | 事件・場面・原稿・話別の進行条件 |
+| 02 物語 | [物語資料](02-story/README.md)、[Episode 01の適用範囲](02-story/episode-01/README.md)、[「消された記録」本文正本](02-story/episode-01/erased-records/README.md) | 事件・場面・原稿・話別の進行条件 |
 | 03 人物 | [人物設定と採否](03-characters/人物設定.md) | 作品共通の人物像・口調・呼称・関係。相談稿は未採用部分を含む |
 | 04 作画・素材 | [作画資料への入口](04-art/README.md)、[表情指定](04-art/character-expressions.md) | 作画・画像・向き・制作スクリプト・取り込みmanifest。ゲーム用画像はsrc/assets配下 |
 | 05 技術設計 | [状態とシナリオ](05-architecture/state-and-scenario.md)、[保存データ](05-architecture/save-data.md) | 共通の状態遷移・データ契約・保存互換 |
@@ -17,6 +17,6 @@
 
 - 新しい現行仕様の参照先は上表。日付付きの追加修正資料を順番に読む運用から、分野別の正本を読む構成へ整理した。各正本の末尾に統合元を示す。
 - 制作原稿・採用済み仕様・実装状況は別の軸。コードだけで人物設定・物語・素材の正式採用を決めない。暫定値と未採用案は明記したまま維持する。
-- 現行Episode 01は「消された記録」全30シーン。旧稿「灰色の証言」はver0.04の第1部・第2部接続とver0.03の第3～4部を保存互換のため保持する。旧JSONの意味内容・版の適用範囲は変更しない。[話別の適用範囲](02-story/episode-01/README.md)を参照する。
+- 現行Episode 01は「消された記録」全30シーン。本文の正本は[erased-records](02-story/episode-01/erased-records/README.md)。旧稿「灰色の証言」はver0.04の第1部・第2部接続とver0.03の第3～4部を保存互換のため保持する。旧JSONの意味内容・版の適用範囲は変更しない。[話別の適用範囲](02-story/episode-01/README.md)を参照する。
 - 配置整理の根拠と承認範囲は[Issue #198](https://github.com/enikumaah1988/detective-saeki-minato/issues/198)。Phase 2-AはMarkdown整理、2-Bは素材・JSON・制作ツール、3は運用ルール整備。後続工程への自動着手を意味しない。
 - リポジトリ共通の作業・承認ルールと文書の新規作成・更新・記録・移動・削除基準は[AGENTS.md](../AGENTS.md#ドキュメント管理)を参照する。
