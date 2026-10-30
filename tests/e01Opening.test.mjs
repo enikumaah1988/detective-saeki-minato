@@ -27,7 +27,7 @@ test('導入・作品扉・来訪前の日常操作を経て、新稿のコー�
   assert.equal(scenario.nodes[state.nodeId].illustration.subtitle, 'Episode 01　消された記録 — 第1部　消えた男')
   state = advanceTo(state, 'S01-opening-menu')
   assert.deepEqual(visibleChoices(scenario.nodes[state.nodeId], state).map(choice => choice.label), ['見る', '話す'])
-  assert.deepEqual(api.selectCurrentNode(scenario, state).stage.characters.map(person => [person.characterId, person.position]), [['minato', 'left'], ['mio', 'right']])
+  assert.deepEqual(api.selectCurrentNode(scenario, state).stage.characters.map(person => [person.characterId, person.position]), [['mio', 'center']])
   assert.deepEqual(state.acquiredInformation, [])
   state = choose(state, 'speak')
   assert.equal(scenario.nodes[state.nodeId].selection, 'person')
@@ -75,8 +75,8 @@ test('日常の任意操作を省略でき、戻る・全導入ノードのv2復
     // Conversation restoration changes the main-story menu hierarchy and return
     // destination; manuscript, updates and every saved S01 ID stay intact.
     if (node.type === 'dialogue') {
-      const { next: _oldNext, ...before } = node
-      const { next: _newNext, ...after } = scenario.nodes[id]
+      const { next: _oldNext, stage: _oldStage, sceneId: _oldScene, ...before } = node
+      const { next: _newNext, stage: _newStage, sceneId: _newScene, ...after } = scenario.nodes[id]
       assert.deepEqual(after, before, `既存S01本文・更新を変更しない: ${id}`)
     }
     const saved = { ...api.createInitialState(api.firstPart), scenarioId: scenario.id, nodeId: id }

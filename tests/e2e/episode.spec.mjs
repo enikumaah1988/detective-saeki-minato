@@ -36,7 +36,7 @@ for (const bar of [false, true]) test(`全30シーン・誤答再挑戦・保存
     const state = route.states[index], id = operation.before, scene = id.slice(0, 3)
     visited.add(id)
     if (/^S(?:17|23|27)-question\d$/.test(id)) questionVisits.set(id, (questionVisits.get(id) ?? 0) + 1)
-    const gate = { 'S01-menu': ['F_LAST_SEEN', 'F_WORK_SITE', '続ける'], 'S08-menu': ['F_ROUTE_BEND', '移動'], 'S14-menu': ['F_ALTERNATIVES', '移動'] }[id]
+    const gate = { 'S01-menu': ['F_LAST_SEEN', 'F_WORK_SITE', '依頼を受ける'], 'S08-menu': ['F_ROUTE_BEND', '移動'], 'S14-menu': ['F_ALTERNATIVES', '移動'] }[id]
     if (gate) {
       const ready = gate.slice(0, -1).every(flag => state.acquiredInformation.includes(flag))
       await expect(command(page, gate.at(-1))).toHaveCount(ready ? 1 : 0)
