@@ -65,6 +65,8 @@ test('通常会話は中央の相手1人。コーヒー・来訪・退出・S02�
   const people = (id, state = at('S01-menu')) => api.selectCurrentNode(scenario, { ...state, nodeId: id }).stage.characters.map(p => [p.characterId, p.position])
   for (const id of ['S01-opening-menu', 'S01-intro', 'S01-intro-6', 'S01-intro-7', 'S01-accept-4', 'S02-menu', 'S01-topic-mio', 'S01-mio-next']) assert.deepEqual(people(id), [['mio', 'center']], id)
   for (const id of ['S01-intro-8', 'S01-menu', 'S01-topic-akari']) assert.deepEqual(people(id), [['akari', 'center']], id)
+  assert.equal(api.selectCurrentNode(scenario, at('S01-menu')).stage.characters[0].expression,
+    api.firstPart.scenes.S01.characters.find(person => person.characterId === 'akari').expression)
   for (const id of ['S03-intro', 'S03-menu', 'S03-topic-miyahara']) assert.deepEqual(people(id), [['miyahara', 'center']], id)
 })
 

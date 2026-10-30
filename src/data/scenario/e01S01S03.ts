@@ -1,6 +1,6 @@
 import type { Choice, Condition, Scenario, Stage } from '../../types/scenario'
 
-// 2026-10-30 user-approved S01 additions. No new case facts or evidence grants.
+// 2026-10-30 user-requested S01 additions. No new case facts or evidence grants.
 const mioTopics = [
   { id: 'S01-mio-interview', label: '聞き取りについて', requires: [] as string[], lines: [
     { speakerId: 'minato', text: 'まずは、あかりさんが覚えていることからだな。' },
@@ -49,9 +49,10 @@ export function withEpisode01S01S03(scenario: Scenario): Scenario {
 
   // First-person staging is data-local. One counterpart remains at center even
   // when Minato narrates/replies; a change of speaker alone does not move them.
-  const counterpart = (backgroundId: string, person: string): Stage => ({ backgroundId,
-    characters: [{ characterId: person, expression: 'normal', position: 'center' }] })
-  scenes.S01 = counterpart('office-before-noon', 'akari')
+  const counterpart = (backgroundId: string, person: string, expression = 'normal'): Stage => ({ backgroundId,
+    characters: [{ characterId: person, expression, position: 'center' }] })
+  const akariExpression = scenario.scenes?.S01.characters?.find(person => person.characterId === 'akari')?.expression ?? 'worried'
+  scenes.S01 = counterpart('office-before-noon', 'akari', akariExpression)
   scenes.S01.characters = scenes.S01.characters?.map(person => ({ ...person, condition: present }))
   scenes.S02 = counterpart('office-before-noon', 'mio')
   scenes.S03 = counterpart('company-lounge', 'miyahara')
@@ -116,7 +117,7 @@ export function withEpisode01S01S03(scenario: Scenario): Scenario {
     text: '東成ビルサービス株式会社 — 12階', next: 'S02-lobby-targets',
     updates: [{ type: 'addInspectedTarget', id: 'S02-tenant-list' }] }
   nodeTimes['S02-tenant-list'] = nodeTimes['S02-company-lobby']
-  add('S02-company-reception', 'company-reception', '東成ビルサービス・12階受付', [
+  add('S02-company-reception', 'company-reception', '12階受付', [
     { id: 'lounge', label: '応接室', next: 'S03-intro' },
     { id: 'return', label: '1Fに移動', next: 'S02-company-lobby' },
   ])

@@ -34,6 +34,7 @@ test('S01段階解放と澪の任意会話・一人称・地図から12階受付
     await expect(page.locator('.character')).toHaveClass(/character--center/)
   }
   await person('akari')
+  await expect(page.locator('.character')).toHaveAttribute('data-expression', 'worried')
   await choose('speak')
   await labels(['高瀬　あかり', '相澤　澪', '戻る'])
   await choose('mio')
@@ -111,6 +112,7 @@ test('S01段階解放と澪の任意会話・一人称・地図から12階受付
   await press(page, page.getByRole('dialog', { name: 'CONTINUE', exact: true }).getByRole('button', { name: 'SAVE １', exact: true }))
   await expect(page.locator('.story')).toHaveAttribute('data-node-id', lobby.nodeId)
   await choose('reception')
+  await expect(page.locator('.command-heading')).toHaveText('１２階受付')
   await capture(page, info, 'company-reception')
   await choose('lounge')
   await person('miyahara')
