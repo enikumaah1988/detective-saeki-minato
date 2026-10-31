@@ -46,7 +46,7 @@
 | SET-10 | Episode 01の事件 | 2024年の三崎転落事件の真相 | 既存設定あり | `docs/02-story/episode-01/erased-records/dialogue/part-05.md` | 未審査（初期棚卸し） |
 | SET-11 | Episode 01の事件 | 黒田の動機・行動・心理 | 設定判断完了 | `docs/02-story/episode-01/episode-setting.md`（合意設定）、`erased-records/dialogue/part-03〜05.md`（既存描写） | 動機B案・転落後B案・供述変化の心理を合意しPR #274反映済み。台本上の自然さは再構成時に確認。main未反映 |
 | SET-12 | Episode 01の事件 | 三崎の人物像と問題意識 | 設定判断完了 | `docs/02-story/episode-01/episode-setting.md`（合意設定）、`erased-records/dialogue/part-03.md`（既存描写） | B＋C案（正義感・職業倫理・仲間への責任感）を合意しPR #274反映済み。台本表現とSET-19は再構成時に確認。main未反映 |
-| SET-13 | Episode 01の事件 | 直人が閉じ込められた物理条件 | 要確認（時系列再検討中） | `docs/02-story/episode-01/episode-setting.md`（合意履歴・再検討）、`erased-records/dialogue/part-01.md`、`part-02.md`（現行描写） | 扉不具合・見落としの理由は合意済み。10/6開始・短縮案は合意履歴を維持しつつ、10/5の最終対面・連絡、当日作業完了、10/6警察届出との整合に懸念があるため再判断待ち。A=10/5開始・10/8救助（現行約64時間維持）を比較上有力とするが未承認。医療・建築面も未検証。main未反映 |
+| SET-13 | Episode 01の事件 | 直人が閉じ込められた物理条件 | 要確認（時系列判断完了・現実性検証待ち） | `docs/02-story/episode-01/episode-setting.md`（合意・履歴）、`erased-records/dialogue/part-01.md`、`part-02.md`（既存描写） | 最終A案：10/5開始・10/8朝救助、約64時間を維持（2026-11-01合意・PR #274反映）。10/6開始の短縮B案は不採用。扉・発見されにくさも合意済み。医療・建築・避難・救助実務の現実性は未検証。main未反映 |
 | SET-14 | Episode 01の事件 | 修繕記録・証拠・会社の調査体制 | 要確認 | `docs/02-story/episode-01/erased-records/story/outline.md` | 未審査（初期棚卸し） |
 | SET-15 | Episode 01の事件 | 法的結論・未解明事項の扱い | 既存設定あり | `docs/02-story/episode-01/erased-records/README.md` | 未審査（初期棚卸し） |
 | SET-16 | 事件関係者・組織 | あかり・直人の関係と依頼背景 | 既存設定あり | `docs/02-story/episode-01/erased-records/dialogue/part-01.md` | 未審査（初期棚卸し） |
