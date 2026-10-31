@@ -44,7 +44,7 @@
 | SET-08 | 主人公・主要人物 | 将来の秘密・過去の開示範囲 | 保留可能 | `docs/03-characters/人物設定.md` | 未審査（初期棚卸し） |
 | SET-09 | Episode 01の事件 | 直人の失踪と救出の基本事実 | 既存設定あり | `docs/02-story/episode-01/erased-records/story/outline.md` | 未審査（初期棚卸し） |
 | SET-10 | Episode 01の事件 | 2024年の三崎転落事件の真相 | 既存設定あり | `docs/02-story/episode-01/erased-records/dialogue/part-05.md` | 未審査（初期棚卸し） |
-| SET-11 | Episode 01の事件 | 黒田の動機・行動・心理 | 要確認 | `docs/02-story/episode-01/erased-records/review/consistency-resolution-20261026.md` | 未審査（初期棚卸し） |
+| SET-11 | Episode 01の事件 | 黒田の動機・行動・心理 | 要確認 | `docs/02-story/episode-01/episode-setting.md`（合意設定）、`erased-records/dialogue/part-03〜05.md`（既存描写） | 動機はB案（保身と自尊心）で合意・PR #274反映済み。転落後の心理・供述変化は未審査。main未反映 |
 | SET-12 | Episode 01の事件 | 三崎の人物像と問題意識 | 要確認 | `docs/02-story/episode-01/erased-records/dialogue/part-03.md` | 未審査（初期棚卸し） |
 | SET-13 | Episode 01の事件 | 直人が閉じ込められた物理条件 | 要確認 | `docs/02-story/episode-01/erased-records/review/consistency-resolution-20261026.md` | 未審査（初期棚卸し） |
 | SET-14 | Episode 01の事件 | 修繕記録・証拠・会社の調査体制 | 要確認 | `docs/02-story/episode-01/erased-records/story/outline.md` | 未審査（初期棚卸し） |
