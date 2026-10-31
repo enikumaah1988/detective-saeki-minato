@@ -47,10 +47,10 @@
 | SET-11 | Episode 01の事件 | 黒田の動機・行動・心理 | 設定判断完了 | `docs/02-story/episode-01/episode-setting.md`（合意設定）、`erased-records/dialogue/part-03〜05.md`（既存描写） | 動機B案・転落後B案・供述変化の心理を合意しPR #274反映済み。台本上の自然さは再構成時に確認。main未反映 |
 | SET-12 | Episode 01の事件 | 三崎の人物像と問題意識 | 設定判断完了 | `docs/02-story/episode-01/episode-setting.md`（合意設定）、`erased-records/dialogue/part-03.md`（既存描写） | B＋C案（正義感・職業倫理・仲間への責任感）を合意しPR #274反映済み。台本表現とSET-19は再構成時に確認。main未反映 |
 | SET-13 | Episode 01の事件 | 直人が閉じ込められた物理条件 | 要確認（時系列判断完了・現実性検証待ち） | `docs/02-story/episode-01/episode-setting.md`（合意・履歴）、`erased-records/dialogue/part-01.md`、`part-02.md`（既存描写） | 最終A案：10/5開始・10/8朝救助、約64時間を維持（2026-11-01合意・PR #274反映）。10/6開始の短縮B案は不採用。扉・発見されにくさも合意済み。医療・建築・避難・救助実務の現実性は未検証。main未反映 |
-| SET-14 | Episode 01の事件 | 修繕記録・証拠・会社の調査体制 | 要確認 | `docs/02-story/episode-01/erased-records/story/outline.md` | 未審査（初期棚卸し） |
+| SET-14 | Episode 01の事件 | 修繕記録・証拠・会社の調査体制 | 要確認 | `docs/02-story/episode-01/erased-records/story/outline.md`、`docs/02-story/episode-01/episode-setting.md`（宮原の役割見直し） | 宮原は本社調査の主導者としない方針。会社側調査責任者・社内記録の調査保全担当・宮原の旧稿からの役割変更の影響は未決。main未反映 |
 | SET-15 | Episode 01の事件 | 法的結論・未解明事項の扱い | 既存設定あり | `docs/02-story/episode-01/erased-records/README.md` | 未審査（初期棚卸し） |
 | SET-16 | 事件関係者・組織 | あかり・直人の関係と依頼背景 | 既存設定あり | `docs/02-story/episode-01/erased-records/dialogue/part-01.md` | 未審査（初期棚卸し） |
-| SET-17 | 事件関係者・組織 | 宮原の役職・判断・責任 | 要確認 | `docs/03-characters/人物設定.md` | 未審査（初期棚卸し） |
+| SET-17 | 事件関係者・組織 | 宮原の役職・判断・責任 | 要確認（人物像・立場の方向性決定） | `docs/02-story/episode-01/episode-setting.md`（新たな合意）、`docs/03-characters/人物設定.md`（稿別差異） | 旧稿の『定年後のベテラン現場管理人』の人物像へ戻す方向を合意しPR #274反映済み。現行会社側窓口との不一致は再構成で解消。旧稿の氏名・64歳・転落目撃は自動復活しない。main未反映 |
 | SET-18 | 事件関係者・組織 | 黒田の立場と経歴 | 要確認 | `docs/03-characters/人物設定.md` | 未審査（初期棚卸し） |
 | SET-19 | 事件関係者・組織 | 三崎の人物像・同僚との関係 | 要確認 | `docs/02-story/episode-01/erased-records/dialogue/part-03.md` | 未審査（初期棚卸し） |
 | SET-20 | 事件関係者・組織 | 東成ビルサービスの規模・所在地 | 既存設定あり | `docs/02-story/episode-01/東成ビルサービス.md` | 未審査（初期棚卸し） |
