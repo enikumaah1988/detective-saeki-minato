@@ -79,7 +79,7 @@
 
 ### Episode 01での扱い
 
-第3部・第5部のBAR場面に登場するが、既存の水の提供・片付け・控えめな応対を維持する。**本業、副業である事実、将来の職種につながる伏線は作中に出さない。**
+**旧30シーン台本**の第3部・第5部のBAR場面では、水の提供・片付け・控えめな応対を維持する。**新23シーン構成ではBARの独立場面は必須設定ではない**。登場させる場合も、**本業、副業である事実、将来の職種につながる伏線は作中に出さない。**
 
 BAR「雨宿り」は事件の正解を教える装置ではなく、湊の日常の居場所。杏奈の出番を無理に増やさず、玲子とのバランスを保つ。
 
@@ -105,6 +105,6 @@ BAR「雨宿り」は事件の正解を教える装置ではなく、湊の日�
 ### 参照
 
 - `docs/04-art/characters/anna/profile.md`：既存の役割、作画仮案と画像接続履歴
-- `docs/03-characters/profiles/reiko.md`：篠原玲子の新しい正式表記と人物像
+- `docs/03-characters/profiles/shinohara-reiko.md`：篠原玲子の新しい正式表記と人物像
 - `docs/02-story/episode-01/erased-records/dialogue/part-03.md`：BAR任意場面
 - `docs/02-story/episode-01/erased-records/dialogue/part-05.md`：BAR任意エピローグ
