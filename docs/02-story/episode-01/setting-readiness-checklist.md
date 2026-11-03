@@ -364,7 +364,7 @@
 | SET-02 | 作品・世界観 | 西新宿を中心とする現代日本の舞台 | 既存設定あり | `docs/02-story/episode-01/第1話_ロケーション設定.md` | 未審査（初期棚卸し） |
 | SET-03 | 作品・世界観 | 探偵・警察・会社の情報権限 | 既存設定あり | `docs/02-story/episode-01/erased-records/story/outline.md` | 未審査（初期棚卸し） |
 | SET-04 | 作品・世界観 | 物語のリアリティと演出の許容範囲 | 要確認 | `docs/02-story/episode-01/erased-records/review/consistency-resolution-20261026.md` | 未審査（初期棚卸し） |
-| SET-05 | 主人公・主要人物 | 佐伯湊と相澤澪の人物像・関係性 | 既存設定あり | `docs/03-characters/profiles/minato.md, mio.md（本PR）` | 未審査（初期棚卸し） |
+| SET-05 | 主人公・主要人物 | 佐伯湊と相澤澪の人物像・関係性 | 既存設定あり | `docs/03-characters/profiles/saeki-minato.md, aizawa-mio.md（現行正本）` | 未審査（初期棚卸し） |
 | SET-06 | 主人公・主要人物 | 奥村・瀬川・鳴海の主要設定 | 要確認 | `docs/03-characters/profiles/okumura.md, segawa.md, narumi.md（本PR）` | 未審査（初期棚卸し） |
 | SET-07 | 主人公・主要人物 | 主要人物間の呼称・口調 | 要確認 | `docs/03-characters/profiles/（本PR）` | 未審査（初期棚卸し） |
 | SET-08 | 主人公・主要人物 | 将来の秘密・過去の開示範囲 | 保留可能 | `docs/03-characters/人物設定.md` | 未審査（初期棚卸し） |
@@ -552,7 +552,7 @@
 
 ### E01-S04 同居・訪問者の確定（2026-11-03）
 
-**作者確定**：高瀬あかりと直人は同居。あかりの招待・立会いで**湊と澪がともにE01-S04の自宅調査に参加**する。従来の「妹に入室権限がない可能性」「澪の同行未決」はこの決定で解消。直人の専用私物・会社機密原本の扱いは引き続き区別。反映先：[事件固有設定](episode-setting.md)、[ロケーション](第1話_ロケーション設定.md)、[あかり](../../03-characters/profiles/akari.md)、[直人](../../03-characters/profiles/naoto.md)。
+**作者確定**：高瀬あかりと直人は同居。あかりの招待・立会いで**湊と澪がともにE01-S04の自宅調査に参加**する。従来の「妹に入室権限がない可能性」「澪の同行未決」はこの決定で解消。直人の専用私物・会社機密原本の扱いは引き続き区別。反映先：[事件固有設定](episode-setting.md)、[ロケーション](第1話_ロケーション設定.md)、[あかり](../../03-characters/profiles/takase-akari.md)、[直人](../../03-characters/profiles/takase-naoto.md)。
 
 ### 旧保管室の暫定完成 v1.1（2026-11-03）
 
