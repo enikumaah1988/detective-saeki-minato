@@ -6,7 +6,7 @@
 | --- | --- | --- |
 | 01 ゲーム仕様 | [基本方針](01-game-design/design-philosophy.md)、[PC UI](01-game-design/pc-ui.md)、[操作・会話](01-game-design/actions.md)、[保存・設定の操作](01-game-design/save-and-settings.md)、[タイトル](01-game-design/title-screen.md)、[移動](01-game-design/map.md) | プレイヤーに見える表示・操作 |
 | 02 物語 | [物語資料](02-story/README.md)、[Episode 01の適用範囲](02-story/episode-01/README.md)、[「消された記録」本文正本](02-story/episode-01/erased-records/README.md) | 事件・場面・原稿・話別の進行条件 |
-| 03 人物 | [人物設定と採否](03-characters/人物設定.md)、[対象版・合意記録の読み方](02-story/README.md#シナリオ制作時の参照順) | 作品共通の人物像・口調・呼称・関係。旧稿由来の記載・相談稿の未採用部分を現行稿の確定設定と混同しない |
+| 03 人物 | [人物設定と採否](03-characters/人物設定.md)、[人物プロフィール一覧](03-characters/人物設定.md) | 作品共通の人物像・口調・呼称・関係。旧稿由来の記載・相談稿の未採用部分を現行稿の確定設定と混同しない |
 | 04 作画・素材 | [作画資料への入口](04-art/README.md)、[表情指定](04-art/character-expressions.md) | 作画・画像・向き・制作スクリプト・取り込みmanifest。ゲーム用画像はsrc/assets配下 |
 | 05 技術設計 | [状態とシナリオ](05-architecture/state-and-scenario.md)、[保存データ](05-architecture/save-data.md) | 共通の状態遷移・データ契約・保存互換 |
 | 06 開発 | [環境と起動](06-development/development-setup.md)、[検証](06-development/verification.md)、[担当・依頼](06-development/workflow.md)、[現状](06-development/production-status.md)、[ロードマップ](06-development/roadmap.md) | 開発手順・現在状態・優先順位 |
@@ -17,10 +17,10 @@
 
 - 新しい現行仕様の参照先は上表。日付付きの追加修正資料を順番に読む運用から、分野別の正本を読む構成へ整理した。各正本の末尾に統合元を示す。
 - 制作原稿・採用済み仕様・実装状況は別の軸。コードだけで人物設定・物語・素材の正式採用を決めない。暫定値と未採用案は明記したまま維持する。
-- 現行Episode 01は「消された記録」全30シーン。本文の正本は[erased-records](02-story/episode-01/erased-records/README.md)。旧稿「灰色の証言」はver0.04の第1部・第2部接続とver0.03の第3～4部を保存互換のため保持する。旧JSONの意味内容・版の適用範囲は変更しない。[話別の適用範囲](02-story/episode-01/README.md)を参照する。
+- ゲーム実装中のEpisode 01は「消された記録」全30シーン。再構成版5部23シーンは[事件設定](02-story/episode-01/episode-setting.md)が新シナリオ制作の正本であり、実装済み30シーンとは別。本文の正本は[erased-records](02-story/episode-01/erased-records/README.md)。旧稿「灰色の証言」はver0.04の第1部・第2部接続とver0.03の第3～4部を保存互換のため保持する。旧JSONの意味内容・版の適用範囲は変更しない。[話別の適用範囲](02-story/episode-01/README.md)を参照する。
 - 配置整理の根拠と承認範囲は[Issue #198](https://github.com/enikumaah1988/detective-saeki-minato/issues/198)。Phase 2-AはMarkdown整理、2-Bは素材・JSON・制作ツール、3は運用ルール整備。後続工程への自動着手を意味しない。
 - リポジトリ共通の作業・承認ルールと文書の新規作成・更新・記録・移動・削除基準は[AGENTS.md](../AGENTS.md#ドキュメント管理)を参照する。
 
 ## 人物プロフィールの正本パス（PR #274）
 
-人物プロフィールは `03-characters/profiles/` に**英小文字kebab-case・姓名フルネーム**の正本を置く。宮原など姓名が未確定の人物は姓のみを例外として維持。旧姓・名のみのファイルは既存の参照を壊さないための案内で、本文の正本ではない。最新のファイル一覧と適用版は[人物設定と採否](03-characters/人物設定.md)から確認する。Episode 01の次期構成は**E01-S01〜S23（暫定版）**、現在のゲーム実装の30シーンとは別。旧原稿・ゲームID・作画素材は今回変更していない。
+人物プロフィールは `03-characters/profiles/` に**英小文字kebab-case・姓名フルネーム**の正本を置く。宮原など姓名が未確定の人物は姓のみを例外として維持。旧い名のみのプロフィール案内ファイル13件は削除済み。旧パスを新たに参照しない。最新のファイル一覧と適用版は[人物設定と採否](03-characters/人物設定.md)から確認する。Episode 01の次期構成は**E01-S01〜S23（暫定版）**、現在のゲーム実装の30シーンとは別。旧原稿・ゲームID・作画素材は今回変更していない。
