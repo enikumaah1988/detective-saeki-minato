@@ -31,9 +31,9 @@
 
 2026-10-12、以下の現行ファイルを参照。外部正本は編集していない。
 
-- [第1話の現行設定](C:/Users/lemon/Documents/Codex/2026-10-11/saeki-story/outputs/story/第1話_現行設定.md)
-- [事件設定と進行](C:/Users/lemon/Documents/Codex/2026-10-11/saeki-story/outputs/story/ver0.01_事件設定と進行.md)
-- [シナリオ初稿](C:/Users/lemon/Documents/Codex/2026-10-11/saeki-story/outputs/story/第1話_シナリオ初稿_ver0.01.md)
+- [第1話の現行設定](../../../02-story/episode-01/第1話_現行設定.md)
+- [事件設定と進行](../../../02-story/episode-01/ver0.01_事件設定と進行.md)
+- [シナリオ初稿](../../../02-story/episode-01/第1話_シナリオ初稿_ver0.01.md)
 
 旧初期案の架空工事・資金流用・現在の別殺人事件は本人物の制作根拠にしない。ここでは作画に必要な基本情報と出番を照合しており、既存人物全体の同期完了を意味しない。
 
