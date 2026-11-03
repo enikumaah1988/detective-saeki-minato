@@ -135,7 +135,7 @@
 
 ### 参照と適用範囲
 
-- `docs/03-characters/人物設定.md`：人物設定の索引と採用範囲
+- `docs/03-characters/characters.md`：人物設定の索引と採用範囲
 - `docs/04-art/characters/segawa/profile.md`：外見、作画採用、既存の性格・関係性
 - `docs/03-characters/人物プロフィール_相談稿_v0.01.md`：旧稿由来の提案。今回の承認範囲外を自動採用しない
 - `docs/02-story/episode-01/erased-records/dialogue/part-04.md`、`part-05.md`：現行Episode 01の警察側場面

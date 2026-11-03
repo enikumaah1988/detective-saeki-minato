@@ -63,4 +63,4 @@ S08の管理室、S11の事務所、会社・階段・警察署は既存の背�
 
 ## 参照
 
-[全30シーンの実装対応](../02-story/episode-01/integration-plan-30-scenes.md)、[素材制作ガイド](production-guide.md)、[背景台帳](backgrounds/README.md)、[共通画風](style/gekiga-style-revision-proposal.md)、[人物設定の境界](../03-characters/人物設定.md)。原稿は `docs/e01-recovery-20261024@b36e278d6f08b911dd7dcdf05dedd80d8e9b1d77`。既存素材と比較して準備するが、過去の採用状態・historyは変更しない。
+[全30シーンの実装対応](../02-story/episode-01/integration-plan-30-scenes.md)、[素材制作ガイド](production-guide.md)、[背景台帳](backgrounds/README.md)、[共通画風](style/gekiga-style-revision-proposal.md)、[人物設定の境界](../03-characters/characters.md)。原稿は `docs/e01-recovery-20261024@b36e278d6f08b911dd7dcdf05dedd80d8e9b1d77`。既存素材と比較して準備するが、過去の採用状態・historyは変更しない。

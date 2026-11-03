@@ -133,7 +133,7 @@
 
 ### 参照と適用範囲
 
-- `docs/03-characters/人物設定.md`：作品共通設定の参照索引、採用範囲の注意
+- `docs/03-characters/characters.md`：作品共通設定の参照索引、採用範囲の注意
 - `docs/04-art/characters/okumura/profile.md`：作画上の外見・所作・人物像と採用履歴
 - `docs/02-story/episode-01/erased-records/dialogue/part-04.md`、`part-05.md`：現行Episode 01の警察側描写（本文の事実を全作品共通の過去設定に拡張しない）
 
