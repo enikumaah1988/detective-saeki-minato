@@ -110,6 +110,6 @@
 
 ### 参照
 
-- `docs/03-characters/人物設定.md`：人物設定の採否と現行本文の参照入口
+- `docs/03-characters/characters.md`：人物設定の採否と現行本文の参照入口
 - `docs/04-art/characters/reiko/profile.md`：旧作画案、通常立ち絵の制作・ゲーム接続状況
 - `docs/02-story/episode-01/erased-records/dialogue/part-03.md`、`part-05.md`：任意BAR場面

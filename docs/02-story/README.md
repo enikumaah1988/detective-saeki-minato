@@ -1,6 +1,6 @@
 # 物語・エピソード資料
 
-**Episode 01再構成版（5部23シーン・E01-S01〜E01-S23）の制作時は、[Episode 01の入口](episode-01/README.md)から[事件設定](episode-01/episode-setting.md)を参照する。** 作品共通の人物像は[人物正本](../03-characters/人物設定.md)、所在地・建物関係は[ロケーション](episode-01/第1話_ロケーション設定.md)、画像仕様は[作画資料](../04-art/README.md)で扱う。
+**Episode 01再構成版（5部23シーン・E01-S01〜E01-S23）の制作時は、[Episode 01の入口](episode-01/README.md)から[事件設定](episode-01/episode-setting.md)を参照する。** 作品共通の人物像は[人物正本](../03-characters/characters.md)、所在地・建物関係は[ロケーション](episode-01/locations.md)、画像仕様は[作画資料](../04-art/README.md)で扱う。
 
 ゲームに実装済みの30シーンは別成果物。プレイ可能な本文と操作仕様は[凍結台本](episode-01/erased-records/README.md)、実装の接続と保存互換は[実装計画](episode-01/integration-plan-30-scenes.md)を参照する。
 

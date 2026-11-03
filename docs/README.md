@@ -6,7 +6,7 @@
 | --- | --- | --- |
 | 01 ゲーム仕様 | [基本方針](01-game-design/design-philosophy.md)、[PC UI](01-game-design/pc-ui.md)、[操作・会話](01-game-design/actions.md)、[保存・設定の操作](01-game-design/save-and-settings.md)、[タイトル](01-game-design/title-screen.md)、[移動](01-game-design/map.md) | プレイヤーに見える表示・操作 |
 | 02 物語 | [物語資料](02-story/README.md)、[Episode 01の適用範囲](02-story/episode-01/README.md)、[「消された記録」本文正本](02-story/episode-01/erased-records/README.md) | 事件・場面・原稿・話別の進行条件 |
-| 03 人物 | [人物設定と採否](03-characters/人物設定.md)、[人物プロフィール一覧](03-characters/人物設定.md) | 作品共通の人物像・口調・呼称・関係。旧稿由来の記載・相談稿の未採用部分を現行稿の確定設定と混同しない |
+| 03 人物 | [人物設定と採否](03-characters/characters.md)、[人物プロフィール一覧](03-characters/characters.md) | 作品共通の人物像・口調・呼称・関係。旧稿由来の記載・相談稿の未採用部分を現行稿の確定設定と混同しない |
 | 04 作画・素材 | [作画資料への入口](04-art/README.md)、[表情指定](04-art/character-expressions.md) | 作画・画像・向き・制作スクリプト・取り込みmanifest。ゲーム用画像はsrc/assets配下 |
 | 05 技術設計 | [状態とシナリオ](05-architecture/state-and-scenario.md)、[保存データ](05-architecture/save-data.md) | 共通の状態遷移・データ契約・保存互換 |
 | 06 開発 | [環境と起動](06-development/development-setup.md)、[検証](06-development/verification.md)、[担当・依頼](06-development/workflow.md)、[現状](06-development/production-status.md)、[ロードマップ](06-development/roadmap.md) | 開発手順・現在状態・優先順位 |
@@ -23,4 +23,4 @@
 
 ## 人物プロフィールの正本パス（PR #274）
 
-人物プロフィールは `03-characters/profiles/` に**英小文字kebab-case・姓名フルネーム**の正本を置く。宮原文雄の氏名は復旧済みだが、既存パス `miyahara.md` は互換性維持のため一時的な命名例外とする（人物名が未確定という意味ではない）。旧い名のみのプロフィール案内ファイル13件は削除済み。旧パスを新たに参照しない。最新のファイル一覧と適用版は[人物設定と採否](03-characters/人物設定.md)から確認する。Episode 01の次期構成は**E01-S01〜S23（暫定版）**、現在のゲーム実装の30シーンとは別。旧原稿・ゲームID・作画素材は今回変更していない。
+人物プロフィールは `03-characters/profiles/` に**英小文字kebab-case・姓名フルネーム**の正本を置く。宮原文雄の氏名は復旧済みだが、旧パス `miyahara.md` は互換性維持のため一時的に使用していたが、現在の正本パスは `miyahara-fumio.md` とする（人物名・採用状態は変更しない）。旧い名のみのプロフィール案内ファイル13件は削除済み。旧パスを新たに参照しない。最新のファイル一覧と適用版は[人物設定と採否](03-characters/characters.md)から確認する。Episode 01の次期構成は**E01-S01〜S23（暫定版）**、現在のゲーム実装の30シーンとは別。旧原稿・ゲームID・作画素材は今回変更していない。
