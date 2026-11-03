@@ -19,7 +19,7 @@
 | 三崎健 | [misaki-ken.md](profiles/misaki-ken.md) |
 | 藤井拓海 | [fujii-takumi.md](profiles/fujii-takumi.md) |
 | 村瀬栞 | [murase-shiori.md](profiles/murase-shiori.md) |
-| 宮原文雄 | [miyahara.md](profiles/miyahara-fumio.md)（旧稿制作決定の氏名・当時64歳を継承。現行事件での役割は別途更新） |
+| 宮原文雄 | [miyahara-fumio.md](profiles/miyahara-fumio.md)（旧稿制作決定の氏名・当時64歳を継承。現行事件での役割は別途更新） |
 
 ## 正本の責務と採用区分
 
