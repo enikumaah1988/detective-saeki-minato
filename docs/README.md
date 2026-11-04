@@ -27,4 +27,4 @@
 
 ## 次期基本システム設計の検討入口（未採用・未実装／2026-11-04）
 
-会話から進めている次期のコマンド・資料提示・推理の**暫定検討案**は [操作・会話](01-game-design/actions.md#次期基本ゲームシステムの検討案未採用未実装2026-11-04) を入口とする。PC表示の検討値は [PC UI](01-game-design/pc-ui.md)、スマホ横画面の検討は [mobile-ui.md](01-game-design/mobile-ui.md)、新23シーン特有の提示権限は [アイテム設計](02-story/episode-01/item-design.md)、適用箇所は [事件設定](02-story/episode-01/episode-setting.md) に分けて記録する。**現行30シーンの確定仕様・実装済み機能とは別**であり、正式採用や実装開始を意味しない。
+会話から進めている次期のコマンド・資料提示・推理の**暫定検討案**は [操作・会話](01-game-design/actions.md) を入口とする。PC表示の検討値は [PC UI](01-game-design/pc-ui.md)、スマホ横画面の検討は [mobile-ui.md](01-game-design/mobile-ui.md)、新23シーン特有の提示権限は [アイテム設計](02-story/episode-01/item-design.md)、適用箇所は [事件設定](02-story/episode-01/episode-setting.md) に分けて記録する。**現行30シーンの確定仕様・実装済み機能とは別**であり、正式採用や実装開始を意味しない。
