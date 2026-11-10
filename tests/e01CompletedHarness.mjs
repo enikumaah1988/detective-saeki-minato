@@ -48,6 +48,7 @@ export function playCompleted(api, { state = api.createInitialState(api.scenario
         }) ?? options.find(option => ['proceed', 'organize', 'move'].includes(option.id))
       } else if (state.nodeId === 'S06-question1') selected = options.find(option => option.id === 'B')
       else if (state.nodeId === 'S06-question2') selected = options.find(option => option.id === 'C')
+      else if (state.nodeId === 'S02-lobby-rooms') selected = options.find(option => option.id === 'reception') ?? options.find(option => option.id === 'return')
       else selected = options.find(option => option.id !== 'return')
       assert.ok(selected, `進行不能 ${state.nodeId}`)
       action = { type: 'choose', choiceId: selected.id }

@@ -8,7 +8,7 @@ const api = await loadEpisode(), { scenario } = api
 const before = JSON.parse(readFileSync(new URL('./fixtures/save-v2-before-conversations.json', import.meta.url), 'utf8'))
 // Acceptance table from the manuscript's addressees, independent of generated menus.
 const people = {
-  S01: ['akari'], S02: ['mio'], S03: ['miyahara'], S04: ['building-manager'],
+  S01: ['akari', 'mio'], S02: ['mio'], S03: ['miyahara'], S04: ['building-manager'],
   S07: ['night-manager'], S08: ['night-manager'], S10: ['mio'], S11: ['akari'],
   S12: ['miyahara', 'kuroda'], S13: ['miyahara'], S14: ['mio'], S15: ['technician'],
   S16: ['company-reviewer'], S18: ['company-reviewer'], S19: ['mio'], S20: ['building-manager'],
@@ -82,10 +82,11 @@ test('複数人物の話題を混ぜず、事務所の会社窓口は澪への�
 
 test('既存原稿・更新・演出・記録・元の時刻を維持し、必須／任意の完走結果を変えない', () => {
   const hash = x => createHash('sha256').update(JSON.stringify(x)).digest('hex')
-  assert.equal(hash(Object.entries(scenario.nodes).filter(([,n]) => n.type === 'dialogue').map(([id, { next: _next, ...rest }]) => [id, rest])), before.dialogueHash)
-  const originalTimes = Object.fromEntries(Object.entries(scenario.nodeTimes).filter(([id]) => !/^S\d\d-(?:topic|talk)-.+$/.test(id)))
-  assert.equal(hash([scenario.scenes, scenario.records, originalTimes]), before.presentationHash)
-  const normalized = state => ({ ...state, heardTopics: [...state.heardTopics].sort(), inspectedTargets: [...state.inspectedTargets].sort(), acquiredInformation: [...state.acquiredInformation].sort() })
+  const later = id => !/^S0[123](?:-|$)/.test(id)
+  assert.equal(hash(Object.entries(scenario.nodes).filter(([id,n]) => later(id) && n.type === 'dialogue').map(([id, { next: _next, ...rest }]) => [id, rest])), before.laterDialogueHash)
+  const originalTimes = Object.entries(scenario.nodeTimes).filter(([id]) => later(id) && !/^S\d\d-(?:topic|talk)-.+$/.test(id))
+  assert.equal(hash([Object.entries(scenario.scenes).filter(([id]) => later(id)), scenario.records, originalTimes]), before.laterPresentationHash)
+  const normalized = state => ({ ...state, heardTopics: state.heardTopics.filter(id => !id.startsWith('S01-mio-')).sort(), inspectedTargets: state.inspectedTargets.filter(id => id !== 'S02-tenant-list').sort(), acquiredInformation: [...state.acquiredInformation].sort() })
   for (const { optional, reverse, state } of before.endStates) {
     assert.deepEqual(normalized(playEpisode(api, { optional, reverse, bar: true, wrong: true }).state), normalized(state))
   }

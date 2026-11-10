@@ -44,6 +44,16 @@ export async function step(page, operation, state, api) {
     }
   } else {
     const options = api.visibleChoices(node, state)
+    if (node.map) {
+      if (operation.action.choiceId === 'return') await press(page, page.getByRole('button', { name: '戻る', exact: true }))
+      else {
+        const label = options.find(option => option.id === operation.action.choiceId).label
+        await press(page, page.getByRole('button', { name: `${label}を選択`, exact: true }))
+        await press(page, page.getByRole('button', { name: 'ここへ移動', exact: true }))
+      }
+      await expect(page.locator('.story')).toHaveAttribute('data-node-id', operation.after)
+      return text
+    }
     const labels = await page.locator('nav .command-name').allTextContents()
     expect(labels).toEqual(options.map(option => display(option.label)))
     const selected = options.find(option => option.id === operation.action.choiceId)

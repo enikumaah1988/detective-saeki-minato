@@ -56,7 +56,7 @@ export function visibleChoices(node: ScenarioNode, state: GameState) {
   return commands.flatMap((command) => {
     if (!(node.type === 'choice' && node.implementedCommands ? node.implementedCommands.includes(command.id) : command.implemented)) return []
     const option = selectable.find((candidate) => candidate.id === command.id)
-    return option ? [{ ...option, label: currentRevision ? option.label : command.label }] : []
+    return option ? [{ ...option, label: currentRevision || command.id === 'proceed' ? option.label : command.label }] : []
   })
 }
 

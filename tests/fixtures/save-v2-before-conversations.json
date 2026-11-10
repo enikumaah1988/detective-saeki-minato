@@ -3,6 +3,8 @@
   "description": "Generated with the main scenario and real reducer; synthetic saves, never user data.",
   "dialogueHash": "079a81b094eb0b0779aaca4b330e8a56d4deaeccca758bd31fe082ac1addc111",
   "presentationHash": "58ae71e5f89a9430e1c072a9f98b834c0d91d88fbdaef74f3a3e22c9ff81fa34",
+  "laterDialogueHash": "2ef625f1c3e7ea7036fb63cab439215effb93fcf5ecc2aeb1a4f0c467bc3d3b2",
+  "laterPresentationHash": "303dbacd107f5292b9d82eab74882a10525b06c0b5a1c2546fb3b9e209a4679b",
   "saves": [
     {"version":2,"scenarioId":"erased-records-30-scenes","nodeId":"S01-opening-people","flags":{},"heardTopics":[],"inspectedTargets":["S01-opening-window"],"acquiredInformation":[]},
     {"version":2,"scenarioId":"erased-records-30-scenes","nodeId":"S01-opening-topics","flags":{},"heardTopics":["S01-opening-schedule"],"inspectedTargets":["S01-opening-window"],"acquiredInformation":[]},

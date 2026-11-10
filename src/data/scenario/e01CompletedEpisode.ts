@@ -3,6 +3,7 @@ import type { InvestigationEntry } from '../../types/investigation'
 import { e01CompletedPart1 } from './e01CompletedPart1'
 import { withEpisode01Opening } from './e01Opening'
 import { withEpisode01Conversations } from './e01Conversations'
+import { withEpisode01S01S03 } from './e01S01S03'
 import { completedContinuationSource, type CompletedLine, type CompletedScene } from './e01CompletedContinuationSource'
 
 const nodes: Scenario['nodes'] = { ...e01CompletedPart1.nodes }
@@ -257,5 +258,5 @@ for (const id of ['BAR-A', 'BAR-B']) {
   }
 }
 
-export const e01CompletedEpisode: Scenario = withEpisode01Opening(withEpisode01Conversations({ ...e01CompletedPart1, id: 'erased-records-30-scenes', title: 'Episode 01「消された記録」', nodes, scenes, records, nodeTimes: times,
-  hiddenHistoryTexts: [sources.get('S26')!.body[0].text] }))
+export const e01CompletedEpisode: Scenario = withEpisode01S01S03(withEpisode01Opening(withEpisode01Conversations({ ...e01CompletedPart1, id: 'erased-records-30-scenes', title: 'Episode 01「消された記録」', nodes, scenes, records, nodeTimes: times,
+  hiddenHistoryTexts: [sources.get('S26')!.body[0].text] })))
